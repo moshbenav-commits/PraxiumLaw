@@ -1,207 +1,220 @@
 {
-  "project_name": "LegalOS (Internal Codename)",
-  "brand_options": [
-    "LexOS",
-    "JurisFlow",
-    "AuraLegal",
-    "FirmOS",
-    "MatterHQ"
+  "theme": "LIGHT",
+  "archetype": "4 (Swiss & High-Contrast) for B2B, 1 (Organic & Earthy) for B2C",
+  "design_philosophy": "Editorial, dense, monospace overlines, tabular numerals, asymmetric grids, sharp 4px radius corners, lots of negative space, 'Filevine-killer' tone.",
+  "colors": {
+    "praxium": {
+      "bg": "#F9F8F6",
+      "surface": "#FFFFFF",
+      "ink": "#121212",
+      "subtle": "#5C5C5C",
+      "line": "#E5E4E1",
+      "accent": "#E85D04",
+      "accent_hover": "#DC2F02",
+      "sidebar": "#121212",
+      "sidebar_ink": "#F9F8F6"
+    },
+    "praxa": {
+      "bg": "#FDFBF7",
+      "surface": "#FFFFFF",
+      "ink": "#2A3B32",
+      "subtle": "#59685F",
+      "line": "#EAE5D9",
+      "accent": "#D4A373",
+      "sage": "#8A9A86"
+    }
+  },
+  "fonts": {
+    "display": "Cabinet Grotesk",
+    "body": "IBM Plex Sans",
+    "mono": "Geist Mono",
+    "consumer": "Outfit"
+  },
+  "shared_components_to_create": [
+    {
+      "name": "MockBrowserChrome",
+      "description": "A reusable wrapper that looks like a clean, minimal Safari/Chrome window. Dark mode or light mode support.",
+      "props": ["url", "theme (dark|light)", "children"]
+    },
+    {
+      "name": "AnnotationPin",
+      "description": "An absolute positioned callout pin with a pulsing dot and an animated line connecting to a label, pointing out key features in the mockup.",
+      "props": ["x", "y", "label", "direction (top, bottom, left, right)"]
+    },
+    {
+      "name": "StatusPip",
+      "description": "A small pill-shaped component displaying a status, using monospace text and contextual colors (e.g., green for 'Settled', amber for 'Pending').",
+      "props": ["status", "color"]
+    },
+    {
+      "name": "AvatarGroup",
+      "description": "Overlapping user avatars to show collaboration.",
+      "props": ["users"]
+    }
   ],
-  "archetype_selection": {
-    "firm_os_b2b": {
-      "archetype": "Archetype 4 (Swiss & High-Contrast)",
-      "theme_default": "light",
-      "rationale": "High density data needs authority, clarity, and function-first UI. Avoids generic SaaS blue/purple. Focuses on speed and 'command-line' efficiency."
-    },
-    "aftercare_b2c": {
-      "archetype": "Archetype 1 (Organic & Earthy)",
-      "theme_default": "light",
-      "rationale": "Injured clients need warmth, calm, and trust. Uses soft sages, warm beige, and terracotta to avoid a clinical or intimidating legal feel."
-    }
+  "tailwind_patterns": {
+    "dense_data_card": "bg-praxium-surface border border-praxium-line rounded-sm p-5",
+    "glass_panel": "backdrop-blur-xl bg-white/70 border border-white/20 shadow-xl",
+    "overline": "text-[10px] font-mono uppercase tracking-[0.2em] text-praxium-subtle font-semibold",
+    "tabular_data": "font-mono tabular-nums text-sm",
+    "btn_praxium": "inline-flex items-center justify-center gap-2 bg-praxium-accent text-white px-4 py-2 rounded-sm font-display font-bold tracking-wide text-sm uppercase transition-colors hover:bg-praxium-accent-hover"
   },
-  "typography": {
-    "firm_os": {
-      "headings": {
-        "family": "Cabinet Grotesk, sans-serif",
-        "weights": ["500", "700", "900"],
-        "tracking": "tracking-tight"
+  "micro_interactions": {
+    "hover_states": "Subtle -translate-y-0.5, border color darkens, shadow increases.",
+    "scroll_triggered": "Fade-in with slight translate-y on scroll (use framer-motion or simple intersection observer).",
+    "marquee": "Use for continuous stream of background integrations or docket feeds.",
+    "pulsing": "Use for live AI typing indicators and active call statuses."
+  },
+  "b2b_product_showcases": [
+    {
+      "id": "matter-canvas",
+      "title": "The Matter Canvas",
+      "narrative": "Run every matter from one canvas.",
+      "placement": "Landing.jsx, replacing the generic 'PILLARS' block for the Practice tab.",
+      "layout_spec": "Asymmetric bento grid inside a MockBrowserChrome. Left side: 3/4 width showing the matter details. Right side: 1/4 width showing the CoCounsel Sidebar.",
+      "mockup_composition": "Header with case number (Smith v. Acme - M-2026-0034) and StatusPip (Discovery). A dense data grid showing Incident Date, SOL Date (highlighted in red), Value Est. Tabs (Overview, Tasks, Documents). A timeline view showing recent actor activity.",
+      "dummy_data": {
+        "case_name": "Smith v. Acme Logistics",
+        "value": "$1,450,000",
+        "sol_date": "2026-10-15",
+        "recent_activity": [
+          {"actor": "Sarah Jenkins", "action": "filed Motion to Compel", "time": "2m ago"},
+          {"actor": "CoCounsel AI", "action": "extracted 3 deadlines from scheduling order", "time": "15m ago"}
+        ]
       },
-      "body": {
-        "family": "IBM Plex Sans, sans-serif",
-        "weights": ["400", "500"]
-      },
-      "data_and_numbers": {
-        "family": "Geist Mono, monospace",
-        "weights": ["400", "600"],
-        "usage": "Use for numerical data, tables, case IDs, and timestamps to ensure vertical alignment."
-      }
-    },
-    "aftercare": {
-      "headings": {
-        "family": "Outfit, sans-serif",
-        "weights": ["400", "600"],
-        "tracking": "tracking-normal"
-      },
-      "body": {
-        "family": "Outfit, sans-serif",
-        "weights": ["300", "400"]
-      }
-    },
-    "scale": {
-      "h1": "text-4xl sm:text-5xl",
-      "h2": "text-2xl sm:text-3xl",
-      "h3": "text-xl sm:text-2xl",
-      "h4": "text-lg sm:text-xl",
-      "body": "text-base",
-      "small": "text-sm",
-      "overline": "text-xs uppercase tracking-[0.2em] font-semibold"
-    }
-  },
-  "color_system": {
-    "firm_os": {
-      "light": {
-        "background": "#F9F8F6",
-        "surface": "#FFFFFF",
-        "text_primary": "#121212",
-        "text_secondary": "#5C5C5C",
-        "border": "#E5E4E1",
-        "primary_accent": "#E85D04",
-        "primary_accent_hover": "#DC2F02",
-        "sidebar_bg": "#121212",
-        "sidebar_text": "#F9F8F6"
-      },
-      "dark": {
-        "background": "#0A0A0B",
-        "surface": "#161618",
-        "text_primary": "#F9F8F6",
-        "text_secondary": "#A1A1AA",
-        "border": "#2A2A2E",
-        "primary_accent": "#FF5A36",
-        "primary_accent_hover": "#FF7A5A",
-        "sidebar_bg": "#000000",
-        "sidebar_text": "#F9F8F6"
-      }
-    },
-    "aftercare": {
-      "light": {
-        "background": "#FDFBF7",
-        "surface": "#FFFFFF",
-        "text_primary": "#2A3B32",
-        "text_secondary": "#59685F",
-        "border": "#EAE5D9",
-        "primary_accent": "#D4A373",
-        "secondary_accent": "#8A9A86"
-      }
-    }
-  },
-  "spacing_and_layout": {
-    "scale": "tailwind default (p-1 to p-32)",
-    "firm_os_rules": {
-      "grid": "Control Room Grid (grid-cols-12, gap-4 tight spacing).",
-      "panels": "Multi-panel design. Left-aligned sidebars, collapsible.",
-      "cards": "Flat surfaces, no shadows. 1px solid border (border-border), rounded-sm (2px).",
-      "density": "High density. Use weight instead of size for hierarchy."
-    },
-    "aftercare_rules": {
-      "grid": "Mobile-first, single column or max 2 columns.",
-      "cards": "Soft neumorphism, generous padding (p-6 to p-8), rounded-2xl to rounded-3xl.",
-      "shadows": "Soft ambient shadows (shadow-sm, shadow-md)."
-    }
-  },
-  "component_patterns": {
-    "command_palette": {
-      "style": "Glassmorphism (backdrop-blur-xl bg-white/70 dark:bg-black/60) overlay.",
-      "typography": "Geist Mono for commands, IBM Plex Sans for descriptions.",
-      "interaction": "Instant search, keyboard-navigable, highlight matching text in primary_accent."
-    },
-    "cocounsel_ai_sidebar": {
-      "layout": "Fixed right sidebar (w-80 or w-96).",
-      "style": "Distinct background tint (e.g., #F0EFEA in light mode) to separate AI context from manual data.",
-      "components": "Chat bubbles (rounded-lg), action chips for quick prompts, markdown-rendered responses."
-    },
-    "matters_kanban": {
-      "layout": "Horizontal scroll container, fixed column widths.",
-      "cards": "Dense data cards. Top-left: Matter ID (Geist Mono). Top-right: Status pip. Bottom: Next Best Action (NBA) CTA.",
-      "interaction": "Drag-and-drop enabled, subtle lift (-translate-y-0.5) and border darken on hover."
-    },
-    "buttons": {
-      "firm_primary": "bg-primary_accent text-white rounded-sm font-semibold tracking-wide px-4 py-2 hover:bg-primary_accent_hover transition-colors",
-      "firm_secondary": "bg-transparent border border-border text-text_primary rounded-sm px-4 py-2 hover:bg-surface/50",
-      "aftercare_primary": "bg-primary_accent text-white rounded-full font-medium px-6 py-3 shadow-sm hover:opacity-90"
-    },
-    "testing": "CRITICAL: All interactive elements MUST have data-testid attributes (e.g., data-testid='login-submit-button')."
-  },
-  "page_templates": {
-    "firm_dashboard": {
-      "structure": [
-        "Left Sidebar (Global Nav, dark theme applied to sidebar itself)",
-        "Top Bar (Breadcrumbs + Global Search/Command Palette trigger + User Profile)",
-        "Main Content Area (Grid-12)",
-        "Top Row: Key Metrics (North Star) spanning col-span-3 each",
-        "Middle Row: Activity Timeline (col-span-8), Tasks/Deadlines (col-span-4)"
+      "annotations": [
+        {"label": "Live SOL tracking", "target": "SOL Date"},
+        {"label": "1-click timeline", "target": "Recent activity block"}
       ]
     },
-    "matter_detail": {
-      "structure": [
-        "Left Sidebar (Global Nav)",
-        "Secondary Nav (Matter-specific tabs: Docs, MedConnect, Notes, Chat)",
-        "Main Content (Multi-panel layout)",
-        "Right Sidebar (CoCounsel AI)"
+    {
+      "id": "cocounsel-chat",
+      "title": "Glass-box AI",
+      "narrative": "The AI that actually ships work.",
+      "placement": "Landing.jsx, inside the CoCounsel AI section.",
+      "layout_spec": "Floating glassmorphism panel overlapping a blurred document in the background.",
+      "mockup_composition": "Chat interface. User prompt: 'Draft a demand letter for Smith based on Dr. Patel's chron.' AI response streaming. Includes citation pills like [Dr. Patel Chron p.4] that hover to show actual text.",
+      "dummy_data": {
+        "prompt": "Draft demand for Smith citing the L5-S1 herniation.",
+        "ai_response": "Here is a draft demand letter highlighting the L5-S1 disc herniation diagnosed by Dr. Patel. I have calculated the specials at $42,500 based on the attached billing records.",
+        "citations": ["MRI Report 10/12", "Billing: Acme Ortho"]
+      },
+      "annotations": [
+        {"label": "Matter-aware context", "target": "User prompt"},
+        {"label": "Clickable citations", "target": "Citation pills"}
       ]
     },
-    "aftercare_mobile": {
-      "structure": [
-        "Sticky Top Header (Glassmorphism, Logo + Profile)",
-        "Hero Greeting ('Good morning, Sarah' + Warm graphic)",
-        "Action Cards ('Log Symptom', 'Message Team', 'View Doctors')",
-        "Bottom Nav Bar (Home, Journey, Messages, Profile)"
+    {
+      "id": "command-palette",
+      "title": "Keyboard-first ⌘K",
+      "narrative": "Find any matter without touching the mouse.",
+      "placement": "Landing.jsx, Command Palette section (enhance existing).",
+      "layout_spec": "Center-aligned floating search modal with rich results.",
+      "mockup_composition": "Search input with 'sm...' typed. Results broken down by 'Matters', 'Actions', 'Contacts'. Highlighting the arrow keys navigation state.",
+      "dummy_data": {
+        "results": [
+          {"type": "Matter", "text": "Smith v. Acme", "subtext": "M-2026-0034"},
+          {"type": "Action", "text": "Generate demand letter for Smith"},
+          {"type": "Contact", "text": "Dr. Sarah Smith (Provider)"}
+        ]
+      },
+      "annotations": []
+    },
+    {
+      "id": "voxline-console",
+      "title": "VoxLine Call Console",
+      "narrative": "Native phones with instant transcripts.",
+      "placement": "Landing.jsx, Communications tab.",
+      "layout_spec": "Dark mode panel (terminal aesthetic) to contrast with the light theme, representing the live call dialer.",
+      "mockup_composition": "Active call duration (04:12). Live scrolling transcript. Right side panel: AI live extracting action items (e.g., 'Schedule IME').",
+      "dummy_data": {
+        "caller": "John Smith",
+        "transcript": [
+          {"speaker": "John", "text": "My back is still killing me after the therapy."},
+          {"speaker": "Paralegal", "text": "I'll schedule you for an IME with Dr. Patel."}
+        ],
+        "extracted_tasks": ["Schedule IME with Dr. Patel"]
+      },
+      "annotations": [
+        {"label": "Live Whisper transcription", "target": "Transcript area"},
+        {"label": "Auto-task extraction", "target": "Extracted tasks"}
+      ]
+    },
+    {
+      "id": "medconnect-inbox",
+      "title": "MedConnect Inbox",
+      "narrative": "Records arrive in 18 days.",
+      "placement": "Landing.jsx, Operations tab.",
+      "layout_spec": "Dense tabular data view (grid).",
+      "mockup_composition": "Table listing providers, status pips (Requested, Received, Needs Follow-up), cost, and AI MedChron status.",
+      "dummy_data": {
+        "providers": [
+          {"name": "Mercy Hospital", "status": "Received", "cost": "$145.00", "ai": "Summarized"},
+          {"name": "Dr. Alan Patel", "status": "Pending (Day 12)", "cost": "-", "ai": "Waiting"}
+        ]
+      },
+      "annotations": [
+        {"label": "Automated follow-ups", "target": "Pending status"},
+        {"label": "1-click AI MedChron", "target": "Summarized pip"}
       ]
     }
-  },
-  "media_urls": {
-    "lawyers": [
-      {
-        "url": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBsYXd5ZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODIyNzUwNzN8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Male Lawyer Avatar 1"
+  ],
+  "b2c_product_showcases": [
+    {
+      "id": "pain-journal",
+      "title": "The Truth Has a Record",
+      "narrative": "Log symptoms accurately. Not strong.",
+      "placement": "PraxaLanding.jsx, replacing the current basic check-in card.",
+      "layout_spec": "Mobile app shell wrapper. Clean, pastel, airy.",
+      "mockup_composition": "A heatmap of the human body (simplified SVG or abstract representation) with red dots. Below it, a vertical timeline of daily logs with pain scores.",
+      "dummy_data": {
+        "logs": [
+          {"date": "Today, 8:00 AM", "score": "7/10", "notes": "Couldn't sleep on right side. Sharp pain radiating down leg."},
+          {"date": "Yesterday", "score": "6/10", "notes": "Physical therapy helped for 2 hours, then stiffness returned."}
+        ]
       },
-      {
-        "url": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBsYXd5ZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODIyNzUwNzN8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Male Lawyer Avatar 2"
+      "annotations": [
+        {"label": "Daily timestamped evidence", "target": "Timeline entries"}
+      ]
+    },
+    {
+      "id": "doctor-match",
+      "title": "Doctor Network",
+      "narrative": "Vetted doctors who treat now.",
+      "placement": "PraxaLanding.jsx, next to Features section.",
+      "layout_spec": "Card-based mobile view showing a map stub and a list of doctors.",
+      "mockup_composition": "Doctor profiles with 'Accepts LOP' badges, distance, and 'Book next Tuesday' buttons.",
+      "dummy_data": {
+        "doctors": [
+          {"name": "Dr. Sarah Jenkins", "specialty": "Orthopedic Surgeon", "distance": "3.2 mi", "badge": "Accepts LOP"},
+          {"name": "Apex Chiropractic", "specialty": "Physical Therapy", "distance": "1.5 mi", "badge": "Accepts LOP"}
+        ]
       },
-      {
-        "url": "https://images.unsplash.com/photo-1662104935883-e9dd0619eaba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBsYXd5ZXIlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODIyNzUwNzN8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Female Lawyer Avatar 1"
-      }
-    ],
-    "doctors": [
-      {
-        "url": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwyfHxtZWRpY2FsJTIwZG9jdG9yJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzgyMjc1MDc0fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Doctor in scrubs"
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwZG9jdG9yJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzgyMjc1MDc0fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Doctor in dress shirt"
-      }
-    ],
-    "office_backgrounds": [
-      {
-        "url": "https://images.unsplash.com/photo-1714150458873-715e134901a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsYXclMjBvZmZpY2UlMjBpbnRlcmlvcnxlbnwwfHx8fDE3ODIyNzUwNzN8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Modern law office building exterior"
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1781136230118-3272607eb34c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBsYXclMjBvZmZpY2UlMjBpbnRlcmlvcnxlbnwwfHx8fDE3ODIyNzUwNzN8MA&ixlib=rb-4.1.0&q=85",
-        "description": "Tall office buildings"
-      }
+      "annotations": [
+        {"label": "Zero upfront cost matching", "target": "LOP badges"}
+      ]
+    }
+  ],
+  "horizontal_tour_section": {
+    "placement": "Landing.jsx, just above the Pricing section.",
+    "title": "The Matter Lifecycle",
+    "description": "A horizontally scrolling flex container (hide scrollbar) showing 4 stages of a matter. Each stage is a distinct card mimicking the UI at that point.",
+    "stages": [
+      {"name": "1. Intake via Praxa", "ui": "Notification toast of a new lead with a 8/10 pain score."},
+      {"name": "2. Discovery & Records", "ui": "MedConnect table showing 3 providers successfully collected."},
+      {"name": "3. AI Demand Letter", "ui": "CoCounsel chat generating the letter."},
+      {"name": "4. Settlement", "ui": "Settlement calculator showing $1.4M with attorney fees split out."}
     ]
   },
-  "instructions_to_main_agent": [
-    "INSTALLATION: Run `yarn add @phosphor-icons/react` for the high-end duotone B2B icons, and `yarn add lucide-react` as a fallback.",
-    "COMPONENT LIBRARY: Heavily customize Shadcn components. Strip the 'Vercel-look'. Overwrite rounded-md to rounded-sm for B2B surfaces, and rounded-2xl for AfterCare.",
-    "FONTS: Configure Tailwind to load Cabinet Grotesk, IBM Plex Sans, Geist Mono, and Outfit via next/font or Google Fonts.",
-    "B2B DASHBOARD: Use the Grid Borders 'Technical Look' for data-heavy sections (border-collapse, border-r border-b). Ensure tabular numerals are active for data tables.",
-    "CONSUMER APP (AfterCare): Use Glassmorphism (Crystal/Apple Variant) for headers and sticky elements. Background must be light/warm (#FDFBF7).",
-    "ACCESSIBILITY: Adhere to strict WCAG AA contrast, especially for the high-density B2B dashboards.",
-    "TESTING: Apply `data-testid` to all interactive components.",
-    "RESPONSIVE: The main Firm OS dashboard is desktop-optimized (power users). AfterCare is explicitly mobile-first PWA."
-  ]
+  "live_demo_strip": {
+    "placement": "Landing.jsx, Hero section right side or bottom.",
+    "description": "Instead of a static image, a tiny marquee or staggered entrance of real UI fragments: A status pip turning green, a toast saying 'CourtConnect: Docket updated', an avatar group showing 3 lawyers active."
+  },
+  "images": {
+    "avatars": [
+      "https://images.unsplash.com/photo-1607503873903-c5e95f80d7b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4MjIwMDM2MXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4MjIwMDM2MXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4MjIwMDM2MXww&ixlib=rb-4.1.0&q=85"
+    ]
+  }
 }
