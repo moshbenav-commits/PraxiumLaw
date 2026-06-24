@@ -1,0 +1,43 @@
+{
+  "summary": "Phase 1 first full-stack test of Praxium Suite + Praxa. Backend: 28/28 pytest cases pass including auth/signup/login, matters CRUD, contacts (with auto patient_id), tasks, notes, chat, providers/treatments, intake→lead→claim→convert, dashboard aggregates, global search, team, Claude Sonnet 4.5 streaming for CoCounsel AI, and Praxa journal + AI coach. Frontend: Landing renders at /, signup creates firm + stores praxium_token + redirects to /dashboard with metrics strip, pipeline distribution (all 7 statuses), recent activity. Reports page renders KPIs + pipeline. Praxa landing renders distinct earthy palette. No critical app bugs found.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/intake (test)", "issue": "Minor pytest warning: test_intake_public returns lead_id instead of None (cosmetic, not an API issue)"}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_praxium_api.py",
+    "/app/test_reports/pytest/iteration_1.xml"
+  ],
+  "action_items": [
+    "Optional: fix test_intake_public return-not-None pytest warning (replace 'return' with assignment).",
+    "Consider adding data-testid to the new-matter form submit & description fallback names; current testids are 'matter-title', 'matter-description', 'matter-submit' (works fine, just documenting for future testing agents)."
+  ],
+  "critical_code_review_comments": [
+    "server.py is 894 lines — consider splitting into routers (auth, matters, contacts, tasks, ai, praxa, intake) for maintainability before Phase 2.",
+    "AI streaming endpoint catches Exception and yields '[Error: ...]' inside the body — clients can't distinguish failure from success. Consider sending an SSE error frame or non-200 before stream begins.",
+    "/api/praxa/journal and /api/praxa/ai-coach handle auth manually (Authorization header) instead of using a Praxa-specific Depends(); duplicated logic across endpoints. Extract a get_praxa_user dependency.",
+    "All routes return raw dicts — no Pydantic response_models. Adding response_model would enforce schema + remove any chance of _id leakage.",
+    "/api/leads list query uses {'$or': [{'firm_id': fid}, {'assigned_to': 'marketplace'}]} — marketplace leads are visible to every firm, which is intended for LawMatch but worth a comment + future per-firm claim-once enforcement.",
+    "convert_lead does not check if lead.status is already 'converted' — calling it twice creates duplicate contacts + matters. Add idempotency guard.",
+    "matter case_number generation uses count_documents which is racy under concurrency; consider per-firm atomic counter.",
+    "EMERGENT_LLM_KEY is logged-into via 'AI not configured' but never validated at startup — fail-fast on boot if missing.",
+    "CORS allow_credentials=True with allow_origins='*' is invalid in browsers and ignored — restrict origins for prod."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_praxium_api.py (new — 28 pytest cases)"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "85%"},
+  "test_credentials": "Signup-based, dynamic: demo+<timestamp>@praxium.law / Demo1234! / firm 'Test Firm <timestamp>'. Praxa signup: praxa+<timestamp>@example.com.",
+  "seed_data_creation": "Each test creates its own ephemeral firm to avoid duplicate-email collisions. No global seed required.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest suite is at /app/backend/tests/test_praxium_api.py — run with: pytest /app/backend/tests/test_praxium_api.py -v --junitxml=/app/test_reports/pytest/iteration_<n>.xml. The suite uses session-scoped fixtures so a single firm+user+matter+contact+provider+task+lead chain is created. AI streaming tests use stream=True and break early after receiving content. Frontend testids of note: signup-name / signup-firm / signup-email / signup-password / signup-submit; matter-title / matter-description / matter-submit; matter-tab-{overview|tasks|documents|notes|medical|filings|chat}; matter-task-input / matter-task-submit; matter-note-input / matter-note-submit; chat-input / chat-send. Do NOT use generic input[type=text] selectors because the topbar has a global search box that will be matched first. Landing path '/' renders Landing.jsx (landing-logo testid present). MatterDetail has all 7 tabs via data-testid='matter-tab-<id>'. Praxa app stores token under 'praxa_token' (different key than 'praxium_token').",
+  "rca of the issue": "No app-level RCA needed. The two errors in the UI smoke test ('matter create did not redirect' and 'only 3 tabs found') were caused by the playwright script's selector fallback (input[type='text']) matching the topbar search box instead of the form's title input, so the title remained empty and HTML5 'required' validation blocked submission. Re-running with the correct data-testid='matter-title' selector resolves it. The backend test suite confirms POST /api/matters returns 201-equivalent with correct payload and matter detail GET works correctly."
+}
