@@ -134,3 +134,23 @@
 - **Auth**: JWT custom (no OAuth for Phase 1).
 - **Storage Phase 1**: base64 in Mongo (simple). Phase 2 swap to Emergent object storage.
 - **Brand**: Praxium Suite (parent), Praxa (consumer sibling), shared π glyph & "Prax-" root.
+- **Domain format**: All public-facing URLs render with `www.` prefix (`www.praxiumlaw.com`, `www.praxiumsuite.com`, `www.praxahq.com`) — matches user's purchased domains.
+
+## Changelog
+### Feb 2026 — Product Showcase UI on Landing Pages
+Added high-fidelity inline product mockups so prospects can *see* the app before signing up:
+- `/components/showcase/MatterCanvasMock.jsx` — full case workspace (parties, stat strip, activity feed, CoCounsel side panel, floating annotations)
+- `/components/showcase/CoCounselChatMock.jsx` — glass-box AI chat with citation pills + streaming indicator
+- `/components/showcase/VoxLineMock.jsx` — dark-mode call console with live transcript + AI-extracted tasks
+- `/components/showcase/MedConnectMock.jsx` — provider records table with status pips + MedChron CTA
+- `/components/showcase/CommandPaletteMock.jsx` — ⌘K palette with grouped Matters/Actions/Contacts results
+- `/components/showcase/MatterLifecycleTour.jsx` — auto-rotating 4-stage tour (Intake → Discovery → Demand → Settlement)
+- `/components/showcase/PainJournalMock.jsx` — phone-framed Praxa pain journal with coach + timeline
+- `/components/showcase/DoctorMatchMock.jsx` — Praxa doctor network card with LOP badges + map
+- `/components/showcase/primitives.jsx` — `MockBrowserChrome`, `StatusPip`, `AnnotationPin`, `AvatarGroup` shared primitives
+- Landing.jsx PILLARS tab now swaps between Matter/VoxLine/MedConnect showcases
+- CoCounsel section now features the chat mock + side feature list
+- New "Matter Lifecycle" section above Pricing
+- PraxaLanding.jsx upgraded with PainJournal + DoctorMatch showcases
+- All domain references updated to `www.` prefix
+

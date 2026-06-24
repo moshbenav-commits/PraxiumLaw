@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, BookOpen, Heart, Phone } from "lucide-react";
+import PainJournalMock from "../../components/showcase/PainJournalMock";
+import DoctorMatchMock from "../../components/showcase/DoctorMatchMock";
 
 export default function PraxaLanding() {
   return (
@@ -49,16 +51,39 @@ export default function PraxaLanding() {
             </p>
           </div>
           <div className="col-span-12 lg:col-span-5">
-            <div className="bg-praxa-bg rounded-2xl p-6">
-              <div className="text-xs uppercase tracking-widest text-praxa-sage">Today's check-in</div>
-              <div className="mt-3 text-2xl font-light">How's the pain?</div>
-              <div className="mt-4 grid grid-cols-10 gap-1">
-                {Array.from({ length: 10 }, (_, i) => (
-                  <div key={i} className={`h-8 rounded ${i < 6 ? "bg-praxa-accent" : "bg-praxa-line"}`} />
-                ))}
-              </div>
-              <div className="mt-2 text-xs text-praxa-subtle">6/10 — same as yesterday</div>
+            <PainJournalMock />
+          </div>
+        </div>
+      </section>
+
+      {/* Doctor Match showcase */}
+      <section className="bg-white border-y border-praxa-line">
+        <div className="max-w-5xl mx-auto px-6 py-20 grid grid-cols-12 gap-10 items-center">
+          <div className="col-span-12 lg:col-span-6">
+            <div className="text-xs uppercase tracking-[0.2em] text-praxa-sage mb-3">Doctor Network · in-app</div>
+            <h2 className="font-light text-4xl tracking-tight leading-[1.05]">
+              Find treatment <span className="text-praxa-accent font-semibold">today.</span><br />
+              Pay from settlement.
+            </h2>
+            <p className="mt-5 text-praxa-subtle leading-relaxed max-w-md">
+              Every doctor in Praxa accepts a Letter of Protection — meaning zero out-of-pocket while your case resolves. Orthopedics, chiropractic, imaging, mental health. Vetted. Local. Bookable in 60 seconds.
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-2 max-w-sm">
+              {[
+                { k: "Provider network", v: "2,400+" },
+                { k: "LOP-accepting", v: "100%" },
+                { k: "Avg wait", v: "< 48 hrs" },
+                { k: "Out-of-pocket", v: "$0" },
+              ].map((s) => (
+                <div key={s.k} className="bg-praxa-bg rounded-xl p-3 border border-praxa-line">
+                  <div className="text-[10px] uppercase tracking-[0.15em] text-praxa-sage font-semibold">{s.k}</div>
+                  <div className="font-consumer font-semibold text-praxa-ink text-lg mt-1">{s.v}</div>
+                </div>
+              ))}
             </div>
+          </div>
+          <div className="col-span-12 lg:col-span-6">
+            <DoctorMatchMock />
           </div>
         </div>
       </section>
@@ -96,7 +121,7 @@ export default function PraxaLanding() {
           Praxa provides legal information, not legal advice. For specific legal advice about your case, talk to a licensed attorney in your state. We can connect you with one from our partner network.
         </p>
         <div className="mt-6 text-center">
-          <Link to="/" className="text-xs text-praxa-sage hover:underline">For law firms? Visit Praxium Suite at praxiumlaw.com →</Link>
+          <Link to="/" className="text-xs text-praxa-sage hover:underline">For law firms? Visit Praxium Suite at www.praxiumlaw.com →</Link>
         </div>
       </section>
     </div>

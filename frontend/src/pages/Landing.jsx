@@ -4,6 +4,12 @@ import {
   ArrowRight, ArrowUpRight, Check, Command, Sparkles, ChevronRight, Minus,
   Briefcase, Phone, Stethoscope, Scale, Network, MessageSquare, FileText, Users,
 } from "lucide-react";
+import MatterCanvasMock from "../components/showcase/MatterCanvasMock";
+import CoCounselChatMock from "../components/showcase/CoCounselChatMock";
+import VoxLineMock from "../components/showcase/VoxLineMock";
+import MedConnectMock from "../components/showcase/MedConnectMock";
+import CommandPaletteMock from "../components/showcase/CommandPaletteMock";
+import MatterLifecycleTour from "../components/showcase/MatterLifecycleTour";
 
 // ──────────────── data ────────────────
 const STACK = [
@@ -257,30 +263,14 @@ export default function Landing() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-10 text-[10px] font-mono uppercase tracking-[0.2em] text-praxium-subtle">
+                // live product · not a render
+              </div>
             </div>
             <div className="col-span-12 lg:col-span-7">
-              <div className="aspect-[4/3] bg-praxium-ink text-white rounded-sm p-8 flex flex-col justify-between font-mono text-xs relative overflow-hidden">
-                <div>
-                  <div className="flex items-center gap-2 text-white/40">
-                    <span className="w-2 h-2 rounded-full bg-rose-500" />
-                    <span className="w-2 h-2 rounded-full bg-amber-500" />
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="ml-3 text-[10px]">praxiumlaw.com/dashboard</span>
-                  </div>
-                  <div className="mt-8 text-[10px] uppercase tracking-[0.25em] text-white/40">// {active.label.toLowerCase()}</div>
-                  <div className="mt-2 text-2xl font-display font-black text-white">{active.title}</div>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {Array.from({ length: 6 }).map((_, i) => (
-                    <div key={i} className="bg-white/5 border border-white/10 p-3">
-                      <div className="text-[9px] text-white/40 uppercase tracking-widest">{["matter", "task", "doc", "note", "call", "lead"][i]}</div>
-                      <div className="mt-1.5 h-1 bg-praxium-accent/80" style={{ width: `${30 + i * 12}%` }} />
-                      <div className="mt-1 h-1 bg-white/15" style={{ width: `${60 - i * 5}%` }} />
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute -bottom-1 -right-1 text-[180px] font-display font-black text-praxium-accent/5 leading-none">π</div>
-              </div>
+              {pillar === "practice" && <MatterCanvasMock />}
+              {pillar === "comms" && <VoxLineMock />}
+              {pillar === "ops" && <MedConnectMock />}
             </div>
           </div>
         </div>
@@ -300,27 +290,7 @@ export default function Landing() {
             </p>
           </div>
           <div className="col-span-12 lg:col-span-7">
-            <div className="bg-praxium-ink p-1 rounded-sm shadow-2xl">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                </div>
-              </div>
-              <div className="p-6 font-mono text-sm space-y-1">
-                <div className="flex items-center gap-3 px-3 py-2 border border-white/10 text-white/60">
-                  <Command size={13} /> <span className="opacity-60">search or run command...</span>
-                </div>
-                <div className="mt-3 space-y-1">
-                  <div className="px-3 py-2 bg-praxium-accent text-white flex items-center gap-3"><span>→</span><span>Smith v. Acme — M-2026-0034</span><span className="ml-auto text-[10px] opacity-60">matter</span></div>
-                  <div className="px-3 py-2 text-white/70 flex items-center gap-3"><span>→</span><span>Claim lead: J. Rodriguez ($12k est)</span><span className="ml-auto text-[10px] opacity-50">action</span></div>
-                  <div className="px-3 py-2 text-white/70 flex items-center gap-3"><span>→</span><span>Generate demand letter for current matter</span><span className="ml-auto text-[10px] opacity-50">ai</span></div>
-                  <div className="px-3 py-2 text-white/70 flex items-center gap-3"><span>→</span><span>Add task — call Dr. Patel about Smith records</span><span className="ml-auto text-[10px] opacity-50">action</span></div>
-                  <div className="px-3 py-2 text-white/40 flex items-center gap-3"><span>→</span><span>Patient: PT-A4F9K2 (Smith, John)</span><span className="ml-auto text-[10px] opacity-50">contact</span></div>
-                </div>
-              </div>
-            </div>
+            <CommandPaletteMock />
           </div>
         </div>
       </section>
@@ -336,18 +306,43 @@ export default function Landing() {
           <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
             Filevine's Sidebar AI is rated 2 out of 5 on G2. Ours is Claude Sonnet 4.5, streaming live, with full context of every matter, and every action is auditable. Glass-box transparency — not a black box hallucinating case citations.
           </p>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-praxium-line border border-praxium-line">
-            {[
-              { icon: Sparkles, t: "Per-matter context", b: "CoCounsel reads the matter, parties, documents, notes, and prior chats before responding." },
-              { icon: FileText, t: "Draft & extract", b: "Demand letters, status updates, deadline extraction from court orders, MedChron summaries — generated and editable." },
-              { icon: Check, t: "Auditable actions", b: "Every prompt, every response, every source is logged. Show the bar examiner if you ever need to." },
-            ].map((f) => (
-              <div key={f.t} className="bg-praxium-surface p-8">
-                <f.icon size={20} className="text-praxium-accent" strokeWidth={1.5} />
-                <div className="mt-5 font-display font-bold text-lg">{f.t}</div>
-                <p className="mt-2 text-sm text-praxium-ink/70 leading-relaxed">{f.b}</p>
-              </div>
-            ))}
+
+          <div className="mt-16 grid grid-cols-12 gap-12 items-start">
+            <div className="col-span-12 lg:col-span-7">
+              <CoCounselChatMock />
+            </div>
+            <div className="col-span-12 lg:col-span-5 space-y-8 lg:pt-10">
+              {[
+                { icon: Sparkles, t: "Per-matter context", b: "CoCounsel reads the matter, parties, documents, notes, and prior chats before responding." },
+                { icon: FileText, t: "Draft & extract", b: "Demand letters, status updates, deadline extraction from court orders, MedChron summaries — generated and editable." },
+                { icon: Check, t: "Auditable actions", b: "Every prompt, every response, every source is logged. Show the bar examiner if you ever need to." },
+              ].map((f) => (
+                <div key={f.t} className="border-l-2 border-praxium-accent pl-5">
+                  <div className="flex items-center gap-2.5">
+                    <f.icon size={16} className="text-praxium-accent" strokeWidth={1.6} />
+                    <div className="font-display font-bold text-lg">{f.t}</div>
+                  </div>
+                  <p className="mt-2 text-sm text-praxium-ink/70 leading-relaxed">{f.b}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── MATTER LIFECYCLE TOUR ─── */}
+      <section id="tour" className="bg-praxium-surface py-32 px-6 border-y border-praxium-line">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-6">// the matter lifecycle // intake to disbursement</div>
+          <h2 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-4xl">
+            One matter.<br />
+            Four <span className="text-praxium-accent italic">screens.</span>
+          </h2>
+          <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
+            From Praxa-routed lead to signed settlement — same UI, same data, same login. Click through the lifecycle to see how a case moves through Praxium.
+          </p>
+          <div className="mt-16">
+            <MatterLifecycleTour />
           </div>
         </div>
       </section>
@@ -510,13 +505,13 @@ export default function Landing() {
               πραξις · praxis · action. The operating system from which firms act.
             </p>
             <div className="mt-6 space-y-1 text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">
-              <div>praxiumlaw.com  <span className="text-white/30">// b2b firm os</span></div>
-              <div>praxiumsuite.com <span className="text-white/30">// product suite</span></div>
-              <div>praxahq.com  <span className="text-white/30">// b2c consumer app</span></div>
+              <div>www.praxiumlaw.com  <span className="text-white/30">// b2b firm os</span></div>
+              <div>www.praxiumsuite.com <span className="text-white/30">// product suite</span></div>
+              <div>www.praxahq.com  <span className="text-white/30">// b2c consumer app</span></div>
             </div>
           </div>
           <div className="col-span-6 lg:col-span-2">
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Product · praxiumlaw.com</div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Product · www.praxiumlaw.com</div>
             <div className="space-y-2 text-sm">
               <a href="#how" className="block text-white/70 hover:text-praxium-accent transition-colors">Features</a>
               <a href="#pricing" className="block text-white/70 hover:text-praxium-accent transition-colors">Pricing</a>
@@ -525,7 +520,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="col-span-6 lg:col-span-2">
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Consumer · praxahq.com</div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Consumer · www.praxahq.com</div>
             <div className="space-y-2 text-sm">
               <Link to="/praxa" className="block text-white/70 hover:text-praxium-accent transition-colors">Praxa HQ</Link>
               <Link to="/praxa/signup" className="block text-white/70 hover:text-praxium-accent transition-colors">Sign up</Link>
@@ -533,7 +528,7 @@ export default function Landing() {
           </div>
           <div className="col-span-12 lg:col-span-4 text-xs font-mono text-white/40">
             <div className="mb-4">// trademark</div>
-            <p className="leading-relaxed">© 2026 Praxium Suite · praxiumlaw.com · praxiumsuite.com · praxahq.com · Software for law firms. Not affiliated with Filevine, Inc.</p>
+            <p className="leading-relaxed">© 2026 Praxium Suite · www.praxiumlaw.com · www.praxiumsuite.com · www.praxahq.com · Software for law firms. Not affiliated with Filevine, Inc.</p>
           </div>
         </div>
       </footer>
