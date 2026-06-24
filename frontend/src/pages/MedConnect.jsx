@@ -36,7 +36,7 @@ export default function MedConnect() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
         <div className="data-card p-4">
           <div className="overline mb-2">// per-matter alias</div>
-          <code className="text-xs font-mono bg-praxium-bg p-2 block rounded-sm">matter-A4F9K2@records.praxium.law</code>
+          <code className="text-xs font-mono bg-praxium-bg p-2 block rounded-sm">matter-A4F9K2@records.praxiumlaw.com</code>
           <p className="text-[11px] text-praxium-subtle mt-2">Doctors email records to this address → auto-files to matter A4F9K2.</p>
           <div className="mt-2 text-[10px] font-mono uppercase tracking-wider text-amber-600">MOCKED — needs SendGrid inbound</div>
         </div>

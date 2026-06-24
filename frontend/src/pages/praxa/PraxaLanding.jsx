@@ -9,7 +9,7 @@ export default function PraxaLanding() {
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/praxa" className="flex items-center gap-2" data-testid="praxa-logo">
             <div className="w-8 h-8 rounded-full bg-praxa-accent flex items-center justify-center text-white font-bold">π</div>
-            <span className="font-semibold text-lg tracking-tight">Praxa</span>
+            <span className="font-semibold text-lg tracking-tight">Praxa <span className="text-praxa-sage text-xs font-normal ml-0.5 uppercase tracking-widest">HQ</span></span>
           </Link>
           <Link to="/praxa/signup" className="bg-praxa-ink text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-90" data-testid="praxa-cta-top">
             Start free
@@ -96,7 +96,7 @@ export default function PraxaLanding() {
           Praxa provides legal information, not legal advice. For specific legal advice about your case, talk to a licensed attorney in your state. We can connect you with one from our partner network.
         </p>
         <div className="mt-6 text-center">
-          <Link to="/" className="text-xs text-praxa-sage hover:underline">For law firms? Visit Praxium Suite →</Link>
+          <Link to="/" className="text-xs text-praxa-sage hover:underline">For law firms? Visit Praxium Suite at praxiumlaw.com →</Link>
         </div>
       </section>
     </div>

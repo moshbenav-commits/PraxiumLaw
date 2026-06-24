@@ -24,7 +24,7 @@ export default function PraxaApp() {
         <div className="max-w-md mx-auto px-5 py-4 flex items-center justify-between">
           <Link to="/praxa" className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-full bg-praxa-accent flex items-center justify-center text-white text-sm font-bold">π</div>
-            <span className="font-semibold tracking-tight">Praxa</span>
+            <span className="font-semibold tracking-tight">Praxa <span className="text-praxa-sage text-[10px] font-normal ml-0.5 uppercase tracking-widest">HQ</span></span>
           </Link>
           <div className="text-xs text-praxa-sage">Hi, {user.name?.split(" ")[0]}</div>
         </div>

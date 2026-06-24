@@ -5,11 +5,26 @@
 
 ## The short version (one paragraph)
 
-**Praxium** comes from the Ancient Greek word **πρᾶξις** (*praxis*), meaning "action" or "the practice of doing." It's where we get the word **practice** — as in "the practice of law." Praxium is the operating system that turns a law firm's practice into action.
+**Praxium Suite** (praxiumlaw.com + praxiumsuite.com) — comes from the Ancient Greek word **πρᾶξις** (*praxis*), meaning "action" or "the practice of doing." It's where we get the word **practice** — as in "the practice of law." Praxium is the operating system that turns a law firm's practice into action.
 
-**Praxa**, our consumer app, shares the exact same root — πραγ-. It comes from the sibling Greek word **πρᾶγμα** (*pragma*), which means "the thing done," "the deed itself." Where Praxium serves the practitioner taking action, Praxa serves the person living the deed.
+**Praxa HQ** (praxahq.com) — our consumer app, shares the exact same root — πραγ-. It comes from the sibling Greek word **πρᾶγμα** (*pragma*), which means "the thing done," "the deed itself." Where Praxium serves the practitioner taking action, Praxa serves the person living the deed.
 
 Same root. Same family. Different children. Built for opposite sides of the same case.
+
+---
+
+## Brand properties at a glance
+
+| Surface | Brand name | Primary domain | Defensive domain |
+|---|---|---|---|
+| B2B firm operating system | **Praxium Suite** | praxiumlaw.com | praxiumsuite.com |
+| B2C consumer app | **Praxa HQ** | praxahq.com | — |
+
+When in doubt:
+- The company / parent platform = **Praxium Suite** at **praxiumlaw.com**
+- The product offering / what you sell = **Praxium Suite** (use both words together)
+- The consumer-facing brand = **Praxa HQ** at **praxahq.com**
+- Casual / shorthand: "Praxium" and "Praxa" without the suffix are acceptable
 
 ---
 

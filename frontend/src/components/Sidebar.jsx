@@ -37,7 +37,7 @@ export default function Sidebar({ onAiToggle }) {
           <div className="leading-none">
             <div className="font-display font-black text-[15px] tracking-tight text-white">PRAXIUM</div>
             <div className="text-[9px] font-mono uppercase tracking-[0.25em] text-zinc-500 mt-0.5">
-              suite
+              suite · praxiumlaw.com
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ export default function Settings() {
           <div><div className="overline">Firm name</div><div className="mt-1">{firm?.name}</div></div>
           <div><div className="overline">Subscription</div><div className="mt-1 font-mono uppercase">{firm?.subscription_tier}</div></div>
           <div><div className="overline">Firm ID</div><div className="mt-1 font-mono text-xs">{firm?.id}</div></div>
-          <div><div className="overline">Public intake URL</div><a href={`/intake/${firm?.slug}`} className="mt-1 text-xs font-mono text-praxium-accent hover:underline">{`/intake/${firm?.slug}`}</a></div>
+          <div><div className="overline">Public intake URL</div><a href={`/intake/${firm?.slug}`} className="mt-1 text-xs font-mono text-praxium-accent hover:underline">praxiumlaw.com/intake/{firm?.slug}</a></div>
         </div>
       </div>
 

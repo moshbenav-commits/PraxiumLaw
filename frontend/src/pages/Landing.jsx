@@ -265,7 +265,7 @@ export default function Landing() {
                     <span className="w-2 h-2 rounded-full bg-rose-500" />
                     <span className="w-2 h-2 rounded-full bg-amber-500" />
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="ml-3 text-[10px]">praxium.law/dashboard</span>
+                    <span className="ml-3 text-[10px]">praxiumlaw.com/dashboard</span>
                   </div>
                   <div className="mt-8 text-[10px] uppercase tracking-[0.25em] text-white/40">// {active.label.toLowerCase()}</div>
                   <div className="mt-2 text-2xl font-display font-black text-white">{active.title}</div>
@@ -504,14 +504,19 @@ export default function Landing() {
           <div className="col-span-12 lg:col-span-4">
             <div className="flex items-center gap-2.5">
               <div className="w-7 h-7 bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">π</div>
-              <span className="font-display font-black tracking-tight">PRAXIUM</span>
+              <span className="font-display font-black tracking-tight">PRAXIUM SUITE</span>
             </div>
             <p className="mt-4 text-xs text-white/50 leading-relaxed max-w-xs">
               πραξις · praxis · action. The operating system from which firms act.
             </p>
+            <div className="mt-6 space-y-1 text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">
+              <div>praxiumlaw.com  <span className="text-white/30">// b2b firm os</span></div>
+              <div>praxiumsuite.com <span className="text-white/30">// product suite</span></div>
+              <div>praxahq.com  <span className="text-white/30">// b2c consumer app</span></div>
+            </div>
           </div>
           <div className="col-span-6 lg:col-span-2">
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Product</div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Product · praxiumlaw.com</div>
             <div className="space-y-2 text-sm">
               <a href="#how" className="block text-white/70 hover:text-praxium-accent transition-colors">Features</a>
               <a href="#pricing" className="block text-white/70 hover:text-praxium-accent transition-colors">Pricing</a>
@@ -520,15 +525,15 @@ export default function Landing() {
             </div>
           </div>
           <div className="col-span-6 lg:col-span-2">
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Consumer</div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Consumer · praxahq.com</div>
             <div className="space-y-2 text-sm">
-              <Link to="/praxa" className="block text-white/70 hover:text-praxium-accent transition-colors">Praxa</Link>
-              <Link to="/praxa/signup" className="block text-white/70 hover:text-praxium-accent transition-colors">Praxa signup</Link>
+              <Link to="/praxa" className="block text-white/70 hover:text-praxium-accent transition-colors">Praxa HQ</Link>
+              <Link to="/praxa/signup" className="block text-white/70 hover:text-praxium-accent transition-colors">Sign up</Link>
             </div>
           </div>
           <div className="col-span-12 lg:col-span-4 text-xs font-mono text-white/40">
             <div className="mb-4">// trademark</div>
-            <p className="leading-relaxed">© 2026 Praxium · praxiumlaw.com · Software for law firms. Not affiliated with Filevine, Inc. Praxium is a registered trademark.</p>
+            <p className="leading-relaxed">© 2026 Praxium Suite · praxiumlaw.com · praxiumsuite.com · praxahq.com · Software for law firms. Not affiliated with Filevine, Inc.</p>
           </div>
         </div>
       </footer>

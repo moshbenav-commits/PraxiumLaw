@@ -25,7 +25,7 @@ export default function PraxaSignup() {
       <div className="max-w-md w-full">
         <Link to="/praxa" className="flex items-center gap-2 mb-8 justify-center">
           <div className="w-8 h-8 rounded-full bg-praxa-accent flex items-center justify-center text-white font-bold">π</div>
-          <span className="font-semibold text-lg">Praxa</span>
+          <span className="font-semibold text-lg">Praxa <span className="text-praxa-sage text-xs font-normal ml-0.5 uppercase tracking-widest">HQ</span></span>
         </Link>
         <div className="bg-white rounded-3xl p-8 border border-praxa-line">
           <h1 className="text-2xl font-semibold tracking-tight">Let's get started.</h1>
