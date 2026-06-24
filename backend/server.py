@@ -616,6 +616,9 @@ async def convert_lead(lid: str, user=Depends(get_current_user)):
     lead = await db.leads.find_one({"id": lid, "firm_id": user["firm_id"]})
     if not lead:
         raise HTTPException(404)
+    if lead.get("status") == "converted" and lead.get("matter_id"):
+        m = await db.matters.find_one({"id": lead["matter_id"]}, {"_id": 0})
+        return {"matter_id": lead["matter_id"], "contact_id": lead.get("contact_id"), "already_converted": True, "matter": m}
     # Create contact (client)
     contact_id = new_id()
     patient_id = gen_patient_id()
