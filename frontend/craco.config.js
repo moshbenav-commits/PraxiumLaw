@@ -85,6 +85,14 @@ let webpackConfig = {
     },
     configure: (webpackConfig) => {
 
+      // CRA 5 + webpack 5: drop plugins that break on modern ajv resolution
+      webpackConfig.plugins = webpackConfig.plugins.filter(
+        (plugin) =>
+          !["ForkTsCheckerWebpackPlugin", "ESLintWebpackPlugin"].includes(
+            plugin?.constructor?.name
+          )
+      );
+
       // Add ignored patterns to reduce watched directories
         webpackConfig.watchOptions = {
           ...webpackConfig.watchOptions,

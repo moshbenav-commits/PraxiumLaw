@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "framework": null,
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "rewrites": [
+    { "source": "/((?!static/).*)", "destination": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "praxahq.com" }],
+      "destination": "/praxa",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.praxahq.com" }],
+      "destination": "/praxa",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "praxiumsuite.com" }],
+      "destination": "https://www.praxiumlaw.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "praxiumsuite.com" }],
+      "destination": "https://www.praxiumlaw.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.praxiumsuite.com" }],
+      "destination": "https://www.praxiumlaw.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.praxiumsuite.com" }],
+      "destination": "https://www.praxiumlaw.com/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

@@ -2,17 +2,31 @@
 import os
 import time
 import uuid
+from pathlib import Path
+
 import pytest
 import requests
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "").rstrip("/")
-if not BASE_URL:
-    # Fallback to frontend .env (when run from /app/backend tests don't load that file)
-    with open("/app/frontend/.env") as f:
-        for line in f:
+
+def _load_backend_url() -> str:
+    env_url = os.environ.get("REACT_APP_BACKEND_URL", "").strip().rstrip("/")
+    if env_url:
+        return env_url
+
+    candidates = [
+        Path(__file__).resolve().parent.parent.parent / "frontend" / ".env",
+        Path("/app/frontend/.env"),
+    ]
+    for env_path in candidates:
+        if not env_path.is_file():
+            continue
+        for line in env_path.read_text(encoding="utf-8").splitlines():
             if line.startswith("REACT_APP_BACKEND_URL="):
-                BASE_URL = line.split("=", 1)[1].strip().rstrip("/")
-                break
+                return line.split("=", 1)[1].strip().strip('"').rstrip("/")
+    return "http://localhost:8000"
+
+
+BASE_URL = _load_backend_url()
 
 API = f"{BASE_URL}/api"
 TS = int(time.time())

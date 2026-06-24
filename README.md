@@ -40,4 +40,22 @@ cp env.local.example .env
 
 https://github.com/moshbenav-commits/PraxiumLaw.git — work on **`Main`**.
 
-From workspace root: `npm run dev:praxiumlaw` (if added to root package.json)
+## Production
+
+| Domain | Role |
+|--------|------|
+| www.praxiumlaw.com | B2B firm OS |
+| www.praxahq.com | B2C Praxa (`/praxa`) |
+| www.praxiumsuite.com | Alias → praxiumlaw.com |
+| api.praxiumlaw.com | FastAPI backend |
+
+Deploy + DNS: workspace [`docs/PRAXIUM_DEPLOY.md`](../docs/PRAXIUM_DEPLOY.md) · pending [`docs/PRAXIUM_PENDING.md`](../docs/PRAXIUM_PENDING.md)
+
+```bash
+cd frontend && npm run deploy:prod
+cd ../backend && bash scripts/deploy-vercel.sh
+```
+
+**Site password lock:** set `SITE_LOCK_PASSWORD` + `SITE_LOCK_SECRET` on Vercel `praxiumlaw-front`. Clear both to go fully public.
+
+From workspace root: `npm run dev:praxiumlaw`
