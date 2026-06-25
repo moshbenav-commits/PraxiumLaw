@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
-  ArrowRight, ArrowUpRight, Check, Command, Sparkles, ChevronRight, Minus,
+  ArrowRight, ArrowUpRight, Check, Command, Sparkles, ChevronRight,
   Briefcase, Phone, Stethoscope, Scale, Network, MessageSquare, FileText, Users,
 } from "lucide-react";
 import MatterCanvasMock from "../components/showcase/MatterCanvasMock";
@@ -10,6 +10,7 @@ import VoxLineMock from "../components/showcase/VoxLineMock";
 import MedConnectMock from "../components/showcase/MedConnectMock";
 import CommandPaletteMock from "../components/showcase/CommandPaletteMock";
 import MatterLifecycleTour from "../components/showcase/MatterLifecycleTour";
+import ScrollReveal from "../components/landing/ScrollReveal";
 
 // ──────────────── data ────────────────
 const STACK = [
@@ -53,9 +54,27 @@ const PILLARS = [
 
 const STATS = [
   { value: "70%", label: "Software stack cost reduction" },
-  { value: "18 days", label: "Medical records collection vs. 60-90 industry avg" },
+  { value: "18 days", label: "Medical records vs. 60–90 industry avg" },
   { value: "30 sec", label: "Firm onboarding vs. 90 days Filevine" },
-  { value: "$0", label: "Implementation cost vs. $25k+ Filevine consultants" },
+  { value: "$0", label: "Implementation vs. $25k+ consultants" },
+  { value: "45", label: "Modules included — not sold separately" },
+  { value: "4.5", label: "Claude Sonnet AI built in (not 2/5 Sidebar AI)" },
+];
+
+const LEAD_FEES = [
+  { type: "Slip & fall / minor MVA", fee: 50 },
+  { type: "Standard PI / soft tissue", fee: 150 },
+  { type: "Catastrophic injury / wrongful death", fee: 500 },
+  { type: "Mass tort qualifier", fee: 1000 },
+];
+
+const PRACTICE_AREAS = [
+  { icon: Scale, label: "Personal injury" },
+  { icon: Users, label: "Family law" },
+  { icon: Briefcase, label: "Criminal defense" },
+  { icon: FileText, label: "Bankruptcy" },
+  { icon: Stethoscope, label: "Immigration" },
+  { icon: MessageSquare, label: "Estate planning" },
 ];
 
 const TIERS = [
@@ -100,47 +119,61 @@ export default function Landing() {
             <Link to="/praxa" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors" data-testid="landing-praxa-link">Praxa</Link>
             <Link to="/login" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] hover:text-praxium-accent transition-colors" data-testid="landing-login">Sign in</Link>
           </nav>
-          <Link to="/signup" data-testid="landing-cta-signup" className="bg-praxium-ink text-white px-4 py-2 text-xs font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent transition-colors">
+          <Link to="/signup" data-testid="landing-cta-signup" className="bg-praxium-ink text-white px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent transition-colors">
             Start free
           </Link>
         </div>
       </header>
 
       {/* ─── HERO ─── */}
-      <section className="pt-40 pb-32 px-6 relative">
+      <section className="pt-36 pb-20 lg:pb-28 px-6 relative overflow-hidden">
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-praxium-line to-transparent" />
+        <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-praxium-accent/20 to-transparent" />
         <div className="max-w-7xl mx-auto">
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-8 flex items-center gap-3">
-            <span className="w-8 h-px bg-praxium-accent" />
-            <span>// the legal operating system // 2026</span>
-          </div>
-          <h1 className="font-display font-black tracking-[-0.04em] leading-[0.88] text-[15vw] sm:text-[12vw] lg:text-[8.5rem] xl:text-[9.5rem]">
-            Run your firm<br />
-            on <span className="text-praxium-accent italic">praxis.</span>
-          </h1>
-          <div className="mt-12 grid grid-cols-12 gap-8 items-start">
-            <div className="col-span-12 lg:col-span-7">
-              <p className="text-xl lg:text-2xl text-praxium-ink/80 max-w-2xl leading-snug">
-                Praxium Suite is the operating system that replaces Filevine, RingCentral, DocuSign, Mailchimp, ChartSwap, and four other tools with one product — and cuts your software bill by 70%.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link to="/signup" data-testid="hero-cta-signup" className="group bg-praxium-accent text-white px-7 py-4 text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent-hover transition-colors flex items-center gap-3">
-                  Start 30 days free <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
-                </Link>
-                <a href="#truth" className="text-sm font-mono uppercase tracking-[0.15em] text-praxium-ink hover:text-praxium-accent transition-colors flex items-center gap-2">
-                  See the math <ChevronRight size={14} />
-                </a>
-              </div>
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-praxium-subtle">
-                <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> No card required</span>
-                <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> Free migration from Filevine</span>
-                <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> 90-day money back</span>
-              </div>
+          <ScrollReveal>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-8 flex items-center gap-3">
+              <span className="w-8 h-px bg-praxium-accent" />
+              <span>// the legal operating system // 2026</span>
             </div>
-            <div className="col-span-12 lg:col-span-5 lg:pt-8">
-              <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-praxium-subtle mb-3">// the pitch in 35 words</div>
-              <p className="text-base text-praxium-ink/70 leading-relaxed border-l-2 border-praxium-accent pl-4">
-                Filevine was built in 2014. It costs $10,000 a month with the stack. Praxium was built in 2026. It costs $3,000. It does more. The AI works. Migration is free.
-              </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="col-span-12 lg:col-span-6">
+              <ScrollReveal delay={80}>
+                <h1 className="font-display font-black tracking-[-0.04em] leading-[0.88] text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
+                  The operating system for the{" "}
+                  <span className="text-praxium-accent italic">modern law firm.</span>
+                </h1>
+                <p className="mt-8 text-xl lg:text-2xl text-praxium-ink/80 max-w-xl leading-snug">
+                  Replace eight tools with one. Save $86,000 a year. Get AI that actually ships your demand letter.
+                </p>
+                <div className="mt-10 flex flex-wrap items-center gap-4">
+                  <Link to="/signup" data-testid="hero-cta-signup" className="group bg-praxium-accent text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent-hover transition-colors flex items-center gap-3">
+                    Start 30 days free <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+                  </Link>
+                  <a href="#truth" className="rounded-full border border-praxium-line px-6 py-4 text-sm font-mono uppercase tracking-[0.15em] text-praxium-ink hover:border-praxium-accent hover:text-praxium-accent transition-colors flex items-center gap-2">
+                    See the math <ChevronRight size={14} />
+                  </a>
+                </div>
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-praxium-subtle">
+                  <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> No card required</span>
+                  <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> Free migration from Filevine</span>
+                  <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> 90-day money back</span>
+                </div>
+              </ScrollReveal>
+            </div>
+            <div className="col-span-12 lg:col-span-6">
+              <ScrollReveal delay={160}>
+                <div className="relative lg:pl-4">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-praxium-accent/8 via-transparent to-praxium-line/40 rounded-sm blur-2xl pointer-events-none" />
+                  <div className="relative shadow-2xl shadow-praxium-ink/10 ring-1 ring-praxium-line/80">
+                    <MatterCanvasMock />
+                  </div>
+                  <div className="mt-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.2em] text-praxium-subtle">
+                    <span>// live product · matter canvas</span>
+                    <span className="hidden sm:flex items-center gap-1.5"><Command size={10} />K anywhere</span>
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -151,10 +184,19 @@ export default function Landing() {
 
       {/* ─── PROOF STRIP ─── */}
       <section className="border-y border-praxium-line bg-praxium-surface">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex items-center gap-8 overflow-x-auto">
-          <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-praxium-subtle whitespace-nowrap">// built for u.s. law firms</div>
-          <div className="flex items-center gap-8 text-xs font-mono text-praxium-subtle whitespace-nowrap">
-            <span>50 STATES</span><Minus size={10} /><span>PI · FAMILY · CRIMINAL · BANKRUPTCY · IMMIGRATION · ESTATE</span><Minus size={10} /><span>SOLO → 100+ ATTORNEYS</span><Minus size={10} /><span>HIPAA · TCPA · CAN-SPAM READY</span>
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-praxium-subtle whitespace-nowrap shrink-0">
+              // trusted by u.s. law firms in 50 states
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {PRACTICE_AREAS.map(({ icon: Icon, label }) => (
+                <span key={label} className="inline-flex items-center gap-2 px-3 py-1.5 border border-praxium-line bg-praxium-bg text-xs font-mono text-praxium-subtle">
+                  <Icon size={12} className="text-praxium-accent" strokeWidth={1.6} />
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -162,16 +204,19 @@ export default function Landing() {
       {/* ─── THE TRUTH (math section — our killer angle) ─── */}
       <section id="truth" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-6">// the truth // unrounded math</div>
-          <h2 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-4xl">
-            A 15-attorney firm pays<br />
-            <span className="text-praxium-accent">$10,150/mo</span> for what we do<br />
-            for <span className="text-praxium-accent">$2,985.</span>
-          </h2>
-          <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
-            Filevine never shows pricing on their homepage. Most legal software companies don't. We do the opposite. Here's the unrounded math.
-          </p>
+          <ScrollReveal>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-6">// the truth // unrounded math</div>
+            <h2 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-4xl">
+              A 15-attorney firm pays<br />
+              <span className="text-praxium-accent">$10,150/mo</span> for what we do<br />
+              for <span className="text-praxium-accent">$2,985.</span>
+            </h2>
+            <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
+              Filevine never shows pricing on their homepage. Most legal software companies don't. We do the opposite. Here's the unrounded math.
+            </p>
+          </ScrollReveal>
 
+          <ScrollReveal delay={100}>
           <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-px bg-praxium-line border border-praxium-line">
             <div className="lg:col-span-7 bg-praxium-surface p-8 lg:p-12">
               <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-praxium-subtle mb-6">// your stack today</div>
@@ -206,6 +251,7 @@ export default function Landing() {
               </Link>
             </div>
           </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -217,10 +263,10 @@ export default function Landing() {
             Delivering advantage<br />
             at the <span className="text-praxium-accent italic">unit-level.</span>
           </h2>
-          <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
+          <div className="mt-20 grid grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
             {STATS.map((s) => (
               <div key={s.label} className="bg-praxium-ink p-8 lg:p-10">
-                <div className="font-display font-black text-5xl lg:text-7xl tabular text-praxium-accent leading-none">{s.value}</div>
+                <div className="font-display font-black text-4xl sm:text-5xl lg:text-6xl tabular text-praxium-accent leading-none">{s.value}</div>
                 <div className="mt-4 text-xs text-white/60 leading-relaxed">{s.label}</div>
               </div>
             ))}
@@ -418,17 +464,17 @@ export default function Landing() {
           <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
             Every tier includes the full platform. Upgrade unlocks more features — never more modules. No add-on fees. Ever.
           </p>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px bg-praxium-line border border-praxium-line">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-px bg-praxium-line border border-praxium-line">
             {TIERS.map((t) => (
-              <div key={t.name} data-testid={`pricing-tier-${t.name.toLowerCase()}`} className={`relative bg-praxium-surface p-6 flex flex-col ${t.popular ? "lg:scale-105 lg:z-10 lg:shadow-2xl bg-praxium-ink text-white" : ""}`}>
-                {t.popular && <div className="absolute -top-3 left-6 px-2.5 py-0.5 bg-praxium-accent text-white text-[9px] font-mono uppercase tracking-[0.2em]">Most Popular</div>}
+              <div key={t.name} data-testid={`pricing-tier-${t.name.toLowerCase()}`} className={`relative bg-praxium-surface p-6 lg:p-8 flex flex-col min-h-[420px] ${t.popular ? "xl:scale-[1.03] xl:z-10 xl:shadow-2xl bg-praxium-ink text-white ring-2 ring-praxium-accent ring-offset-2 ring-offset-praxium-surface" : ""}`}>
+                {t.popular && <div className="absolute -top-3 left-6 px-3 py-1 bg-praxium-accent text-white text-[9px] font-mono uppercase tracking-[0.2em] rounded-full">Most Popular</div>}
                 <div className={`font-display font-black text-xl ${t.popular ? "text-white" : ""}`}>{t.name}</div>
                 <div className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${t.popular ? "text-white/60" : "text-praxium-subtle"}`}>{t.sub}</div>
                 <div className="mt-6 flex items-baseline gap-1">
                   <span className={`text-5xl font-display font-black tabular ${t.popular ? "text-white" : ""}`}>${t.price}</span>
                   <span className={`text-[10px] font-mono ${t.popular ? "text-white/60" : "text-praxium-subtle"}`}>/u/mo</span>
                 </div>
-                <ul className={`mt-6 space-y-2 text-sm flex-1 ${t.popular ? "text-white/80" : ""}`}>
+                <ul className={`mt-6 space-y-2.5 text-sm flex-1 ${t.popular ? "text-white/80" : "text-praxium-ink/80"}`}>
                   {t.features.map((f) => (
                     <li key={f} className="flex items-start gap-2">
                       <Check size={12} className="text-praxium-accent mt-1 shrink-0" />
@@ -436,12 +482,34 @@ export default function Landing() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/signup" className={`mt-8 block text-center text-xs font-mono uppercase tracking-[0.15em] py-2.5 transition-colors ${t.popular ? "bg-praxium-accent text-white hover:bg-praxium-accent-hover" : "border border-praxium-line hover:border-praxium-accent hover:text-praxium-accent"}`}>
+                <Link to="/signup" className={`mt-8 block text-center text-xs font-mono uppercase tracking-[0.15em] py-3 rounded-full transition-colors ${t.popular ? "bg-praxium-accent text-white hover:bg-praxium-accent-hover" : "border border-praxium-line hover:border-praxium-accent hover:text-praxium-accent"}`}>
                   Start →
                 </Link>
               </div>
             ))}
           </div>
+
+          <ScrollReveal delay={120}>
+            <div className="mt-16 border border-praxium-line bg-praxium-bg p-8 lg:p-10">
+              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+                <div>
+                  <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-praxium-subtle mb-3">// marketplace tier add-on</div>
+                  <h3 className="font-display font-black text-2xl lg:text-3xl tracking-[-0.02em]">Per-lead pricing — no hidden math</h3>
+                  <p className="mt-2 text-sm text-praxium-ink/70 max-w-xl">Marketplace subscribers receive LawMatch leads. You pay a flat marketing fee per qualified case — Rule 7.2 safe, never a percentage of recovery.</p>
+                </div>
+                <Link to="/signup" className="shrink-0 text-xs font-mono uppercase tracking-[0.15em] text-praxium-accent hover:underline">Start on Marketplace →</Link>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-praxium-line border border-praxium-line">
+                {LEAD_FEES.map((l) => (
+                  <div key={l.type} className="bg-praxium-surface p-5">
+                    <div className="text-xs text-praxium-ink/80 leading-snug">{l.type}</div>
+                    <div className="mt-2 font-display font-black text-3xl tabular text-praxium-accent">${l.fee}</div>
+                    <div className="text-[10px] font-mono text-praxium-subtle uppercase tracking-wider">per lead</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -471,64 +539,49 @@ export default function Landing() {
       </section>
 
       {/* ─── FINAL CTA ─── */}
-      <section className="bg-praxium-ink text-white py-40 px-6 relative overflow-hidden">
-        <div className="absolute -right-20 -bottom-20 text-[36rem] font-display font-black text-white/[0.03] leading-none">π</div>
+      <section className="bg-praxium-ink text-white py-32 lg:py-40 px-6 relative overflow-hidden">
+        <div className="absolute -right-20 -bottom-20 text-[36rem] font-display font-black text-white/[0.03] leading-none pointer-events-none">π</div>
         <div className="max-w-5xl mx-auto text-center relative">
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 mb-8">// final word</div>
-          <h2 className="font-display font-black tracking-[-0.04em] leading-[0.88] text-6xl sm:text-7xl lg:text-8xl">
-            Stop renting<br />
-            <span className="text-praxium-accent italic">eight</span> tools.
-          </h2>
-          <p className="mt-12 text-xl text-white/60 max-w-2xl mx-auto">
-            Praxium Suite ships in 30 seconds. Migration is on us. You'll save more in month one than you'll pay all year.
-          </p>
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-4">
-            <Link to="/signup" data-testid="final-cta-signup" className="bg-praxium-accent text-white px-8 py-4 text-sm font-mono uppercase tracking-[0.15em] hover:bg-white hover:text-praxium-ink transition-colors flex items-center gap-3 group">
-              Start 30 days free <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
-            </Link>
-            <a href="#truth" className="text-sm font-mono uppercase tracking-[0.15em] text-white/70 hover:text-praxium-accent transition-colors">
-              Or see the math again ↑
-            </a>
-          </div>
+          <ScrollReveal>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 mb-8">// final word</div>
+            <h2 className="font-display font-black tracking-[-0.04em] leading-[0.88] text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
+              Start your 30 days.<br />
+              <span className="text-praxium-accent italic">No card. No consultants.</span>
+            </h2>
+            <p className="mt-10 text-xl text-white/60 max-w-2xl mx-auto">
+              Migrate from Filevine in 14 days — free. You'll save more in month one than you'll pay all year.
+            </p>
+            <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
+              <Link to="/signup" data-testid="final-cta-signup" className="bg-praxium-accent text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-white hover:text-praxium-ink transition-colors flex items-center gap-3 group">
+                See your savings in 60 seconds <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+              </Link>
+              <a href="#truth" className="rounded-full border border-white/20 px-6 py-4 text-sm font-mono uppercase tracking-[0.15em] text-white/70 hover:border-praxium-accent hover:text-praxium-accent transition-colors">
+                Or see the math again ↑
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ─── FOOTER ─── */}
       <footer className="bg-praxium-ink text-white border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-12 gap-8">
-          <div className="col-span-12 lg:col-span-4">
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">π</div>
+              <div className="w-7 h-7 bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm rounded-sm">π</div>
               <span className="font-display font-black tracking-tight">PRAXIUM SUITE</span>
             </div>
-            <p className="mt-4 text-xs text-white/50 leading-relaxed max-w-xs">
-              πραξις · praxis · action. The operating system from which firms act.
-            </p>
-            <div className="mt-6 space-y-1 text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">
-              <div>www.praxiumlaw.com  <span className="text-white/30">// b2b firm os</span></div>
-              <div>www.praxiumsuite.com <span className="text-white/30">// product suite</span></div>
-              <div>www.praxahq.com  <span className="text-white/30">// b2c consumer app</span></div>
-            </div>
+            <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
+              <a href="#how" className="hover:text-praxium-accent transition-colors">Features</a>
+              <a href="#pricing" className="hover:text-praxium-accent transition-colors">Pricing</a>
+              <Link to="/praxa" className="hover:text-praxium-accent transition-colors">Praxa</Link>
+              <Link to="/login" className="hover:text-praxium-accent transition-colors">Sign in</Link>
+              <Link to="/signup" className="hover:text-praxium-accent transition-colors">Start free</Link>
+            </nav>
           </div>
-          <div className="col-span-6 lg:col-span-2">
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Product · www.praxiumlaw.com</div>
-            <div className="space-y-2 text-sm">
-              <a href="#how" className="block text-white/70 hover:text-praxium-accent transition-colors">Features</a>
-              <a href="#pricing" className="block text-white/70 hover:text-praxium-accent transition-colors">Pricing</a>
-              <Link to="/login" className="block text-white/70 hover:text-praxium-accent transition-colors">Sign in</Link>
-              <Link to="/signup" className="block text-white/70 hover:text-praxium-accent transition-colors">Start free</Link>
-            </div>
-          </div>
-          <div className="col-span-6 lg:col-span-2">
-            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-4">Consumer · www.praxahq.com</div>
-            <div className="space-y-2 text-sm">
-              <Link to="/praxa" className="block text-white/70 hover:text-praxium-accent transition-colors">Praxa HQ</Link>
-              <Link to="/praxa/signup" className="block text-white/70 hover:text-praxium-accent transition-colors">Sign up</Link>
-            </div>
-          </div>
-          <div className="col-span-12 lg:col-span-4 text-xs font-mono text-white/40">
-            <div className="mb-4">// trademark</div>
-            <p className="leading-relaxed">© 2026 Praxium Suite · www.praxiumlaw.com · www.praxiumsuite.com · www.praxahq.com · Software for law firms. Not affiliated with Filevine, Inc.</p>
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[11px] font-mono text-white/40">
+            <p>Built for U.S. law firms · Designed for firms switching from Filevine · Not affiliated with Filevine, Inc.</p>
+            <p>© 2026 Praxium Suite · praxiumlaw.com · praxahq.com</p>
           </div>
         </div>
       </footer>
