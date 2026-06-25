@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Briefcase, CheckSquare, AlertCircle, UserPlus, Plus, Sparkles, Command } from "lucide-react";
 import { STATUSES, STATUS_DOT, timeAgo } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
+import PageLoader from "@/components/common/PageLoader";
 
 export default function Dashboard() {
   const { user, firm } = useAuth();
@@ -13,7 +14,7 @@ export default function Dashboard() {
     api.get("/dashboard").then((r) => setData(r.data));
   }, []);
 
-  if (!data) return <div className="p-8 font-mono text-xs text-praxium-subtle animate-pulse">Loading dashboard…</div>;
+  if (!data) return <PageLoader label="Loading dashboard…" />;
 
   const isNewFirm = (data.total_matters ?? 0) === 0;
 

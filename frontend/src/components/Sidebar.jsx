@@ -1,8 +1,8 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard, Briefcase, Users, FileText, CheckSquare, Calendar,
   MessageSquare, Stethoscope, Scale, BarChart3, Inbox, Settings, Sparkles,
-  Network, ScrollText, Phone,
+  Network, ScrollText, Phone, X,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn, initials } from "@/lib/utils";
@@ -24,34 +24,46 @@ const NAV = [
   { to: "/reports", label: "Reports", icon: BarChart3, testid: "nav-reports" },
 ];
 
-export default function Sidebar({ onAiToggle }) {
-  const { user, firm, logout } = useAuth();
-  return (
-    <aside className="w-60 bg-praxium-sidebar text-praxium-sidebar-ink flex flex-col shrink-0 border-r border-black/40">
-      {/* Brand */}
-      <div className="px-4 py-4 border-b border-white/10">
-        <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-sm bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">
-            π
-          </div>
-          <div className="leading-none">
-            <div className="font-display font-black text-[15px] tracking-tight text-white">PRAXIUM</div>
-            <div className="text-[9px] font-mono uppercase tracking-[0.25em] text-zinc-500 mt-0.5">
-              suite · praxiumlaw.com
+export default function Sidebar({ onAiToggle, mobileOpen, onClose }) {
+  const { user, firm } = useAuth();
+
+  const panel = (
+    <>
+      <div className="px-4 py-4 border-b border-white/10 flex items-start justify-between gap-2">
+        <div>
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-sm bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">
+              π
+            </div>
+            <div className="leading-none">
+              <div className="font-display font-black text-[15px] tracking-tight text-white">PRAXIUM</div>
+              <div className="text-[9px] font-mono uppercase tracking-[0.25em] text-zinc-500 mt-0.5">
+                suite · praxiumlaw.com
+              </div>
             </div>
           </div>
+          {firm && (
+            <div className="mt-3 text-xs text-zinc-400 truncate" data-testid="sidebar-firm-name">{firm.name}</div>
+          )}
         </div>
-        {firm && (
-          <div className="mt-3 text-xs text-zinc-400 truncate" data-testid="sidebar-firm-name">{firm.name}</div>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="lg:hidden p-1 text-zinc-400 hover:text-white"
+            aria-label="Close navigation"
+          >
+            <X size={18} />
+          </button>
         )}
       </div>
 
-      {/* Nav */}
       <nav className="flex-1 overflow-y-auto px-2 py-3 space-y-0.5">
         {NAV.map((item) => (
           <NavLink
             key={item.to}
             to={item.to}
+            onClick={onClose}
             data-testid={item.testid}
             className={({ isActive }) => cn("sb-item", isActive && "sb-item-active")}
           >
@@ -61,7 +73,6 @@ export default function Sidebar({ onAiToggle }) {
         ))}
       </nav>
 
-      {/* AI button */}
       <div className="px-2 pb-2">
         <button
           onClick={onAiToggle}
@@ -74,7 +85,6 @@ export default function Sidebar({ onAiToggle }) {
         </button>
       </div>
 
-      {/* Profile */}
       <div className="border-t border-white/10 p-3 flex items-center gap-2.5">
         <div className="w-8 h-8 rounded-sm bg-white/10 flex items-center justify-center text-xs font-bold font-display">
           {initials(user?.name)}
@@ -83,10 +93,34 @@ export default function Sidebar({ onAiToggle }) {
           <div className="text-xs font-semibold text-white truncate" data-testid="sidebar-user-name">{user?.name}</div>
           <div className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">{user?.role}</div>
         </div>
-        <NavLink to="/settings" className="text-zinc-400 hover:text-white" data-testid="sidebar-settings">
+        <NavLink to="/settings" onClick={onClose} className="text-zinc-400 hover:text-white" data-testid="sidebar-settings">
           <Settings size={14} />
         </NavLink>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <aside className="hidden lg:flex w-60 bg-praxium-sidebar text-praxium-sidebar-ink flex-col shrink-0 border-r border-black/40">
+        {panel}
+      </aside>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <>
+          <button
+            type="button"
+            aria-label="Close menu overlay"
+            className="lg:hidden fixed inset-0 z-40 bg-black/50"
+            onClick={onClose}
+          />
+          <aside className="lg:hidden fixed inset-y-0 left-0 z-50 w-72 max-w-[85vw] bg-praxium-sidebar text-praxium-sidebar-ink flex flex-col shadow-2xl">
+            {panel}
+          </aside>
+        </>
+      )}
+    </>
   );
 }

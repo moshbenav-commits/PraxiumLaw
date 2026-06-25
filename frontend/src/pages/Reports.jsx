@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import api from "@/lib/api";
 import { BarChart3, Sparkles } from "lucide-react";
 import { STATUSES, STATUS_DOT } from "@/lib/utils";
+import PageLoader from "@/components/common/PageLoader";
 
 export default function Reports() {
   const [data, setData] = useState(null);
   useEffect(() => { api.get("/dashboard").then((r) => setData(r.data)); }, []);
 
-  if (!data) return <div className="p-8 font-mono text-xs">loading...</div>;
+  if (!data) return <PageLoader label="Loading reports…" />;
   const maxPipeline = Math.max(...Object.values(data.pipeline || {}), 1);
 
   return (
-    <div className="px-6 py-6">
+    <div className="px-4 sm:px-6 py-6">
       <div className="overline mb-2">// report studio</div>
       <h1 className="font-display font-black text-3xl tracking-tight flex items-center gap-3"><BarChart3 className="text-praxium-accent" /> Reports</h1>
       <p className="text-sm text-praxium-subtle mt-2">Drag-drop reports + natural-language queries. Save as dashboard widgets.</p>
@@ -26,7 +27,7 @@ export default function Reports() {
         <p className="text-[10px] font-mono text-praxium-subtle mt-1">// claude 4.5 parses → SQL → chart. Coming Phase 2.</p>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-4">
+      <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="data-card p-5">
           <div className="overline mb-3">// pipeline distribution</div>
           <div className="space-y-2">

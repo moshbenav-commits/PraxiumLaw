@@ -1,12 +1,14 @@
 import "@/App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Toaster } from "sonner";
 
 import Landing from "@/pages/Landing";
+import Pricing from "@/pages/Pricing";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
 import IntakeForm from "@/pages/IntakeForm";
+import NotFound from "@/pages/NotFound";
 
 import Shell from "@/components/Shell";
 import Dashboard from "@/pages/Dashboard";
@@ -41,6 +43,7 @@ function App() {
         <Routes>
           {/* Marketing & public */}
           <Route path="/" element={<Landing />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/intake/:firmSlug?" element={<IntakeForm />} />
@@ -73,7 +76,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
           </Route>
 
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

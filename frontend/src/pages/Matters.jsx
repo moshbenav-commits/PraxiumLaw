@@ -4,25 +4,30 @@ import { Link } from "react-router-dom";
 import { Plus, LayoutGrid, List } from "lucide-react";
 import { STATUSES, STATUS_DOT, STATUS_COLORS, PRACTICE_AREAS, formatDate, formatMoney } from "@/lib/utils";
 import { cn } from "@/lib/utils";
+import PageLoader from "@/components/common/PageLoader";
+import EmptyState from "@/components/common/EmptyState";
 
 export default function Matters() {
   const [matters, setMatters] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [view, setView] = useState("kanban");
   const [filter, setFilter] = useState("all");
 
-  const load = () => api.get("/matters").then((r) => setMatters(r.data));
+  const load = () => api.get("/matters").then((r) => { setMatters(r.data); setLoading(false); });
   useEffect(() => { load(); }, []);
 
   const filtered = filter === "all" ? matters : matters.filter((m) => m.practice_area === filter);
 
+  if (loading) return <PageLoader label="Loading matters…" />;
+
   return (
-    <div className="px-6 py-6">
-      <div className="flex items-end justify-between mb-6">
+    <div className="px-4 sm:px-6 py-6">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
           <div className="overline mb-2">// case management</div>
           <h1 className="font-display font-black text-3xl tracking-tight">Matters</h1>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <div className="flex border border-praxium-line rounded-sm">
             <button onClick={() => setView("kanban")} data-testid="matters-view-kanban"
               className={cn("px-2.5 py-1.5", view === "kanban" ? "bg-praxium-ink text-white" : "")}><LayoutGrid size={13} /></button>
@@ -40,7 +45,15 @@ export default function Matters() {
         </div>
       </div>
 
-      {view === "kanban" ? (
+      {filtered.length === 0 && matters.length === 0 ? (
+        <EmptyState
+          title="No matters yet"
+          body="Create your first matter to start tracking cases, tasks, and documents in one canvas."
+          actionLabel="New matter"
+          actionTo="/matters/new"
+          testId="matters-empty"
+        />
+      ) : view === "kanban" ? (
         <div className="flex gap-3 overflow-x-auto pb-4">
           {STATUSES.map((status) => {
             const items = filtered.filter((m) => m.status === status);

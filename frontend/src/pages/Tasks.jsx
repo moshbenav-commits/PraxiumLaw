@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "@/lib/api";
 import { Plus, Check } from "lucide-react";
 import { formatDate, cn } from "@/lib/utils";
+import PageLoader from "@/components/common/PageLoader";
 
 const PRIORITY_COLORS = {
   urgent: "bg-rose-100 text-rose-900",
@@ -12,10 +13,11 @@ const PRIORITY_COLORS = {
 
 export default function Tasks() {
   const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ title: "", priority: "medium", due_date: "" });
 
-  const load = () => api.get("/tasks").then((r) => setTasks(r.data));
+  const load = () => api.get("/tasks").then((r) => { setTasks(r.data); setLoading(false); });
   useEffect(load, []);
 
   const create = async (e) => {
@@ -31,8 +33,10 @@ export default function Tasks() {
     load();
   };
 
+  if (loading) return <PageLoader label="Loading tasks…" />;
+
   return (
-    <div className="px-6 py-6">
+    <div className="px-4 sm:px-6 py-6">
       <div className="flex items-end justify-between mb-6">
         <div>
           <div className="overline mb-2">// tasks // {tasks.filter((t) => t.status !== "done").length} open</div>
@@ -57,6 +61,15 @@ export default function Tasks() {
         </form>
       )}
 
+      {tasks.length === 0 && !showForm ? (
+        <div className="data-card p-10 text-center" data-testid="tasks-empty">
+          <div className="font-display font-black text-xl tracking-tight">No tasks yet</div>
+          <p className="mt-2 text-sm text-praxium-subtle max-w-md mx-auto">Track deadlines, follow-ups, and assignments across your firm.</p>
+          <button type="button" onClick={() => setShowForm(true)} className="btn-praxium inline-flex mt-6 rounded-full">
+            New task
+          </button>
+        </div>
+      ) : (
       <div className="data-card overflow-hidden">
         <div className="divide-y divide-praxium-line">
           {tasks.map((t) => (
@@ -69,9 +82,9 @@ export default function Tasks() {
               {t.due_date && <span className="text-[10px] font-mono text-praxium-subtle w-20 text-right">{formatDate(t.due_date)}</span>}
             </div>
           ))}
-          {tasks.length === 0 && <div className="px-4 py-12 text-center text-sm text-praxium-subtle">No tasks yet.</div>}
         </div>
       </div>
+      )}
     </div>
   );
 }

@@ -14,6 +14,7 @@ import ScrollReveal from "../components/landing/ScrollReveal";
 import LandingMobileNav from "../components/landing/LandingMobileNav";
 import SavingsCalculator from "../components/landing/SavingsCalculator";
 import usePageMeta from "../components/landing/usePageMeta";
+import { TIERS, LEAD_FEES } from "@/data/marketing";
 
 // ──────────────── data ────────────────
 const STACK = [
@@ -64,13 +65,6 @@ const STATS = [
   { value: "4.5", label: "Claude Sonnet AI built in (not 2/5 Sidebar AI)" },
 ];
 
-const LEAD_FEES = [
-  { type: "Slip & fall / minor MVA", fee: 50 },
-  { type: "Standard PI / soft tissue", fee: 150 },
-  { type: "Catastrophic injury / wrongful death", fee: 500 },
-  { type: "Mass tort qualifier", fee: 1000 },
-];
-
 const PRACTICE_AREAS = [
   { icon: Scale, label: "Personal injury" },
   { icon: Users, label: "Family law" },
@@ -78,14 +72,6 @@ const PRACTICE_AREAS = [
   { icon: FileText, label: "Bankruptcy" },
   { icon: Stethoscope, label: "Immigration" },
   { icon: MessageSquare, label: "Estate planning" },
-];
-
-const TIERS = [
-  { name: "Solo", price: 49, sub: "for the lone gunner", features: ["Core firm OS", "Matters · Contacts · Tasks", "Documents + Notes", "Basic CoCounsel AI"] },
-  { name: "Starter", price: 99, sub: "small firms (1–5 attys)", features: ["Everything in Solo", "CaseChat + NativeSign", "Report Studio + DocGen", "Intake Hub + Client Portal", "Conflict Checker"] },
-  { name: "Pro", price: 199, sub: "most firms land here", popular: true, features: ["Everything in Starter", "CourtConnect + CourtFile", "MedConnect + DocScheduler", "VoxLine + TextLine", "Voice cloning (1 voice)", "Client mobile app", "Universal Inbox + Smart Folders", "Glass-Box AI"] },
-  { name: "Marketplace", price: 299, sub: "lead-hungry firms", features: ["Everything in Pro", "LawMatch lead delivery", "AI MedChron summarizer", "Subrogation engine", "Settlement Comparables DB", "Co-counsel mode", "3 voice clones", "Priority support"] },
-  { name: "Enterprise", price: 499, sub: "multi-office firms", features: ["Everything in Marketplace", "Multi-office + white-label", "Dedicated CSM + SLA", "MSA + mass-tort modules", "Custom integrations", "EMR pulls (Phase 3)"] },
 ];
 
 const TESTIMONIALS = [
@@ -119,7 +105,7 @@ export default function Landing() {
           <nav className="hidden md:flex items-center gap-1">
             <a href="#truth" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">The math</a>
             <a href="#how" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Product</a>
-            <a href="#pricing" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Pricing</a>
+            <Link to="/pricing" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Pricing</Link>
             <Link to="/praxa" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors" data-testid="landing-praxa-link">Praxa</Link>
             <Link to="/login" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] hover:text-praxium-accent transition-colors" data-testid="landing-login">Sign in</Link>
           </nav>
@@ -581,7 +567,7 @@ export default function Landing() {
             </div>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
               <a href="#how" className="hover:text-praxium-accent transition-colors">Features</a>
-              <a href="#pricing" className="hover:text-praxium-accent transition-colors">Pricing</a>
+              <Link to="/pricing" className="hover:text-praxium-accent transition-colors">Pricing</Link>
               <Link to="/praxa" className="hover:text-praxium-accent transition-colors">Praxa</Link>
               <Link to="/login" className="hover:text-praxium-accent transition-colors">Sign in</Link>
               <Link to="/signup" className="hover:text-praxium-accent transition-colors">Start free</Link>

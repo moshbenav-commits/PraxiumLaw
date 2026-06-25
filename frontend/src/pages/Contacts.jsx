@@ -3,21 +3,29 @@ import api from "@/lib/api";
 import { Link } from "react-router-dom";
 import { Plus, Search } from "lucide-react";
 import { CONTACT_KINDS } from "@/lib/utils";
+import PageLoader from "@/components/common/PageLoader";
+import EmptyState from "@/components/common/EmptyState";
 
 export default function Contacts() {
   const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [kind, setKind] = useState("");
 
   useEffect(() => {
+    setLoading(true);
     const params = new URLSearchParams();
     if (kind) params.set("kind", kind);
     if (search) params.set("search", search);
-    api.get(`/contacts?${params}`).then((r) => setContacts(r.data));
+    api.get(`/contacts?${params}`)
+      .then((r) => setContacts(r.data))
+      .finally(() => setLoading(false));
   }, [search, kind]);
 
+  if (loading && contacts.length === 0) return <PageLoader label="Loading contacts…" />;
+
   return (
-    <div className="px-6 py-6">
+    <div className="px-4 sm:px-6 py-6">
       <div className="flex items-end justify-between mb-6">
         <div>
           <div className="overline mb-2">// contacts // {contacts.length} total</div>
@@ -26,7 +34,7 @@ export default function Contacts() {
         <Link to="/contacts/new" className="btn-praxium" data-testid="contacts-new"><Plus size={14} /> Add</Link>
       </div>
 
-      <div className="flex gap-2 mb-4">
+      <div className="flex flex-col sm:flex-row gap-2 mb-4">
         <div className="relative flex-1 max-w-md">
           <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-praxium-subtle" />
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by name, email, phone, patient ID..."
@@ -40,7 +48,16 @@ export default function Contacts() {
         </select>
       </div>
 
-      <div className="data-card overflow-hidden">
+      {contacts.length === 0 ? (
+        <EmptyState
+          title="No contacts yet"
+          body="Add clients, providers, and opposing counsel to link them to matters."
+          actionLabel="Add contact"
+          actionTo="/contacts/new"
+          testId="contacts-empty"
+        />
+      ) : (
+      <div className="data-card overflow-hidden overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-praxium-bg border-b border-praxium-line">
@@ -63,12 +80,10 @@ export default function Contacts() {
                 <td className="px-4 py-2 font-mono text-xs">{c.phone || "—"}</td>
               </tr>
             ))}
-            {contacts.length === 0 && (
-              <tr><td colSpan={5} className="px-4 py-12 text-center text-sm text-praxium-subtle">No contacts. <Link to="/contacts/new" className="text-praxium-accent">Add your first.</Link></td></tr>
-            )}
           </tbody>
         </table>
       </div>
+      )}
     </div>
   );
 }

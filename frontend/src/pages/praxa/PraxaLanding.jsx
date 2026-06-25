@@ -6,29 +6,7 @@ import InsuranceCoachMock from "../../components/showcase/InsuranceCoachMock";
 import ScrollReveal from "../../components/landing/ScrollReveal";
 import PraxaMobileNav from "../../components/landing/PraxaMobileNav";
 import usePageMeta from "../../components/landing/usePageMeta";
-
-const PRAXA_TIERS = [
-  {
-    name: "Free",
-    price: 0,
-    sub: "Start tonight",
-    features: ["Symptom journal", "Document locker", "Basic education", "Doctor directory browse"],
-  },
-  {
-    name: "Premium",
-    price: 9.99,
-    sub: "most people upgrade here",
-    popular: true,
-    features: ["Full Insurance Coach AI", "Settlement estimator", "Priority attorney match", "Export-ready journal"],
-  },
-  {
-    name: "Second opinion",
-    price: 99,
-    sub: "one-time",
-    once: true,
-    features: ["Partner attorney document review", "Written summary in 48 hrs", "Plain-English next steps"],
-  },
-];
+import { PRAXA_TIERS } from "@/data/marketing";
 
 export default function PraxaLanding() {
   usePageMeta({

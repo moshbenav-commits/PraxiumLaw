@@ -5,6 +5,7 @@ import { STATUSES, STATUS_COLORS, STATUS_DOT, formatDate, formatMoney, PRACTICE_
 import { cn } from "@/lib/utils";
 import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale } from "lucide-react";
 import { toast } from "sonner";
+import PageLoader from "@/components/common/PageLoader";
 
 const TABS = [
   { id: "overview", label: "Overview", icon: Briefcase },
@@ -89,7 +90,7 @@ export default function MatterDetail() {
     } catch { toast.error("Upload failed"); }
   };
 
-  if (!matter) return <div className="p-8 font-mono text-xs text-praxium-subtle">loading...</div>;
+  if (!matter) return <PageLoader label="Loading matter…" />;
 
   return (
     <div>

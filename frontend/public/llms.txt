@@ -1,0 +1,19 @@
+# Praxium Suite — llms.txt
+# https://www.praxiumlaw.com
+
+> Praxium Suite is the operating system for modern U.S. law firms — matters, contacts, documents, MedConnect, CourtConnect, CoCounsel AI, and native comms in one platform.
+
+## Public pages
+- https://www.praxiumlaw.com/ — B2B law firm OS landing
+- https://www.praxiumlaw.com/pricing — Full tier pricing + LawMatch per-lead fees
+- https://www.praxiumlaw.com/signup — Start 30-day free trial
+- https://www.praxahq.com/praxa — Praxa consumer app for injured people (symptom journal, insurance coach)
+
+## Product
+- Replaces Filevine + RingCentral + DocuSign + ChartSwap stack
+- Pricing: Solo $49/u · Starter $99 · Pro $199 · Marketplace $299 · Enterprise $499 per user/month
+- AI: Claude Sonnet CoCounsel with glass-box audit trail
+
+## Contact
+- Firm OS: https://www.praxiumlaw.com
+- Consumer: https://www.praxahq.com

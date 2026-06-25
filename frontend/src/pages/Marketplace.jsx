@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import api from "@/lib/api";
 import { Network, Sparkles, Check } from "lucide-react";
 import { toast } from "sonner";
-import { timeAgo, formatDate } from "@/lib/utils";
+import { timeAgo } from "@/lib/utils";
+import PageLoader from "@/components/common/PageLoader";
+import EmptyState from "@/components/common/EmptyState";
 
 export default function Marketplace() {
   const [leads, setLeads] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const load = () => api.get("/leads").then((r) => setLeads(r.data));
+  const load = () => api.get("/leads").then((r) => { setLeads(r.data); setLoading(false); });
   useEffect(load, []);
 
   const claim = async (id) => {
@@ -22,13 +25,15 @@ export default function Marketplace() {
     load();
   };
 
+  if (loading) return <PageLoader label="Loading LawMatch…" />;
+
   return (
-    <div className="px-6 py-6">
+    <div className="px-4 sm:px-6 py-6">
       <div className="overline mb-2">// lawmatch marketplace</div>
       <h1 className="font-display font-black text-3xl tracking-tight flex items-center gap-3"><Network className="text-praxium-accent" /> LawMatch</h1>
       <p className="text-sm text-praxium-subtle mt-2 max-w-2xl">AI-triaged consumer leads, routed to the right firm by geography + practice area + capacity. Marketplace tier subscribers receive leads in real time.</p>
 
-      <div className="mt-6 grid grid-cols-4 gap-px bg-praxium-line border border-praxium-line mb-6">
+      <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-px bg-praxium-line border border-praxium-line mb-6">
         {[
           { label: "Total leads", value: leads.length },
           { label: "Unclaimed", value: leads.filter((l) => l.status === "new").length },
@@ -42,8 +47,17 @@ export default function Marketplace() {
         ))}
       </div>
 
-      <div className="data-card overflow-hidden">
-        <table className="w-full text-sm">
+      {leads.length === 0 ? (
+        <EmptyState
+          title="No leads yet"
+          body="Share your public intake form — qualified leads from Praxa and LawMatch will appear here."
+          actionLabel="Copy intake link"
+          actionTo="/settings"
+          testId="marketplace-empty"
+        />
+      ) : (
+      <div className="data-card overflow-hidden overflow-x-auto">
+        <table className="w-full text-sm min-w-[800px]">
           <thead><tr className="bg-praxium-bg border-b border-praxium-line">
             <th className="text-left px-4 py-2 overline">Name</th>
             <th className="text-left px-4 py-2 overline">Case type</th>
@@ -73,10 +87,10 @@ export default function Marketplace() {
                 </td>
               </tr>
             ))}
-            {leads.length === 0 && <tr><td colSpan={7} className="px-4 py-12 text-center text-sm text-praxium-subtle">No leads yet. Share your public intake form — leads will appear here.</td></tr>}
           </tbody>
         </table>
       </div>
+      )}
     </div>
   );
 }
