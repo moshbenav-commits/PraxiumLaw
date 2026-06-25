@@ -1,0 +1,13 @@
+# Praxium Suite — allow crawlers on public marketing routes.
+# App routes (/dashboard, /matters, etc.) are client-rendered; gate with password lock pre-launch.
+
+User-agent: *
+Allow: /
+Allow: /praxa
+Allow: /signup
+Allow: /login
+Disallow: /dashboard
+Disallow: /matters
+Disallow: /praxa/app
+
+Sitemap: https://www.praxiumlaw.com/sitemap.xml

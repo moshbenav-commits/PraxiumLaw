@@ -2,10 +2,23 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import api from "@/lib/api";
 import { Check, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import usePageMeta from "@/components/landing/usePageMeta";
 
 export default function IntakeForm() {
   const { firmSlug } = useParams();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", case_type: "personal_injury", description: "", incident_date: "" });
+  usePageMeta({
+    title: "Free Case Evaluation — Praxium Intake",
+    description: "Submit your case for a free confidential review. A member of the firm will respond within 24 hours.",
+  });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    case_type: "personal_injury",
+    description: "",
+    incident_date: "",
+  });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const upd = (k) => (e) => setForm({ ...form, [k]: e.target.value });
@@ -16,18 +29,33 @@ export default function IntakeForm() {
     try {
       await api.post("/intake", { ...form, firm_slug: firmSlug });
       setSubmitted(true);
-    } catch { alert("Submission failed"); } finally { setLoading(false); }
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Submission failed — please try again");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
     return (
       <div className="min-h-screen bg-praxium-bg flex items-center justify-center p-6">
-        <div className="max-w-md w-full bg-white border border-praxium-line p-8 text-center">
-          <div className="w-12 h-12 rounded-sm bg-praxium-accent mx-auto flex items-center justify-center mb-4">
+        <div className="max-w-md w-full bg-white border border-praxium-line p-8 lg:p-10 text-center rounded-sm">
+          <div className="w-12 h-12 rounded-full bg-praxium-accent mx-auto flex items-center justify-center mb-4">
             <Check className="text-white" size={20} />
           </div>
           <h2 className="font-display font-black text-2xl tracking-tight">We got it.</h2>
-          <p className="text-sm text-praxium-subtle mt-2">A member of our team will reach out within 24 hours. Save this number: <span className="font-mono text-praxium-ink">{form.phone}</span>.</p>
+          <p className="text-sm text-praxium-subtle mt-3 leading-relaxed">
+            A member of our team will reach out within 24 hours.
+            {form.phone && (
+              <>
+                {" "}
+                Save this number: <span className="font-mono text-praxium-ink">{form.phone}</span>.
+              </>
+            )}
+          </p>
+          <p className="mt-6 text-[10px] font-mono text-praxium-subtle">
+            No attorney-client relationship is formed until a signed retainer agreement is in place.
+          </p>
         </div>
       </div>
     );
@@ -41,32 +69,58 @@ export default function IntakeForm() {
           <span className="font-display font-bold tracking-tight">PRAXIUM</span>
         </Link>
         <div className="overline mb-2">// free case evaluation</div>
-        <h1 className="font-display font-black text-4xl tracking-tight">Tell us what happened.</h1>
-        <p className="text-sm text-praxium-subtle mt-3">We'll review your case and respond within 24 hours. Free. No obligation.</p>
+        <h1 className="font-display font-black text-3xl sm:text-4xl tracking-tight leading-tight">Tell us what happened.</h1>
+        <p className="text-sm text-praxium-subtle mt-3 leading-relaxed">
+          We&apos;ll review your case and respond within 24 hours. Free. No obligation. Confidential.
+        </p>
 
-        <form onSubmit={submit} className="mt-8 space-y-4 bg-white border border-praxium-line p-6 rounded-sm" data-testid="intake-form">
-          <div className="grid grid-cols-2 gap-4">
+        <form onSubmit={submit} className="mt-8 space-y-4 bg-white border border-praxium-line p-6 lg:p-8 rounded-sm" data-testid="intake-form">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="overline block mb-1.5">Name</label>
-              <input value={form.name} onChange={upd("name")} required data-testid="intake-name"
-                className="w-full px-3 py-2 border border-praxium-line rounded-sm" />
+              <input
+                value={form.name}
+                onChange={upd("name")}
+                required
+                autoComplete="name"
+                data-testid="intake-name"
+                className="w-full px-3 py-2.5 border border-praxium-line rounded-sm outline-none focus:border-praxium-accent"
+              />
             </div>
             <div>
               <label className="overline block mb-1.5">Phone</label>
-              <input value={form.phone} onChange={upd("phone")} type="tel" required data-testid="intake-phone"
-                className="w-full px-3 py-2 border border-praxium-line rounded-sm font-mono" />
+              <input
+                value={form.phone}
+                onChange={upd("phone")}
+                type="tel"
+                required
+                autoComplete="tel"
+                data-testid="intake-phone"
+                className="w-full px-3 py-2.5 border border-praxium-line rounded-sm font-mono outline-none focus:border-praxium-accent"
+              />
             </div>
           </div>
           <div>
             <label className="overline block mb-1.5">Email</label>
-            <input value={form.email} onChange={upd("email")} type="email" required data-testid="intake-email"
-              className="w-full px-3 py-2 border border-praxium-line rounded-sm font-mono" />
+            <input
+              value={form.email}
+              onChange={upd("email")}
+              type="email"
+              required
+              autoComplete="email"
+              data-testid="intake-email"
+              className="w-full px-3 py-2.5 border border-praxium-line rounded-sm font-mono outline-none focus:border-praxium-accent"
+            />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="overline block mb-1.5">Case type</label>
-              <select value={form.case_type} onChange={upd("case_type")} data-testid="intake-case-type"
-                className="w-full px-3 py-2 border border-praxium-line rounded-sm bg-white">
+              <select
+                value={form.case_type}
+                onChange={upd("case_type")}
+                data-testid="intake-case-type"
+                className="w-full px-3 py-2.5 border border-praxium-line rounded-sm bg-white outline-none focus:border-praxium-accent"
+              >
                 <option value="personal_injury">Personal Injury</option>
                 <option value="family">Family Law</option>
                 <option value="criminal">Criminal</option>
@@ -77,20 +131,33 @@ export default function IntakeForm() {
             </div>
             <div>
               <label className="overline block mb-1.5">Incident date</label>
-              <input type="date" value={form.incident_date} onChange={upd("incident_date")} data-testid="intake-incident-date"
-                className="w-full px-3 py-2 border border-praxium-line rounded-sm font-mono" />
+              <input
+                type="date"
+                value={form.incident_date}
+                onChange={upd("incident_date")}
+                data-testid="intake-incident-date"
+                className="w-full px-3 py-2.5 border border-praxium-line rounded-sm font-mono outline-none focus:border-praxium-accent"
+              />
             </div>
           </div>
           <div>
             <label className="overline block mb-1.5">What happened?</label>
-            <textarea value={form.description} onChange={upd("description")} rows={5} required data-testid="intake-description"
-              placeholder="Tell us the story in your own words..."
-              className="w-full px-3 py-2 border border-praxium-line rounded-sm" />
+            <textarea
+              value={form.description}
+              onChange={upd("description")}
+              rows={5}
+              required
+              data-testid="intake-description"
+              placeholder="Tell us the story in your own words…"
+              className="w-full px-3 py-2.5 border border-praxium-line rounded-sm outline-none focus:border-praxium-accent resize-y min-h-[120px]"
+            />
           </div>
-          <button type="submit" disabled={loading} data-testid="intake-submit" className="btn-praxium w-full">
+          <button type="submit" disabled={loading} data-testid="intake-submit" className="btn-praxium w-full rounded-full">
             {loading ? <Loader2 className="animate-spin" size={14} /> : "Get free case evaluation"}
           </button>
-          <p className="text-[10px] font-mono text-praxium-subtle text-center">By submitting, you authorize a confidential review. No attorney-client relationship is formed until a signed retainer agreement is in place.</p>
+          <p className="text-[10px] font-mono text-praxium-subtle text-center leading-relaxed">
+            By submitting, you authorize a confidential review. No attorney-client relationship is formed until a signed retainer agreement is in place.
+          </p>
         </form>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Briefcase, CheckSquare, AlertCircle, UserPlus, Plus } from "lucide-react";
+import { ArrowUpRight, Briefcase, CheckSquare, AlertCircle, UserPlus, Plus, Sparkles, Command } from "lucide-react";
 import { STATUSES, STATUS_DOT, timeAgo } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -13,7 +13,9 @@ export default function Dashboard() {
     api.get("/dashboard").then((r) => setData(r.data));
   }, []);
 
-  if (!data) return <div className="p-8 font-mono text-xs text-praxium-subtle">loading...</div>;
+  if (!data) return <div className="p-8 font-mono text-xs text-praxium-subtle animate-pulse">Loading dashboard…</div>;
+
+  const isNewFirm = (data.total_matters ?? 0) === 0;
 
   const metrics = [
     { label: "Open matters", value: data.open_matters, dest: "/matters", testid: "metric-open-matters" },
@@ -36,6 +38,44 @@ export default function Dashboard() {
           <Plus size={14} /> New matter
         </Link>
       </div>
+
+      {isNewFirm && (
+        <div className="mb-6 border border-praxium-accent/30 bg-gradient-to-r from-praxium-accent/5 to-transparent p-6 lg:p-8" data-testid="dashboard-onboarding">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div>
+              <div className="overline mb-2 text-praxium-accent">// first 30 seconds</div>
+              <h2 className="font-display font-black text-xl lg:text-2xl tracking-tight">Your firm is live. Here&apos;s where to start.</h2>
+              <p className="mt-2 text-sm text-praxium-subtle max-w-xl">
+                Praxium ships with 45 modules ready. Create your first matter, add a contact, or press <span className="font-mono text-praxium-ink">⌘K</span> to search anything.
+              </p>
+            </div>
+            <Link to="/matters/new" className="btn-praxium shrink-0 rounded-full">
+              <Plus size={14} /> Create first matter
+            </Link>
+          </div>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              { icon: Briefcase, label: "Create a matter", to: "/matters/new", testid: "onboard-matter" },
+              { icon: UserPlus, label: "Add a contact", to: "/contacts/new", testid: "onboard-contact" },
+              { icon: Command, label: "Try ⌘K search", to: "/matters", testid: "onboard-search" },
+            ].map((step) => (
+              <Link
+                key={step.label}
+                to={step.to}
+                data-testid={step.testid}
+                className="flex items-center gap-3 p-4 bg-praxium-surface border border-praxium-line hover:border-praxium-accent transition-colors"
+              >
+                <step.icon size={18} className="text-praxium-accent shrink-0" />
+                <span className="text-sm font-medium">{step.label}</span>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-4 text-[10px] font-mono text-praxium-subtle flex items-center gap-2">
+            <Sparkles size={12} className="text-praxium-accent" />
+            CoCounsel AI (⌘J) works best once you have a matter with notes and documents.
+          </p>
+        </div>
+      )}
 
       {/* Metric strip */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-praxium-line border border-praxium-line">

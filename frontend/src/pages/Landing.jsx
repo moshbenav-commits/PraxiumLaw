@@ -11,6 +11,9 @@ import MedConnectMock from "../components/showcase/MedConnectMock";
 import CommandPaletteMock from "../components/showcase/CommandPaletteMock";
 import MatterLifecycleTour from "../components/showcase/MatterLifecycleTour";
 import ScrollReveal from "../components/landing/ScrollReveal";
+import LandingMobileNav from "../components/landing/LandingMobileNav";
+import SavingsCalculator from "../components/landing/SavingsCalculator";
+import usePageMeta from "../components/landing/usePageMeta";
 
 // ──────────────── data ────────────────
 const STACK = [
@@ -96,6 +99,7 @@ const fmt = (n) => `$${n.toLocaleString()}`;
 export default function Landing() {
   const [pillar, setPillar] = useState("practice");
   const [scrolled, setScrolled] = useState(false);
+  usePageMeta();
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", h);
@@ -119,9 +123,12 @@ export default function Landing() {
             <Link to="/praxa" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors" data-testid="landing-praxa-link">Praxa</Link>
             <Link to="/login" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] hover:text-praxium-accent transition-colors" data-testid="landing-login">Sign in</Link>
           </nav>
-          <Link to="/signup" data-testid="landing-cta-signup" className="bg-praxium-ink text-white px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent transition-colors">
-            Start free
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link to="/signup" data-testid="landing-cta-signup" className="hidden md:inline-flex bg-praxium-ink text-white px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent transition-colors">
+              Start free
+            </Link>
+            <LandingMobileNav />
+          </div>
         </div>
       </header>
 
@@ -251,6 +258,7 @@ export default function Landing() {
               </Link>
             </div>
           </div>
+          <SavingsCalculator />
           </ScrollReveal>
         </div>
       </section>
@@ -464,9 +472,9 @@ export default function Landing() {
           <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
             Every tier includes the full platform. Upgrade unlocks more features — never more modules. No add-on fees. Ever.
           </p>
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-px bg-praxium-line border border-praxium-line">
+          <div className="mt-16 flex xl:grid xl:grid-cols-5 gap-4 xl:gap-px overflow-x-auto snap-x snap-mandatory pb-4 xl:pb-0 -mx-2 px-2 xl:mx-0 xl:px-0 xl:overflow-visible bg-transparent xl:bg-praxium-line xl:border xl:border-praxium-line scrollbar-thin">
             {TIERS.map((t) => (
-              <div key={t.name} data-testid={`pricing-tier-${t.name.toLowerCase()}`} className={`relative bg-praxium-surface p-6 lg:p-8 flex flex-col min-h-[420px] ${t.popular ? "xl:scale-[1.03] xl:z-10 xl:shadow-2xl bg-praxium-ink text-white ring-2 ring-praxium-accent ring-offset-2 ring-offset-praxium-surface" : ""}`}>
+              <div key={t.name} data-testid={`pricing-tier-${t.name.toLowerCase()}`} className={`relative shrink-0 w-[min(100%,280px)] sm:w-[260px] xl:w-auto snap-center bg-praxium-surface p-6 lg:p-8 flex flex-col min-h-[420px] ${t.popular ? "xl:scale-[1.03] xl:z-10 xl:shadow-2xl bg-praxium-ink text-white ring-2 ring-praxium-accent xl:ring-offset-2 ring-offset-praxium-surface" : "border border-praxium-line xl:border-0"}`}>
                 {t.popular && <div className="absolute -top-3 left-6 px-3 py-1 bg-praxium-accent text-white text-[9px] font-mono uppercase tracking-[0.2em] rounded-full">Most Popular</div>}
                 <div className={`font-display font-black text-xl ${t.popular ? "text-white" : ""}`}>{t.name}</div>
                 <div className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${t.popular ? "text-white/60" : "text-praxium-subtle"}`}>{t.sub}</div>
