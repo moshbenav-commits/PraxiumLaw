@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
@@ -65,6 +66,20 @@ export default function Settings() {
             {team.length === 0 && <div className="text-sm text-praxium-subtle py-2">No team members listed.</div>}
           </div>
         )}
+      </div>
+
+      <div className="mt-4 data-card p-5">
+        <div className="overline mb-3">// client identity</div>
+        <p className="text-sm text-praxium-subtle mb-3">
+          Send clients a link to complete live face scan + government ID upload before intake or retainer.
+        </p>
+        <Link
+          to="/settings/identity-review"
+          className="inline-flex text-sm font-semibold text-praxium-accent hover:underline"
+          data-testid="settings-idv-review"
+        >
+          Open ID verification queue →
+        </Link>
       </div>
 
       <div className="mt-4 data-card p-5">

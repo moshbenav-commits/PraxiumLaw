@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" role="img" aria-label="Praxium Law">
+  <rect x="0" y="8" width="48" height="48" rx="10" fill="#E85D04"/>
+  <text x="24" y="42" text-anchor="middle" font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="700" fill="#F9F8F6">À</text>
+  <text x="60" y="42" font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.02em" fill="#121212">PRAXIUM</text>
+</svg>

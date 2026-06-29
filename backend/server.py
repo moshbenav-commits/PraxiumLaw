@@ -881,6 +881,10 @@ async def health():
 
 
 # include + middleware
+from identity_verification import register_identity_verification_routes
+
+register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
+
 app.include_router(api)
 app.add_middleware(
     CORSMiddleware,

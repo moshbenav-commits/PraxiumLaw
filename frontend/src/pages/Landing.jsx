@@ -14,6 +14,7 @@ import ScrollReveal from "../components/landing/ScrollReveal";
 import LandingMobileNav from "../components/landing/LandingMobileNav";
 import SavingsCalculator from "../components/landing/SavingsCalculator";
 import usePageMeta from "../components/landing/usePageMeta";
+import PraxiumLogo from "../components/PraxiumLogo";
 import { TIERS, LEAD_FEES } from "@/data/marketing";
 
 // ──────────────── data ────────────────
@@ -98,10 +99,7 @@ export default function Landing() {
       {/* ─── NAV ─── */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled ? "bg-praxium-bg/85 backdrop-blur-xl border-b border-praxium-line" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5" data-testid="landing-logo">
-            <div className="w-8 h-8 bg-praxium-accent flex items-center justify-center font-display font-black text-white text-base">π</div>
-            <span className="font-display font-black tracking-tight text-base">PRAXIUM</span>
-          </Link>
+          <PraxiumLogo to="/" size="md" testId="landing-logo" />
           <nav className="hidden md:flex items-center gap-1">
             <a href="#truth" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">The math</a>
             <a href="#how" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Product</a>

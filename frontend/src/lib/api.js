@@ -14,10 +14,21 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (r) => r,
   (err) => {
-    if (err.response?.status === 401 && !window.location.pathname.startsWith("/login") && !window.location.pathname.startsWith("/marketing") && !window.location.pathname.startsWith("/praxa") && window.location.pathname !== "/") {
-      localStorage.removeItem("praxium_token");
-      localStorage.removeItem("praxium_user");
-      window.location.href = "/login";
+    if (err.response?.status === 401) {
+      const path = window.location.pathname;
+      const isPublic =
+        path === "/" ||
+        path.startsWith("/login") ||
+        path.startsWith("/signup") ||
+        path.startsWith("/pricing") ||
+        path.startsWith("/praxa") ||
+        path.startsWith("/intake") ||
+        path.startsWith("/verify-identity");
+      if (!isPublic) {
+        localStorage.removeItem("praxium_token");
+        localStorage.removeItem("praxium_user");
+        window.location.href = "/login";
+      }
     }
     return Promise.reject(err);
   }

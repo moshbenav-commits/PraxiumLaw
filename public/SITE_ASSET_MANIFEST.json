@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "brand": "praxium-law",
+  "displayName": "Praxium Law",
+  "productName": "Praxium Suite",
+  "domain": "https://www.praxiumlaw.com",
+  "tagline": "The operating system for the modern law firm.",
+  "siteType": "saas",
+  "createdAt": "2026-06-26",
+  "scaffoldedAt": "2026-06-26",
+  "status": "staging",
+  "intake": "brand/praxium-law/PLX_INTAKE.json",
+  "copySlots": "brand/praxium-law/PLX_COPY_SLOTS.json",
+  "designLab": "brand/design-lab/praxium-law-staging.html",
+  "universalKit": "brand/SITE_ASSET_KIT_UNIVERSAL.json",
+  "extendedManifest": "brand/praxium-law/PLX_ASSET_MANIFEST.json",
+  "brollStaging": "brand/praxium-law/PLX_BROLL_STAGING.json",
+  "higgsfieldQueue": "brand/higgsfield/staging/PLX_PENDING.json",
+  "codebase": "PraxiumLaw/frontend/",
+  "palette": {
+    "primary": "#121212",
+    "accent": "#E85D04",
+    "surface": "#FFFFFF",
+    "shell": "#F9F8F6"
+  },
+  "tiers": {
+    "tier0_brand": { "status": "missing", "notes": "π logo SVG · favicon · OG" },
+    "tier1_chrome": { "status": "missing", "notes": "6 trust module icons PLX014" },
+    "tier2_marketing": { "status": "missing", "notes": "Home hero PLX004 · product stills PLX005–008" },
+    "tier3_page_heroes": { "status": "staging", "routeClasses": ["/", "/pricing", "/praxa", "/signup"] },
+    "tier5_motion": { "status": "staging", "notes": "8 Seedance b-roll clips" },
+    "tier6_seo": { "status": "partial", "notes": "sitemap + llms.txt in repo · OG image pending PLX003" }
+  },
+  "summary": {
+    "total": 15,
+    "onDisk": 0,
+    "missingNanoBanana": 15,
+    "brollClips": 8,
+    "intakeComplete": true
+  },
+  "intakeBlockers": [
+    "Logo SVG master (π currently CSS-only in React)",
+    "Remove SITE_LOCK_PASSWORD when going public",
+    "EMERGENT_LLM_KEY on prod for live CoCounsel demos"
+  ]
+}

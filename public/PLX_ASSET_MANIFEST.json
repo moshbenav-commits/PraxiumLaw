@@ -1,0 +1,211 @@
+{
+  "version": "1.0.0",
+  "brand": "praxium-law",
+  "productName": "Praxium Suite",
+  "domain": "https://www.praxiumlaw.com",
+  "tagline": "The operating system for the modern law firm.",
+  "intake": "brand/praxium-law/PLX_INTAKE.json",
+  "copySlots": "brand/praxium-law/PLX_COPY_SLOTS.json",
+  "updatedAt": "2026-06-26",
+  "status": "intake-complete",
+  "designLab": "brand/design-lab/praxium-law-staging.html",
+  "universalKit": "brand/SITE_ASSET_KIT_UNIVERSAL.json",
+  "brollStaging": "brand/praxium-law/PLX_BROLL_STAGING.json",
+  "higgsfieldQueue": "brand/higgsfield/staging/PLX_PENDING.json",
+  "codebase": "PraxiumLaw/frontend/",
+  "palette": {
+    "bg": "#F9F8F6",
+    "surface": "#FFFFFF",
+    "ink": "#121212",
+    "subtle": "#5C5C5C",
+    "line": "#E5E4E1",
+    "accent": "#E85D04",
+    "accentHover": "#DC2F02"
+  },
+  "imageModel": "nano_banana_pro",
+  "videoModel": "seedance_2_0",
+  "videoTier": "seedance_2_0_fast",
+  "assets": [
+    {
+      "id": "PLX001",
+      "name": "Logo — π mark + wordmark",
+      "tier": "brand",
+      "format": "svg",
+      "status": "missing",
+      "path": "brand/praxium-law/references/logo/praxium-logo-wordmark.svg",
+      "pages": ["header", "footer", "email"],
+      "nanoBanana": true,
+      "prompt": "Praxium legal SaaS logo: bold π (pi) symbol in orange #E85D04 square, PRAXIUM wordmark in black #121212, editorial Swiss typography, flat vector on cream #F9F8F6, no gradient glow."
+    },
+    {
+      "id": "PLX002",
+      "name": "Favicon / app icon — π mark",
+      "tier": "brand",
+      "aspect": "1:1",
+      "status": "missing",
+      "pages": ["favicon", "apple-touch"],
+      "nanoBanana": true,
+      "prompt": "App icon 1:1: orange #E85D04 rounded square with white bold π symbol, minimal legal SaaS, no text, clean flat."
+    },
+    {
+      "id": "PLX003",
+      "name": "OG social card — B2B homepage",
+      "tier": "brand",
+      "aspect": "1200x630",
+      "status": "missing",
+      "pages": ["meta-og", "/"],
+      "nanoBanana": true,
+      "prompt": "Social share 1200x630 Praxium Law: cream #F9F8F6 background, headline zone left 'The legal operating system for modern law firms', orange π accent, monospace eyebrow, editorial SaaS, no mock UI text readable."
+    },
+    {
+      "id": "PLX004",
+      "name": "Homepage hero still — firm OS atmosphere",
+      "tier": "photoreal",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["/"],
+      "lcp": true,
+      "nanoBanana": true,
+      "prompt": "Modern law firm workspace hero 16:9: warm natural light, attorney desk with organized files, subtle laptop glow, cream and charcoal palette, orange #E85D04 accent lamp or folder tab, copy safe zone left 45%, premium editorial not stocky."
+    },
+    {
+      "id": "PLX005",
+      "name": "Matter canvas marketing still",
+      "tier": "ui_still",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["/", "product-tour"],
+      "nanoBanana": true,
+      "prompt": "Abstract legal case management UI mock 16:9: kanban columns, matter cards, orange accent highlights, cream #F9F8F6 shell, dark sidebar, no readable client names or PII, product marketing style."
+    },
+    {
+      "id": "PLX006",
+      "name": "CoCounsel AI feature still",
+      "tier": "ui_still",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["/", "#how"],
+      "nanoBanana": true,
+      "prompt": "Legal AI assistant panel mock: chat sidebar with demand-letter draft suggestion, orange send button, dark ink text on cream card, no readable case facts, SaaS product marketing."
+    },
+    {
+      "id": "PLX007",
+      "name": "VoxLine / comms feature still",
+      "tier": "ui_still",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["/", "#how"],
+      "nanoBanana": true,
+      "prompt": "Law firm phone system UI mock: call timeline, SMS thread, recording waveform, orange accent, professional dark-on-cream, no phone numbers readable."
+    },
+    {
+      "id": "PLX008",
+      "name": "MedConnect records feature still",
+      "tier": "ui_still",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["/", "#how"],
+      "nanoBanana": true,
+      "prompt": "Medical records collection dashboard mock: provider list, status chips 'received in 18 days', document thumbnails blurred, orange progress bar, PI law firm SaaS tone."
+    },
+    {
+      "id": "PLX009",
+      "name": "Pricing page hero",
+      "tier": "photoreal",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["/pricing"],
+      "nanoBanana": true,
+      "prompt": "Editorial still for SaaS pricing page: calculator and transparent pricing concept, cream desk, orange accent pen, open laptop showing blurred tier table, trustworthy B2B legal software."
+    },
+    {
+      "id": "PLX010",
+      "name": "Auth marketing panel background",
+      "tier": "photoreal",
+      "aspect": "9:16",
+      "status": "missing",
+      "pages": ["/signup", "/login"],
+      "nanoBanana": true,
+      "prompt": "Vertical 9:16 auth panel background: modern law library aisle soft bokeh, warm light, orange accent spine labels, no readable book titles, premium SaaS signup aesthetic."
+    },
+    {
+      "id": "PLX011",
+      "name": "Praxa consumer OG + hero",
+      "tier": "photoreal",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["/praxa"],
+      "nanoBanana": true,
+      "prompt": "Praxa HQ consumer injury companion hero 16:9: soft sage #8A9A86 and warm sand #D4A373 palette, journal and phone on bedside table, compassionate calm mood, not hospital, copy safe zone left, legal info not advice tone."
+    },
+    {
+      "id": "PLX012",
+      "name": "Stats section texture",
+      "tier": "texture",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["homepage-stats"],
+      "nanoBanana": true,
+      "prompt": "Abstract dark #121212 gradient texture with subtle orange #E85D04 light streaks, premium SaaS stats band background, no text."
+    },
+    {
+      "id": "PLX013",
+      "name": "CTA band — savings math",
+      "tier": "texture",
+      "aspect": "16:9",
+      "status": "missing",
+      "pages": ["homepage-cta", "/pricing"],
+      "nanoBanana": true,
+      "prompt": "Abstract financial savings concept: descending bar chart silhouette in orange on charcoal, editorial minimal, space for '$85,980 saved' headline overlay center."
+    },
+    {
+      "id": "PLX014",
+      "name": "Trust strip module icons set",
+      "tier": "icon",
+      "aspect": "1:1",
+      "status": "missing",
+      "count": 6,
+      "pages": ["homepage-trust", "footer"],
+      "nanoBanana": true,
+      "items": [
+        { "label": "Stack cost down", "prompt": "Minimal line icon: downward cost arrow + software stack, orange on cream, 1:1." },
+        { "label": "Records speed", "prompt": "Minimal line icon: medical folder with fast clock, orange on cream, 1:1." },
+        { "label": "Fast onboarding", "prompt": "Minimal line icon: rocket or stopwatch 30 sec, orange on cream, 1:1." },
+        { "label": "Zero implementation", "prompt": "Minimal line icon: zero dollar implementation, orange on cream, 1:1." },
+        { "label": "45 modules", "prompt": "Minimal line icon: grid of modules puzzle, orange on cream, 1:1." },
+        { "label": "AI built in", "prompt": "Minimal line icon: spark + document, orange on cream, 1:1." }
+      ]
+    },
+    {
+      "id": "PLX015",
+      "name": "Praxa π consumer mark",
+      "tier": "brand",
+      "aspect": "1:1",
+      "status": "missing",
+      "pages": ["/praxa", "praxa-app"],
+      "nanoBanana": true,
+      "prompt": "Praxa consumer app icon 1:1: sage green circle with white π, softer than B2B orange, warm injury-companion brand, flat vector."
+    }
+  ],
+  "pages": [
+    { "route": "/", "assets": ["PLX004", "PLX003", "PLX005", "PLX006", "PLX007", "PLX008", "PLX012", "PLX013", "PLX014"] },
+    { "route": "/pricing", "assets": ["PLX009", "PLX013"] },
+    { "route": "/praxa", "assets": ["PLX011", "PLX015"] },
+    { "route": "/signup", "assets": ["PLX010"] },
+    { "route": "/login", "assets": ["PLX010"] }
+  ],
+  "generationOrder": [
+    "1. PLX001 logo still → SVG trace + favicon PLX002",
+    "2. PLX003 OG + PLX004 homepage hero",
+    "3. Product stills PLX005–PLX008",
+    "4. Route heroes PLX009–PLX011",
+    "5. B-roll plates → Seedance (PLX_BROLL_STAGING.json)",
+    "6. WebP LCP derivatives for PLX004"
+  ],
+  "summary": {
+    "total": 15,
+    "onDisk": 0,
+    "missingNanoBanana": 15,
+    "brollClips": 8
+  }
+}

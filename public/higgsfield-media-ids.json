@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "brand": "praxium-law",
+  "updatedAt": "2026-06-27",
+  "elementId": "f2fc0c03-dbd9-46c0-8676-cf5304e3a5ec",
+  "refs": {
+    "pi-mark": {
+      "mediaId": "17fe9e53-e4b1-42c6-a39e-4d086da30904",
+      "localPath": "brand/praxium-law/references/logo/praxium-mark-ref.png",
+      "label": "Praxium π mark"
+    }
+  }
+}

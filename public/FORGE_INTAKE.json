@@ -1,0 +1,40 @@
+{
+  "displayName": "Praxium Law",
+  "slug": "praxium-law",
+  "intakeSiteType": "saas",
+  "heroStyle": "editorial-workspace",
+  "routeClasses": ["pricing", "product-tour", "signup", "login", "praxa"],
+  "wiredPath": {
+    "id": "medium-brand-growth",
+    "label": "Medium growth site — legal SaaS"
+  },
+  "industryId": "legal-saas",
+  "templateId": "saas-product",
+  "packageSize": "M",
+  "tier": "medium",
+  "clientDiscovery": {
+    "domain": "https://www.praxiumlaw.com",
+    "motto": "The operating system for the modern law firm.",
+    "primaryCategory": "Legal practice management SaaS"
+  },
+  "contentPacks": ["saas-feature-faq", "legal-trust"],
+  "playbooks": [
+    "saas-seo",
+    "image-optimization-cdn",
+    "product-led-growth",
+    "vercel-deployment",
+    "port-nestjs-next"
+  ],
+  "answers": {
+    "hero": "editorial-workspace",
+    "business": "saas",
+    "tier": "medium",
+    "dualBrand": "praxa-consumer"
+  },
+  "relatedProducts": [
+    { "name": "Praxa HQ", "domain": "www.praxahq.com", "route": "/praxa" }
+  ],
+  "codebase": "PraxiumLaw/",
+  "savedAt": "2026-06-29T00:00:00.000Z",
+  "sourceIntake": "brand/praxium-law/PLX_INTAKE.json"
+}

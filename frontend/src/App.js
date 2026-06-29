@@ -34,6 +34,9 @@ import Settings from "@/pages/Settings";
 import PraxaLanding from "@/pages/praxa/PraxaLanding";
 import PraxaSignup from "@/pages/praxa/PraxaSignup";
 import PraxaApp from "@/pages/praxa/PraxaApp";
+import VerifyIdentity from "@/pages/VerifyIdentity";
+import VerifyIdentityDemo from "@/pages/VerifyIdentityDemo";
+import IdentityReview from "@/pages/IdentityReview";
 
 function App() {
   return (
@@ -47,6 +50,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/intake/:firmSlug?" element={<IntakeForm />} />
+          <Route path="/verify-identity/demo" element={<VerifyIdentityDemo />} />
+          <Route path="/verify-identity/:token" element={<VerifyIdentity />} />
 
           {/* Praxa consumer app */}
           <Route path="/praxa" element={<PraxaLanding />} />
@@ -74,6 +79,7 @@ function App() {
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/identity-review" element={<IdentityReview />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

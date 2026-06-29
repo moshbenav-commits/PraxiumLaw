@@ -1,0 +1,118 @@
+{
+  "version": "1.0.0",
+  "brand": "praxium-law",
+  "productName": "Praxium Suite",
+  "displayName": "Praxium Law",
+  "tagline": "The operating system for the modern law firm.",
+  "domain": "https://www.praxiumlaw.com",
+  "relatedDomains": [
+    { "host": "www.praxahq.com", "route": "/praxa", "product": "Praxa HQ — consumer injury companion" },
+    { "host": "www.praxiumsuite.com", "route": "301 → praxiumlaw.com", "product": "Suite alias" }
+  ],
+  "apiBase": "https://api.praxiumlaw.com/api",
+  "updatedAt": "2026-06-26",
+  "researchSources": [
+    "PraxiumLaw/frontend/src/pages/Landing.jsx",
+    "PraxiumLaw/frontend/src/pages/praxa/PraxaLanding.jsx",
+    "PraxiumLaw/frontend/src/data/marketing.js",
+    "docs/PRAXIUM_DEPLOY.md",
+    "docs/PRAXIUM_PENDING.md"
+  ],
+  "siteType": "saas",
+  "vertical": "Legal practice management · B2B firm OS + B2C Praxa companion",
+  "status": "live-password-gated",
+  "palette": {
+    "bg": "#F9F8F6",
+    "surface": "#FFFFFF",
+    "ink": "#121212",
+    "subtle": "#5C5C5C",
+    "line": "#E5E4E1",
+    "accent": "#E85D04",
+    "accentHover": "#DC2F02",
+    "praxaBg": "#FDFBF7",
+    "praxaInk": "#2A3B32",
+    "praxaAccent": "#D4A373",
+    "praxaSage": "#8A9A86"
+  },
+  "primaryRoutes": [
+    { "route": "/", "h1": "The operating system for the modern law firm.", "product": "B2B landing" },
+    { "route": "/pricing", "h1": "Pricing", "product": "B2B tiers" },
+    { "route": "/praxa", "h1": "Be accurate. Not strong.", "product": "Praxa consumer" },
+    { "route": "/signup", "h1": "Start your firm", "product": "Auth" },
+    { "route": "/login", "h1": "Sign in", "product": "Auth" }
+  ],
+  "heroCopy": {
+    "eyebrow": "// the legal operating system // 2026",
+    "headline": "The operating system for the modern law firm.",
+    "headlineAccent": "modern law firm.",
+    "subhead": "Replace eight tools with one. Save $86,000 a year. Get AI that actually ships your demand letter.",
+    "primaryCta": "Start 30 days free",
+    "secondaryCta": "See the math",
+    "trustBullets": ["No card required", "Free migration from Filevine", "90-day money back"]
+  },
+  "mathSection": {
+    "eyebrow": "// the truth // unrounded math",
+    "headline": "A 15-attorney firm pays $10,150/mo for what we do for $2,985.",
+    "body": "Filevine never shows pricing on their homepage. Most legal software companies don't. We do the opposite. Here's the unrounded math.",
+    "stackTotalMonthly": 10150,
+    "praxiumProMonthly": 2985,
+    "annualSavings": 85980
+  },
+  "stats": [
+    { "value": "70%", "label": "Software stack cost reduction" },
+    { "value": "18 days", "label": "Medical records vs. 60–90 industry avg" },
+    { "value": "30 sec", "label": "Firm onboarding vs. 90 days Filevine" },
+    { "value": "$0", "label": "Implementation vs. $25k+ consultants" },
+    { "value": "45", "label": "Modules included — not sold separately" },
+    { "value": "4.5", "label": "Claude Sonnet AI built in (not 2/5 Sidebar AI)" }
+  ],
+  "pillars": [
+    {
+      "id": "practice",
+      "label": "Practice",
+      "title": "Run every matter from one canvas.",
+      "body": "Kanban pipelines. Custom fields. Practice-area packs that apply themselves. CoCounsel AI with context. ⌘K from anywhere."
+    },
+    {
+      "id": "comms",
+      "label": "Communications",
+      "title": "Phones, SMS, email, video — native.",
+      "body": "Stop paying RingCentral, DocuSign, Mailchimp, and Zoom. Bundled, branded as yours, voice-cloned with ElevenLabs, AI-transcribed by Whisper."
+    },
+    {
+      "id": "ops",
+      "label": "Operations",
+      "title": "Records, court, marketplace.",
+      "body": "MedConnect collects medical records in 18 days, not 90. CourtConnect pulls PACER dockets. LawMatch delivers leads. Everything routes itself."
+    }
+  ],
+  "practiceAreas": [
+    "Personal injury",
+    "Family law",
+    "Criminal defense",
+    "Bankruptcy",
+    "Immigration",
+    "Estate planning"
+  ],
+  "praxaHero": {
+    "eyebrow": "For people who got hurt",
+    "headline": "Be accurate. Not strong.",
+    "subhead": "Praxa is the streetwise friend who knows insurance. Track symptoms. Log conversations. Get coached on what to say — and what never to say on a recorded line.",
+    "primaryCta": "Get started — free",
+    "uplDisclaimer": "Legal information, not legal advice."
+  },
+  "pricingTiersB2B": ["Solo $49", "Starter $99", "Pro $199", "Marketplace $299", "Enterprise $499"],
+  "intakeResolved": [
+    "Domain + API URLs",
+    "B2B + Praxa dual-brand palette",
+    "Landing copy from shipped React",
+    "Tier pricing from marketing.js",
+    "Stats + pillars + math section"
+  ],
+  "intakeStillTbd": [
+    "Logo SVG master (π mark currently CSS-only)",
+    "Client reference photos / firm partner logos for social proof",
+    "Remove SITE_LOCK_PASSWORD when going public",
+    "EMERGENT_LLM_KEY on prod for CoCounsel demos"
+  ]
+}

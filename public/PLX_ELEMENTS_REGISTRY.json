@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-06-28T16:05:38.570Z",
+  "brand": "praxium-law",
+  "ssot": "brand/praxium-law/PLX_ELEMENTS_REGISTRY.json",
+  "doc": "docs/prompts/higgsfield/HIGGSFIELD_ELEMENTS_WORKFLOW.md",
+  "mediaRegistry": "brand/praxium-law/higgsfield-media-ids.json",
+  "stylePrefix": "docs/prompts/higgsfield/plx-brand-style-prefix.txt",
+  "elements": {
+    "plx-brand-essence": {
+      "name": "PLX-Brand-Essence",
+      "category": "prop",
+      "elementId": "f2fc0c03-dbd9-46c0-8676-cf5304e3a5ec",
+      "status": "completed",
+      "mediaIds": [
+        "17fe9e53-e4b1-42c6-a39e-4d086da30904"
+      ],
+      "localPath": "brand/praxium-law/references/logo/praxium-mark-ref.png",
+      "description": "Praxium π mark — cream/orange/ink editorial SaaS.",
+      "reuseIn": [
+        "praxium-law-site",
+        "plx-website-nano-jun26"
+      ],
+      "promptTag": "@PLX-Brand-Essence",
+      "mcpPlaceholder": "<<<f2fc0c03-dbd9-46c0-8676-cf5304e3a5ec>>>",
+      "essenceBundle": true,
+      "sourceFolder": "brand/higgsfield/essence/drop/praxium-law/PLX-Brand-Essence"
+    }
+  },
+  "mediaIdIndex": {
+    "17fe9e53-e4b1-42c6-a39e-4d086da30904": "plx-brand-essence"
+  },
+  "pipelineDefaults": {
+    "praxium-law-site": [
+      "plx-brand-essence"
+    ],
+    "plx-website-nano-jun26": [
+      "plx-brand-essence"
+    ]
+  },
+  "promptStripPatterns": [
+    "Praxium legal SaaS:[\\s\\S]*?no readable PII or case names\\."
+  ],
+  "essenceSsot": "brand/higgsfield/ESSENCE_ELEMENTS_REGISTRY.json",
+  "essenceGroups": "brand/higgsfield/HIGGSFIELD_BRAND_ESSENCE_GROUPS.json",
+  "promptElementsMode": "essence-bundles",
+  "legacyElementAlias": {
+    "ep-parts-logo-lockup": "ep-parts-essence",
+    "ep-warehouse-stylized-v3": "ep-parts-essence",
+    "expedia-monster-canonical": "ep-monster-essence",
+    "ep-monster-uniform-lock": "ep-monster-essence",
+    "ep-monster-cap-logo-ref": "ep-monster-essence",
+    "ep-monster-uniform-alt": "ep-monster-essence",
+    "ep-monster-pose-thinking": "ep-monster-essence",
+    "ep-monster-pose-surprised": "ep-monster-essence",
+    "ep-shop-neon-arch": "ep-monster-shop-essence",
+    "ep-shop-neon-mcp-ref": "ep-monster-shop-essence",
+    "ep-shop-interior-ref": "ep-monster-shop-essence",
+    "ep-monster-shop-interior-3d": "ep-monster-shop-essence",
+    "ep-monster-shop-set-master": "ep-monster-shop-essence",
+    "ept-transmission-assembled": "ept-reman-essence",
+    "epe-engine-assembled-3q": "epe-reman-essence",
+    "epe-engines-wordmark": "epe-reman-essence",
+    "ac-coaching-headshot-good": "ac-coaching-essence",
+    "ac-dual-heart-strong": "ac-coaching-essence",
+    "ac-body-scale-female-slim": "ac-bodyscale-essence",
+    "ac-body-scale-male-slim": "ac-bodyscale-essence",
+    "qsts-fox-canonical": "qsts-course-essence",
+    "qsts-ca-traffic-sign": "qsts-course-essence",
+    "sancochi-winged-pig": "sancochi-brand-essence",
+    "sancochi-storefront-kiosk": "sancochi-brand-essence",
+    "sancochi-red-cone": "sancochi-brand-essence",
+    "sancochi-plate-lid": "sancochi-brand-essence"
+  },
+  "deprecatedNote": "Jun 2026 — use essence @tags only. Legacy single-PNG elements removed from HF library."
+}

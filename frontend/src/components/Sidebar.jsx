@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn, initials } from "@/lib/utils";
+import PraxiumLogo from "./PraxiumLogo";
 
 const NAV = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, testid: "nav-dashboard" },
@@ -31,17 +32,7 @@ export default function Sidebar({ onAiToggle, mobileOpen, onClose }) {
     <>
       <div className="px-4 py-4 border-b border-white/10 flex items-start justify-between gap-2">
         <div>
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-sm bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">
-              π
-            </div>
-            <div className="leading-none">
-              <div className="font-display font-black text-[15px] tracking-tight text-white">PRAXIUM</div>
-              <div className="text-[9px] font-mono uppercase tracking-[0.25em] text-zinc-500 mt-0.5">
-                suite · praxiumlaw.com
-              </div>
-            </div>
-          </div>
+          <PraxiumLogo to={null} size="sm" variant="dark" showSubtitle testId="sidebar-logo" />
           {firm && (
             <div className="mt-3 text-xs text-zinc-400 truncate" data-testid="sidebar-firm-name">{firm.name}</div>
           )}

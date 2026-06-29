@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "brand": "praxium-law",
+  "intake": "brand/praxium-law/PLX_INTAKE.json",
+  "updatedAt": "2026-06-26",
+  "voice": "Editorial SaaS · monospace eyebrows · confident math · no legal advice on Praxa",
+  "slots": {
+    "meta.home.title": {
+      "maxChars": 65,
+      "value": "Praxium — The Legal Operating System for Modern Law Firms"
+    },
+    "meta.home.description": {
+      "maxChars": 160,
+      "value": "Replace eight tools with one firm OS. Save $86k/year. Matters, phones, records, AI CoCounsel — 30-day free trial, no card required."
+    },
+    "meta.praxa.title": {
+      "maxChars": 65,
+      "value": "Praxa HQ — Navigate Insurance After an Injury"
+    },
+    "meta.praxa.description": {
+      "maxChars": 160,
+      "value": "Track symptoms, get coached on what to say to adjusters, find vetted doctors. Free to start. Legal information, not legal advice."
+    },
+    "home.h1": {
+      "value": "The operating system for the modern law firm."
+    },
+    "home.hero.subhead": {
+      "value": "Replace eight tools with one. Save $86,000 a year. Get AI that actually ships your demand letter."
+    },
+    "home.hero.primaryCta": { "value": "Start 30 days free" },
+    "home.hero.secondaryCta": { "value": "See the math" },
+    "home.proofStrip": {
+      "value": "// trusted by u.s. law firms in 50 states"
+    },
+    "home.math.headline": {
+      "value": "A 15-attorney firm pays $10,150/mo for what we do for $2,985."
+    },
+    "home.stats.headline": {
+      "value": "Delivering advantage at the unit-level."
+    },
+    "pricing.hero.headline": {
+      "value": "Transparent pricing. No sales call required."
+    },
+    "praxa.h1": { "value": "Be accurate. Not strong." },
+    "praxa.hero.subhead": {
+      "value": "Praxa is the streetwise friend who knows insurance. Track symptoms. Log conversations. Get coached on what to say — and what never to say on a recorded line."
+    },
+    "auth.signup.headline": { "value": "Start your firm in 30 seconds." },
+    "auth.login.headline": { "value": "Welcome back." },
+    "footer.upl": {
+      "value": "Praxa provides legal information, not legal advice. Praxium Suite is practice-management software for licensed attorneys."
+    }
+  },
+  "overlayQuotesBroll": [
+    { "clipId": "plx-broll-matter-canvas", "quote": "Run every matter from one canvas." },
+    { "clipId": "plx-broll-command-palette", "quote": "⌘K from anywhere — the command palette for law." },
+    { "clipId": "plx-broll-voxline-desk", "quote": "Phones, SMS, email, video — native. Not RingCentral." },
+    { "clipId": "plx-broll-medconnect-records", "quote": "Medical records in 18 days, not 90." },
+    { "clipId": "plx-broll-court-docket", "quote": "CourtConnect pulls PACER dockets automatically." },
+    { "clipId": "plx-broll-team-huddle", "quote": "45 modules included — not sold separately." },
+    { "clipId": "plx-broll-savings-math", "quote": "Save $85,980 a year. That's a paralegal salary." },
+    { "clipId": "plx-broll-praxa-journal", "quote": "Be accurate. Not strong. — Praxa HQ" }
+  ],
+  "testimonials": [
+    {
+      "quote": "We cancelled five subscriptions in the first month. Saved $7,200 monthly. Settlement throughput up 22%.",
+      "author": "Design partner firm",
+      "role": "Personal injury · 15 attorneys"
+    },
+    {
+      "quote": "First time I've used legal software where I didn't need to call IT. The command palette alone saves me an hour a day.",
+      "author": "Senior paralegal",
+      "role": "Mid-market plaintiff firm"
+    }
+  ]
+}

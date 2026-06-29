@@ -1,0 +1,346 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-06-29T07:14:21.466Z",
+  "registry": "brand/praxium-law/PLX_ELEMENTS_REGISTRY.json",
+  "apply": true,
+  "summary": {
+    "manifestsScanned": 1,
+    "jobsScanned": 19,
+    "jobsWithElements": 19,
+    "jobsMissingElementUpload": 0,
+    "elementsCompleted": 1,
+    "elementsNeedsUpload": 0
+  },
+  "needsUpload": [],
+  "jobs": [
+    {
+      "id": "nano-praxium-law-plx002",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Transparent PNG with full alpha channel — production-ready isolated asset. NO green screen, NO chroma key #00FF00, NO gray/white/black studio backdrop, NO checkerboard baked into export. Clean anti-aliased edges for compositing.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. App icon 1:1: orange #E85D04 rounded square with white bold π symbol, minimal legal SaaS, no text, clean flat. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx003",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Social share 1200x630 Praxium Law: cream #F9F8F6 background, headline zone left 'The legal operating system for modern law firms', orange π accent, monospace eyebrow, editorial SaaS, no mock UI text readable. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx004",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Modern law firm workspace hero 16:9: warm natural light, attorney desk with organized files, subtle laptop glow, cream and charcoal palette, orange #E85D04 accent lamp or folder tab, copy safe zone left 45%, premium editorial not stocky. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx005",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Abstract legal case management UI mock 16:9: kanban columns, matter cards, orange accent highlights, cream #F9F8F6 shell, dark sidebar, no readable client names or PII, product marketing style. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx006",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Legal AI assistant panel mock: chat sidebar with demand-letter draft suggestion, orange send button, dark ink text on cream card, no readable case facts, SaaS product marketing. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx007",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Law firm phone system UI mock: call timeline, SMS thread, recording waveform, orange accent, professional dark-on-cream, no phone numbers readable. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx008",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Medical records collection dashboard mock: provider list, status chips 'received in 18 days', document thumbnails blurred, orange progress bar, PI law firm SaaS tone. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx009",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Editorial still for SaaS pricing page: calculator and transparent pricing concept, cream desk, orange accent pen, open laptop showing blurred tier table, trustworthy B2B legal software. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx010",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Vertical 9:16 auth panel background: modern law library aisle soft bokeh, warm light, orange accent spine labels, no readable book titles, premium SaaS signup aesthetic. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx011",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Praxa HQ consumer injury companion hero 16:9: soft sage #8A9A86 and warm sand #D4A373 palette, journal and phone on bedside table, compassionate calm mood, not hospital, copy safe zone left, legal info not advice tone. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx012",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Abstract dark #121212 gradient texture with subtle orange #E85D04 light streaks, premium SaaS stats band background, no text. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx013",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Abstract financial savings concept: descending bar chart silhouette in orange on charcoal, editorial minimal, space for '$85,980 saved' headline overlay center. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx014-1",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Minimal line icon: downward cost arrow + software stack, orange on cream, 1:1. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx015",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Transparent PNG with full alpha channel — production-ready isolated asset. NO green screen, NO chroma key #00FF00, NO gray/white/black studio backdrop, NO checkerboard baked into export. Clean anti-aliased edges for compositing.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Praxa consumer app icon 1:1: sage green circle with white π, softer than B2B orange, warm injury-companion brand, flat vector. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx014-2",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Minimal line icon: medical folder with fast clock, orange on cream, 1:1. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx014-3",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Minimal line icon: rocket or stopwatch 30 sec, orange on cream, 1:1. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx014-4",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Minimal line icon: zero dollar implementation, orange on cream, 1:1. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx014-5",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Minimal line icon: grid of modules puzzle, orange on cream, 1:1. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    },
+    {
+      "id": "nano-praxium-law-plx014-6",
+      "manifestPath": "brand/higgsfield/staging/PLX_PENDING.json",
+      "pipeline": "praxium-law-site",
+      "elementKeys": [
+        "plx-brand-essence"
+      ],
+      "elementRefs": [
+        {
+          "name": "PLX-Brand-Essence",
+          "promptTag": "@PLX-Brand-Essence",
+          "status": "completed"
+        }
+      ],
+      "promptElements": "Edit image one based on the prompt. Match identity from @image1 using the exact URLs below.\n\nBrand reference index: https://www.expediaparts.com/higgsfield/essence\nUse these exact reference assets (@imageN maps to attached file order):\n@image1 — pi-mark (@PLX-Brand-Essence): https://www.expediaparts.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp\n  → pi-mark reference for @PLX-Brand-Essence\n\nUse the explicit brand lockup PNG bundled inside @PLX-Brand-Essence — reproduce geometry, spelling, and colors exactly from the essence reference files; do NOT invent alternate logos, marks, or firm names; match bundled reference geometry and colors exactly. — Full photoreal scene with natural environment — NOT isolated cutout, NOT transparent background, NO green screen chroma key.\n\nEdit image one based on the prompt. Preserve exact identity from attached reference images. Praxium legal SaaS — cream #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, modern law firm operating system, photoreal or clean UI mock, premium B2B software marketing. Use @PLX-Brand-Essence for π mark geometry and brand surfaces — do not invent alternate law firm names or competitor marks. TEXT: Any readable copy MUST be brand-approved only — \"PRAXIUM\" / \"Praxium Law\" exact spelling. Dashboard UI stays blurred — no client names, case numbers, or PII. NO Nano Banana watermarks, NO gibberish, NO invented firm names. Minimal line icon: spark + document, orange on cream, 1:1. Dedicated logo/favicon master jobs only — not scene plates. NO AI watermarks, NO generator or model name text in pixels, NO lorem ipsum, NO gibberish, NO invented company or law firm names. CROSS-BRAND BAN (NON-NEGOTIABLE for non-Expedia-Parts jobs):\nNEVER Expedia Parts · NEVER EXPEDIA/PARTS · NEVER EXPEDIA PARTS wordmark · NEVER orange delivery truck icon · NEVER orange side-profile van or box truck with speed lines · NEVER EP monogram cap badge · NEVER 1958 Chevy Apache flatbed pickup logo vehicle · NEVER Expedia travel blue globe · NEVER automotive parts shop neon · NEVER reman engine/transmission showroom branding from other Expedia verticals unless this job is explicitly EPT/EPE/EP.\nUse ONLY the attached @element reference for this site's logo and mascot — do NOT invent truck-based logotypes.",
+      "missingUpload": []
+    }
+  ],
+  "byPipeline": {
+    "praxium-law-site": {
+      "jobs": 19,
+      "withElements": 19
+    }
+  }
+}

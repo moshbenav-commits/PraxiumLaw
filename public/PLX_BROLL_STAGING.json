@@ -1,0 +1,129 @@
+{
+  "version": "1.0.0",
+  "brand": "praxium-law",
+  "displayName": "Praxium Law",
+  "updatedAt": "2026-06-26",
+  "designLab": "brand/design-lab/praxium-law-staging.html",
+  "manifest": "brand/praxium-law/PLX_ASSET_MANIFEST.json",
+  "copySlots": "brand/praxium-law/PLX_COPY_SLOTS.json",
+  "videoModel": "seedance_2_0",
+  "videoTier": "seedance_2_0_fast",
+  "durationSec": 15,
+  "aspect": "16:9",
+  "resolution": "720p",
+  "generate_audio": false,
+  "stylePrefix": "Premium legal SaaS b-roll for Praxium: slow camera, cream #F9F8F6 and ink #121212 with orange #E85D04 accent grade, editorial not stock, no readable PII or case names, transform-safe motion.",
+  "clips": [
+    {
+      "id": "plx-broll-matter-canvas",
+      "title": "Matter canvas — kanban drift",
+      "plateStill": "brand/praxium-law/stills/plx-broll-matter-canvas-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-matter-canvas-15s.mp4",
+      "endFramePath": "brand/praxium-law/continuity/plx-broll-matter-canvas-end.png",
+      "motionBeat": "Slow push across abstract legal kanban board, cards subtly highlight orange, shallow depth of field, no readable text.",
+      "websiteUse": ["homepage-hero-bg", "product-tour"],
+      "overlayQuote": "Run every matter from one canvas.",
+      "linkedAsset": "PLX005",
+      "status": "pending"
+    },
+    {
+      "id": "plx-broll-command-palette",
+      "title": "Command palette ⌘K motion",
+      "plateStill": "brand/praxium-law/stills/plx-broll-command-palette-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-command-palette-15s.mp4",
+      "motionBeat": "Soft zoom on blurred laptop screen with floating command palette overlay, orange cursor glow, productivity SaaS tone.",
+      "websiteUse": ["homepage-hero", "feature-comms"],
+      "overlayQuote": "⌘K from anywhere — the command palette for law.",
+      "linkedAsset": "PLX006",
+      "status": "pending"
+    },
+    {
+      "id": "plx-broll-voxline-desk",
+      "title": "VoxLine desk — phones native",
+      "plateStill": "brand/praxium-law/stills/plx-broll-voxline-desk-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-voxline-desk-15s.mp4",
+      "motionBeat": "Slow dolly across modern law office desk: headset, phone, warm window light, orange accent sticky note, professional calm.",
+      "websiteUse": ["pillar-comms", "pricing"],
+      "overlayQuote": "Phones, SMS, email, video — native. Not RingCentral.",
+      "linkedAsset": "PLX007",
+      "status": "pending"
+    },
+    {
+      "id": "plx-broll-medconnect-records",
+      "title": "MedConnect — records organizing",
+      "plateStill": "brand/praxium-law/stills/plx-broll-medconnect-records-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-medconnect-records-15s.mp4",
+      "motionBeat": "Top-down slow slide across medical folders and HIPAA envelopes being sorted, orange paperclip catch light, PI firm ops tone.",
+      "websiteUse": ["pillar-ops", "stats-section"],
+      "overlayQuote": "Medical records in 18 days, not 90.",
+      "linkedAsset": "PLX008",
+      "status": "pending"
+    },
+    {
+      "id": "plx-broll-court-docket",
+      "title": "CourtConnect — docket abstract",
+      "plateStill": "brand/praxium-law/stills/plx-broll-court-docket-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-court-docket-15s.mp4",
+      "motionBeat": "Slow pan across courthouse columns transitioning to blurred docket lines on tablet, dignified navy-orange grade.",
+      "websiteUse": ["pillar-ops", "about-trust"],
+      "overlayQuote": "CourtConnect pulls PACER dockets automatically.",
+      "linkedAsset": "PLX008",
+      "status": "pending"
+    },
+    {
+      "id": "plx-broll-team-huddle",
+      "title": "Team huddle — modern firm",
+      "plateStill": "brand/praxium-law/stills/plx-broll-team-huddle-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-team-huddle-15s.mp4",
+      "motionBeat": "Wide slow push into conference room huddle silhouettes, warm light, collaborative SaaS marketing, no identifiable faces.",
+      "websiteUse": ["testimonials-bg", "enterprise-tier"],
+      "overlayQuote": "45 modules included — not sold separately.",
+      "linkedAsset": "PLX014",
+      "status": "pending"
+    },
+    {
+      "id": "plx-broll-savings-math",
+      "title": "Savings math — abstract finance",
+      "plateStill": "brand/praxium-law/stills/plx-broll-savings-math-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-savings-math-15s.mp4",
+      "motionBeat": "Abstract animated bar chart descending in orange on dark charcoal, slow loop, SaaS pricing truth section mood.",
+      "websiteUse": ["#truth", "/pricing"],
+      "overlayQuote": "Save $85,980 a year. That's a paralegal salary.",
+      "linkedAsset": "PLX013",
+      "status": "pending"
+    },
+    {
+      "id": "plx-broll-praxa-journal",
+      "title": "Praxa — symptom journal calm",
+      "plateStill": "brand/praxium-law/stills/plx-broll-praxa-journal-plate-16x9.png",
+      "videoPath": "brand/praxium-law/video-clips/plx-broll-praxa-journal-15s.mp4",
+      "motionBeat": "Gentle push-in on journal and phone on bedside table, sage and sand Praxa palette, morning light, compassionate consumer tone.",
+      "websiteUse": ["/praxa", "praxahq.com"],
+      "overlayQuote": "Be accurate. Not strong. — Praxa HQ",
+      "linkedAsset": "PLX011",
+      "status": "pending"
+    }
+  ],
+  "homepageStitch": {
+    "id": "plx-homepage-hero-60s",
+    "clips": [
+      "plx-broll-matter-canvas",
+      "plx-broll-command-palette",
+      "plx-broll-voxline-desk",
+      "plx-broll-savings-math"
+    ],
+    "output": "brand/praxium-law/video-clips/plx-homepage-hero-60s.mp4",
+    "note": "Extract end frame between each clip per VIDEO_CONTINUITY_END_FRAMES.md"
+  },
+  "generationOrder": [
+    "1. Nano Banana plates (linked PLX stills + b-roll plates)",
+    "2. Seedance 15s clips from plates — audio OFF",
+    "3. End frames to continuity/",
+    "4. Optional 60s homepage stitch"
+  ],
+  "summary": {
+    "clipsPending": 8,
+    "platesPending": 8,
+    "blockedOnIntake": false
+  }
+}
