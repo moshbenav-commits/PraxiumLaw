@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
-import { Settings as SettingsIcon, LogOut, Users } from "lucide-react";
+import { Settings as SettingsIcon, LogOut, Users, Shield } from "lucide-react";
 import CopyButton from "@/components/common/CopyButton";
 import PageLoader from "@/components/common/PageLoader";
 
@@ -66,6 +66,20 @@ export default function Settings() {
             {team.length === 0 && <div className="text-sm text-praxium-subtle py-2">No team members listed.</div>}
           </div>
         )}
+      </div>
+
+      <div className="mt-4 data-card p-5">
+        <div className="overline mb-3 flex items-center gap-2"><Shield size={12} /> // audit log</div>
+        <p className="text-sm text-praxium-subtle mb-3">
+          Immutable record of logins, matter views, and document exports for ethics and compliance review.
+        </p>
+        <Link
+          to="/settings/audit"
+          className="inline-flex text-sm font-semibold text-praxium-accent hover:underline"
+          data-testid="settings-audit-log"
+        >
+          View audit log (last 50) →
+        </Link>
       </div>
 
       <div className="mt-4 data-card p-5">

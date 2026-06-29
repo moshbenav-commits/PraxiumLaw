@@ -132,9 +132,14 @@ Policy: `docs/CUSTOM_TOOLS_MARKETPLACE_POLICY.md`
 
 ### Audit
 
-| Method | Path |
-|--------|------|
-| GET | `/audit` |
+| Method | Path | Notes |
+|--------|------|-------|
+| GET | `/audit` | Last 50 events (default) · `?limit=` · `?action=` · `?resource_type=` |
+| GET | `/audit/verify` | Hash-chain integrity for current firm |
+
+**v1 logged actions:** `auth.login.success` · `auth.login.failed` · `matter.viewed` · `document.exported` (+ billing/team/workflow/marketplace from v0.2).
+
+**UI:** `/settings/audit` (admin/partner). Spec: workspace `brand/praxium-law/AUDIT_LOG_V1.md`.
 
 ### Firm settings
 

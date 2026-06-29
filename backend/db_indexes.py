@@ -13,6 +13,7 @@ INDEX_SPECS = [
     ("documents", [("firm_id", 1), ("matter_id", 1)], False),
     ("leads", [("firm_id", 1), ("status", 1)], False),
     ("audit_events", [("firm_id", 1), ("created_at", -1)], False),
+    ("audit_events", [("firm_id", 1), ("action", 1), ("created_at", -1)], False),
     ("team_invites", [("email", 1), ("status", 1)], False),
     ("team_invites", [("token", 1)], True),
     ("identity_verification_sessions", [("firm_id", 1), ("status", 1)], False),

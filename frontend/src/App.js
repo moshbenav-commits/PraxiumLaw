@@ -30,6 +30,7 @@ import Inbox from "@/pages/Inbox";
 import Marketplace from "@/pages/Marketplace";
 import Reports from "@/pages/Reports";
 import Settings from "@/pages/Settings";
+import AuditLog from "@/pages/AuditLog";
 
 import PraxaLanding from "@/pages/praxa/PraxaLanding";
 import PraxaSignup from "@/pages/praxa/PraxaSignup";
@@ -83,6 +84,7 @@ function App() {
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/audit" element={<AuditLog />} />
             <Route path="/settings/identity-review" element={<IdentityReview />} />
           </Route>
 

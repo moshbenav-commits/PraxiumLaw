@@ -2,7 +2,7 @@
 Praxium Suite — Legal OS backend.
 FastAPI + MongoDB + JWT auth + Claude Sonnet 4.5 (Emergent Universal Key).
 """
-from fastapi import FastAPI, APIRouter, HTTPException, Depends, Header, UploadFile, File, Form
+from fastapi import FastAPI, APIRouter, HTTPException, Depends, Header, UploadFile, File, Form, Request
 from fastapi.responses import StreamingResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
@@ -253,12 +253,43 @@ async def signup(req: SignupReq):
 
 
 @api.post("/auth/login")
-async def login(req: LoginReq):
+async def login(req: LoginReq, request: Request):
     user = await db.users.find_one({"email": req.email.lower()})
     if not user or not check_pw(req.password, user["password_hash"]):
+        from audit import log_audit as _log_audit
+
+        await _log_audit(
+            db,
+            firm_id=user["firm_id"] if user else "_unauthenticated",
+            actor_id=user["id"] if user else "_anonymous",
+            actor_name=user.get("name", "Unknown") if user else "Anonymous",
+            actor_email=req.email.lower(),
+            action="auth.login.failed",
+            resource_type="session",
+            outcome="failure",
+            detail={"email": req.email.lower()},
+            new_id=new_id,
+            now_iso=now,
+            request=request,
+        )
         raise HTTPException(401, "Invalid credentials")
     firm = await db.firms.find_one({"id": user["firm_id"]}, {"_id": 0})
     token = make_token(user["id"], user["firm_id"])
+    from audit import log_audit as _log_audit
+
+    await _log_audit(
+        db,
+        firm_id=user["firm_id"],
+        actor_id=user["id"],
+        actor_name=user["name"],
+        actor_email=user["email"],
+        action="auth.login.success",
+        resource_type="session",
+        outcome="success",
+        new_id=new_id,
+        now_iso=now,
+        request=request,
+    )
     return {
         "token": token,
         "user": {"id": user["id"], "email": user["email"], "name": user["name"], "role": user["role"], "firm_id": user["firm_id"]},
@@ -321,10 +352,26 @@ async def list_matters(status: Optional[str] = None, user=Depends(get_current_us
 
 
 @api.get("/matters/{matter_id}")
-async def get_matter(matter_id: str, user=Depends(get_current_user)):
+async def get_matter(matter_id: str, request: Request, user=Depends(get_current_user)):
     m = await db.matters.find_one({"id": matter_id, "firm_id": user["firm_id"]}, {"_id": 0})
     if not m:
         raise HTTPException(404, "Matter not found")
+    from audit import log_audit as _log_audit
+
+    await _log_audit(
+        db,
+        firm_id=user["firm_id"],
+        actor_id=user["id"],
+        actor_name=user["name"],
+        actor_email=user.get("email"),
+        action="matter.viewed",
+        resource_type="matter",
+        resource_id=matter_id,
+        detail={"title": m.get("title"), "case_number": m.get("case_number")},
+        new_id=new_id,
+        now_iso=now,
+        request=request,
+    )
     return m
 
 
@@ -518,10 +565,26 @@ async def list_documents(matter_id: Optional[str] = None, user=Depends(get_curre
 
 
 @api.get("/documents/{doc_id}/download")
-async def download_document(doc_id: str, user=Depends(get_current_user)):
+async def download_document(doc_id: str, request: Request, user=Depends(get_current_user)):
     d = await db.documents.find_one({"id": doc_id, "firm_id": user["firm_id"]})
     if not d:
         raise HTTPException(404)
+    from audit import log_audit as _log_audit
+
+    await _log_audit(
+        db,
+        firm_id=user["firm_id"],
+        actor_id=user["id"],
+        actor_name=user["name"],
+        actor_email=user.get("email"),
+        action="document.exported",
+        resource_type="document",
+        resource_id=doc_id,
+        detail={"name": d.get("name"), "matter_id": d.get("matter_id")},
+        new_id=new_id,
+        now_iso=now,
+        request=request,
+    )
     return {"name": d["name"], "content_type": d["content_type"], "data_b64": d["data_b64"]}
 
 

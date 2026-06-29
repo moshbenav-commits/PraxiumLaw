@@ -120,7 +120,42 @@ def test_team_invite_flow(ext_headers):
 def test_audit_log(ext_headers):
     r = requests.get(f"{API}/audit", headers=ext_headers, timeout=10)
     assert r.status_code == 200
-    assert "items" in r.json()
+    data = r.json()
+    assert "items" in data
+    assert data.get("limit") == 50
+
+
+def test_audit_verify_chain(ext_headers):
+    r = requests.get(f"{API}/audit/verify", headers=ext_headers, timeout=10)
+    assert r.status_code == 200
+    body = r.json()
+    assert "ok" in body and "verified" in body
+
+
+def test_audit_login_and_matter_view(ext_headers):
+    login_fail = requests.post(
+        f"{API}/auth/login",
+        json={"email": f"ext+{TS}@praxium.law", "password": "wrong-password"},
+        timeout=10,
+    )
+    assert login_fail.status_code == 401
+
+    matter = requests.post(
+        f"{API}/matters",
+        headers=ext_headers,
+        json={"title": f"Audit test matter {TS}", "status": "open"},
+        timeout=10,
+    )
+    assert matter.status_code == 200, matter.text
+    mid = matter.json()["id"]
+
+    view = requests.get(f"{API}/matters/{mid}", headers=ext_headers, timeout=10)
+    assert view.status_code == 200
+
+    audit = requests.get(f"{API}/audit", headers=ext_headers, params={"limit": 50}, timeout=10)
+    actions = {row["action"] for row in audit.json().get("items", [])}
+    assert "auth.login.failed" in actions
+    assert "matter.viewed" in actions
 
 
 # ─────────── firm settings ───────────
