@@ -40,6 +40,28 @@ cp env.local.example .env
 
 https://github.com/moshbenav-commits/PraxiumLaw.git — work on **`Main`**.
 
+## Backend API
+
+Full route map: [`docs/BACKEND_API.md`](docs/BACKEND_API.md)
+
+| Module | File |
+|--------|------|
+| Core CRUD + auth + AI | `backend/server.py` |
+| Identity verification | `backend/identity_verification.py` |
+| RBAC | `backend/rbac.py` |
+| Audit log | `backend/audit.py` |
+| Billing stubs | `backend/billing.py` |
+| Workflows | `backend/workflows.py` |
+| Marketplace tools | `backend/marketplace_tools.py` |
+| Team invites | `backend/team_mgmt.py` |
+
+**API version:** `0.2.0` · **Stack:** FastAPI + MongoDB (NestJS port is future — see workspace `practice-management-vertical.md`).
+
+```bash
+cd backend && .venv/bin/pytest tests/ -q
+REACT_APP_BACKEND_URL=https://api.praxiumlaw.com .venv/bin/pytest tests/ -q  # prod smoke
+```
+
 ## Production
 
 | Domain | Role |

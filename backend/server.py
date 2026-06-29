@@ -242,6 +242,8 @@ async def signup(req: SignupReq):
         "title": "Managing Attorney",
         "created_at": now(),
     })
+    from workflows import ensure_firm_workflows
+    await ensure_firm_workflows(db, firm_id, new_id, now)
     token = make_token(user_id, firm_id)
     return {
         "token": token,
@@ -295,6 +297,16 @@ async def create_matter(m: MatterIn, user=Depends(get_current_user)):
         "actor_id": user["id"], "actor_name": user["name"],
         "type": "matter_created", "description": f"Created matter: {m.title}", "created_at": now(),
     })
+    from workflows import run_workflow_trigger
+    await run_workflow_trigger(
+        db,
+        firm_id=user["firm_id"],
+        trigger="matter.created",
+        context={"matter_id": matter_id, "title": m.title},
+        user_id=user["id"],
+        new_id=new_id,
+        now_iso=now,
+    )
     doc.pop("_id", None)
     return doc
 
@@ -481,6 +493,16 @@ async def upload_document(
         "actor_id": user["id"], "actor_name": user["name"],
         "type": "document_uploaded", "description": f"Uploaded {name}", "created_at": now(),
     })
+    from workflows import run_workflow_trigger
+    await run_workflow_trigger(
+        db,
+        firm_id=user["firm_id"],
+        trigger="document.uploaded",
+        context={"matter_id": matter_id, "folder": folder, "name": name},
+        user_id=user["id"],
+        new_id=new_id,
+        now_iso=now,
+    )
     doc.pop("data_b64")
     doc.pop("_id", None)
     return doc
@@ -501,6 +523,9 @@ async def download_document(doc_id: str, user=Depends(get_current_user)):
     if not d:
         raise HTTPException(404)
     return {"name": d["name"], "content_type": d["content_type"], "data_b64": d["data_b64"]}
+
+
+# DELETE /documents/{doc_id} registered after RBAC imports (see bottom of file)
 
 
 # ──────────────── medical providers / treatments ────────────────
@@ -535,8 +560,15 @@ async def list_treatments(matter_id: Optional[str] = None, user=Depends(get_curr
     return await db.treatments.find(q, {"_id": 0}).to_list(500)
 
 
+class MagicLinkIn(BaseModel):
+    matter_id: str
+    expires_days: int = 30
+
+
 @api.post("/medconnect/magic-link")
-async def create_magic_link(matter_id: str, expires_days: int = 30, user=Depends(get_current_user)):
+async def create_magic_link(body: MagicLinkIn, user=Depends(get_current_user)):
+    matter_id = body.matter_id
+    expires_days = body.expires_days
     token = secrets.token_urlsafe(16)
     doc = {
         "id": new_id(), "firm_id": user["firm_id"], "matter_id": matter_id,
@@ -872,7 +904,7 @@ async def global_search(q: str, user=Depends(get_current_user)):
 # ──────────────── health ────────────────
 @api.get("/")
 async def root():
-    return {"app": "Praxium Suite", "status": "ok", "version": "0.1.0"}
+    return {"app": "Praxium Suite", "status": "ok", "version": "0.2.0"}
 
 
 @api.get("/health")
@@ -882,8 +914,71 @@ async def health():
 
 # include + middleware
 from identity_verification import register_identity_verification_routes
+from rbac import require_permission
+from audit import log_audit, register_audit_routes
+from billing import register_billing_routes
+from workflows import ensure_firm_workflows, register_workflow_routes, run_workflow_trigger
+from marketplace_tools import register_marketplace_routes
+from team_mgmt import register_team_routes
+from db_indexes import ensure_indexes
 
 register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
+register_audit_routes(api, db, get_current_user, require_permission, new_id, now)
+register_billing_routes(api, db, get_current_user, require_permission, new_id, now, log_audit)
+register_workflow_routes(api, db, get_current_user, require_permission, new_id, now, log_audit)
+register_marketplace_routes(api, db, get_current_user, require_permission, new_id, now, log_audit)
+register_team_routes(
+    api, db, get_current_user, require_permission, hash_pw, make_token,
+    new_id, now, log_audit, ensure_firm_workflows,
+)
+
+
+@api.patch("/firm/settings")
+async def patch_firm_settings(
+    updates: dict,
+    user=Depends(require_permission("settings.write", get_current_user)),
+):
+    allowed = {"name", "settings", "subscription_tier", "billing_contact"}
+    patch = {k: v for k, v in updates.items() if k in allowed}
+    if not patch:
+        return await db.firms.find_one({"id": user["firm_id"]}, {"_id": 0})
+    await db.firms.update_one({"id": user["firm_id"]}, {"$set": patch})
+    await log_audit(
+        db,
+        firm_id=user["firm_id"],
+        actor_id=user["id"],
+        actor_name=user["name"],
+        action="firm.settings_updated",
+        resource_type="firm",
+        resource_id=user["firm_id"],
+        detail={"keys": list(patch.keys())},
+        new_id=new_id,
+        now_iso=now,
+    )
+    return await db.firms.find_one({"id": user["firm_id"]}, {"_id": 0})
+
+
+@api.delete("/documents/{doc_id}")
+async def delete_document(
+    doc_id: str,
+    user=Depends(require_permission("documents.write", get_current_user)),
+):
+    res = await db.documents.delete_one({"id": doc_id, "firm_id": user["firm_id"]})
+    if res.deleted_count == 0:
+        raise HTTPException(404, "Document not found")
+    await log_audit(
+        db,
+        firm_id=user["firm_id"],
+        actor_id=user["id"],
+        actor_name=user["name"],
+        action="document.deleted",
+        resource_type="document",
+        resource_id=doc_id,
+        new_id=new_id,
+        now_iso=now,
+    )
+    return {"ok": True}
+
 
 app.include_router(api)
 app.add_middleware(
@@ -893,6 +988,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+async def startup_db():
+    try:
+        await ensure_indexes(db)
+        log.info("MongoDB indexes ensured")
+    except Exception as e:
+        log.warning("Index setup skipped: %s", e)
 
 
 @app.on_event("shutdown")
