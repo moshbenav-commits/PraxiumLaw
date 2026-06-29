@@ -569,6 +569,8 @@ export default function Landing() {
               <Link to="/praxa" className="hover:text-praxium-accent transition-colors">Praxa</Link>
               <Link to="/login" className="hover:text-praxium-accent transition-colors">Sign in</Link>
               <Link to="/signup" className="hover:text-praxium-accent transition-colors">Start free</Link>
+              <Link to="/terms" className="hover:text-praxium-accent transition-colors">Terms</Link>
+              <Link to="/privacy" className="hover:text-praxium-accent transition-colors">Privacy</Link>
             </nav>
           </div>
           <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[11px] font-mono text-white/40">
