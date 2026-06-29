@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import api from "@/lib/api";
 import { STATUSES, STATUS_COLORS, STATUS_DOT, formatDate, formatMoney, PRACTICE_AREAS, timeAgo } from "@/lib/utils";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale } from "lucide-react";
+import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, Copy } from "lucide-react";
 import { toast } from "sonner";
 import PageLoader from "@/components/common/PageLoader";
 
@@ -14,7 +14,8 @@ const TABS = [
   { id: "notes", label: "Notes", icon: MessageSquare },
   { id: "medical", label: "Medical", icon: Stethoscope },
   { id: "filings", label: "Filings", icon: Scale },
-  { id: "chat", label: "Chat", icon: MessageSquare },
+  { id: "portal", label: "Client msgs", icon: Users },
+  { id: "chat", label: "Team chat", icon: MessageSquare },
 ];
 
 export default function MatterDetail() {
@@ -27,10 +28,16 @@ export default function MatterDetail() {
   const [documents, setDocuments] = useState([]);
   const [treatments, setTreatments] = useState([]);
   const [chat, setChat] = useState([]);
+  const [portalMsgs, setPortalMsgs] = useState([]);
+  const [newPortalMsg, setNewPortalMsg] = useState("");
   const [filings, setFilings] = useState([]);
   const [newNote, setNewNote] = useState("");
   const [newTask, setNewTask] = useState("");
   const [newChatMsg, setNewChatMsg] = useState("");
+  const [portalBusy, setPortalBusy] = useState(false);
+  const [portalInviteUrl, setPortalInviteUrl] = useState("");
+  const [uploadLinkUrl, setUploadLinkUrl] = useState("");
+  const [clientContact, setClientContact] = useState(null);
 
   const reload = () => {
     api.get(`/matters/${id}`).then((r) => setMatter(r.data));
@@ -40,9 +47,102 @@ export default function MatterDetail() {
     api.get(`/documents?matter_id=${id}`).then((r) => setDocuments(r.data));
     api.get(`/treatments?matter_id=${id}`).then((r) => setTreatments(r.data));
     api.get(`/chat/messages?matter_id=${id}&channel=matter`).then((r) => setChat(r.data));
+    api.get(`/portal/staff/messages?matter_id=${id}`).then((r) => setPortalMsgs(r.data.items || [])).catch(() => setPortalMsgs([]));
     api.get(`/filings?matter_id=${id}`).then((r) => setFilings(r.data));
   };
   useEffect(reload, [id]);
+
+  useEffect(() => {
+    if (matter?.client_id) {
+      api.get(`/contacts/${matter.client_id}`).then((r) => setClientContact(r.data)).catch(() => setClientContact(null));
+    } else {
+      setClientContact(null);
+    }
+  }, [matter?.client_id]);
+
+  const togglePortal = async (enabled) => {
+    setPortalBusy(true);
+    try {
+      const r = await api.patch(`/matters/${id}/portal`, { portal_enabled: enabled });
+      setMatter(r.data.matter);
+      toast.success(enabled ? "Client portal enabled" : "Portal disabled");
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Update failed");
+    } finally {
+      setPortalBusy(false);
+    }
+  };
+
+  const sendPortalInvite = async () => {
+    setPortalBusy(true);
+    try {
+      const r = await api.patch(`/matters/${id}/portal`, { send_invite: true });
+      setMatter(r.data.matter);
+      const url = r.data.invite_url || r.data.dev_invite_url;
+      if (url) {
+        setPortalInviteUrl(url);
+        await navigator.clipboard.writeText(url);
+        toast.success("Portal invite link copied");
+      } else {
+        toast.success("Invite sent");
+      }
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Invite failed — link client with email first");
+    } finally {
+      setPortalBusy(false);
+    }
+  };
+
+  const createUploadLink = async () => {
+    try {
+      const r = await api.post("/medconnect/magic-link", { matter_id: id, expires_days: 30, send_email: true });
+      const url = r.data.full_url || `${window.location.origin}${r.data.url}`;
+      setUploadLinkUrl(url);
+      if (r.data.dev_upload_url || !r.data.full_url) {
+        await navigator.clipboard.writeText(url);
+        toast.success(r.data.dev_upload_url ? "Upload link copied (dev)" : "Upload link copied");
+      } else {
+        toast.success("Upload link emailed to client");
+      }
+    } catch {
+      toast.error("Could not create upload link");
+    }
+  };
+
+  const createSignRequest = async () => {
+    if (!clientContact?.email || !clientContact?.name) {
+      toast.error("Link a client contact with name and email first");
+      return;
+    }
+    try {
+      const r = await api.post(`/matters/${id}/sign-requests`, {
+        title: "Client agreement",
+        document_title: "Client Agreement",
+        signer_name: clientContact.name,
+        signer_email: clientContact.email,
+      });
+      const url = r.data.dev_sign_url || r.data.sign_request?.sign_url;
+      if (url) {
+        await navigator.clipboard.writeText(url);
+        toast.success("Sign link copied");
+      } else {
+        toast.success("Sign request emailed to client");
+      }
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Could not create sign request");
+    }
+  };
+
+  const toggleDocVisible = async (docId, visible) => {
+    await api.patch(`/documents/${docId}/visibility`, { client_visible: visible });
+    reload();
+    toast.success(visible ? "Visible to client" : "Hidden from client");
+  };
+
+  const toggleTaskVisible = async (taskId, visible) => {
+    await api.patch(`/tasks/${taskId}/client-visible`, { client_visible: visible });
+    reload();
+  };
 
   const updateStatus = async (s) => {
     await api.put(`/matters/${id}`, { status: s });
@@ -73,6 +173,20 @@ export default function MatterDetail() {
     await api.post("/chat/messages", { matter_id: id, channel: "matter", content: newChatMsg });
     setNewChatMsg("");
     reload();
+  };
+
+  const sendPortalMsg = async (e) => {
+    e.preventDefault();
+    if (!newPortalMsg.trim()) return;
+    try {
+      await api.post("/portal/staff/messages", { matter_id: id, content: newPortalMsg.trim() });
+      setNewPortalMsg("");
+      const r = await api.get(`/portal/staff/messages?matter_id=${id}`);
+      setPortalMsgs(r.data.items || []);
+      toast.success("Reply sent to client portal");
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Send failed");
+    }
   };
 
   const handleUpload = async (e) => {
@@ -152,16 +266,49 @@ export default function MatterDetail() {
                 </div>
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-4 data-card p-5">
-              <div className="overline mb-3">// activity</div>
-              <div className="space-y-2 max-h-[400px] overflow-y-auto">
-                {activities.length === 0 && <div className="text-xs text-praxium-subtle">No activity yet.</div>}
-                {activities.map((a) => (
-                  <div key={a.id} className="text-xs">
-                    <div><span className="font-semibold">{a.actor_name}</span> {a.description}</div>
-                    <div className="text-[10px] font-mono text-praxium-subtle">{timeAgo(a.created_at)}</div>
-                  </div>
-                ))}
+            <div className="col-span-12 lg:col-span-4 space-y-5">
+              <div className="data-card p-5">
+                <div className="overline mb-3 flex items-center gap-2"><Users size={12} /> // client portal</div>
+                <p className="text-xs text-praxium-subtle mb-3">
+                  Magic-link access for {clientContact?.name || "linked client"} — no client passwords.
+                </p>
+                <label className="flex items-center gap-2 text-sm mb-3">
+                  <input
+                    type="checkbox"
+                    checked={Boolean(matter.portal_enabled)}
+                    disabled={portalBusy}
+                    onChange={(e) => togglePortal(e.target.checked)}
+                    data-testid="matter-portal-toggle"
+                  />
+                  Client portal access
+                </label>
+                <button
+                  type="button"
+                  className="btn-ghost text-xs w-full justify-center mb-2"
+                  disabled={portalBusy || !clientContact?.email}
+                  onClick={sendPortalInvite}
+                  data-testid="matter-portal-invite"
+                >
+                  <Link2 size={12} /> Send portal invite
+                </button>
+                {portalInviteUrl && (
+                  <code className="text-[10px] font-mono block break-all bg-praxium-bg p-2 rounded-sm">{portalInviteUrl}</code>
+                )}
+                {!clientContact?.email && (
+                  <p className="text-[10px] text-amber-700 mt-2">Link a client contact with email on this matter first.</p>
+                )}
+              </div>
+              <div className="data-card p-5">
+                <div className="overline mb-3">// activity</div>
+                <div className="space-y-2 max-h-[400px] overflow-y-auto">
+                  {activities.length === 0 && <div className="text-xs text-praxium-subtle">No activity yet.</div>}
+                  {activities.map((a) => (
+                    <div key={a.id} className="text-xs">
+                      <div><span className="font-semibold">{a.actor_name}</span> {a.description}</div>
+                      <div className="text-[10px] font-mono text-praxium-subtle">{timeAgo(a.created_at)}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -176,10 +323,14 @@ export default function MatterDetail() {
             </form>
             <div className="divide-y divide-praxium-line">
               {tasks.map((t) => (
-                <div key={t.id} className="py-2 flex items-center gap-2" data-testid={`task-${t.id}`}>
+                <div key={t.id} className="py-2 flex items-center gap-2 flex-wrap" data-testid={`task-${t.id}`}>
                   <input type="checkbox" checked={t.status === "done"} onChange={async () => { await api.put(`/tasks/${t.id}`, { status: t.status === "done" ? "open" : "done" }); reload(); }} />
-                  <span className={cn("text-sm flex-1", t.status === "done" && "line-through text-praxium-subtle")}>{t.title}</span>
+                  <span className={cn("text-sm flex-1 min-w-[120px]", t.status === "done" && "line-through text-praxium-subtle")}>{t.title}</span>
                   {t.due_date && <span className="text-[10px] font-mono text-praxium-subtle">{formatDate(t.due_date)}</span>}
+                  <label className="text-[10px] font-mono flex items-center gap-1 ml-auto">
+                    <input type="checkbox" checked={Boolean(t.client_visible)} onChange={(e) => toggleTaskVisible(t.id, e.target.checked)} />
+                    Client sees
+                  </label>
                 </div>
               ))}
               {tasks.length === 0 && <div className="text-xs text-praxium-subtle py-3">No tasks yet.</div>}
@@ -189,16 +340,28 @@ export default function MatterDetail() {
 
         {tab === "documents" && (
           <div className="data-card p-5">
-            <label className="btn-praxium inline-flex cursor-pointer mb-4" data-testid="matter-upload-doc">
-              <Plus size={14} /> Upload document
-              <input type="file" onChange={handleUpload} className="hidden" />
-            </label>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <label className="btn-praxium inline-flex cursor-pointer" data-testid="matter-upload-doc">
+                <Plus size={14} /> Upload document
+                <input type="file" onChange={handleUpload} className="hidden" />
+              </label>
+              <button type="button" className="btn-ghost text-xs" onClick={createUploadLink}>
+                <Copy size={12} /> Magic upload link
+              </button>
+              <button type="button" className="btn-ghost text-xs" onClick={createSignRequest}>
+                Request signature
+              </button>
+            </div>
+            {uploadLinkUrl && (
+              <code className="text-[10px] font-mono block break-all bg-praxium-bg p-2 rounded-sm mb-4">{uploadLinkUrl}</code>
+            )}
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-praxium-line">
                   <th className="text-left py-2 overline">Name</th>
                   <th className="text-left py-2 overline">Folder</th>
                   <th className="text-left py-2 overline">Uploaded</th>
+                  <th className="text-left py-2 overline">Client</th>
                   <th className="text-right py-2 overline">Size</th>
                 </tr>
               </thead>
@@ -208,10 +371,13 @@ export default function MatterDetail() {
                     <td className="py-2 font-medium">{d.name}</td>
                     <td className="py-2 text-xs font-mono text-praxium-subtle">{d.folder}</td>
                     <td className="py-2 text-xs font-mono text-praxium-subtle">{timeAgo(d.uploaded_at)} • {d.uploaded_by_name}</td>
+                    <td className="py-2">
+                      <input type="checkbox" checked={Boolean(d.client_visible)} onChange={(e) => toggleDocVisible(d.id, e.target.checked)} title="Visible in client portal" />
+                    </td>
                     <td className="py-2 text-right text-xs font-mono">{Math.round(d.size_bytes / 1024)} KB</td>
                   </tr>
                 ))}
-                {documents.length === 0 && <tr><td colSpan={4} className="py-6 text-center text-xs text-praxium-subtle">No documents yet.</td></tr>}
+                {documents.length === 0 && <tr><td colSpan={5} className="py-6 text-center text-xs text-praxium-subtle">No documents yet.</td></tr>}
               </tbody>
             </table>
           </div>
@@ -294,6 +460,50 @@ export default function MatterDetail() {
                 </tbody>
               </table>
             )}
+          </div>
+        )}
+
+        {tab === "portal" && (
+          <div className="data-card p-5 flex flex-col" style={{ height: "calc(100vh - 240px)" }}>
+            <div className="overline mb-1">// client portal messaging</div>
+            <p className="text-xs text-praxium-subtle mb-3">
+              Secure thread with {clientContact?.name || "your client"} — visible in their portal when access is enabled.
+            </p>
+            {!matter.portal_enabled && (
+              <p className="text-xs text-amber-700 mb-3">Enable client portal access to let the client read replies.</p>
+            )}
+            <div className="flex-1 overflow-y-auto space-y-3 pr-2">
+              {portalMsgs.map((m) => (
+                <div
+                  key={m.id}
+                  className={cn(
+                    "max-w-[85%] rounded-sm p-3 text-sm",
+                    m.author_kind === "client"
+                      ? "bg-praxium-bg border border-praxium-line"
+                      : "ml-auto bg-praxium-accent/10 border border-praxium-accent/20"
+                  )}
+                  data-testid={`portal-msg-${m.id}`}
+                >
+                  <div className="text-[10px] font-mono text-praxium-subtle mb-1">
+                    {m.author_name} · {timeAgo(m.created_at)}
+                  </div>
+                  <div className="whitespace-pre-wrap">{m.content}</div>
+                </div>
+              ))}
+              {portalMsgs.length === 0 && (
+                <div className="text-xs text-praxium-subtle">No client messages yet — they can write from the portal Messages page.</div>
+              )}
+            </div>
+            <form onSubmit={sendPortalMsg} className="flex gap-2 mt-3 pt-3 border-t border-praxium-line" data-testid="portal-reply-form">
+              <input
+                value={newPortalMsg}
+                onChange={(e) => setNewPortalMsg(e.target.value)}
+                placeholder="Reply to client…"
+                className="flex-1 px-3 py-2 border border-praxium-line rounded-sm text-sm"
+                data-testid="portal-reply-input"
+              />
+              <button type="submit" className="btn-praxium" data-testid="portal-reply-send">Send</button>
+            </form>
           </div>
         )}
 

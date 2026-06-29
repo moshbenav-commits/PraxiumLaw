@@ -318,6 +318,7 @@ async def create_matter(m: MatterIn, user=Depends(get_current_user)):
         "lead_attorney_id": doc.get("lead_attorney_id") or user["id"],
         "team_ids": [user["id"]],
         "created_by": user["id"],
+        "portal_enabled": doc.get("portal_enabled", False),
         "created_at": now(),
         "updated_at": now(),
     })
@@ -533,6 +534,7 @@ async def upload_document(
         "size_bytes": len(contents), "data_b64": b64,
         "uploaded_by": user["id"], "uploaded_by_name": user["name"],
         "uploaded_at": now(), "version": 1,
+        "client_visible": False,
     }
     await db.documents.insert_one(doc)
     await db.activities.insert_one({
@@ -626,6 +628,8 @@ async def list_treatments(matter_id: Optional[str] = None, user=Depends(get_curr
 class MagicLinkIn(BaseModel):
     matter_id: str
     expires_days: int = 30
+    send_email: bool = True
+    recipient_email: Optional[str] = None
 
 
 @api.post("/medconnect/magic-link")
@@ -640,7 +644,29 @@ async def create_magic_link(body: MagicLinkIn, user=Depends(get_current_user)):
         "uses": 0, "created_at": now(),
     }
     await db.magic_links.insert_one(doc)
-    return {"token": token, "url": f"/upload/{token}", "expires_at": doc["expires_at"]}
+    frontend_url = os.environ.get("PRAXIUM_FRONTEND_URL", "http://localhost:3000").rstrip("/")
+    full_url = f"{frontend_url}/upload/{token}"
+    if body.send_email:
+        from email_util import send_upload_link_email
+
+        email = body.recipient_email
+        if not email:
+            matter = await db.matters.find_one({"id": matter_id, "firm_id": user["firm_id"]})
+            if matter:
+                client_id = matter.get("client_id") or matter.get("client_contact_id")
+                if client_id:
+                    contact = await db.contacts.find_one({"id": client_id})
+                    email = (contact or {}).get("email")
+        if email:
+            firm = await db.firms.find_one({"id": user["firm_id"]}, {"_id": 0, "name": 1})
+            matter = await db.matters.find_one({"id": matter_id}, {"_id": 0, "title": 1, "case_number": 1})
+            firm_name = (firm or {}).get("name") or "Your firm"
+            matter_label = (matter or {}).get("case_number") or (matter or {}).get("title") or matter_id
+            send_upload_link_email(email, full_url, firm_name=firm_name, matter_label=matter_label)
+    out = {"token": token, "url": f"/upload/{token}", "full_url": full_url, "expires_at": doc["expires_at"]}
+    if os.environ.get("PRAXIUM_PORTAL_DEV_RETURN_LINK", "").lower() in ("1", "true", "yes"):
+        out["dev_upload_url"] = full_url
+    return out
 
 
 # ──────────────── filings (CourtFile) ────────────────
@@ -733,6 +759,7 @@ async def convert_lead(lid: str, user=Depends(get_current_user)):
         "status": "intake", "client_id": contact_id, "lead_attorney_id": user["id"],
         "team_ids": [user["id"]], "description": lead.get("description"),
         "incident_date": lead.get("incident_date"), "created_by": user["id"],
+        "portal_enabled": False,
         "created_at": now(), "updated_at": now(),
     })
     await db.leads.update_one({"id": lid}, {"$set": {"status": "converted", "matter_id": matter_id}})
@@ -983,6 +1010,8 @@ from billing import register_billing_routes
 from workflows import ensure_firm_workflows, register_workflow_routes, run_workflow_trigger
 from marketplace_tools import register_marketplace_routes
 from team_mgmt import register_team_routes
+from portal import register_portal_routes, register_upload_routes
+from esign import register_esign_routes
 from db_indexes import ensure_indexes
 
 register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
@@ -993,6 +1022,13 @@ register_marketplace_routes(api, db, get_current_user, require_permission, new_i
 register_team_routes(
     api, db, get_current_user, require_permission, hash_pw, make_token,
     new_id, now, log_audit, ensure_firm_workflows,
+)
+register_portal_routes(
+    api, db, JWT_SECRET, get_current_user, require_permission, new_id, now, log_audit,
+)
+register_upload_routes(api, db, new_id, now, log_audit)
+register_esign_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 
 

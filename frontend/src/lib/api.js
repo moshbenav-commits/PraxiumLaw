@@ -23,7 +23,10 @@ api.interceptors.response.use(
         path.startsWith("/pricing") ||
         path.startsWith("/praxa") ||
         path.startsWith("/intake") ||
-        path.startsWith("/verify-identity");
+        path.startsWith("/verify-identity") ||
+        path.startsWith("/portal") ||
+        path.startsWith("/upload") ||
+        path.startsWith("/accept-invite");
       if (!isPublic) {
         localStorage.removeItem("praxium_token");
         localStorage.removeItem("praxium_user");

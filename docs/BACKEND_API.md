@@ -31,7 +31,8 @@ JWT: `Authorization: Bearer <token>` · 30-day HS256 · `JWT_SECRET` env.
 | **Activities** | `GET /activities` |
 | **Filings** | `POST/GET /filings` |
 | **Providers / treatments** | `POST/GET /providers` · `POST/GET /treatments` |
-| **MedConnect** | `POST /medconnect/magic-link` JSON `{ matter_id, expires_days? }` |
+| **MedConnect** | `POST /medconnect/magic-link` JSON `{ matter_id, expires_days?, send_email? }` |
+| **NativeSign** | `POST /matters/{id}/sign-requests` · `GET /sign-requests` · public `GET/POST /sign/{token}` |
 | **Dashboard** | `GET /dashboard` |
 | **Search** | `GET /search?q=` |
 | **Team** | `GET /team` |
@@ -172,6 +173,10 @@ See `backend/env.local.example` and `backend/env.production.example`.
 | `PRAXIUM_IDV_DEMO_ENABLED` | Optional |
 | `PRAXIUM_IDV_TOKEN_SECRET` | Optional (defaults JWT_SECRET) |
 | `PRAXIUM_IDV_TOKEN_TTL_HOURS` | Optional (default 168) |
+| `RESEND_API_KEY` | Portal invites, upload links, NativeSign email (optional — dev uses `PRAXIUM_PORTAL_DEV_RETURN_LINK`) |
+| `PRAXIUM_EMAIL_FROM` | Resend from address (default `onboarding@resend.dev`) |
+| `PRAXIUM_PORTAL_DEV_RETURN_LINK` | Dev only — return magic URLs in JSON |
+| `PRAXIUM_SIGN_LINK_TTL_DAYS` | NativeSign link expiry (default 14) |
 
 ---
 
@@ -198,7 +203,9 @@ REACT_APP_BACKEND_URL=https://api.praxiumlaw.com .venv/bin/pytest tests/ -q
 | `workflows.py` | Automations |
 | `marketplace_tools.py` | Tools catalog |
 | `team_mgmt.py` | Invites & roles |
-| `db_indexes.py` | Mongo indexes |
+| `email_util.py` | Resend transactional email |
+| `portal.py` | Client portal + magic upload |
+| `esign.py` | NativeSign v1 |
 | `api/index.py` | Vercel Mangum handler |
 
 **Long-term:** NestJS + Next port per `docs/prompts/playbooks/expedia/practice-management-vertical.md` — FastAPI is current production SSOT.

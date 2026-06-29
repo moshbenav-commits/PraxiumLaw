@@ -31,6 +31,19 @@ import Marketplace from "@/pages/Marketplace";
 import Reports from "@/pages/Reports";
 import Settings from "@/pages/Settings";
 import AuditLog from "@/pages/AuditLog";
+import SettingsTeam from "@/pages/SettingsTeam";
+import SettingsWorkflows from "@/pages/SettingsWorkflows";
+import AcceptInvite from "@/pages/AcceptInvite";
+import UploadToken from "@/pages/UploadToken";
+import SignToken from "@/pages/SignToken";
+
+import { PortalProvider } from "@/contexts/PortalContext";
+import PortalShell from "@/components/portal/PortalShell";
+import PortalLogin from "@/pages/portal/PortalLogin";
+import PortalVerify from "@/pages/portal/PortalVerify";
+import PortalDashboard from "@/pages/portal/PortalDashboard";
+import PortalMatterDetail from "@/pages/portal/PortalMatterDetail";
+import PortalMessages from "@/pages/portal/PortalMessages";
 
 import PraxaLanding from "@/pages/praxa/PraxaLanding";
 import PraxaSignup from "@/pages/praxa/PraxaSignup";
@@ -57,6 +70,39 @@ function App() {
           <Route path="/verify-identity/:token" element={<VerifyIdentity />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/accept-invite" element={<AcceptInvite />} />
+          <Route path="/upload/:token" element={<UploadToken />} />
+          <Route path="/sign/:token" element={<SignToken />} />
+
+          {/* Client portal (magic-link auth — separate from firm Shell) */}
+          <Route
+            path="/portal"
+            element={
+              <PortalProvider>
+                <PortalShell requireAuth />
+              </PortalProvider>
+            }
+          >
+            <Route index element={<PortalDashboard />} />
+            <Route path="matters/:id" element={<PortalMatterDetail />} />
+            <Route path="messages" element={<PortalMessages />} />
+          </Route>
+          <Route
+            path="/portal/login"
+            element={
+              <PortalProvider>
+                <PortalLogin />
+              </PortalProvider>
+            }
+          />
+          <Route
+            path="/portal/verify"
+            element={
+              <PortalProvider>
+                <PortalVerify />
+              </PortalProvider>
+            }
+          />
 
           {/* Praxa consumer app */}
           <Route path="/praxa" element={<PraxaLanding />} />
@@ -84,6 +130,8 @@ function App() {
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/team" element={<SettingsTeam />} />
+            <Route path="/settings/workflows" element={<SettingsWorkflows />} />
             <Route path="/settings/audit" element={<AuditLog />} />
             <Route path="/settings/identity-review" element={<IdentityReview />} />
           </Route>

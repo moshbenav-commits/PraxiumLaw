@@ -171,6 +171,86 @@ def test_firm_settings_patch(ext_headers):
 
 
 # ─────────── identity verification demo ───────────
+# ─────────── portal messaging ───────────
+def test_portal_client_staff_messages(ext_headers):
+    contact = requests.post(
+        f"{API}/contacts",
+        headers=ext_headers,
+        json={"name": f"Portal Client {TS}", "email": f"portal+{TS}@example.com", "kind": "client"},
+        timeout=10,
+    )
+    assert contact.status_code == 200, contact.text
+    cid = contact.json()["id"]
+
+    matter = requests.post(
+        f"{API}/matters",
+        headers=ext_headers,
+        json={"title": f"Portal matter {TS}", "status": "open", "client_id": cid},
+        timeout=10,
+    )
+    assert matter.status_code == 200, matter.text
+    mid = matter.json()["id"]
+
+    enable = requests.patch(
+        f"{API}/matters/{mid}/portal",
+        headers=ext_headers,
+        json={"portal_enabled": True},
+        timeout=10,
+    )
+    assert enable.status_code == 200
+
+    link = requests.post(
+        f"{API}/portal/request-link",
+        json={"email": f"portal+{TS}@example.com"},
+        timeout=10,
+    )
+    assert link.status_code == 200
+    dev_url = link.json().get("dev_verify_url")
+    if not dev_url:
+        pytest.skip("Set PRAXIUM_PORTAL_DEV_RETURN_LINK=1 for portal message test")
+    token = dev_url.split("token=")[-1]
+
+    verify = requests.post(f"{API}/portal/verify", json={"token": token}, timeout=10)
+    assert verify.status_code == 200, verify.text
+    portal_token = verify.json()["token"]
+    portal_headers = {"Authorization": f"Bearer {portal_token}", "Content-Type": "application/json"}
+
+    client_msg = requests.post(
+        f"{API}/portal/messages",
+        headers=portal_headers,
+        json={"matter_id": mid, "content": f"TEST portal client {TS}"},
+        timeout=10,
+    )
+    assert client_msg.status_code == 200, client_msg.text
+
+    thread = requests.get(
+        f"{API}/portal/staff/messages",
+        headers=ext_headers,
+        params={"matter_id": mid},
+        timeout=10,
+    )
+    assert thread.status_code == 200, thread.text
+    items = thread.json().get("items", [])
+    assert any(m.get("content") == f"TEST portal client {TS}" for m in items)
+
+    staff_reply = requests.post(
+        f"{API}/portal/staff/messages",
+        headers=ext_headers,
+        json={"matter_id": mid, "content": f"TEST staff reply {TS}"},
+        timeout=10,
+    )
+    assert staff_reply.status_code == 200, staff_reply.text
+
+    thread2 = requests.get(
+        f"{API}/portal/staff/messages",
+        headers=ext_headers,
+        params={"matter_id": mid},
+        timeout=10,
+    )
+    assert thread2.status_code == 200
+    assert any(m.get("content") == f"TEST staff reply {TS}" for m in thread2.json().get("items", []))
+
+
 def test_idv_demo_session():
     r = requests.post(f"{API}/identity-verification/demo/session", timeout=10)
     if r.status_code == 403:
