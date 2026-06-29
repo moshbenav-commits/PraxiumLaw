@@ -344,6 +344,39 @@ def register_portal_routes(
         ).sort("due_date", 1).to_list(100)
         return {"items": items}
 
+    @api.get("/portal/matters/{matter_id}/sign-requests")
+    async def portal_pending_sign_requests(matter_id: str, portal=Depends(get_current_portal_client)):
+        """Pending NativeSign envelopes for this client email on the matter."""
+        _assert_matter_access(portal, matter_id)
+        email = (portal.get("email") or portal["contact"].get("email") or "").lower()
+        if not email:
+            return {"items": []}
+        now = datetime.now(timezone.utc).isoformat()
+        items = await db.sign_requests.find(
+            {
+                "firm_id": portal["firm_id"],
+                "matter_id": matter_id,
+                "status": "pending",
+                "signer_email": email,
+                "expires_at": {"$gt": now},
+            },
+            {"_id": 0, "signed_pdf_b64": 0, "signature_png_b64": 0},
+        ).sort("created_at", -1).to_list(20)
+        frontend_url = os.environ.get("PRAXIUM_FRONTEND_URL", "http://localhost:3000").rstrip("/")
+        sanitized = []
+        for item in items:
+            sign_url = item.get("sign_url") or f"{frontend_url}/sign/{item.get('token', '')}"
+            sanitized.append({
+                "id": item.get("id"),
+                "title": item.get("title"),
+                "document_title": item.get("document_title"),
+                "status": item.get("status"),
+                "expires_at": item.get("expires_at"),
+                "sign_url": sign_url,
+                "created_at": item.get("created_at"),
+            })
+        return {"items": sanitized}
+
     @api.get("/portal/messages")
     async def portal_list_messages(matter_id: Optional[str] = None, portal=Depends(get_current_portal_client)):
         q = {

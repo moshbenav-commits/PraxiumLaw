@@ -32,7 +32,7 @@ JWT: `Authorization: Bearer <token>` · 30-day HS256 · `JWT_SECRET` env.
 | **Filings** | `POST/GET /filings` |
 | **Providers / treatments** | `POST/GET /providers` · `POST/GET /treatments` |
 | **MedConnect** | `POST /medconnect/magic-link` JSON `{ matter_id, expires_days?, send_email? }` |
-| **NativeSign** | `POST /matters/{id}/sign-requests` · `GET /sign-requests` · public `GET/POST /sign/{token}` |
+| **NativeSign** | `POST /matters/{id}/sign-requests` · `GET /sign-requests` · `POST /sign-requests/{id}/resend` · public `GET/POST /sign/{token}` |
 | **Dashboard** | `GET /dashboard` |
 | **Search** | `GET /search?q=` |
 | **Team** | `GET /team` |
@@ -177,6 +177,18 @@ See `backend/env.local.example` and `backend/env.production.example`.
 | `PRAXIUM_EMAIL_FROM` | Resend from address (default `onboarding@resend.dev`) |
 | `PRAXIUM_PORTAL_DEV_RETURN_LINK` | Dev only — return magic URLs in JSON |
 | `PRAXIUM_SIGN_LINK_TTL_DAYS` | NativeSign link expiry (default 14) |
+
+### NativeSign email
+
+On create/resend, backend emails the signer via Resend (`send_esign_invite_email`). Audit: `esign.invite_sent` · `esign.request_created`.
+
+| Method | Path | Auth | Notes |
+|--------|------|------|-------|
+| POST | `/matters/{id}/sign-requests` | Bearer | Emails signer · dev returns `dev_sign_url` when `PRAXIUM_PORTAL_DEV_RETURN_LINK=true` |
+| POST | `/sign-requests/{id}/resend` | Bearer | Resend pending invite |
+| GET | `/portal/matters/{id}/sign-requests` | Portal JWT | Pending envelopes for logged-in client email |
+
+Setup: `brand/praxium-law/NATIVE_SIGN_EMAIL.md`
 
 ---
 

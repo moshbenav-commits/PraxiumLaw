@@ -528,13 +528,23 @@ async def upload_document(
     if len(contents) > 25 * 1024 * 1024:
         raise HTTPException(413, "File too large (25MB max)")
     b64 = base64.b64encode(contents).decode()
+    content_type = file.content_type or "application/octet-stream"
+    extracted_text = None
+    pdf_pages = None
+    from pdf_util import extract_text_from_pdf_bytes, is_pdf, page_count
+
+    if is_pdf(content_type, name):
+        extracted_text = extract_text_from_pdf_bytes(contents)
+        pdf_pages = page_count(contents)
     doc = {
         "id": new_id(), "firm_id": user["firm_id"], "matter_id": matter_id,
-        "name": name, "folder": folder, "content_type": file.content_type or "application/octet-stream",
+        "name": name, "folder": folder, "content_type": content_type,
         "size_bytes": len(contents), "data_b64": b64,
         "uploaded_by": user["id"], "uploaded_by_name": user["name"],
         "uploaded_at": now(), "version": 1,
         "client_visible": False,
+        "extracted_text": extracted_text,
+        "page_count": pdf_pages,
     }
     await db.documents.insert_one(doc)
     await db.activities.insert_one({
@@ -1012,6 +1022,7 @@ from marketplace_tools import register_marketplace_routes
 from team_mgmt import register_team_routes
 from portal import register_portal_routes, register_upload_routes
 from esign import register_esign_routes
+from document_pdf import register_document_pdf_routes
 from db_indexes import ensure_indexes
 
 register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
@@ -1028,6 +1039,9 @@ register_portal_routes(
 )
 register_upload_routes(api, db, new_id, now, log_audit)
 register_esign_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+register_document_pdf_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 

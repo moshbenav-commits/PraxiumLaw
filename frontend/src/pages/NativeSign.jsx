@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ScrollText, Upload, Users, Plus, Copy } from "lucide-react";
+import { ScrollText, Upload, Users, Plus, Copy, Download, Eye, Mail } from "lucide-react";
 import { toast } from "sonner";
 import api from "@/lib/api";
-import { createSignRequest, listSignRequests } from "@/lib/esignApi";
+import PdfFieldEditor from "@/components/pdf/PdfFieldEditor";
+import PdfViewerModal from "@/components/pdf/PdfViewerModal";
+import {
+  createSignRequest,
+  downloadSignedPdfStaff,
+  listSignRequests,
+  patchSignFields,
+  resendSignInvite,
+} from "@/lib/esignApi";
+import { downloadB64File, isPdfDoc, viewDocument } from "@/lib/documentsApi";
 
 const STATUS_LABEL = {
   pending: "Awaiting signature",
@@ -15,8 +24,12 @@ export default function NativeSign() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [matters, setMatters] = useState([]);
+  const [matterDocs, setMatterDocs] = useState([]);
+  const [fieldEditor, setFieldEditor] = useState(null);
+  const [pdfPreview, setPdfPreview] = useState({ open: false, title: "", b64: "" });
   const [form, setForm] = useState({
     matter_id: "",
+    document_id: "",
     title: "Retainer agreement",
     document_title: "Retainer Agreement",
     signer_name: "",
@@ -37,6 +50,14 @@ export default function NativeSign() {
     api.get("/matters").then((r) => setMatters(r.data?.items || r.data || [])).catch(() => setMatters([]));
   }, []);
 
+  useEffect(() => {
+    if (!form.matter_id) {
+      setMatterDocs([]);
+      return;
+    }
+    api.get(`/documents?matter_id=${form.matter_id}`).then((r) => setMatterDocs(r.data || [])).catch(() => setMatterDocs([]));
+  }, [form.matter_id]);
+
   const onCreate = async (e) => {
     e.preventDefault();
     if (!form.matter_id) {
@@ -45,20 +66,38 @@ export default function NativeSign() {
     }
     setBusy(true);
     try {
-      const data = await createSignRequest(form.matter_id, {
+      const payload = {
         title: form.title,
         document_title: form.document_title,
         signer_name: form.signer_name,
         signer_email: form.signer_email,
-      });
+      };
+      if (form.document_id) payload.document_id = form.document_id;
+      const data = await createSignRequest(form.matter_id, payload);
       const url = data.dev_sign_url || data.sign_request?.sign_url;
-      if (url) {
+      if (url && data.dev_sign_url) {
         await navigator.clipboard.writeText(url);
-        toast.success("Sign request created — link copied");
-      } else {
+        toast.success(data.email_sent ? "Sign request created — link copied (dev)" : "Sign request created — link copied (email skipped, no Resend key)");
+      } else if (data.email_sent) {
         toast.success("Sign request emailed to signer");
+      } else {
+        toast.success("Sign request created (configure Resend to email signers)");
       }
-      setShowForm(false);
+      if (form.document_id && data.sign_request?.id) {
+        setFieldEditor({
+          signId: data.sign_request.id,
+          pdfB64: null,
+          documentId: form.document_id,
+        });
+        const docView = await viewDocument(form.document_id);
+        setFieldEditor({
+          signId: data.sign_request.id,
+          pdfB64: docView.data_b64,
+          documentId: form.document_id,
+        });
+      } else {
+        setShowForm(false);
+      }
       reload();
     } catch (err) {
       toast.error(err.response?.data?.detail || "Could not create sign request");
@@ -66,6 +105,61 @@ export default function NativeSign() {
       setBusy(false);
     }
   };
+
+  const saveFields = async (fields) => {
+    if (!fieldEditor?.signId) return;
+    setBusy(true);
+    try {
+      await patchSignFields(fieldEditor.signId, fields);
+      toast.success("Signature fields saved");
+      setFieldEditor(null);
+      setShowForm(false);
+      reload();
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Could not save fields");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const previewDoc = async (docId, name) => {
+    try {
+      const data = await viewDocument(docId);
+      setPdfPreview({ open: true, title: name, b64: data.data_b64 });
+    } catch {
+      toast.error("Could not load PDF");
+    }
+  };
+
+  const downloadSigned = async (signId) => {
+    try {
+      const data = await downloadSignedPdfStaff(signId);
+      downloadB64File(data.name, data.content_type, data.data_b64);
+    } catch {
+      toast.error("Signed PDF not available");
+    }
+  };
+
+  const onResend = async (signId) => {
+    setBusy(true);
+    try {
+      const data = await resendSignInvite(signId);
+      if (data.dev_sign_url) {
+        await navigator.clipboard.writeText(data.dev_sign_url);
+        toast.success(data.email_sent ? "Invite resent — link copied (dev)" : "Link copied (email skipped, no Resend key)");
+      } else if (data.email_sent) {
+        toast.success("Sign invite resent by email");
+      } else {
+        toast.error("Email not sent — add RESEND_API_KEY");
+      }
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Could not resend invite");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const pdfDocs = matterDocs.filter(isPdfDoc);
 
   return (
     <div className="px-6 py-6">
@@ -76,7 +170,7 @@ export default function NativeSign() {
             <ScrollText className="text-praxium-accent" /> NativeSign
           </h1>
           <p className="text-sm text-praxium-subtle mt-2 max-w-2xl">
-            In-app e-signature v1 — canvas capture + signed PDF stub. DocuSign optional later.
+            In-app e-signature — PDF viewer, field placement, flattened signed PDF download. DocuSign optional in v2.
           </p>
         </div>
         <button type="button" className="btn-praxium" onClick={() => setShowForm(true)} data-testid="esign-new">
@@ -87,22 +181,34 @@ export default function NativeSign() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="data-card p-5">
           <Upload className="text-praxium-accent mb-3" size={20} />
-          <div className="font-display font-bold mb-1">Create request</div>
-          <p className="text-xs text-praxium-subtle">Staff sends a magic link from any matter.</p>
+          <div className="font-display font-bold mb-1">Attach PDF</div>
+          <p className="text-xs text-praxium-subtle">Upload a matter PDF, place signature/date fields, send magic link.</p>
         </div>
         <div className="data-card p-5">
           <Users className="text-praxium-accent mb-3" size={20} />
           <div className="font-display font-bold mb-1">Client signs</div>
-          <p className="text-xs text-praxium-subtle">No account — draw signature on phone or desktop.</p>
+          <p className="text-xs text-praxium-subtle">Review PDF in-browser, draw signature on overlay fields.</p>
         </div>
         <div className="data-card p-5">
           <ScrollText className="text-praxium-accent mb-3" size={20} />
           <div className="font-display font-bold mb-1">Audit trail</div>
-          <p className="text-xs text-praxium-subtle">Timestamp + IP stored; PDF stub attached to request.</p>
+          <p className="text-xs text-praxium-subtle">View/sign events logged · signed PDF stored on matter.</p>
         </div>
       </div>
 
-      {showForm ? (
+      {fieldEditor?.pdfB64 ? (
+        <div className="data-card p-6 mb-6">
+          <h2 className="font-display font-bold mb-4">Place signature fields</h2>
+          <PdfFieldEditor
+            pdfB64={fieldEditor.pdfB64}
+            onSave={saveFields}
+            onCancel={() => setFieldEditor(null)}
+            saving={busy}
+          />
+        </div>
+      ) : null}
+
+      {showForm && !fieldEditor ? (
         <form onSubmit={onCreate} className="data-card p-6 mb-6 max-w-xl space-y-4">
           <h2 className="font-display font-bold">New sign request</h2>
           <label className="block text-sm">
@@ -110,7 +216,7 @@ export default function NativeSign() {
             <select
               className="input-praxium w-full mt-1"
               value={form.matter_id}
-              onChange={(e) => setForm({ ...form, matter_id: e.target.value })}
+              onChange={(e) => setForm({ ...form, matter_id: e.target.value, document_id: "" })}
               required
             >
               <option value="">Select matter…</option>
@@ -121,6 +227,35 @@ export default function NativeSign() {
               ))}
             </select>
           </label>
+          <label className="block text-sm">
+            PDF template (optional)
+            <select
+              className="input-praxium w-full mt-1"
+              value={form.document_id}
+              onChange={(e) => {
+                const doc = pdfDocs.find((d) => d.id === e.target.value);
+                setForm({
+                  ...form,
+                  document_id: e.target.value,
+                  document_title: doc?.name || form.document_title,
+                });
+              }}
+            >
+              <option value="">Generate blank agreement PDF</option>
+              {pdfDocs.map((d) => (
+                <option key={d.id} value={d.id}>{d.name}</option>
+              ))}
+            </select>
+          </label>
+          {form.document_id ? (
+            <button
+              type="button"
+              className="btn-ghost text-xs inline-flex items-center gap-1"
+              onClick={() => previewDoc(form.document_id, form.document_title)}
+            >
+              <Eye size={12} /> Preview PDF
+            </button>
+          ) : null}
           <label className="block text-sm">
             Request title
             <input className="input-praxium w-full mt-1" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
@@ -158,22 +293,40 @@ export default function NativeSign() {
                   <p className="font-semibold">{item.title}</p>
                   <p className="text-xs text-praxium-subtle">
                     {item.signer_name} · {item.signer_email} · {STATUS_LABEL[item.status] || item.status}
+                    {item.document_id ? " · PDF attached" : ""}
                   </p>
                 </div>
-                {item.status === "pending" && item.sign_url ? (
-                  <button
-                    type="button"
-                    className="btn-ghost text-xs flex items-center gap-1"
-                    onClick={() => {
-                      navigator.clipboard.writeText(item.sign_url);
-                      toast.success("Sign link copied");
-                    }}
-                  >
-                    <Copy size={12} /> Copy link
-                  </button>
-                ) : item.signed_at ? (
-                  <span className="text-xs font-mono text-emerald-700">Signed {new Date(item.signed_at).toLocaleString()}</span>
-                ) : null}
+                <div className="flex items-center gap-2 flex-wrap">
+                  {item.status === "pending" && item.sign_url ? (
+                    <>
+                      <button
+                        type="button"
+                        className="btn-ghost text-xs flex items-center gap-1 min-h-[44px] px-2"
+                        onClick={() => onResend(item.id)}
+                        disabled={busy}
+                      >
+                        <Mail size={12} /> Resend email
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-ghost text-xs flex items-center gap-1 min-h-[44px] px-2"
+                        onClick={() => {
+                          navigator.clipboard.writeText(item.sign_url);
+                          toast.success("Sign link copied");
+                        }}
+                      >
+                        <Copy size={12} /> Copy link
+                      </button>
+                    </>
+                  ) : item.status === "signed" ? (
+                    <>
+                      <span className="text-xs font-mono text-emerald-700">Signed {new Date(item.signed_at).toLocaleString()}</span>
+                      <button type="button" className="btn-ghost text-xs flex items-center gap-1" onClick={() => downloadSigned(item.id)}>
+                        <Download size={12} /> PDF
+                      </button>
+                    </>
+                  ) : null}
+                </div>
               </li>
             ))}
           </ul>
@@ -184,6 +337,13 @@ export default function NativeSign() {
         Public sign page: <code className="font-mono">/sign/:token</code> · Configure{" "}
         <Link to="/settings" className="text-praxium-accent hover:underline">Resend</Link> in backend env for prod email delivery.
       </p>
+
+      <PdfViewerModal
+        open={pdfPreview.open}
+        title={pdfPreview.title}
+        pdfB64={pdfPreview.b64}
+        onClose={() => setPdfPreview({ open: false, title: "", b64: "" })}
+      />
     </div>
   );
 }

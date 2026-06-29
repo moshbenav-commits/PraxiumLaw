@@ -3,9 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import api from "@/lib/api";
 import { STATUSES, STATUS_COLORS, STATUS_DOT, formatDate, formatMoney, PRACTICE_AREAS, timeAgo } from "@/lib/utils";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, Copy } from "lucide-react";
+import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, Copy, Eye } from "lucide-react";
 import { toast } from "sonner";
 import PageLoader from "@/components/common/PageLoader";
+import PdfViewerModal from "@/components/pdf/PdfViewerModal";
+import { isPdfDoc, viewDocument } from "@/lib/documentsApi";
 
 const TABS = [
   { id: "overview", label: "Overview", icon: Briefcase },
@@ -38,6 +40,8 @@ export default function MatterDetail() {
   const [portalInviteUrl, setPortalInviteUrl] = useState("");
   const [uploadLinkUrl, setUploadLinkUrl] = useState("");
   const [clientContact, setClientContact] = useState(null);
+  const [pdfViewer, setPdfViewer] = useState({ open: false, title: "", b64: "" });
+  const [signDocId, setSignDocId] = useState("");
 
   const reload = () => {
     api.get(`/matters/${id}`).then((r) => setMatter(r.data));
@@ -115,21 +119,38 @@ export default function MatterDetail() {
       return;
     }
     try {
-      const r = await api.post(`/matters/${id}/sign-requests`, {
+      const payload = {
         title: "Client agreement",
         document_title: "Client Agreement",
         signer_name: clientContact.name,
         signer_email: clientContact.email,
-      });
+      };
+      if (signDocId) {
+        const doc = documents.find((d) => d.id === signDocId);
+        payload.document_id = signDocId;
+        payload.document_title = doc?.name || payload.document_title;
+      }
+      const r = await api.post(`/matters/${id}/sign-requests`, payload);
       const url = r.data.dev_sign_url || r.data.sign_request?.sign_url;
-      if (url) {
+      if (url && r.data.dev_sign_url) {
         await navigator.clipboard.writeText(url);
-        toast.success("Sign link copied");
-      } else {
+        toast.success(r.data.email_sent ? "Sign link copied (dev)" : "Sign link copied (email skipped, no Resend key)");
+      } else if (r.data.email_sent) {
         toast.success("Sign request emailed to client");
+      } else {
+        toast.success("Sign request created (configure Resend to email client)");
       }
     } catch (err) {
       toast.error(err.response?.data?.detail || "Could not create sign request");
+    }
+  };
+
+  const openPdfView = async (docId, name) => {
+    try {
+      const data = await viewDocument(docId);
+      setPdfViewer({ open: true, title: name || data.name, b64: data.data_b64 });
+    } catch {
+      toast.error("Could not open PDF");
     }
   };
 
@@ -351,6 +372,19 @@ export default function MatterDetail() {
               <button type="button" className="btn-ghost text-xs" onClick={createSignRequest}>
                 Request signature
               </button>
+              {documents.some(isPdfDoc) ? (
+                <select
+                  className="input-praxium text-xs py-1 max-w-[200px]"
+                  value={signDocId}
+                  onChange={(e) => setSignDocId(e.target.value)}
+                  title="PDF to send for signature"
+                >
+                  <option value="">Blank agreement PDF</option>
+                  {documents.filter(isPdfDoc).map((d) => (
+                    <option key={d.id} value={d.id}>{d.name}</option>
+                  ))}
+                </select>
+              ) : null}
             </div>
             {uploadLinkUrl && (
               <code className="text-[10px] font-mono block break-all bg-praxium-bg p-2 rounded-sm mb-4">{uploadLinkUrl}</code>
@@ -362,7 +396,7 @@ export default function MatterDetail() {
                   <th className="text-left py-2 overline">Folder</th>
                   <th className="text-left py-2 overline">Uploaded</th>
                   <th className="text-left py-2 overline">Client</th>
-                  <th className="text-right py-2 overline">Size</th>
+                  <th className="text-right py-2 overline">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-praxium-line">
@@ -374,7 +408,14 @@ export default function MatterDetail() {
                     <td className="py-2">
                       <input type="checkbox" checked={Boolean(d.client_visible)} onChange={(e) => toggleDocVisible(d.id, e.target.checked)} title="Visible in client portal" />
                     </td>
-                    <td className="py-2 text-right text-xs font-mono">{Math.round(d.size_bytes / 1024)} KB</td>
+                    <td className="py-2 text-right text-xs font-mono space-x-1">
+                      {isPdfDoc(d) ? (
+                        <button type="button" className="btn-ghost py-0.5 px-2 inline-flex items-center gap-1" onClick={() => openPdfView(d.id, d.name)}>
+                          <Eye size={12} /> View
+                        </button>
+                      ) : null}
+                      <span className="text-praxium-subtle">{Math.round(d.size_bytes / 1024)} KB</span>
+                    </td>
                   </tr>
                 ))}
                 {documents.length === 0 && <tr><td colSpan={5} className="py-6 text-center text-xs text-praxium-subtle">No documents yet.</td></tr>}
@@ -530,6 +571,12 @@ export default function MatterDetail() {
           </div>
         )}
       </div>
+      <PdfViewerModal
+        open={pdfViewer.open}
+        title={pdfViewer.title}
+        pdfB64={pdfViewer.b64}
+        onClose={() => setPdfViewer({ open: false, title: "", b64: "" })}
+      />
     </div>
   );
 }

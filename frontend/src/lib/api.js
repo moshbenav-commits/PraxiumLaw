@@ -26,6 +26,7 @@ api.interceptors.response.use(
         path.startsWith("/verify-identity") ||
         path.startsWith("/portal") ||
         path.startsWith("/upload") ||
+        path.startsWith("/sign") ||
         path.startsWith("/accept-invite");
       if (!isPublic) {
         localStorage.removeItem("praxium_token");

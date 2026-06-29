@@ -1,6 +1,7 @@
 import { useRef, useEffect, useCallback } from "react";
+import { cn } from "@/lib/utils";
 
-export default function SignaturePad({ onChange, className = "" }) {
+export default function SignaturePad({ onChange, className = "", mobile = false }) {
   const canvasRef = useRef(null);
   const drawing = useRef(false);
 
@@ -14,7 +15,7 @@ export default function SignaturePad({ onChange, className = "" }) {
     const ctx = canvas.getContext("2d");
     ctx.scale(dpr, dpr);
     ctx.strokeStyle = "#121212";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = mobile ? 2.5 : 2;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
   }, []);
@@ -23,7 +24,7 @@ export default function SignaturePad({ onChange, className = "" }) {
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [resize]);
+  }, [resize, mobile]);
 
   const pos = (e) => {
     const canvas = canvasRef.current;
@@ -73,7 +74,10 @@ export default function SignaturePad({ onChange, className = "" }) {
     <div className={className}>
       <canvas
         ref={canvasRef}
-        className="w-full h-40 border border-praxium-line rounded-sm bg-white touch-none cursor-crosshair"
+        className={cn(
+          "w-full border border-praxium-line rounded-sm bg-white touch-none cursor-crosshair",
+          mobile ? "h-44 sm:h-40" : "h-40"
+        )}
         onMouseDown={start}
         onMouseMove={move}
         onMouseUp={end}
@@ -82,7 +86,11 @@ export default function SignaturePad({ onChange, className = "" }) {
         onTouchMove={move}
         onTouchEnd={end}
       />
-      <button type="button" className="btn-ghost text-xs mt-2" onClick={clear}>
+          <button
+            type="button"
+            className="btn-ghost text-xs mt-2 min-h-[44px] px-3"
+            onClick={clear}
+          >
         Clear signature
       </button>
     </div>

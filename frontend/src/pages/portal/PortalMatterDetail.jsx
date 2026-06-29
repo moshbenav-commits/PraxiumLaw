@@ -4,8 +4,10 @@ import portalApi from "@/lib/portalApi";
 import { STATUS_COLORS, formatDate, timeAgo } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import PageLoader from "@/components/common/PageLoader";
-import { ChevronLeft, Download, FileText, CheckSquare } from "lucide-react";
+import { ChevronLeft, Download, FileText, CheckSquare, Eye, PenLine } from "lucide-react";
 import { toast } from "sonner";
+import PdfViewerModal from "@/components/pdf/PdfViewerModal";
+import { isPdfDoc } from "@/lib/documentsApi";
 
 function downloadB64(name, contentType, dataB64) {
   const bin = atob(dataB64);
@@ -26,7 +28,9 @@ export default function PortalMatterDetail() {
   const [activities, setActivities] = useState([]);
   const [documents, setDocuments] = useState([]);
   const [tasks, setTasks] = useState([]);
+  const [signRequests, setSignRequests] = useState([]);
   const [tab, setTab] = useState("timeline");
+  const [pdfViewer, setPdfViewer] = useState({ open: false, title: "", b64: "" });
 
   useEffect(() => {
     Promise.all([
@@ -34,11 +38,13 @@ export default function PortalMatterDetail() {
       portalApi.get(`/portal/matters/${id}/activities`),
       portalApi.get(`/portal/matters/${id}/documents`),
       portalApi.get(`/portal/matters/${id}/tasks`),
-    ]).then(([m, a, d, t]) => {
+      portalApi.get(`/portal/matters/${id}/sign-requests`),
+    ]).then(([m, a, d, t, s]) => {
       setMatter(m.data);
       setActivities(a.data.items || []);
       setDocuments(d.data.items || []);
       setTasks(t.data.items || []);
+      setSignRequests(s.data.items || []);
     });
   }, [id]);
 
@@ -49,6 +55,20 @@ export default function PortalMatterDetail() {
       toast.success("Download started");
     } catch {
       toast.error("Download failed");
+    }
+  };
+
+  const handleViewPdf = async (doc) => {
+    if (!isPdfDoc(doc)) {
+      handleDownload(doc.id);
+      return;
+    }
+    try {
+      const r = await portalApi.get(`/portal/documents/${doc.id}/download`);
+      setPdfViewer({ open: true, title: doc.name, b64: r.data.data_b64 });
+      toast.success("Document opened");
+    } catch {
+      toast.error("Could not open document");
     }
   };
 
@@ -70,6 +90,29 @@ export default function PortalMatterDetail() {
       <span className={cn("status-pip border text-[10px] mt-2 inline-block", STATUS_COLORS[matter.status])}>
         {matter.status}
       </span>
+
+      {signRequests.length > 0 ? (
+        <div className="mt-4 data-card p-4 border-l-4 border-l-praxium-accent">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <p className="font-display font-bold text-sm flex items-center gap-2">
+                <PenLine size={16} className="text-praxium-accent" />
+                Document awaiting your signature
+              </p>
+              <p className="text-xs text-praxium-subtle mt-1">
+                {signRequests[0].document_title || signRequests[0].title}
+                {signRequests.length > 1 ? ` (+${signRequests.length - 1} more)` : ""}
+              </p>
+            </div>
+            <a
+              href={signRequests[0].sign_url}
+              className="btn-praxium inline-flex items-center justify-center min-h-[44px] w-full sm:w-auto shrink-0"
+            >
+              Sign document
+            </a>
+          </div>
+        </div>
+      ) : null}
 
       <div className="flex gap-2 mt-4 border-b border-praxium-line">
         {tabs.map((t) => (
@@ -114,8 +157,16 @@ export default function PortalMatterDetail() {
                     {formatDate(d.uploaded_at)} · {Math.round((d.size_bytes || 0) / 1024)} KB
                   </div>
                 </div>
-                <button type="button" className="btn-ghost text-xs py-1" onClick={() => handleDownload(d.id)}>
-                  <Download size={12} /> Get
+                <button type="button" className="btn-ghost text-xs py-1" onClick={() => handleViewPdf(d)}>
+                  {isPdfDoc(d) ? (
+                    <>
+                      <Eye size={12} /> View
+                    </>
+                  ) : (
+                    <>
+                      <Download size={12} /> Get
+                    </>
+                  )}
                 </button>
               </div>
             ))}
@@ -147,6 +198,12 @@ export default function PortalMatterDetail() {
       <Link to={`/portal/messages?matter=${id}`} className="btn-praxium mt-6 inline-flex w-full sm:w-auto justify-center">
         Message your firm
       </Link>
+      <PdfViewerModal
+        open={pdfViewer.open}
+        title={pdfViewer.title}
+        pdfB64={pdfViewer.b64}
+        onClose={() => setPdfViewer({ open: false, title: "", b64: "" })}
+      />
     </div>
   );
 }
