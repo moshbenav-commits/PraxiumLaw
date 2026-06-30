@@ -3,7 +3,7 @@
 **Stack:** FastAPI · MongoDB (Motor) · JWT · Vercel serverless (`api/index.py` + Mangum)
 
 **Base URL (prod):** `https://api.praxiumlaw.com/api`  
-**Health:** `GET /api/health` → `{ "ok": true }`
+**Health:** `GET /api/health` → `{ "ok": true, "programPhase": 20, "version": "0.3.0", ... }`
 
 ---
 
@@ -148,11 +148,53 @@ Policy: `docs/CUSTOM_TOOLS_MARKETPLACE_POLICY.md`
 |--------|------|
 | PATCH | `/firm/settings` |
 
+### CSV import (phase 15)
+
+| Method | Path | Role |
+|--------|------|------|
+| POST | `/import/contacts` | admin/partner/attorney/paralegal/staff · CSV: `name,email,phone,kind` |
+| POST | `/import/matters` | same · CSV: `title,status,practice_area,client_email,case_number` |
+
+### Outgoing webhooks (phases 16–17)
+
+| Method | Path | Role |
+|--------|------|------|
+| GET | `/webhooks/events` | Supported event catalog |
+| GET/POST/PATCH/DELETE | `/webhooks/endpoints` | admin/partner |
+| GET | `/webhooks/deliveries` | Delivery log |
+| POST | `/webhooks/deliveries/{id}/retry` | Replay failed delivery |
+
+Events: `matter.created` · `matter.status_changed` · `document.uploaded` · `signature.completed`  
+Payloads signed with `X-Praxium-Signature: sha256=<hmac>`.
+
+### Integration API keys (phase 18)
+
+| Method | Path |
+|--------|------|
+| GET | `/integrations/api-keys` |
+| POST | `/integrations/api-keys` |
+| DELETE | `/integrations/api-keys/{id}` |
+
+### Analytics (phase 19)
+
+| Method | Path |
+|--------|------|
+| GET | `/analytics/summary` | Firm KPIs + webhook/portal/sign counts |
+
+### Health (phase 20)
+
+| Method | Path | Notes |
+|--------|------|-------|
+| GET | `/health` | `programPhase: 20` · `modules[]` · Mongo ping |
+| GET | `/` | API version `0.3.0` |
+
+Phase map: workspace `docs/fleet/PRAXIUM_PHASES.md` · smoke: `npm run praxium:smoke`
+
 ---
 
 ## Mongo collections
 
-`users` · `firms` · `matters` · `contacts` · `tasks` · `notes` · `documents` · `activities` · `leads` · `providers` · `treatments` · `filings` · `chat_messages` · `ai_messages` · `praxa_users` · `praxa_journal` · `partner_inquiries` · `magic_links` · `identity_verification_sessions` · `audit_events` · `team_invites` · `workflows` · `firm_tools` · `custom_tool_requests` · `billing_inquiries`
+`users` · `firms` · `matters` · `contacts` · `tasks` · `notes` · `documents` · `activities` · `leads` · `providers` · `treatments` · `filings` · `chat_messages` · `ai_messages` · `praxa_users` · `praxa_journal` · `partner_inquiries` · `magic_links` · `identity_verification_sessions` · `audit_events` · `team_invites` · `workflows` · `firm_tools` · `custom_tool_requests` · `billing_inquiries` · `webhook_endpoints` · `webhook_events` · `webhook_deliveries` · `api_keys`
 
 Indexes ensured on startup — `backend/db_indexes.py`.
 
@@ -218,6 +260,9 @@ REACT_APP_BACKEND_URL=https://api.praxiumlaw.com .venv/bin/pytest tests/ -q
 | `email_util.py` | Resend transactional email |
 | `portal.py` | Client portal + magic upload |
 | `esign.py` | NativeSign v1 |
+| `outgoing_webhooks.py` | Webhooks CRUD + emit |
+| `csv_import.py` | Bulk CSV import |
+| `api_keys.py` | Integration API keys |
 | `api/index.py` | Vercel Mangum handler |
 
 **Long-term:** NestJS + Next port per `docs/prompts/playbooks/expedia/practice-management-vertical.md` — FastAPI is current production SSOT.

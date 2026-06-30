@@ -258,3 +258,84 @@ def test_idv_demo_session():
     assert r.status_code == 200, r.text
     data = r.json()
     assert data.get("token") and data.get("verifyUrl")
+
+
+def _prod_needs_deploy() -> bool:
+    return BASE_URL.rstrip("/").endswith("api.praxiumlaw.com")
+
+
+# ─────────── phase 20 — webhooks, import, api keys, analytics ───────────
+def test_health_program_phase():
+    r = requests.get(f"{API}/health", timeout=10)
+    assert r.status_code == 200
+    data = r.json()
+    if _prod_needs_deploy() and data.get("programPhase") != 20:
+        pytest.skip("Prod API not yet on v0.3.0 — deploy praxiumlaw-back")
+    assert data.get("programPhase") == 20
+    assert data.get("maxProgramPhase") == 20
+    assert "webhooks" in (data.get("modules") or [])
+
+
+def test_webhooks_events_catalog(ext_headers):
+    health = requests.get(f"{API}/health", timeout=10).json()
+    if _prod_needs_deploy() and health.get("programPhase") != 20:
+        pytest.skip("Prod API not yet on v0.3.0")
+    r = requests.get(f"{API}/webhooks/events", headers=ext_headers, timeout=10)
+    assert r.status_code == 200
+    events = r.json().get("events", [])
+    assert "matter.created" in events
+    assert "signature.completed" in events
+
+
+def test_webhook_endpoint_crud(ext_headers):
+    health = requests.get(f"{API}/health", timeout=10).json()
+    if _prod_needs_deploy() and health.get("programPhase") != 20:
+        pytest.skip("Prod API not yet on v0.3.0")
+    created = requests.post(
+        f"{API}/webhooks/endpoints",
+        headers=ext_headers,
+        json={
+            "url": "https://example.com/praxium-hook",
+            "events": ["matter.created"],
+            "description": f"TEST hook {TS}",
+        },
+        timeout=10,
+    )
+    assert created.status_code == 200, created.text
+    body = created.json()
+    assert body.get("secret", "").startswith("whsec_")
+    endpoint_id = body["id"]
+
+    listed = requests.get(f"{API}/webhooks/endpoints", headers=ext_headers, timeout=10)
+    assert listed.status_code == 200
+    assert any(i["id"] == endpoint_id for i in listed.json().get("items", []))
+
+    deleted = requests.delete(f"{API}/webhooks/endpoints/{endpoint_id}", headers=ext_headers, timeout=10)
+    assert deleted.status_code == 200
+
+
+def test_api_key_create(ext_headers):
+    health = requests.get(f"{API}/health", timeout=10).json()
+    if _prod_needs_deploy() and health.get("programPhase") != 20:
+        pytest.skip("Prod API not yet on v0.3.0")
+    r = requests.post(
+        f"{API}/integrations/api-keys",
+        headers=ext_headers,
+        json={"label": f"TEST key {TS}"},
+        timeout=10,
+    )
+    assert r.status_code == 200, r.text
+    data = r.json()
+    assert data.get("key", "").startswith("px_live_")
+    assert data.get("id")
+
+
+def test_analytics_summary(ext_headers):
+    health = requests.get(f"{API}/health", timeout=10).json()
+    if _prod_needs_deploy() and health.get("programPhase") != 20:
+        pytest.skip("Prod API not yet on v0.3.0")
+    r = requests.get(f"{API}/analytics/summary", headers=ext_headers, timeout=10)
+    assert r.status_code == 200
+    data = r.json()
+    assert data.get("programPhase") == 20
+    assert "matters_total" in data

@@ -451,6 +451,22 @@ def register_esign_routes(
             now_iso=now_iso,
             request=request,
         )
+        from outgoing_webhooks import emit_webhook_event
+
+        await emit_webhook_event(
+            db,
+            firm_id=req["firm_id"],
+            event_type="signature.completed",
+            data={
+                "sign_request_id": req["id"],
+                "matter_id": req["matter_id"],
+                "signed_document_id": signed_doc["id"],
+                "signer_email": req.get("signer_email"),
+                "signed_at": signed_at,
+            },
+            new_id=new_id,
+            now_iso=now_iso,
+        )
         return {"ok": True, "signed_at": signed_at, "download_available": True}
 
     @api.get("/integrations/docusign/status")

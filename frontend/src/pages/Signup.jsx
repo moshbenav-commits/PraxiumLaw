@@ -110,7 +110,10 @@ export default function Signup() {
                 {loading ? <Loader2 className="animate-spin" size={14} /> : "Create firm + start free"}
               </button>
               <p className="text-[10px] font-mono text-praxium-subtle text-center leading-relaxed">
-                By signing up you agree to our terms. No card required for the 30-day trial.
+                By signing up you agree to our{" "}
+                <Link to="/terms" className="text-praxium-accent hover:underline">Terms</Link> and{" "}
+                <Link to="/privacy" className="text-praxium-accent hover:underline">Privacy Policy</Link>.
+                No card required for the 30-day trial.
               </p>
             </form>
           </div>

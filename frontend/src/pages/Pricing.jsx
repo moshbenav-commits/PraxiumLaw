@@ -85,8 +85,15 @@ export default function Pricing() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center space-y-4">
           <Link to="/" className="text-sm font-mono text-praxium-accent hover:underline">← Back to homepage</Link>
+          <p className="text-[11px] font-mono text-praxium-subtle">
+            <Link to="/terms" className="hover:text-praxium-accent">Terms</Link>
+            {" · "}
+            <Link to="/privacy" className="hover:text-praxium-accent">Privacy</Link>
+            {" · "}
+            <Link to="/accessibility" className="hover:text-praxium-accent">Accessibility</Link>
+          </p>
         </div>
       </main>
     </div>

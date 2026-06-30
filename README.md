@@ -54,8 +54,11 @@ Full route map: [`docs/BACKEND_API.md`](docs/BACKEND_API.md)
 | Workflows | `backend/workflows.py` |
 | Marketplace tools | `backend/marketplace_tools.py` |
 | Team invites | `backend/team_mgmt.py` |
+| Outgoing webhooks | `backend/outgoing_webhooks.py` |
+| CSV import | `backend/csv_import.py` |
+| Integration API keys | `backend/api_keys.py` |
 
-**API version:** `0.2.0` · **Stack:** FastAPI + MongoDB (NestJS port is future — see workspace `practice-management-vertical.md`).
+**API version:** `0.3.0` · **Program phase:** 20 · **Stack:** FastAPI + MongoDB (NestJS port is future — see workspace `practice-management-vertical.md`).
 
 ```bash
 cd backend && .venv/bin/pytest tests/ -q

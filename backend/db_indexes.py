@@ -27,6 +27,11 @@ INDEX_SPECS = [
     ("sign_requests", [("token", 1)], True),
     ("sign_requests", [("firm_id", 1), ("matter_id", 1)], False),
     ("contacts", [("email", 1), ("kind", 1)], False),
+    ("webhook_endpoints", [("firm_id", 1), ("active", 1)], False),
+    ("webhook_events", [("firm_id", 1), ("created_at", -1)], False),
+    ("webhook_deliveries", [("firm_id", 1), ("created_at", -1)], False),
+    ("api_keys", [("firm_id", 1), ("active", 1)], False),
+    ("api_keys", [("key_hash", 1)], True),
 ]
 
 

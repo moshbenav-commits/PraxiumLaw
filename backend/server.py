@@ -339,6 +339,21 @@ async def create_matter(m: MatterIn, user=Depends(get_current_user)):
         new_id=new_id,
         now_iso=now,
     )
+    from outgoing_webhooks import emit_webhook_event
+
+    await emit_webhook_event(
+        db,
+        firm_id=user["firm_id"],
+        event_type="matter.created",
+        data={
+            "matter_id": matter_id,
+            "title": m.title,
+            "case_number": doc.get("case_number"),
+            "status": doc.get("status"),
+        },
+        new_id=new_id,
+        now_iso=now,
+    )
     doc.pop("_id", None)
     return doc
 
@@ -378,13 +393,34 @@ async def get_matter(matter_id: str, request: Request, user=Depends(get_current_
 
 @api.put("/matters/{matter_id}")
 async def update_matter(matter_id: str, updates: dict, user=Depends(get_current_user)):
+    before = await db.matters.find_one({"id": matter_id, "firm_id": user["firm_id"]}, {"_id": 0})
+    if not before:
+        raise HTTPException(404, "Matter not found")
     updates["updated_at"] = now()
     updates.pop("id", None)
     updates.pop("firm_id", None)
     res = await db.matters.update_one({"id": matter_id, "firm_id": user["firm_id"]}, {"$set": updates})
     if res.matched_count == 0:
         raise HTTPException(404, "Matter not found")
-    return await db.matters.find_one({"id": matter_id}, {"_id": 0})
+    updated = await db.matters.find_one({"id": matter_id}, {"_id": 0})
+    if "status" in updates and before.get("status") != updates.get("status"):
+        from outgoing_webhooks import emit_webhook_event
+
+        await emit_webhook_event(
+            db,
+            firm_id=user["firm_id"],
+            event_type="matter.status_changed",
+            data={
+                "matter_id": matter_id,
+                "from_status": before.get("status"),
+                "to_status": updates.get("status"),
+                "title": updated.get("title"),
+                "case_number": updated.get("case_number"),
+            },
+            new_id=new_id,
+            now_iso=now,
+        )
+    return updated
 
 
 @api.delete("/matters/{matter_id}")
@@ -559,6 +595,22 @@ async def upload_document(
         trigger="document.uploaded",
         context={"matter_id": matter_id, "folder": folder, "name": name},
         user_id=user["id"],
+        new_id=new_id,
+        now_iso=now,
+    )
+    from outgoing_webhooks import emit_webhook_event
+
+    await emit_webhook_event(
+        db,
+        firm_id=user["firm_id"],
+        event_type="document.uploaded",
+        data={
+            "document_id": doc["id"],
+            "matter_id": matter_id,
+            "name": name,
+            "folder": folder,
+            "content_type": content_type,
+        },
         new_id=new_id,
         now_iso=now,
     )
@@ -1002,14 +1054,81 @@ async def global_search(q: str, user=Depends(get_current_user)):
 
 
 # ──────────────── health ────────────────
+PROGRAM_PHASE = 20
+MAX_PROGRAM_PHASE = 20
+API_VERSION = "0.3.0"
+
+BACKEND_MODULES = (
+    "auth",
+    "matters",
+    "contacts",
+    "documents",
+    "rbac",
+    "audit",
+    "billing",
+    "workflows",
+    "marketplace",
+    "team",
+    "portal",
+    "nativesign",
+    "identity_verification",
+    "csv_import",
+    "webhooks",
+    "api_keys",
+    "analytics",
+)
+
+
 @api.get("/")
 async def root():
-    return {"app": "Praxium Suite", "status": "ok", "version": "0.2.0"}
+    return {
+        "app": "Praxium Suite",
+        "status": "ok",
+        "version": API_VERSION,
+        "programPhase": PROGRAM_PHASE,
+        "maxProgramPhase": MAX_PROGRAM_PHASE,
+    }
 
 
 @api.get("/health")
 async def health():
-    return {"ok": True, "ts": now()}
+    mongo_ok = False
+    try:
+        await db.command("ping")
+        mongo_ok = True
+    except Exception:
+        mongo_ok = False
+    return {
+        "ok": mongo_ok,
+        "ts": now(),
+        "version": API_VERSION,
+        "programPhase": PROGRAM_PHASE,
+        "maxProgramPhase": MAX_PROGRAM_PHASE,
+        "modules": list(BACKEND_MODULES),
+        "mongo": mongo_ok,
+    }
+
+
+@api.get("/analytics/summary")
+async def analytics_summary(user=Depends(get_current_user)):
+    fid = user["firm_id"]
+    webhook_endpoints = await db.webhook_endpoints.count_documents({"firm_id": fid, "active": True})
+    webhook_deliveries_24h = await db.webhook_deliveries.count_documents({"firm_id": fid})
+    portal_messages_unread = await db.portal_messages.count_documents(
+        {"firm_id": fid, "author_kind": "client", "read_by_staff": False},
+    )
+    pending_signatures = await db.sign_requests.count_documents({"firm_id": fid, "status": "pending"})
+    return {
+        "matters_total": await db.matters.count_documents({"firm_id": fid}),
+        "contacts_total": await db.contacts.count_documents({"firm_id": fid}),
+        "documents_total": await db.documents.count_documents({"firm_id": fid}),
+        "open_tasks": await db.tasks.count_documents({"firm_id": fid, "status": {"$ne": "done"}}),
+        "webhook_endpoints_active": webhook_endpoints,
+        "webhook_deliveries_logged": webhook_deliveries_24h,
+        "portal_messages_unread": portal_messages_unread,
+        "pending_sign_requests": pending_signatures,
+        "programPhase": PROGRAM_PHASE,
+    }
 
 
 # include + middleware
@@ -1024,6 +1143,9 @@ from portal import register_portal_routes, register_upload_routes
 from esign import register_esign_routes
 from document_pdf import register_document_pdf_routes
 from db_indexes import ensure_indexes
+from outgoing_webhooks import register_webhook_routes
+from csv_import import register_csv_import_routes
+from api_keys import register_api_key_routes
 
 register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
 register_audit_routes(api, db, get_current_user, require_permission, new_id, now)
@@ -1042,6 +1164,15 @@ register_esign_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 register_document_pdf_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+register_webhook_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+register_csv_import_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit, gen_patient_id,
+)
+register_api_key_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 

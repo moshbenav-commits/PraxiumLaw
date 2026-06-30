@@ -696,6 +696,22 @@ def register_upload_routes(
             now_iso=now_iso,
             request=request,
         )
+        from outgoing_webhooks import emit_webhook_event
+
+        await emit_webhook_event(
+            db,
+            firm_id=link["firm_id"],
+            event_type="document.uploaded",
+            data={
+                "document_id": doc["id"],
+                "matter_id": link["matter_id"],
+                "name": doc_name,
+                "folder": folder,
+                "source": "magic_link",
+            },
+            new_id=new_id,
+            now_iso=now_iso,
+        )
         doc.pop("data_b64")
         doc.pop("_id", None)
         return {"ok": True, "document": doc}

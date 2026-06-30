@@ -53,6 +53,7 @@ import VerifyIdentityDemo from "@/pages/VerifyIdentityDemo";
 import IdentityReview from "@/pages/IdentityReview";
 import TermsOfService from "@/pages/TermsOfService";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import AccessibilityStatement from "@/pages/AccessibilityStatement";
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
           <Route path="/verify-identity/:token" element={<VerifyIdentity />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/accessibility" element={<AccessibilityStatement />} />
           <Route path="/accept-invite" element={<AcceptInvite />} />
           <Route path="/upload/:token" element={<UploadToken />} />
           <Route path="/sign/:token" element={<SignToken />} />

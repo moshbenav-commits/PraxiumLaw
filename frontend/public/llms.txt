@@ -7,6 +7,9 @@
 - https://www.praxiumlaw.com/ — B2B law firm OS landing
 - https://www.praxiumlaw.com/pricing — Full tier pricing + LawMatch per-lead fees
 - https://www.praxiumlaw.com/signup — Start 30-day free trial
+- https://www.praxiumlaw.com/terms — Terms of Service (draft — legal review pending)
+- https://www.praxiumlaw.com/privacy — Privacy Policy (draft — legal review pending)
+- https://www.praxiumlaw.com/accessibility — Accessibility Statement (draft — legal review pending)
 - https://www.praxahq.com/praxa — Praxa consumer app for injured people (symptom journal, insurance coach)
 
 ## Product

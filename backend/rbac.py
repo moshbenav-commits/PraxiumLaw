@@ -32,6 +32,8 @@ PERMISSIONS: dict[str, Set[str]] = {
     "marketplace.manage": {"admin", "partner"},
     "settings.write": {"admin", "partner"},
     "idv.review": {"admin", "partner", "attorney", "paralegal"},
+    "integrations.read": {"admin", "partner", "attorney"},
+    "integrations.manage": {"admin", "partner"},
 }
 
 
