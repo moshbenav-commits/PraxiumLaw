@@ -1,0 +1,14 @@
+# 5 Week and 30 Day Case Review - Pain Management and MRI
+
+**Kind:** other  
+**Tags:** —  
+**Speakers:** —  
+**Complete sales call:** No  
+**VIN audio:** No  
+**Dealership script:** No  
+**Source:** `/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/Case Manager/Day 4/5 Week and 30 Day Case Review - Pain Management and MRI.mp4`  
+**Time range:** 0.0s – 0.0s  
+
+## Transcript
+
+Here is a test that says five weeks and monthly. So we basically want to review any reports that are really important doctors. I'm not so worried about the chiro, but I'm worried about pain management, EMGs from the neurologist, or MRIs or anything. And then you need to let me know if there's something that is very outstanding that I should take a look at. Or if we haven't had an MRI, you need to figure out why. If it has been like eight weeks and we don't have an MRI, you better call a pain doctor and see if they drop the ball. That really reduces the price of the settlement. So here we have the MRI. So let's go take a look at it. And you read the interpretation. And it says evidence of cervical strain and then posterior disc bulge, C3, C4, one to two millimeters, and C5 to C6, one to two millimeters. So you look at that. This is the MRI. You know, you need to read the, make sure it's an MRI, not an x-ray that you're reading. And it says one to two millimeters. So you can say disc bulge. So let's take a picture of that so that I have it so that I can just type it up there. And then I can just type it up. This bulge. C3 dash C4 and one to two millimeters. And it was C5 to C6. So that's important, you know, and then you need to also put it on the 30-day case review. So up here where it says attach MRI, just attach it, and then just put this on there. And you should probably read the doctor's notes. So we're going to go to the meds tab here. And let's read the doctor's notes. So I'm not worried about the chiropractic notes. I'm reading the Las Vegas Spine and Pain Center since he's the pain doctor. And it says here that patient reports pain intensity is at best is one to ten, worse is three to ten. You know, so one to ten to three to ten. And then you also want to read the very, the plans. Let's see. Nothing incredibly important in the plans, but sometimes it'll say something, you know, like surgeries or injections and things like that. So nothing incredibly important here, but you would always read the plans. So just say something like one to three in pain. So I'm going to download that real quick and then put it up here in the 30-day case review. So it says... Okay, and hit save. And that's basically how you would do that for the MRI. You attach the MRI here. You know, put what it says and then attach the medical reports for the pain management and see what the pain management says. Okay, and that's how you do the 30-day case review and the five-week and stuff like that.

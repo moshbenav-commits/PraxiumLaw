@@ -1,0 +1,93 @@
+CODE
+the attorney, ESQ.
+Nevada Bar No. 10785
+STEPHEN K. LEWIS, ESQ.
+Nevada Bar No. 7064
+TRACEE DUTHIE, ESQ.
+Nevada Bar No. 8795
+the firm
+1290 S Jones Blvd
+Las Vegas, NV 89146
+(702) 529-1011 Telephone
+(702) 800-4662 Facsimile
+sandy@firm.example
+steve@firm.example
+tracee@firm.example
+	Attorneys for Plaintiffs {{fullname}}, {{Litigation.plaintiff.name}},
+	{{Litigation.otherPlaintiff.name}} and {{Litigation.plaintiff#3.name}}
+
+DISTRICT COURT
+CLARK COUNTY, NEVADA
+
+{{fullname | capitalize}}, {{Litigation.plaintiff.name | capitalize}}, {{Litigation.otherPlaintiff.name | capitalize}} and {{Litigation.plaintiff#3.name | capitalize}}, an individual(s),
+		Plaintiffs,
+	vs.
+
+{{Litigation.Defendant1.name | capitalize}}, an individual; {{Litigation.Defendant2.name | capitalize}}, a corporation; DOE DRIVERS I-V, DOE OWNERS I-V, ROE EMPLOYER, and ROE COMPANIES 
+
+                        Defendants.
+
+CASE NO. {{Litigation.casenumber}}
+
+DEPT. NO. {{Litigation.dept#}}
+
+
+
+
+TITLE OF PLEADING
+
+	COMES NOW, 
+
+
+
+
+
+
+DATED this {{TODAY | day}}th of [Month], {{TODAY | year}}.
+
+
+								 				
+the attorney, ESQ.
+Nevada Bar No. 10785
+STEPHEN K. LEWIS, ESQ.
+Nevada Bar No. 7064 
+TRACEE DUTHIE, ESQ.
+Nevada Bar No. 8795
+the firm
+4170 S. Decatur Blvd., Suite B6
+Las Vegas, Nevada 89103
+(702) 529-1011 Telephone
+(702) 800-4662 Facsimile
+sandy@firm.example
+steve@firm.example
+tracee@firm.example
+Attorneys for Plaintiff(s) 
+
+
+CERTIFICATE OF SERVICE
+
+	Pursuant to NRCP 5, NEFCR 9 and EDCR 8.05, I hereby certify that I am an employee of the firm, and on {{TODAY_LONG}}, I served a copy of the foregoing PLAINTIFF’S FIRST SET OF REQUESTS FOR ADMISSIONS TO DEFENDANT as follows:
+
+Philip R. Emerson	
+Nevada Bar No. 5940
+Emerson Law Group
+Henderson, Nevada 89014
+Attorney for Defendant
+
+Joe Blow		
+Nevada Bar No. 5940
+Emerson Law Group
+Henderson, Nevada 89014
+Attorney for Defendant
+
+
+⌧ Electronic Service – By serving a copy thereof through the Court’s electronic service system
+❑ U.S. Mail—By depositing a true copy thereof in the U.S. mail, first class postage prepaid and addressed as listed below; and/or
+
+❑ Facsimile— By facsimile transmission pursuant to EDCR 7.26 to the facsimile number(s) shown below and in the confirmation sheet filed herewith.  Consent to service under NRCP 5(b)(2)(D) shall be assumed unless an objection to service by facsimile transmission is made in writing and sent to the sender via facsimile within 24 hours of receipt of this Certificate of Service; and/or
+
+
+
+                                                                   					               	
+                                                                  		              An employee of the firm 
+

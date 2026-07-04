@@ -1,0 +1,18 @@
+Drop Letters
+
+These are letters we sent to inform the client, the insurance companies, and medical providers that we are no longer representing and dropping the client’s case.
+
+What are the reasons why a case needs to be dropped?
+	•	When the client is the one who is at fault
+	•	When a client does not cooperate and is missing in action
+	•	When there is a conflict of interest
+	•	Client or a case is a fraud or a possible fraudClient retained another lawyer
+	•	
+
+How to draft?
+	•	Go to specific tab where you need to send a drop letter.
+	Client - Intake, Medical Provider - Meds tab, Auto Insurance - Insurance Auto tab
+	•	Click generate and download. 
+	•	After that edit the letter. Edit the highlighted fields in the letter.
+	•	Send accordingly and update the task and  complete.
+

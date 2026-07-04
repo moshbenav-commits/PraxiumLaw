@@ -1,0 +1,25 @@
+Lien Reduction Request
+
+This is also a short reduction request but the difference is that we utilize this letter when there is a lien holder that we have to request for reduction of bills from them instead of sending the request to the medical providers.
+
+Since this is the same with a short reduction request, we will apply the same steps.
+
+	•	Read your task carefully, and identify what medical providers and then check if there is a lien holder. If there is a lien holder, you have to send the request to the lien holder. How to check? See if there is a nickname of JML or RDG beside the provider’s name, second if there is a listed lien holder in Lien Holder field, third there is indicated lien holder on medical records or bills.
+	•	Ensure that the total amount in meds tab corresponds with the amount in the disbursement sheet. To do that, check if the medical bills are complete as to what is reflected in the total amount here in this provider’s folder.
+	•	Once verified as correct, we may now proceed with generating the letter. But before that, please ensure that the amounts of adjustment, reduction %, and net amount were already entered before you click the docgen button for reduction. Once done, click the docgen for lien reduction request. 
+	•	Next is download the document and then proceed in editing the letter.
+	•	The highlighted fields are the one to edit but it does not necessarily mean you will not read the entire letter. You still need to do so, just like on any other letters you are drafting to ensure that everything is in place.
+	•	Sent Via Facsimile - check the lien holder’s contact information if it is a fax number or an email address. So edit this field accordingly.
+	•	Adjustment %, Adjustment Amount, and Net Amount - you can verify this here in the disbursement sheet. This is actually generated here so we just have to ensure that the amounts are correctly entered in disbursement sheet.
+	•	Your Initials - add your initials here in lowercase. 
+	•	After checking if correct, please save a copy in pdf format.
+	•	Proceed to your assigned gmail, copy the contact number, remove the dashes and add @metrofax.com.
+	•	On your subject line, type in the Name of the provider, then the client’s name, and lastly the type of letter to send. 
+	•	Attach the letter. Double check it by downloading it. Once correct, hit SEND.
+	•	Wait for the successful notification from metrofax, once received, go back to the case system.
+	•	On your task, take note that you sent the reductions letters to the lien holder and for what provider. Then attach the letter you had created and sent.
+	•	Move your task due date in a week, and leave the task open until the requested document is received.
+	•	In case response was not received on the due date, you may task a caller to follow up your request. 
+
+
+Ana

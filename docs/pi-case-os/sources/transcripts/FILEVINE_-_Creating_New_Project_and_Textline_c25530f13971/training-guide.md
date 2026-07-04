@@ -1,0 +1,33 @@
+# Training Guide — FILEVINE - Creating New Project and Textline
+
+_Procedure guide in Lewis communication style · FILEVINE - Creating New Project and Textline.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** id_verification
+
+## Procedure outline (from transcript)
+
+1. We are going to go to choose an organization, the firm, and then we're going to create a driver.
+2. And so it's a new client, so I need to add the new client.
+3. And then I don't know what is her first name or last name, so I'm going to guess that Van is the last name.
+4. And it's going to be a miss, in case you're wondering.
+5. And then if you had the address, you'd put the address here, and you'd make it the home address.
+6. And you can look at this off the intake or on their driver's license.
+7. And then, you know, you would enter in all this other stuff, like the email and stuff like that.
+8. She's a female, so we need to know that, in case we're like Mr.
+9. And we don't have this information yet, but we will get it.
+10. So we would go turn on texting, and our area code is 702.
+11. And it will generate a texting line for us, so that we have it down.
+12. And now we can write that down, and we have it for her to text in her pictures, or anything that she gets in the mail, and all that stuff.
+13. So now we're going to create a new project, because she was in the car with someone else.
+14. And we're going to go the firm, and it's going to be a passenger.
+15. And then the address, we can just put the same address as before, which was 1617 Ronsard Avenue, North Las Vegas, Nevada, 89032.
+
+## Full transcript
+
+We are creating a new project for a client. We are going to go to choose an organization, the firm, and then we're going to create a driver. And so it's a new client, so I need to add the new client. And this is going to be a client. And the name of the client is... This is the driver. And then I don't know what is her first name or last name, so I'm going to guess that Van is the last name. Oh, the Lay is the last name. Okay, Lay. And then we can always change this later. And it's going to be a miss, in case you're wondering. And then if you had the address, you'd put the address here, and you'd make it the home address. And it would be... Home address is 1617. And you can look at this off the intake or on their driver's license. And then her phone number. So let's say that that's her personal mobile. And her phone number is 714-414-6328. And then, you know, you would enter in all this other stuff, like the email and stuff like that. The date of birth, you can find that on the... Here. So it's going to be 3... 22... 1968. And language. I'm guessing she speaks English. And then they can text. You can remarket. Like, we can, you know, market to these people. And she's not a minor. She's a female, so we need to know that, in case we're like Mr. or Mrs. We send her letters as Mr. or Mrs. And we don't have this information yet, but we will get it. Okay, and then hit save. Okay, create. So now we've created one for the driver. And now we want to start a text message line. So we would go turn on texting, and our area code is 702. So start texting. And it will generate a texting line for us, so that we have it down. And now we can write that down, and we have it for her to text in her pictures, or anything that she gets in the mail, and all that stuff. So now, let's say we need a related case. So now we have a related case. We don't have one yet. So now we're going to create a new project, because she was in the car with someone else. And we're going to go the firm, and it's going to be a passenger. And we're going to create one for the passenger. So this is a client. And the passenger's name is N-H-U. And then Lay. And the middle name is... Okay. And this is a woman. So Ms. And then the address, we can just put the same address as before, which was 1617 Ronsard Avenue, North Las Vegas, Nevada, 89032. And then the mobile phone number, again, is 714-414-7168. And then we don't know the birthday yet, so we'll add that in later. We don't know all this other stuff. Okay. And she is a minor, and she is female, single, minor meaning she's under 18, and she speaks English. So fill in as much information, and you can get the other information a little bit later. Okay. And then we hit Save. So... And then Create. So now we've got two... And we're going to relate the project. So we're going to go find the mom, two yet. And now it's related. Now, let's say we want to go create a turn on texting. Turn on texting, 702, Start SMS, and then it'll give us a text line for the daughter. So 957-1479. And the other thing is, you can see that this is a passenger, motor vehicle collision passenger, and that mom would be the motor vehicle driver. Okay. So now you should have everything that you need.

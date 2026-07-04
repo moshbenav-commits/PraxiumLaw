@@ -1,0 +1,33 @@
+# Training Guide — FILEVINE - Task - Reviewing MRIS
+
+_Procedure guide in Lewis communication style · FILEVINE - Task - Reviewing MRIS.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+1. We got another police report back, and this is for Julius Tejvukhani.
+2. We got another police report back, and this is for Julius Tejvukhani.
+3. You only need to request one police report if there's only one accident, even though there might be three clients, or whatever.
+4. And it says right here, it says Arizona Rampart, Alta, happened a certain day, um, you know, blah blah blah.
+5. Okay, this is definitely one, page two, page three, page four.
+6. Okay, so they said vehicle one was at fault, but they didn't really mark it at fault.
+7. And, um, you know, normally it says how many people are involved, but it doesn't say on this one.
+8. It says driver is Donald Edward Harmer, on Chaffin Street in North Las Vegas.
+9. So, you know, that probably means that there's only one insurance.
+10. If the letter from farmers comes back and says it's someone else, then we gotta worry to see if, you know, he's got some other insurance out there that we may be able to go after.
+11. And then we want to see, um, how many people are involved.
+12. So, Julius, he's got, uh, you know, it's Julius, his kids, and then his, you know, a bunch of kids.
+13. So there's, like, five people in this car, but we only represent the, uh, the adults, because these kids are like babies.
+14. Um, it says that, you know, they were doing lane changes.
+15. And if you can read the story, it says, Vehicle 2, our client, was traveling northbound on Rampart in the rightmost travel lane, T2, due to the far right lane being blocked off, which would normally be T3.
+
+## Full transcript
+
+We got another police report back, and this is for Julius Tejvukhani. You only need to request one police report if there's only one accident, even though there might be three clients, or whatever. And it says right here, it says Arizona Rampart, Alta, happened a certain day, um, you know, blah blah blah. It says there were... how many people? Let's say it. Okay, so zero statements. And, um, two... Vehicle two. Okay, this is definitely one, page two, page three, page four. Okay, so they said vehicle one was at fault, but they didn't really mark it at fault. This is like a weird police report. So, it's a really weird police report. But it is Las Vegas Metro, again. And, um, you know, normally it says how many people are involved, but it doesn't say on this one. It says driver is Donald Edward Harmer, on Chaffin Street in North Las Vegas. And, uh, he's also the registered owner. So, you know, that probably means that there's only one insurance. So, we need to pull this information here. He's got a farmer, he's got a policy number. If the letter from farmers comes back and says it's someone else, then we gotta worry to see if, you know, he's got some other insurance out there that we may be able to go after. And then we want to see, um, how many people are involved. So, Julius, he's got, uh, you know, it's Julius, his kids, and then his, you know, a bunch of kids. And then there is... Vehicle 1 is the driver at fault. Okay, so he, thank God he's not vehicle 1. And then there's Than Trang. So there's, like, five people in this car, but we only represent the, uh, the adults, because these kids are like babies. Babies are like rubber bands. They just bounce back. Okay, so then they, you've got to read this. Um, it says that, you know, they were doing lane changes. And if you can read the story, it says, Vehicle 2, our client, was traveling northbound on Rampart in the rightmost travel lane, T2, due to the far right lane being blocked off, which would normally be T3. So there's three lanes, but one lane is blocked off. The right lane is, um, being blocked off. So it's two lanes. Vehicle 1 was a few vehicles in front of Vehicle 2 in Travel Lane 2. So, he was in front of our client. So you can sometimes use little cars and see how you can, you know, picture this. But the defendant was in front of our client. And the left lane was open with warning signs placed that it would end. So Vehicle 1, there were some signs that saying, hey, this is going to now go into, like, one lane. Vehicle 2 conducted a left lane change into Open T1. So our client went into the Travel Lane 1 and began traveling northbound as he approached the Cone Doff merge area. Vehicle 1 was going to change into T1, taking it both T1 and T2. As Vehicle 1 made a, um, lane change, well, you just kind of have to read it. That's also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of also a lot of

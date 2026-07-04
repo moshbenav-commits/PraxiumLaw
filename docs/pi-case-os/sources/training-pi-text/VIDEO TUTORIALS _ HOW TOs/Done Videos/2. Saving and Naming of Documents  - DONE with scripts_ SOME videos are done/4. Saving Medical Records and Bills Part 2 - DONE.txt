@@ -1,0 +1,85 @@
+Other types of Medical Documents
+
+I will discuss the other types of medical documents and how to save each of them. The SOP is to identify the document, client and the provider. I will not mention that in the succeeding part of our tutorial but ensure that you will not forget those steps.
+
+MEDICAL RECORD OR REPORT
+	•	Reviewing our sample medical record, client is XXXXX, and provider is XXXXX. Following our Document Naming Convention, filename would be MED – Provider Name – Record_Date of Service_(Your first name)
+Example: Med – Velazquez – Record 2018.02.02 (Ana)
+	•	Next is go to meds tab, and open the provider folder. Update notes by listing the Date of Service as listed in the medical record. You can identify the date of service by looking for date of visit, encounter date, date of exam or simply date of service. Upload the medical record and click save. Again, do not forget to save as all the changes you made will be lost.
+	•	Go to activity feed, look for a task (usually open task) that is waiting for your record. Again, Do not post on BOLDED vines, except on Medical Records and Bills vine. There is usually a task apart from the bolded vines that is waiting for the doc you have. If there is none, post it as a new note or feed. Leave notes of  “Received Record from Provider Name for Date of Service, and meds tab was updated”. Then, upload the record as an attachment, then hit create.
+	•	Next step is to save the record in docs tab, so go to upload, add files. And wait for it to be uploaded.
+	•	Last step is to save the document in server.  Look for the client’s folder and save on medical records folder. Click upload, and browse for your file, select it and upload.
+	Let’s proceed on the next type of document.
+
+FUTURE / COST ESTIMATE / Procedure Approval Request
+Future estimates is a type of document that has the information (type of procedure, facility where the procedure will take place &, estimated amount of cost) for a recommended procedure usually for an injection or surgery. This is being sent to request for an approval before a certain procedure can be done.
+
+	•	Rename your Future estimate based on our Document Naming Convention. That would be “MED – Provider Name – FE_Amount_(your 1st name)”.
+	•	Save the document in Future Meds Tab accordingly by adding an item attaching the FE and updating the provider and amount fields. Do not forget to click save.
+	•	Post it in the activity feed and tag the Case manager and Kathleen Calcaben. The notes would be, received Future estimate for ‘type of procedure’ from “medical provider.”
+	•	Again save in docs tab and in server.
+	•	Last and the most important step is to forward the mail received to approvals@firm.example. Please take note that Procedure Approval request are like F.E but is usually for imaging procedure request like MRI authorization request. It has the same SOP as Future Estimates.
+
+
+
+LIEN VERIFICATION
+This is a ‘Lien Verification Request Form’ that was previously sent to providers, lien holders or collection agency that was signed or already filled up. It indicates the current medical balance if client is still treating or the final balance or final lien once client is done treating. Better to take note of these details: Lien Amount, Last Date of Treatment, and Next Date of Treatment, if client is done treating or not.
+
+	•	Rename your document accordingly. Lets refer to our document naming convention. So that is “MED - Provider - LV_Amount_Last day of Tx_Next day  of Tx_(Your name). If client is done treating, use MED - Provider - Final Lien Amt_LDT_(name).
+	•	Go to meds tab, and open the provider folder. Attach the document, update the total billed amount, the date updated field, and leave notes. So the date the LV was received, and the LV amount, last day of tx, and the next appointment date. Do not forget to leave your name. It is a good practice to leave the DOS as well in our breakdown so it would be easier to add the other information such as billed amt when we receive the medical bill for it.
+	•	Go to activity feed, look for a task (usually open task) that is waiting for your LV.  Sometimes there are BOLDED vines titled as MEDICAL BALANCES where there is an open task for lien verification request. So you may post or save the LV on that feed.
+Notes would be: “Received LV from Provider Name with lien balance of Amt, LDT of DOS and NDT of DOS; meds tab was updated”. Upload the LV as an attachment, then hit create.
+	•	 Our last steps, save in docs tab and save on server.
+
+
+APPROVED REDUCTION 
+This is the approved reduction from the provider for the reduction request that was sent to them.
+
+	•	Rename your document accordingly. Let’s refer to our document naming convention. So that is “MED – Provider Name – Approved Reduction Net Amount (Your 1st name).
+	•	Go to meds tab, and open the provider folder. Attach the document, update the final net amount paid, and leave a note that reduction was received. So indicate the date the reduction was received, and what is the % and amount of the approved reduction. 
+“4/14/2018 – Approved reduction was received for 50% or final lien of $500. (Ana)”
+	•	Go to activity feed, look for a task or (usually open task) that is waiting for the approved reductions. Notes would be: “Received Approved Reduction from Provider Name for % reduction or final lien of Amt”. Upload the Approved Reduction as an attachment, then hit create.
+	•	Unlike on previous documents, this time we will update the disbursement sheet. Update the reduction %. If the requested % was not accepted and provider gave other %, you have to update the % by clicking here. Then type the %. And place a smiley beside the provider’s name as an indication that an approved reduction was received.
+	•	 Our last steps, save in docs tab and save on server.
+	
+	Let me give you a different example of reduction where the approved reduction does not specify a % but perhaps an amount. To update the disbursement sheet, get the difference between the original billed amount and the approved reduction amount. We will enter the difference instead of entering a percentage. Click this pencil button, then click this adj button. Enter the difference in the adjustment field. By doing this it will automatically compute for the approved reduction % thus providing the accurate % up to its decimal amounts.
+
+RECEIPT OF PAYMENT
+This is the letter that is attached on the disbursement letter we are sending to provider. The provider sign this RECEIPT OF PAYMENT and send back to us as a proof that they had indeed received the check or payment.
+
+	•	Rename your document accordingly, as  MED – Provider Name – Receipt of Payment (Your 1st name)
+	•	Go to meds tab, attach the receipt of payment. Leave notes by entering the date when we received the payment.
+	•	After that upload the document in activity feed. Search for a task regarding checking the status of payment or if checks are cleared. Leave notes that the receipt of payment from this provider was received then upload the Approved Reduction as an attachment, then click create.
+
+UNSIGNED LIEN
+This is a ‘contract’ between the provider, client and attorney that provider will treat on a lien. Meaning they will be paid once the claim is settled. If you receive an unsigned lien, check the needs list and look at the medical providers we normally work with. If the medical provider is on the list, then please sign and fax back to the medical provider. If the medical provider is not on the needs list, please alert the case manager.
+
+	•	On our example, the provider is Velazquez Pain Relief. We have to check if provider is on the needs list. As you can see here is VPRC. So it means that we can sign this lien.
+	•	Have a copy for the unsigned lien and another one for the signed. Using our naming convention, filename is “MED – Provider Name – Unsigned Lien (name)”.
+	•	As verified in needs list, let’s proceed in signing this lien. Use the signature button in the nitro and select the atty’s signature. Place it on the signature field and the date when you sign the lien. Since we need a copy of the signed one, use Save As function and rename this as “MED – Provider Name – Signed Lien (name).”
+	•	On your assigned gmail, open a new message. Type in the provider fax# or email address. Then on subject line, enter the Provider Name followed by the Client’s Name and then type of document which is Signed Lien. 
+	•	Attach and send the signed lien. Ensure that the document was sent successfully.
+	•	Go back to the case system, and save the documents in meds tab by uploading them and leaving a note that unsigned lien was received and that it was signed and was sent back to provider.
+	•	Post the document in activity feed with, and leave notes the same as you did in meds tab. Attach the unsigned and signed liens and click create.
+
+CASE STATUS REQUEST
+This is basically a request on which PHASE the case is in. 
+
+	•	Same with the other documents, rename it following the format, MED - Provider Name - Case Status (name). 
+	•	Save this on meds tab, and upload in activity feed. Ask CM’s permission to sign and send this back to provider. After confirmation was received.
+	•	Check the phase of the case and read the feed to confirm the status of the case.
+	•	Then mark or indicate the appropriate ‘status’ on the case status request form that was received. Sign and sent it back to provider. 
+
+Points to remember:
+	•	Please follow the document naming convention. Do not rename the docs as you like it.
+	•	Do not sign ‘UNSIGNED’ liens if the provider is not on our needs list. Check it first with the case manager.
+	•	Post the document on the correct vine, meaning on the task that is awaiting for the document you are about to save.
+	•	Do no forget to save a copy in Z drive or server.
+	•	Follow each guidelines for each type of document.
+
+
+
+
+
+
+Ana

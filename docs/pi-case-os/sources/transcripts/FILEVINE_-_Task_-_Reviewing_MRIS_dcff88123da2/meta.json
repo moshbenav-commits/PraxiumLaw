@@ -1,0 +1,38 @@
+{
+  "slug": "FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2",
+  "filename": "FILEVINE - Task - Reviewing MRIS.mp4",
+  "title": "FILEVINE - Task - Reviewing MRIS",
+  "sourceVideo": "/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/Support Staff/Day 3/FILEVINE - Task - Reviewing MRIS.mp4",
+  "category": "van-law-the case system",
+  "wordCount": 663,
+  "transcribedAt": "2026-06-14T15:41:36.684371+00:00",
+  "sizeBytes": 54235552,
+  "videoDeleteApproved": false,
+  "createdAt": "2026-06-17T20:53:18.046308+00:00",
+  "kind": "other",
+  "tags": [],
+  "speakers": [],
+  "flags": {
+    "vin_number": false,
+    "dealership_script": false,
+    "complete_sales_call": false,
+    "team_chat": false
+  },
+  "notes": [],
+  "primarySpeaker": "Unknown",
+  "audioFormat": "mp3",
+  "updatedAt": "2026-06-18T20:39:54.857788+00:00",
+  "hasAudioArchive": true,
+  "audioBytes": 3972209,
+  "frameCount": 6,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg"
+  ],
+  "intervalSec": 45,
+  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2/screenshots"
+}

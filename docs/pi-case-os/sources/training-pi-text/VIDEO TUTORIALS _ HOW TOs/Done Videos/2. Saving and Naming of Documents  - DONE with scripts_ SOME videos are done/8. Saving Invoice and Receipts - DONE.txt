@@ -1,0 +1,17 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+Expenses
+These are invoices or receipts of payments made by the firm for various activities in running a case such as copying, requesting for medical records, police reports, policy limits, court filing, serving of legal documents, mailing and postage, expert testimony, etc.
+
+How to Save?
+	•	Identify the client and what is the invoice for.
+	•	Rename if accordingly, INVOICE - From whom/what the invoice came from - For payment of Amt (First Name)
+Example we requested for police report from Las Vegas Metropolitan Department and we received an invoice for $9, so the filename would be ‘INVOICE - LVMPD - PR Request $9 (Ana)’
+	•	Save in expenses tab by attaching the invoice and updating the necessary fields. Leave the date field blank. 
+	•	Update the Expenses (Invoices) sheet in google shared drive. Leave the Date Paid Column blank. Here’s the link: https://docs.google.com/spreadsheets/d/1vcTBg0IOcn-zJI8VbdPYvZLNfXkLSr20G3ZnBYh1Dyc/edit?usp=sharing
+	•	For invoices that came from MedDOcs, MedR, CIOX, DocRequest, MRO, ShareCare, Junes, Chartswap and Invoices for Policy Limits Requests, please forward to Jem for online payments. All others type of invoices, forward to Ricardo as he will issue a check for those.Expenses (Invoices)
+	•	Save in Docs Tab, and in Office Receipts folder in server.
+
+
+Expenses (Invoices)
+
+Ana

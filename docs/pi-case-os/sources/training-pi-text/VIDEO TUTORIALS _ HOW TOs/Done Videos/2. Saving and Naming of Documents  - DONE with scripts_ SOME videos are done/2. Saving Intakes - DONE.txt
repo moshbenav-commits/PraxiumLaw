@@ -1,0 +1,23 @@
+Saving IntakesLimited Power of Attorney, General Release, Contingency fee Agreement, Acknowledgment, Consent for Disclosure of Information, HIPAA Authorization Form, Medicare Form and other documents such as Client’s Identification such as Driver’s License, Insurance Card, a copy of Traffic Accident Report, and pictures of the accident. The Intake Packet is usually being tasked in filing by the case manager for you to save.
+
+This process is very important as we have to capture all the information and details related to client’s accident as based on his/her intake documents. The INTAKE PACKET consists of the following: Intake Questionnaire, Needs List, Internet and Surveillance 
+
+	•	Segregate the INTAKE PACKET by renaming, saving, and uploading them to intake tab. Separate the forms of the firm Intake Questionnaire, HIPAA, General Release, and CMS Medicare Form. The other forms can be saved as  one document as intake documents. Please follow the naming procedure on our Document Naming Convention.
+	•	Update the following tabs as necessary based on the information from the questionnaire. (Intake, Health Insurance, Auto Ins Tab, Meds Tab).
+	•	Intake tab - enter the date of intake, date of incident which is the date of accident. On File Name field, enter the name of the client by First Name, then last name. Add the contact card of the Case Manager. Upload the Intake Docs, the ones you had segregated earlier. Complete the other fields based on the information you can get on the intake documents you have.
+	•	Incident Tab- fill in the fields accordingly which are the Incident Date or Date of Accident, Referrer who had referred the client to us, and Incident Description or the summary of the accident.
+	•	Treatment & Injuries Tab - If client was admitted to Hospital, most likely there will be emergency physicians, hospital radiologists, and ambulance bills as well. You just have to indicate the appropriate answers in this tab based on the intake questionnaire or on the documents you received.
+	•	Insurance Auto - check the intake questionnaire if there are listed information, check if there is a traffic accident report, or any document from client that will supply the information on this such as insurance card or declaration page
+	•	Insurance Health - check the intake questionnaire if there are listed information, or any document from client that will supply the information for this such as health card 
+	•	Meds tab -  check the intake questionnaire if there are listed information. If client was transported to hospital via ambulance, or if he/she had sought any treatment following the accident. Also, add the chiropractor or pain management doctor where client was assigned or referred to as based on the client’s need list.
+
+Saving Photos
+	•	At intake, client will also send us pictures of the scene of the accident, vehicle damage, sometimes pictures of his/her injuries, health insurance card, driver’s license. We also asked for his/her profile pic that will be uploaded to his/her contact card. What you have to do aside from renaming these pics accordingly, you also need to update the the case system tabs as necessary. For example,  client submitted a health insurance card. Therefore the health ins tab should be updated with information on the insurance card.
+	•	These pics should be renamed accordingly if client sent them via text. If these were sent via email you can send them via the assigned email address of client’s the case system account. Then from there, you can rename them. So it is easier than uploading them one by one to the case system
+
+
+
+
+
+
+Ana 

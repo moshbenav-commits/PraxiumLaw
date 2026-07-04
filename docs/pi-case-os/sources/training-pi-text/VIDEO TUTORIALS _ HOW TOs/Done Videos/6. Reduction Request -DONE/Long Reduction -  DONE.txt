@@ -1,0 +1,39 @@
+Long Reduction
+
+Form our previous tutorial of Short Reduction, I’ve mentioned the purpose of reduction letters. The difference of long reduction is that, it includes the settlement offer and a copy of disbursement sheet. Sometimes, we have to send long reduction when we have to send a Second Reduction Request or when a provider asked for a breakdown of settlement. 
+
+First Part - Checking the Instruction
+	•	Read your task carefully, and identify the medical providers then check if there is a lien holder. If there is a lien holder, you have to send the request to the lien holder. 
+
+Second Part - Checking and Generating the Disbursement Sheet
+	•	Go to meds tab, and have another window for the disbursement sheet. 
+	•	Check if the total amount in meds tab corresponds with the amount in the disbursement sheet. To do that, check if the medical bills are complete as to what is reflected in the total amount. (Please refer to updating the disbursement sheet tutorial for the detailed instructions).
+	•	Once verified, have a copy of disbursement sheet by clicking the Word Icon and click the generated link to download.
+	•	Edit it by removing the comments, like this ‘New Scenario’, information on lien holder such as JML. Also, do not forget to remove the second page.
+	•	Once done, convert it in PDF format.
+
+Third Part - Generating and Editing the letters
+	•	Go to the provider’s folder in meds tab. In case the buttons for docgen are not showing, please select yes and hit save.
+	•	For our provider, there is no lien holder, so we will select the docgen for Long Reduction Request. Wait for the letter to generate. After, please click on download.
+	•	Notice the highlighted fields. These fields are the ones to be edited. 
+	•	Sent Via Facsimile - check the provider’s contact information if it is either a fax number or an email address. So edit this field accordingly.
+	•	Settlement offer - place the settlement offer amount, ensure to follow correct decimal number system.
+	•	Adjustment %, Adjustment Amount, and Net Amount - you can verify this here in the disbursement sheet. This is actually generated here so we just have to ensure that the amounts are correctly entered in disbursement sheet.
+	•	Your Initials - add your initials here in lowercase. 
+	•	Once all are correct, save and convert your document into PDF.
+
+Fourth Part - Combining the Reduction letter and the Disbursement Sheet
+	•	Use the combine function in Nitro, first page is the reduction letter and the second page is the disbursement sheet.
+	•	Save and name it according to our Naming Convention. So that would be, MED - Provider Name - Long Reduction_Reduction % (name).
+
+Fifth Part - Sending the Letter
+	•	On your assigned gmail, copy the contact number, remove the dashes and add @metrofax.com.
+	•	On your subject line, type in the Name of the provider, then the client’s name, and lastly the type of letter to send. 
+	•	Attach the letter. Double check it by downloading it. Once correct, hit SEND.
+	•	Wait for the successful notification from metrofax, once received, go back to the case system.
+	•	On your task, take note that you sent the reductions letters to the providers and attach the letter you had created and sent.
+	•	Move your task due date after a week, and leave the task open until the requested document is received.
+	•	In case response was not received on the due date, you may task a caller to follow up your request. 
+
+
+-Ana

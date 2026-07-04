@@ -84,3 +84,15 @@ cd ../backend && bash scripts/deploy-vercel.sh
 **Site password lock:** set `SITE_LOCK_PASSWORD` + `SITE_LOCK_SECRET` on Vercel `praxiumlaw-front`. Clear both to go fully public.
 
 From workspace root: `npm run dev:praxiumlaw`
+
+## PI Case OS (pre-lit personal injury)
+
+**Specs + training corpus:** [`docs/pi-case-os/`](docs/pi-case-os/) — white-label case management blueprint (Phase 0 complete). **PraxiumLaw is the only repo**; no separate Axiom repos.
+
+| Start here | Purpose |
+|------------|---------|
+| [`docs/pi-case-os/PROJECT_STATUS.md`](docs/pi-case-os/PROJECT_STATUS.md) | Status, backend mapping, Phase 1 MVP plan |
+| [`docs/pi-case-os/product-capabilities.md`](docs/pi-case-os/product-capabilities.md) | Feature list + MVP build order |
+| [`docs/pi-case-os/DISCLOSURE.md`](docs/pi-case-os/DISCLOSURE.md) | Counsel review required before live use |
+
+**Next:** Implement PI modules in `backend/` + `frontend/` from `product-capabilities.md`.

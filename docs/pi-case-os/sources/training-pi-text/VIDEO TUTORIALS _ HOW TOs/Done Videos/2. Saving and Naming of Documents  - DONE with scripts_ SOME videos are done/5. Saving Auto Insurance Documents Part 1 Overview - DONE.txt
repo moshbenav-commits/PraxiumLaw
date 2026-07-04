@@ -1,0 +1,45 @@
+ 
+Saving Auto Insurance Documents Overview
+
+These are documents we received from auto insurance companies that are related to client’s accident, claims, and settlement.
+
+Before we proceed, let me explain some of the terminologies you will encounter:
+	•	First Party Insurance - This pertains to insurance of the vehicle the client is driving at the time of accident. There are times that the client is not the owner of the vehicle.
+	•	Third Party Insurance  - this is the insurance of the defendant or of the at fault party.
+	•	Policy Limits - this is the maximum amount of benefit or settlement an insurance company will pay. Common limits we encounter are 15/30, 25/50, and 100/300.
+	•	UM UIM - UM stands for ‘uninsured motorist coverage’, while UIM stands for ‘underinsured motorist’. From the name itself, UM protects those who are injured by an at-fault driver that has no insurance while UIM is applied when the at-fault driver has motor vehicle insurance that is not sufficient to pay damages for bodily injury. So if a client was injured by a negligent driver who does not have liability insurance or has insurance but has inadequate limits to cover for the expenses), client may make a claim with his/her own insurance carrier if the client has UM/UIM coverage.
+	•	Med Pay coverage - refers to Medical Payment Coverage that covers reasonable medical expenses for persons in the event of an accident, regardless of who is at fault.
+
+What are the common types of insurance documents we received?
+	•	Acknowledgement of LOR (Letter of Representation) 
+	•	Denial or Acceptance of Liability
+	•	Declaration Page
+	•	Repair Estimate/Market or Total Loss Valuation Report
+	•	Demand Status Letter/Receipt of Demand
+	•	Settlement Offer/Counter Offer
+	•	Release
+	•	Settlement Check
+	•	Indexing Forms and Medicare Request Form
+
+Part 1 - Identifying Key Information (Client, Insurance, Type of Document)
+	•	Read the letter or correspondence for the client’s name. This is an Ack of LOR (sample). Sometimes the listed name in the document is the policy holder 	or the name of the vehicle owner and if it is from 3P Insurance, the name listed is the name of the defendant. If you are unable to find the name of the client, you need to utilize the ‘Search Deeper’ Function in the case system using the listed name in insurance document. It will later bring you to the associated client’s the case system project when the name in the insurance document is save on one of the contact card in the case system as defendant, vehicle owner or as policy holder. You can also search using the claim number or the policy number through the ‘Search Deeper’ Function and it will bring you to the associated the case system project of the client. 
+	•	Identify the Insurance Name and its type, whether 1P or 3P. How? If the Insured Name is the Client’s Name or the Owner of the vehicle that client is in at time of accident, the insurance type is 1P. It is 3P when the insured name is the Defendant or the Owner of the vehicle that defendant is in at time of the accident. The easiest way is to check the auto insurance tab, the are listed folders saved in that tab with the information of the client’s and defendant’s insurance.
+	•	Identify the type of document. The only way to do this is to read the letter, and scan from page 1 down to the last page. Example, an Ack of LOR is a letter we acknowledging the Letter of Representation we had sent to an insurance company. A Dec Page provides the information of an insured’s benefits, coverage and corresponding limits. The Status of Demand Letter, states whether they received our demand and what is the current status or process the demand is in. 
+
+Part 2 - Renaming the Document
+	•	Once you’ve identified the client, insurance and its party, and the type of document, naming the insurance document is easier. Based on our Document Naming Convention, our naming format is INS - 3P or 1P_Name of Insurance - Type of Doc_(First Name). Please utilize the Naming Convention shared in google drive for us to be consistent and organize with the documents we are saving. Here in our sample, is an Ack of LOR, the naming convention would be INS - 3P Farmers - Ack of LOR (First Name)
+
+Part 3 - Saving to the case system and Server
+	•	Save in Auto Insurance Tab, update the necessary fields such as Policy Limits, Adjuster Name, Policy Number, Claim Number, Liability Acceptance, and also leave notes about the information from the document we had received.
+	•	Post in Activity Feed. Look for the open task waiting for the document you are saving.
+	•	Save in docs tab and in server.
+
+There are certain documents that we have to inform our CMs right away, so we will send them a copy via email, example of his is the settlement offer. If we received the settlement check, we have to task our bookkeeper on it. We will proceed on the other types of insurance documents on the next video tutorial. 
+
+
+
+
+
+
+
+Ana

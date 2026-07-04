@@ -1,0 +1,41 @@
+Disbursement Letters
+
+Disbursement Letters are being done when we have settled and we are to pay the medical providers, and lien holders. We only draft these letters and email them to the law firm’s clerk for him to print and to mail along with the checks.
+
+First Part - Ensure that Disbursement Sheet is Updated
+	•	Why we need to ensure that disbursement sheet is updated? From settlement offer, to medical balance, approved reductions, subrogation liens, to loans, and to expenses. Why? It is because we have to ensure that we have the correct amount to pay for the providers, lien holders, subrogation companies, to the attorney, to the firm and most importantly to our client. If it is not correct, the possibility would be, the firm will have to pay from its own ‘pocket’ for any expenses or balances that are not paid accordingly. We cannot ask the client, hey you still owe this amount to this provider or to this subrogation company.
+	•	With that, double check the expenses, subro liens, loans, and approved reductions for each of the provider. Ensure that amounts are reflected correctly in the disbursement sheet. You may refer to our tutorial video on Updating Disbursement Sheet.
+
+Second Part - Generating the Letter
+	•	Go to meds tab. Open the provider’s folder and if docgen buttons are not showing, click on Yes and hit Save.
+	•	We have 2 types of disbursement letter. One is for the provider and one is for the lien holder. So we utilize this docgen for lien holder, when there is a lien holder for certain medical bills that means we have  to pay the lien holder, and not the medical provider.
+	•	So for this provider, let’s check if there is a lien holder. First indication is that there is a nickname of the lien holder beside the provider’s name. Next is to check this field if there is a listed lien holder, and lastly check the records and bills attached if there is an assigned lien holder. So for this provider there is none, so we will use this docgen for disbursement letter only.
+	•	Before you hit generate, ensure that the final paid amount 	is pre-populated with the 	net amount on the approved reduction. 
+	•	So download the approved reduction, save it as you have to send them later along with the draft disbursement letters.
+	•	After that click the generate button and after it generates, click on download. Then we will proceed in editing the letter.
+
+Third Part - Editing the Disbursement Letter 
+	•	First is to determine the correct address of the medical provider. How? So you see our docgen ‘pulls’ or generates the information on certain fields in the case system. So for provider’s address, the information comes from the contact card. To verify if you have the correct address, check the documents specifically the reduction letter if there is a note from provider on where to send the payments. You can also check the records or bills if the address we have on contact card do match.
+	•	As I’ve mentioned, these letters are being sent via mail so we will this as is. The address here should match the address on the envelope page.
+	•	If there is no SS No, then you can remove this field.
+	•	For the payment amount, ensure to follow the correct format and decimal number system. 
+	•	Then like the other letters we did, place your initials here. 
+	•	For the last page, which is the Receipt of Payment. This is the letter the provider will have to send back to us as a proof they had received our payment. Just to ensure the address is the same with the address above. Remove the again the field of SS No. if there is none.
+	•	Again for the payment amount, ensure that it is in the correct format.
+	•	Once all are correct, save it as Word doc with filename of ‘MED - Provider Name - Draft Disb. Letter_Amount (name).
+	•	Proceed to do the letters for other medical providers. So let’s do an example of a disbursement letter for a lien holder.
+
+Disbursement Letter to Lien Holder
+	•	I have mentioned earlier on how to check if there is a lien holder. Look at our example here, there is a nickname of JML or RDG beside the provider’s name. In that case you have to check further who is the correct lien holder. You may refer to your task instruction, notes in meds tab, or the lien holder listed in this field or you may even check the disbursement sheet. Based on our disbursement sheet, the lien holder is JML. If there is no indication which of the two, ask the Case Manager first before doing the disbursement letter. 
+	•	Next, download and save the approved reduction and enter the net amount in ‘Final Net Amount Paid’.
+	•	After which, utilize the docgen for lien holder disbursement letter. After it generates, click download then we will edit the letter.
+	•	Follow our steps in editing the disbursement letter. Except that the address that should be reflected in the envelope and the letter itself is the address of the lien holder.
+	•	Check the address if correct in the first page, up to third page. The payment amount should be in the correct format. And again, place your initials beside Ms. Sandy’s initials.
+	•	Once all are correct, go back to your task in activity feed.
+
+Fourth Part - Uploading and Sending the Draft Disbursement Letters
+	•	Leave notes that you have drafted the disbursement letters.
+	•	You have to do separate the notes for each of the providers. Like this. So first, we did a draft letter to ‘XXX Provider’. Type the provider’s name then attach the disbursement letter and then the approved reduction.
+	•	Then proceed with the next provider. We did a draft letter for ‘YYY Lien Holder’ for ‘YYY Provider’. So type it in here, then attach the draft disbursement letter and the approved reduction. 
+	•	Task it to our clerk, which is Ricardo Silva. 
+	•	Go to your gmail. Send an email to Ricardo with the attached draft disbursement letters and approved reduction letters.

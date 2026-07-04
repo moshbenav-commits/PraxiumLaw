@@ -1,0 +1,150 @@
+OPERATIONAL PROCEDURE FOR  VA SOURCING AND RECRUITMENT 
+
+
+	•	OBJECTIVE
+
+To define the selection process for a Virtual Assistant,  and to establish the  responsibilities of each concerned parties in the selection and recruitment process.
+
+
+	•	SCOPE
+
+This procedure applies to all VLF and LSH Hiring Managers and HR Staff.
+
+	•	Background Check – an investigation process performed to confirm the candidate’s previous employment records and work conduct from his/her former employer/s.
+
+	•	Hiring Manager – the person responsible in making final hiring decisions, supervises the interview and the entire hiring process and ensures that only the most qualified applicant is hired for a given position.
+
+	•	Hiring Specialist - the person responsible in researching, developing and implementing hiring plans and effective recruitment strategies, also, in charge of advertising the firm's open positions and sourcing candidates from a diverse pool of qualified and capable talent.
+
+	•	Job Offer - a formal document which contains the details of the employment offer that includes salary, benefits, incentives and the job responsibilities given to the candidates who are selected for employment.
+
+
+	•	PROCEDURE DETAILS
+		
+
+Detailed Activity
+Responsible
+	•	Sourcing
+
+Posting of job vacancies through external platforms, external advertisements 
+and sourcing channels: 
+	•	Upwork
+	•	Odesk
+	•	OnlinejobsPH.com
+	•	Employee Referrals
+
+Note: External job postings shall be advertised externally 
+for a minimum of 7 business days.
+
+
+
+
+
+Hiring Specialist
+	•	Application Screening
+
+Screen the collected applications from all sources  and identify applicants 
+who possessed the skills & qualifications needed for the position. 
+Collected resumes must be saved to a Google Drive for proper recording 
+and manpower pooling. Once the paper screening is done, send an initial 
+email to qualified applicants containing the following:
+
+
+1 - a Google Form with the “Job Ad” questions (pre-interview questions) 
+	•	https://docs.google.com/forms/d/e/1FAIpQLSfD2eIlmmckoV-YG-E2FaAah7nyiXHl1riEhfeKZDrZLT1e9A/viewform?usp=sf_link
+
+2 - and the test link.
+	•	https://apply.wonscore.io/YVXRQC/the firm-Firm
+
+Note: All accomplished forms must be uploaded in HR the case system
+for recording and ‘Application Status’ monitoring.
+
+
+
+
+
+Hiring Specialist
+	•	Recruitment General Procedure
+
+     3.3.1   Conduct behavioral/initial interviews via Skype and record it
+for documentation purposes. Significant information such as 
+relevant job experiences, skill set and other qualifications/credentials must
+be gathered during the interview. 
+
+After the call, update the applicant’s file in HR the case system. 
+All selected candidates must be endorsed to the Hiring Managers for review 
+and final approval, with the following attachments:
+
+1 - the interview recording 
+2 - pertinent documents (e.g. CV & Certificates)
+3 - screenshots of the tools & devices to be used for the virtual job 
+     (e.g. desktop computer, laptop, internet speed, and back-ups)
+4 - test results
+5 - HR Specialist’s recommendations
+
+Note: All qualified candidates for VLF will be encoded in Asana and
+ be marked as  ‘For checking and approval’  of  the VLF Hiring Manager.
+
+For LSH qualified candidates, information must be encoded
+in Asana and shall be sent to the LSH Hiring Manager via email.
+
+
+
+HR Specialist &
+Hiring Manager/s
+    
+     3.3.2   Once checked and approved by the respective Hiring Manager, 
+prepare and send the Job Offer for the candidate’s review and signature 
+via email,  together with the Training Bond Agreement letter. Ensure that
+an accomplished and signed copy is received prior to the on-boarding process.
+
+
+HR Specialist
+
+     3.3.3   After receiving the signed Job Offer and Training Bond 
+Agreement letter, update the candidate’s file in HR the case system  and proceed to 
+the  ‘Reference Checking’ phase.
+
+
+HR Specialist
+
+     3.3.4   Send an Employment Verification email to the candidate’s 
+previous employer/s  for a background check.
+
+
+
+
+
+
+HR Specialist
+	•	Onboarding
+
+Once the ‘Recruitment General Procedure’ has been completed,
+the candidate is now ready for endorsement  to the Training Program.
+
+Note: Coordinate with the Training Team for the training schedule
+as determined by the VLF Hiring Manager.
+
+
+
+
+HR Specialist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Prepared by:						Revised & approved by:
+
+Sherlynn Trinos						Mary Rose Cabrera	
+(HR Specialist)						(VA Hiring Manager)
+

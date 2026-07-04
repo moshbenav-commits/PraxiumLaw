@@ -1,0 +1,62 @@
+
+1Medical Documents
+
+Medical Documents are documents related to client’s treatment. Here are the common medical documents we received.
+
+	•	Medical Bill/ HICF/ Statement of Account/Itemized Bill
+	•	Medical Record/Report
+	•	Future Estimate/Cost Estimate/Procedure Approval Request
+	•	Lien Verification
+	•	Approved Reduction
+	•	Receipt of PaymentCase Status Request
+	•	Unsigned Lien
+
+
+First Part -Identifying  the document, client and provider
+	•	First is identify what type of document you have. On our first example, this is what we call a  HICF or Health Insurance Claim form. This is the most common type of medical bill we received. So in a HICF, you can find the client name here, the billed charge in this part, and the provider’s name in this box. 
+	•	After that, identify the client, it is to check if the client is one of ours. Use the Search for a project function here in the case system. You may check the included archived projects, because we received documents for this kind of project as well. Just ensure to check the Date of Loss. Why? Sometimes there are clients with multiple accidents. We have to ensure that we are saving the documents to the correct case.
+*Note: May I just remind you that some documents do have multiple clients, in that case we have to separate the documents accordingly. I will give a sample of that later. 
+	•	Once you have verified the client, identify the provider. Our common providers are Pain Management Doctors, Chiropractors, Radiologist, and Surgery Center. In this example, the provider is Las Vegas Spine and Pain Center, which is a Pain Management Doctor. 
+Note: Sometimes, there are lien holders. So you have to look for that as well. Who or what is a lien holder? Lien holders are the ones who purchase medical liens from medical providers. They have the right to be repaid once the claim or case is settled. So instead of paying the medical providers, we will be paying these lien holders. Example of lien holders are: JML, RDG, Sierra Medical Services, Great Salt Lak
+e, K.D. Finance.Second Part - Renaming the Document
+	•	Once all are identified; type of document, who is the client and provider or lien holder. It’s time to rename your document according to our naming convention which is saved in our google drive. We have to follow the same formats in naming our documents and files. As it will be easier for us to look for things if formats are the same, aside from being organized. So for our for HICF, filename will be, MED - LVSPC - HICF_Amt_Date of Service (name).
+	Link: Document Naming Convention
+https://docs.google.com/document/d/17idywM3iYpy3cnfz-UjbAJ7byNSPl3PlJnsnghPoBTU/edit?usp=sharing
+	•	After renaming, go to meds tab, and search for the provider folder.
+Third Part - Saving in Meds tab
+	•	Upload your HICF, then update these fields. Total billed amt, date updated, specialty, and notes.
+	•	So how to update the total billed amt? First is to review the current bills on file, which is to check if the amounts are correctly added. What you need to do is to check on these bills and add again the amounts if the total you will get do match with the total billed indicated here. So after reviewing the previous bills, if you saw that the bill you are about to save is a duplicate of a previous bill or has been saved already, just upload the bill you have. If it is not a duplicate, and you verified the total billed amount is correct, add the amount indicated from your bill and update the meds amount.
+	•	After, please place in notes of the Date of Service and the corresponding billed charge. Why? This is to easily monitor the bills we have and it would be easier to prepare the documents in time of demand.
+	•	After uploading your doc, and after updating the billed amount, date updated, specialty and  notes, ensure to click on save. If not,  then all of the changes you made will be lost.
+Fourth Part - Posting in Activity Feed
+	•	Go to activity feed, look for a task (usually open task) that is waiting for your bill. You will notice that there are bolded vines. You can post in Medical Records/Bills vine but not on other vines. There is usually a task apart from the bolded vines that is waiting for the doc you have. This is for us not to clutter the bolded vines which are being used by the case managers to easily monitor their cases.
+	•	So what we have here is a HICF for date of service XX/XX/XX, let’s see if there is a task looking for this bill. Here is an open task to draft a demand, you can read that a bill from LVSPC was missing. Since this is an open task waiting for the HICF you are about to save. You will post it here. Leave a note stating that a HICF was received from LVSPC for this date of service and attach the document and hit create.
+	•	In case of no open task, just have it posted as a new note or feed.
+Note: *Ensure not to hit send a text message if you are making notes. We do not want to send a client a message that she or he is not supposed to receive.
+
+Fifth Part - Saving in Docs tab and Server 
+	•	After that go to docs tab, and to upload folder, and click add files, select the document you are saving. You will notice that it is saving, and check in view folder, you will see it there.
+	•	Last place to save your document is on what we call the Z drive or server.
+	•	To access, go to this link-
+	https://firm.remotewebaccess.com/Remote/logon?ReturnUrl=%2fRemote%2ffs%2ffiles.aspx%3f&timeout=30\
+
+	•	To search the folder of a client in server, look by his or her last name, if there are related cases, the order of naming is the primary and then the secondary cases. For example, if the Primary case is Jane Doe, while the Secondary case is John Dela Cruz, then the folder name  in server would be Doe - Dela Cruz.
+
+	•	Yo will upload the document in Medical Records folder and choose the appropriate provider’s folder. In case there is none, you can add a new folder. To upload, click on upload, and browse to select files. After click on Upload. Wait for the document to be uploaded before you close it.
+
+Summary
+
+So to recap-
+	•	First step is to identify your document, verify if the client is one who is being represented by our law firm by searching the client in the case system, then after identify the provider.
+	•	In case there are multiple clients, you have to separate them accordingly.
+	•	Second is to save and rename your document based on our Document Naming Convention on our google drive.
+	•	Third is to save the document in the meds tab, and ensure that the correct billed amount is reflected. Update the other fields as necessary. Do not forget to hit save.
+	•	Fourth is to post your document in Activity Feed. Look for a task waiting for the document you are saving. 
+	•	Last step is to save your document in docs tab and in Zdrive or server.
+
+
+
+
+
+
+Ana

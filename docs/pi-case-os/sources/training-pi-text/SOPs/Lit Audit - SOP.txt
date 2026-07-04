@@ -1,0 +1,231 @@
+
+TEMPLATE
+GUIDELINES
+
+Name
+	•	Check if it’s a primary or secondary case
+                      - e.g. John Doe (Primary Case)
+DOL
+	•	When did the incident happen?
+	•	Can be seen in Vitals or Intake tab
+Primary
+	•	Attorney/CM who’s handling the case.
+Previous CM
+	•	Check every vines in the activity tab who is the previous primary who handled the case. (Make sure that prev primary is still in the firm so we can still contact them if ever there’s an issue during pre-lit)
+Phase
+      Make sure Lit cases are in phases either:
+	•	9.1 Transfer to Lit - VLF
+	•	10.1 VLF Lit- LastCh.
+	•	10.2 Lit/Treating
+	•	10.3 Lit/DoneTreating
+	•	10.4 Lit/Treating 2ndary
+	•	10.5 Lit/DoneTreating 2ndary
+Court
+	•	Check Litigation Tab or Pleadings Tab
+	•	District, Federal, Justice, Arbitration
+	•	Unknown - if unknown
+	•	If Justice Court, REA is not applicable
+	•	On REA: put “Justice Court, REA is not applicable.”
+	•	Already filed REA but not yet granted
+
+FOL
+	•	Facts of the incident
+	•	Can be seen in Intake Tab, check MVA questionnaire or Police Report
+	•	If no FOL available, check MVA questionnaire, Police Report, or;
+	•	Go to Pleadings ( check Complaint ) 
+	•	Med Summary
+Meds Total
+	•	Client’s treatment total expenses
+	•	Can be seen in Vitals or Meds tab
+Future Meds
+	•	See Future Meds Tab if there’s any, if yes you have to include in your report when it was recommended, what was the recommended procedure, and the amount. 
+	•	Format sample: 01/01/2020 - Bilateral Injection ($20,000)
+	•	None - if none 
+Life Care Plan
+	•	A detailed report of a person's financial needs and expenses following a personal injury accident. The report takes the person's entire circumstances into account, including medical costs, nursing care, and the costs of daily living. 
+	•	We will hire an economist if a big case
+	•	Search this project, if there’s any, download the file or screenshot and then attach to your audit report
+	•	Format sample: Done on 01/01/2020 or None - if none
+Lost Wages Claim (Y/N)
+	•	If yes, we know we need to get an economist.
+PD Amount (Y/N)
+	•	Only for MVC/MVA. Remove if case isn’t MVC/MVA
+	•	Check how much is the property damage amount
+	•	Can be seen in Vitals or PD Tab
+PD Complete
+	•	Go to PD Tab and see if PD was already completed.
+	•	Unknown - if not yet complete
+PD Damage
+	•	If PD was low, medium or high and if low like under 2k, look at the photos of both cars. 
+	•	You can check the extent of damage in the Police report in the intake tab.
+Treatment Status
+	•	See if the client is still treating or done treating. If the phase is still in the treating phase and there’s no recent updates on the client's treatment, verify the treatment status to the primary or the one who’s handling the case.
+Last Day of Treatment
+	•	Go to the meds tab. Only check those providers whose specialty is Pain Management. Note then the last day of treatment.
+	•	No recent update, will verify.
+	•	Format sample: NPIM (Dr. Fabito) - 01/01/2020
+	•	Include Dr. + last name IF it’s with NPIM
+	•	Not treating with PM - if no Pain Management provider
+
+
+Medical Records
+	•	If the client is done treating, make sure we got those Certificate of Records (CORs) for every provider. 
+	•	No need to tell SV which ones have CORs just tell her which ones don't have CORs.
+	•	If there’s no COR, it means not verified yet.
+	•	If the client is still treating, check for the missing bills and records.
+	•	Each billing period/batch should have a COR.
+	•	The reason we want the complete medical records, bills and CORs is that we do not have to waste time doing supplements.  Do things right the first time so we don't have to spend needless time supplementing.
+	•	Put this IF: “All medical bills and records with COR are in.”
+Is Subro Applicable? (Y/N)
+	•	NO;
+	•	Never treated w Health Insurance; 
+	•	No Medicare (As per SV)
+	•	If client did not use Health Insurance on his/her treatment
+	•	If client wasn’t transported or is treating in the hospital
+Subro Initiated (Y/N)
+	•	Check insurance - health if subro was initiated. 
+	•	If client has no insurance, put in your note: “N/A”
+	•	- and we have an initial lien w substantive: (As per SV)
+Subro Complete (Y/N)
+	•	Check insurance - health if subro was completed. 
+	•	If client has no insurance, put in your note: “N/A”
+	•	If Unknown is selected on the Insurance-Health tab,, check Subro vine in the Activity tab and check the status. If there’s still no update in there, just put Unknown.
+3P Ins Comp
+	•	Only for MVC/MVA. Remove if case isn’t MVC/MVA
+	•	State 3P insurance company, check insurance-auto tab
+3P Limits
+	•	State the policy limit of 3P’s Ins Comp
+	•	Unknown - if unknown
+Liability (Accepted/Denied)
+	•	State weather accepted, denied, or partially accepted.
+	•	Unknown - if unknown
+1P Ins Comp
+	•	Only for MVC/MVA. Remove if case isn’t MVC/MVA
+	•	State 1P insurance company, check insurance-auto tab
+1P UM/UIM Limits
+	•	State the UM/UIM limit of 1P’s Ins Comp
+	•	Can be found on Declaration Page (Docs)
+	•	No UM/UIM
+	•	if none or Rejected
+	•	if you see a Rejection Letter to UM/UIM on the docs section
+Claimant(s)
+	•	See vitals or police report
+3P Offer
+	•	See negotiation tab. Check the most recent offer
+	•	No offer - if unknown
+1P Offer
+	•	See negotiation tab. Check the most recent offer
+	•	Delete
+	•	if no UM/UIM
+	•	If no 1P insurance
+Medical Summary
+	•	Check the most updated one, date should be anytime after the last day of treatment. Otherwise, ask Medsum to generate a new medical summary.
+	•	Search this project
+	•	Posted on MM/DD/YYYY
+	•	Not drafted - if no medical summary was posted/commented on the vine
+Signed Lit Letter (Y/N)
+	•	Search in Docs tab and Pleadings tab.
+	•	If you see a note that says it was signed but file can’t be found,
+	•	Put: Yes.
+	•	No - if none
+Answered Pre-Discovery Question (Y/N)
+	•	Search in Docs tab and Pleadings tab.
+	•	Look for: Sample / Answered Sample Questions
+Complaint
+	•	Go to pleadings tab or deadline and see when it was filed
+	•	COMJD in Pleadings tab
+	•	in Deadlines Tab: E-File Complaint, IAFD, Coversheet in Odyssey
+	•	n Pleadings Tab: Stamped Complaint
+	•	Filed on MM/DD/YYYY
+	•	Not yet filed - if NYF.
+---Service is Complete
+	•	Pleadings > Stamped AOS (Affidavit of Service) = successfully served complaint and summons
+	•	Go to pleadings tab or deadline and see when it was successfully served
+	•	in Deadlines Tab: Serve Complaint and do a Junes order
+	•	in Pleadings Tab: Stamped AOS (Affidavit of Service), 
+	•	MM/DD/YYYY - date when it was served/executed, can be found at the bottom of the document’s page
+..Def's Answer to Complaint
+	•	Must be answered within 20-23 or 25 days. If not, we can serve them 
+	•	Go to pleadings tab or deadline and see when did we receive the def’s answer to complaint
+	•	MM/DD/YYYY 
+..REA Filed/Served
+	•	Go to pleadings tab or deadline and see when did we file and serve our request to exempt from Arbitration
+	•	in Deadlines Tab: E-File Request for Exemption
+	•	in Pleadings Tab: Request for Exemption 
+..REA Granted/Denied
+	•	Go to the pleadings tab or deadline and check when did we receive the commissioner’s decision. 
+	•	Indicate whether it’s granted or denied
+	•	Format sample: Granted on 01/01/2020
+	•	Receive Arbitration for Exemption
+	•	E-FILE served Complaint and Summons once received from Junes
+	•	> Commissioners Decision on Request for Exemption
+..ECC/EAC Held
+	•	Go to Deadline Tab and check the date when did ECC/EAC Held
+	•	ECC - if it’s in District Court
+	•	EAC - if it’s in Arbitration
+	•	ECCR - if it’s in Justice Court
+	•	MM/DD/YYYY
+..JCCR Filed
+	•	Go to pleadings tab or deadline and see if JCCR was already filed 
+	•	You can check it also in some vines in Activity tab, usually “Litigation Vine”
+	•	File JCCR 
+	•	MM/DD/YYYY
+Plaintiff’s OOJ - 1(Doc)
+	•	Go to Pleadings tab or check it in Activity tab 
+	•	Search this project
+	•	Date & Amount $
+Defendant’s OOJ
+	•	Go to Pleadings tab or check it in Activity tab 
+	•	Search this project
+	•	Date & Amount $
+..Scheduling Order Received (Y/N)
+	•	Go to pleadings tab, deadline, or activity tab and check if we already received the Scheduling Order
+..Discovery Propounded (Y/N)
+	•	Go to discovery tab and see if we already propounded Pltf’s discovery
+	•	Sort by date served > a-z . 
+	•	Plaintiff……. Defendant - issa YES
+..Discovery
+	•	Check discovery tab or activity tab, if there’s any, put all the discoveries in your report with its title and when it was served (sort it by when it was served (from first discovery to the last one)
+	•	Format sample: Title - Date Served
+	•	No discovery yet - if no item in Discovery tab
+..Depositions
+	•	Check if depositions have been done, include the date taken and title of deposition
+	•	If they have done their depositions ask then when a good time would be to send out an OOJ.
+	•	No depo yet - if no item in Depositions tab
+Settlement Conference
+	•	Search this project
+	•	None - if none
+Mediation
+	•	Search this project
+	•	Mediation is a resolution process in which when both sides get issues the parties may file a request for mediation. The mediator helps the parties discuss and try to resolve the issue.
+	•	None - if none
+Motions Filed
+	•	Go to the motions tab. If there’s any motion filed, include it on your report
+	•	Format sample: Motion to Compel Discovery - 01/01/2020
+	•	None - if none
+DUE
+	•	If Scheduling Order has been received, base the due dates on Activity Tab > Litigation vine.
+	•	Events that are expected at or planned for at a certain time.
+	•	Check deadline Tab or Litigation Calendar
+OPEN VINES
+	•	Go to the activity tab. Filter incomplete vines, and check relevant updates.
+Other Important Notes:
+COR
+	•	If a case is transferring to lit, CMs should start requesting bills, records, and COR. It certifies the complete and accurate representation of the documents within its control.
+ EAC/ECC Docs
+	•	also called NRCP 16.1 Docs is a list of witnesses and documents that we are going to introduce at trial or arbitration.
+	•	Once the ECC is held, we have to file and serve JCCR.
+	•	We have to make sure we have the CORs and if we have time, start requesting so that when we file ECC we have these CORs.
+	•	If the VAs have extra time then do the EAC docs and the Discovery.  If they are busy it can wait.
+Discovery
+	•	You want to scare the defendant.  Perception is everything.  There is a lot to be said when your work product (letters and pleadings look professional and do not have typos and grammatical issues) is flawless and timely.  That shows that you are a formidable attorney and someone that they should be scared of as you are on top of things.  Day one and you are serving discovery.  As a new attorney, my boss said she spent extra few minutes remembering things.  These extra few minutes was worth it because at court hearings she would say, "No no no your Honor, flip to page 3 line 52 of their motion, they stated blah blah blah."  Because she had a memory of a steel trap, people were afraid to litigate against her because they were afraid of losing.  You serving your discovery early and with little to no typos and grammatical errors shows that you mean business.
+	•	Why you want to serve discovery early.  The other reason is that you want to see the Defense's flaws early on.  Perhaps they can no longer find their defendant.  Perhaps in answering the questions they realize that their client was hopped up on drugs or alcohol the day of the crash.  These are flaws that they do not want to admit, and perhaps reasons for them to settle with us.
+	•	In litigation, Plaintiff wants to hurry and get paid, Defendant wants to drag things along and delay and defend.  Time value of money, we want to finish our cases sooner rather than later, get the money and move on to our next case.
+	•	If we got served with discovery, we need to see if the questions really differ from the questions that we have in the lit letter.
+JCCR
+	•	In arb there is no JCCR, only JCCRs in District Court
+Deposition
+	•	Usually, we want to set the depositions after the defendant answers discovery. 
+
+
+

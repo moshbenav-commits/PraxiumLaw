@@ -1,0 +1,32 @@
+# Training Guide — ADVANCED - Deadlines and Reminders Editor
+
+_Procedure guide in Lewis communication style · ADVANCED - Deadlines and Reminders Editor.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+1. So we are going to go to Advanced Customs Editor, the firm, Primary.
+2. We're going to do a, shoot, what is it going to be?
+3. And let's create one for, and what are we going to call this?
+4. And it's going to be called Settlement Conference.
+5. Because we need to remember to go to the conference, right?
+6. I'm going to go copy, space V, take out the space.
+7. And it's going to be a deadline with reminders, right?
+8. And it's going to be row one, order one, always visible, create.
+9. So if we put the date 1-1, we should get all these reminders.
+10. So it'll remind me 45 days before, 30 days before, 15 days before, 5 days before, 3 days before, and 1 day before.
+11. And show them to me before you hit submit, because I might want to add more days.
+12. It had 60 days, 45 days, 1 month, 15 days, 5 days, 3 days, and 1 day before.
+13. We're going to add a field and put discovery cutoff.
+14. So if we go to Samantha Test Case, it should have the due dates.
+
+## Full transcript
+
+So we are going to go to Advanced Customs Editor, the firm, Primary. Hold on. We're going to do a, shoot, what is it going to be? Was it Deadlines Chain? So Deadlines Chain here. And I'm going to choose the firm. And let's create one for, and what are we going to call this? So, Scent. Scent. Settlement Conference. New Chain. Okay. And it's going to be every day, okay? At a deadline. Hold on one second. That's a good idea. This is the org default. Okay. So we're going to create a new one. And it's going to be called Settlement Conference. And it's going to be 45 days before due date. Right? Oh. We should delete all these. So this is the new reminder schedule. Okay. It's for the Settlement Conference. And all we want is 45 days. One month, which is 30 days. And then 15 days before. Well, we should probably get more. Five days. Three days. One day. I don't need these. Shoot. I missed some of them now. Three days before. One day before. And 15 days before. Because we need to remember to go to the conference, right? Settlement Conference. Okay. Settlement Conference. So. Let's see here. I don't think I need this part. Let me delete this. Okay. So I'm going to go to Customs Editor. the firm. And it's going to be Primary. Hmm. And I am going to create a new section. Scheduling Orders. And Trial. Trial. Section Selector. Calendar. Let's see. What should we name this? So we don't want this icon. Let's try Calendar. We've got that one. We've got this one. Let's use this one. Okay. Section Selector. I don't know what that means. Let's try this. Okay. So that is going to be a new field. Section Type. It's going to be a... Let's see. Is it a Deadlines Chain? Hmm. Let's try Deadlines. Save. Failed creating a new section. Why is that? Built in. Hmm. Okay. Let's try it as a custom. It is not a Collection tab. Because Collection looks like the meds. Save. I'm going to duplicate this. Did you see how I did that? Duplicate. Okay. So let's go to Yeriel. Duh. We don't have it. Let's reload. Oh, it's in Primary. I don't know why. I should have it in here. Um, let's see. Samantha Test Case. Nope, that's not it. dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil dil Settlement Conference. I'm going to go copy, space V, take out the space. And it's going to be a deadline with reminders, right? Yep. Settlement Conference one. And it's going to be row one, order one, always visible, create. So if we put the date 1-1, we should get all these reminders. So let's look at our deadlines chain. What were those two ones that we had? No, it wasn't that. So maybe it was reminder schedule. Yeah, so we have the Settlement Conference one. So it'll remind me 45 days before, 30 days before, 15 days before, 5 days before, 3 days before, and 1 day before. Make sense? So create one of this for all these. And show them to me before you hit submit, because I might want to add more days. So do this for discovery. Do one for discovery. So create discovery. Cut off. Remember? And what were the ones that I wanted? I want 60 days. 45 days. So you're going to add 45 days. We're going to add 30 days and a 15-day reminder. Then you can delete all these. 15-day reminder. 5 days. 3 day and 1 day is fine. I don't care about 8 or 9 days. I know I added more days than I gave you. But I just want to, on that one. So just show it to me. I might add more days. Okay, cool. So now, what I would do is... Oh, shoot. What happened here? It was... What was this called again? Discovery Cutoff, right? It had 60 days, 45 days, 1 month, 15 days, 5 days, 3 days, and 1 day before. Okay, so now when I go to Customs Editor... I go to Scheduling Orders... And I move this down... Who knows to where. But I'm going to move it down somewhere. That's a lot of things. Thank you. Okay, so we've got this. Let's move it up. Okay, so we're going to go do a new one, right? We're going to add a field and put discovery cutoff. And the field selector will be... And it will be a deadline with reminders. Discovery cutoff. And that's going to be row two. It's always going to be visible. So if we go to Samantha Test Case, it should have the due dates. Make sense? Okay, go ahead and show that to me as you do it. Thank you.

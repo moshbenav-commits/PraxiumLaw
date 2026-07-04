@@ -1,0 +1,33 @@
+# Training Guide — 2017.3.29 CLAIMS- 1st Party LOR
+
+_Procedure guide in Lewis communication style · 2017.3.29 CLAIMS- 1st Party LOR.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+1. Okay, so after we've opened up a claim with first party and third party, now we have to send them an LOR.
+2. An LOR is a letter of representation that just basically lets first party and third party know that they're being represented by an attorney.
+3. So we see here we have the adjuster's information, their address, phone number, fax number.
+4. We also have the claim number and policy number so everything looks good.
+5. So we would go down here and we would generate the LOR.
+6. Okay so basically once you generate it everything should look correct.
+7. Um, so just make sure there's no spelling errors or anything like that.
+8. Up here at the top it should always say the insurance name.
+9. We have the address, the fax number so everything looks good.
+10. Um, so maybe we should shrink this just a little bit.
+11. Always make sure that your initials are at the bottom if you're sending an LOR.
+12. And just read through it and make sure everything looks good.
+13. Okay so, oh and up here we are only sending it through fax so let's just make sure if we're only gonna send it one place we have that one place at the top.
+14. Okay so this is for first party so we go into the clients tab.
+15. So this is a draft so we draft it in correspondence 2.
+
+## Full transcript
+
+Okay, so after we've opened up a claim with first party and third party, now we have to send them an LOR. An LOR is a letter of representation that just basically lets first party and third party know that they're being represented by an attorney. So we see here we have the adjuster's information, their address, phone number, fax number. We also have the claim number and policy number so everything looks good. So we would go down here and we would generate the LOR. So we download it. Here we go. Okay. Oh. Okay, so here it is. Okay so basically once you generate it everything should look correct. Um, so just make sure there's no spelling errors or anything like that. Up here at the top it should always say the insurance name. So Geico, the adjuster. We have the address, the fax number so everything looks good. Um, so maybe we should shrink this just a little bit. And just so we can fit all in one page. Always make sure that your initials are at the bottom if you're sending an LOR. And just read through it and make sure everything looks good. Her attorneys. Okay so, oh and up here we are only sending it through fax so let's just make sure if we're only gonna send it one place we have that one place at the top. Okay so now we are gonna save it. So here you would go to your shared files. Barton, Christina. Okay so this is for first party so we go into the clients tab. Insurance information, correspondence. So this is a draft so we draft it in correspondence 2. Okay and we always name it year, month, which is the third date. Okay and it's third party LOR. And just initial it. Okay and now we have the draft. Now all we have to do is just attach a general release to it and then we fax it out. So how we attach a general release. So let's exit out of this. Let's open up Nitro. Okay. Let's see. Let's open up the server again. Okay so let's go back to her insurance info, correspondence draft 2. And there is third party LOR draft. So we would drag it and put it into Nitro. Okay so here it is. Now we would just have to add the general release. So you would go edit, insert and just look for Christina. So you just look for your client's name. And client again and the general release should be where it should be saved. And there it is. So here you would add location where you want to put it. Last page. So after last page. Insert. Okay and now we have this attached. So basically Nitro just helps us attach the two documents together. Which is really good. So now we are going to save this. It is an actual. Okay so there is Christina. Client. Insurance. Correspondence. And since this is the final and actual draft. We are going to save it in actual. And it is already saved. So we save. So we should be good to go to fax it out. Let me see. Now here. We have this. So. Okay so we type in the fax number which is the actual file. And we have this. So. Okay so we type in the fax number which is the actual file. And we have this file. And we have this file. So. Okay so we type in the fax number which is 866 568. And it is already there. Always on the subject. Just always remember to put the claim number. Okay so now we have to attach the document. So we can go to the server. Here it is. Let's go back to correspondence. Let's go to actual. To. And there it is. So you can just drag it. And drop it in there. And please. Let's see. Attached. Okay. So the fax number looks good. The claim number. We have the attachment there. And then you just send out the letter of rep. And that's how you send an LOR. And that's how you send an LOR. That also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also

@@ -1,0 +1,105 @@
+	•	Make sure that the Disbursement Sheet is updated.
+
+
+	•	To Generate the letter, go to the Meds Tab then click on the specific provider.
+	 
+
+
+
+
+
+
+
+
+
+
+	•	Once you’re inside the provider’s folder, check if there’s a Lien Holder.
+	 
+
+	•	Scroll down, go to the Reduction Request section and check if the Net Amount is correctly populated.
+	
+
+	
+
+
+
+
+
+
+
+	•	NO Lien Holder - scroll down, go to the Disbursement section and click on the “generate” button below the “Disbursement Letter”.
+
+
+	•	If WITH Lien Holder - click on the “generate”  button below the “Lien Disbursement Letter”.
+
+
+
+
+
+Once the letter has been generated, please proceed with the necessary corrections. Make sure that you have the correct address on the envelope  as well as the letter for the provider, you can double check by pulling up the “approved reduction request letter”.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+If there’s a lien holder then the address on the envelope as well as the letter should be the lien holder’s address, you can also check it on the “approved reduction request letter”
+
+
+
+	•	Once done editing the address, it doesn’t hurt to check if you have the correct net amount on the letter by checking the Reduction Request section. 	
+
+
+
+
+
+
+
+
+
+
+
+
+Don’t forget to put your initials below.
+
+
+
+	The last page(Receipt of Payment) is what the provider is going to send back to us, it will serve as a proof that they already receive our check.
+
+	•	Once done, go back to Activity feed and document. Then attach your Drafted Disbursement Sheet together with the “approved reduction”.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+

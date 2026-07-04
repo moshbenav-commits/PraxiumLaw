@@ -1,0 +1,24 @@
+# Training Guide — DOCS TAB - Hashtags
+
+_Procedure guide in Lewis communication style · DOCS TAB - Hashtags.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+1. You can even create new ones, new things if you want to. It's kind of like how you can label your emails in Gmail.
+2. You can tag them with different labels. So that's his health insurance card. And let's look at that insurance card and see if there's information that we can give him. Give him everything that he needs so that he can do his job. So it seems like that's how you do it.
+3. You use your social. So you may not know how to find his social yet. So that's social number. Okay. So just be very detailed in what you're asking him to do. Tell him exactly what to say.
+4. You guys put things everywhere, and then I have to go look for it. And then it takes me like an hour to do it.
+5. You know, so also make sure you use these hashtags. Other reason you use hashtags is look in here. So now you've got these things. So now later on you're like, oh, where's that insurance card?
+6. You can go search for it, you know, and it'll pop up easier for you. And that's just why you use hashtags as well.
+
+## Full transcript
+
+This is how you create really detailed notes for VJ so that he can call because he's got the best English of all our virtual assistants. And you just want to give him all the information that you can. I attach the Culinary Health Fund cards. So I want you to start using hashtags because that helps you look for these things. So this is like the subrogation request. So if you're searching for it later in our Docs tab, it's easier for you to find. You can even create new ones, new things if you want to. It's kind of like how you can label your emails in Gmail. You can tag them with different labels. So that's his health insurance card. And let's look at that insurance card and see if there's information that we can give him. Give him everything that he needs so that he can do his job. So it seems like that's how you do it. You use your social. So you may not know how to find his social yet. So that's social number. Okay. So just be very detailed in what you're asking him to do. Tell him exactly what to say. You know, can you call Culinary Health? Tell them you are from the firm. Hi, this is V.J. from the firm. Please call Culinary Health at 702-733-9938. Give him all the things that he needs to do so that you can make it easy for him. This is what you need to do for me, too, sometimes. Sometimes you guys want me to draft a letter, but then I have to go look for everything. And I don't know where you save things. Just say, here, Sandy, can you draft a letter? Here's the old demand. Here's his MRIs. Here's whatever. Make it easy for people. You guys put things everywhere, and then I have to go look for it. And then it takes me like an hour to do it. You know? Tell them that you're... That... Call Culinary Health at 733-733-933-9938. In letter attached. That also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also So just tell him exactly what it is until he understands this task. You know, so also make sure you use these hashtags. Other reason you use hashtags is look in here. So now you've got these things. So now later on you're like, oh, where's that insurance card? You can go search for it, you know, and it'll pop up easier for you. And that's just why you use hashtags as well.

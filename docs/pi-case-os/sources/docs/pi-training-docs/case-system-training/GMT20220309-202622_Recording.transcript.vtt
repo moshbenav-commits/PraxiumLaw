@@ -1,0 +1,1366 @@
+WEBVTT
+
+1
+00:00:05.190 --> 00:00:15.750
+the case system Training Team: All right now, before we get into the details of how to create deadline chains and tasks close, I want to make sure that everybody's on the same page about what deadline chains and task flows, respectively, are.
+
+2
+00:00:16.170 --> 00:00:25.170
+the case system Training Team: So i'm going to go ahead and share my screen and I want to spend a little bit of time here talking through what deadline chains and test clothes are and what their functionality is in file by.
+
+3
+00:00:26.100 --> 00:00:39.090
+the case system Training Team: Now what we're going to be largely focusing our time together today on is the setup and creation of these items now, you do have to have permission to access your file vine as an organization admin.
+
+4
+00:00:39.510 --> 00:00:46.800
+the case system Training Team: In order to set up deadline chains and test flows, so if you do not currently have organization admin access.
+
+5
+00:00:47.130 --> 00:00:54.780
+the case system Training Team: To the advanced part of file vine which be indicated by the stack menu appeared millet the left hand corner having this advanced option.
+
+6
+00:00:55.170 --> 00:00:59.040
+the case system Training Team: If you if you do not have that that's something you want to work out getting.
+
+7
+00:00:59.670 --> 00:01:05.730
+the case system Training Team: you're so welcome to attend the training, but just keep in mind that if you're following along or if you're trying to to follow on on your computer.
+
+8
+00:01:06.300 --> 00:01:12.390
+the case system Training Team: that's that that's that's where we're going to be spending a lot of time today is is in the advanced area file by.
+
+9
+00:01:13.200 --> 00:01:22.980
+the case system Training Team: Also, I strongly suggest that if you haven't already you have at least taken the customs editor training to become familiar with some of the way that it's laid out and have some of these things work.
+
+10
+00:01:23.490 --> 00:01:30.960
+the case system Training Team: But if you haven't again you're welcome to stay and listen we're going to be talking about slightly different things from customs editor but you.
+
+11
+00:01:31.830 --> 00:01:39.990
+the case system Training Team: it's just recommended that you at least take that training so that you, you have a little more information about things we're going to be talking about.
+
+12
+00:01:40.710 --> 00:01:49.590
+the case system Training Team: Alright, well, that being said, I want to go ahead and open up a project and go to the project hub and open up a project right here.
+
+13
+00:01:50.460 --> 00:01:58.650
+the case system Training Team: As an example, to talk a little bit about what deadline chains a test clothes are and i'm going to go ahead and start by talking about tasks close first.
+
+14
+00:01:59.010 --> 00:02:09.780
+the case system Training Team: So task flows are essentially a group of tasks that are created by the file system in response to a trigger being activated.
+
+15
+00:02:10.140 --> 00:02:24.180
+the case system Training Team: By a user invited by by a member of your team so essentially the way that these things work is that an organization admin sets up a task flow and tells file mind what the task is, or what the task flow is there are multiple tasks.
+
+16
+00:02:24.540 --> 00:02:32.100
+the case system Training Team: And when to trigger it and they they lay out the organization admin lays out all of those details and then as soon as the trigger happens.
+
+17
+00:02:32.580 --> 00:02:41.280
+the case system Training Team: Then the that auto task or series of tasks would go ahead and also pop up in the activity section of the project, as well as the.
+
+18
+00:02:41.970 --> 00:02:50.280
+the case system Training Team: The feed page of those who follow it, and the tasks page of those who are assigned or the person who's assigned to that task or task little.
+
+19
+00:02:50.970 --> 00:02:59.790
+the case system Training Team: Now, if we go through our activity section on this parish V o'connor project you'll notice that we have one case, excuse me one task right here.
+
+20
+00:03:00.420 --> 00:03:10.260
+the case system Training Team: To obtain medical files and we can see, it was posted by the file mine system, this is indicative this this poster by filing system indicates to us that we're looking at an auto task.
+
+21
+00:03:11.100 --> 00:03:24.750
+the case system Training Team: Other tasks can be interacted with exactly the same as any other task they can have the assigned to or set for date changed by a user, they can also be marked as complete and.
+
+22
+00:03:25.440 --> 00:03:31.560
+the case system Training Team: commented on by other users who have access to the to the task, or the other project.
+
+23
+00:03:32.220 --> 00:03:40.620
+the case system Training Team: So what we're gonna be talking about today is the setup of how these are created and managed on the back end of file line now in order to understand that.
+
+24
+00:03:41.310 --> 00:03:48.720
+the case system Training Team: it's important to identify the two triggers for an auto task or a series of other tasks also called a task slow.
+
+25
+00:03:49.710 --> 00:03:56.040
+the case system Training Team: There are two separate types of triggers the first one is a change in the face, so if the if the phase changes.
+
+26
+00:03:56.490 --> 00:04:05.010
+the case system Training Team: And there is an auto task or series of tasks associated with the next phase, say, for example, if we move the face from treatment begins and together medical bills.
+
+27
+00:04:05.400 --> 00:04:15.090
+the case system Training Team: And there's some auto tasks associated with this phase, they would trigger once I enter that phase, so a good example of this one, and I think it should still be set up.
+
+28
+00:04:15.540 --> 00:04:24.810
+the case system Training Team: If I go into the file setup Phase I have this Auto task that triggers immediately upon that phase change and he'll be highlighted in yellow here for just a second.
+
+29
+00:04:25.170 --> 00:04:34.440
+the case system Training Team: Anybody who is a follower on this case will see this update in their activity set excuse me in their feed page and then whoever gets assigned to in this case.
+
+30
+00:04:34.950 --> 00:04:45.630
+the case system Training Team: That would be natalie is going to get this task, showing up in their tests page, so that is the first trigger for a task flow or an auto task.
+
+31
+00:04:46.140 --> 00:05:02.790
+the case system Training Team: The second trigger is a button it's an action button that gets pushed that triggers a specific series of tasks and I believe I think I might just double check really quickly here, there should be one of those widgets here.
+
+32
+00:05:03.840 --> 00:05:10.980
+the case system Training Team: I think this one, so this is an example of one we go ahead and click on that box were asked if we want to start the task flow, we confirm.
+
+33
+00:05:11.430 --> 00:05:20.640
+the case system Training Team: Then we should be able to go back to the activity and depending on the parameters that the the organization admin setup around this task, as far as when it's supposed to trigger.
+
+34
+00:05:21.390 --> 00:05:27.750
+the case system Training Team: Or what auto tasks are associated with it, we would see its respective auto tasks show up in the activity section here.
+
+35
+00:05:28.410 --> 00:05:34.800
+the case system Training Team: So that's just a quick overview of what auto tasks are and how they work and where where they can be triggered.
+
+36
+00:05:35.430 --> 00:05:43.080
+the case system Training Team: So now, I want to go ahead and create some auto task so one of our work in advanced whether i'm working in customs editor or document generation.
+
+37
+00:05:43.380 --> 00:05:55.050
+the case system Training Team: or auto tasking I always like to have two tabs open one so that I can work in advanced and another, so that I can play with what i'm doing on the front end and see how it's actually impacting.
+
+38
+00:05:55.530 --> 00:06:01.110
+the case system Training Team: My cases so i'm going to go ahead and use this tab on the left to open up advance from the SEC menu.
+
+39
+00:06:03.090 --> 00:06:09.390
+the case system Training Team: Now you'll see a couple places today where I have to do this thing, where I have to choose an organization.
+
+40
+00:06:09.900 --> 00:06:19.230
+the case system Training Team: So that's not something that most of you should have to do, since I do have access to a couple of different organizations and provide that are just used for training and meetings like this.
+
+41
+00:06:19.800 --> 00:06:23.670
+the case system Training Team: So don't don't pay any attention to this choose an org stuff that i'll have to do.
+
+42
+00:06:24.450 --> 00:06:33.330
+the case system Training Team: that's not something you should have to worry about now what I want to do first is i'm actually going to go ahead and add an auto task to the file setup phase.
+
+43
+00:06:33.780 --> 00:06:52.380
+the case system Training Team: So that when a project enters this file setup phase, an auto task will trigger immediately to send the client a case update email that just gives them kind of a lowdown on what's going on with their case currently and the current status of their case.
+
+44
+00:06:53.700 --> 00:07:03.420
+the case system Training Team: And I want that tasks to repeat every 30 days throughout the duration of these other phases so it's going to be repeating auto task that will be triggered by a phase change.
+
+45
+00:07:03.780 --> 00:07:10.170
+the case system Training Team: So i'm gonna go ahead and set this phase back to the p amp Z and i'm going to go about setting this up, so the face.
+
+46
+00:07:10.590 --> 00:07:16.830
+the case system Training Team: triggered face triggered auto tasks are little easier to set up, then the button triggered ones we're going to start with, that one.
+
+47
+00:07:17.340 --> 00:07:24.900
+the case system Training Team: And i'm going to go ahead and go to the task flow option here and advanced, which is right here we go and click on that.
+
+48
+00:07:25.350 --> 00:07:36.030
+the case system Training Team: Choose my organization now all of the other tasks that you add in vital vine are going to be applied to projects have a specific type, so you will be asked to select a project type.
+
+49
+00:07:36.510 --> 00:07:43.320
+the case system Training Team: And the tasks that you set up here are the tasks clothes are going to be applied to all cases of that type so i'm going to go ahead and select this type.
+
+50
+00:07:43.860 --> 00:07:49.980
+the case system Training Team: And I now need to identify what the trigger for this Auto task will be so I have phases or action buttons.
+
+51
+00:07:50.490 --> 00:07:55.980
+the case system Training Team: Like I mentioned we're going to start with phases and then we'll talk about action buttons here in just a second now just a side note.
+
+52
+00:07:56.550 --> 00:08:00.150
+the case system Training Team: You can create and manage your face list here if you need to edit.
+
+53
+00:08:00.960 --> 00:08:09.510
+the case system Training Team: The faces that you have the order that they show up in what they're called admin phases, you can do that here i'm not going to be talking about that, but I just wanted to briefly point out that you can do that.
+
+54
+00:08:10.080 --> 00:08:22.470
+the case system Training Team: All right now I am going to go ahead and add a new phase, as a new auto task in connection with this specific phase i'm going to go ahead and click on this phase.
+
+55
+00:08:22.860 --> 00:08:30.150
+the case system Training Team: And then i'm going to create a new auto task now, I just want to point out, these are currently the auto tasks that are associated with this phase.
+
+56
+00:08:30.660 --> 00:08:35.250
+the case system Training Team: Now they're all going to be running on different timetables, they may not be created as soon as the face changes.
+
+57
+00:08:35.580 --> 00:08:40.140
+the case system Training Team: But i'll explain more about that here, in just a second alright, so when I click on add new other task.
+
+58
+00:08:40.560 --> 00:08:47.880
+the case system Training Team: I get this little pop up where I have to make some selections so first I need to outline my test text, if you click on this question mark right here.
+
+59
+00:08:48.450 --> 00:08:59.370
+the case system Training Team: This is going to help you this is just going to remind you that you can replace keywords by replacing the field selectors using placement field lists using a list of fields codes.
+
+60
+00:09:00.030 --> 00:09:05.070
+the case system Training Team: If you're familiar with document generation, this should feel familiar, you can open this up so say, for example.
+
+61
+00:09:05.700 --> 00:09:22.650
+the case system Training Team: We wanted to, rather than having the auto test say email client case update we want it to say, instead of client we want it to say our actual clients name every time this Auto task triggers in that case the field code would help us to successfully replace information.
+
+62
+00:09:24.330 --> 00:09:35.850
+the case system Training Team: specific information on a case to case basis, with the field code, so you can click on this tab here by get I opened up on the question mark and then I clicked on this link to pull up this list of fields.
+
+63
+00:09:36.870 --> 00:09:52.170
+the case system Training Team: So basically what I would do here is i'm going to go ahead and i'm going to put the text of my task in here, this is just this main body of what it's going to say and additional go ahead start typing it out and then i'll add at least one field selector so.
+
+64
+00:10:02.190 --> 00:10:16.470
+the case system Training Team: Right now, I mentioned, I want to use a field selector i'm going to use field selector with the clients full name to replace the client so i'm going to come over here and find the code for the client full name, which is right here my copy this.
+
+65
+00:10:17.670 --> 00:10:18.840
+the case system Training Team: and paste it here.
+
+66
+00:10:21.390 --> 00:10:31.080
+the case system Training Team: that's awesome now i'm going to scroll down a little bit and I need to see like when I want this to be created Now you can make auto tasks dependent on other auto tasks.
+
+67
+00:10:31.410 --> 00:10:48.180
+the case system Training Team: So that auto task be replaces auto task A and C replaces be once their market is complete for this specific demonstration I want this Auto task to stand on its own so i'm just going to leave it connected to the face change, rather than to another auto task.
+
+68
+00:10:49.500 --> 00:10:58.170
+the case system Training Team: i'll demonstrate later, how you can set up into dependent auto tasks, rather than this, this kind of independent standalone auto task.
+
+69
+00:10:58.830 --> 00:11:06.180
+the case system Training Team: All right now I do need to select when I want this to be created, and when I want it to be do Those are two different dates created the.
+
+70
+00:11:06.570 --> 00:11:15.030
+the case system Training Team: blink days after phase changes impact when it's going to pop up on my activity page So if I add anything more than zero.
+
+71
+00:11:15.510 --> 00:11:25.680
+the case system Training Team: it's not going to be created as soon as I change that face, it would be created that number of days after so essentially if I put the number seven here, and then I changed the face tomorrow.
+
+72
+00:11:25.980 --> 00:11:30.150
+the case system Training Team: i'm not going to see this Auto task pop up until next Thursday so i'm going to go ahead for this.
+
+73
+00:11:30.630 --> 00:11:36.660
+the case system Training Team: For the purposes of this example i'm going to leave this on zero and it's going to be do within two days so it'll be.
+
+74
+00:11:37.050 --> 00:11:47.160
+the case system Training Team: it'll be created shopping the activity section as soon as that phase changes and then it's actually going to have a due date of two days from whatever day it was it was created.
+
+75
+00:11:47.730 --> 00:11:56.130
+the case system Training Team: Now i'm going to go ahead and I do want to repeat this task, and I can select how often I want to repeat so i'm going to repeat every 30 days.
+
+76
+00:11:56.700 --> 00:12:05.280
+the case system Training Team: Now this box is important if this box is checked it's only going to report as use me repeat, as long as the project is in.
+
+77
+00:12:05.790 --> 00:12:16.500
+the case system Training Team: Whatever phase you've selected, however, if you uncheck it, it will continue to repeat throughout the active phases of the project, so I mentioned earlier, I want this Auto task to repeat.
+
+78
+00:12:16.890 --> 00:12:25.860
+the case system Training Team: Every 30 days throughout the entire lifetime of the case until it gets archived, at which point it's not going to continue to populate it'll just be retired so that's what I want.
+
+79
+00:12:26.670 --> 00:12:39.390
+the case system Training Team: So I would go ahead and I would uncheck that box, so that it repeats, no matter what phase, the project is in, of course, except archived and if I wanted to add time tracking details for specific.
+
+80
+00:12:40.950 --> 00:12:47.520
+the case system Training Team: For how long it take or what it would be or anytime codes, that would be applicable to this, that would be counted in my time and billing section.
+
+81
+00:12:47.880 --> 00:12:56.850
+the case system Training Team: I could go ahead and do that i'm not going to be adding time tracking details to any of the other tasks that we use as examples today we're going to leave those empty so.
+
+82
+00:12:57.570 --> 00:13:11.040
+the case system Training Team: Now I need to determine who is going to get who's going to be assigned to this task, and when and who else is going to be notified that it that it was triggered so.
+
+83
+00:13:11.820 --> 00:13:25.770
+the case system Training Team: assigned role, only one person can be assigned to an auto task other people can be notified that it has been activated so let's say, for example, the primary person who needs to be sending this email case update is the paralegal.
+
+84
+00:13:27.060 --> 00:13:34.830
+the case system Training Team: So if that's the case we would go ahead and click on the paralegal here, but we also want to make sure that the case manager knows that this was triggered and that they.
+
+85
+00:13:35.760 --> 00:13:42.510
+the case system Training Team: that they are aware of that, so that they can make sure that that gets sent make sure they communicate with the paralegal on it.
+
+86
+00:13:42.900 --> 00:13:49.860
+the case system Training Team: Then we would go ahead and select case manager here now, we could put select a couple of these i'm just going to select the case manager.
+
+87
+00:13:50.370 --> 00:13:57.120
+the case system Training Team: And the thing to keep in mind here they do have to have role based notifications enabled in the setup area file vine.
+
+88
+00:13:57.720 --> 00:14:06.960
+the case system Training Team: So they would just need to check the box that that would give them notifications based off of their role if they do not have that turned on they're not going to get that notification.
+
+89
+00:14:07.380 --> 00:14:17.010
+the case system Training Team: Whereas if they have it turned on they're going to get that email or that text or slack notification, depending on how they've set it up that tells them that a role based notification.
+
+90
+00:14:17.460 --> 00:14:21.480
+the case system Training Team: And name specifically what the notification is what project it's coming from etc.
+
+91
+00:14:22.080 --> 00:14:27.990
+the case system Training Team: So I have set up now that this will be assigned to whoever has been assigned to the role of paralegal.
+
+92
+00:14:28.440 --> 00:14:41.820
+the case system Training Team: And also, who else will be notified that this task has been created now one thing to keep in mind if you if we've selected apparently go here and let's say we have a case where no paralegal has been selected.
+
+93
+00:14:42.360 --> 00:14:50.940
+the case system Training Team: In that case, what what would happen is the task would actually be assigned to the person who's been given the role of primary.
+
+94
+00:14:51.420 --> 00:15:02.730
+the case system Training Team: So the primary is just kind of the backup person they get any tasks assigned to them that have not been that there's nobody else there to fill that role now as far as how that's done.
+
+95
+00:15:03.570 --> 00:15:12.060
+the case system Training Team: There is a section in project in a project each project for teams, this is where those roles are assigned so if you're wondering how this is set up.
+
+96
+00:15:12.990 --> 00:15:20.880
+the case system Training Team: whoever's been assigned to the role of paralegal, for example, so in this case Lisa and Noah both have so since lisa's in the first position.
+
+97
+00:15:21.210 --> 00:15:34.680
+the case system Training Team: All of the other tasks assigned to the role of paralegal are going to go to her for this case, whereas say perhaps Chelsea is paralegal for another case then she's going to get that notification for that item so that's why that's set up.
+
+98
+00:15:35.790 --> 00:15:56.280
+the case system Training Team: i'm just going to go ahead and create this now that I have walked through all those options notice it's showing up right here, and these little symbols tell us when it's due and how often it repeats looks great now, if I were to go back to this project refresh my page and change.
+
+99
+00:15:57.360 --> 00:16:10.080
+the case system Training Team: The phase from PNC into file setup that auto task should automatically trigger right here and note that it's filled in the that field code with my clients full name.
+
+100
+00:16:10.710 --> 00:16:21.150
+the case system Training Team: So that's how the phase triggered auto tasks work now the next thing that I want to talk about here is modifying these phase based this these triggered auto tasks.
+
+101
+00:16:22.260 --> 00:16:25.380
+the case system Training Team: They can be managed by coming into the task flow section.
+
+102
+00:16:26.700 --> 00:16:33.030
+the case system Training Team: selecting the correct project type and trigger and then, if you need to make a change to an existing auto task you can click on it.
+
+103
+00:16:33.330 --> 00:16:39.540
+the case system Training Team: Making the needed changes, you want now keep in mind if you make changes to an auto task that has already been triggered like this one.
+
+104
+00:16:39.780 --> 00:16:53.880
+the case system Training Team: it's not going to retro actively apply to that already triggered auto task, rather, you would have to refresh the page and then re trigger it by going out of that out of that phase into another phase and then back again so.
+
+105
+00:16:54.360 --> 00:17:03.630
+the case system Training Team: just keep in mind it's not going to retro actively apply to any triggered auto tasks that have already been created, but you can make your needed changes here, you can also delete it if you want to.
+
+106
+00:17:04.140 --> 00:17:08.250
+the case system Training Team: you're not going to be able to delete an auto task that has other tasks dependent on it.
+
+107
+00:17:08.970 --> 00:17:19.290
+the case system Training Team: Which we'll talk about more in detail later, but if we make other tasks dependent on on auto task, a, for instance, then subsequent audit tests dependent on autodesk a.
+
+108
+00:17:19.800 --> 00:17:33.120
+the case system Training Team: are going to have to be deleted, first in order to delete though that first one alright, so now i'm going to go ahead and talk about the details of how you create a button triggered auto task I actually want to put one.
+
+109
+00:17:34.470 --> 00:17:45.630
+the case system Training Team: i'm thinking here in the intake section for scheduling the for scheduling the intake appointment i'm wanting to put it here.
+
+110
+00:17:46.650 --> 00:18:02.310
+the case system Training Team: Next to the lead status, so what we're going to need to do first though the two huge steps of creating a button triggered auto task first, you have to use customs editor to create a.
+
+111
+00:18:03.270 --> 00:18:08.850
+the case system Training Team: task flow widget and then you have to come back into the task flow section in advanced.
+
+112
+00:18:09.660 --> 00:18:17.970
+the case system Training Team: From so you'd have to come from the customs editor back into task flow to actually set up what auto test belong to it and it's very important that has to be done in that order.
+
+113
+00:18:18.360 --> 00:18:22.680
+the case system Training Team: You won't have the ability to create auto tasks that are triggered by a button.
+
+114
+00:18:23.070 --> 00:18:31.470
+the case system Training Team: If you don't create the button first so i'm going to walk through these processes this these steps with you so first now that i've identified, where I want my widget.
+
+115
+00:18:32.160 --> 00:18:43.440
+the case system Training Team: I know I want to create a series of tasks that are going to be part of the intake process and there's going to be two or three of them.
+
+116
+00:18:43.950 --> 00:18:53.580
+the case system Training Team: And they're going to be dependent on each other in different levels so i'm going to go ahead and walk through the process of creating the button so i'm going to go to customs editor select my.
+
+117
+00:18:58.110 --> 00:19:06.390
+the case system Training Team: organization and my project type of course now here are the sections tab i'm going to go ahead and navigate to the intake section.
+
+118
+00:19:07.020 --> 00:19:15.030
+the case system Training Team: And now i'm going to go ahead and find where I want to place the widget now the person's really important I don't have to come back and do my placement again.
+
+119
+00:19:15.750 --> 00:19:24.330
+the case system Training Team: If you've taken the customs edited feel familiar to you the concepts of how the customs as you're placing system works if you haven't.
+
+120
+00:19:25.470 --> 00:19:30.390
+the case system Training Team: they're placed with specific numbers that refer to the placement on the page vertically and horizontally.
+
+121
+00:19:31.050 --> 00:19:48.750
+the case system Training Team: So I need to figure out where this needs to be placed before I go ahead and create it Okay, so I wanted to put this next to the lead status button so i've looked at the lead status, which is in place 41 one now i'm going to go ahead and click on add field and widget.
+
+122
+00:19:49.770 --> 00:19:58.290
+the case system Training Team: Now buttons in via webinar called widgets so we're going to go ahead and click on the widget option and we're going to select a an action button.
+
+123
+00:19:58.740 --> 00:20:06.540
+the case system Training Team: So click on action button, now we need to select what type of action button, and this would be a task flow trigger button, so the click on that.
+
+124
+00:20:06.990 --> 00:20:12.390
+the case system Training Team: Now we need to give the widget a prompt the prompt is what shows up on that widget.
+
+125
+00:20:12.870 --> 00:20:21.180
+the case system Training Team: So an example of a widget if we if we scroll down here this widget says calendar and take appointment and it has that little plus calendar icon.
+
+126
+00:20:21.540 --> 00:20:31.710
+the case system Training Team: On it so we're going to set up an icon and a name will prompt for this widget now a best practice when it comes to setting up your widgets try to get all of your widgets to have the same.
+
+127
+00:20:33.090 --> 00:20:43.020
+the case system Training Team: The same icon on them, so, for example, if it's a task flow widget use the same icon across the board for tesla widgets that way everybody knows who's.
+
+128
+00:20:43.440 --> 00:20:51.870
+the case system Training Team: You know which, when they see a specific icon what that icon or without button does just just a best practice here so i'm gonna go ahead and add a prompt here, this is going to be the.
+
+129
+00:20:52.500 --> 00:21:06.330
+the case system Training Team: intake tasks on that and, like other things and customs editor we're not going to be changing the selector will just leave this as is, and will select an icon now i'm just going to leave mind with the asterisk.
+
+130
+00:21:06.900 --> 00:21:21.570
+the case system Training Team: And i'm going to go ahead and place it so you'll remember if you're familiar with the editor that row placement references the placement of this widget vertically, so the higher, the number, the lower down on the page so i'm going to be putting this in row 41.
+
+131
+00:21:22.620 --> 00:21:26.580
+the case system Training Team: order in row starting from zero will affect the placement of this widget.
+
+132
+00:21:27.810 --> 00:21:32.100
+the case system Training Team: horizontally from left to right so i'm going to go ahead and place this.
+
+133
+00:21:33.180 --> 00:21:35.610
+the case system Training Team: 41 three.
+
+134
+00:21:39.270 --> 00:21:48.210
+the case system Training Team: We could change the visibility of this to only be visible when specific items are selected i'm going to leave this on show always and i'm going to go ahead and hit create.
+
+135
+00:21:48.870 --> 00:22:08.040
+the case system Training Team: All right now that i've created my widget here next thing I need to do is go to the task section in advanced and set it up with a task flow a series of tasks task flow that I want to be created when that widget is is pushed i'm going to go ahead and condense Tesco choose my organization.
+
+136
+00:22:09.510 --> 00:22:16.080
+the case system Training Team: Choose my project and choose the trigger now last time we did phases, this time we're going to be doing action buttons.
+
+137
+00:22:16.560 --> 00:22:33.480
+the case system Training Team: Now filing keeps track, of which one of your sections have these widgets in them the action widgets that will allow you to trigger a task flow so you'll get to pick from which section and i'm going to be intake, and this is a list, right here of all of the.
+
+138
+00:22:34.920 --> 00:22:37.830
+the case system Training Team: All of the current items, the current.
+
+139
+00:22:39.120 --> 00:22:43.260
+the case system Training Team: task flow trigger buttons that are in the intake section as a whole, so.
+
+140
+00:22:44.250 --> 00:22:51.240
+the case system Training Team: Here they all are I need to find the one that I just added, which is going to be down here at the bottom intake task flow going to go ahead and click on it.
+
+141
+00:22:51.630 --> 00:23:01.770
+the case system Training Team: And it does not currently have any tasks associated with it, so now, I would go ahead and hit create an auto task now i'm going to walk through a lot of the same options here, so I need to add tasks text.
+
+142
+00:23:02.130 --> 00:23:11.340
+the case system Training Team: Now I want to go ahead and add at least two tasks here that are going to be dependent on each other, so the first one is going to be to schedule the.
+
+143
+00:23:12.360 --> 00:23:14.340
+the case system Training Team: schedule initial intake appointment.
+
+144
+00:23:17.400 --> 00:23:20.370
+the case system Training Team: Actually i'm going to make this one, a little bit let's do.
+
+145
+00:23:21.870 --> 00:23:22.770
+the case system Training Team: The welcome letter.
+
+146
+00:23:28.920 --> 00:23:35.730
+the case system Training Team: Now again if we wanted to add those field codes, we could go ahead and open those up those from here uses link.
+
+147
+00:23:36.630 --> 00:23:46.680
+the case system Training Team: closest back up again now i'm going to go ahead and tell five on when to create this other tasks, so when another auto task is complete remember this will make it dependent on another auto task.
+
+148
+00:23:47.010 --> 00:23:55.710
+the case system Training Team: Whereas if I select this option, it will be, it will stand on its own now The thing is, when you're adding a first auto task, whether it's in a phase, or a widget.
+
+149
+00:23:56.340 --> 00:24:05.100
+the case system Training Team: you're not going to have anything else to pick so you're not really going to have another choice but to make a dependent on the face change or on the.
+
+150
+00:24:05.640 --> 00:24:13.620
+the case system Training Team: The widget being activated so normally how this would work and i'll do it with the next one, but normally how this would work is if this is selected this first option.
+
+151
+00:24:13.920 --> 00:24:21.450
+the case system Training Team: We would select a widget excuse me, a task that's been created from this drop down to make that to make it dependent on so.
+
+152
+00:24:21.810 --> 00:24:34.260
+the case system Training Team: i'm just going to go ahead and select this option to make it independent independent and i'm going to go through the same steps of setting up when the should be created, so how many days after the button has been pushed should this be created.
+
+153
+00:24:35.580 --> 00:24:43.140
+the case system Training Team: Again i'm going to leave this on zero so it shows up automatically and then i'm going to make it do three days after created.
+
+154
+00:24:43.650 --> 00:24:58.560
+the case system Training Team: This one will not repeat so i'm not going to check that box or the time tracking and we're going to make the case manager responsible to do this and we won't be notifying anyone else so we'll go ahead and save this and i'm actually going to go ahead and create one more auto task.
+
+155
+00:24:59.580 --> 00:25:05.520
+the case system Training Team: This auto task will be to send the fee agreement letter to be signed via vine sign.
+
+156
+00:25:17.340 --> 00:25:23.160
+the case system Training Team: Right now, this one, I actually do want to make into dependent on that first one that I just created.
+
+157
+00:25:23.520 --> 00:25:32.100
+the case system Training Team: So i'm going to leave this selected and i'm going to click on the correct task from my drop down so i'm going to click on this one send the welcome letter and packet via email.
+
+158
+00:25:32.640 --> 00:25:43.380
+the case system Training Team: So now, this Auto test the agreement letter will task will be dependent on the welcome letter task, and it will be do four days after original creation date.
+
+159
+00:25:43.830 --> 00:26:00.780
+the case system Training Team: And it will be assigned to the primary attorney and we'll hit save alright, so there are our two tasks in this small task flow i'm going to go back to my project refresh my page and we're going to find this widget.
+
+160
+00:26:05.010 --> 00:26:13.920
+the case system Training Team: All right there it is so we have our task flow intake task well i'm gonna go ahead and click on it father is going to ask me if i'm sure I want to start it just say yes.
+
+161
+00:26:14.490 --> 00:26:29.790
+the case system Training Team: Everyone can see who has activated this item now if you accidentally if a user accidentally activates a task flow button, a project admin will be able to come in and reset it at any point again that's not going to read.
+
+162
+00:26:30.930 --> 00:26:39.390
+the case system Training Team: Something to retro actively delete the tasks that were created when the person initially clicked on the button it's just going to.
+
+163
+00:26:39.810 --> 00:26:46.620
+the case system Training Team: reset the button, so that it can be clicked again at any point all right now i'm going to go over to the activity section let's take a look at all that triggered.
+
+164
+00:26:47.040 --> 00:26:57.360
+the case system Training Team: So here is our first item send the welcome letter and packet via email now notice they both have the same they were both posted by file system, however, this one tells us that it was triggered by task flow button.
+
+165
+00:26:57.870 --> 00:27:02.520
+the case system Training Team: If we click on task will button it's going to take us to the section that the test blue button came from.
+
+166
+00:27:02.910 --> 00:27:10.770
+the case system Training Team: So that way if you're ever wondering where did this come from or which one of these other tests was created in response to a widget as opposed to a phase.
+
+167
+00:27:11.250 --> 00:27:16.020
+the case system Training Team: The ones that are created when a widget is pushed or when a button is pushed is going to tell you which one.
+
+168
+00:27:16.770 --> 00:27:19.830
+the case system Training Team: Whereas the the biggest triggered auto tasks i'm going to say anything.
+
+169
+00:27:20.310 --> 00:27:27.810
+the case system Training Team: So if we go ahead and expand this item we can even see down here a little picture of the the button that got pushed and which section it came from.
+
+170
+00:27:28.380 --> 00:27:42.000
+the case system Training Team: So I want to point out here notice that this has been assigned to Chelsea We know from the team section that Chelsea has been set, as the case manager if we were to mark this task is complete in the activity section, once this is done.
+
+171
+00:27:43.260 --> 00:27:52.470
+the case system Training Team: notice that another auto task is triggered immediately so zero days after this has been marked as complete, and this has been assigned to brigham who.
+
+172
+00:27:53.250 --> 00:27:59.790
+the case system Training Team: According to the team section is the premier is one of the primary attorneys is the is the first primary attorney.
+
+173
+00:28:00.630 --> 00:28:05.340
+the case system Training Team: So that is how the triggering works here now, if we were to mark this one off as complete.
+
+174
+00:28:05.670 --> 00:28:15.120
+the case system Training Team: we're not going to get another one pop up because the task flow that I created was only these two tasks, but that is how the other tasks would be created and generated here in file by.
+
+175
+00:28:15.570 --> 00:28:26.910
+the case system Training Team: Now, should you need to modify a testicle here what you would need to do is come back to advanced, you can edit an existing tasks upload any point and the any of these selections.
+
+176
+00:28:27.540 --> 00:28:34.200
+the case system Training Team: If you need to remove it, you would just click on this trash can notice that this first task.
+
+177
+00:28:35.190 --> 00:28:46.230
+the case system Training Team: Has the trash can grayed out, and when I hover over it, it says that it cannot do that, so what I would need to do that's because the second auto task is dependent on the first one, so we would need to delete this one first.
+
+178
+00:28:47.310 --> 00:28:47.820
+the case system Training Team: This.
+
+179
+00:28:48.870 --> 00:28:50.580
+the case system Training Team: And then we could delete the second one.
+
+180
+00:28:51.870 --> 00:29:06.330
+the case system Training Team: Now again just keep in mind, just because you delete a task flow does not mean that the the project is going to to delete the existing tests that were already triggered they're going to say they're in the activity section for.
+
+181
+00:29:07.140 --> 00:29:17.700
+the case system Training Team: for purposes of history and record keeping keeping it all up to date, but it's it's not going to allow anyone else to trigger those in the future, now, if you need to.
+
+182
+00:29:18.180 --> 00:29:36.540
+the case system Training Team: delete your widgets after you've created it you just need to come back into cousins editor and you need to go locate the widget that you put here, so in this case single find it here we go here's the task one button and then, if you could go ahead and try to remove it.
+
+183
+00:29:37.920 --> 00:29:44.730
+the case system Training Team: Then, then that would just delete the whole widget so if we go back now to the project refresh the intake section.
+
+184
+00:29:46.260 --> 00:29:51.780
+the case system Training Team: scroll down a little bit the widgets not even there it's like it disappeared, the only thing that we have that indicates that it was there.
+
+185
+00:29:52.140 --> 00:29:59.400
+the case system Training Team: Is in the activity section, we can see that that it was there, and if we click on this, we can see, we can see that was triggered by the task flow button.
+
+186
+00:29:59.970 --> 00:30:08.160
+the case system Training Team: And we can see that it was a task flow, but it doesn't tell us that we don't have a picture of it anymore, just as a task flow button that was in the intake section so.
+
+187
+00:30:08.640 --> 00:30:18.720
+the case system Training Team: That is the the long and short of how to create tasks flows that are triggered by a face change or by.
+
+188
+00:30:19.590 --> 00:30:29.040
+the case system Training Team: A button being pushed and how to manage those now, I want to talk a little bit about deadline chains now deadline chains are a little bit different than tasks.
+
+189
+00:30:29.430 --> 00:30:37.350
+the case system Training Team: tasks have due dates, they have this set for date that tells everybody, this is ideally when this needs to be completed now deadlines, on the other hand.
+
+190
+00:30:38.040 --> 00:30:43.830
+the case system Training Team: In file vine a little more serious than that, in fact, they have usually their own section.
+
+191
+00:30:44.220 --> 00:30:51.990
+the case system Training Team: And that that you can add these deadline chains in sometimes they'll even have a separate section that you can create custom deadlines reminders.
+
+192
+00:30:52.470 --> 00:30:56.310
+the case system Training Team: These are more serious dates that you don't want to miss now oftentimes.
+
+193
+00:30:56.700 --> 00:31:06.030
+the case system Training Team: i'm sure that you're all familiar with deadlines that you don't want to miss that are external deadlines things like statute of limitations or trial dates or submission dates things like that.
+
+194
+00:31:06.900 --> 00:31:13.920
+the case system Training Team: However, deadline chains or deadlines in general don't necessarily have to be external they could just be internal deadlines that you want to meet.
+
+195
+00:31:15.330 --> 00:31:25.170
+the case system Training Team: For the specific cases that you're working on now deadlines vary widely from tasks, even though they both consent dates because of where they live.
+
+196
+00:31:25.710 --> 00:31:35.760
+the case system Training Team: Deadlines live in the calendar section they live on the calendar they show up on the calendar, whereas tasks do not show up on your calendar you're not going to see and I don't have any on this project but.
+
+197
+00:31:36.150 --> 00:31:49.860
+the case system Training Team: you're not going to see any tasks on your project, even though I have tasks that are due today in this project, they may not even be assigned to me, but I have tests that are due in this project today they're not here because.
+
+198
+00:31:51.240 --> 00:31:59.550
+the case system Training Team: Because they they live in the activity section there they're managed and their lifespan is all 100% in the activity section.
+
+199
+00:31:59.790 --> 00:32:06.000
+the case system Training Team: Of the project now they do show up in the feed or the tasks page of the person they're assigned to or people follow them but.
+
+200
+00:32:06.660 --> 00:32:16.680
+the case system Training Team: there's they're not going to live in the calendar long story short when it comes to differentiating between tasks and deadlines think more in terms of severity.
+
+201
+00:32:17.280 --> 00:32:31.290
+the case system Training Team: deadlines and file via are usually things like say, for example, renewing a driver's license I may need to go to the dry cleaners and pick up my dry cleaning I might need to go to the grocery store pick up some bread, those are more of tasks, those are things I need to do.
+
+202
+00:32:32.490 --> 00:32:39.360
+the case system Training Team: You know, ideally i'd want to do it today or tomorrow, but most of the time, there are a lot less severe weather internal or external.
+
+203
+00:32:39.870 --> 00:32:46.950
+the case system Training Team: Whereas something like new and your driver's license could have much more serious consequences if you neglect to do it today.
+
+204
+00:32:47.820 --> 00:33:03.360
+the case system Training Team: So even if you miss it I one day you're going to have some some different consequences so basically the way that the way that deadlines live in Irvine they're going to show up on the calendar and they're also going to you're going to get reminders.
+
+205
+00:33:04.860 --> 00:33:12.750
+the case system Training Team: For upcoming deadlines so say, for example, like these items they're going to tell you this is how many days you have until this deadline.
+
+206
+00:33:13.140 --> 00:33:28.050
+the case system Training Team: As of this date, so they will these items these reminders will show up in your activity section, however, the deadline itself does not live in your activity section, so that being said, deadline chains are series of deadlines that are connected together so let's Take, for example.
+
+207
+00:33:29.220 --> 00:33:36.420
+the case system Training Team: let's let's look at a couple here let's see that we have an internal deadline for agreed case management plan.
+
+208
+00:33:37.140 --> 00:33:44.310
+the case system Training Team: We can see here once we've added this chain that's been created by the organization admin here I use the plus sign to get that added.
+
+209
+00:33:44.880 --> 00:33:58.500
+the case system Training Team: This has a series of specific items and once I add their their their respective due dates or completion dates once we've completed something or once we have a due date for something in future.
+
+210
+00:33:59.550 --> 00:34:05.580
+the case system Training Team: Once we get that done, we should see other items populate so, for instance, if we would add this due date here.
+
+211
+00:34:07.320 --> 00:34:14.340
+the case system Training Team: notice that we have now an additional list of items that pops up here that the due date is automatically populated into.
+
+212
+00:34:14.790 --> 00:34:25.050
+the case system Training Team: So basically the way I want you to think of deadline chains is they're just series of deadlines that are connected together and that that can show up in your calendar.
+
+213
+00:34:25.500 --> 00:34:32.490
+the case system Training Team: Based off of the dates that you give to that very first one so notice now, we have some additional deadlines that are showing up here.
+
+214
+00:34:32.970 --> 00:34:41.310
+the case system Training Team: We can see what the what the deadline is for what date it falls on what project it's for, and this just keeps us on top of the ball when it comes to managing.
+
+215
+00:34:42.210 --> 00:34:48.000
+the case system Training Team: What we have going on, so to create the deadline chain what you'll need to do is you'll need to go to the deadline chain section.
+
+216
+00:34:48.720 --> 00:34:59.280
+the case system Training Team: And in my case choose an organization now if you're looking to edit an existing deadline you'll just click in this box here and then you'll you'll start trying to edit that as as needed.
+
+217
+00:35:00.030 --> 00:35:10.440
+the case system Training Team: If you're creating a brand new deadline you'd click on the plus sign here, and you would give it a name, you would tell it, how to count calendars we'll talk more about that in just a second.
+
+218
+00:35:10.860 --> 00:35:17.580
+the case system Training Team: you'd add a jurisdiction if wanted, if you wanted to a URL or notes the notes are going to show up or the URL.
+
+219
+00:35:18.720 --> 00:35:20.010
+the case system Training Team: In the case of.
+
+220
+00:35:21.420 --> 00:35:33.210
+the case system Training Team: The deadline once it's added to a project it's going to show up like this the notes are going to show up here underneath the title of the deadline chain and then any any URLs will also show up underneath there.
+
+221
+00:35:34.350 --> 00:35:40.980
+the case system Training Team: Now the as far as the calendar behavior just a quick detour here, you can go over to the section called judicial calendar.
+
+222
+00:35:41.400 --> 00:35:48.930
+the case system Training Team: If there's a specific way that you want your calendar to count days now, unfortunately, this will not impact the way that it counts, dates of the week.
+
+223
+00:35:49.440 --> 00:35:57.210
+the case system Training Team: It will impact the dates of the month, so, for example, say we're working in Davis county and Davis county takes off.
+
+224
+00:35:58.080 --> 00:36:13.770
+the case system Training Team: The first, the first they don't count the first Wednesday of every month, for some reason, so with that as we're counting down our deadlines toward a specific date you're saying you know that X needs to be done so many days before Why then we would want to.
+
+225
+00:36:14.970 --> 00:36:17.760
+the case system Training Team: come in and we would want to remove.
+
+226
+00:36:18.450 --> 00:36:29.550
+the case system Training Team: The fifth of every month from from here, from the status county judicial calendar so to do that, we would just click on the number five for every month, and if it's grayed out, then the calendar is not going to count it.
+
+227
+00:36:30.390 --> 00:36:37.920
+the case system Training Team: And if it's not great out it's going to the calendar is going to continue to count those items now again and I hope I didn't make this confusing here but.
+
+228
+00:36:38.730 --> 00:36:45.630
+the case system Training Team: The calendar, the judicial calendar is going to roll off of dates of the month, rather than days of the week so.
+
+229
+00:36:46.200 --> 00:36:51.900
+the case system Training Team: You can add new judicial calendars here is desired by clicking the plus sign, you want to give them a name like this.
+
+230
+00:36:52.410 --> 00:37:08.220
+the case system Training Team: Using the pencil mark give them a specific name and then you just go about selecting the days that you want the dates that you want to be not counted or that it's that you do want to be counted, so those that those are pretty straightforward i'm going to jump back now to deadline chains.
+
+231
+00:37:10.920 --> 00:37:19.950
+the case system Training Team: And we're gonna we're going to actually rather than creating a new one, since you can't delete deadlines, you can you can unpublished, and this just makes them available to other people.
+
+232
+00:37:20.880 --> 00:37:29.910
+the case system Training Team: Only the organization admin can see deadline chains that don't have this green.on them if they have the green.at noon so published their viewable within projects.
+
+233
+00:37:30.180 --> 00:37:43.860
+the case system Training Team: But if they don't have the green dot That means that they're not published and they're not viewable within projects so because you can't delete these that these deadline chains i'm just going to go ahead and show you we using.
+
+234
+00:37:45.300 --> 00:37:46.950
+the case system Training Team: An example that's already here.
+
+235
+00:37:50.820 --> 00:37:51.690
+the case system Training Team: Let me pull up.
+
+236
+00:37:52.980 --> 00:37:54.300
+the case system Training Team: pull up the right one.
+
+237
+00:37:57.300 --> 00:37:57.900
+OK.
+
+238
+00:38:02.340 --> 00:38:03.960
+the case system Training Team: OK so i'm going to pull up.
+
+239
+00:38:07.980 --> 00:38:15.540
+the case system Training Team: let's do this one right here the Oklahoma all right now, when you create a new one, if you need to come back and Edit a deadline chain.
+
+240
+00:38:15.960 --> 00:38:28.140
+the case system Training Team: You can rename it and give it a different name or edit the jurisdiction or the calendar behaviors to say we wanted it to go off of Davis county judicial calendar, we could go ahead and add the jurisdiction status quo to.
+
+241
+00:38:32.460 --> 00:38:42.540
+the case system Training Team: You Todd Davis county now i'm going to go ahead and add a URL here i'm going to use this one as an example, just to show you where that's going to appear and in the notes i'm going to add.
+
+242
+00:38:54.210 --> 00:39:06.870
+the case system Training Team: This just tells everybody how this deadline chain works in this scenario that deadline chain is going to be counting backwards from the trial date so i'm gonna hit save here and i'm going to go ahead and add a deadline so this deadline i'm going to give it a name.
+
+243
+00:39:09.240 --> 00:39:15.690
+the case system Training Team: So the first one, because I said it's going to be counting backwards from the trial date, that means that the first one needs to be the trial date so do.
+
+244
+00:39:16.290 --> 00:39:24.330
+the case system Training Team: trial date now again I can like tasks other tasks, I could make this deadline dependent on other deadlines.
+
+245
+00:39:24.870 --> 00:39:31.290
+the case system Training Team: But, since this is the first it's going to need to be independent and then i'll go ahead and make a second dependent on it.
+
+246
+00:39:31.620 --> 00:39:45.690
+the case system Training Team: So i'm going to i'm not i'm not going to check this box, this would hide it on my calendar, so I showed you here that deadline chains that are applied to project are going to show up on calendars I don't want to hide it from calendar so i'm just going to leave this unchecked as well.
+
+247
+00:39:46.740 --> 00:39:58.260
+the case system Training Team: The reminder schedule will determine how many reminders I get about this specific upcoming deadline i'm going to go ahead and select my my favorite for this, which is the one.
+
+248
+00:40:01.140 --> 00:40:14.610
+the case system Training Team: we'll talk more about this and how these are set up here in just a second and i'm going to go ahead and also add a URL here now, here in the notes i'm going to go ahead and just put a note here about this deadline as it applies to the next one, so.
+
+249
+00:40:34.260 --> 00:40:45.660
+the case system Training Team: Alright we're going to go ahead and save this now the reminder schedules can be altered and created as needed in the sections of advanced section of advanced called reminder schedule so i'm going to take a quick detour over here now.
+
+250
+00:40:46.710 --> 00:40:57.630
+the case system Training Team: If you go ahead and i'm going to choose an organization and if you need to edit an existing reminder schedule, these are all of the reminder schedules that have been created here in this organization.
+
+251
+00:40:58.110 --> 00:41:07.140
+the case system Training Team: These are not respected respective to any specific project type or any specific item, these are just available that they're here for the taking.
+
+252
+00:41:07.440 --> 00:41:11.790
+the case system Training Team: So, to create a new one, you would just click on the plus sign here, you need to give it a name.
+
+253
+00:41:12.150 --> 00:41:17.700
+the case system Training Team: I always like to give them a reminder schedules names that indicate how they behave so, for example, if i'm going to have one that does.
+
+254
+00:41:18.000 --> 00:41:28.800
+the case system Training Team: 365 so a year before, and then hundred days before and the 90 days before and then 60 days before the 30 days before this tells me.
+
+255
+00:41:29.370 --> 00:41:42.210
+the case system Training Team: The behavior that I can expect from this reminder schedule, rather than something like as a well reminder scheduled doesn't necessarily tell me right off the BAT when i'm looking at it, what this is going to do so i'm going to give this very specific.
+
+256
+00:41:43.350 --> 00:41:49.440
+the case system Training Team: Very specific name, so I know how it behaves is going to save that now down here, what we have is.
+
+257
+00:41:49.890 --> 00:42:00.510
+the case system Training Team: These are the default reminders that we're going to get for every new newly created reminder schedule, I can use the little X is here to take the ones I don't want so i'm going to take out all the ones in red.
+
+258
+00:42:00.990 --> 00:42:05.370
+the case system Training Team: Because these are either on the due date or after so i'm gonna go ahead and take these ones out.
+
+259
+00:42:07.560 --> 00:42:09.060
+the case system Training Team: Just click on each X.
+
+260
+00:42:20.550 --> 00:42:25.800
+the case system Training Team: Alright now we're going to take them out until 30 believe 30 was the smallest number on my.
+
+261
+00:42:26.910 --> 00:42:29.760
+the case system Training Team: desired reminder scheduled in the name so i'm going to.
+
+262
+00:42:30.810 --> 00:42:37.710
+the case system Training Team: Take out we're going to leave 90 so we're gonna take out 120 going to take out 150 and we're going to take out one at.
+
+263
+00:42:38.250 --> 00:42:47.310
+the case system Training Team: Now we need to go ahead and add 103 65 so to add a number that isn't already in the default you just go ahead and type the number here so number of days 100.
+
+264
+00:42:47.730 --> 00:43:01.470
+the case system Training Team: And then you select what it's going to be before or after the due date so I want this to be before, and then it click on the plus side to add so 100 days before and then 365 days before.
+
+265
+00:43:02.670 --> 00:43:04.170
+the case system Training Team: we'd go ahead and add that here.
+
+266
+00:43:05.190 --> 00:43:16.740
+the case system Training Team: So, now that we've added all of the desired we've given it a name and we've added the desired reminders that will match the name in this case, we could go ahead and apply this reminder scheduled to any task.
+
+267
+00:43:17.160 --> 00:43:24.990
+the case system Training Team: Excuse me not task close to any deadline chain that we can create so if i'm editing pull this one back up.
+
+268
+00:43:27.180 --> 00:43:31.530
+the case system Training Team: Here we go and i'm going to unpublish this I forgot to mention this, but if you're going to be editing.
+
+269
+00:43:32.190 --> 00:43:42.870
+the case system Training Team: Published deadline chain, you should always unpublish it first, so I edit I unpublished, the deadline chain and now i'm going to go ahead and add some additional deadlines here and what one more.
+
+270
+00:43:44.250 --> 00:43:45.450
+the case system Training Team: This will be for the final trial.
+
+271
+00:43:48.180 --> 00:43:55.320
+the case system Training Team: Now, this one will be dependent on another deadline so when this when the trial date we're going to select that one.
+
+272
+00:43:56.160 --> 00:44:06.480
+the case system Training Team: When the trial date gets either a completed date or duty now, in this case because we're counting backwards, we need it to be a due date, rather than a completed date we don't want to do the final trial prep meeting.
+
+273
+00:44:06.780 --> 00:44:13.500
+the case system Training Team: After the trial has concluded so we're going to do gets a due date set this due date to 30.
+
+274
+00:44:14.790 --> 00:44:19.260
+the case system Training Team: days now, if we wanted to do weeks, months or years we could do that as well, so 30 days.
+
+275
+00:44:19.860 --> 00:44:31.800
+the case system Training Team: And then we get to indicate the calendar behavior here so we're going to go according to the traditional calendar, the Davis Kenny judicial calendar through 30 days before or 30 days after the studio so we're going to do earlier.
+
+276
+00:44:32.850 --> 00:44:40.170
+the case system Training Team: Now, if you want to bounce this to the prior day or the next day, you can check this box i'm going to go to the next answer to prayer date.
+
+277
+00:44:40.740 --> 00:44:48.060
+the case system Training Team: And then I would go about establishing the rest of the details of this deadline, so the reminder schedule i'm going to do the one I just created here.
+
+278
+00:44:48.900 --> 00:45:05.100
+the case system Training Team: If I can find it there, we go this one now, I will not be adding new URL or notes this one, just so that you guys can see what a deadline chain is going to look like when it does not have notes or URL, so now we have one with it notes one with notes and URL and one without.
+
+279
+00:45:06.450 --> 00:45:14.310
+the case system Training Team: All right, and I will add one more this is going to be an internal deadline so i'm going to add a little abbreviation here so that I know it's an internal deadline.
+
+280
+00:45:31.770 --> 00:45:41.010
+the case system Training Team: Okay, so this is going to be an internal deadline before our final trial prep meeting that we want to make sure that all of our docs are all been stamped and in the correct order.
+
+281
+00:45:41.790 --> 00:45:53.670
+the case system Training Team: So, this one is going to be dependent on the trial date so you can make to deadlines dependent on one deadline, so the when the trial date gets a due date.
+
+282
+00:45:54.810 --> 00:46:01.440
+the case system Training Team: set this to and we're going to actually base this one off weeks so we're going to do two weeks.
+
+283
+00:46:02.280 --> 00:46:11.760
+the case system Training Team: According to the Davis county calendar before so Essentially, this is just saying this this little logic puzzle right here is basically just saying that.
+
+284
+00:46:12.330 --> 00:46:22.920
+the case system Training Team: we're asking file vine to set this to a specific number of days or weeks before the selected due date for this deadline.
+
+285
+00:46:23.430 --> 00:46:33.720
+the case system Training Team: So now go ahead and select my reminder schedule and i'm going to go ahead and make it run off of the smaller one to 10 753210 and negative one.
+
+286
+00:46:34.560 --> 00:46:46.470
+the case system Training Team: And we'll hit save all right, I have now added three deadlines to this deadline chain, I would go ahead now and publish by clicking on this vertical ellipses here.
+
+287
+00:46:48.510 --> 00:46:56.430
+the case system Training Team: The green dot indicates that this is now live and can be used in projects so i'm going to go ahead and go back to my project refresh my page.
+
+288
+00:46:57.240 --> 00:47:07.050
+the case system Training Team: And i'm going to go to the deadline chain section and i'm going to add this deadline chain to my project so i'm going to go here to the plus sign.
+
+289
+00:47:07.620 --> 00:47:17.970
+the case system Training Team: And i'm going to find my deadline chain here in this list of published deadline chains, so it was called trial deadline test so i'm going to go ahead and pull it up.
+
+290
+00:47:19.590 --> 00:47:23.310
+the case system Training Team: see if we can find it there, we go trial deadline test.
+
+291
+00:47:24.600 --> 00:47:31.770
+the case system Training Team: yep that's 31 Okay, so now i've added it notice, we have the same jurisdiction name URL.
+
+292
+00:47:32.910 --> 00:47:34.290
+the case system Training Team: The note, right here.
+
+293
+00:47:35.520 --> 00:47:45.030
+the case system Training Team: This trial date item down here at the specific deadline if we click on that little I, we can see the notes that we added as well as the URL that was added here.
+
+294
+00:47:45.450 --> 00:47:54.360
+the case system Training Team: Usually the URL whether it's applied up here or in an individual deadline is very helpful if you need to submit something so let's say, for example, you're going to have a deadline to.
+
+295
+00:47:55.020 --> 00:48:02.490
+the case system Training Team: submit to digitally submit all evidence or exhibits if that's something that needs to be done by a specific date that could be its own deadline.
+
+296
+00:48:03.300 --> 00:48:16.890
+the case system Training Team: within the deadline chain, and then you could put the link of where this needs to be submitted, or even the link with instructions to submit it you could put that here as needed so now notice what happens if I go ahead and give the trial date a due date so if we go ahead and put this.
+
+297
+00:48:18.000 --> 00:48:26.400
+the case system Training Team: let's do let's go out to march 2023 and we'll do march 9 so a year from today.
+
+298
+00:48:27.450 --> 00:48:32.790
+the case system Training Team: file line will populate the other two deadlines that are dependent on this original deadline.
+
+299
+00:48:33.300 --> 00:48:43.620
+the case system Training Team: So now notice that we have the final trial prep which is going to be due on 125 23 and then we have the internal bait sample court ooh I just felt court.
+
+300
+00:48:44.100 --> 00:48:53.310
+the case system Training Team: of court documents on 223 23 so that's how that's how the deadline chain is going to populate itself if we were to go to the calendar section.
+
+301
+00:48:55.410 --> 00:49:00.000
+the case system Training Team: And let's go out to march 20 well to 2023.
+
+302
+00:49:01.530 --> 00:49:06.120
+the case system Training Team: here's our final trial prep that needs to be done 30 days in advance.
+
+303
+00:49:08.700 --> 00:49:18.720
+the case system Training Team: Here is our internal date stamp court documents deadlines that needs to be done at least two weeks in advance and then here is our trial date.
+
+304
+00:49:19.200 --> 00:49:27.330
+the case system Training Team: So they're all these deadlines all populated based off of how they were input how that how that Ted trial date that original.
+
+305
+00:49:27.690 --> 00:49:34.680
+the case system Training Team: deadline was put in once it had a due date those other items popped up as far as the reminders that we set in the reminder schedule.
+
+306
+00:49:34.950 --> 00:49:44.250
+the case system Training Team: Those are going to show up as we set a reminder schedule here in the activity section and again, those are going to look like this they're going to have the purple icon.
+
+307
+00:49:44.790 --> 00:49:53.460
+the case system Training Team: With the white bell there'll be indicate, it will be indicated that they were posted by file mine system, and they will specifically see how many days, how many weeks, how many months.
+
+308
+00:49:53.880 --> 00:50:06.180
+the case system Training Team: However, you set it up until the deadline, and what that what that deadline is and also what day as of what date so if we were to click on this deadline name.
+
+309
+00:50:07.020 --> 00:50:16.920
+the case system Training Team: We could we would usually see which which deadline is for so i'm guessing that deadline was probably deactivated, but that is how the deadline chains work in file by.
+
+310
+00:50:17.640 --> 00:50:28.500
+the case system Training Team: Any questions about deadline chains or task flows, or even about the the quick the quick overview, I gave of the judicial calendar use and the.
+
+311
+00:50:29.550 --> 00:50:36.750
+the case system Training Team: reminder schedule use I know we have a few extra minutes and i'd love to help answer any questions you guys have about these items.
+
+312
+00:50:57.690 --> 00:51:04.170
+the case system Training Team: Alright, I don't see any questions here, and then, in that case, just a quick aside here if you.
+
+313
+00:51:05.010 --> 00:51:16.590
+the case system Training Team: should ever need to delete or manage your deadline chains, you can do that by expanding the deadline chains of we wanted to remove this deadline we just click on the remove icon.
+
+314
+00:51:17.100 --> 00:51:25.050
+the case system Training Team: Even if it's been applied to a project it's going to remove it, we can remove these as needed if you wanted to remove the entire deadline chain.
+
+315
+00:51:25.770 --> 00:51:35.430
+the case system Training Team: The best thing to do would be to unpublish it like I mentioned earlier there's not currently a feature in program that allows you to delete these once you've created them so by i'm publishing it.
+
+316
+00:51:36.090 --> 00:51:44.910
+the case system Training Team: And now basically marks, it is hidden in the in the case itself so if we go to the deadline chain section, for instance me refresh my page here.
+
+317
+00:51:46.860 --> 00:51:52.290
+the case system Training Team: Now that I have unpublished, the deadline chain itself, and I have deleted the.
+
+318
+00:51:53.820 --> 00:51:54.960
+the case system Training Team: The respective.
+
+319
+00:51:56.400 --> 00:52:04.740
+the case system Training Team: Deadlines here within it, though shouldn't be here now if if it is, and I should probably mentioned this in this case, where this was already applied.
+
+320
+00:52:05.130 --> 00:52:10.620
+the case system Training Team: The individual deadlines have disappeared, however, the chain itself is still here if we were to delete it.
+
+321
+00:52:11.280 --> 00:52:20.610
+the case system Training Team: Since it's been unpublished on the back end of file mind since it's no longer lit up with that green.we would not have the ability to add it back so if we click here.
+
+322
+00:52:20.940 --> 00:52:28.380
+the case system Training Team: and try to add it again it's not going to be here because it's been unpublished, which means it's inactive it's not available to be added again.
+
+323
+00:52:29.160 --> 00:52:36.900
+the case system Training Team: So that is how you can manage your deadline change again, remember, even if you delete all of the deadline chains here if the deadline has been added.
+
+324
+00:52:37.200 --> 00:52:48.540
+the case system Training Team: To a project you're going to need to delete it from the project and then at that point, you would be able to you wouldn't be able to see it, and then the other other new projects.
+
+325
+00:52:49.260 --> 00:52:53.130
+the case system Training Team: Now, and I did I forgot to mention this as well, but you do have a pencil here.
+
+326
+00:52:54.000 --> 00:53:12.870
+the case system Training Team: That allows you to change the deadline chains name, this is only active or only going to impact the name of the deadline chain on the project level, so if I were to change the name of this deadline from important trial dates to maybe something like parish be o'connor.
+
+327
+00:53:23.010 --> 00:53:34.830
+the case system Training Team: For prep deadlines like this, it does not impact the name of this deadline across the board, it only remains it in this one project so it's a way that you can kind of individualize.
+
+328
+00:53:35.190 --> 00:53:46.890
+the case system Training Team: Your deadline chain names or titles on an individual basis can customize that data, case by case basis, so that is what that pencil will do here and the project admin should be able to do that.
+
+329
+00:53:47.430 --> 00:53:56.850
+the case system Training Team: All right, well awesome if you guys don't have any further questions, then, in that case I will let you all go give you an extra five minutes back in your day looks like we have a question here.
+
+330
+00:53:57.600 --> 00:54:04.140
+the case system Training Team: From Ricardo is their database for all of the zoom trainings that is a good question, there is.
+
+331
+00:54:04.950 --> 00:54:16.050
+the case system Training Team: There is a way that you can access links to two recordings like this for other trainings there's not currently a database that keeps all of the training recordings together.
+
+332
+00:54:16.980 --> 00:54:21.480
+the case system Training Team: If you need a link that you didn't get from a training you attended previously.
+
+333
+00:54:22.020 --> 00:54:27.870
+the case system Training Team: You can reach out to your file and contact, so if that's your consultant your account manager.
+
+334
+00:54:28.140 --> 00:54:36.420
+the case system Training Team: Whoever that is that you've been working with in file vine you can reach out to them and ask you to get you ask them to help you get a recording to training that you didn't previously get.
+
+335
+00:54:36.750 --> 00:54:51.870
+the case system Training Team: there's not currently a an external resource that stores, all of these trading recordings that makes them accessible to to attendees So if you need something reach out, we can get it for you, but.
+
+336
+00:54:52.410 --> 00:54:58.680
+the case system Training Team: To my knowledge, we don't we don't have like a database for all of our current recordings they happen on a daily basis.
+
+337
+00:54:59.580 --> 00:55:11.970
+the case system Training Team: Already That being said, I will I will be emailing you guys a link for you to access the recording to this specific training meeting later today Ricardo, for your file vine REP.
+
+338
+00:55:14.100 --> 00:55:23.610
+the case system Training Team: I could, I could probably look it up for you, who, if you could tell me your firm name I can I can look it up, and I can private message it to you.
+
+339
+00:55:24.720 --> 00:55:25.140
+the case system Training Team: me.
+
+340
+00:55:26.400 --> 00:55:30.930
+the case system Training Team: see if I can find that if that would be helpful for the rest of you.
+
+341
+00:55:31.950 --> 00:55:37.980
+the case system Training Team: If you don't have any other questions you're welcome to go, I appreciate your attendance and participation, thank you guys.
+

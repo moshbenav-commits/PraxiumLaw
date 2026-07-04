@@ -1,0 +1,99 @@
+Updating Disbursement Sheet
+
+Disbursement Sheet is the tab in fielvine that we update to ready the case for reduction request by finalizing the medical bills, consolidating the expenses, and determining the providers, lien holders, subro companies to be paid, in order to determine the final settlement amount the client will get.
+
+What to review and update & How? Medical Bills, Lien, and Expenses
+
+Part 1 - Medical Bills
+	•	Review the medical bills by checking the medical bills attached on each of the providers’ folder in meds tab. This is to ensure that there are no missing bills by checking if all medical records have corresponding bills. 
+	•	Check the server if there are medical bills that were not saved in the case system. If yes, update the meds tab.
+	•	Please scan the activity feed to check for bills or lien verifications done that were not updated in meds tab. If yes, then update the meds tab.
+	•	After that, review if the total billed amount is correct for each provider.
+	•	Next, update the Medical Bills Section of disbursement sheet by entering the total billed amount in original amount column. 
+Note: What billed amount to enter when there are insurance payments, client out of pockets, adjustments in bill? Enter the original billed amount, but adjust the % by changing the adjustment amount for the Balance Amount to reflect in the Reduced Amount fields in disbursement sheet. 
+Example, the total billed is $120, and there is an insurance payment of $40, adjustment of $30 and a balance amount of $50. Enter the $70 in Adjustment Field in the ‘calculator’ window in disbursement sheet for the balance amount of $50 will appear as net amount. (This window will appear when you click the ‘adj’ and then the pencil icon in disbursement sheet.) 
+
+
+	•	Ensure that all bills are accounted for as we do not want to send a reduction request with an incomplete billed amount, and to disburse and leaving a certain provider not being paid. 
+
+
+Part 2 - Health Subrogation Liens
+The health insurance issue a lien to recover any money it spends on client’s personal injury accident treatment and this recovery is being done by a subrogation company. So whatever payments made by the health insurance for client’s treatment that are related to accident, we have the responsibility to include them for payments. 
+
+	•	Check the liens tab and health insurance tab for a notice of lien or for subrogation lien. Please also check the Insurance - Health Subrogation sub-folder under Client folder in server.
+
+	•	This lien should have been reviewed by the time it was received. To review means that all charges listed on it are ensure to be related with client’s accident and to ensure that provider charges that should be included in the subro lien are included. You may refer to activity feed about a task where the lien was already reviewed. If you are unable to identify if this was reviewed already. Then do the review yourself. How?
+	Check the charges for each provider in subro lien, and check if they are related with the accident. First, compare them on our bills in meds tab. They are related if you will find them in meds tab unless there is a note in meds tab that a certain medical bill is not related like bills from prior medical treatment. They are easy to identify as the charges that should be included in the lien are hospital related charges (hospital charges, ambulance, hospital radiologists, and emergency room physicians) in which the DOS are the same with the date of client’s accident.
+These are the following scenarios that you should inform the CMs:
+	•	In case there are charges for DOS prior the date of accident, then consider those charges as not related. A caller should inform the health subro company to update their lien.
+	•	In case there are charges for different DOS after the date of accident and we do not have those charges in meds tab, have it verified first with client if those charges are related to his/her accident. After verifying they are related, we need to request for recs and bills. But if they are not related, then, a caller should request for the subro company to update their lien.
+	•	If there are related charges included in the lien, but we do not have bills and records. Confirm with CMs if we are to request the bills and records or if they can ask client for copy of those bills & records (as usually these are hospital related bills).
+	•	If there are hospital related charges in meds tab that should be included in subro lien but are not included. Ask CM if we are to send a bill to health insurance letter to the provider.
+
+	•	After you review if all charges are related, update the disbursement sheet by entering the total health insurance paid amount in disbursement sheet as we have to pay them for it. 
+	Example: If the subro (Medicaid HMS) lien has a total paid amount of $160.84.
+
+
+	•	The last step is to update each of the medical providers’ charges in disbursement sheet by reflecting that those charges are included on a lien. Do this along with the medical bills in order for you to see the correct balance amount. 
+Example: Here is the subro breakdown along with the copies of medical bills.
+
+Sample Reviews based  on sample above: 
+	•	What you will notice is that on the Southern hospital bill, the insurance payments and adjustments are not reflected, so we cannot check if there is a balance for hospital charges. While on subro itemized lien, there is no header for balance as well. In that case, we will take note of that in our task in activity feed if we have to verify the lien or balance with the provider. At this time, indicate on disbursement sheet that hospital charges are on subro lien but do not adjust the balance yet as we have to confirm.
+	•	For the Warm Springs, since we do not have a copy of bill in meds tab, we will also take note of that in our task in activity feed as well. For CM to confirm with client if those charges are related with the accident and if we are to request for the copy of bills and records. At this time, no need to add this on disbursement sheet.
+	•	For Emergency Physicians and Radiologists charges, as you can see we have a copy of bill that reflect the insurance  payments, adjustments, and the balance due, we have to update the disbursement sheet to indicate the charges are on a subro lien and to adjust the balance to reflect that there are no balance to pay.
+Here is the disbursement sheet as based on our sample above:
+
+
+Part 3 - Expenses
+These are invoices or receipts of payments made by the firm for various activities in running a case such as copying, requesting for medical records, police reports, policy limits, court filing, serving of legal documents, mailing and postage, expert testimony, etc.
+
+How to Review and Update?
+	•	Go to old server, and check if there are receipts/invoices or loans that were not saved in the case system.
+What folders we usually check?
+5 Injury loan - copy of loan agreement of loan proceeds
+6 Medical Bills, Records and Liens - any invoice of records requests/copy fee
+7 Police Report - copy of police report request invoice
+10 Receipts -  for any copy of receipts
+ These are the usual folders where we find copy of receipts BUT you will need to check ALL folders of the client to see if there were any misplaced receipt, invoice or paid checks. If you find any, download the file as you will going to use later to upload in the case system.
+
+	•	After checking the server, go to the case system to check if there are other receipts that were not saved in expenses tab, or not yet paid. We need to account for all the case expenses.
+	What tabs to check?
+	Expenses tab - check if there are saved invoices but are not yet paid
+	Liens tab - to check for loans
+Meds tab - to check if there are misplaced copy fee/records requests invoice that are not saved in expenses tab
+Docs tab - to check if there are misplaced invoices/receipts that are not saved in expenses tab
+Activity feed - read/scan feed to check if there were previous activity that warrants a payment, for example, it states in feed that a policy limit was requested, so there should be a corresponding invoice from MEA, ALRG or Elev8 in expenses tab. If a request was sent, and no invoice found in expenses tab nor in server, take note of this and include this situation in your task in activity feed for the CM to be informed.
+	
+	•	 Once done checking for all receipts/invoices, save the invoices that are not yet saved in expenses tab. Ensure that the amounts are entered as negative amount in expenses tab.
+For policy limits request fee, the amount should be divided by the number of related cases (in case the related case is a minor, ask the CM or one of the senior VAs if the minor will be included). 
+Example: The total policy limits request is $80, you have a primary case with 1 related case. On expenses tab, the policy limit request should be entered as $40 on each case. Leave notes as ‘$80/2 = $40’ to indicate that the total fee was divided by the number of cases.
+*No need to enter the loans in expenses tab.
+
+	•	Once all invoices/receipts are saved in expenses tab, get the total expense amount, and enter the total amount in disbursement sheet under Expenses as ‘positive amount’. 
+	Note: If the total amount is $250 and below, the amount will be default to $250. 
+If the total amount is above $250, enter the true total expense amount in disbursement sheet.
+Examples:
+	•	Total expense amount is $150, then enter it as $250.
+
+	•	Total expense amount is $251, then enter it as $251.
+
+
+	•	For loans, if you have found that client has a loan, no need to enter the amount in expenses tab. Just compute for the total amount of loan by adding the principal amount plus the interest. Refer to the loan agreement on file, as the computation of interest varies depending on the ‘lending companies’.
+Example:
+If we are to pay for the loan on April 30, 2018. It was 8 months since the date of loan, from August to April, then referring to table, the payment amount is $1,408.25. This payment amount will be entered in the disbursement sheet under the ‘Expenses Section’ as separate entry from the total expense amount from the Expenses tab.
+
+
+
+
+
+Example entries in disbursement sheet: (Loan and Expense as different entries) 
+
+
+After reviewing the medical balance, health subro liens, expenses, and loans and updating the disbursement sheet:
+	•	On upper part of the disb sheet, please leave notes of the date and that you had updated the disbursement sheet with your name.
+	Example: 
+
+
+	•	Go back to your task in activity tab. If you had found any discrepancies, take note of those in disbursement sheet so the CM will provide the necessary action, or you may task directly the person who can assist you. Examples of discrepancies are: there is a medical record for one DOS but there is no corresponding bill, or there are invoices that are not yet  paid, or there is a police report but no invoice found. 
+But if all are updated, then, state in your notes that you had reviewed and update the disbursement sheet. If a case is for reduction, tag CM to inform that disbursement sheet is updated and for him/her to assist on the reduction %. If a case is for disbursement, then tag CM to inform that disbursement sheet is updated and is ready for disbursement. Mark your task as completed. (If it says on your task to task someone to double check, then task someone to double check your work and updates).
+

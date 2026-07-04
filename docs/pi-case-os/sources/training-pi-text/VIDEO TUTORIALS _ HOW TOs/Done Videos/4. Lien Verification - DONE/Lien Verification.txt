@@ -1,0 +1,26 @@
+Lien Verification How to’s
+
+What is LV?
+Lien Verification Letter is being used to verify lien balance, medical charges or bills from medical providers or sometimes from the holders. From the start of client treatment, we monitor the medical expenses in order to ensure that it will not go over the insurance policy limits, and when client is  done with treatment, we also verify lien balance to prepare for reduction requests and disbursements.
+
+First Part - Generating the letters
+	•	Read your task carefully. Take note of the medical providers where you will send the requests. So please only send LVs to the appropriate providers as indicated in your task.
+	•	Go to meds tab. Go to provider’s folder, if docgen buttons are not showing, click on yes and ensure to save.
+	•	Click on generate button under LV. Wait for it to generate then click on download.
+
+Second Part - Editing the Letter
+	•	Notice the highlighted parts in the letters. These are the ones to check and edit. So for our task, we will be sending this via fax. Let’s check if this is correct by opening the contact card or checking the docs we have from the provider.
+	•	After ensuring the details are correct, please add your initials here (beside Ms. Sandys’s initials) in lowercase.
+
+Third Part - Converting to PDF and Sending Via Fax or Email
+	•	Save your LV with the correct filename, refer to our ‘Document Naming Convention’, MED - Provider Name - Lien Verification (name), select the PDF file type.
+	•	On your assigned gmail, copy the contact number, remove the dashes and add @metrofax.com.
+	•	On your subject line, type in the Name of the provider, then the client’s name, and lastly the type of letter to send. 
+	•	Type a simple courtesy on the body of the email.
+	•	Attach the letter. Double check it by downloading it. Once verified as correct, click SEND.
+	•	Wait for the successful notification from metrofax, once received, go back to the case system.
+	•	On activity feed, leave note that you sent the letter to the provider and attach the letter you had created and sent.
+	•	Move your task due date, and leave the task open until the requested document is received.
+
+SENDING LIEN VERIFICATION TO LIEN HOLDERS
+

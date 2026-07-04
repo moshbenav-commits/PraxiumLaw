@@ -1,0 +1,24 @@
+Adding a New Project
+
+Upon receiving a new client, there is an INTAKE PACKET that client needs to fill up and sign. It contains the questionnaire where we get the information about the accident, client’s initial treatment, his/her insurance, and defendant’s information. It also includes medical authorization, power of attorney and other important forms. Sometimes, accident report or traffic ticket, pictures of the accident and client’s initial medical records like hospital records and bills are being received from the client. Basically, this is where a case starts.
+
+Part 1 - Creating a Project
+	•	On the case system, choose the firm.
+	•	Choose a project type. We have different project types; MVC Primary, MVC Secondary, Premise, Traffic Ticket are the usual project types we have.
+	•	In our example, the client is a driver involved in a Motor Vehicular accident so we will choose MVC-Primary. Note: If there are related cases, then the driver is primary, passenger/passengers are secondary. In case there is only one client and he/she is a passenger, the project type that will be used is still Primary.
+	•	Add the client by clicking the plus sign.
+	•	Fill in the fields with the client initial information such as full name, date of birth, contact information and other details you may find.
+	•	Then click Save. and then click CREATE
+
+Part 2 - Assigning text line, generating intake packet, assigning Case Manager 
+	•	Assign a text line. Go to upper right corner of the the case system  just beside the hashtag and click ‘More Vitals’, and click ‘Turn On Texting’. Type the are code of 702, and click ‘Start SMS’. Take note of the generated number as you need to include that in client’s need list later.
+	•	Generate intake docs. Go to intake tab. Select the type of intake docs based on preferred language
+	•	ge of the client. (English or Spanish). Edit the intake docs by:
+	•	Place the text line in client's need list.
+	•	Edit client’s salutation, if Mr. or Ms. on page 3.
+	•	Add the date of accident or the date of intake accordingly. Please read the documents for you to determine the correct date to add. 
+	•	Inform Case Manager that the project was already created in the case system and forward the edited intake docs to the Case Manager via email. He/She should have the client sign them along with the intake questionnaire.
+
+
+
+Ana

@@ -1,0 +1,33 @@
+# Training Guide — CLAIMS - 3rd PARTY - Open a claim and start a case 2
+
+_Procedure guide in Lewis communication style · CLAIMS - 3rd PARTY - Open a claim and start a case 2.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+1. Customers can also file a claim at Statefarm.com or through the Statefarm Pocket Agent mobile app.
+2. I'm going to ask a few questions about what happened, and it's okay if you can't answer all of them.
+3. Can I have a callback number in case we're disconnected?
+4. And were you calling to file a claim for a vehicle tonight?
+5. Oh, were you involved in an accident, or did something else happen?
+6. And do we have the policy number that we're filing this under?
+7. And what is the name of the State Farm Policyholder?
+8. It turns out that there was a claim already filed.
+9. And that's been assigned to a claim handling team.
+10. And what can we do about getting my client's car fixed or her into a rental?
+11. You would have to go ahead and, uh, call those phone numbers with the claim number.
+12. They'll be able to get that taken care of for you.
+13. To my knowledge, their hours would be, uh, 630 a.m.
+14. Um, if you wanted to look me up through the company, I have an alias.
+15. Is there anything else I can take care of for you tonight?
+
+## Full transcript
+
+Customers can also file a claim at Statefarm.com or through the Statefarm Pocket Agent mobile app. Disc Theres also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also also Thank you. Thank you for calling State Farm Claims. My name's Alan. May I ask who I'm speaking with? Uh, hi. This is Attorney the attorney. And how are you doing tonight? Good. Oh, that's good to hear. So, our call will be monitored or recorded. I'm going to ask a few questions about what happened, and it's okay if you can't answer all of them. Can I have a callback number in case we're disconnected? 702-529-1011. Thank you. And were you calling to file a claim for a vehicle tonight? Yes. Oh, were you involved in an accident, or did something else happen? No, this is for a client. Okay. So, they were involved in an accident? Yes. And do we have a date of loss for them? Date of loss was 617-17. Thank you so much. And do we have the policy number that we're filing this under? Yes. Hold on one second. This policy number is... Hold on one second. 097-0367-D2328A. Thank you. And is that D as in dog or B as in boy? D as in dog. Thank you. Thank you. All right. And what is the name of the State Farm Policyholder? Let's see. Her name is Kelly Braver. Okay. Do we know Kelly's address? I think it says 3370 St. Rose Parkway. Thank you. And what kind of vehicle was she driving? Toyota Tacoma 2015. Looks like it was like... I don't know what color it is. I can't read what her handwriting is. That's okay. And can you tell me Kelly's date of birth? I don't know her date of birth. I know her phone number. And her license plate number. It turns out that there was a claim already filed. Okay. Are you ready for the claim number? Hold on. Let me get to that tab. Sure. Okay. What is the claim number? That's 0-4-8-8-8-8-8-8-1. Yes, ma'am. Okay. And who's the just... And that's been assigned to a claim handling team. Okay. And their phone number is 855. Hold on one second. Is it a person or just a... It's a team. It's a team. Okay. 855. 341. Uh-huh. 8184. Okay. Is there an address for this team? It's a P.O. box. 52250. 52250? Uh-huh. Phoenix, Arizona. Uh-huh. Okay. 85072. Okay. Is there a fax number? Yeah. That's 855. Uh-huh. 666. 0964. 6... 855-666-0964. Uh-huh. Thank you. Okay. Okay. And what can we do about getting my client's car fixed or her into a rental? Uh-huh. You would have to go ahead and, uh, call those phone numbers with the claim number. They'll be able to get that taken care of for you. Are they open right now? I don't believe so. Okay. No worries. Thank you. To my knowledge, their hours would be, uh, 630 a.m. to 9 p.m. local time. Okay. Thank you. And what was your name? Of course. My name's Alan. Alan. Just any Alan. Yeah. Um, if you wanted to look me up through the company, I have an alias. Oh. Okay. Alan. Alan, what is that? Let me just write this down. Yeah, that's E as in elephant. Uh-huh. 2, 4. Z as in zebra. Okay. Thank you. Thanks. Of course. Is there anything else I can take care of for you tonight? That's it. Thank you. Bye. Alright. And thank you so much for calling up State Farm Claims. I hope you have a better rest of your night. Thanks. Bye. Okay.

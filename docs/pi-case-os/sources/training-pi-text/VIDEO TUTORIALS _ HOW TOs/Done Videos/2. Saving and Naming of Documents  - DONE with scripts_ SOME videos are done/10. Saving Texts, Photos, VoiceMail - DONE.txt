@@ -1,0 +1,33 @@
+Saving Photos/Texts
+
+Since we ask clients to send us some required documents such as traffic ticket, repair estimate, copy of receipts where he/she had paid an out of pocket expense, his/her identification card, we receive these from them via text hence we need to rename them accordingly and save onto correct fields/tabs.
+When you receive this task, all you need to do is rename and save accordingly to the case system and server.
+
+Example: You received a copy of health insurance card of client.
+What you need to do is rename the card accordingly still based on our document naming convention, so that would be, ‘INS HEALTH - Card (jem)’. Save this to Insurance Health tab by adding an item if there is no folder yet for that health insurance, and update the fields inside that folder as needed (insurance type, insured party, relationship to participant, name of client exactly as it appears on insurance card, insurance contact card, member id). Attach the card and then save.
+
+Another example are photos of client or defendant damaged vehicles. First is rename them accordingly based on the part of the vehicle that was damaged, and save them to docs tab and in server. 
+
+Saving Voicemails
+
+	These are notifications of calls that went through  voicemail or ‘Sunshine’ voicemail. What you need to do is to inform the case manager to whom the case belongs to and to save in activity feed. 
+
+Example: 
+Client -   NEITHER
+First name BURLESS
+-
+Last name -
+Phone -    (609)341-0862
+Who For
+WISHING TO SPEAK WIH LINDA HAMILTON AND
+IS REQUESTING A CALL BACK
+ALT3576
+CALLER ID  17025291011
+
+	•	You have to identify the client based on the details on the notification from Sunshine. Sometimes, the name of client is not listed so you have to utilize the claim number, the name of the caller (posible an insurance adjuster) or the call back number to search for the associated case/client name. 
+	•	Second, post and tag the CM in activity feed.
+	•	Forward the notification to the assigned CM.
+
+
+
+Ana

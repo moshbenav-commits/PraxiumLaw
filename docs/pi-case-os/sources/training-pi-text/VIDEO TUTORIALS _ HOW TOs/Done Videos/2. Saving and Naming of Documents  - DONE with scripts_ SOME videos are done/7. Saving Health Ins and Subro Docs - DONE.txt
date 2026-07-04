@@ -1,0 +1,18 @@
+                                        Saving Health Insurance and Subrogation Liens
+These are also insurance documents but from health insurance companies, mostly about payments of some of the medical treatment of client. We usually receive a Notice of Lien and Subro Liens.
+
+How to Save?
+	•	Identify the client, and the insurance/subro company (Medicare, Medicaid (HMS), Culinary Health Fund, Amerigroup (Optum), Sierra Health and Life & Health Plan of Nevada, Blue Cross Blue Shield (Meridian Resource Company), UMR)
+	•	Rename the document based on our document naming convention,
+INS HEALTH - Insurance Name - Type of Document_Date of Receipt (First Name)
+e.g. INS HEALTH - Subrogation Lien 2018.02.13 (Kathleen)
+	•	Save in Insurance Health Tab. If no existing folder, please click ‘Add an Item’, update the necessary fields and attach the document. Do not forget to hit save.
+	•	Post in feed, on an open task waiting for the document to be received. Leave notes, attach the document and click Create.
+Note: If you receive a subrogation itemized lien, have someone to review the lien as we have to know if all charges are related and if necessary charges are included in the subro lien. Please refer to VA task list for the VA who handles the review of health subro liens.
+	•	Save in Docs tab, and in server in Insurance - Health Subrogation sub-folder under Client folder.
+
+
+
+
+
+Ana

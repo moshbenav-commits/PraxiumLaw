@@ -1,0 +1,37 @@
+{
+  "slug": "CALENDAR_-_Appointments_2a55145aeb04",
+  "filename": "CALENDAR - Appointments.mp4",
+  "title": "CALENDAR - Appointments",
+  "sourceVideo": "/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/Support Staff/Day 1/CALENDAR - Appointments.mp4",
+  "category": "van-law-the case system",
+  "wordCount": 613,
+  "transcribedAt": "2026-06-14T15:28:33.374068+00:00",
+  "sizeBytes": 26667726,
+  "videoDeleteApproved": false,
+  "createdAt": "2026-06-17T20:52:00.085584+00:00",
+  "kind": "other",
+  "tags": [],
+  "speakers": [],
+  "flags": {
+    "vin_number": false,
+    "dealership_script": false,
+    "complete_sales_call": false,
+    "team_chat": false
+  },
+  "notes": [],
+  "primarySpeaker": "Unknown",
+  "audioFormat": "mp3",
+  "updatedAt": "2026-06-18T20:37:01.028490+00:00",
+  "hasAudioArchive": true,
+  "audioBytes": 3276716,
+  "frameCount": 5,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg"
+  ],
+  "intervalSec": 45,
+  "screenshotsDir": "training-archive/van-law-the case system/CALENDAR_-_Appointments_2a55145aeb04/screenshots"
+}

@@ -1,0 +1,23 @@
+# Training Guide — 2. Lien Verification
+
+_Procedure guide in Lewis communication style · 2. Lien Verification.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+1. Now that the buttons for DocChin are showing, you can click the generate button under the lien balance verification. Wait for the document to be generated and then click download. Wait for the document to be downloaded.
+2. Now it's time to save our document in PDF format. Please follow the document naming convention in our shared drive. So that would be met. And the name of the provider. Followed by the type of document.
+3. You are to send. Followed by your first name. Ensure that this is saved in PDF format.
+4. Then you can go back to the activity tab. And then leave a note where the request was sent. And then attach your document. And then hit create. Please ensure to keep your task open until you receive the response from the provider.
+5. You may move your task up to next week in order to give time for the provider to process our request. That's how you send a lien verification letter. That's also also also also also also
+
+## Full transcript
+
+I will be showing you how to create a lien verification letter. This letter is being used to verify lien balance, medical charges, or bills from medical providers or sometimes from the lien holders. From the start of client treatment, we monitor the medical expenses in order to ensure that it will not go over the insurance policy limits. And when the client is done with treatment, we also verify lien balance to prepare for a reduction request and disbursement. Now let's proceed with the steps. First is to read your task carefully. Take note of the medical provider where you will send the request. What we have here is to send and tell your request to ADC Chiro. So go over to Meds tab and search for the providers folder. The buttons for DocChin are not showing. In that case, you have to click yes under show more and save it. Now that the buttons for DocChin are showing, you can click the generate button under the lien balance verification. Wait for the document to be generated and then click download. Wait for the document to be downloaded. You will notice that there are highlighted parts in the letter. These are the parts to be edited and checked. Please do verify if the contact details of the provider are correct. Once all are checked, select all and then remove the highlights. Since we are sending this via fax, we will leave this part as easy. Please take time to read the body of the letter as well for any inconsistencies. After checking, you can type your initials here in lowercase. Once all are checked, select all and then remove the highlights. Now it's time to save our document in PDF format. Please follow the document naming convention in our shared drive. So that would be met. And the name of the provider. Followed by the type of document. You are to send. Followed by your first name. Ensure that this is saved in PDF format. Now, copy the fax number. And then paste it. And a new message on your assigned Gmail. Remove the dashes. And then add at metofax.com. On the subject line, enter the provider name, client's name, and the type of document you are about to send. Type a simple courtesy here. After that, attach your document. Ensure that it is in PDF format. There. Please do check the attachment by clicking if and ensure that you had attached the correct one. After which, you can send the letter. And wait for the metofax confirmation that the fax was sent successfully. Then you can go back to the activity tab. And then leave a note where the request was sent. And then attach your document. And then hit create. Please ensure to keep your task open until you receive the response from the provider. You may move your task up to next week in order to give time for the provider to process our request. That's how you send a lien verification letter. That's also also also also also also

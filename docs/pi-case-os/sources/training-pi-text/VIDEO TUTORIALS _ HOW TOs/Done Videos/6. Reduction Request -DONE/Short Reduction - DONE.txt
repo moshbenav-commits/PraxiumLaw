@@ -1,0 +1,35 @@
+Short Reduction
+
+What is Reduction Request?
+We have 2 types of  reduction request letter, short reduction and long reduction letter. They have the same purpose which is to request for reduction of medical charges as the settlement offer is not sufficient to cover for all the expenses of medical treatment. For now, I will show you how to draft and send a short reduction letter. 
+
+First Part - Checking the Instruction
+	•	Read your task carefully, and identify the providers where to send the requests and then check if                                                                                             there is a lien holder. If there is a lien holder, you have to send the request to the lien holder. 
+
+Second Part - Checking the Disbursement Sheet
+	•	Go to meds tab, and have another window for the disbursement sheet. Why? It is to check first if the amounts in disbursement sheet are correct. Remember that it is important that the disbursement sheet is updated before we send the reductions thus it is necessary that the amounts do tally and are correct.
+	•	We will have another tutorial in detailed on how to review and update the disbursement sheet, but the main goal is to ensure that the total billed charge is correct for each of the provider. So how to do it? It is to verify if the listed total billed amount is correct by checking if the attached bills add up with the total billed amount.
+	•	All in all, check if the medical bills are complete and it should match as to what is reflected in the disbursement sheet. (Please refer to updating the disbursement sheet tutorial for the detailed instructions).       
+
+Third Part - Generating and Editing the letters
+	•	In case the buttons for docgen are not showing, please select yes and hit save.
+	•	For our provider, there is no lien holder, so we will select the docgen for Short Reduction Request. Wait for the letter to generate. After, please click on download.
+	•	Notice the highlighted fields. These fields are the ones to be edited. 
+	•	Sent Via Facsimile - check the provider’s contact information if it is a fax number or an email address. So edit this field accordingly.
+	•	Adjustment %, Adjustment Amount, and Net Amount - you can verify this here in the disbursement sheet. This is actually generated here so we just have to ensure that the amounts are correctly entered in disbursement sheet.
+	•	Your Initials - add your initials here in lowercase. 
+	•	Once all are correct, save and convert your document into PDF.
+
+Fourth Part - Sending the letter
+	•	On your assigned gmail, copy the contact number, remove the dashes and add @metrofax.com.
+	•	On your subject line, type in the Name of the provider, then the client’s name, and lastly the type of letter to send. 
+	•	Attach the letter. Double check it by downloading it. Once correct, hit SEND.
+	•	Wait for the successful notification from metrofax, once received, go back to the case system.
+	•	On your task, take note that you sent the reductions letters to the providers and attach the letter you had created and sent.
+	•	Move your task due date after a week, and leave the task open until the requested document is received.
+	•	In case response was not received on the due date, you may task a caller to follow up your request. 
+
+
+
+
+-Ana

@@ -1,0 +1,32 @@
+{
+  "slug": "DMV_REQUEST-_How_to_8af88bc6a6f5",
+  "filename": "DMV REQUEST- How to.mp4",
+  "title": "DMV REQUEST- How to",
+  "sourceVideo": "/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/Support Staff/Harder Tasks/DMV REQUEST- How to.mp4",
+  "category": "van-law-the case system",
+  "wordCount": 885,
+  "transcribedAt": "2026-06-14T15:29:48.124605+00:00",
+  "sizeBytes": 29950492,
+  "videoDeleteApproved": false,
+  "createdAt": "2026-06-17T20:52:08.039625+00:00",
+  "kind": "other",
+  "tags": [
+    "vin_number",
+    "id_verification"
+  ],
+  "speakers": [],
+  "flags": {
+    "vin_number": true,
+    "dealership_script": false,
+    "complete_sales_call": false,
+    "team_chat": false
+  },
+  "notes": [
+    "VIN collection or VIN-based fitment verification"
+  ],
+  "primarySpeaker": "Unknown",
+  "audioFormat": "mp3",
+  "updatedAt": "2026-06-17T20:52:08.089616+00:00",
+  "hasAudioArchive": true,
+  "audioBytes": 6742047
+}

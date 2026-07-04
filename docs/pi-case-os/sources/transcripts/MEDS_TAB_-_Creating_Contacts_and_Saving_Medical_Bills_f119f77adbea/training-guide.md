@@ -1,0 +1,19 @@
+# Training Guide — MEDS TAB - Creating Contacts and Saving Medical Bills
+
+_Procedure guide in Lewis communication style · MEDS TAB - Creating Contacts and Saving Medical Bills.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+_Review full transcript below and break into numbered steps._
+
+## Full transcript
+
+happens when you get a medical bill so you know let's say you get something in the mail or you get a medical bill in emails or whatever you would download it first and then save it to the server Isabella already saved it to the server look at the date so it's 1-4-17 is the date and it's for Valley Anesthesia Consultants when you're not sure what it is because you're UC Red Rock Surgery Center and Valley Anesthesia Consultants you can google this HICFA number and it'll tell you like you know 01991 CPT code it's the CPT code and it says for anesthesia so of course you're going to know that it's Valley Anesthesia and plus hey any bill to Red Rock would be a lot higher it'd be like 6,000 or more so it's for January 4th 2017 and it says on here that the lien holder is JML Holdings so download to I'm just going to save it here real quick and then I'm trying to tell her to create some Valley Anesthesia Consultants and add JML to the tab so she doesn't understand how to do that so we're going to do it for her Valley Anesthesia Consultants so we added them here you know we put their address and everything there we look at this and it's P.O. Box 400310 it's a company so for P.O. Box P.O. Box 400134 was it 400310 400310 Las Vegas, Nevada Nevada doesn't go there Nevada Las Vegas goes here and it's 89140 89140 if you really want to get technical 0310 and then their phone number is 487-6510 fax number is 405-7508 you got to double check these otherwise it causes a bunch of issues and 487-6510 all that stuff and basically that's all you need there and they're a medical provider so anesthesia save see that's basically what you do when you add them to the meds tab now let's say we updated the date today and the amount is $600 I believe $600 yep, $600 and the date of service was $1,417 $1,417 $600 so that we can know what we're doing and then you want to add these docs into there so I'm going to add that document here so he has it I think the client's still treating because they might get another shot you never know and then you can say the first date of treatment was $1,417 because it's the first bill we've ever had from them and then liens sold to is JML Financial Services see how that is right there we should have had a JML already in here I hate it when people create new ones so let's see JML Lean is fine oh either one it doesn't matter there should only be one just make it JML Financial Services and then you can put your case manager initials or whatever and that's what you would do so if it was done treating then you would put client is done treating client is done treating you know client's done treating but she's still seeing people so save that's how you would do this task and of course you want to save it on the server whenever you get a medical bill and you want to also save it in the feed so save it to the server save it to the feed and that's basically what you do that was a medical bill and the assignment so he basically sold his lien to a lien company for the money today he's going to get a discounted money today so it's a $600 bill maybe he sells it to JML for $200 and then he calls it a day you know and that's what happens there he's selling it to a lien company so now the lien company is the one that's going to be requesting payment also also also also also

@@ -1,0 +1,21 @@
+Tettra Writing Guidelines
+
+- In writing, write using a friendly, conversational
+human, warm and helpful voice. 
+- Please avoid using big words that people might not understand. 
+Example: instead of using the word "utilize" just use the word "use".
+- Break the piece into easy-to-follow sections with headings. 
+
+Writing Suggestions
+- You can write it here on Tettra or in Slack. 
+- If you want to ask about a topic or concerns on a certain task, or even a suggestion to make us more organized, you can do it by making a new suggestion.
+- A member of the team might know the answer to that or have that piece of information. 
+So that person can do answer and would make it very easy for us to document things and not repeat the same question again and again. Helps us save a lot of time. :) 
+- You can also choose the best person whom you know can best answer the question. 
+
+Slack Integration
+- You can search Tettra right from Slack as well. 
+- Just link the channel from Slack to Tettra or vice versa. 
+- /tettra find (name of page) 
+
+

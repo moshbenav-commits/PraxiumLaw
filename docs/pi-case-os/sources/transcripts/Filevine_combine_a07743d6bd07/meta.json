@@ -1,0 +1,50 @@
+{
+  "slug": "Filevine_combine_a07743d6bd07",
+  "filename": "Filevine_combine.mp4",
+  "title": "Filevine_combine",
+  "sourceVideo": "/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/All/Filevine_combine.mp4",
+  "category": "van-law-the case system",
+  "wordCount": 13967,
+  "transcribedAt": "2026-06-14T19:47:43.891731+00:00",
+  "sizeBytes": 1886908879,
+  "videoDeleteApproved": false,
+  "createdAt": "2026-06-17T23:40:58.269450+00:00",
+  "kind": "other",
+  "tags": [
+    "quote",
+    "id_verification"
+  ],
+  "speakers": [],
+  "flags": {
+    "vin_number": false,
+    "dealership_script": false,
+    "complete_sales_call": false,
+    "team_chat": false
+  },
+  "notes": [],
+  "primarySpeaker": "Unknown",
+  "audioFormat": "mp3",
+  "updatedAt": "2026-06-18T20:31:45.388784+00:00",
+  "hasAudioArchive": true,
+  "audioBytes": 76271166,
+  "frameCount": 15,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg"
+  ],
+  "intervalSec": 45,
+  "screenshotsDir": "training-archive/van-law-the case system/Filevine_combine_a07743d6bd07/screenshots"
+}

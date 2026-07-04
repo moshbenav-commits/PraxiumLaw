@@ -1,0 +1,52 @@
+{
+  "slug": "Personal_Injury_Workflow_00497e0bea58",
+  "filename": "Personal Injury Workflow.mp4",
+  "title": "Personal Injury Workflow",
+  "sourceVideo": "/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/Support Staff/Day 5/Personal Injury Workflow.mp4",
+  "category": "van-law-the case system",
+  "wordCount": 12366,
+  "transcribedAt": "2026-06-14T19:11:42.849782+00:00",
+  "sizeBytes": 931426622,
+  "videoDeleteApproved": false,
+  "createdAt": "2026-06-17T23:35:13.007537+00:00",
+  "kind": "other",
+  "tags": [
+    "quote",
+    "id_verification"
+  ],
+  "speakers": [
+    "Lewis"
+  ],
+  "flags": {
+    "vin_number": false,
+    "dealership_script": false,
+    "complete_sales_call": false,
+    "team_chat": false
+  },
+  "notes": [],
+  "primarySpeaker": "Lewis",
+  "audioFormat": "mp3",
+  "updatedAt": "2026-06-18T20:41:21.114087+00:00",
+  "hasAudioArchive": true,
+  "audioBytes": 68184101,
+  "frameCount": 15,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg"
+  ],
+  "intervalSec": 45,
+  "screenshotsDir": "training-archive/van-law-the case system/Personal_Injury_Workflow_00497e0bea58/screenshots"
+}

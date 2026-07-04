@@ -1,0 +1,22 @@
+# Training Guide — SETTLEMENT CALC TAB - Settlement Calc Disbursement Ltr
+
+_Procedure guide in Lewis communication style · SETTLEMENT CALC TAB - Settlement Calc Disbursement Ltr.mp4_
+
+## Lewis tone on SOPs
+
+- Explain **why** before **what** — same as quoting a warranty before price.
+- Number steps; confirm understanding at each handoff.
+- End with: who to escalate to (Shelly, Adam, Rick) when stuck.
+
+**Auto-tags:** procedure
+
+## Procedure outline (from transcript)
+
+1. You know, $10,000 and you want to see what you're going to get.
+2. You just do that and you change the date. Like this was April 15th offer.
+3. You know, or you can put notes with MedPay, without MedPay or whatever. Or with litigation, without litigation.
+4. Then we do a check for Center for Wellness for $695.52. And get the client to come in and sign. So, that's what we do. So... ... ... ... ... ... ... ... ... ... ... ... ... ... ...!
+
+## Full transcript
+
+So we have a client named Yadeel and her check finally came in and I have not scanned it in yet but you know we got her check and his check, his check, 11,800 and then you would put it on the negotiations tab. So 11,800 was 424 so it's the latest one. Yep, got it. And then your meds tab, you can open the meds tab here and make sure this matches. I would open another page even. So this is Yadeel. Okay, so here's the meds tab. Let me see. No, it's funny because So with the settlement calculator we put our last offer in there and then 33 and a third and then Spring Mountain Cairo. So these are all 100% reduced because she filed bankruptcy. Yeah, and then, you know, she gets this much. He does, I guess. He does. It's a him. So you need to look and make sure this math matches and it matches even though I guess it's irrelevant because he filed bankruptcy. But that would be his settlement amount. Then we have Yannette. So Yannette, we have to look at her meds. Oops, related. Related is how you get to the person in the car, the other person in the car. So let's look at her meds. So $44.99, then $9.93.60, then $22.40. Okay, so this one's not bankrupted because it was after the filing. Yeah, so I wonder if we have this reduction done or not. Okay, the reduction done. Center for Wellness. So let's go back to here. Find Center. Okay, then. Isabelle can do the reduction. So just task Isabelle and she will do the reduction. So settlement calculator. Here you can do 30% because I know that that's going to be approved and hey, she's already getting like $6,000 something. And we can drop our fees a little. Okay. And you can also do the scenarios. So let's say you had one scenario where they're like, oh, we're going to give you this. You know, $10,000 and you want to see what you're going to get. You just do that and you change the date. Like this was April 15th offer. You know, or you can put notes with MedPay, without MedPay or whatever. Or with litigation, without litigation. You know, and then you can just play around with the figures. So you can have different scenarios. But we're going to go back with the one where she's getting a lot of money. This is the final scenario. Let's do 5-1-17. Okay. Okay. So you can create your different scenarios and play around with the numbers and say, well, this is the first time they offered and you're getting nothing. But hey, the second time that they offered, you're getting something. You know, and then, yeah, we can basically pay out on this. So it would generate a document. And it's a little messed up still. But it basically looks like this. And then the client signs off on it. And on here, we just find something like, um, there's a good, we'll get this edited one day, but in Luna. We did one of these. So disbursement sheet. Oh, nope, that's not it. Where did it go? Here it is. I have not filed. And I have filed. You know, we know that she has, but. And this is Yanet. Yanet. Yanet. Yanet. Yanet Rodriguez. Yanet. Oh, that's a companion. Yes. So, then we have it all ready. Hmm, Cambiero just doesn't sound right. Okay. Just doesn't look right. Okay, it is right. It's not an I before E except after C. Okay, so then, you know, the client's basically ready to sign this. And then this is what they get. And then we write two checks to us, one for $31.20 and then one for the expenses of $115.83. Then we do a check for Center for Wellness for $695.52. And get the client to come in and sign. So, that's what we do. So... ... ... ... ... ... ... ... ... ... ... ... ... ... ...!

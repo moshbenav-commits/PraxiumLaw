@@ -1,0 +1,20 @@
+Transfer to Litigation Letter
+
+What is this letter for? This is being used when a case is under litigation and was transferred to another attorney that we have  to inform the medical providers or insurance companies that the case was already transferred.
+
+So when to send this?
+If you received any type of correspondence or a medical report, bills and you see that the case is under litigation. Then you have to send. 								
+
+How to draft?
+	•	First is identify the litigating attorney, you can find it in the litigation tab, or in the hashtag if none, please read the feed.
+	•	If the document is from a medical provider, go to meds tab and to the provider’s folder. Scroll down on the bottom part of the folder, you can find the transfer to litigation docgen button. Click it and after the letter was generated, click download.
+	•	Edit the letter based on the highlighted parts.
+	•	Ensure that you have the correct contact details, edit this Sent via filed accordingly. Since we have the fax #, then we will edit to as SENT VIA FACSIMILE
+	•	After that, indicate the litigating attorney and its contact details. Where to find it, again in litigation tab. If none but you already know the atty, just add the name in the lit atty and law firm field. Click the contact card to get the address and contact details of the lit atty.
+	•	Once done, add your initials.
+	•	Convert your letter to pdf and rename it accordingly based on our Doc Naming Convention
+	•	Open your gmail, add the appropriate subject line, Medical Provider - Client’s Name - and the letter you will send.
+	•	Attach your letter and double check before you send it.
+
+	•	Once sent successfully, go back to your task and leave notes that you sent the transfer to litigation letter to the provider. And complete your task. 
+
