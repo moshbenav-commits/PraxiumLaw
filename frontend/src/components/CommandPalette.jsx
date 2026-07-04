@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Search, Briefcase, Users, Plus, BarChart3, Stethoscope, Scale, Sparkles } from "lucide-react";
+import { Search, Briefcase, Users, Plus, BarChart3, Stethoscope, Scale, Sparkles, GraduationCap, FileText } from "lucide-react";
 import api from "@/lib/api";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
 const QUICK_ACTIONS = [
+  { label: "PI Training Center", icon: GraduationCap, path: "/training", testid: "cmd-training" },
+  { label: "PI template library", icon: FileText, path: "/settings/templates", testid: "cmd-templates" },
   { label: "Create new matter", icon: Plus, path: "/matters/new", testid: "cmd-new-matter" },
   { label: "Add contact", icon: Plus, path: "/contacts/new", testid: "cmd-new-contact" },
   { label: "Open dashboard", icon: BarChart3, path: "/dashboard", testid: "cmd-dashboard" },

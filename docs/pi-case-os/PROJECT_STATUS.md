@@ -30,6 +30,8 @@ PraxiumLaw today includes a **product definition + training corpus** under `docs
 | `DISCLOSURE.md` | Firms must edit docs + counsel review language |
 | `WHITE_LABEL.md` | Placeholders, no firm branding |
 | `articles/` (22) | Knowledge base for staff / in-app help |
+| `training-guides/` (8) | Position onboarding guides |
+| `SITE_WIRING_AUDIT.md` | Live app vs PI spec inventory |
 
 ### Training corpus (internal — do not ship raw)
 

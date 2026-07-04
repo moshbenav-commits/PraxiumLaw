@@ -322,6 +322,23 @@ async def create_matter(m: MatterIn, user=Depends(get_current_user)):
         "created_at": now(),
         "updated_at": now(),
     })
+    doc["pi_intake"] = default_pi_intake()
+    doc["pi_insurance"] = default_pi_insurance()
+    from pi_phases import default_pi_phase
+
+    doc["pi_phase"] = default_pi_phase()
+    from pi_demand import default_pi_demand
+
+    doc["pi_demand"] = default_pi_demand()
+    from pi_settlement import default_pi_settlement
+
+    doc["pi_settlement"] = default_pi_settlement()
+    from pi_property_damage import default_pi_property_damage
+
+    doc["pi_property_damage"] = default_pi_property_damage()
+    from pi_client_comms import default_pi_comms
+
+    doc["pi_comms"] = default_pi_comms()
     await db.matters.insert_one(doc)
     # Activity
     await db.activities.insert_one({
@@ -359,10 +376,12 @@ async def create_matter(m: MatterIn, user=Depends(get_current_user)):
 
 
 @api.get("/matters")
-async def list_matters(status: Optional[str] = None, user=Depends(get_current_user)):
+async def list_matters(status: Optional[str] = None, pi_phase: Optional[str] = None, user=Depends(get_current_user)):
     q = {"firm_id": user["firm_id"]}
     if status:
         q["status"] = status
+    if pi_phase:
+        q["pi_phase.current"] = pi_phase
     matters = await db.matters.find(q, {"_id": 0}).sort("created_at", -1).to_list(500)
     return matters
 
@@ -557,8 +576,14 @@ async def list_activities(matter_id: Optional[str] = None, limit: int = 50, user
 # ──────────────── documents ────────────────
 @api.post("/documents")
 async def upload_document(
-    matter_id: str = Form(...), name: str = Form(...), folder: str = Form("General"),
-    file: UploadFile = File(...), user=Depends(get_current_user),
+    matter_id: str = Form(...),
+    name: str = Form(...),
+    folder: str = Form("General"),
+    doc_type: str = Form("misc"),
+    medical_code: Optional[str] = Form(None),
+    provider_label: Optional[str] = Form(None),
+    file: UploadFile = File(...),
+    user=Depends(get_current_user),
 ):
     contents = await file.read()
     if len(contents) > 25 * 1024 * 1024:
@@ -572,6 +597,12 @@ async def upload_document(
     if is_pdf(content_type, name):
         extracted_text = extract_text_from_pdf_bytes(contents)
         pdf_pages = page_count(contents)
+
+    taxonomy = validate_upload_taxonomy(doc_type, medical_code or None)
+    if provider_label:
+        taxonomy["provider_label"] = provider_label.strip()[:200]
+    folder = folder_for_doc_type(taxonomy["doc_type"])
+
     doc = {
         "id": new_id(), "firm_id": user["firm_id"], "matter_id": matter_id,
         "name": name, "folder": folder, "content_type": content_type,
@@ -581,6 +612,7 @@ async def upload_document(
         "client_visible": False,
         "extracted_text": extracted_text,
         "page_count": pdf_pages,
+        "taxonomy": taxonomy,
     }
     await db.documents.insert_one(doc)
     await db.activities.insert_one({
@@ -593,7 +625,7 @@ async def upload_document(
         db,
         firm_id=user["firm_id"],
         trigger="document.uploaded",
-        context={"matter_id": matter_id, "folder": folder, "name": name},
+        context={"matter_id": matter_id, "folder": folder, "name": name, "doc_type": taxonomy["doc_type"]},
         user_id=user["id"],
         new_id=new_id,
         now_iso=now,
@@ -610,6 +642,7 @@ async def upload_document(
             "name": name,
             "folder": folder,
             "content_type": content_type,
+            "doc_type": taxonomy["doc_type"],
         },
         new_id=new_id,
         now_iso=now,
@@ -625,6 +658,8 @@ async def list_documents(matter_id: Optional[str] = None, user=Depends(get_curre
     if matter_id:
         q["matter_id"] = matter_id
     items = await db.documents.find(q, {"_id": 0, "data_b64": 0}).sort("uploaded_at", -1).to_list(500)
+    for item in items:
+        item["taxonomy"] = merge_doc_taxonomy(item.get("taxonomy"))
     return items
 
 
@@ -1027,11 +1062,21 @@ async def dashboard(user=Depends(get_current_user)):
     for s in ["intake", "active", "discovery", "negotiation", "litigation", "settlement", "closed"]:
         pipeline_counts[s] = await db.matters.count_documents({"firm_id": fid, "status": s})
 
+    from pi_phases import PI_PHASES, merge_pi_phase
+
+    pi_pipeline: dict[str, int] = {p["id"]: 0 for p in PI_PHASES}
+    pi_cursor = db.matters.find({"firm_id": fid, "practice_area": "personal_injury"}, {"pi_phase": 1})
+    async for row in pi_cursor:
+        pid = merge_pi_phase(row.get("pi_phase")).get("current", "intake")
+        if pid in pi_pipeline:
+            pi_pipeline[pid] += 1
+
     return {
         "open_matters": open_matters, "total_matters": total_matters,
         "open_tasks": open_tasks, "overdue_tasks": len(overdue),
         "new_leads": new_leads, "contacts_count": contacts_count,
-        "pipeline": pipeline_counts, "recent_activity": recent_activity,
+        "pipeline": pipeline_counts, "pi_pipeline": pi_pipeline,
+        "recent_activity": recent_activity,
     }
 
 
@@ -1076,6 +1121,17 @@ BACKEND_MODULES = (
     "webhooks",
     "api_keys",
     "analytics",
+    "training",
+    "pi_intake",
+    "pi_insurance",
+    "pi_meds",
+    "pi_documents",
+    "pi_phases",
+    "pi_demand",
+    "pi_settlement",
+    "pi_property_damage",
+    "pi_comms",
+    "pi_audit",
 )
 
 
@@ -1146,6 +1202,24 @@ from db_indexes import ensure_indexes
 from outgoing_webhooks import register_webhook_routes
 from csv_import import register_csv_import_routes
 from api_keys import register_api_key_routes
+from training import register_training_routes
+from training_templates import register_training_template_routes
+from pi_documents import register_pi_document_routes, validate_upload_taxonomy, folder_for_doc_type, merge_doc_taxonomy
+from pi_phases import default_pi_phase, register_pi_phase_routes, merge_pi_phase, compute_phase_audit
+from pi_demand import default_pi_demand, register_pi_demand_routes, merge_pi_demand
+from pi_settlement import default_pi_settlement, register_pi_settlement_routes
+from pi_property_damage import default_pi_property_damage, register_pi_property_damage_routes, merge_pi_property_damage, compute_pd_summary
+from pi_client_comms import default_pi_comms, register_pi_comms_routes, merge_pi_comms, compute_comms_cadence
+from pi_audit_dashboard import register_pi_audit_routes
+from pi_meds import (
+    register_pi_meds_routes,
+    summarize_ledger,
+    compute_matter_treatment_alerts,
+    enrich_ledger_items,
+    merge_ledger_row,
+)
+from pi_intake import default_pi_intake, register_pi_intake_routes, merge_pi_intake
+from pi_insurance import default_pi_insurance, register_pi_insurance_routes, merge_pi_insurance
 
 register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
 register_audit_routes(api, db, get_current_user, require_permission, new_id, now)
@@ -1175,6 +1249,130 @@ register_csv_import_routes(
 register_api_key_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
+register_training_routes(api, get_current_user)
+
+
+async def _firm_name_for_user(user: dict) -> Optional[str]:
+    firm = await _firm_for_user(user)
+    return firm.get("name") if firm else None
+
+
+async def _firm_for_user(user: dict) -> Optional[dict]:
+    firm_id = user.get("firm_id")
+    if not firm_id:
+        return None
+    return await db.firms.find_one({"id": firm_id}, {"_id": 0})
+
+
+register_training_template_routes(
+    api, get_current_user, get_firm_name=_firm_name_for_user, get_firm_for_user=_firm_for_user
+)
+register_pi_intake_routes(api, db, get_current_user, now_iso=now)
+register_pi_insurance_routes(api, db, get_current_user, now_iso=now)
+register_pi_meds_routes(api, db, get_current_user, new_id=new_id, now_iso=now)
+register_pi_document_routes(api, db, get_current_user, now_iso=now)
+register_pi_phase_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    merge_pi_intake=merge_pi_intake,
+    merge_pi_insurance=merge_pi_insurance,
+    summarize_ledger=summarize_ledger,
+    compute_matter_treatment_alerts=compute_matter_treatment_alerts,
+    enrich_ledger_items=enrich_ledger_items,
+)
+register_pi_demand_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    merge_pi_insurance=merge_pi_insurance,
+    merge_ledger_row=merge_ledger_row,
+)
+register_pi_settlement_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    merge_ledger_row=merge_ledger_row,
+)
+register_pi_property_damage_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+)
+register_pi_comms_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    merge_pi_property_damage=merge_pi_property_damage,
+    compute_pd_summary=compute_pd_summary,
+)
+register_pi_audit_routes(
+    api,
+    db,
+    get_current_user,
+    merge_pi_intake=merge_pi_intake,
+    merge_pi_insurance=merge_pi_insurance,
+    merge_pi_phase=merge_pi_phase,
+    merge_pi_demand=merge_pi_demand,
+    merge_pi_property_damage=merge_pi_property_damage,
+    merge_pi_comms=merge_pi_comms,
+    merge_ledger_row=merge_ledger_row,
+    summarize_ledger=summarize_ledger,
+    compute_matter_treatment_alerts=compute_matter_treatment_alerts,
+    compute_phase_audit=compute_phase_audit,
+    compute_pd_summary=compute_pd_summary,
+    compute_comms_cadence=compute_comms_cadence,
+)
+
+
+@api.get("/firm/white-label")
+async def get_firm_white_label(user=Depends(get_current_user)):
+    from training_templates import WHITE_LABEL_PLACEHOLDERS, build_firm_merge_tokens
+
+    firm = await _firm_for_user(user)
+    wl = ((firm or {}).get("settings") or {}).get("white_label") or {}
+    return {
+        "white_label": wl,
+        "tokens_preview": build_firm_merge_tokens(firm, user),
+        "keys": list(WHITE_LABEL_PLACEHOLDERS),
+    }
+
+
+@api.patch("/firm/white-label")
+async def patch_firm_white_label(body: dict, user=Depends(require_permission("settings.write", get_current_user))):
+    from training_templates import WHITE_LABEL_PROFILE_FIELDS
+
+    allowed = set(WHITE_LABEL_PROFILE_FIELDS)
+    patch = {k: str(v)[:500] for k, v in body.items() if k in allowed}
+    firm = await db.firms.find_one({"id": user["firm_id"]}, {"_id": 0, "settings": 1})
+    settings = firm.get("settings") or {}
+    wl = settings.get("white_label") or {}
+    wl.update(patch)
+    settings["white_label"] = wl
+    await db.firms.update_one({"id": user["firm_id"]}, {"$set": {"settings": settings}})
+    await log_audit(
+        db,
+        firm_id=user["firm_id"],
+        actor_id=user["id"],
+        actor_name=user["name"],
+        action="firm.white_label_updated",
+        resource_type="firm",
+        resource_id=user["firm_id"],
+        detail={"keys": list(patch.keys())},
+        new_id=new_id,
+        now_iso=now,
+    )
+    return await get_firm_white_label(user)
 
 
 @api.patch("/firm/settings")

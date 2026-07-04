@@ -617,6 +617,8 @@ def register_upload_routes(
 
     @api.get("/upload/{token}/info")
     async def upload_token_info(token: str):
+        from pi_documents import DOC_TYPES, MEDICAL_CODES
+
         link = await db.magic_links.find_one({"token": token})
         if not link:
             raise HTTPException(404, "Invalid upload link")
@@ -630,6 +632,10 @@ def register_upload_routes(
             "matter": matter,
             "kind": link.get("kind", "med_upload"),
             "expires_at": link["expires_at"],
+            "taxonomy_catalog": {
+                "doc_types": list(DOC_TYPES),
+                "medical_codes": list(MEDICAL_CODES),
+            },
         }
 
     @api.post("/upload/{token}")
@@ -638,7 +644,12 @@ def register_upload_routes(
         request: Request,
         file: UploadFile = File(...),
         name: Optional[str] = Form(None),
+        doc_type: Optional[str] = Form("misc"),
+        medical_code: Optional[str] = Form(None),
+        provider_label: Optional[str] = Form(None),
     ):
+        from pi_documents import folder_for_doc_type, merge_doc_taxonomy, validate_upload_taxonomy
+
         link = await db.magic_links.find_one({"token": token})
         if not link:
             raise HTTPException(404, "Invalid upload link")
@@ -651,7 +662,14 @@ def register_upload_routes(
 
         doc_name = name or file.filename or "upload"
         b64 = base64.b64encode(contents).decode()
-        folder = "Client Upload" if link.get("kind") == "med_upload" else "Uploads"
+        dt = (doc_type or "misc").strip()
+        taxonomy = validate_upload_taxonomy(dt, medical_code or None)
+        if provider_label:
+            taxonomy["provider_label"] = provider_label.strip()[:200]
+        taxonomy = merge_doc_taxonomy(taxonomy)
+        folder = folder_for_doc_type(taxonomy["doc_type"])
+        if link.get("kind") == "med_upload" and taxonomy["doc_type"] == "misc":
+            folder = "Client Upload"
         doc = {
             "id": new_id(),
             "firm_id": link["firm_id"],
@@ -667,6 +685,7 @@ def register_upload_routes(
             "version": 1,
             "client_visible": False,
             "source": link.get("kind", "med_upload"),
+            "taxonomy": taxonomy,
         }
         await db.documents.insert_one(doc)
         await db.magic_links.update_one(

@@ -54,6 +54,10 @@ import IdentityReview from "@/pages/IdentityReview";
 import TermsOfService from "@/pages/TermsOfService";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import AccessibilityStatement from "@/pages/AccessibilityStatement";
+import TrainingHub from "@/pages/training/TrainingHub";
+import TrainingDetail from "@/pages/training/TrainingDetail";
+import IntakePacketChecklist from "@/pages/training/IntakePacketChecklist";
+import SettingsTemplates from "@/pages/settings/SettingsTemplates";
 
 function App() {
   return (
@@ -131,7 +135,11 @@ function App() {
             <Route path="/inbox" element={<Inbox />} />
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/reports" element={<Reports />} />
+            <Route path="/training" element={<TrainingHub />} />
+            <Route path="/training/intake-checklist" element={<IntakePacketChecklist />} />
+            <Route path="/training/:type/:slug" element={<TrainingDetail />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/templates" element={<SettingsTemplates />} />
             <Route path="/settings/team" element={<SettingsTeam />} />
             <Route path="/settings/workflows" element={<SettingsWorkflows />} />
             <Route path="/settings/audit" element={<AuditLog />} />

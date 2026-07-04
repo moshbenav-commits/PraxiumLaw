@@ -1,22 +1,33 @@
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
 import { Link } from "react-router-dom";
-import { Plus, LayoutGrid, List } from "lucide-react";
-import { STATUSES, STATUS_DOT, STATUS_COLORS, PRACTICE_AREAS, formatDate, formatMoney } from "@/lib/utils";
+import { Plus, LayoutGrid, List, GitBranch } from "lucide-react";
+import { STATUSES, STATUS_DOT, STATUS_COLORS, PRACTICE_AREAS, PI_PHASES, PI_PHASE_COLORS, formatDate, formatMoney, piPhaseLabel } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import PageLoader from "@/components/common/PageLoader";
 import EmptyState from "@/components/common/EmptyState";
+
+const PI_KANBAN_PHASES = PI_PHASES.filter((p) => !["dropped", "closed"].includes(p.id));
 
 export default function Matters() {
   const [matters, setMatters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState("kanban");
   const [filter, setFilter] = useState("all");
+  const [pipelineMode, setPipelineMode] = useState("pi");
 
   const load = () => api.get("/matters").then((r) => { setMatters(r.data); setLoading(false); });
   useEffect(() => { load(); }, []);
 
   const filtered = filter === "all" ? matters : matters.filter((m) => m.practice_area === filter);
+  const piFiltered = filtered.filter((m) => m.practice_area === "personal_injury");
+  const usePiKanban = pipelineMode === "pi" && (filter === "all" || filter === "personal_injury");
+
+  const kanbanColumns = usePiKanban
+    ? PI_KANBAN_PHASES
+    : STATUSES.map((s) => ({ id: s, label: s }));
+
+  const mattersForKanban = usePiKanban ? piFiltered : filtered;
 
   if (loading) return <PageLoader label="Loading matters…" />;
 
@@ -34,6 +45,26 @@ export default function Matters() {
             <button onClick={() => setView("list")} data-testid="matters-view-list"
               className={cn("px-2.5 py-1.5", view === "list" ? "bg-praxium-ink text-white" : "")}><List size={13} /></button>
           </div>
+          {view === "kanban" ? (
+            <div className="flex border border-praxium-line rounded-sm">
+              <button
+                type="button"
+                onClick={() => setPipelineMode("pi")}
+                data-testid="matters-pipeline-pi"
+                className={cn("px-2.5 py-1.5 text-[10px] font-mono uppercase flex items-center gap-1", pipelineMode === "pi" ? "bg-praxium-ink text-white" : "")}
+              >
+                <GitBranch size={12} /> PI phases
+              </button>
+              <button
+                type="button"
+                onClick={() => setPipelineMode("status")}
+                data-testid="matters-pipeline-status"
+                className={cn("px-2.5 py-1.5 text-[10px] font-mono uppercase", pipelineMode === "status" ? "bg-praxium-ink text-white" : "")}
+              >
+                Status
+              </button>
+            </div>
+          ) : null}
           <select value={filter} onChange={(e) => setFilter(e.target.value)} data-testid="matters-filter-practice"
             className="px-3 py-1.5 border border-praxium-line rounded-sm text-xs font-mono bg-praxium-surface">
             <option value="all">All practice areas</option>
@@ -55,13 +86,18 @@ export default function Matters() {
         />
       ) : view === "kanban" ? (
         <div className="flex gap-3 overflow-x-auto pb-4">
-          {STATUSES.map((status) => {
-            const items = filtered.filter((m) => m.status === status);
+          {kanbanColumns.map((col) => {
+            const colId = col.id;
+            const items = mattersForKanban.filter((m) =>
+              usePiKanban
+                ? (m.pi_phase?.current || "intake") === colId
+                : m.status === colId
+            );
             return (
-              <div key={status} className="min-w-[260px] flex-shrink-0" data-testid={`kanban-col-${status}`}>
+              <div key={colId} className="min-w-[260px] flex-shrink-0" data-testid={`kanban-col-${colId}`}>
                 <div className="flex items-center gap-2 mb-2 px-1">
-                  <div className={`w-1.5 h-1.5 rounded-full ${STATUS_DOT[status]}`} />
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-praxium-subtle">{status}</span>
+                  {!usePiKanban ? <div className={`w-1.5 h-1.5 rounded-full ${STATUS_DOT[colId]}`} /> : null}
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-praxium-subtle">{col.label}</span>
                   <span className="text-[10px] font-mono text-praxium-subtle ml-auto">{items.length}</span>
                 </div>
                 <div className="space-y-1.5">
@@ -70,7 +106,13 @@ export default function Matters() {
                       className="block bg-praxium-surface border border-praxium-line rounded-sm p-3 hover:border-praxium-accent transition-all hover:-translate-y-0.5">
                       <div className="flex items-start justify-between gap-2 mb-1.5">
                         <span className="text-[10px] font-mono text-praxium-subtle">{m.case_number}</span>
-                        <span className="text-[10px] font-mono text-praxium-subtle uppercase">{PRACTICE_AREAS.find((p) => p.id === m.practice_area)?.label.split(" ")[0] || m.practice_area}</span>
+                        {usePiKanban && m.pi_phase?.current ? (
+                          <span className={cn("text-[9px] font-mono uppercase px-1 py-0.5 rounded border", PI_PHASE_COLORS[m.pi_phase.current])}>
+                            {piPhaseLabel(m.pi_phase.current).split(" ")[0]}
+                          </span>
+                        ) : (
+                          <span className="text-[10px] font-mono text-praxium-subtle uppercase">{PRACTICE_AREAS.find((p) => p.id === m.practice_area)?.label.split(" ")[0] || m.practice_area}</span>
+                        )}
                       </div>
                       <div className="font-display font-bold text-sm leading-tight">{m.title}</div>
                       {m.value_estimate && (
@@ -94,6 +136,7 @@ export default function Matters() {
                 <th className="text-left px-4 py-2 overline">Case #</th>
                 <th className="text-left px-4 py-2 overline">Title</th>
                 <th className="text-left px-4 py-2 overline">Practice</th>
+                <th className="text-left px-4 py-2 overline">PI phase</th>
                 <th className="text-left px-4 py-2 overline">Status</th>
                 <th className="text-right px-4 py-2 overline">Value</th>
                 <th className="text-right px-4 py-2 overline">Opened</th>
@@ -107,6 +150,13 @@ export default function Matters() {
                   </td>
                   <td className="px-4 py-2 font-medium">{m.title}</td>
                   <td className="px-4 py-2 text-xs text-praxium-subtle">{PRACTICE_AREAS.find((p) => p.id === m.practice_area)?.label}</td>
+                  <td className="px-4 py-2 text-xs">
+                    {m.practice_area === "personal_injury" ? (
+                      <span className={cn("status-pip text-[10px]", PI_PHASE_COLORS[m.pi_phase?.current || "intake"])}>
+                        {piPhaseLabel(m.pi_phase?.current)}
+                      </span>
+                    ) : "—"}
+                  </td>
                   <td className="px-4 py-2">
                     <span className={cn("status-pip", STATUS_COLORS[m.status])}>
                       <span className={`w-1.5 h-1.5 rounded-full ${STATUS_DOT[m.status]}`} />
@@ -118,7 +168,7 @@ export default function Matters() {
                 </tr>
               ))}
               {filtered.length === 0 && (
-                <tr><td colSpan={6} className="px-4 py-12 text-center text-praxium-subtle text-sm">No matters yet. <Link to="/matters/new" className="text-praxium-accent">Create your first.</Link></td></tr>
+                <tr><td colSpan={7} className="px-4 py-12 text-center text-praxium-subtle text-sm">No matters yet. <Link to="/matters/new" className="text-praxium-accent">Create your first.</Link></td></tr>
               )}
             </tbody>
           </table>

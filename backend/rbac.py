@@ -34,6 +34,13 @@ PERMISSIONS: dict[str, Set[str]] = {
     "idv.review": {"admin", "partner", "attorney", "paralegal"},
     "integrations.read": {"admin", "partner", "attorney"},
     "integrations.manage": {"admin", "partner"},
+    "demand.read": {"admin", "partner", "attorney", "paralegal", "staff"},
+    "demand.draft": {"admin", "partner", "attorney", "paralegal", "staff"},
+    "demand.approve": {"admin", "partner", "attorney"},
+    "demand.send": {"admin", "partner", "attorney"},
+    "settlement.read": {"admin", "partner", "attorney", "paralegal", "staff", "billing"},
+    "settlement.draft": {"admin", "partner", "attorney", "paralegal", "staff"},
+    "settlement.approve": {"admin", "partner", "attorney"},
 }
 
 

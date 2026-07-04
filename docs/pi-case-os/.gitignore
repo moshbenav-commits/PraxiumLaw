@@ -1,0 +1,14 @@
+# Raw training media — transcribe first, commit text only
+**/*.wav
+**/*.m4a
+**/*.mp3
+**/*.mp4
+**/*.mov
+**/*.aac
+**/*.flac
+
+# Whisper sidecar outputs (keep *.txt only in intake-calls/)
+**/*.vtt
+**/*.srt
+intake-calls/*.json
+intake-calls/*.tsv

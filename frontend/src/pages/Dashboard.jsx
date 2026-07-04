@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Briefcase, CheckSquare, AlertCircle, UserPlus, Plus, Sparkles, Command } from "lucide-react";
+import { ArrowUpRight, Briefcase, CheckSquare, AlertCircle, UserPlus, Plus, Sparkles, Command, GraduationCap } from "lucide-react";
 import { STATUSES, STATUS_DOT, timeAgo } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
 import PageLoader from "@/components/common/PageLoader";
@@ -54,10 +54,11 @@ export default function Dashboard() {
               <Plus size={14} /> Create first matter
             </Link>
           </div>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { icon: Briefcase, label: "Create a matter", to: "/matters/new", testid: "onboard-matter" },
               { icon: UserPlus, label: "Add a contact", to: "/contacts/new", testid: "onboard-contact" },
+              { icon: GraduationCap, label: "PI training guides", to: "/training", testid: "onboard-training" },
               { icon: Command, label: "Try ⌘K search", to: "/matters", testid: "onboard-search" },
             ].map((step) => (
               <Link
@@ -100,7 +101,7 @@ export default function Dashboard() {
               <div className="overline mb-1">// pipeline</div>
               <h3 className="font-display font-black text-lg">Matter status</h3>
             </div>
-            <Link to="/matters" className="text-xs font-mono text-praxium-accent hover:underline">view all →</Link>
+            <Link to="/reports" className="text-xs font-mono text-praxium-accent hover:underline">PI audit →</Link>
           </div>
           <div className="grid grid-cols-7 gap-1">
             {STATUSES.map((s) => (

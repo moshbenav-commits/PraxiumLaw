@@ -1,9 +1,9 @@
 # In-Office Intake Coaching (from live intake recording)
 
 **Category:** Client Intake · Treatment Compliance  
-**Source:** Live intake audio (`Intake herman.m4a`) — transcribed 2026-07-04  
+**Source:** `intake-calls/Intake herman.txt` (+ related intake transcripts) — transcribed 2026-07-04  
 **Audience:** Case managers  
-**Note:** This is an **in-person** intake, not a cold phone lead. Phone lead scripts may be in `Intake Class 8.28.19.wav` (transcription pending).
+**Note:** This is an **in-person** intake, not a cold phone lead. Cold inbound lead scripts remain a gap — see `gaps.md`.
 
 ---
 

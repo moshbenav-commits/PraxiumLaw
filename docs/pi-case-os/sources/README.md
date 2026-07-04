@@ -15,9 +15,9 @@ All **text** files in this corpus have been scrubbed of historical firm names (r
 | `docs/pi-training-docs/` | PI docs, PDFs, questionnaires, workflows |
 | `docs/pi-training-docs/letter-templates/` | Original letter/form templates (patterns; may have old branding in binaries) |
 | `docs/white-label-templates/` | **Scrubbed** DOCX + regenerated PDFs (`{{FIRM_NAME}}` placeholders) — use these |
-| `training-pi/` | How-to scripts (docx) |
+| `training-pi/` | How-to scripts (docx) — text also in `training-pi-text/` |
 | `training-pi-text/` | All Training PI docx extracted to `.txt` (scrubbed) |
-| `transcripts/` | Video training transcripts (scrubbed text) |
-| `audio-intake/` | Live intake audio + transcripts |
+| `transcripts/` | Video training transcripts (scrubbed text only — no raw video) |
+| `../intake-calls/` | Intake audio **transcripts** (`.txt` only — no raw audio) |
 | `google-drive-stubs/` | Knowledge titles only (bodies not local) |
 | `notes/` | Intake field notes (scrubbed) |

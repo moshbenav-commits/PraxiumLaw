@@ -2,22 +2,55 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
-import { Settings as SettingsIcon, LogOut, Users, Shield, Workflow, UserPlus } from "lucide-react";
+import { Settings as SettingsIcon, LogOut, Users, Shield, Workflow, UserPlus, GraduationCap, FileText } from "lucide-react";
 import CopyButton from "@/components/common/CopyButton";
 import PageLoader from "@/components/common/PageLoader";
+import { toast } from "sonner";
+
+const WL_FIELDS = [
+  { key: "firm_dba", label: "DBA / public brand" },
+  { key: "attorney_name", label: "Supervising attorney" },
+  { key: "attorney_bar", label: "Bar number + state" },
+  { key: "case_manager", label: "Default case manager" },
+  { key: "firm_address", label: "Mailing address" },
+  { key: "firm_phone", label: "Main phone" },
+  { key: "firm_fax", label: "Fax" },
+  { key: "firm_email", label: "Matter email" },
+  { key: "jurisdiction", label: "Primary jurisdiction" },
+  { key: "sol_years", label: "SOL years (firm policy)" },
+  { key: "fee_contingent", label: "Contingent fee %" },
+  { key: "trust_account", label: "Trust account language" },
+];
 
 export default function Settings() {
   const { user, firm, logout } = useAuth();
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [whiteLabel, setWhiteLabel] = useState({});
+  const [wlSaving, setWlSaving] = useState(false);
 
   useEffect(() => {
     api.get("/team")
       .then((r) => setTeam(r.data))
       .finally(() => setLoading(false));
+    api.get("/firm/white-label").then((r) => setWhiteLabel(r.data.white_label || {})).catch(() => {});
   }, []);
 
   const intakeUrl = firm?.slug ? `https://www.praxiumlaw.com/intake/${firm.slug}` : "";
+
+  const saveWhiteLabel = async (e) => {
+    e.preventDefault();
+    setWlSaving(true);
+    try {
+      const r = await api.patch("/firm/white-label", whiteLabel);
+      setWhiteLabel(r.data.white_label || {});
+      toast.success("White-label profile saved — template downloads will merge these fields");
+    } catch {
+      toast.error("Could not save profile");
+    } finally {
+      setWlSaving(false);
+    }
+  };
 
   return (
     <div className="px-4 sm:px-6 py-6 max-w-3xl">
@@ -46,6 +79,46 @@ export default function Settings() {
             )}
           </div>
         </div>
+      </div>
+
+      <form className="mt-4 data-card p-5" onSubmit={saveWhiteLabel} data-testid="white-label-profile">
+        <div className="overline mb-2">// white-label profile</div>
+        <p className="text-sm text-praxium-subtle mb-4">
+          Fills <code className="text-xs">{`{{FIRM_NAME}}`}</code> and related placeholders when you download templates.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {WL_FIELDS.map((f) => (
+            <label key={f.key} className="text-xs block">
+              <span className="font-mono uppercase text-praxium-subtle">{f.label}</span>
+              <input
+                className="mt-1 w-full text-sm border border-praxium-line rounded-sm px-2 py-1.5"
+                value={whiteLabel[f.key] || ""}
+                onChange={(e) => setWhiteLabel((wl) => ({ ...wl, [f.key]: e.target.value }))}
+              />
+            </label>
+          ))}
+        </div>
+        <button type="submit" className="btn-praxium mt-4 text-sm" disabled={wlSaving}>
+          {wlSaving ? "Saving…" : "Save profile"}
+        </button>
+      </form>
+
+      <div className="mt-4 data-card p-5">
+        <div className="overline mb-3 flex items-center gap-2"><FileText size={12} /> // templates</div>
+        <p className="text-sm text-praxium-subtle mb-3">
+          Browse 106 PI DOCX templates, download intake forms, and print the day-of-intake signature checklist.
+        </p>
+        <Link to="/settings/templates" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-templates">
+          Open template library →
+        </Link>
+      </div>
+
+      <div className="mt-4 data-card p-5">
+        <div className="overline mb-3 flex items-center gap-2"><GraduationCap size={12} /> // training</div>
+        <p className="text-sm text-praxium-subtle mb-3">PI role guides, knowledge articles, and UI gap report for your role.</p>
+        <Link to="/training" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-training">
+          Open Training Center →
+        </Link>
       </div>
 
       <div className="mt-4 data-card p-5">

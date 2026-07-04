@@ -499,6 +499,8 @@ Publishable articles live in `articles/`. Index:
 | `20-certificate-of-records.md` | COR requirement |
 | `21-medical-lor-workflow.md` | Medical records request procedure |
 | `22-transfer-to-litigation.md` | Lit handoff notices |
+| `23-intake-forms-and-signature-packet.md` | MVA questionnaire + signature packet catalog (106 templates) |
+| `24-medical-documents-reference.md` | MR/B/FE/COR types, hospital stack, HIPAA vs Medical LOR |
 
 ---
 

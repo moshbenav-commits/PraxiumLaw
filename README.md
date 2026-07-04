@@ -93,6 +93,8 @@ From workspace root: `npm run dev:praxiumlaw`
 |------------|---------|
 | [`docs/pi-case-os/PROJECT_STATUS.md`](docs/pi-case-os/PROJECT_STATUS.md) | Status, backend mapping, Phase 1 MVP plan |
 | [`docs/pi-case-os/product-capabilities.md`](docs/pi-case-os/product-capabilities.md) | Feature list + MVP build order |
+| [`docs/pi-case-os/training-guides/`](docs/pi-case-os/training-guides/) | Position training guides (8 roles) |
+| [`docs/pi-case-os/SITE_WIRING_AUDIT.md`](docs/pi-case-os/SITE_WIRING_AUDIT.md) | What's wired in app vs PI spec |
 | [`docs/pi-case-os/DISCLOSURE.md`](docs/pi-case-os/DISCLOSURE.md) | Counsel review required before live use |
 
 **Next:** Implement PI modules in `backend/` + `frontend/` from `product-capabilities.md`.

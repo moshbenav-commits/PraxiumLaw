@@ -66,10 +66,13 @@ export async function getUploadLinkInfo(token) {
   return r.data;
 }
 
-export async function uploadViaMagicLink(token, file, name) {
+export async function uploadViaMagicLink(token, file, name, taxonomy = {}) {
   const fd = new FormData();
   fd.append("file", file);
   if (name) fd.append("name", name);
+  if (taxonomy.docType) fd.append("doc_type", taxonomy.docType);
+  if (taxonomy.medicalCode) fd.append("medical_code", taxonomy.medicalCode);
+  if (taxonomy.providerLabel) fd.append("provider_label", taxonomy.providerLabel);
   const r = await axios.post(`${API}/upload/${token}`, fd);
   return r.data;
 }

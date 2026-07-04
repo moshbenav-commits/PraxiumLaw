@@ -21,21 +21,27 @@ Anything added to the **site, app, or exports** must be white-labeled (`{{FIRM_N
 | [`system-spec.md`](./system-spec.md) | Full process map |
 | [`gaps.md`](./gaps.md) | Gaps and attorney gates |
 | [`articles/`](./articles/) | Knowledge-base articles (white-label) |
+| [`training-guides/`](./training-guides/) | **Position training guides** (8 roles) |
+| [`SITE_WIRING_AUDIT.md`](./SITE_WIRING_AUDIT.md) | PraxiumLaw app wiring vs PI spec |
+| [`UI_UX_GAPS.md`](./UI_UX_GAPS.md) | Training-derived UI/UX gap backlog |
+| [`training-ux-gaps.json`](./training-ux-gaps.json) | Same gaps (JSON for `/training` API) |
 | [`IMPROVEMENTS.md`](./IMPROVEMENTS.md) | Prioritized backlog from full source review |
 
 ## Internal source corpus (historical training materials)
 
 | Path | Description |
 |------|-------------|
-| [`sources/`](./sources/) | Raw PI training docs, letter templates, Training PI scripts (text-extracted), video transcripts, intake audio |
+| [`sources/`](./sources/) | PI training docs, letter templates, scripts (text), video transcripts |
 | [`sources/training-pi-text/`](./sources/training-pi-text/) | **All Training PI `.docx` scripts extracted to `.txt`** (38 files) |
 | [`sources/transcripts/`](./sources/transcripts/) | Video training transcripts (168 modules) |
-| [`intake-calls/`](./intake-calls/) | Intake audio transcripts (all 4 done) |
+| [`intake-calls/`](./intake-calls/) | Intake call **transcripts only** (4 `.txt` files — no raw audio) |
 | [`sources/docs/white-label-templates/`](./sources/docs/white-label-templates/) | 106 scrubbed DOCX + 106 PDFs |
 | [`PROJECT_STATUS.md`](./PROJECT_STATUS.md) | **Status, plan, backend mapping** |
 | [`SOURCES.md`](./SOURCES.md) | Inventory notes |
 
 **Do not ship `sources/` to customers.** Use white-label templates + product docs only.
+
+**No raw training audio/video** in this folder — only transcripts and extracted text. See [`TRANSCRIPTION_STATUS.md`](./TRANSCRIPTION_STATUS.md) and [`.gitignore`](./.gitignore).
 
 ## Product rules
 

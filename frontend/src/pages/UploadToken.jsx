@@ -6,6 +6,64 @@ import { getUploadLinkInfo, uploadViaMagicLink } from "@/lib/portalApi";
 import usePageMeta from "@/components/landing/usePageMeta";
 import PageLoader from "@/components/common/PageLoader";
 
+function UploadTaxonomyModal({ open, file, catalog, onClose, onConfirm, uploading }) {
+  const [docType, setDocType] = useState("misc");
+  const [medicalCode, setMedicalCode] = useState("MR");
+  const [providerLabel, setProviderLabel] = useState("");
+
+  if (!open || !file) return null;
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (docType === "medical" && !medicalCode) {
+      toast.error("Select MR, B, FE, or COR for medical documents");
+      return;
+    }
+    onConfirm({ docType, medicalCode: docType === "medical" ? medicalCode : "", providerLabel });
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" data-testid="portal-upload-taxonomy-modal">
+      <form onSubmit={submit} className="data-card p-5 max-w-md w-full space-y-4">
+        <div className="overline">// classify upload</div>
+        <p className="text-sm font-medium truncate">{file.name}</p>
+        <p className="text-xs text-praxium-subtle">Help your legal team route this file — same taxonomy as staff uploads.</p>
+
+        <label className="block text-sm">
+          <span className="text-xs font-mono uppercase text-praxium-subtle">Document type *</span>
+          <select className="mt-1 w-full text-sm border border-praxium-line rounded-sm px-2 py-1.5" value={docType} onChange={(e) => setDocType(e.target.value)} required>
+            {(catalog?.doc_types || []).map((t) => (
+              <option key={t.id} value={t.id}>{t.label}</option>
+            ))}
+          </select>
+        </label>
+
+        {docType === "medical" ? (
+          <>
+            <label className="block text-sm">
+              <span className="text-xs font-mono uppercase text-praxium-subtle">Medical code *</span>
+              <select className="mt-1 w-full text-sm border border-praxium-line rounded-sm px-2 py-1.5" value={medicalCode} onChange={(e) => setMedicalCode(e.target.value)}>
+                {(catalog?.medical_codes || []).map((c) => (
+                  <option key={c.id} value={c.id}>{c.label}</option>
+                ))}
+              </select>
+            </label>
+            <label className="block text-sm">
+              <span className="text-xs font-mono uppercase text-praxium-subtle">Provider</span>
+              <input className="mt-1 w-full text-sm border border-praxium-line rounded-sm px-2 py-1.5" placeholder="Dr Smith / Hospital" value={providerLabel} onChange={(e) => setProviderLabel(e.target.value)} />
+            </label>
+          </>
+        ) : null}
+
+        <div className="flex gap-2 justify-end pt-2">
+          <button type="button" className="btn-ghost text-sm" onClick={onClose} disabled={uploading}>Cancel</button>
+          <button type="submit" className="btn-praxium text-sm" disabled={uploading}>{uploading ? "Uploading…" : "Upload"}</button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 export default function UploadTokenPage() {
   usePageMeta({
     title: "Secure Upload — Praxium",
@@ -17,6 +75,7 @@ export default function UploadTokenPage() {
   const [uploading, setUploading] = useState(false);
   const [done, setDone] = useState(null);
   const [dragOver, setDragOver] = useState(false);
+  const [pendingFile, setPendingFile] = useState(null);
 
   useEffect(() => {
     getUploadLinkInfo(token)
@@ -24,13 +83,13 @@ export default function UploadTokenPage() {
       .catch((err) => setError(err.response?.data?.detail || "Invalid or expired link"));
   }, [token]);
 
-  const uploadFile = useCallback(
-    async (file) => {
-      if (!file || uploading) return;
+  const doUpload = useCallback(
+    async (file, taxonomy) => {
       setUploading(true);
       try {
-        const data = await uploadViaMagicLink(token, file, file.name);
+        const data = await uploadViaMagicLink(token, file, file.name, taxonomy);
         setDone(data.document);
+        setPendingFile(null);
         toast.success("Upload complete");
       } catch (err) {
         toast.error(err.response?.data?.detail || "Upload failed");
@@ -38,14 +97,19 @@ export default function UploadTokenPage() {
         setUploading(false);
       }
     },
-    [token, uploading]
+    [token]
   );
+
+  const queueFile = useCallback((file) => {
+    if (!file || uploading) return;
+    setPendingFile(file);
+  }, [uploading]);
 
   const onDrop = (e) => {
     e.preventDefault();
     setDragOver(false);
     const file = e.dataTransfer.files?.[0];
-    if (file) uploadFile(file);
+    if (file) queueFile(file);
   };
 
   if (error) {
@@ -81,6 +145,15 @@ export default function UploadTokenPage() {
 
   return (
     <div className="min-h-screen bg-praxium-bg flex items-center justify-center p-6">
+      <UploadTaxonomyModal
+        open={Boolean(pendingFile)}
+        file={pendingFile}
+        catalog={info.taxonomy_catalog}
+        uploading={uploading}
+        onClose={() => setPendingFile(null)}
+        onConfirm={(taxonomy) => doUpload(pendingFile, taxonomy)}
+      />
+
       <div className="w-full max-w-lg data-card p-6 sm:p-8">
         <div className="overline mb-2">// secure upload</div>
         <h1 className="font-display font-black text-2xl tracking-tight flex items-center gap-2">
@@ -105,14 +178,14 @@ export default function UploadTokenPage() {
           }`}
         >
           <FileUp className="mx-auto text-praxium-subtle mb-3" size={32} />
-          <p className="text-sm text-praxium-subtle mb-4">Drag a file here or choose from your device (max 25MB)</p>
+          <p className="text-sm text-praxium-subtle mb-4">Choose a file — you&apos;ll classify it before upload (max 25MB)</p>
           <label className="btn-praxium inline-flex cursor-pointer">
             Choose file
             <input
               type="file"
               className="hidden"
               disabled={uploading}
-              onChange={(e) => uploadFile(e.target.files?.[0])}
+              onChange={(e) => queueFile(e.target.files?.[0])}
             />
           </label>
           {uploading && <p className="text-xs font-mono mt-3 text-praxium-subtle">Uploading…</p>}

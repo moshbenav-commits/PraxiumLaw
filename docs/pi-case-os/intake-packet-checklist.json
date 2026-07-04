@@ -1,0 +1,86 @@
+{
+  "title": "Day-of-Intake Signature Packet Checklist",
+  "version": "1.0",
+  "disclaimer": "Operational checklist only — not legal advice. Counsel must approve forms for your jurisdiction before use.",
+  "sections": [
+    {
+      "id": "prep",
+      "title": "Before client signs",
+      "items": [
+        "Confirm Medicare vs non-Medicare branch (wrong pack breaks subrogation later)",
+        "Confirm minor → use minor HIPAA + counsel-approved minor fee agreement",
+        "Print MVA questionnaire (pen or fillable)",
+        "Staff ready to copy ID, insurance cards, any bills client brought"
+      ]
+    },
+    {
+      "id": "questionnaire",
+      "title": "Questionnaire (client fills — not signed as packet)",
+      "items": [
+        { "label": "MVA Questionnaire & Intake", "template": "MVA Questionnaire & Intake.docx", "required": true },
+        { "label": "Alternate fillable questionnaire", "template": "INTAKE SHEET - FILLABLE MVA QUESTIONNAIRE.docx", "required": false }
+      ]
+    },
+    {
+      "id": "signature-all",
+      "title": "Signature packet — all clients",
+      "items": [
+        { "label": "Contingency fee agreement", "template": "(WA) Contingency Fee Agreement.docx", "required": true },
+        { "label": "Limited power of attorney", "template": "6.- LIMITED POWER OF ATTORNEY WA.docx", "required": true },
+        { "label": "General release / authorization", "template": "4.-GENERAL RELEASE WA.docx", "required": true },
+        { "label": "Wage loss verification", "template": "(WA) Wage Loss Verification.docx", "required": true },
+        { "label": "HIPAA — leave facility name BLANK at signing", "template": "(WA) HIPAA - Minor.docx", "required": true },
+        { "label": "Consent for disclosure", "template": "3.- CONSENT FOR DISCLOSURE OF INFORMATION WA.docx", "required": true },
+        { "label": "Property damage disclosure", "template": "8.- Property Damage Disclosure WA.docx", "required": true },
+        { "label": "ISO authorization", "template": "9.- ISO Authorization WA.docx", "required": true },
+        { "label": "Attorney lien notice (if applicable)", "template": "(WA) Attorney Lien.docx", "required": false }
+      ]
+    },
+    {
+      "id": "signature-medicare",
+      "title": "Medicare recipients only",
+      "items": [
+        { "label": "Medicare questionnaire", "template": "7.- Medicare Questionaire 1 WA.docx", "required": true },
+        { "label": "Medicare intake bundle", "template": "(WA) Intake - Medicare Recipient.docx", "required": true }
+      ]
+    },
+    {
+      "id": "signature-non-medicare",
+      "title": "Non-Medicare recipients only",
+      "items": [
+        { "label": "Standard intake docs bundle", "template": "(WA) Intake Docs - Not a Medicare Recipient.docx", "required": true }
+      ]
+    },
+    {
+      "id": "special",
+      "title": "Special situations (if applicable)",
+      "items": [
+        { "label": "Out-of-state client intake", "template": "(WA) Out of State Intake.docx", "required": false },
+        { "label": "Client dropping prior firm", "template": "(WA) Client Dropping Another Firm.docx", "required": false },
+        { "label": "Conflict waiver (multi-occupant same vehicle)", "template": null, "required": false }
+      ]
+    },
+    {
+      "id": "after",
+      "title": "After signing",
+      "items": [
+        "Case manager reviews questionnaire legibility before data entry",
+        "Scan entire signed packet → matter Documents → classify as Intake",
+        "Hand client Needs List with appointment dates written on it",
+        "Open 3P claim day one — generate 3P LOR from template library",
+        "Enter DOL, SOL, contact info on matter record"
+      ]
+    },
+    {
+      "id": "collect",
+      "title": "Collect from client (Needs List — not part of signature packet)",
+      "items": [
+        "Driver license / ID",
+        "Health insurance card",
+        "Auto insurance dec page (1P and 3P if known)",
+        "Any hospital / ER / ambulance bills in hand",
+        "Police report number if available"
+      ]
+    }
+  ]
+}

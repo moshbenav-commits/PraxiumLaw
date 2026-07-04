@@ -3,14 +3,29 @@ import { useParams, Link } from "react-router-dom";
 import api from "@/lib/api";
 import { STATUSES, STATUS_COLORS, STATUS_DOT, formatDate, formatMoney, PRACTICE_AREAS, timeAgo } from "@/lib/utils";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, Copy, Eye } from "lucide-react";
+import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, ClipboardList, Shield, GitBranch, FileStack, Calculator, Car, Phone } from "lucide-react";
 import { toast } from "sonner";
 import PageLoader from "@/components/common/PageLoader";
-import PdfViewerModal from "@/components/pdf/PdfViewerModal";
-import { isPdfDoc, viewDocument } from "@/lib/documentsApi";
+import MatterIntakeTab from "@/components/matter/MatterIntakeTab";
+import MatterInsuranceTab from "@/components/matter/MatterInsuranceTab";
+import MatterMedicalTab from "@/components/matter/MatterMedicalTab";
+import MatterDocumentsTab from "@/components/matter/MatterDocumentsTab";
+import MatterPhaseTab from "@/components/matter/MatterPhaseTab";
+import MatterDemandTab from "@/components/matter/MatterDemandTab";
+import MatterSettlementTab from "@/components/matter/MatterSettlementTab";
+import MatterPropertyDamageTab from "@/components/matter/MatterPropertyDamageTab";
+import MatterCommsTab from "@/components/matter/MatterCommsTab";
+import { piPhaseLabel, PI_PHASE_COLORS } from "@/lib/utils";
 
 const TABS = [
   { id: "overview", label: "Overview", icon: Briefcase },
+  { id: "settlement", label: "Settlement", icon: Calculator },
+  { id: "demand", label: "Demand", icon: FileStack },
+  { id: "pipeline", label: "Pipeline", icon: GitBranch },
+  { id: "intake", label: "Intake", icon: ClipboardList },
+  { id: "insurance", label: "Insurance", icon: Shield },
+  { id: "pd", label: "PD", icon: Car },
+  { id: "comms", label: "Comms", icon: Phone },
   { id: "tasks", label: "Tasks", icon: CheckSquare },
   { id: "documents", label: "Documents", icon: FileText },
   { id: "notes", label: "Notes", icon: MessageSquare },
@@ -28,7 +43,6 @@ export default function MatterDetail() {
   const [notes, setNotes] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [documents, setDocuments] = useState([]);
-  const [treatments, setTreatments] = useState([]);
   const [chat, setChat] = useState([]);
   const [portalMsgs, setPortalMsgs] = useState([]);
   const [newPortalMsg, setNewPortalMsg] = useState("");
@@ -40,7 +54,6 @@ export default function MatterDetail() {
   const [portalInviteUrl, setPortalInviteUrl] = useState("");
   const [uploadLinkUrl, setUploadLinkUrl] = useState("");
   const [clientContact, setClientContact] = useState(null);
-  const [pdfViewer, setPdfViewer] = useState({ open: false, title: "", b64: "" });
   const [signDocId, setSignDocId] = useState("");
 
   const reload = () => {
@@ -49,7 +62,6 @@ export default function MatterDetail() {
     api.get(`/notes?matter_id=${id}`).then((r) => setNotes(r.data));
     api.get(`/tasks?matter_id=${id}`).then((r) => setTasks(r.data));
     api.get(`/documents?matter_id=${id}`).then((r) => setDocuments(r.data));
-    api.get(`/treatments?matter_id=${id}`).then((r) => setTreatments(r.data));
     api.get(`/chat/messages?matter_id=${id}&channel=matter`).then((r) => setChat(r.data));
     api.get(`/portal/staff/messages?matter_id=${id}`).then((r) => setPortalMsgs(r.data.items || [])).catch(() => setPortalMsgs([]));
     api.get(`/filings?matter_id=${id}`).then((r) => setFilings(r.data));
@@ -145,15 +157,6 @@ export default function MatterDetail() {
     }
   };
 
-  const openPdfView = async (docId, name) => {
-    try {
-      const data = await viewDocument(docId);
-      setPdfViewer({ open: true, title: name || data.name, b64: data.data_b64 });
-    } catch {
-      toast.error("Could not open PDF");
-    }
-  };
-
   const toggleDocVisible = async (docId, visible) => {
     await api.patch(`/documents/${docId}/visibility`, { client_visible: visible });
     reload();
@@ -210,21 +213,6 @@ export default function MatterDetail() {
     }
   };
 
-  const handleUpload = async (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("matter_id", id);
-    fd.append("name", file.name);
-    fd.append("folder", "General");
-    try {
-      await api.post("/documents", fd, { headers: { "Content-Type": "multipart/form-data" } });
-      toast.success("Uploaded");
-      reload();
-    } catch { toast.error("Upload failed"); }
-  };
-
   if (!matter) return <PageLoader label="Loading matter…" />;
 
   return (
@@ -243,6 +231,11 @@ export default function MatterDetail() {
             <h1 className="font-display font-black text-2xl tracking-tight mt-1" data-testid="matter-title">{matter.title}</h1>
           </div>
           <div className="flex items-center gap-2">
+            {matter.practice_area === "personal_injury" && matter.pi_phase?.current ? (
+              <span className={cn("status-pip border text-[10px] font-mono uppercase", PI_PHASE_COLORS[matter.pi_phase.current] || PI_PHASE_COLORS.intake)} data-testid="matter-pi-phase-badge">
+                {piPhaseLabel(matter.pi_phase.current)}
+              </span>
+            ) : null}
             <select value={matter.status} onChange={(e) => updateStatus(e.target.value)} data-testid="matter-status-change"
               className={cn("status-pip border", STATUS_COLORS[matter.status])}>
               {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -335,6 +328,15 @@ export default function MatterDetail() {
           </div>
         )}
 
+        {tab === "settlement" && <MatterSettlementTab matterId={id} practiceArea={matter.practice_area} />}
+        {tab === "demand" && <MatterDemandTab matterId={id} practiceArea={matter.practice_area} />}
+        {tab === "pipeline" && <MatterPhaseTab matterId={id} practiceArea={matter.practice_area} onChanged={reload} />}
+        {tab === "intake" && <MatterIntakeTab matterId={id} />}
+
+        {tab === "insurance" && <MatterInsuranceTab matterId={id} />}
+        {tab === "pd" && <MatterPropertyDamageTab matterId={id} practiceArea={matter.practice_area} />}
+        {tab === "comms" && <MatterCommsTab matterId={id} practiceArea={matter.practice_area} />}
+
         {tab === "tasks" && (
           <div className="data-card p-5">
             <form onSubmit={addTask} className="flex gap-2 mb-4" data-testid="matter-add-task-form">
@@ -360,68 +362,17 @@ export default function MatterDetail() {
         )}
 
         {tab === "documents" && (
-          <div className="data-card p-5">
-            <div className="flex flex-wrap gap-2 mb-4">
-              <label className="btn-praxium inline-flex cursor-pointer" data-testid="matter-upload-doc">
-                <Plus size={14} /> Upload document
-                <input type="file" onChange={handleUpload} className="hidden" />
-              </label>
-              <button type="button" className="btn-ghost text-xs" onClick={createUploadLink}>
-                <Copy size={12} /> Magic upload link
-              </button>
-              <button type="button" className="btn-ghost text-xs" onClick={createSignRequest}>
-                Request signature
-              </button>
-              {documents.some(isPdfDoc) ? (
-                <select
-                  className="input-praxium text-xs py-1 max-w-[200px]"
-                  value={signDocId}
-                  onChange={(e) => setSignDocId(e.target.value)}
-                  title="PDF to send for signature"
-                >
-                  <option value="">Blank agreement PDF</option>
-                  {documents.filter(isPdfDoc).map((d) => (
-                    <option key={d.id} value={d.id}>{d.name}</option>
-                  ))}
-                </select>
-              ) : null}
-            </div>
-            {uploadLinkUrl && (
-              <code className="text-[10px] font-mono block break-all bg-praxium-bg p-2 rounded-sm mb-4">{uploadLinkUrl}</code>
-            )}
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-praxium-line">
-                  <th className="text-left py-2 overline">Name</th>
-                  <th className="text-left py-2 overline">Folder</th>
-                  <th className="text-left py-2 overline">Uploaded</th>
-                  <th className="text-left py-2 overline">Client</th>
-                  <th className="text-right py-2 overline">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-praxium-line">
-                {documents.map((d) => (
-                  <tr key={d.id} data-testid={`doc-${d.id}`}>
-                    <td className="py-2 font-medium">{d.name}</td>
-                    <td className="py-2 text-xs font-mono text-praxium-subtle">{d.folder}</td>
-                    <td className="py-2 text-xs font-mono text-praxium-subtle">{timeAgo(d.uploaded_at)} • {d.uploaded_by_name}</td>
-                    <td className="py-2">
-                      <input type="checkbox" checked={Boolean(d.client_visible)} onChange={(e) => toggleDocVisible(d.id, e.target.checked)} title="Visible in client portal" />
-                    </td>
-                    <td className="py-2 text-right text-xs font-mono space-x-1">
-                      {isPdfDoc(d) ? (
-                        <button type="button" className="btn-ghost py-0.5 px-2 inline-flex items-center gap-1" onClick={() => openPdfView(d.id, d.name)}>
-                          <Eye size={12} /> View
-                        </button>
-                      ) : null}
-                      <span className="text-praxium-subtle">{Math.round(d.size_bytes / 1024)} KB</span>
-                    </td>
-                  </tr>
-                ))}
-                {documents.length === 0 && <tr><td colSpan={5} className="py-6 text-center text-xs text-praxium-subtle">No documents yet.</td></tr>}
-              </tbody>
-            </table>
-          </div>
+          <MatterDocumentsTab
+            matterId={id}
+            documents={documents}
+            reload={reload}
+            uploadLinkUrl={uploadLinkUrl}
+            onCreateUploadLink={createUploadLink}
+            onCreateSignRequest={createSignRequest}
+            signDocId={signDocId}
+            setSignDocId={setSignDocId}
+            toggleDocVisible={toggleDocVisible}
+          />
         )}
 
         {tab === "notes" && (
@@ -446,40 +397,7 @@ export default function MatterDetail() {
           </div>
         )}
 
-        {tab === "medical" && (
-          <div className="data-card p-5">
-            <div className="overline mb-3">// medical providers & treatment</div>
-            <div className="bg-praxium-bg p-3 rounded-sm text-xs font-mono mb-4">
-              <div className="overline mb-1">// patient id (give to providers)</div>
-              <div className="text-lg font-display font-black tracking-wider">PT-{matter.id.slice(0, 6).toUpperCase()}</div>
-              <div className="mt-1 text-praxium-subtle">Doctors include this in email subject → auto-files to this matter.</div>
-            </div>
-            {treatments.length === 0 ? (
-              <div className="text-xs text-praxium-subtle">No providers linked. <Link to="/medconnect" className="text-praxium-accent">Add via MedConnect.</Link></div>
-            ) : (
-              <table className="w-full text-sm">
-                <thead><tr className="border-b border-praxium-line">
-                  <th className="text-left py-2 overline">Provider</th>
-                  <th className="text-left py-2 overline">Role</th>
-                  <th className="text-left py-2 overline">Records</th>
-                  <th className="text-right py-2 overline">Billed</th>
-                  <th className="text-right py-2 overline">Lien</th>
-                </tr></thead>
-                <tbody className="divide-y divide-praxium-line">
-                  {treatments.map((t) => (
-                    <tr key={t.id} data-testid={`treatment-${t.id}`}>
-                      <td className="py-2">{t.provider_id?.slice(0, 8)}</td>
-                      <td className="py-2 text-xs">{t.role}</td>
-                      <td className="py-2 text-xs"><span className="status-pip bg-amber-100 text-amber-900">{t.records_status}</span></td>
-                      <td className="py-2 text-right font-mono">{formatMoney(t.billed_total)}</td>
-                      <td className="py-2 text-right font-mono">{formatMoney(t.lien_amount)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </div>
-        )}
+        {tab === "medical" && <MatterMedicalTab matterId={id} />}
 
         {tab === "filings" && (
           <div className="data-card p-5">
@@ -571,12 +489,6 @@ export default function MatterDetail() {
           </div>
         )}
       </div>
-      <PdfViewerModal
-        open={pdfViewer.open}
-        title={pdfViewer.title}
-        pdfB64={pdfViewer.b64}
-        onClose={() => setPdfViewer({ open: false, title: "", b64: "" })}
-      />
     </div>
   );
 }

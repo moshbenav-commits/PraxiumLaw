@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard, Briefcase, Users, FileText, CheckSquare, Calendar,
   MessageSquare, Stethoscope, Scale, BarChart3, Inbox, Settings, Sparkles,
-  Network, ScrollText, Phone, X,
+  Network, ScrollText, Phone, X, GraduationCap,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn, initials } from "@/lib/utils";
@@ -13,6 +13,7 @@ const NAV = [
   { to: "/matters", label: "Matters", icon: Briefcase, testid: "nav-matters" },
   { to: "/contacts", label: "Contacts", icon: Users, testid: "nav-contacts" },
   { to: "/inbox", label: "Universal Inbox", icon: Inbox, testid: "nav-inbox" },
+  { to: "/training", label: "Training", icon: GraduationCap, testid: "nav-training" },
   { to: "/tasks", label: "Tasks", icon: CheckSquare, testid: "nav-tasks" },
   { to: "/calendar", label: "Calendar", icon: Calendar, testid: "nav-calendar" },
   { to: "/chat", label: "CaseChat", icon: MessageSquare, testid: "nav-chat" },

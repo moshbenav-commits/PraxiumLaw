@@ -17,25 +17,18 @@ Flagged for **manual completion**. Nothing below was invented to fill holes; eac
 
 ---
 
-## Lead / intake phone scripts — audio found, not yet in video-transcript archive
+## Lead / intake phone scripts — transcribed; cold phone lead still a gap
 
-**Correction:** Lead/intake call training is **not** only in Google Docs. Live intake audio exists on disk and was **never transcribed** into the video training archive:
+**Status (2026-07-04):** All four intake training recordings were **Whisper-transcribed** into `intake-calls/*.txt`. **Raw audio was removed** from the repo (text-only policy).
 
-| File | Location (Training PI / Case Manager / Day 5 / Phase 1) | Size |
-|------|--------------------------------------------------------|------|
-| `Intake Class 8.28.19.wav` | Intake class / long session | 82 MB |
-| `Intake.m4a` | Live intake call | 38 MB |
-| `Intake 2.m4a` | Live intake call | 37 MB |
-| `Intake herman.m4a` | Live intake call (named caller) | 31 MB |
+| Transcript | Pulled into |
+|------------|-------------|
+| `Intake herman.txt` | `articles/17-in-office-intake-coaching.md` |
+| `Intake.txt` | Same article (in-office roleplay patterns) |
+| `Intake 2.txt` | Same article |
+| `Intake Class 8.28.19.txt` | Review for phone/lead vocabulary — **not yet a separate article** |
 
-Whisper transcription → `PraxiumLaw/docs/pi-case-os/intake-calls/`.
-
-| File | Status | Content type |
-|------|--------|--------------|
-| `Intake herman.m4a` | **Done** → `Intake herman.txt` | **In-office** intake (not phone lead). Coaching + fee agreement. Article: `articles/17-in-office-intake-coaching.md` |
-| `Intake.m4a` | Transcribing | Likely live intake |
-| `Intake 2.m4a` | Transcribing | Likely live intake |
-| `Intake Class 8.28.19.wav` | Transcribing | **Most likely** class with phone/lead vocabulary |
+**Finding:** Transcripts are **in-office intake coaching** (facts of loss, priors, PD, treatment, fee agreement) — **not** a cold inbound phone lead greeting (“sorry to hear about your accident…”). That script is still a **gap** for MVP phone intake.
 
 **Already in video transcripts (phone-adjacent, not lead intake):**
 
@@ -43,7 +36,7 @@ Whisper transcription → `PraxiumLaw/docs/pi-case-os/intake-calls/`.
 - **Wage-loss HR** call script (“Hi, this is … I wanted to speak to HR…”)
 - Client coaching scripts (PD-only, hospital bills) — not inbound lead greeting
 
-Google Drive stubs still include a **Leads Scripts** title (body not on disk). Prefer the intake audio above.
+Google Drive stubs still include a **Leads Scripts** title (body not on disk).
 
 ---
 
