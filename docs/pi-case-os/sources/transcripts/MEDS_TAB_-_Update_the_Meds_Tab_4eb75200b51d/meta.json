@@ -23,5 +23,19 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:51:49.927730+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 1620752
+  "audioBytes": 1620752,
+  "frameCount": 7,
+  "intervalSec": 15,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MEDS TAB - Update the Meds Tab.mp4",
+  "framesExtractedAt": "2026-07-05T02:25:12.728Z",
+  "frameManifest": "training-archive/van-law-the case system/MEDS_TAB_-_Update_the_Meds_Tab_4eb75200b51d/screenshots/frame-manifest.json"
 }

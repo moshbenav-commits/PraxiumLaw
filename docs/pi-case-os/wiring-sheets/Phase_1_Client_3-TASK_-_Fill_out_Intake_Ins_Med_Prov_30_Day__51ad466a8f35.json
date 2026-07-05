@@ -1,0 +1,140 @@
+{
+  "slug": "Phase_1_Client_3-TASK_-_Fill_out_Intake_Ins_Med_Prov_30_Day__51ad466a8f35",
+  "title": "Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case",
+    "route": "/tasks",
+    "selectors": [
+      "taskflow",
+      "insurance",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "taskflow.phase_1_clie_1",
+      "sequence": 1,
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "# Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case **Kind:** other **Tags:** id_verification **Speakers:** Lewis **Complete sales ca",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "insurance.phase_1_clie_2",
+      "sequence": 2,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "insurance and whenever you see duplicates like this please tell um someone to please merge them the adjuster we don't know yet the claim number policy number we know the policy number it's right here",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "meds.phase_1_clie_3",
+      "sequence": 3,
+      "frame": "frame_012.jpg",
+      "timestampSec": 330,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "hotos doesn't have health insurance where do you know that um any witness information no no medical provider documents no he did give us this vehicle registration no other documents that i know of tha",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "intake.phase_1_clie_4",
+      "sequence": 4,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "health.phase_1_clie_5",
+      "sequence": 5,
+      "frame": "frame_020.jpg",
+      "timestampSec": 570,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "you fill out all this stuff here does he have social security card does he have photos doesn't have health insurance where do you know that um any witness information no no medical provider documents",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "settlement.phase_1_clie_6",
+      "sequence": 6,
+      "frame": "frame_024.jpg",
+      "timestampSec": 690,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "Training covers Settlement workflow per title: Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_004.jpg",
+    "frame_008.jpg",
+    "frame_012.jpg",
+    "frame_016.jpg",
+    "frame_020.jpg",
+    "frame_024.jpg"
+  ]
+}

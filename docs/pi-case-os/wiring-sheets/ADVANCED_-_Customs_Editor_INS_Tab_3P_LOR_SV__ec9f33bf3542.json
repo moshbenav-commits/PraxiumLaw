@@ -1,0 +1,80 @@
+{
+  "slug": "ADVANCED_-_Customs_Editor_INS_Tab_3P_LOR_SV__ec9f33bf3542",
+  "title": "ADVANCED - Customs Editor INS Tab 3P LOR (SV)",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: ADVANCED - Customs Editor INS Tab 3P LOR (SV)",
+    "route": "/settings/custom-fields",
+    "selectors": [
+      "customs",
+      "insurance",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "customs.advanced___c_1",
+      "sequence": 1,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Custom field editor",
+      "fields": [],
+      "actions": [
+        "reviewCustomsEditorWorkflow",
+        "mapToPraxiumcustoms"
+      ],
+      "transcriptQuote": "# ADVANCED - Customs Editor INS Tab 3P LOR (SV) **Kind:** other **Tags:** — **Speakers:** — **Complete sal",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Customs Editor parity"
+    },
+    {
+      "id": "insurance.advanced___c_2",
+      "sequence": 2,
+      "frame": "frame_006.jpg",
+      "timestampSec": 150,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "# ADVANCED - Customs Editor INS Tab 3P LOR (SV) **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN audi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.advanced___c_3",
+      "sequence": 3,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "# ADVANCED - Customs Editor INS Tab 3P LOR (SV) **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN audi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_003.jpg",
+    "frame_006.jpg",
+    "frame_008.jpg"
+  ]
+}

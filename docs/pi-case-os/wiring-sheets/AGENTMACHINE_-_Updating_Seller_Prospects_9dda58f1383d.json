@@ -1,0 +1,38 @@
+{
+  "slug": "AGENTMACHINE_-_Updating_Seller_Prospects_9dda58f1383d",
+  "title": "AGENTMACHINE - Updating Seller Prospects",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: AGENTMACHINE - Updating Seller Prospects",
+    "route": "/matters/:id",
+    "selectors": [
+      "activity"
+    ]
+  },
+  "functions": [
+    {
+      "id": "activity.agentmachine_1",
+      "sequence": 1,
+      "frame": "frame_017.jpg",
+      "timestampSec": 480,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "General PI workflow training: AGENTMACHINE - Updating Seller Prospects",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_017.jpg"
+  ]
+}

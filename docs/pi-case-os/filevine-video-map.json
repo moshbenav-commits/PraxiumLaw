@@ -1,0 +1,1513 @@
+{
+  "generatedAt": "2026-07-05T01:30:15.750Z",
+  "quarantineDir": "/Users/ricardo/Desktop/CPP Training - Video Quarantine",
+  "filter": null,
+  "counts": {
+    "quarantineVideos": 347,
+    "matched": 159,
+    "unmatchedQuarantine": 188,
+    "unmatchedTranscriptSlugs": 9
+  },
+  "matched": [
+    {
+      "quarantineFile": "1. Adding a New Project.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Adding a New Project.mp4",
+      "slug": "1_Adding_a_New_Project_523f9a072421",
+      "transcriptFilename": "1. Adding a New Project.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "1. Documents Saving Overview.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Documents Saving Overview.mp4",
+      "slug": "1_Documents_Saving_Overview_436c47da7726",
+      "transcriptFilename": "1. Documents Saving Overview.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "1. Medical LOR.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Medical LOR.mp4",
+      "slug": "1_Medical_LOR_bcd15d6a0b12",
+      "transcriptFilename": "1. Medical LOR.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2. Filevine - Activity Feed.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2. Filevine - Activity Feed.mp4",
+      "slug": "2_Filevine_-_Activity_Feed_1473ebf3c660",
+      "transcriptFilename": "2. the case system - Activity Feed.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2. Lien Verification.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2. Lien Verification.mp4",
+      "slug": "2_Lien_Verification_57a21caf63d2",
+      "transcriptFilename": "2. Lien Verification.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2. Saving Intake Docs.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2. Saving Intake Docs.mp4",
+      "slug": "2_Saving_Intake_Docs_d3f8707a5c81",
+      "transcriptFilename": "2. Saving Intake Docs.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017-05-05_11-20-04.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017-05-05_11-20-04.mp4",
+      "slug": "2017-05-05_11-20-04_0d9fecac4fd6",
+      "transcriptFilename": "2017-05-05_11-20-04.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017-06-07 Filevine Tutorial .mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017-06-07 Filevine Tutorial .mp4",
+      "slug": "2017-06-07_Filevine_Tutorial__d75e6b321e63",
+      "transcriptFilename": "2017-06-07 the case system Tutorial .mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017.10.6 DEMAND - Prep and Draft a Demand Letter Jamille Walton.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.10.6 DEMAND - Prep and Draft a Demand Letter Jamille Walton.mp4",
+      "slug": "2017_10_6_DEMAND_-_Prep_and_Draft_a_Demand_Letter_Jamille_Wa_bac8b9d0227a",
+      "transcriptFilename": "2017.10.6 DEMAND - Prep and Draft a Demand Letter Jamille Walton.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017.10.6 DEMAND - Prep and Draft a Demand Letter.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.10.6 DEMAND - Prep and Draft a Demand Letter.mp4",
+      "slug": "2017_10_6_DEMAND_-_Prep_and_Draft_a_Demand_Letter_4a9319319ddb",
+      "transcriptFilename": "2017.10.6 DEMAND - Prep and Draft a Demand Letter.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017.3.29 CLAIMS- 1st Party LOR.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.3.29 CLAIMS- 1st Party LOR.mp4",
+      "slug": "2017_3_29_CLAIMS-_1st_Party_LOR_f797872ca06b",
+      "transcriptFilename": "2017.3.29 CLAIMS- 1st Party LOR.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017.7.5 DEMAND - How to draft 3P Demand.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.7.5 DEMAND - How to draft 3P Demand.mp4",
+      "slug": "2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed",
+      "transcriptFilename": "2017.7.5 DEMAND - How to draft 3P Demand.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet.mp4",
+      "slug": "2017_8_11_FILEVINE_-_Creating_Taskflow_and_Updating_Excel_Sp_6683f2e33bcb",
+      "transcriptFilename": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "2017.8.11 FILEVINE - Run and Share Reports Seans Special List.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.8.11 FILEVINE - Run and Share Reports Seans Special List.mp4",
+      "slug": "2017_8_11_FILEVINE_-_Run_and_Share_Reports_Seans_Special_Lis_423641749d33",
+      "transcriptFilename": "2017.8.11 FILEVINE - Run and Share Reports Seans Special List.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "3. Filevine - Intake Tab.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/3. Filevine - Intake Tab.mp4",
+      "slug": "3_Filevine_-_Intake_Tab_28bb0993a7f5",
+      "transcriptFilename": "3. the case system - Intake Tab.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "3. Saving Medical Records and Bills Part 1.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/3. Saving Medical Records and Bills Part 1.mp4",
+      "slug": "3_Saving_Medical_Records_and_Bills_Part_1_6447d544b500",
+      "transcriptFilename": "3. Saving Medical Records and Bills Part 1.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "3. Short Reduction.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/3. Short Reduction.mp4",
+      "slug": "3_Short_Reduction_28755cb4ca5a",
+      "transcriptFilename": "3. Short Reduction.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "30.-ADVANCED Case Auditing.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/30.-ADVANCED Case Auditing.mp4",
+      "slug": "30_-ADVANCED_Case_Auditing_caa5f4fc04b4",
+      "transcriptFilename": "30.-ADVANCED Case Auditing.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "3rd PARTY - Open a claim and start a case.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/3rd PARTY - Open a claim and start a case.mp4",
+      "slug": "3rd_PARTY_-_Open_a_claim_and_start_a_case_df30df578ead",
+      "transcriptFilename": "3rd PARTY - Open a claim and start a case.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "4.  Long Reduction.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/4.  Long Reduction.mp4",
+      "slug": "4_Long_Reduction_66056ec06edc",
+      "transcriptFilename": "4.  Long Reduction.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "4. Saving Medical Records and Bills Part 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/4. Saving Medical Records and Bills Part 2.mp4",
+      "slug": "4_Saving_Medical_Records_and_Bills_Part_2_ae7e31338836",
+      "transcriptFilename": "4. Saving Medical Records and Bills Part 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "5 Week and 30 Day Case Review - Pain Management and MRI.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/5 Week and 30 Day Case Review - Pain Management and MRI.mp4",
+      "slug": "5_Week_and_30_Day_Case_Review_-_Pain_Management_and_MRI_eaab125cdd9f",
+      "transcriptFilename": "5 Week and 30 Day Case Review - Pain Management and MRI.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "5. Lien Reduction.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/5. Lien Reduction.mp4",
+      "slug": "5_Lien_Reduction_27e792e58d67",
+      "transcriptFilename": "5. Lien Reduction.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "5. Saving Auto Insurance Docs Overview.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/5. Saving Auto Insurance Docs Overview.mp4",
+      "slug": "5_Saving_Auto_Insurance_Docs_Overview_702e92266f29",
+      "transcriptFilename": "5. Saving Auto Insurance Docs Overview.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "7.-DOCS TAB - Dropbox Folder and Naming Docs.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/7.-DOCS TAB - Dropbox Folder and Naming Docs.mp4",
+      "slug": "7_-DOCS_TAB_-_Dropbox_Folder_and_Naming_Docs_f8f17b352d4e",
+      "transcriptFilename": "7.-DOCS TAB - Dropbox Folder and Naming Docs.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADMIN - Google Apps Password and Emails.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADMIN - Google Apps Password and Emails.mp4",
+      "slug": "ADMIN_-_Google_Apps_Password_and_Emails_b8298498ce46",
+      "transcriptFilename": "ADMIN - Google Apps Password and Emails.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Case Audit.MP4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Case Audit.MP4",
+      "slug": "ADVANCED_-_Case_Audit_3b9f8463fe33",
+      "transcriptFilename": "ADVANCED - Case Audit.MP4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Case Manage a File and Cleaner Fish a File.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Case Manage a File and Cleaner Fish a File.mp4",
+      "slug": "ADVANCED_-_Case_Manage_a_File_and_Cleaner_Fish_a_File_867576795f94",
+      "transcriptFilename": "ADVANCED - Case Manage a File and Cleaner Fish a File.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Case Review.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Case Review.mp4",
+      "slug": "ADVANCED_-_Case_Review_309deebd9b20",
+      "transcriptFilename": "ADVANCED - Case Review.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Customs Editor Expense Tab Envelope (SV).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Expense Tab Envelope (SV).mp4",
+      "slug": "ADVANCED_-_Customs_Editor_Expense_Tab_Envelope_SV__0c7600875a0c",
+      "transcriptFilename": "ADVANCED - Customs Editor Expense Tab Envelope (SV).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Customs Editor INS Tab 3P LOR (SV).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor INS Tab 3P LOR (SV).mp4",
+      "slug": "ADVANCED_-_Customs_Editor_INS_Tab_3P_LOR_SV__ec9f33bf3542",
+      "transcriptFilename": "ADVANCED - Customs Editor INS Tab 3P LOR (SV).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV).mp4",
+      "slug": "ADVANCED_-_Customs_Editor_Ins_Field_Down_and_Adding_FIRST_SE_edecb6300dfe",
+      "transcriptFilename": "ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV).mp4",
+      "slug": "ADVANCED_-_Customs_Editor_Meds_Field_Tab_Adding_Fields_and_D_bc623d310756",
+      "transcriptFilename": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Deadlines and Reminders Editor.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Deadlines and Reminders Editor.mp4",
+      "slug": "ADVANCED_-_Deadlines_and_Reminders_Editor_0a63c91fd259",
+      "transcriptFilename": "ADVANCED - Deadlines and Reminders Editor.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Merging Duplicate Contacts (SV).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Merging Duplicate Contacts (SV).mp4",
+      "slug": "ADVANCED_-_Merging_Duplicate_Contacts_SV__fdeff58c2b50",
+      "transcriptFilename": "ADVANCED - Merging Duplicate Contacts (SV).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "ADVANCED - Taskflow.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Taskflow.mp4",
+      "slug": "ADVANCED_-_Taskflow_b51b3fdadb87",
+      "transcriptFilename": "ADVANCED - Taskflow.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "AGENTMACHINE - Updating Seller Prospects.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/AGENTMACHINE - Updating Seller Prospects.mp4",
+      "slug": "AGENTMACHINE_-_Updating_Seller_Prospects_9dda58f1383d",
+      "transcriptFilename": "AGENTMACHINE - Updating Seller Prospects.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CALENDAR - Appointments.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CALENDAR - Appointments.mp4",
+      "slug": "CALENDAR_-_Appointments_2a55145aeb04",
+      "transcriptFilename": "CALENDAR - Appointments.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2.mp4",
+      "slug": "CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af",
+      "transcriptFilename": "CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CLAIMS - 1st Party LOR - Property Damage Claim Only.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - 1st Party LOR - Property Damage Claim Only.mp4",
+      "slug": "CLAIMS_-_1st_Party_LOR_-_Property_Damage_Claim_Only_3dfdf9b85e35",
+      "transcriptFilename": "CLAIMS - 1st Party LOR - Property Damage Claim Only.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CLAIMS - 3rd PARTY - Open a claim and start a case 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - 3rd PARTY - Open a claim and start a case 2.mp4",
+      "slug": "CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_2_1b4d68419e57",
+      "transcriptFilename": "CLAIMS - 3rd PARTY - Open a claim and start a case 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CLAIMS - 3rd Party Letter of Rep.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - 3rd Party Letter of Rep.mp4",
+      "slug": "CLAIMS_-_3rd_Party_Letter_of_Rep_73ecb24e48e8",
+      "transcriptFilename": "CLAIMS - 3rd Party Letter of Rep.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CLAIMS - Opening up a claim.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - Opening up a claim.mp4",
+      "slug": "CLAIMS_-_Opening_up_a_claim_880439a4d102",
+      "transcriptFilename": "CLAIMS - Opening up a claim.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation.mp4",
+      "slug": "CLIENT_DISCUSSION_-_Hospital_bills_and_records_and_health_in_0a0d15e32f43",
+      "transcriptFilename": "CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "COMPUTER - Creating New File.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/COMPUTER - Creating New File.mp4",
+      "slug": "COMPUTER_-_Creating_New_File_24b34771628b",
+      "transcriptFilename": "COMPUTER - Creating New File.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "CUSTOMS EDITOR Webinar.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CUSTOMS EDITOR Webinar.mp4",
+      "slug": "CUSTOMS_EDITOR_Webinar_f8fe8223a824",
+      "transcriptFilename": "CUSTOMS EDITOR Webinar.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Case Audit Training 1-19-22 (1).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Case Audit Training 1-19-22 (1).mp4",
+      "slug": "Case_Audit_Training_1-19-22_1__7b3442329bf8",
+      "transcriptFilename": "Case Audit Training 1-19-22 (1).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DEMAND - How to gather records for a demand.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DEMAND - How to gather records for a demand.mp4",
+      "slug": "DEMAND_-_How_to_gather_records_for_a_demand_02eb2609d5f7",
+      "transcriptFilename": "DEMAND - How to gather records for a demand.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DEMAND PREP - Gathering Med Recs Bills and FE.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DEMAND PREP - Gathering Med Recs Bills and FE.mp4",
+      "slug": "DEMAND_PREP_-_Gathering_Med_Recs_Bills_and_FE_c11e04e5a055",
+      "transcriptFilename": "DEMAND PREP - Gathering Med Recs Bills and FE.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DEMAND PREP - Part 1.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DEMAND PREP - Part 1.mp4",
+      "slug": "DEMAND_PREP_-_Part_1_591a23b35b1a",
+      "transcriptFilename": "DEMAND PREP - Part 1.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP).mp4",
+      "slug": "DISBURSEMENT_-_Tax_ID_Return_Receipt_DocGen_Scan_In_Red_Appr_38ad63e6437d",
+      "transcriptFilename": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DISBURSEMENT SHEET - Updating Rolando Clores.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DISBURSEMENT SHEET - Updating Rolando Clores.mp4",
+      "slug": "DISBURSEMENT_SHEET_-_Updating_Rolando_Clores_56fa2b2c5527",
+      "transcriptFilename": "DISBURSEMENT SHEET - Updating Rolando Clores.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DISCLOSURE - Respond to Buyer_s Repair Request.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DISCLOSURE - Respond to Buyer_s Repair Request.mp4",
+      "slug": "DISCLOSURE_-_Respond_to_Buyer_s_Repair_Request_69ce8170cb66",
+      "transcriptFilename": "DISCLOSURE - Respond to Buyer_s Repair Request.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DMV REQUEST- How to.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DMV REQUEST- How to.mp4",
+      "slug": "DMV_REQUEST-_How_to_8af88bc6a6f5",
+      "transcriptFilename": "DMV REQUEST- How to.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN - Demand Letter.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Demand Letter.mp4",
+      "slug": "DOCGEN_-_Demand_Letter_b1e01f2498ec",
+      "transcriptFilename": "DOCGEN - Demand Letter.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN - Drop Letter to 3rd Party Insurance.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Drop Letter to 3rd Party Insurance.mp4",
+      "slug": "DOCGEN_-_Drop_Letter_to_3rd_Party_Insurance_b8ad45e1cc1c",
+      "transcriptFilename": "DOCGEN - Drop Letter to 3rd Party Insurance.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN - Drop Letter to Lien Holders.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Drop Letter to Lien Holders.mp4",
+      "slug": "DOCGEN_-_Drop_Letter_to_Lien_Holders_2913510d0f40",
+      "transcriptFilename": "DOCGEN - Drop Letter to Lien Holders.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN - How To Create Letters 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - How To Create Letters 2.mp4",
+      "slug": "DOCGEN_-_How_To_Create_Letters_2_ebd8d59c9937",
+      "transcriptFilename": "DOCGEN - How To Create Letters 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN - How to Create Letters.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - How to Create Letters.mp4",
+      "slug": "DOCGEN_-_How_to_Create_Letters_c2fcd7db459a",
+      "transcriptFilename": "DOCGEN - How to Create Letters.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN - Medical LOR to Copy Co.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Medical LOR to Copy Co.mp4",
+      "slug": "DOCGEN_-_Medical_LOR_to_Copy_Co_21b482ee5649",
+      "transcriptFilename": "DOCGEN - Medical LOR to Copy Co.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN - Revising Docgen Documents.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Revising Docgen Documents.mp4",
+      "slug": "DOCGEN_-_Revising_Docgen_Documents_b68f23a01df5",
+      "transcriptFilename": "DOCGEN - Revising Docgen Documents.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCGEN- MED PAY to 1st party.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN- MED PAY to 1st party.mp4",
+      "slug": "DOCGEN-_MED_PAY_to_1st_party_48968accca97",
+      "transcriptFilename": "DOCGEN- MED PAY to 1st party.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCS TAB - Hashtags 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags 2.mp4",
+      "slug": "DOCS_TAB_-_Hashtags_2_9e9cb058c90f",
+      "transcriptFilename": "DOCS TAB - Hashtags 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCS TAB - Hashtags 3.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags 3.mp4",
+      "slug": "DOCS_TAB_-_Hashtags_3_aebb1b8a3e92",
+      "transcriptFilename": "DOCS TAB - Hashtags 3.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCS TAB - Hashtags.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags.mp4",
+      "slug": "DOCS_TAB_-_Hashtags_dc70e9f9f652",
+      "transcriptFilename": "DOCS TAB - Hashtags.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCUSIGN - Buyer_s Disc Stmt and Editing Recipients and docs.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCUSIGN - Buyer_s Disc Stmt and Editing Recipients and docs.mp4",
+      "slug": "DOCUSIGN_-_Buyer_s_Disc_Stmt_and_Editing_Recipients_and_docs_9d68e2adbeef",
+      "transcriptFilename": "DOCUSIGN - Buyer_s Disc Stmt and Editing Recipients and docs.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCUSIGN - CIC Req, Affiliated, RDG.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCUSIGN - CIC Req, Affiliated, RDG.mp4",
+      "slug": "DOCUSIGN_-_CIC_Req_Affiliated_RDG_34250e800972",
+      "transcriptFilename": "DOCUSIGN - CIC Req, Affiliated, RDG.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCUSIGN - Correcting an envelope and seeing who signed.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCUSIGN - Correcting an envelope and seeing who signed.mp4",
+      "slug": "DOCUSIGN_-_Correcting_an_envelope_and_seeing_who_signed_0f4a3a6c2386",
+      "transcriptFilename": "DOCUSIGN - Correcting an envelope and seeing who signed.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "DOCUSIGN - Offer RPA Black Pine.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCUSIGN - Offer RPA Black Pine.mp4",
+      "slug": "DOCUSIGN_-_Offer_RPA_Black_Pine_2f9aba659fbd",
+      "transcriptFilename": "DOCUSIGN - Offer RPA Black Pine.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Deposition Prep - Part 1.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Deposition Prep - Part 1.mp4",
+      "slug": "Deposition_Prep_-_Part_1_e1456f380df2",
+      "transcriptFilename": "Deposition Prep - Part 1.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Docusign - Addendum.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Docusign - Addendum.mp4",
+      "slug": "Docusign_-_Addendum_27a035017bba",
+      "transcriptFilename": "Docusign - Addendum.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Docusign - CIC Receipt Buyer Repair Request.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Docusign - CIC Receipt Buyer Repair Request.mp4",
+      "slug": "Docusign_-_CIC_Receipt_Buyer_Repair_Request_6c72e566a291",
+      "transcriptFilename": "Docusign - CIC Receipt Buyer Repair Request.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "EXCEL - Filter and Formulas to Know Numbers.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/EXCEL - Filter and Formulas to Know Numbers.mp4",
+      "slug": "EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6",
+      "transcriptFilename": "EXCEL - Filter and Formulas to Know Numbers.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FIILEVINE - Cleaning Feed.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FIILEVINE - Cleaning Feed.mp4",
+      "slug": "FIILEVINE_-_Cleaning_Feed_efbfff9561d4",
+      "transcriptFilename": "FIILEVINE - Cleaning Feed.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Basics of Filevine Part 1.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Basics of Filevine Part 1.mp4",
+      "slug": "FILEVINE_-_Basics_of_Filevine_Part_1_abd613370a9e",
+      "transcriptFilename": "FILEVINE - Basics of the case system Part 1.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Basics of Filevine Part 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Basics of Filevine Part 2.mp4",
+      "slug": "FILEVINE_-_Basics_of_Filevine_Part_2_46d4804bcc17",
+      "transcriptFilename": "FILEVINE - Basics of the case system Part 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Case Review.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Case Review.mp4",
+      "slug": "FILEVINE_-_Case_Review_f8645f17f487",
+      "transcriptFilename": "FILEVINE - Case Review.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Cleaning your Feed Quickly.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Cleaning your Feed Quickly.mp4",
+      "slug": "FILEVINE_-_Cleaning_your_Feed_Quickly_7e4fb7edde6c",
+      "transcriptFilename": "FILEVINE - Cleaning your Feed Quickly.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Creating New Project and Textline.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Creating New Project and Textline.mp4",
+      "slug": "FILEVINE_-_Creating_New_Project_and_Textline_c25530f13971",
+      "transcriptFilename": "FILEVINE - Creating New Project and Textline.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Creating New Project, Roles, Dropbox, and Textline.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Creating New Project, Roles, Dropbox, and Textline.mp4",
+      "slug": "FILEVINE_-_Creating_New_Project_Roles_Dropbox_and_Textline_9de4214dd94b",
+      "transcriptFilename": "FILEVINE - Creating New Project, Roles, Dropbox, and Textline.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Disbursements.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Disbursements.mp4",
+      "slug": "FILEVINE_-_Disbursements_a37c8cc4d16f",
+      "transcriptFilename": "FILEVINE - Disbursements.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Feed - Going through feed Part 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Feed - Going through feed Part 2.mp4",
+      "slug": "FILEVINE_-_Feed_-_Going_through_feed_Part_2_ea73348b4c96",
+      "transcriptFilename": "FILEVINE - Feed - Going through feed Part 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Feed - Going through feed Part 3.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Feed - Going through feed Part 3.mp4",
+      "slug": "FILEVINE_-_Feed_-_Going_through_feed_Part_3_5299154f2c64",
+      "transcriptFilename": "FILEVINE - Feed - Going through feed Part 3.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Hospital Bills and Records Treatment Tracker.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Hospital Bills and Records Treatment Tracker.mp4",
+      "slug": "FILEVINE_-_Hospital_Bills_and_Records_Treatment_Tracker_314c4afc9780",
+      "transcriptFilename": "FILEVINE - Hospital Bills and Records Treatment Tracker.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Intake Better Copy.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Intake Better Copy.mp4",
+      "slug": "FILEVINE_-_Intake_Better_Copy_69d25749e1b6",
+      "transcriptFilename": "FILEVINE - Intake Better Copy.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Intake.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Intake.mp4",
+      "slug": "FILEVINE_-_Intake_606dc0bcc5c4",
+      "transcriptFilename": "FILEVINE - Intake.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Server Folder Names.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Server Folder Names.mp4",
+      "slug": "FILEVINE_-_Server_Folder_Names_c83e174dc022",
+      "transcriptFilename": "FILEVINE - Server Folder Names.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Task - Going through Task Feed Part 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Going through Task Feed Part 2.mp4",
+      "slug": "FILEVINE_-_Task_-_Going_through_Task_Feed_Part_2_9aa87fea6bee",
+      "transcriptFilename": "FILEVINE - Task - Going through Task Feed Part 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Task - Intake, Med Provider, 30 Day, Insurance.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Intake, Med Provider, 30 Day, Insurance.mp4",
+      "slug": "FILEVINE_-_Task_-_Intake_Med_Provider_30_Day_Insurance_0fd3fa87b6b9",
+      "transcriptFilename": "FILEVINE - Task - Intake, Med Provider, 30 Day, Insurance.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Task - Police Report Request.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Police Report Request.mp4",
+      "slug": "FILEVINE_-_Task_-_Police_Report_Request_dc93fda09552",
+      "transcriptFilename": "FILEVINE - Task - Police Report Request.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Task - Police Report Tasks Part 1.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Police Report Tasks Part 1.mp4",
+      "slug": "FILEVINE_-_Task_-_Police_Report_Tasks_Part_1_d35176b2bcbc",
+      "transcriptFilename": "FILEVINE - Task - Police Report Tasks Part 1.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE - Task - Reviewing MRIS.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Reviewing MRIS.mp4",
+      "slug": "FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2",
+      "transcriptFilename": "FILEVINE - Task - Reviewing MRIS.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - 3 Days after DOL Needs List and Internal Intake.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - 3 Days after DOL Needs List and Internal Intake.mp4",
+      "slug": "FILEVINE_TASK_-_3_Days_after_DOL_Needs_List_and_Internal_Int_b7416d6fc862",
+      "transcriptFilename": "FILEVINE TASK - 3 Days after DOL Needs List and Internal Intake.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - 5 Yrs of Med Treatment if priors no index info.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - 5 Yrs of Med Treatment if priors no index info.mp4",
+      "slug": "FILEVINE_TASK_-_5_Yrs_of_Med_Treatment_if_priors_no_index_in_a0fa97c5b2ed",
+      "transcriptFilename": "FILEVINE TASK - 5 Yrs of Med Treatment if priors no index info.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - Atty Directives and Team Members,  Roles, Dropbox Treatment Phase.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Atty Directives and Team Members,  Roles, Dropbox Treatment Phase.mp4",
+      "slug": "FILEVINE_TASK_-_Atty_Directives_and_Team_Members_Roles_Dropb_4981363ceabd",
+      "transcriptFilename": "FILEVINE TASK - Atty Directives and Team Members,  Roles, Dropbox Treatment Phase.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - Bolded Vines for 3P and 1P.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Bolded Vines for 3P and 1P.mp4",
+      "slug": "FILEVINE_TASK_-_Bolded_Vines_for_3P_and_1P_8306397485d4",
+      "transcriptFilename": "FILEVINE TASK - Bolded Vines for 3P and 1P.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - Conflict Check.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Conflict Check.mp4",
+      "slug": "FILEVINE_TASK_-_Conflict_Check_a488602acb87",
+      "transcriptFilename": "FILEVINE TASK - Conflict Check.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - Intake, Treatment, Insurance Auto Tab task Part 1.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Intake, Treatment, Insurance Auto Tab task Part 1.mp4",
+      "slug": "FILEVINE_TASK_-_Intake_Treatment_Insurance_Auto_Tab_task_Par_fe53309f4dc3",
+      "transcriptFilename": "FILEVINE TASK - Intake, Treatment, Insurance Auto Tab task Part 1.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - Intake, Treatment, Insurance Auto Tab task Part 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Intake, Treatment, Insurance Auto Tab task Part 2.mp4",
+      "slug": "FILEVINE_TASK_-_Intake_Treatment_Insurance_Auto_Tab_task_Par_408fb5533689",
+      "transcriptFilename": "FILEVINE TASK - Intake, Treatment, Insurance Auto Tab task Part 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - Med Pay and Insurance Declaration.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Med Pay and Insurance Declaration.mp4",
+      "slug": "FILEVINE_TASK_-_Med_Pay_and_Insurance_Declaration_bf6e2956fc7d",
+      "transcriptFilename": "FILEVINE TASK - Med Pay and Insurance Declaration.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILEVINE TASK - Textline and Organizing Pics Closed Cases Textline Selfies.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Textline and Organizing Pics Closed Cases Textline Selfies.mp4",
+      "slug": "FILEVINE_TASK_-_Textline_and_Organizing_Pics_Closed_Cases_Te_c11e7cebddf6",
+      "transcriptFilename": "FILEVINE TASK - Textline and Organizing Pics Closed Cases Textline Selfies.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "FILING - Google Drive of Filing.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILING - Google Drive of Filing.mp4",
+      "slug": "FILING_-_Google_Drive_of_Filing_33651d64e256",
+      "transcriptFilename": "FILING - Google Drive of Filing.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Filevine 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine 2.mp4",
+      "slug": "Filevine_2_cda9663c5f02",
+      "transcriptFilename": "the case system 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Filevine Training.mov",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine Training.mov",
+      "slug": "Filevine_Training_5bca9bb760a1",
+      "transcriptFilename": "the case system Training.mov",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Filevine.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine.mp4",
+      "slug": "Filevine_7df1e54e36d7",
+      "transcriptFilename": "the case system.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Filevine_combine.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine_combine.mp4",
+      "slug": "Filevine_combine_a07743d6bd07",
+      "transcriptFilename": "Filevine_combine.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "GMAIL - Boomerang.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/GMAIL - Boomerang.mp4",
+      "slug": "GMAIL_-_Boomerang_606d9a1dcafa",
+      "transcriptFilename": "GMAIL - Boomerang.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "GMAIL- Title, attachments, double checking emails (Real Estate).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/GMAIL- Title, attachments, double checking emails (Real Estate).mp4",
+      "slug": "GMAIL-_Title_attachments_double_checking_emails_Real_Estate__1d8818aeeb16",
+      "transcriptFilename": "GMAIL- Title, attachments, double checking emails (Real Estate).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "GOOGLE APPS - Creating accounts and settings.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/GOOGLE APPS - Creating accounts and settings.mp4",
+      "slug": "GOOGLE_APPS_-_Creating_accounts_and_settings_2375a766c000",
+      "transcriptFilename": "GOOGLE APPS - Creating accounts and settings.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "How to Docgen Intake Sheets.MP4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/How to Docgen Intake Sheets.MP4",
+      "slug": "How_to_Docgen_Intake_Sheets_f432ec0d62a5",
+      "transcriptFilename": "How to Docgen Intake Sheets.MP4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "How to Hire on Upwork.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/How to Hire on Upwork.mp4",
+      "slug": "How_to_Hire_on_Upwork_05a70ad738ae",
+      "transcriptFilename": "How to Hire on Upwork.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "How to do Subrogation - Analyn.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/How to do Subrogation - Analyn.mp4",
+      "slug": "How_to_do_Subrogation_-_Analyn_e8e7fb97d3f0",
+      "transcriptFilename": "How to do Subrogation - Analyn.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "How to do Subrogation 1.25.21.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/How to do Subrogation 1.25.21.mp4",
+      "slug": "How_to_do_Subrogation_1_25_21_24cbaab5a904",
+      "transcriptFilename": "How to do Subrogation 1.25.21.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "INS - Opening a 3P Claim 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/INS - Opening a 3P Claim 2.mp4",
+      "slug": "INS_-_Opening_a_3P_Claim_2_62b6f05541b9",
+      "transcriptFilename": "INS - Opening a 3P Claim 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "INS - Opening a 3P Claim.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/INS - Opening a 3P Claim.mp4",
+      "slug": "INS_-_Opening_a_3P_Claim_0e2e15673771",
+      "transcriptFilename": "INS - Opening a 3P Claim.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "JOBS - How to Hire and Organize Applicants 2.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/JOBS - How to Hire and Organize Applicants 2.mp4",
+      "slug": "JOBS_-_How_to_Hire_and_Organize_Applicants_2_a55af228c44d",
+      "transcriptFilename": "JOBS - How to Hire and Organize Applicants 2.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "JOBS - How to Hire and Organize Applicants.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/JOBS - How to Hire and Organize Applicants.mp4",
+      "slug": "JOBS_-_How_to_Hire_and_Organize_Applicants_af56ab46a72b",
+      "transcriptFilename": "JOBS - How to Hire and Organize Applicants.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "JOBS Posting Indeed, CL, Ziprecruiter, Barefoot.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/JOBS Posting Indeed, CL, Ziprecruiter, Barefoot.mp4",
+      "slug": "JOBS_Posting_Indeed_CL_Ziprecruiter_Barefoot_36b05d730898",
+      "transcriptFilename": "JOBS Posting Indeed, CL, Ziprecruiter, Barefoot.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "LASTPASS - Adding Users and Sharing and Storing Passwords.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/LASTPASS - Adding Users and Sharing and Storing Passwords.mp4",
+      "slug": "LASTPASS_-_Adding_Users_and_Sharing_and_Storing_Passwords_d7e8aea9ae2d",
+      "transcriptFilename": "LASTPASS - Adding Users and Sharing and Storing Passwords.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "LASTPASS - How to use and share.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/LASTPASS - How to use and share.mp4",
+      "slug": "LASTPASS_-_How_to_use_and_share_538bbd005a4a",
+      "transcriptFilename": "LASTPASS - How to use and share.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "LITIGATION - Sharing case with litigator Google Drive.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/LITIGATION - Sharing case with litigator Google Drive.mp4",
+      "slug": "LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b",
+      "transcriptFilename": "LITIGATION - Sharing case with litigator Google Drive.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MAIL - Incoming Mail.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MAIL - Incoming Mail.mp4",
+      "slug": "MAIL_-_Incoming_Mail_d0578967012d",
+      "transcriptFilename": "MAIL - Incoming Mail.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MEDS TAB - Creating Contacts and Saving Medical Bills.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MEDS TAB - Creating Contacts and Saving Medical Bills.mp4",
+      "slug": "MEDS_TAB_-_Creating_Contacts_and_Saving_Medical_Bills_f119f77adbea",
+      "transcriptFilename": "MEDS TAB - Creating Contacts and Saving Medical Bills.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MEDS TAB - Update the Meds Tab.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MEDS TAB - Update the Meds Tab.mp4",
+      "slug": "MEDS_TAB_-_Update_the_Meds_Tab_4eb75200b51d",
+      "transcriptFilename": "MEDS TAB - Update the Meds Tab.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MISC - Assigning Tasks to people.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MISC - Assigning Tasks to people.mp4",
+      "slug": "MISC_-_Assigning_Tasks_to_people_155aaabc25cd",
+      "transcriptFilename": "MISC - Assigning Tasks to people.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MISC - Third Party Information for Calls.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MISC - Third Party Information for Calls.mp4",
+      "slug": "MISC_-_Third_Party_Information_for_Calls_68246c480759",
+      "transcriptFilename": "MISC - Third Party Information for Calls.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MLS - Changing things to C Status (Bad Example).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MLS - Changing things to C Status (Bad Example).mp4",
+      "slug": "MLS_-_Changing_things_to_C_Status_Bad_Example__13667bd625ca",
+      "transcriptFilename": "MLS - Changing things to C Status (Bad Example).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MLS - Changing things to ER Status.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MLS - Changing things to ER Status.mp4",
+      "slug": "MLS_-_Changing_things_to_ER_Status_469896096609",
+      "transcriptFilename": "MLS - Changing things to ER Status.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "MLS - Searching for Homes for Buyer Showing.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MLS - Searching for Homes for Buyer Showing.mp4",
+      "slug": "MLS_-_Searching_for_Homes_for_Buyer_Showing_5a3c16bb80a3",
+      "transcriptFilename": "MLS - Searching for Homes for Buyer Showing.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "NEGOTIATION TAB - Notating Offers and updating negotiation and settlement calc tab.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/NEGOTIATION TAB - Notating Offers and updating negotiation and settlement calc tab.mp4",
+      "slug": "NEGOTIATION_TAB_-_Notating_Offers_and_updating_negotiation_a_22a09332bd85",
+      "transcriptFilename": "NEGOTIATION TAB - Notating Offers and updating negotiation and settlement calc tab.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "NOTES - 8 Note Section.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/NOTES - 8 Note Section.mp4",
+      "slug": "NOTES_-_8_Note_Section_80c08faf37c5",
+      "transcriptFilename": "NOTES - 8 Note Section.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "PLEADINGS - Comp, IAFD, DMJT, SUMM.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/PLEADINGS - Comp, IAFD, DMJT, SUMM.mp4",
+      "slug": "PLEADINGS_-_Comp_IAFD_DMJT_SUMM_40f864176ae2",
+      "transcriptFilename": "PLEADINGS - Comp, IAFD, DMJT, SUMM.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Personal Injury Workflow.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Personal Injury Workflow.mp4",
+      "slug": "Personal_Injury_Workflow_00497e0bea58",
+      "transcriptFilename": "Personal Injury Workflow.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case.mp4",
+      "slug": "Phase_1_Client_3-TASK_-_Fill_out_Intake_Ins_Med_Prov_30_Day__51ad466a8f35",
+      "transcriptFilename": "Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Quickbooks.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Quickbooks.mp4",
+      "slug": "Quickbooks_c3506bab1cb6",
+      "transcriptFilename": "Quickbooks.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "SANDY- Meeting w_ Franco Arevalo for accounting (Diana) (2022-01-25 at 13_17 GMT-8).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SANDY- Meeting w_ Franco Arevalo for accounting (Diana) (2022-01-25 at 13_17 GMT-8).mp4",
+      "slug": "SANDY-_Meeting_w__Franco_Arevalo_for_accounting_Diana_2022-0_b71a970cd5ed",
+      "transcriptFilename": "SANDY- Meeting w_ Franco Arevalo for accounting (Diana) (2022-01-25 at 13_17 GMT-8).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "SCANSNAP - Settings.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SCANSNAP - Settings.mp4",
+      "slug": "SCANSNAP_-_Settings_69f20c7e6dac",
+      "transcriptFilename": "SCANSNAP - Settings.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "SERVER - Create new client folder.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SERVER - Create new client folder.mp4",
+      "slug": "SERVER_-_Create_new_client_folder_89f2c7313dd8",
+      "transcriptFilename": "SERVER - Create new client folder.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "SETTLEMENT CALC TAB - Settlement Calc Disbursement Ltr.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SETTLEMENT CALC TAB - Settlement Calc Disbursement Ltr.mp4",
+      "slug": "SETTLEMENT_CALC_TAB_-_Settlement_Calc_Disbursement_Ltr_b1ab01c92be9",
+      "transcriptFilename": "SETTLEMENT CALC TAB - Settlement Calc Disbursement Ltr.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "STAMPS.COM - Online and Desktop No Audio.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/STAMPS.COM - Online and Desktop No Audio.mp4",
+      "slug": "STAMPS_COM_-_Online_and_Desktop_No_Audio_6711771be4ec",
+      "transcriptFilename": "STAMPS.COM - Online and Desktop No Audio.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "STATUS CHART - Record Gathering Counters Supplements Demands and Minors Comp.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/STATUS CHART - Record Gathering Counters Supplements Demands and Minors Comp.mp4",
+      "slug": "STATUS_CHART_-_Record_Gathering_Counters_Supplements_Demands_dd71039be2b6",
+      "transcriptFilename": "STATUS CHART - Record Gathering Counters Supplements Demands and Minors Comp.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "STATUS CHART - Settlement Disbursement Minor_s Compromise.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/STATUS CHART - Settlement Disbursement Minor_s Compromise.mp4",
+      "slug": "STATUS_CHART_-_Settlement_Disbursement_Minor_s_Compromise_355103ce9f91",
+      "transcriptFilename": "STATUS CHART - Settlement Disbursement Minor_s Compromise.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "SUBRO -Reviewing the  Lien (SV).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SUBRO -Reviewing the  Lien (SV).mp4",
+      "slug": "SUBRO_-Reviewing_the_Lien_SV__1fca3bc67396",
+      "transcriptFilename": "SUBRO -Reviewing the  Lien (SV).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "SUBROGATION - Google doc, LOR draft, subro explanation (SP).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SUBROGATION - Google doc, LOR draft, subro explanation (SP).mp4",
+      "slug": "SUBROGATION_-_Google_doc_LOR_draft_subro_explanation_SP__46e2a4aa9bec",
+      "transcriptFilename": "SUBROGATION - Google doc, LOR draft, subro explanation (SP).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "SUBROGATION LIEN - Rolando Clores.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SUBROGATION LIEN - Rolando Clores.mp4",
+      "slug": "SUBROGATION_LIEN_-_Rolando_Clores_293c62ff34d1",
+      "transcriptFilename": "SUBROGATION LIEN - Rolando Clores.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Settlement Disbursement - Long Reduction Request.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Settlement Disbursement - Long Reduction Request.mp4",
+      "slug": "Settlement_Disbursement_-_Long_Reduction_Request_fadacdf73a10",
+      "transcriptFilename": "Settlement Disbursement - Long Reduction Request.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Social Media Posts.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Social Media Posts.mp4",
+      "slug": "Social_Media_Posts_06755c579933",
+      "transcriptFilename": "Social Media Posts.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Subrogation Meeting.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Subrogation Meeting.mp4",
+      "slug": "Subrogation_Meeting_a7fe8b2c1d6c",
+      "transcriptFilename": "Subrogation Meeting.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "TASK - 7 Day call and Needs List.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - 7 Day call and Needs List.mp4",
+      "slug": "TASK_-_7_Day_call_and_Needs_List_34b9516621e7",
+      "transcriptFilename": "TASK - 7 Day call and Needs List.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "TASK - Assign Primary and Roles.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Assign Primary and Roles.mp4",
+      "slug": "TASK_-_Assign_Primary_and_Roles_8a93a331dad8",
+      "transcriptFilename": "TASK - Assign Primary and Roles.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "TASK - Enter Client Contact Information.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Enter Client Contact Information.mp4",
+      "slug": "TASK_-_Enter_Client_Contact_Information_0823bcdae421",
+      "transcriptFilename": "TASK - Enter Client Contact Information.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "TASK - Getting Police Report Calling and DocGen Ltr.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Getting Police Report Calling and DocGen Ltr.mp4",
+      "slug": "TASK_-_Getting_Police_Report_Calling_and_DocGen_Ltr_bfbb99ae10f1",
+      "transcriptFilename": "TASK - Getting Police Report Calling and DocGen Ltr.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "TASK - Witness Statement.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Witness Statement.mp4",
+      "slug": "TASK_-_Witness_Statement_c4d99ed5e876",
+      "transcriptFilename": "TASK - Witness Statement.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "TRANSACTION DESK - Counter.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TRANSACTION DESK - Counter.mp4",
+      "slug": "TRANSACTION_DESK_-_Counter_9f4efeb332ad",
+      "transcriptFilename": "TRANSACTION DESK - Counter.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "TRANSACTION DESK - RPA Offer Conv No CC.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TRANSACTION DESK - RPA Offer Conv No CC.mp4",
+      "slug": "TRANSACTION_DESK_-_RPA_Offer_Conv_No_CC_b5a8cef210c9",
+      "transcriptFilename": "TRANSACTION DESK - RPA Offer Conv No CC.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Traffic Tickets.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Traffic Tickets.mp4",
+      "slug": "Traffic_Tickets_beaff8fb9a7c",
+      "transcriptFilename": "Traffic Tickets.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Transaction Desk - RPA Palms HiRise.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Transaction Desk - RPA Palms HiRise.mp4",
+      "slug": "Transaction_Desk_-_RPA_Palms_HiRise_f2085b2097b0",
+      "transcriptFilename": "Transaction Desk - RPA Palms HiRise.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "Zoom Meeting with Sandy (NV-Arbitration).mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Zoom Meeting with Sandy (NV-Arbitration).mp4",
+      "slug": "Zoom_Meeting_with_Sandy_NV-Arbitration__9ce98b7e6abf",
+      "transcriptFilename": "Zoom Meeting with Sandy (NV-Arbitration).mp4",
+      "score": 1,
+      "matchKind": "exact"
+    },
+    {
+      "quarantineFile": "zoom_0.mp4",
+      "quarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/zoom_0.mp4",
+      "slug": "zoom_0_d5d3b2ad1da3",
+      "transcriptFilename": "zoom_0.mp4",
+      "score": 1,
+      "matchKind": "exact"
+    }
+  ],
+  "unmatchedQuarantine": [
+    "4.- Solution Startegy .mov",
+    "Additional Sites Reman Engine.mov",
+    "Admin Carpartplanet Used Transmissions.mov",
+    "Admin. carpartplanet Firstday.mov",
+    "After The Sale.mov",
+    "After the Sale Used Transmission.mov",
+    "Atk Sales.mov",
+    "Bianca training part 1.mov",
+    "Buyete Used Transmissions.mov",
+    "Call Taracking.mov",
+    "Carpartplanet.org Simplified.mov",
+    "Clock in clock out.mov",
+    "Closing The Sale.mov",
+    "Closing The sale Faqs.mov",
+    "Commision:Golden Rules.mov",
+    "Continuation of Hybrid Transmission Training.mov",
+    "Core Reman Engine.mov",
+    "Core Returns.mov",
+    "Corrective Actions.mov",
+    "Customer Service (Customer Service Mindset.mov",
+    "Customer service Warranty call.mov",
+    "Danny Group Shadowing.mov",
+    "Day 1 Company Intro.mov",
+    "Day 2 Continuation Solution Strategy.mov",
+    "Day 2 solution strategy.mov",
+    "Delivery Times Shipping Times 1.mov",
+    "Do i need to reflash.mov",
+    "Dont entertain people -CPP.mov",
+    "Email Format.mov",
+    "Email Formats.mov",
+    "Employee Mistakes.mov",
+    "Engine Shipping Facts -Part 5.mov",
+    "Engine Warranty -Part 4.mov",
+    "Engines part 1.mov",
+    "Engines.mov",
+    "Failed Email Correction- cpp.mov",
+    "Filevien Training Mike Skoleb.mov",
+    "Finalized Sales Used Engines.mov",
+    "Flow Chart Customer Service.mov",
+    "Gmpartsgiant simplifed.mov",
+    "Greeting the customer.mov",
+    "Holds.mov",
+    "Interchange Number.mov",
+    "Interchange number Used enGINES'.mov",
+    "Intro Transmissions.mov",
+    "Lewis Shadowing.mov",
+    "Lewis call 1.mov",
+    "No connection or audio proper way to hang up.mov",
+    "Not in stock.mov",
+    "Notes.mov",
+    "Pause for control Used engines.mov",
+    "Post-Its.mov",
+    "Price Matching.mov",
+    "Processing The Sale.mov",
+    "Proper Reman transmission Call.mov",
+    "Quality call :ATKSales individual search.mov",
+    "Quiz review fo SKU.mov",
+    "RFQ Importance.mov",
+    "RFQ admin.carpartplanet.com.mov",
+    "Reman ENGINE Sale.mov",
+    "Reman Engine Warranty.mov",
+    "Reman Trans work after order.mov",
+    "Reman Transmission warranty Faqs.mov",
+    "Reman-tranmission Foorst video.mov",
+    "Reset Password on Customer Profile.mov",
+    "Rfq Message Wrong Part.mov",
+    "Rfq filter online and sales.mov",
+    "Rfq simplified.mov",
+    "Ring Central.mov",
+    "Ringcentral customer service.mov",
+    "Sales Call 1.mov",
+    "Sales Call 2.mov",
+    "Sales Call 3.mov",
+    "Sales Call 4.mov",
+    "Sales Call 5.mov",
+    "Sales Call Residential.mov",
+    "Sales Call Splitpayment:vin:rfq.mov",
+    "Sales Call with Complex Vin request.mov",
+    "Sales Call.mov",
+    "Sales call customer with SKU.mov",
+    "Screen Recording 2021-04-19 at 9.36.46 AM.mov",
+    "Screen Recording 2021-06-02 at 2.13.04 PM.mov",
+    "Screen Recording 2021-06-02 at 2.16.48 PM.mov",
+    "Screen Recording 2021-06-02 at 2.20.35 PM.mov",
+    "Screen Recording 2021-06-02 at 2.22.32 PM.mov",
+    "Screen Recording 2021-06-02 at 2.29.06 PM.mov",
+    "Screen Recording 2021-06-02 at 2.44.45 PM.mov",
+    "Screen Recording 2021-06-02 at 2.55.02 PM.mov",
+    "Screen Recording 2021-06-02 at 2.58.59 PM.mov",
+    "Screen Recording 2021-06-02 at 3.18.18 PM.mov",
+    "Screen Recording 2021-06-02 at 3.23.36 PM.mov",
+    "Screen Recording 2021-06-02 at 3.28.05 PM.mov",
+    "Screen Recording 2021-06-02 at 3.52.54 PM.mov",
+    "Screen Recording 2021-06-02 at 4.03.21 PM.mov",
+    "Screen Recording 2021-06-02 at 4.13.37 PM.mov",
+    "Screen Recording 2021-06-02 at 4.38.25 PM.mov",
+    "Screen Recording 2021-06-02 at 4.45.02 PM.mov",
+    "Screen Recording 2021-06-02 at 4.56.10 PM.mov",
+    "Screen Recording 2021-06-02 at 5.08.39 PM.mov",
+    "Screen Recording 2021-06-02 at 5.43.39 PM.mov",
+    "Screen Recording 2021-07-23 at 10.14.10 AM.mov",
+    "Screen Recording 2021-07-28 at 12.07.16 PM.mov",
+    "Screen Recording 2021-08-26 at 10.16.55 AM.mov",
+    "Screen Recording 2021-09-08 at 11.56.12 AM.mov",
+    "Screen Recording 2021-09-10 at 3.05.45 PM.mov",
+    "Screen Recording 2021-09-10 at 4.06.59 PM.mov",
+    "Screen Recording 2021-10-06 at 2.13.53 PM.mov",
+    "Screen Recording 2021-10-07 at 11.14.05 AM.mov",
+    "Screen Recording 2021-10-14 at 6.33.54 PM.mov",
+    "Screen Recording 2021-10-14 at 7.39.50 PM.mov",
+    "Screen Recording 2022-09-01 at 8.52.35 AM.mov",
+    "Screen Recording 2022-09-02 at 6.54.50 AM.mov",
+    "Screen Recording 2022-09-02 at 7.02.28 AM.mov",
+    "Screen Recording 2023-06-06 at 9.26.31 AM.mov",
+    "Screen Recording 2023-06-06 at 9.30.06 AM.mov",
+    "Screen Recording 2023-09-08 at 7.57.56 AM.mov",
+    "Screen Recording 2023-10-01 at 2.57.55 PM.mov",
+    "Screen Recording 2024-01-31 at 2.23.20 PM.mov",
+    "Screen Recording 2024-02-28 at 8.46.17 AM.mov",
+    "Screen Recording 2024-03-30 at 12.25.28 PM.mov",
+    "Screen Recording 2024-07-07 at 11.58.54 AM.mov",
+    "Screen Recording 2024-07-10 at 9.40.48 AM.mov",
+    "Screen Recording 2024-08-19 at 11.49.10 AM.mov",
+    "Screen Recording 2024-10-14 at 7.04.34 PM.mov",
+    "Screen Recording 2024-10-14 at 7.12.49 PM.mov",
+    "Screen Recording 2024-10-14 at 7.14.52 PM.mov",
+    "Screen Recording 2024-10-14 at 7.45.24 PM.mov",
+    "Screen Recording 2024-10-28 at 6.49.17 PM.mov",
+    "Screen Recording 2025-11-01 at 9.50.16 AM.mov",
+    "Screen Recording 2026-05-25 at 5.18.07 PM.mov",
+    "Screen Recording 2026-06-07 at 2.15.05 PM.mov",
+    "Service Call 1.mov",
+    "Shelly Session 1.mov",
+    "Shipping Fact s Engine.mov",
+    "Shipping Facts Used Transmissions.mov",
+    "Shipping Reman Engine.mov",
+    "Shipping Used Parts.mov",
+    "Shipping and delivery part 2.mov",
+    "Shipping on Reman Transmission.mov",
+    "Shipping used facts engines.mov",
+    "Slavik Discussion Call-CPP.mov",
+    "Solution Startegies Intro].mov",
+    "Solution Strategy Reman Engine.mov",
+    "Solution Strategy Transmissions 1.mov",
+    "Solution Strategy transmission 2.mov",
+    "Solutions startegies tranmsisson.mov",
+    "Spanish Sales Call 1.mov",
+    "Split Payments.mov",
+    "Steps For Sales - Part 2.mov",
+    "Steps For a Sale.mov",
+    "Steps Of Service .mov",
+    "Steps that are only used on reman engine.mov",
+    "Supervisor.mov",
+    "Table Of Contents- Part 1.mov",
+    "Take cntrolof the call.mov",
+    "Text Rfq.mov",
+    "Through And From.mov",
+    "Time Clock Explanation.mov",
+    "Timestamp authorization - CPP.mov",
+    "Tracking Calls.mov",
+    "Tracking Customer Service.mov",
+    "Transmission BUYETE Part 6.mov",
+    "Transmission Certfied Shop- Part 10.mov",
+    "Transmission SKU -Part 9.mov",
+    "Transmissions -Part 7.mov",
+    "Transmissions Options Patr 8.mov",
+    "Unassigned .mov",
+    "Unassigned and canceled - Cpp.mov",
+    "Used Engine video 1.mov",
+    "Used Transmission Facts.mov",
+    "Used Transmission Solution Strategy Part 1.mov",
+    "Warranty Reman Engine.mov",
+    "Webapp Phone -CPP.mov",
+    "What Happens Lkq.mov",
+    "Wrong Part ordered :Interchange Process.mov",
+    "admin.carpartplanet.com -Part 12.mov",
+    "admin.carpartplanet.com- Part 11.mov",
+    "atk emsail tracking.mov",
+    "bIANCA TARINING PART 2.mov",
+    "pROCESSIGNA SALE.mov",
+    "page 60 before FAQS.mov",
+    "phone System.mov",
+    "phone etiquete.mov",
+    "rincentral part 2.mov",
+    "sales call denied quote.mov",
+    "tracking warranty item.mov",
+    "transfer cases solution startegy.mov",
+    "used Engine Warranty.mov"
+  ],
+  "unmatchedTranscriptSlugs": [
+    {
+      "slug": "1_Filevine_-Introduction_433bea87aae0",
+      "filename": "1. the case system -Introduction.mp4"
+    },
+    {
+      "slug": "Advanced_Customs_editor_Filevine_77a5c4074ed9",
+      "filename": "Advanced Customs editor the case system.mp4"
+    },
+    {
+      "slug": "CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_3_c6ffd4681ac0",
+      "filename": "CLAIMS - 3rd PARTY - Open a claim and start a case 3.mp4"
+    },
+    {
+      "slug": "Customs_editor_Filevine_55d383ecbf4c",
+      "filename": "Customs editor the case system.mp4"
+    },
+    {
+      "slug": "EUO_prep_dd8659364722",
+      "filename": "EUO prep.mp4"
+    },
+    {
+      "slug": "FILEVINE_-_Feed_-_Going_through_feed_be24502d8f7c",
+      "filename": "FILEVINE - Feed - Going through feed.mp4"
+    },
+    {
+      "slug": "FILEVINE_-_Task_-_Police_Report_Tasks_Part_2_3cfd09fd44e2",
+      "filename": "FILEVINE - Task - Police Report Tasks Part 2.mp4"
+    },
+    {
+      "slug": "TRANSACTION_DESK_-_Creating_a_Listing_Contract_2ef389178e96",
+      "filename": "TRANSACTION DESK - Creating a Listing Contract.mp4"
+    },
+    {
+      "slug": "Transfer_to_Litigation_Matrix_and_Roles_and_Followers_73de2da35615",
+      "filename": "Transfer to Litigation Matrix and Roles and Followers.mp4"
+    }
+  ]
+}

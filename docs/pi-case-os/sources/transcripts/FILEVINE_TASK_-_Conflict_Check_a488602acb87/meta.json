@@ -24,15 +24,21 @@
   "updatedAt": "2026-06-18T20:38:42.652584+00:00",
   "hasAudioArchive": true,
   "audioBytes": 4339996,
-  "frameCount": 6,
+  "frameCount": 9,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
     "frame_003.jpg",
     "frame_004.jpg",
     "frame_005.jpg",
-    "frame_006.jpg"
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_TASK_-_Conflict_Check_a488602acb87/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_TASK_-_Conflict_Check_a488602acb87/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Conflict Check.mp4",
+  "framesExtractedAt": "2026-07-05T01:31:22.889Z",
+  "frameManifest": "training-archive/van-law-the case system/FILEVINE_TASK_-_Conflict_Check_a488602acb87/screenshots/frame-manifest.json"
 }

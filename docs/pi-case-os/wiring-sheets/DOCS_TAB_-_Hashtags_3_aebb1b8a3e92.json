@@ -1,0 +1,13 @@
+{
+  "slug": "DOCS_TAB_-_Hashtags_3_aebb1b8a3e92",
+  "title": "DOCS TAB - Hashtags 3",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 105,
+  "matterShell": { "description": "Hashtag quick reference", "route": "/matters/:id", "selectors": ["docsTab"] },
+  "functions": [
+    { "id": "docs.hashtag_on_every_upload", "sequence": 1, "frame": "frame_002.jpg", "timestampSec": 30, "filevineTab": "Documents", "filevineSection": "Tag on upload", "actions": ["applyHashtagWhenSaving", "consistentTagsAcrossTeam"], "transcriptQuote": "hashtags help look for things… tag like Gmail labels", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No required hashtag on upload" },
+    { "id": "docs.cross_reference_activity", "sequence": 2, "frame": "frame_003.jpg", "timestampSec": 45, "filevineTab": "Activity", "filevineSection": "Link doc in note", "actions": ["attachHashtaggedDocInActivity"], "transcriptQuote": "attach documents… hashtags on docs and activity", "praxiumRoute": "/matters/:id", "praxiumTab": "comms", "status": "partial", "gapNotes": "Activity attach partial" }
+  ],
+  "labeledFrames": ["frame_002.jpg", "frame_003.jpg"]
+}

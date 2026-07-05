@@ -1,0 +1,59 @@
+{
+  "slug": "TASK_-_7_Day_call_and_Needs_List_34b9516621e7",
+  "title": "TASK - 7 Day call and Needs List",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: TASK - 7 Day call and Needs List",
+    "route": "/tasks",
+    "selectors": [
+      "taskflow",
+      "intake"
+    ]
+  },
+  "functions": [
+    {
+      "id": "taskflow.task___7_day_1",
+      "sequence": 1,
+      "frame": "frame_001.jpg",
+      "timestampSec": 0,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "# TASK - 7 Day call and Needs List **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:*",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "intake.task___7_day_2",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: TASK - 7 Day call and Needs List",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_001.jpg",
+    "frame_003.jpg"
+  ]
+}

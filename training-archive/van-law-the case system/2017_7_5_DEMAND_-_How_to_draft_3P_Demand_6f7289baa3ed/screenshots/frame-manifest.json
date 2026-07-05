@@ -1,0 +1,562 @@
+{
+  "slug": "2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed",
+  "title": "2017.7.5 DEMAND - How to draft 3P Demand",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.7.5 DEMAND - How to draft 3P Demand.mp4",
+  "extractedAt": "2026-07-05T03:05:01.104Z",
+  "intervalSec": 30,
+  "durationSec": 1632.316372,
+  "frameCount": 54,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 270,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 300,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "functionId": "meds.2017_7_5_dem_1",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "t would be. P-H-O-U-N-G. P-H-O-U-N-G. insurance Alright. Alright. And you would just put in all the medical bills here. So for example, you would put, um, who would you put? So you would go to the med"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 330,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 390,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 420,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_016.jpg",
+      "timestampSec": 450,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_017.jpg",
+      "timestampSec": 480,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_018.jpg",
+      "timestampSec": 510,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_019.jpg",
+      "timestampSec": 540,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_020.jpg",
+      "timestampSec": 570,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_021.jpg",
+      "timestampSec": 600,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_022.jpg",
+      "timestampSec": 630,
+      "labeled": true,
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "functionId": "demand.2017_7_5_dem_2",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,"
+    },
+    {
+      "filename": "frame_023.jpg",
+      "timestampSec": 660,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_024.jpg",
+      "timestampSec": 690,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_025.jpg",
+      "timestampSec": 720,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_026.jpg",
+      "timestampSec": 750,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_027.jpg",
+      "timestampSec": 780,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_028.jpg",
+      "timestampSec": 810,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_029.jpg",
+      "timestampSec": 840,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_030.jpg",
+      "timestampSec": 870,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_031.jpg",
+      "timestampSec": 900,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_032.jpg",
+      "timestampSec": 930,
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "functionId": "insurance.2017_7_5_dem_3",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "All those correct, right? So let's go to the related case, and we're going to create a demand. And insurance old. And we're going to create, on this one, we have UM, UIM, and third party. So we're go"
+    },
+    {
+      "filename": "frame_033.jpg",
+      "timestampSec": 960,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_034.jpg",
+      "timestampSec": 990,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_035.jpg",
+      "timestampSec": 1020,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_036.jpg",
+      "timestampSec": 1050,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_037.jpg",
+      "timestampSec": 1080,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_038.jpg",
+      "timestampSec": 1110,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_039.jpg",
+      "timestampSec": 1140,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_040.jpg",
+      "timestampSec": 1170,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_041.jpg",
+      "timestampSec": 1200,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_042.jpg",
+      "timestampSec": 1230,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_043.jpg",
+      "timestampSec": 1260,
+      "labeled": true,
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "functionId": "docgen.2017_7_5_dem_4",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,"
+    },
+    {
+      "filename": "frame_044.jpg",
+      "timestampSec": 1290,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_045.jpg",
+      "timestampSec": 1320,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_046.jpg",
+      "timestampSec": 1350,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_047.jpg",
+      "timestampSec": 1380,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_048.jpg",
+      "timestampSec": 1410,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_049.jpg",
+      "timestampSec": 1440,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_050.jpg",
+      "timestampSec": 1470,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_051.jpg",
+      "timestampSec": 1500,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_052.jpg",
+      "timestampSec": 1530,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_053.jpg",
+      "timestampSec": 1560,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_054.jpg",
+      "timestampSec": 1590,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed.json",
+  "labeledFrameCount": 4,
+  "labeledAt": "2026-07-05"
+}

@@ -24,11 +24,16 @@
   "updatedAt": "2026-06-18T20:39:14.540389+00:00",
   "hasAudioArchive": true,
   "audioBytes": 1752001,
-  "frameCount": 2,
+  "frameCount": 4,
   "frames": [
     "frame_001.jpg",
-    "frame_002.jpg"
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/TASK_-_Enter_Client_Contact_Information_0823bcdae421/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/TASK_-_Enter_Client_Contact_Information_0823bcdae421/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Enter Client Contact Information.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:18.445Z",
+  "frameManifest": "training-archive/van-law-the case system/TASK_-_Enter_Client_Contact_Information_0823bcdae421/screenshots/frame-manifest.json"
 }

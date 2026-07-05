@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:37:06.051216+00:00",
   "hasAudioArchive": true,
   "audioBytes": 7435005,
-  "frameCount": 10,
+  "frameCount": 15,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -35,8 +35,16 @@
     "frame_007.jpg",
     "frame_008.jpg",
     "frame_009.jpg",
-    "frame_010.jpg"
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_2_1b4d68419e57/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_2_1b4d68419e57/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - 3rd PARTY - Open a claim and start a case 2.mp4",
+  "framesExtractedAt": "2026-07-05T03:05:24.513Z",
+  "frameManifest": "training-archive/van-law-the case system/CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_2_1b4d68419e57/screenshots/frame-manifest.json"
 }

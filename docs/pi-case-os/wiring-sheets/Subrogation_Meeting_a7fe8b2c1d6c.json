@@ -1,0 +1,180 @@
+{
+  "slug": "Subrogation_Meeting_a7fe8b2c1d6c",
+  "title": "Subrogation Meeting",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: Subrogation Meeting",
+    "route": "/matters/:id",
+    "selectors": [
+      "health",
+      "subrogation",
+      "settlement"
+    ]
+  },
+  "functions": [
+    {
+      "id": "health.subrogation__1",
+      "sequence": 1,
+      "frame": "frame_021.jpg",
+      "timestampSec": 600,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "zero. No payment. Okay. Let's go see what's going on. What kind of insurance does Christy Lee have? Health insurance. Does this woman, where's your health insurance card? Here it is. Is this Medicaid?",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "subrogation.subrogation__2",
+      "sequence": 2,
+      "frame": "frame_043.jpg",
+      "timestampSec": 1260,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "# Subrogation Meeting **Kind:** other **Tags:** coaching **Speakers:** Rick **Complete sales ca",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "settlement.subrogation__3",
+      "sequence": 3,
+      "frame": "frame_064.jpg",
+      "timestampSec": 1890,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "t test them in the case system. But okay then. So all these items are going to be removed off of my lien. Okay. So since this is hanging over here, that's kind of ugly. We don't want to do that. So we",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "feed.subrogation__4",
+      "sequence": 4,
+      "frame": "frame_085.jpg",
+      "timestampSec": 2520,
+      "filevineSurface": "Feed",
+      "filevineTab": "Feed",
+      "filevineSection": "Activity feed",
+      "fields": [],
+      "actions": [
+        "reviewFeedWorkflow",
+        "mapToPraxiumfeed"
+      ],
+      "transcriptQuote": "ave leave leave okay so we've got it okay so normally i go look at my tasks i don't ever look at my feed unless i pinned it to it because i don't look at my feed just never do okay so did we get a sub",
+      "praxiumRoute": "/inbox",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Feed parity"
+    },
+    {
+      "id": "meds.subrogation__5",
+      "sequence": 5,
+      "frame": "frame_107.jpg",
+      "timestampSec": 3180,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "attach the HIPAA. Right. Okay. Let's do it again. Got it. Okay. So let's go look at her treatment. Meds tab. Care now. Urgent care CVS. And all these other people are our doctors. So we're calling on",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "docgen.subrogation__6",
+      "sequence": 6,
+      "frame": "frame_128.jpg",
+      "timestampSec": 3810,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "n. Undetermined at this time. Okay. Call me back again later. Okay. This must be when you sent your LOR, right? Yep. So this is what an LOR looks like, Diara. And you have to attach your HIPAA. They'r",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "insurance.subrogation__7",
+      "sequence": 7,
+      "frame": "frame_149.jpg",
+      "timestampSec": 4440,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "ack of the number and then open a claim. So you call this number, open a claim, and then you send a letter of rep, right? So you call the number. You sent the letter of rep. Okay. Benefits recovery. O",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docs.subrogation__8",
+      "sequence": 8,
+      "frame": "frame_171.jpg",
+      "timestampSec": 5100,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": ". As such, please remove the following items. Okay, cool. I'm going to go send this to I'm going to save one for doc Jen. Hold on. Does it go to filing? I guess you guys do want it to filing, huh? Yea",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_021.jpg",
+    "frame_043.jpg",
+    "frame_064.jpg",
+    "frame_085.jpg",
+    "frame_107.jpg",
+    "frame_128.jpg",
+    "frame_149.jpg",
+    "frame_171.jpg"
+  ]
+}

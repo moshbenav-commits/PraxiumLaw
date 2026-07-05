@@ -1,0 +1,456 @@
+{
+  "slug": "FILEVINE_-_Intake_Better_Copy_69d25749e1b6",
+  "title": "FILEVINE - Intake Better Copy",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Intake Better Copy.mp4",
+  "extractedAt": "2026-07-05T01:51:16.353Z",
+  "intervalSec": 30,
+  "durationSec": 1296.718367,
+  "frameCount": 43,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Contact create",
+      "functionId": "intake.new_project_contact_card",
+      "praxiumTab": "intake",
+      "status": "partial",
+      "praxiumRoute": "/matters/new",
+      "transcriptQuote": "new project… Cesar Nava… home address… personal cell… hit save"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 270,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 300,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 330,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Related + secondary",
+      "functionId": "intake.related_case_passenger_secondary",
+      "praxiumTab": "intake",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "passenger secondary… driver Gonzalez… file name driver then passenger last names"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 390,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 420,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_016.jpg",
+      "timestampSec": 450,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_017.jpg",
+      "timestampSec": 480,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_018.jpg",
+      "timestampSec": 510,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Emergency contacts",
+      "functionId": "intake.emergency_contacts_defendant_flag",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "emergency contacts… put defendant… can't represent defendants we sued"
+    },
+    {
+      "filename": "frame_019.jpg",
+      "timestampSec": 540,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_020.jpg",
+      "timestampSec": 570,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_021.jpg",
+      "timestampSec": 600,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_022.jpg",
+      "timestampSec": 630,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_023.jpg",
+      "timestampSec": 660,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_024.jpg",
+      "timestampSec": 690,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_025.jpg",
+      "timestampSec": 720,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Defendant + 3P",
+      "functionId": "intake.defendant_vehicle_insurance",
+      "praxiumTab": "intake",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Abigail Hunt… Geico… policy claim number… always hit save"
+    },
+    {
+      "filename": "frame_026.jpg",
+      "timestampSec": 750,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_027.jpg",
+      "timestampSec": 780,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_028.jpg",
+      "timestampSec": 810,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_029.jpg",
+      "timestampSec": 840,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_030.jpg",
+      "timestampSec": 870,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_031.jpg",
+      "timestampSec": 900,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_032.jpg",
+      "timestampSec": 930,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_033.jpg",
+      "timestampSec": 960,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_034.jpg",
+      "timestampSec": 990,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_035.jpg",
+      "timestampSec": 1020,
+      "labeled": true,
+      "filevineTab": "30 Day Case Review",
+      "filevineSection": "Review checklist",
+      "functionId": "intake.30_day_case_review",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "30-day case review… police not applicable… treating Brian Lay spine"
+    },
+    {
+      "filename": "frame_036.jpg",
+      "timestampSec": 1050,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_037.jpg",
+      "timestampSec": 1080,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_038.jpg",
+      "timestampSec": 1110,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_039.jpg",
+      "timestampSec": 1140,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_040.jpg",
+      "timestampSec": 1170,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Providers",
+      "functionId": "meds.initial_providers_from_intake",
+      "praxiumTab": "medical",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "meds tab Las Vegas spine… East Desert Inn chiropractor"
+    },
+    {
+      "filename": "frame_041.jpg",
+      "timestampSec": 1200,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_042.jpg",
+      "timestampSec": 1230,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_043.jpg",
+      "timestampSec": 1260,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/FILEVINE_-_Intake_Better_Copy_69d25749e1b6.json",
+  "labeledFrameCount": 6,
+  "labeledAt": "2026-07-05"
+}

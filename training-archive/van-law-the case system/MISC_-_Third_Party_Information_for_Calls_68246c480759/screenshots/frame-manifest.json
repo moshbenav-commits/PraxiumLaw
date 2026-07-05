@@ -1,0 +1,60 @@
+{
+  "slug": "MISC_-_Third_Party_Information_for_Calls_68246c480759",
+  "title": "MISC - Third Party Information for Calls",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MISC - Third Party Information for Calls.mp4",
+  "extractedAt": "2026-07-05T03:07:12.518Z",
+  "intervalSec": 30,
+  "durationSec": 134.513197,
+  "frameCount": 4,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "functionId": "insurance.misc___third_1",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Transcript If you want to find out information about the third party, what you would go to is this insurance tab here. And you would look for third party. And we are going to change this at some poin"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "functionId": "activity.misc___third_2",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Activity workflow per title: MISC - Third Party Information for Calls"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "functionId": "taskflow.misc___third_3",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/tasks",
+      "transcriptQuote": "Training covers Taskflow workflow per title: MISC - Third Party Information for Calls"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/MISC_-_Third_Party_Information_for_Calls_68246c480759.json",
+  "labeledFrameCount": 3,
+  "labeledAt": "2026-07-05"
+}

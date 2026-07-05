@@ -1,0 +1,16 @@
+{
+  "slug": "5_Saving_Auto_Insurance_Docs_Overview_702e92266f29",
+  "title": "5. Saving Auto Insurance Docs Overview",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 1702,
+  "matterShell": { "description": "Auto insurance doc save — 1P/3P, naming, insurance auto tab", "route": "/matters/:id", "selectors": ["insuranceTab", "activityTab", "docsTab"] },
+  "functions": [
+    { "id": "insdoc.identify_1p_3p", "sequence": 1, "frame": "frame_008.jpg", "timestampSec": 120, "filevineTab": "Insurance Auto", "filevineSection": "Insurance type", "actions": ["identifyFirstPartyThirdParty", "matchPolicyInInsuranceAutoTab"], "transcriptQuote": "first party client vehicle… third party defendant… check insurance auto tab", "praxiumRoute": "/matters/:id", "praxiumTab": "intake", "status": "partial", "gapNotes": "1P/3P identification partial" },
+    { "id": "insdoc.search_deeper_policy", "sequence": 2, "frame": "frame_015.jpg", "timestampSec": 225, "filevineTab": "Search", "filevineSection": "Search deeper", "actions": ["searchDeeperByPolicyNumber", "matchDOLWhenDuplicateNames"], "transcriptQuote": "no name on letter… search deeper policy number… check date of loss", "praxiumRoute": "/", "praxiumTab": null, "status": "missing", "gapNotes": "No search deeper by policy" },
+    { "id": "insdoc.rename_ins_prefix", "sequence": 3, "frame": "frame_020.jpg", "timestampSec": 300, "filevineTab": "Documents", "filevineSection": "Naming", "actions": ["renameIns1PAckLOR", "renameIns3PAckLOR"], "transcriptQuote": "ins 1P ack LOR… ins 3P ack LOR… first name", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "partial", "gapNotes": "Insurance naming partial" },
+    { "id": "insdoc.save_insurance_auto_activity", "sequence": 4, "frame": "frame_030.jpg", "timestampSec": 450, "filevineTab": "Insurance Auto", "filevineSection": "Upload ack LOR", "actions": ["uploadToInsuranceAuto", "updateAdjusterContact", "completeOpenLORTask"], "transcriptQuote": "upload insurance auto… update adjuster… complete open LOR task", "praxiumRoute": "/matters/:id", "praxiumTab": "intake", "status": "partial", "gapNotes": "Insurance auto save partial" },
+    { "id": "insdoc.settlement_offer_alert", "sequence": 5, "frame": "frame_045.jpg", "timestampSec": 675, "filevineTab": "Activity", "filevineSection": "Urgent docs", "actions": ["emailCMOnSettlementOffer", "routeCheckToBookkeeper"], "transcriptQuote": "settlement offer inform case managers right away… check to bookkeeper", "praxiumRoute": "/matters/:id", "praxiumTab": "settlement", "status": "missing", "gapNotes": "No urgent insurance doc alerts" }
+  ],
+  "labeledFrames": ["frame_008.jpg", "frame_015.jpg", "frame_020.jpg", "frame_030.jpg", "frame_045.jpg"]
+}

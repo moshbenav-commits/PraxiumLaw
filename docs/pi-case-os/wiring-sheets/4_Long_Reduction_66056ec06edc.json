@@ -1,0 +1,120 @@
+{
+  "slug": "4_Long_Reduction_66056ec06edc",
+  "title": "4.  Long Reduction",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 4.  Long Reduction",
+    "route": "/matters/:id",
+    "selectors": [
+      "settlement",
+      "meds",
+      "subrogation"
+    ]
+  },
+  "functions": [
+    {
+      "id": "settlement.4_long_reduc_1",
+      "sequence": 1,
+      "frame": "frame_006.jpg",
+      "timestampSec": 150,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "# 4. Long Reduction **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN aud",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.4_long_reduc_2",
+      "sequence": 2,
+      "frame": "frame_011.jpg",
+      "timestampSec": 300,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "s we have to send a long reduction letter when we have to send a second reduction request or when a provider asks for a breakdown of settlement. Now let's proceed with the steps. First, lead your task",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "subrogation.4_long_reduc_3",
+      "sequence": 3,
+      "frame": "frame_017.jpg",
+      "timestampSec": 480,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "long reduction is being asked. And then, identify the medical providers and identify if there is a lien holder. If there is a lien holder, you have to send the request to them instead of sending the",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "docs.4_long_reduc_4",
+      "sequence": 4,
+      "frame": "frame_022.jpg",
+      "timestampSec": 630,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "So, please refer to our video tutorial on how to update and review the disbursement sheet that was saved in our Google Share Drive. So, once all the amounts are verified, have a copy of the disbursem",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "docgen.4_long_reduc_5",
+      "sequence": 5,
+      "frame": "frame_028.jpg",
+      "timestampSec": 810,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "s are verified, have a copy of the disbursement sheet by clicking this word icon and then click the generated lien to download. Once downloaded, please edit a copy of the disbursement sheet by removin",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_006.jpg",
+    "frame_011.jpg",
+    "frame_017.jpg",
+    "frame_022.jpg",
+    "frame_028.jpg"
+  ]
+}

@@ -28,6 +28,9 @@
   "frames": [
     "frame_001.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_-_Server_Folder_Names_c83e174dc022/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_-_Server_Folder_Names_c83e174dc022/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Server Folder Names.mp4",
+  "framesExtractedAt": "2026-07-05T03:00:06.059Z",
+  "frameManifest": "training-archive/van-law-the case system/FILEVINE_-_Server_Folder_Names_c83e174dc022/screenshots/frame-manifest.json"
 }

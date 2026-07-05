@@ -1,0 +1,148 @@
+{
+  "slug": "ADVANCED_-_Customs_Editor_Ins_Field_Down_and_Adding_FIRST_SE_edecb6300dfe",
+  "title": "ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV)",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV).mp4",
+  "extractedAt": "2026-07-05T02:08:40.113Z",
+  "intervalSec": 30,
+  "durationSec": 385.102948,
+  "frameCount": 13,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "functionId": "insurance.advanced___c_1",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "doing something. Our staff was complaining that some of the fields weren't big enough, so it's the insurance tab that we need to look at. And let's edit it. What we're going to do is move this to lin"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 240,
+      "labeled": true,
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Custom field editor",
+      "functionId": "customs.advanced___c_2",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/settings/custom-fields",
+      "transcriptQuote": "# ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV) **Kind:** other **Tags:** canc"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 270,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 300,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 330,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/ADVANCED_-_Customs_Editor_Ins_Field_Down_and_Adding_FIRST_SE_edecb6300dfe.json",
+  "labeledFrameCount": 2,
+  "labeledAt": "2026-07-05"
+}

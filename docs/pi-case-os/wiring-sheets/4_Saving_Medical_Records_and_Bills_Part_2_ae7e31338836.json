@@ -1,0 +1,16 @@
+{
+  "slug": "4_Saving_Medical_Records_and_Bills_Part_2_ae7e31338836",
+  "title": "4. Saving Medical Records and Bills Part 2",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 4254,
+  "labelingNote": "Extended medical doc types — anchor same pipeline as Part 1",
+  "matterShell": { "description": "Additional medical doc types — records, lien, reduction", "route": "/matters/:id", "selectors": ["medsTab", "activityTab", "docsTab"] },
+  "functions": [
+    { "id": "meddoc.types_beyond_hicfa", "sequence": 1, "frame": "frame_010.jpg", "timestampSec": 150, "filevineTab": "Meds", "filevineSection": "Doc types", "actions": ["classifyRecordsReportsEstimatesLienVerification"], "transcriptQuote": "medical records reports feature estimate lien verification reduction", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "partial", "gapNotes": "Med doc taxonomy partial" },
+    { "id": "meddoc.multi_client_split", "sequence": 2, "frame": "frame_015.jpg", "timestampSec": 225, "filevineTab": "Documents", "filevineSection": "Split PDF", "actions": ["separateMultiClientDocument"], "transcriptQuote": "multiple clients in document… separate accordingly", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No multi-client doc split workflow" },
+    { "id": "meddoc.lien_holder_folder", "sequence": 3, "frame": "frame_025.jpg", "timestampSec": 375, "filevineTab": "Meds", "filevineSection": "Lien holder", "fields": ["lienHolder"], "actions": ["routeToJMLRDGFolder", "updateLienHolderField"], "transcriptQuote": "lien holders JML RDG… pay lien holder not provider", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "partial", "gapNotes": "Lien holder routing partial" },
+    { "id": "meddoc.same_save_pipeline", "sequence": 4, "frame": "frame_040.jpg", "timestampSec": 600, "filevineTab": "Meds", "filevineSection": "Save pipeline", "actions": ["renameConvention", "medsActivityDocsServer", "archiveFiling"], "transcriptQuote": "identify rename meds activity docs server… archive filing email", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "partial", "gapNotes": "Same pipeline as Part 1" }
+  ],
+  "labeledFrames": ["frame_010.jpg", "frame_015.jpg", "frame_025.jpg", "frame_040.jpg"]
+}

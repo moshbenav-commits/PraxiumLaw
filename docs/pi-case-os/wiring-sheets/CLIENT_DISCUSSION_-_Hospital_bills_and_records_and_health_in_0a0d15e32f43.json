@@ -1,0 +1,180 @@
+{
+  "slug": "CLIENT_DISCUSSION_-_Hospital_bills_and_records_and_health_in_0a0d15e32f43",
+  "title": "CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation",
+    "route": "/matters/:id",
+    "selectors": [
+      "health",
+      "settlement",
+      "subrogation"
+    ]
+  },
+  "functions": [
+    {
+      "id": "health.client_discu_1",
+      "sequence": 1,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "# CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation **Kind:** other **Tags:** — **Speak",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "settlement.client_discu_2",
+      "sequence": 2,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "use now I've got to go check somewhere else. So shadow ERR. Update on this. Update. Pending a final lien. Okay. I knew it was odd. Let me go look at the disbursement sheet. So your hospital – your hea",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "subrogation.client_discu_3",
+      "sequence": 3,
+      "frame": "frame_024.jpg",
+      "timestampSec": 690,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "# CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN a",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "meds.client_discu_4",
+      "sequence": 4,
+      "frame": "frame_032.jpg",
+      "timestampSec": 930,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "by one. Let me go to my, I have it posted here. So she's asking about why we asked her to grab the medical records. There is, so hold on a second. The recording has started. Okay, now it's recording.",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "insurance.client_discu_5",
+      "sequence": 5,
+      "frame": "frame_040.jpg",
+      "timestampSec": 1170,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "in insurance for 30 years. So I kind of don't have that little process work. And I actually had the adjuster come out and he offered me like $900 until I showed him the estimates that I had. And all o",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.client_discu_6",
+      "sequence": 6,
+      "frame": "frame_048.jpg",
+      "timestampSec": 1410,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "get a month or two to get her medical records and bills. Then we've got to spend a month doing the demand letter. Then we've got to give the adjuster a month and then we're negotiating. And it's, tha",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "negotiation.client_discu_7",
+      "sequence": 7,
+      "frame": "frame_056.jpg",
+      "timestampSec": 1650,
+      "filevineSurface": "Negotiations",
+      "filevineTab": "Negotiations",
+      "filevineSection": "Offer log",
+      "fields": [],
+      "actions": [
+        "reviewNegotiationsWorkflow",
+        "mapToPraxiumnegotiation"
+      ],
+      "transcriptQuote": "what they do. Yeah. And that's kind of where, I don't know if you think there's more room as far as negotiation with the, uh, adjuster. I realized sometimes you got to throw them extra stuff and this,",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Negotiations parity"
+    },
+    {
+      "id": "demand.client_discu_8",
+      "sequence": 8,
+      "frame": "frame_064.jpg",
+      "timestampSec": 1890,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "get a month or two to get her medical records and bills. Then we've got to spend a month doing the demand letter. Then we've got to give the adjuster a month and then we're negotiating. And it's, tha",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_008.jpg",
+    "frame_016.jpg",
+    "frame_024.jpg",
+    "frame_032.jpg",
+    "frame_040.jpg",
+    "frame_048.jpg",
+    "frame_056.jpg",
+    "frame_064.jpg"
+  ]
+}

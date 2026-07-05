@@ -207,9 +207,9 @@
       "training_source": "product-capabilities.md",
       "user_story": "Medicare/Medicaid/health plan lien path",
       "expected_ui": "Subrogation tab with Medicare-critical checklist",
-      "current_ui": "No subrogation module",
-      "route_hint": "/matters/:id",
-      "workaround": "Notes + external process"
+      "current_ui": "Subrogation tab — path, checklist, alerts; ties to intake Medicare flag",
+      "route_hint": "/matters/:id → Subrogation tab",
+      "workaround": null
     },
     {
       "id": "UX-020",
@@ -229,9 +229,9 @@
       "training_source": "firm-admin-onboarding.md",
       "user_story": "Firm accepts disclosure before using templates",
       "expected_ui": "Disclosure acknowledgment gate on first login",
-      "current_ui": "Dashboard card only — no disclosure gate",
-      "route_hint": "/dashboard",
-      "workaround": "Manual policy"
+      "current_ui": "Blocking DisclosureGate modal on login + template download gate (403 until ack)",
+      "route_hint": "/dashboard · /settings/templates",
+      "workaround": null
     },
     {
       "id": "UX-022",

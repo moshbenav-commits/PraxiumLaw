@@ -1,0 +1,58 @@
+{
+  "slug": "CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af",
+  "title": "CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2.mp4",
+  "extractedAt": "2026-07-05T03:07:08.002Z",
+  "intervalSec": 30,
+  "durationSec": 134.815057,
+  "frameCount": 4,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "functionId": "activity.calls___bein_1",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Activity workflow per title: CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "functionId": "taskflow.calls___bein_2",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/tasks",
+      "transcriptQuote": "Training covers Taskflow workflow per title: CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af.json",
+  "labeledFrameCount": 2,
+  "labeledAt": "2026-07-05"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "pack4-meds-treatment-tasks",
+  "label": "Meds tab, treatment tracker, insurance/med tasks",
+  "description": "Meds tab, treatment tracker, insurance/med tasks",
+  "intervalSec": 30,
+  "slugs": [
+    "FILEVINE_-_Hospital_Bills_and_Records_Treatment_Tracker_314c4afc9780",
+    "FILEVINE_-_Task_-_Intake_Med_Provider_30_Day_Insurance_0fd3fa87b6b9",
+    "FILEVINE_-_Task_-_Police_Report_Request_dc93fda09552",
+    "FILEVINE_-_Task_-_Police_Report_Tasks_Part_1_d35176b2bcbc",
+    "FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2",
+    "FILEVINE_TASK_-_5_Yrs_of_Med_Treatment_if_priors_no_index_in_a0fa97c5b2ed",
+    "FILEVINE_TASK_-_Intake_Treatment_Insurance_Auto_Tab_task_Par_408fb5533689",
+    "FILEVINE_TASK_-_Med_Pay_and_Insurance_Declaration_bf6e2956fc7d",
+    "MEDS_TAB_-_Creating_Contacts_and_Saving_Medical_Bills_f119f77adbea",
+    "MEDS_TAB_-_Update_the_Meds_Tab_4eb75200b51d"
+  ]
+}

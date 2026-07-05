@@ -1,0 +1,100 @@
+{
+  "slug": "2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed",
+  "title": "2017.7.5 DEMAND - How to draft 3P Demand",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 2017.7.5 DEMAND - How to draft 3P Demand",
+    "route": "/matters/:id",
+    "selectors": [
+      "meds",
+      "demand",
+      "insurance"
+    ]
+  },
+  "functions": [
+    {
+      "id": "meds.2017_7_5_dem_1",
+      "sequence": 1,
+      "frame": "frame_011.jpg",
+      "timestampSec": 300,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "t would be. P-H-O-U-N-G. P-H-O-U-N-G. insurance Alright. Alright. And you would just put in all the medical bills here. So for example, you would put, um, who would you put? So you would go to the med",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "demand.2017_7_5_dem_2",
+      "sequence": 2,
+      "frame": "frame_022.jpg",
+      "timestampSec": 630,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "insurance.2017_7_5_dem_3",
+      "sequence": 3,
+      "frame": "frame_032.jpg",
+      "timestampSec": 930,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "All those correct, right? So let's go to the related case, and we're going to create a demand. And insurance old. And we're going to create, on this one, we have UM, UIM, and third party. So we're go",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.2017_7_5_dem_4",
+      "sequence": 4,
+      "frame": "frame_043.jpg",
+      "timestampSec": 1260,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_011.jpg",
+    "frame_022.jpg",
+    "frame_032.jpg",
+    "frame_043.jpg"
+  ]
+}

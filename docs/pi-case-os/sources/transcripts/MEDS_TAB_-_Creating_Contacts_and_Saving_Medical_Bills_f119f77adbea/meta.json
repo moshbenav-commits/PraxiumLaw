@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:39:39.866419+00:00",
   "hasAudioArchive": true,
   "audioBytes": 5287984,
-  "frameCount": 7,
+  "frameCount": 22,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -32,8 +32,26 @@
     "frame_004.jpg",
     "frame_005.jpg",
     "frame_006.jpg",
-    "frame_007.jpg"
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg",
+    "frame_018.jpg",
+    "frame_019.jpg",
+    "frame_020.jpg",
+    "frame_021.jpg",
+    "frame_022.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/MEDS_TAB_-_Creating_Contacts_and_Saving_Medical_Bills_f119f77adbea/screenshots"
+  "intervalSec": 15,
+  "screenshotsDir": "training-archive/van-law-the case system/MEDS_TAB_-_Creating_Contacts_and_Saving_Medical_Bills_f119f77adbea/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MEDS TAB - Creating Contacts and Saving Medical Bills.mp4",
+  "framesExtractedAt": "2026-07-05T02:25:11.545Z",
+  "frameManifest": "training-archive/van-law-the case system/MEDS_TAB_-_Creating_Contacts_and_Saving_Medical_Bills_f119f77adbea/screenshots/frame-manifest.json"
 }

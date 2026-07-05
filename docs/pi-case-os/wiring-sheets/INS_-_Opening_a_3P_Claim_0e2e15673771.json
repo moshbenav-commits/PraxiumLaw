@@ -1,0 +1,59 @@
+{
+  "slug": "INS_-_Opening_a_3P_Claim_0e2e15673771",
+  "title": "INS - Opening a 3P Claim",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: INS - Opening a 3P Claim",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.ins___openin_1",
+      "sequence": 1,
+      "frame": "frame_017.jpg",
+      "timestampSec": 480,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "tate. They're the ones that put the cones out. Okay. So whoever you guys insure. I can give you the policy number. Perfect. May I have it? B-A-P-485-756-706. It looks like. I can't really tell. Okay.",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.ins___openin_2",
+      "sequence": 2,
+      "frame": "frame_033.jpg",
+      "timestampSec": 960,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "to your client as soon as possible though. What about claim number and adjuster or is that gonna be generated at a later date and time? Let me see here. Okay. Okay. So at this time, the claim report h",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_017.jpg",
+    "frame_033.jpg"
+  ]
+}

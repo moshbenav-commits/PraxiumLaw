@@ -1,0 +1,38 @@
+{
+  "slug": "2017-05-05_11-20-04_0d9fecac4fd6",
+  "title": "2017-05-05_11-20-04",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 2017-05-05_11-20-04",
+    "route": "/matters/:id",
+    "selectors": [
+      "activity"
+    ]
+  },
+  "functions": [
+    {
+      "id": "activity.2017_05_05_1_1",
+      "sequence": 1,
+      "frame": "frame_001.jpg",
+      "timestampSec": 0,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "General PI workflow training: 2017-05-05_11-20-04",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_001.jpg"
+  ]
+}

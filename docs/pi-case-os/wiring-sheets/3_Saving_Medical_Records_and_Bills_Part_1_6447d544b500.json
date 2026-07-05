@@ -1,0 +1,16 @@
+{
+  "slug": "3_Saving_Medical_Records_and_Bills_Part_1_6447d544b500",
+  "title": "3. Saving Medical Records and Bills Part 1",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 1450,
+  "matterShell": { "description": "HICFA bill save — meds, activity, docs, server", "route": "/matters/:id", "selectors": ["medsTab", "activityTab", "docsTab"] },
+  "functions": [
+    { "id": "medbill.identify_client_provider", "sequence": 1, "frame": "frame_005.jpg", "timestampSec": 75, "filevineTab": "Search", "filevineSection": "Find project", "actions": ["searchProjectByClient", "includeArchivedCheckDOL", "identifyLienHolder"], "transcriptQuote": "search Jane Doe… include archived… check date of loss… lien holder JML RDG", "praxiumRoute": "/", "praxiumTab": null, "status": "partial", "gapNotes": "Search partial" },
+    { "id": "medbill.rename_hicfa_convention", "sequence": 2, "frame": "frame_012.jpg", "timestampSec": 180, "filevineTab": "Documents", "filevineSection": "Naming", "fields": ["prefixMED", "amount", "dateOfService"], "actions": ["renameMEDProviderHICFAAmountDOS"], "transcriptQuote": "MED provider HICFA amount date of service first name", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "partial", "gapNotes": "Naming convention partial" },
+    { "id": "medbill.upload_meds_update_totals", "sequence": 3, "frame": "frame_018.jpg", "timestampSec": 270, "filevineTab": "Meds", "filevineSection": "Provider folder", "actions": ["uploadHICFA", "updateTotalBilled", "notesWithDOS", "save"], "transcriptQuote": "upload HICFA… total billed… notes date of service… click save", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "partial", "gapNotes": "Meds upload partial" },
+    { "id": "medbill.post_activity_or_note", "sequence": 4, "frame": "frame_022.jpg", "timestampSec": 330, "filevineTab": "Activity", "filevineSection": "Post bill", "actions": ["findWaitingTaskOrNewNote", "attachDocNotSms"], "transcriptQuote": "post in activity… not bolded vine… attach doc not send as text", "praxiumRoute": "/matters/:id", "praxiumTab": "comms", "status": "partial", "gapNotes": "Activity post partial" },
+    { "id": "medbill.triple_save_docs_server", "sequence": 5, "frame": "frame_028.jpg", "timestampSec": 420, "filevineTab": "Documents", "filevineSection": "Triple save", "actions": ["uploadDocsTab", "saveServerZDrive", "archiveFilingEmail"], "transcriptQuote": "meds tab activity docs tab… server z drive… green check filing email", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No server sync; triple-save manual" }
+  ],
+  "labeledFrames": ["frame_005.jpg", "frame_012.jpg", "frame_018.jpg", "frame_022.jpg", "frame_028.jpg"]
+}

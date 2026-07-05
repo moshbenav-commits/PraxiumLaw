@@ -24,13 +24,19 @@
   "updatedAt": "2026-06-18T20:41:53.481150+00:00",
   "hasAudioArchive": true,
   "audioBytes": 3177250,
-  "frameCount": 4,
+  "frameCount": 7,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
     "frame_003.jpg",
-    "frame_004.jpg"
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/Settlement_Disbursement_-_Long_Reduction_Request_fadacdf73a10/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/Settlement_Disbursement_-_Long_Reduction_Request_fadacdf73a10/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/Settlement Disbursement - Long Reduction Request.mp4",
+  "framesExtractedAt": "2026-07-05T01:50:37.086Z",
+  "frameManifest": "training-archive/van-law-the case system/Settlement_Disbursement_-_Long_Reduction_Request_fadacdf73a10/screenshots/frame-manifest.json"
 }

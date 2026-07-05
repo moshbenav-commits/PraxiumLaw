@@ -1,0 +1,14 @@
+{
+  "slug": "7_-DOCS_TAB_-_Dropbox_Folder_and_Naming_Docs_f8f17b352d4e",
+  "title": "7.-DOCS TAB - Dropbox Folder and Naming Docs",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 303,
+  "matterShell": { "description": "Dropbox folder sync + flat docs naming", "route": "/matters/:id", "selectors": ["docsTab"] },
+  "functions": [
+    { "id": "docs.dropbox_folder_exact_match", "sequence": 1, "frame": "frame_003.jpg", "timestampSec": 45, "filevineTab": "Documents", "filevineSection": "Dropbox folder name", "fields": ["serverFolderName"], "actions": ["pasteExactServerName", "noExtraPeriodOrSpace"], "transcriptQuote": "match exactly… no period extra space… API creates folders", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No Dropbox sync" },
+    { "id": "docs.flat_folder_naming_convention", "sequence": 2, "frame": "frame_006.jpg", "timestampSec": 90, "filevineTab": "Documents", "filevineSection": "Rename docs", "fields": ["docPrefix"], "actions": ["renameMedLORProvider", "renamePoliceReport", "clientVsPassengerInName"], "transcriptQuote": "no folders anymore… name police report… med LOR which provider", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "partial", "gapNotes": "Naming convention partial" },
+    { "id": "docs.related_case_same_dropbox", "sequence": 3, "frame": "frame_008.jpg", "timestampSec": 120, "filevineTab": "Documents", "filevineSection": "Related cases", "actions": ["matchDropboxOnRelatedCases", "avoidDuplicateFolders"], "transcriptQuote": "related case… match exactly… don't create multiple folders", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "Related matter Dropbox sync missing" }
+  ],
+  "labeledFrames": ["frame_003.jpg", "frame_006.jpg", "frame_008.jpg"]
+}

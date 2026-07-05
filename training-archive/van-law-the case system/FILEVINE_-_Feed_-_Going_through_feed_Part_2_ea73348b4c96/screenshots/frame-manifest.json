@@ -1,0 +1,274 @@
+{
+  "slug": "FILEVINE_-_Feed_-_Going_through_feed_Part_2_ea73348b4c96",
+  "title": "FILEVINE - Feed - Going through feed Part 2",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Feed - Going through feed Part 2.mp4",
+  "extractedAt": "2026-07-05T02:23:12.730Z",
+  "intervalSec": 15,
+  "durationSec": 369.406259,
+  "frameCount": 25,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Feed",
+      "filevineSection": "Client text + JPG attachment",
+      "functionId": "feed.item.client_sms_attachment",
+      "praxiumTab": "comms",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "text message… little blue box… client texted pictures… save to the file"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 15,
+      "labeled": true,
+      "filevineTab": "Feed",
+      "filevineSection": "Completed button",
+      "functionId": "feed.item.mark_complete",
+      "praxiumTab": "tasks",
+      "status": "partial",
+      "praxiumRoute": "/feed",
+      "transcriptQuote": "I am done with this task… I can click complete"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 45,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 75,
+      "labeled": true,
+      "filevineTab": "Feed",
+      "filevineSection": "Assign to + Set date",
+      "functionId": "feed.item.reassign_task",
+      "praxiumTab": "tasks",
+      "status": "partial",
+      "praxiumRoute": "/feed",
+      "transcriptQuote": "assign this to Carolina… call to see if client got his car estimated"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 105,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 135,
+      "labeled": true,
+      "filevineTab": "Feed",
+      "filevineSection": "Billable minutes on vine",
+      "functionId": "feed.sop.time_billing_on_notes",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "it took me 50 minutes to write this letter… clients sometimes fire us"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 165,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 195,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "@mention → task",
+      "functionId": "feed.activity.atmention_create_task",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "@Isabelle can you save the pictures… Look on Doc's tab"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_016.jpg",
+      "timestampSec": 225,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_017.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_018.jpg",
+      "timestampSec": 255,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_019.jpg",
+      "timestampSec": 270,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_020.jpg",
+      "timestampSec": 285,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_021.jpg",
+      "timestampSec": 300,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_022.jpg",
+      "timestampSec": 315,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_023.jpg",
+      "timestampSec": 330,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_024.jpg",
+      "timestampSec": 345,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_025.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/FILEVINE_-_Feed_-_Going_through_feed_Part_2_ea73348b4c96.json",
+  "labeledFrameCount": 5,
+  "labeledAt": "2026-07-05"
+}

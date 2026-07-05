@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:34:22.744580+00:00",
   "hasAudioArchive": true,
   "audioBytes": 4852848,
-  "frameCount": 7,
+  "frameCount": 10,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -32,8 +32,14 @@
     "frame_004.jpg",
     "frame_005.jpg",
     "frame_006.jpg",
-    "frame_007.jpg"
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/7_-DOCS_TAB_-_Dropbox_Folder_and_Naming_Docs_f8f17b352d4e/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/7_-DOCS_TAB_-_Dropbox_Folder_and_Naming_Docs_f8f17b352d4e/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/7.-DOCS TAB - Dropbox Folder and Naming Docs.mp4",
+  "framesExtractedAt": "2026-07-05T03:02:20.321Z",
+  "frameManifest": "training-archive/van-law-the case system/7_-DOCS_TAB_-_Dropbox_Folder_and_Naming_Docs_f8f17b352d4e/screenshots/frame-manifest.json"
 }

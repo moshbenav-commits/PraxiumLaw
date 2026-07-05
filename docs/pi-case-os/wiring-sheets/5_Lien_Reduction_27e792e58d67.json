@@ -1,0 +1,80 @@
+{
+  "slug": "5_Lien_Reduction_27e792e58d67",
+  "title": "5. Lien Reduction",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 5. Lien Reduction",
+    "route": "/matters/:id",
+    "selectors": [
+      "settlement",
+      "meds",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "settlement.5_lien_reduc_1",
+      "sequence": 1,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "# 5. Lien Reduction **Kind:** other **Tags:** quote **Speakers:** — **Complete sales call:** No",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.5_lien_reduc_2",
+      "sequence": 2,
+      "frame": "frame_010.jpg",
+      "timestampSec": 270,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "Pueblo Medical Imaging. So the lean holder is not mentioned in this task, but if we will check the Meds tab, on the providers folder, there is a nickname of JML beside the provider's name, and it is",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "docgen.5_lien_reduc_3",
+      "sequence": 3,
+      "frame": "frame_015.jpg",
+      "timestampSec": 420,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "click Yes under Show More and then save it. After that, we will utilize the lean reduction request generate button. But before that, please enter the amounts on these fields. Like copying the amounts",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_005.jpg",
+    "frame_010.jpg",
+    "frame_015.jpg"
+  ]
+}

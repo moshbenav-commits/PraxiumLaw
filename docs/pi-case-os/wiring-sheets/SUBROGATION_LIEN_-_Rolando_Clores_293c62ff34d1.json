@@ -1,0 +1,180 @@
+{
+  "slug": "SUBROGATION_LIEN_-_Rolando_Clores_293c62ff34d1",
+  "title": "SUBROGATION LIEN - Rolando Clores",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: SUBROGATION LIEN - Rolando Clores",
+    "route": "/matters/:id",
+    "selectors": [
+      "settlement",
+      "health",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "settlement.subrogation__1",
+      "sequence": 1,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "# SUBROGATION LIEN - Rolando Clores **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "health.subrogation__2",
+      "sequence": 2,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "m. And now, so we've gotten all through the meds. Now we're going to go look and see if there's any health insurance. It's not on here. Now let's see if there's liens. So liens would be like health in",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "meds.subrogation__3",
+      "sequence": 3,
+      "frame": "frame_025.jpg",
+      "timestampSec": 720,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "tion. How do I know you're not, you know, Lonnie's, like, arch nemesis rival that wants to know her medical records? You know, I'm not going to go give that to someone that I don't know who you are. T",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "taskflow.subrogation__4",
+      "sequence": 4,
+      "frame": "frame_033.jpg",
+      "timestampSec": 960,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "at. Hmm. When you guys are sending these lien verifications, when it's not one of the people on our needs list, you actually need to attach the HIPAA. Okay. Okay. So, I'm going to give this back to Ge",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "subrogation.subrogation__5",
+      "sequence": 5,
+      "frame": "frame_041.jpg",
+      "timestampSec": 1200,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "# SUBROGATION LIEN - Rolando Clores **Kind:** other **Tags:** — **Speakers:** — **Complete sale",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "docgen.subrogation__6",
+      "sequence": 6,
+      "frame": "frame_049.jpg",
+      "timestampSec": 1440,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "Training covers DocGen workflow per title: SUBROGATION LIEN - Rolando Clores",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "insurance.subrogation__7",
+      "sequence": 7,
+      "frame": "frame_058.jpg",
+      "timestampSec": 1710,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Training covers Insurance workflow per title: SUBROGATION LIEN - Rolando Clores",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "demand.subrogation__8",
+      "sequence": 8,
+      "frame": "frame_066.jpg",
+      "timestampSec": 1950,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "se are all negative numbers. UMC Records Department. Here's one for Spring Valley Hospital. Printed Demand Package. Mailed the Demand Package. Doc Request. Paid them $26.50. All these are negative fir",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_008.jpg",
+    "frame_016.jpg",
+    "frame_025.jpg",
+    "frame_033.jpg",
+    "frame_041.jpg",
+    "frame_049.jpg",
+    "frame_058.jpg",
+    "frame_066.jpg"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "SCANSNAP_-_Settings_69f20c7e6dac",
+  "title": "SCANSNAP - Settings",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SCANSNAP - Settings.mp4",
+  "extractedAt": "2026-07-05T03:07:12.882Z",
+  "intervalSec": 30,
+  "durationSec": 90.844999,
+  "frameCount": 3,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "functionId": "docs.scansnap___s_1",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "color is fine, but I don't need duplex scanning. You should always check your documents before you scan them and see if they're simplex or duplex. And I don't want to rotate them. I don't want blank"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/SCANSNAP_-_Settings_69f20c7e6dac.json",
+  "labeledFrameCount": 1,
+  "labeledAt": "2026-07-05"
+}

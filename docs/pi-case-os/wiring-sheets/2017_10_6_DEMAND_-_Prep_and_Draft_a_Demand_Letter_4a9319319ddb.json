@@ -1,0 +1,120 @@
+{
+  "slug": "2017_10_6_DEMAND_-_Prep_and_Draft_a_Demand_Letter_4a9319319ddb",
+  "title": "2017.10.6 DEMAND - Prep and Draft a Demand Letter",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 2017.10.6 DEMAND - Prep and Draft a Demand Letter",
+    "route": "/matters/:id",
+    "selectors": [
+      "meds",
+      "demand",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "meds.2017_10_6_de_1",
+      "sequence": 1,
+      "frame": "frame_011.jpg",
+      "timestampSec": 300,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "he Pain Clinic here So all this stuff Was already in there for you And then you wouldn't update The medical bills and records So I'm just going to put The medical bills here And see if they're updated",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "demand.2017_10_6_de_2",
+      "sequence": 2,
+      "frame": "frame_022.jpg",
+      "timestampSec": 630,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "# 2017.10.6 DEMAND - Prep and Draft a Demand Letter **Kind:** other **Tags:** quote **Speakers:** Carla **Complete sales call:** No",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "docgen.2017_10_6_de_3",
+      "sequence": 3,
+      "frame": "frame_033.jpg",
+      "timestampSec": 960,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "# 2017.10.6 DEMAND - Prep and Draft a Demand Letter **Kind:** other **Tags:** quote **Speakers:** Carla **Complete sales call:** No",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "insurance.2017_10_6_de_4",
+      "sequence": 4,
+      "frame": "frame_044.jpg",
+      "timestampSec": 1290,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Oh okay so here's one from ameriprise So it's carla Campos Who even knows if that's still the same adjuster But they should have put this in the notes You know So let's close here And let's look for",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docs.2017_10_6_de_5",
+      "sequence": 5,
+      "frame": "frame_055.jpg",
+      "timestampSec": 1620,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "go look In Juan's Server folder And see if we have that Out of pocket expenses I don't see anything Docs tab Oh There is a future estimate Kathleen Why is it not in here It needed to be Into the medic",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_011.jpg",
+    "frame_022.jpg",
+    "frame_033.jpg",
+    "frame_044.jpg",
+    "frame_055.jpg"
+  ]
+}

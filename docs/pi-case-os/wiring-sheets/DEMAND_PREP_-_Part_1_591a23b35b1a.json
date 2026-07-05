@@ -1,0 +1,180 @@
+{
+  "slug": "DEMAND_PREP_-_Part_1_591a23b35b1a",
+  "title": "DEMAND PREP - Part 1",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: DEMAND PREP - Part 1",
+    "route": "/matters/:id",
+    "selectors": [
+      "meds",
+      "docgen",
+      "insurance"
+    ]
+  },
+  "functions": [
+    {
+      "id": "meds.demand_prep__1",
+      "sequence": 1,
+      "frame": "frame_009.jpg",
+      "timestampSec": 240,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "ided to cut a few steps here. Now we've got to do things a little bit harder. So I'm looking in our medical bills tab just to see if we have everything. It doesn't match. Interesting. Why it wouldn't",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "docgen.demand_prep__2",
+      "sequence": 2,
+      "frame": "frame_018.jpg",
+      "timestampSec": 510,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "5/DEMAND PREP - Part 1.mp4` **Time range:** 0.0s – 0.0s ## Transcript So we're going to do a demand letter today for Krishana Taylor. Unfortunately, now you guys will learn why when you guys do",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "insurance.demand_prep__3",
+      "sequence": 3,
+      "frame": "frame_027.jpg",
+      "timestampSec": 780,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": ". She got another injection that just looks like a real big injection for 12,531. And then here's a letter of rep from the other person. So you want to look at these because sometimes you guys don't u",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "demand.demand_prep__4",
+      "sequence": 4,
+      "frame": "frame_036.jpg",
+      "timestampSec": 1050,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "5/DEMAND PREP - Part 1.mp4` **Time range:** 0.0s – 0.0s ## Transcript So we're going to do a demand letter today for Krishana Taylor. Unfortunately, now you guys will learn why when you guys do",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "settlement.demand_prep__5",
+      "sequence": 5,
+      "frame": "frame_044.jpg",
+      "timestampSec": 1290,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "e got, nope. No, that's 450. So that's a visit. We've got a date of service for 450. We've got that lien, so that doesn't match. And then we've got this, which is 729. So somehow these two things don'",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "docs.demand_prep__6",
+      "sequence": 6,
+      "frame": "frame_053.jpg",
+      "timestampSec": 1560,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "three pieces of things in the hard file that have anything to do with this demand letter. So let me scan those in for you, and I'll tell you why they're important. So I'm going to scan them in for you",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "feed.demand_prep__7",
+      "sequence": 7,
+      "frame": "frame_062.jpg",
+      "timestampSec": 1830,
+      "filevineSurface": "Feed",
+      "filevineTab": "Feed",
+      "filevineSection": "Activity feed",
+      "fields": [],
+      "actions": [
+        "reviewFeedWorkflow",
+        "mapToPraxiumfeed"
+      ],
+      "transcriptQuote": "ap I'm going to put at Leslie so she sees this too this is a reason to have your thing correct your feed because she may never see this because her feed's like got a lot of things on it so we're going",
+      "praxiumRoute": "/inbox",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Feed parity"
+    },
+    {
+      "id": "subrogation.demand_prep__8",
+      "sequence": 8,
+      "frame": "frame_071.jpg",
+      "timestampSec": 2100,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "al spine without contrast. You see that? And they assigned it to JML. So JML holds the lien. What a lien holder does is they buy this debt for cheaper, and they now hold the debt. So let's assume that",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_009.jpg",
+    "frame_018.jpg",
+    "frame_027.jpg",
+    "frame_036.jpg",
+    "frame_044.jpg",
+    "frame_053.jpg",
+    "frame_062.jpg",
+    "frame_071.jpg"
+  ]
+}

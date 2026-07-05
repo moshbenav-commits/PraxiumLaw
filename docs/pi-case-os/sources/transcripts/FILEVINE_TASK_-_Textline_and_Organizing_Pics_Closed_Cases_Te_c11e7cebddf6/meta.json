@@ -26,7 +26,7 @@
   "updatedAt": "2026-06-18T20:38:57.734365+00:00",
   "hasAudioArchive": true,
   "audioBytes": 5166333,
-  "frameCount": 7,
+  "frameCount": 11,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -34,8 +34,15 @@
     "frame_004.jpg",
     "frame_005.jpg",
     "frame_006.jpg",
-    "frame_007.jpg"
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_TASK_-_Textline_and_Organizing_Pics_Closed_Cases_Te_c11e7cebddf6/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_TASK_-_Textline_and_Organizing_Pics_Closed_Cases_Te_c11e7cebddf6/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Textline and Organizing Pics Closed Cases Textline Selfies.mp4",
+  "framesExtractedAt": "2026-07-05T01:51:25.208Z",
+  "frameManifest": "training-archive/van-law-the case system/FILEVINE_TASK_-_Textline_and_Organizing_Pics_Closed_Cases_Te_c11e7cebddf6/screenshots/frame-manifest.json"
 }

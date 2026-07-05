@@ -1,0 +1,76 @@
+{
+  "slug": "EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6",
+  "title": "EXCEL - Filter and Formulas to Know Numbers",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/EXCEL - Filter and Formulas to Know Numbers.mp4",
+  "extractedAt": "2026-07-05T03:07:09.282Z",
+  "intervalSec": 30,
+  "durationSec": 192.307664,
+  "frameCount": 6,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "functionId": "activity.excel___filt_1",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "General PI workflow training: EXCEL - Filter and Formulas to Know Numbers"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6.json",
+  "labeledFrameCount": 1,
+  "labeledAt": "2026-07-05"
+}

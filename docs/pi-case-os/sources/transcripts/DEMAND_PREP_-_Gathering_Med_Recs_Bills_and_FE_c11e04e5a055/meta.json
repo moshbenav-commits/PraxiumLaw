@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:40:22.071304+00:00",
   "hasAudioArchive": true,
   "audioBytes": 11419405,
-  "frameCount": 15,
+  "frameCount": 24,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -40,8 +40,20 @@
     "frame_012.jpg",
     "frame_013.jpg",
     "frame_014.jpg",
-    "frame_015.jpg"
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg",
+    "frame_018.jpg",
+    "frame_019.jpg",
+    "frame_020.jpg",
+    "frame_021.jpg",
+    "frame_022.jpg",
+    "frame_023.jpg",
+    "frame_024.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/DEMAND_PREP_-_Gathering_Med_Recs_Bills_and_FE_c11e04e5a055/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/DEMAND_PREP_-_Gathering_Med_Recs_Bills_and_FE_c11e04e5a055/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DEMAND PREP - Gathering Med Recs Bills and FE.mp4",
+  "framesExtractedAt": "2026-07-05T03:06:19.877Z",
+  "frameManifest": "training-archive/van-law-the case system/DEMAND_PREP_-_Gathering_Med_Recs_Bills_and_FE_c11e04e5a055/screenshots/frame-manifest.json"
 }

@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:35:01.161856+00:00",
   "hasAudioArchive": true,
   "audioBytes": 11198313,
-  "frameCount": 15,
+  "frameCount": 23,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -40,8 +40,19 @@
     "frame_012.jpg",
     "frame_013.jpg",
     "frame_014.jpg",
-    "frame_015.jpg"
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg",
+    "frame_018.jpg",
+    "frame_019.jpg",
+    "frame_020.jpg",
+    "frame_021.jpg",
+    "frame_022.jpg",
+    "frame_023.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/STAMPS_COM_-_Online_and_Desktop_No_Audio_6711771be4ec/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/STAMPS_COM_-_Online_and_Desktop_No_Audio_6711771be4ec/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/STAMPS.COM - Online and Desktop No Audio.mp4",
+  "framesExtractedAt": "2026-07-05T02:11:32.341Z",
+  "frameManifest": "training-archive/van-law-the case system/STAMPS_COM_-_Online_and_Desktop_No_Audio_6711771be4ec/screenshots/frame-manifest.json"
 }

@@ -24,13 +24,18 @@
   "updatedAt": "2026-06-18T20:34:36.560603+00:00",
   "hasAudioArchive": true,
   "audioBytes": 3078192,
-  "frameCount": 4,
+  "frameCount": 6,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
     "frame_003.jpg",
-    "frame_004.jpg"
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/EXCEL - Filter and Formulas to Know Numbers.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:09.282Z",
+  "frameManifest": "training-archive/van-law-the case system/EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6/screenshots/frame-manifest.json"
 }

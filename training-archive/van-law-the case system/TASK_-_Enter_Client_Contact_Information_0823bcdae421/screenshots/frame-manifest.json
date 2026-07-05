@@ -1,0 +1,60 @@
+{
+  "slug": "TASK_-_Enter_Client_Contact_Information_0823bcdae421",
+  "title": "TASK - Enter Client Contact Information",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Enter Client Contact Information.mp4",
+  "extractedAt": "2026-07-05T03:07:18.445Z",
+  "intervalSec": 30,
+  "durationSec": 109.412426,
+  "frameCount": 4,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "functionId": "settlement.task___enter_1",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Settlement workflow per title: TASK - Enter Client Contact Information"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "functionId": "taskflow.task___enter_3",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/tasks",
+      "transcriptQuote": "Training covers Taskflow workflow per title: TASK - Enter Client Contact Information"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "functionId": "intake.task___enter_4",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Intake workflow per title: TASK - Enter Client Contact Information"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/TASK_-_Enter_Client_Contact_Information_0823bcdae421.json",
+  "labeledFrameCount": 3,
+  "labeledAt": "2026-07-05"
+}

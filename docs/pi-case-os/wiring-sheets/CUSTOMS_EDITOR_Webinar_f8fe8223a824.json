@@ -1,0 +1,80 @@
+{
+  "slug": "CUSTOMS_EDITOR_Webinar_f8fe8223a824",
+  "title": "CUSTOMS EDITOR Webinar",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CUSTOMS EDITOR Webinar",
+    "route": "/settings/custom-fields",
+    "selectors": [
+      "customs",
+      "insurance",
+      "docs"
+    ]
+  },
+  "functions": [
+    {
+      "id": "customs.customs_edit_1",
+      "sequence": 1,
+      "frame": "frame_012.jpg",
+      "timestampSec": 330,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Custom field editor",
+      "fields": [],
+      "actions": [
+        "reviewCustomsEditorWorkflow",
+        "mapToPraxiumcustoms"
+      ],
+      "transcriptQuote": "# CUSTOMS EDITOR Webinar **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** N",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Customs Editor parity"
+    },
+    {
+      "id": "insurance.customs_edit_2",
+      "sequence": 2,
+      "frame": "frame_023.jpg",
+      "timestampSec": 660,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "od spot to be able to kind of weave this into our template. So right here next to the worker's comp claim number. I believe that was on line 26. And I'll put it next to it. Do be careful about getting",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docs.customs_edit_3",
+      "sequence": 3,
+      "frame": "frame_035.jpg",
+      "timestampSec": 1020,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "cident is making one project your primary project and using some sort of naming convention, be it a hashtag, hashtag primary, or a little code within the name here to dictate who that, you know, proba",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_012.jpg",
+    "frame_023.jpg",
+    "frame_035.jpg"
+  ]
+}

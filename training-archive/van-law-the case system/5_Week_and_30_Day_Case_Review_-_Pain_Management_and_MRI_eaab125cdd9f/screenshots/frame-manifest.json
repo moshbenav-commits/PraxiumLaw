@@ -1,0 +1,102 @@
+{
+  "slug": "5_Week_and_30_Day_Case_Review_-_Pain_Management_and_MRI_eaab125cdd9f",
+  "title": "5 Week and 30 Day Case Review - Pain Management and MRI",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/5 Week and 30 Day Case Review - Pain Management and MRI.mp4",
+  "extractedAt": "2026-07-05T03:07:05.124Z",
+  "intervalSec": 30,
+  "durationSec": 241.208889,
+  "frameCount": 8,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "functionId": "taskflow.5_week_and_3_1",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/tasks",
+      "transcriptQuote": "# 5 Week and 30 Day Case Review - Pain Management and MRI **Kind:** other **Tags:** — **Speakers:** — **Co"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "functionId": "meds.5_week_and_3_2",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "ust put this on there. And you should probably read the doctor's notes. So we're going to go to the meds tab here. And let's read the doctor's notes. So I'm not worried about the chiropractic notes. I"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "functionId": "intake.5_week_and_3_3",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Intake workflow per title: 5 Week and 30 Day Case Review - Pain Management and MRI"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "functionId": "insurance.5_week_and_3_4",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Insurance workflow per title: 5 Week and 30 Day Case Review - Pain Management and MRI"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/5_Week_and_30_Day_Case_Review_-_Pain_Management_and_MRI_eaab125cdd9f.json",
+  "labeledFrameCount": 4,
+  "labeledAt": "2026-07-05"
+}

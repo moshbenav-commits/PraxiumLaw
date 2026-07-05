@@ -1,0 +1,59 @@
+{
+  "slug": "ADVANCED_-_Customs_Editor_Ins_Field_Down_and_Adding_FIRST_SE_edecb6300dfe",
+  "title": "ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV)",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV)",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "customs"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.advanced___c_1",
+      "sequence": 1,
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "doing something. Our staff was complaining that some of the fields weren't big enough, so it's the insurance tab that we need to look at. And let's edit it. What we're going to do is move this to lin",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "customs.advanced___c_2",
+      "sequence": 2,
+      "frame": "frame_009.jpg",
+      "timestampSec": 240,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Custom field editor",
+      "fields": [],
+      "actions": [
+        "reviewCustomsEditorWorkflow",
+        "mapToPraxiumcustoms"
+      ],
+      "transcriptQuote": "# ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV) **Kind:** other **Tags:** canc",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Customs Editor parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_004.jpg",
+    "frame_009.jpg"
+  ]
+}

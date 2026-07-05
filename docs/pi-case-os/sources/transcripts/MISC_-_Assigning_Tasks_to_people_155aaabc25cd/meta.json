@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:34:40.690105+00:00",
   "hasAudioArchive": true,
   "audioBytes": 5033394,
-  "frameCount": 7,
+  "frameCount": 10,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -32,8 +32,14 @@
     "frame_004.jpg",
     "frame_005.jpg",
     "frame_006.jpg",
-    "frame_007.jpg"
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/MISC_-_Assigning_Tasks_to_people_155aaabc25cd/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/MISC_-_Assigning_Tasks_to_people_155aaabc25cd/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MISC - Assigning Tasks to people.mp4",
+  "framesExtractedAt": "2026-07-05T02:09:48.462Z",
+  "frameManifest": "training-archive/van-law-the case system/MISC_-_Assigning_Tasks_to_people_155aaabc25cd/screenshots/frame-manifest.json"
 }

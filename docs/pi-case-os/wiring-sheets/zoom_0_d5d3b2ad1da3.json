@@ -1,0 +1,100 @@
+{
+  "slug": "zoom_0_d5d3b2ad1da3",
+  "title": "zoom_0",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: zoom_0",
+    "route": "/matters/:id",
+    "selectors": [
+      "docgen",
+      "demand",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "docgen.zoom_0_d5d3b_1",
+      "sequence": 1,
+      "frame": "frame_022.jpg",
+      "timestampSec": 630,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "arted here, didn't you? No. I got him a year and a half after I joined you guys. Do we need another doc gen person or is it just wildness right now and it's going to get better? Or are we just falling",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "demand.zoom_0_d5d3b_2",
+      "sequence": 2,
+      "frame": "frame_044.jpg",
+      "timestampSec": 1290,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "pre-hearing statement is an arbitration brief. We want to know like a little summary, like a little demand letter of what happened that day. So they're like, Hey, this needs to be, and it's usually li",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "meds.zoom_0_d5d3b_3",
+      "sequence": 3,
+      "frame": "frame_065.jpg",
+      "timestampSec": 1920,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "because of that, he needed surgeries and he needed injections and he needed all this stuff. And his medical bills were like so high. Right. So, um, we file that and say, your honor. Um, this is a big",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "settlement.zoom_0_d5d3b_4",
+      "sequence": 4,
+      "frame": "frame_087.jpg",
+      "timestampSec": 2580,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "driving to like auto zone or whatever. Right. So then, um, you're going to also have 10 things for reduction of documents. So I might ask for where's your ID, right? Where's your phone records. Where",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_022.jpg",
+    "frame_044.jpg",
+    "frame_065.jpg",
+    "frame_087.jpg"
+  ]
+}

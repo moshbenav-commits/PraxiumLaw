@@ -1,0 +1,292 @@
+{
+  "slug": "1_Medical_LOR_bcd15d6a0b12",
+  "title": "1. Medical LOR",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Medical LOR.mp4",
+  "extractedAt": "2026-07-05T03:01:27.968Z",
+  "intervalSec": 30,
+  "durationSec": 823.472472,
+  "frameCount": 27,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Provider folder",
+      "functionId": "medlor.verify_no_duplicate_request",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "ensure no same requests… verify not yet received"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 270,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "DocGen medical LOR",
+      "functionId": "medlor.generate_from_meds_tab",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "doc gen buttons… generate medical LOR… dates requested DOL to present"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 300,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 330,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 390,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 420,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_016.jpg",
+      "timestampSec": 450,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_017.jpg",
+      "timestampSec": 480,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_018.jpg",
+      "timestampSec": 510,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_019.jpg",
+      "timestampSec": 540,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_020.jpg",
+      "timestampSec": 570,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "HIPAA from intake",
+      "functionId": "medlor.attach_hipaa_flatten_pdf",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "edit IPA add provider… insert after last… flatten PDF"
+    },
+    {
+      "filename": "frame_021.jpg",
+      "timestampSec": 600,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_022.jpg",
+      "timestampSec": 630,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_023.jpg",
+      "timestampSec": 660,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_024.jpg",
+      "timestampSec": 690,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_025.jpg",
+      "timestampSec": 720,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Fax sent note",
+      "functionId": "medlor.fax_via_metrofax",
+      "praxiumTab": "comms",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Metrofax… note LOR sent… do not mark complete until records received"
+    },
+    {
+      "filename": "frame_026.jpg",
+      "timestampSec": 750,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_027.jpg",
+      "timestampSec": 780,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/1_Medical_LOR_bcd15d6a0b12.json",
+  "labeledFrameCount": 4,
+  "labeledAt": "2026-07-05"
+}

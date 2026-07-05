@@ -25,5 +25,25 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:53:49.095547+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 6163142
+  "audioBytes": 6163142,
+  "frameCount": 13,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV).mp4",
+  "framesExtractedAt": "2026-07-05T02:08:40.113Z",
+  "frameManifest": "training-archive/van-law-the case system/ADVANCED_-_Customs_Editor_Ins_Field_Down_and_Adding_FIRST_SE_edecb6300dfe/screenshots/frame-manifest.json"
 }

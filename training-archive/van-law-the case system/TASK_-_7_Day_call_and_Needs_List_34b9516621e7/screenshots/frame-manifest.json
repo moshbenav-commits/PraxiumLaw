@@ -1,0 +1,58 @@
+{
+  "slug": "TASK_-_7_Day_call_and_Needs_List_34b9516621e7",
+  "title": "TASK - 7 Day call and Needs List",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - 7 Day call and Needs List.mp4",
+  "extractedAt": "2026-07-05T03:07:17.914Z",
+  "intervalSec": 30,
+  "durationSec": 124.505397,
+  "frameCount": 4,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "functionId": "taskflow.task___7_day_1",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/tasks",
+      "transcriptQuote": "# TASK - 7 Day call and Needs List **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:*"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "functionId": "intake.task___7_day_2",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Intake workflow per title: TASK - 7 Day call and Needs List"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/TASK_-_7_Day_call_and_Needs_List_34b9516621e7.json",
+  "labeledFrameCount": 2,
+  "labeledAt": "2026-07-05"
+}

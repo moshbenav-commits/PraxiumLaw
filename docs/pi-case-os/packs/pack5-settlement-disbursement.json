@@ -1,0 +1,13 @@
+{
+  "id": "pack5-settlement-disbursement",
+  "label": "Settlement calc and disbursements",
+  "description": "Settlement calc and disbursements",
+  "intervalSec": 30,
+  "slugs": [
+    "DISBURSEMENT_SHEET_-_Updating_Rolando_Clores_56fa2b2c5527",
+    "FILEVINE_-_Disbursements_a37c8cc4d16f",
+    "NEGOTIATION_TAB_-_Notating_Offers_and_updating_negotiation_a_22a09332bd85",
+    "SETTLEMENT_CALC_TAB_-_Settlement_Calc_Disbursement_Ltr_b1ab01c92be9",
+    "Settlement_Disbursement_-_Long_Reduction_Request_fadacdf73a10"
+  ]
+}

@@ -73,6 +73,11 @@ agenthub/agents/youtube/db
 *.deb
 *.dylib
 
+# PI training video frames (regenerate: npm run pi:filevine:extract)
+training-archive/**/screenshots/*.jpg
+training-archive/**/screenshots/*.jpeg
+training-archive/**/screenshots/*.png
+
 # Build caches
 .cache/
 

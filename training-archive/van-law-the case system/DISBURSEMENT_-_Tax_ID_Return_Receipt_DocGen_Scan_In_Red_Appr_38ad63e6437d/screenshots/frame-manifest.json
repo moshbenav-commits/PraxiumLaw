@@ -1,0 +1,580 @@
+{
+  "slug": "DISBURSEMENT_-_Tax_ID_Return_Receipt_DocGen_Scan_In_Red_Appr_38ad63e6437d",
+  "title": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP).mp4",
+  "extractedAt": "2026-07-05T02:24:05.763Z",
+  "intervalSec": 15,
+  "durationSec": 825.910567,
+  "frameCount": 55,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 15,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Settlement",
+      "filevineSection": "Who needs to be paid",
+      "functionId": "settlement.calculator.outstanding_providers",
+      "praxiumTab": "settlement",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Settlement Calculator tells you everyone that needs to be paid… smiley faces mean approved reductions"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 45,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 75,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 105,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Disbursement letter",
+      "functionId": "docgen.settlement.regenerate_disbursement_letter",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "doc gen in the meds tab… regenerate… download… enable edit"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 135,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 165,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Tax ID on letter",
+      "functionId": "settlement.disbursement.w9_tax_id_lookup",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "tax ID… Clio Staff Folders W9s… doing business as… 550-88-882013"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 195,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 210,
+      "labeled": true,
+      "filevineTab": "Tasks",
+      "filevineSection": "Urgent tax ID request",
+      "functionId": "settlement.disbursement.task_receptionist_tax_id",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "task the receptionist… call Dr. Patel's office and get a tax ID… Urgent"
+    },
+    {
+      "filename": "frame_016.jpg",
+      "timestampSec": 225,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_017.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_018.jpg",
+      "timestampSec": 255,
+      "labeled": true,
+      "filevineTab": "Settlement",
+      "filevineSection": "Final reduced amount",
+      "functionId": "settlement.disbursement.edit_reduction_amount",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "reduced to 2,359.07… always have to change this… Control-A no color"
+    },
+    {
+      "filename": "frame_019.jpg",
+      "timestampSec": 270,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_020.jpg",
+      "timestampSec": 285,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_021.jpg",
+      "timestampSec": 300,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_022.jpg",
+      "timestampSec": 315,
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Approved lien reduction",
+      "functionId": "settlement.disbursement.print_reduction_proof",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "print copy of approved reduction… approved lien reduction tells you how much"
+    },
+    {
+      "filename": "frame_023.jpg",
+      "timestampSec": 330,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_024.jpg",
+      "timestampSec": 345,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_025.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_026.jpg",
+      "timestampSec": 375,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_027.jpg",
+      "timestampSec": 390,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_028.jpg",
+      "timestampSec": 405,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Outbound + return envelope",
+      "functionId": "settlement.disbursement.print_return_envelopes",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "printing two envelopes… return envelope… type in our address so they can send back"
+    },
+    {
+      "filename": "frame_029.jpg",
+      "timestampSec": 420,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_030.jpg",
+      "timestampSec": 435,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_031.jpg",
+      "timestampSec": 450,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_032.jpg",
+      "timestampSec": 465,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_033.jpg",
+      "timestampSec": 480,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_034.jpg",
+      "timestampSec": 495,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_035.jpg",
+      "timestampSec": 510,
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Outbound scan PDF",
+      "functionId": "settlement.disbursement.scan_outbound_packet",
+      "praxiumTab": "comms",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "scan everything in including the check and the two envelopes… anything goes out we want a scanned PDF"
+    },
+    {
+      "filename": "frame_036.jpg",
+      "timestampSec": 525,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_037.jpg",
+      "timestampSec": 540,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_038.jpg",
+      "timestampSec": 555,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_039.jpg",
+      "timestampSec": 570,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_040.jpg",
+      "timestampSec": 585,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_041.jpg",
+      "timestampSec": 600,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_042.jpg",
+      "timestampSec": 615,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_043.jpg",
+      "timestampSec": 630,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_044.jpg",
+      "timestampSec": 645,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_045.jpg",
+      "timestampSec": 660,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_046.jpg",
+      "timestampSec": 675,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_047.jpg",
+      "timestampSec": 690,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_048.jpg",
+      "timestampSec": 705,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_049.jpg",
+      "timestampSec": 720,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_050.jpg",
+      "timestampSec": 735,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_051.jpg",
+      "timestampSec": 750,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_052.jpg",
+      "timestampSec": 765,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_053.jpg",
+      "timestampSec": 780,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_054.jpg",
+      "timestampSec": 795,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_055.jpg",
+      "timestampSec": 810,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/DISBURSEMENT_-_Tax_ID_Return_Receipt_DocGen_Scan_In_Red_Appr_38ad63e6437d.json",
+  "labeledFrameCount": 8,
+  "labeledAt": "2026-07-05"
+}

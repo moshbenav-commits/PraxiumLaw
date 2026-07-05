@@ -1,0 +1,78 @@
+{
+  "slug": "LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b",
+  "title": "LITIGATION - Sharing case with litigator Google Drive",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/LITIGATION - Sharing case with litigator Google Drive.mp4",
+  "extractedAt": "2026-07-05T03:07:11.485Z",
+  "intervalSec": 30,
+  "durationSec": 193.213243,
+  "frameCount": 6,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "functionId": "docs.litigation___1",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Docs workflow per title: LITIGATION - Sharing case with litigator Google Drive"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "functionId": "activity.litigation___2",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Activity workflow per title: LITIGATION - Sharing case with litigator Google Drive"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b.json",
+  "labeledFrameCount": 2,
+  "labeledAt": "2026-07-05"
+}

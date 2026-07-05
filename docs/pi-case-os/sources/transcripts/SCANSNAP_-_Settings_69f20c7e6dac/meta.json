@@ -24,11 +24,15 @@
   "updatedAt": "2026-06-18T20:39:12.801937+00:00",
   "hasAudioArchive": true,
   "audioBytes": 1453879,
-  "frameCount": 2,
+  "frameCount": 3,
   "frames": [
     "frame_001.jpg",
-    "frame_002.jpg"
+    "frame_002.jpg",
+    "frame_003.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/SCANSNAP_-_Settings_69f20c7e6dac/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/SCANSNAP_-_Settings_69f20c7e6dac/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SCANSNAP - Settings.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:12.882Z",
+  "frameManifest": "training-archive/van-law-the case system/SCANSNAP_-_Settings_69f20c7e6dac/screenshots/frame-manifest.json"
 }

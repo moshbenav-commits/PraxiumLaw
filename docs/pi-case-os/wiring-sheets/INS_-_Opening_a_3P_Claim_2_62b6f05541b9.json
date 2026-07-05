@@ -1,0 +1,59 @@
+{
+  "slug": "INS_-_Opening_a_3P_Claim_2_62b6f05541b9",
+  "title": "INS - Opening a 3P Claim 2",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: INS - Opening a 3P Claim 2",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.ins___openin_1",
+      "sequence": 1,
+      "frame": "frame_009.jpg",
+      "timestampSec": 240,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "ay? Were you injured at all? It wasn't me. It was a client. Oh, okay. I do apologize. Do you have a policy number or phone number I can look up? Let's see. 437-611-7133 is the policy number. All right",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.ins___openin_2",
+      "sequence": 2,
+      "frame": "frame_017.jpg",
+      "timestampSec": 480,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "Training covers DocGen workflow per title: INS - Opening a 3P Claim 2",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_009.jpg",
+    "frame_017.jpg"
+  ]
+}

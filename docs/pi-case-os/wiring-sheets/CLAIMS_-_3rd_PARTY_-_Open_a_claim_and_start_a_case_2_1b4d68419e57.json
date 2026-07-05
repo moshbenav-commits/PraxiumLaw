@@ -1,0 +1,59 @@
+{
+  "slug": "CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_2_1b4d68419e57",
+  "title": "CLAIMS - 3rd PARTY - Open a claim and start a case 2",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CLAIMS - 3rd PARTY - Open a claim and start a case 2",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.claims___3rd_1",
+      "sequence": 1,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "do we have a date of loss for them? Date of loss was 617-17. Thank you so much. And do we have the policy number that we're filing this under? Yes. Hold on one second. This policy number is... Hold o",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.claims___3rd_2",
+      "sequence": 2,
+      "frame": "frame_010.jpg",
+      "timestampSec": 270,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "Training covers DocGen workflow per title: CLAIMS - 3rd PARTY - Open a claim and start a case 2",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_005.jpg",
+    "frame_010.jpg"
+  ]
+}

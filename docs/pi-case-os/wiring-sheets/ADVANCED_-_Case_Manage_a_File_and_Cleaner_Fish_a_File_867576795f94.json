@@ -1,0 +1,180 @@
+{
+  "slug": "ADVANCED_-_Case_Manage_a_File_and_Cleaner_Fish_a_File_867576795f94",
+  "title": "ADVANCED - Case Manage a File and Cleaner Fish a File",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: ADVANCED - Case Manage a File and Cleaner Fish a File",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "health",
+      "team"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.advanced___c_1",
+      "sequence": 1,
+      "frame": "frame_015.jpg",
+      "timestampSec": 420,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "and they can say 3P is progressive and gesture is John Doe. And the phone number for him is and the claim number is 98765. Claim number. And then underscore underscore equals equals. You only create t",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "health.advanced___c_2",
+      "sequence": 2,
+      "frame": "frame_030.jpg",
+      "timestampSec": 870,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "s all these pictures. You're going to task a VA to organize them because we might have pictures for health insurance cards. So then you put it in the health insurance tab. We might have pictures on th",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "team.advanced___c_3",
+      "sequence": 3,
+      "frame": "frame_045.jpg",
+      "timestampSec": 1320,
+      "filevineSurface": "Team",
+      "filevineTab": "Team",
+      "filevineSection": "Roles / primary",
+      "fields": [],
+      "actions": [
+        "reviewTeamWorkflow",
+        "mapToPraxiumteam"
+      ],
+      "transcriptQuote": "otton Headlight. I think I'll just leave it here. Okay, so what that basically means here is on the team tab, you're supposed to put whoever is the person. So if it was someone else, you would move it",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Team parity"
+    },
+    {
+      "id": "settlement.advanced___c_4",
+      "sequence": 4,
+      "frame": "frame_060.jpg",
+      "timestampSec": 1770,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "ab. Who did Superman go to? They're going to go to Apache. Let's say Apache. And let's say that the lien holder has a email on that. And then the specialty is a chiropractor. Because if you don't fill",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.advanced___c_5",
+      "sequence": 5,
+      "frame": "frame_076.jpg",
+      "timestampSec": 2250,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "a case manager, you should have that thing right away. You know what I mean? You should have those medical bills and bother the client for a month and say, hey, dude, you need to bring me those hospi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "docs.advanced___c_6",
+      "sequence": 6,
+      "frame": "frame_091.jpg",
+      "timestampSec": 2700,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "ternate email in case you want to reach me and here's our business card that's fine and then please save this number as your contacts the reason is because we want to market them in the future let's s",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "subrogation.advanced___c_7",
+      "sequence": 7,
+      "frame": "frame_106.jpg",
+      "timestampSec": 3150,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "ab. Who did Superman go to? They're going to go to Apache. Let's say Apache. And let's say that the lien holder has a email on that. And then the specialty is a chiropractor. Because if you don't fill",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "feed.advanced___c_8",
+      "sequence": 8,
+      "frame": "frame_121.jpg",
+      "timestampSec": 3600,
+      "filevineSurface": "Feed",
+      "filevineTab": "Feed",
+      "filevineSection": "Activity feed",
+      "fields": [],
+      "actions": [
+        "reviewFeedWorkflow",
+        "mapToPraxiumfeed"
+      ],
+      "transcriptQuote": "equals equals. You only create the bolded vines that you need to. And then I would pin them to the feed. And you only pin them to the feed for as long as you need it. So once you've gotten liability",
+      "praxiumRoute": "/inbox",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Feed parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_015.jpg",
+    "frame_030.jpg",
+    "frame_045.jpg",
+    "frame_060.jpg",
+    "frame_076.jpg",
+    "frame_091.jpg",
+    "frame_106.jpg",
+    "frame_121.jpg"
+  ]
+}

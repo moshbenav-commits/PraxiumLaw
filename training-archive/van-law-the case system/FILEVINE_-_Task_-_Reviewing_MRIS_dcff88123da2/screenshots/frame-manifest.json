@@ -1,0 +1,194 @@
+{
+  "slug": "FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2",
+  "title": "FILEVINE - Task - Reviewing MRIS",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Reviewing MRIS.mp4",
+  "extractedAt": "2026-07-05T02:25:01.538Z",
+  "intervalSec": 15,
+  "durationSec": 248.174875,
+  "frameCount": 17,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 15,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Shared accident PR",
+      "functionId": "task.police.one_report_multi_client",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "only need to request one police report if there's only one accident… three clients"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Statements / photos",
+      "functionId": "intake.police.statements_photos_count",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "zero statements… Las Vegas Metro again"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 45,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "People in vehicle",
+      "functionId": "intake.police.occupant_count_limits",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Julius, his kids… five people in this car… we only represent the adults"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 75,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 105,
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Farmer's policy from PR",
+      "functionId": "intake.police.extract_defendant_insurance",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "driver Donald Harmer… farmer's policy number… registered owner… only one insurance"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 135,
+      "labeled": true,
+      "filevineTab": "Intake",
+      "filevineSection": "Lane merge facts",
+      "functionId": "intake.police.lane_change_narrative",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "vehicle 2 lane change… cone merge area… defendant was in front of our client"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 165,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 195,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_016.jpg",
+      "timestampSec": 225,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_017.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2.json",
+  "labeledFrameCount": 5,
+  "labeledAt": "2026-07-05"
+}

@@ -1,0 +1,59 @@
+{
+  "slug": "TASK_-_Witness_Statement_c4d99ed5e876",
+  "title": "TASK - Witness Statement",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: TASK - Witness Statement",
+    "route": "/tasks",
+    "selectors": [
+      "taskflow",
+      "intake"
+    ]
+  },
+  "functions": [
+    {
+      "id": "taskflow.task___witne_1",
+      "sequence": 1,
+      "frame": "frame_001.jpg",
+      "timestampSec": 0,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "Training covers Taskflow workflow per title: TASK - Witness Statement",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "intake.task___witne_2",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: TASK - Witness Statement",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_001.jpg",
+    "frame_003.jpg"
+  ]
+}

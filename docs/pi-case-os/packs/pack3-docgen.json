@@ -1,0 +1,20 @@
+{
+  "id": "pack3-docgen",
+  "label": "DocGen letter generation",
+  "description": "DocGen letter generation",
+  "intervalSec": 30,
+  "slugs": [
+    "ADVANCED_-_Customs_Editor_Meds_Field_Tab_Adding_Fields_and_D_bc623d310756",
+    "DISBURSEMENT_-_Tax_ID_Return_Receipt_DocGen_Scan_In_Red_Appr_38ad63e6437d",
+    "DOCGEN_-_Demand_Letter_b1e01f2498ec",
+    "DOCGEN_-_Drop_Letter_to_3rd_Party_Insurance_b8ad45e1cc1c",
+    "DOCGEN_-_Drop_Letter_to_Lien_Holders_2913510d0f40",
+    "DOCGEN_-_How_To_Create_Letters_2_ebd8d59c9937",
+    "DOCGEN_-_How_to_Create_Letters_c2fcd7db459a",
+    "DOCGEN_-_Medical_LOR_to_Copy_Co_21b482ee5649",
+    "DOCGEN_-_Revising_Docgen_Documents_b68f23a01df5",
+    "DOCGEN-_MED_PAY_to_1st_party_48968accca97",
+    "How_to_Docgen_Intake_Sheets_f432ec0d62a5",
+    "TASK_-_Getting_Police_Report_Calling_and_DocGen_Ltr_bfbb99ae10f1"
+  ]
+}

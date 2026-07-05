@@ -1,0 +1,15 @@
+{
+  "id": "pack10_case_audit_review",
+  "label": "case audit review",
+  "intervalSec": 30,
+  "slugs": [
+    "30_-ADVANCED_Case_Auditing_caa5f4fc04b4",
+    "5_Week_and_30_Day_Case_Review_-_Pain_Management_and_MRI_eaab125cdd9f",
+    "ADVANCED_-_Case_Audit_3b9f8463fe33",
+    "ADVANCED_-_Case_Manage_a_File_and_Cleaner_Fish_a_File_867576795f94",
+    "ADVANCED_-_Case_Review_309deebd9b20",
+    "Case_Audit_Training_1-19-22_1__7b3442329bf8",
+    "Personal_Injury_Workflow_00497e0bea58",
+    "Phase_1_Client_3-TASK_-_Fill_out_Intake_Ins_Med_Prov_30_Day__51ad466a8f35"
+  ]
+}

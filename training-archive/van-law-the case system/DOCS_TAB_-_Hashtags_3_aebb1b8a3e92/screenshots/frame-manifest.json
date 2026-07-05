@@ -1,0 +1,48 @@
+{
+  "slug": "DOCS_TAB_-_Hashtags_3_aebb1b8a3e92",
+  "title": "DOCS TAB - Hashtags 3",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags 3.mp4",
+  "extractedAt": "2026-07-05T03:02:21.912Z",
+  "intervalSec": 30,
+  "durationSec": 104.513016,
+  "frameCount": 3,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Documents",
+      "filevineSection": "Tag on upload",
+      "functionId": "docs.hashtag_on_every_upload",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "hashtags help look for things… tag like Gmail labels"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Link doc in note",
+      "functionId": "docs.cross_reference_activity",
+      "praxiumTab": "comms",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "attach documents… hashtags on docs and activity"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/DOCS_TAB_-_Hashtags_3_aebb1b8a3e92.json",
+  "labeledFrameCount": 2,
+  "labeledAt": "2026-07-05"
+}

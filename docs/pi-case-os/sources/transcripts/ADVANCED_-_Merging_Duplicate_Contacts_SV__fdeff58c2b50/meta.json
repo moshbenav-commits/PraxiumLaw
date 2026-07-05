@@ -23,5 +23,16 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:51:35.655578+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 1724836
+  "audioBytes": 1724836,
+  "frameCount": 4,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Merging Duplicate Contacts (SV).mp4",
+  "framesExtractedAt": "2026-07-05T03:07:06.364Z",
+  "frameManifest": "training-archive/van-law-the case system/ADVANCED_-_Merging_Duplicate_Contacts_SV__fdeff58c2b50/screenshots/frame-manifest.json"
 }

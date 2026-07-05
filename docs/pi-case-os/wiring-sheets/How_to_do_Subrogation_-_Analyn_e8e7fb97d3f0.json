@@ -1,0 +1,180 @@
+{
+  "slug": "How_to_do_Subrogation_-_Analyn_e8e7fb97d3f0",
+  "title": "How to do Subrogation - Analyn",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: How to do Subrogation - Analyn",
+    "route": "/matters/:id",
+    "selectors": [
+      "health",
+      "subrogation",
+      "settlement"
+    ]
+  },
+  "functions": [
+    {
+      "id": "health.how_to_do_su_1",
+      "sequence": 1,
+      "frame": "frame_041.jpg",
+      "timestampSec": 1200,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "ys after the date of loss, if you're in Nevada. Okay. So then the next thing you would do is open a health insurance subrogation claim. Okay. Health insurance subrogation means that your client got so",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "subrogation.how_to_do_su_2",
+      "sequence": 2,
+      "frame": "frame_082.jpg",
+      "timestampSec": 2430,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "# How to do Subrogation - Analyn **Kind:** other **Tags:** — **Speakers:** Chris **Complete sales call:**",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "settlement.how_to_do_su_3",
+      "sequence": 3,
+      "frame": "frame_124.jpg",
+      "timestampSec": 3690,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "l HMS, right? Yeah. And HMS will send you a correspondence. First one, you will receive a notice of lien. Okay. One second. HMS, do we call them? Do they tell us then over the phone? No. You don't nee",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.how_to_do_su_4",
+      "sequence": 4,
+      "frame": "frame_165.jpg",
+      "timestampSec": 4920,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "you only open it if your client went to the hospital or if health insurance paid any portion of the medical bills, kind of like, you know, drugs or whatever they paid for their naproxen or something.",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "insurance.how_to_do_su_5",
+      "sequence": 5,
+      "frame": "frame_206.jpg",
+      "timestampSec": 6150,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "d edit it because, um, you should always open it as you'll need a letter upon settlement before the adjuster will release any funds. So the adjuster will be like, Oh, hold on. Your client has Medicare",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.how_to_do_su_6",
+      "sequence": 6,
+      "frame": "frame_247.jpg",
+      "timestampSec": 7380,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "you guys. You guys didn't get that Chris Rock story. Okay. I was being funny. Um, you can actually generate this project. You can generate this when you're doing the intake. Okay. It fills it all in.",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "demand.how_to_do_su_7",
+      "sequence": 7,
+      "frame": "frame_289.jpg",
+      "timestampSec": 8640,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "to process a claim. All right. So if the client is already done treating unhealth insurance and the demand letter is being sent, send a request to obtain the final subrogation lien. This is a case-to-",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "docs.how_to_do_su_8",
+      "sequence": 8,
+      "frame": "frame_330.jpg",
+      "timestampSec": 9870,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "ey, we have a shortcut key there and, uh, the username and password is also listed on the, uh, tab. Save it as your shortcut people. So the ones that need to go there. Mm-hmm. All right. Just click he",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_041.jpg",
+    "frame_082.jpg",
+    "frame_124.jpg",
+    "frame_165.jpg",
+    "frame_206.jpg",
+    "frame_247.jpg",
+    "frame_289.jpg",
+    "frame_330.jpg"
+  ]
+}

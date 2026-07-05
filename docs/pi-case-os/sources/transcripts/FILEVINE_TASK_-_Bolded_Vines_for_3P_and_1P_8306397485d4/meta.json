@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:32:20.757670+00:00",
   "hasAudioArchive": true,
   "audioBytes": 6375010,
-  "frameCount": 9,
+  "frameCount": 13,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -34,8 +34,15 @@
     "frame_006.jpg",
     "frame_007.jpg",
     "frame_008.jpg",
-    "frame_009.jpg"
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_TASK_-_Bolded_Vines_for_3P_and_1P_8306397485d4/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_TASK_-_Bolded_Vines_for_3P_and_1P_8306397485d4/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Bolded Vines for 3P and 1P.mp4",
+  "framesExtractedAt": "2026-07-05T01:51:23.694Z",
+  "frameManifest": "training-archive/van-law-the case system/FILEVINE_TASK_-_Bolded_Vines_for_3P_and_1P_8306397485d4/screenshots/frame-manifest.json"
 }

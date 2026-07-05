@@ -1,0 +1,17 @@
+{
+  "id": "day1-filevine",
+  "label": "Day 1 — Filevine core (Support Staff)",
+  "description": "First-pass wiring capture: login shell, intake, tabs, new project, activity feed.",
+  "intervalSec": 30,
+  "slugs": [
+    "FILEVINE_-_Basics_of_Filevine_Part_1_abd613370a9e",
+    "FILEVINE_-_Basics_of_Filevine_Part_2_46d4804bcc17",
+    "2_Filevine_-_Activity_Feed_1473ebf3c660",
+    "3_Filevine_-_Intake_Tab_28bb0993a7f5",
+    "FILEVINE_-_Intake_606dc0bcc5c4",
+    "FILEVINE_-_Creating_New_Project_Roles_Dropbox_and_Textline_9de4214dd94b",
+    "FILEVINE_TASK_-_Intake_Treatment_Insurance_Auto_Tab_task_Par_fe53309f4dc3",
+    "FILEVINE_TASK_-_3_Days_after_DOL_Needs_List_and_Internal_Int_b7416d6fc862",
+    "FILEVINE_TASK_-_Conflict_Check_a488602acb87"
+  ]
+}

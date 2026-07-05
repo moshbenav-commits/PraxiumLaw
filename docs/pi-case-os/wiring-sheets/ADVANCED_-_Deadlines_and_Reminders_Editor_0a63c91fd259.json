@@ -1,0 +1,59 @@
+{
+  "slug": "ADVANCED_-_Deadlines_and_Reminders_Editor_0a63c91fd259",
+  "title": "ADVANCED - Deadlines and Reminders Editor",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: ADVANCED - Deadlines and Reminders Editor",
+    "route": "/settings/custom-fields",
+    "selectors": [
+      "customs",
+      "calendar"
+    ]
+  },
+  "functions": [
+    {
+      "id": "customs.advanced___d_1",
+      "sequence": 1,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Custom field editor",
+      "fields": [],
+      "actions": [
+        "reviewCustomsEditorWorkflow",
+        "mapToPraxiumcustoms"
+      ],
+      "transcriptQuote": "nders Editor.mp4` **Time range:** 0.0s – 0.0s ## Transcript So we are going to go to Advanced Customs Editor, the firm, Primary. Hold on. We're going to do a, shoot, what is it going to be? Was",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Customs Editor parity"
+    },
+    {
+      "id": "calendar.advanced___d_2",
+      "sequence": 2,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Calendar",
+      "filevineTab": "Calendar",
+      "filevineSection": "Appointments",
+      "fields": [],
+      "actions": [
+        "reviewCalendarWorkflow",
+        "mapToPraxiumcalendar"
+      ],
+      "transcriptQuote": "Hmm. And I am going to create a new section. Scheduling Orders. And Trial. Trial. Section Selector. Calendar. Let's see. What should we name this? So we don't want this icon. Let's try Calendar. We've",
+      "praxiumRoute": "/calendar",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Calendar parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_008.jpg",
+    "frame_016.jpg"
+  ]
+}

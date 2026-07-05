@@ -1,0 +1,100 @@
+{
+  "slug": "5_Week_and_30_Day_Case_Review_-_Pain_Management_and_MRI_eaab125cdd9f",
+  "title": "5 Week and 30 Day Case Review - Pain Management and MRI",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 5 Week and 30 Day Case Review - Pain Management and MRI",
+    "route": "/tasks",
+    "selectors": [
+      "taskflow",
+      "meds",
+      "intake"
+    ]
+  },
+  "functions": [
+    {
+      "id": "taskflow.5_week_and_3_1",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "# 5 Week and 30 Day Case Review - Pain Management and MRI **Kind:** other **Tags:** — **Speakers:** — **Co",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "meds.5_week_and_3_2",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "ust put this on there. And you should probably read the doctor's notes. So we're going to go to the meds tab here. And let's read the doctor's notes. So I'm not worried about the chiropractic notes. I",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "intake.5_week_and_3_3",
+      "sequence": 3,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: 5 Week and 30 Day Case Review - Pain Management and MRI",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "insurance.5_week_and_3_4",
+      "sequence": 4,
+      "frame": "frame_006.jpg",
+      "timestampSec": 150,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Training covers Insurance workflow per title: 5 Week and 30 Day Case Review - Pain Management and MRI",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg"
+  ]
+}

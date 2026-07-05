@@ -1,0 +1,13 @@
+{
+  "slug": "DOCS_TAB_-_Hashtags_2_9e9cb058c90f",
+  "title": "DOCS TAB - Hashtags 2",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 165,
+  "matterShell": { "description": "Hashtag continuation — doc organization", "route": "/matters/:id", "selectors": ["docsTab"] },
+  "functions": [
+    { "id": "docs.hashtag_standard_list", "sequence": 1, "frame": "frame_002.jpg", "timestampSec": 30, "filevineTab": "Documents", "filevineSection": "Hashtags", "actions": ["useFirmHashtagList", "tagOnUpload"], "transcriptQuote": "use hashtags… same ones… find in Docs tab", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No doc hashtag SSOT" },
+    { "id": "docs.filter_by_hashtag", "sequence": 2, "frame": "frame_004.jpg", "timestampSec": 60, "filevineTab": "Documents", "filevineSection": "Filter", "actions": ["filterDocsByHashtag"], "transcriptQuote": "search for it later… pops up easier", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "Doc hashtag filter missing" }
+  ],
+  "labeledFrames": ["frame_002.jpg", "frame_004.jpg"]
+}

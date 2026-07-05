@@ -1,0 +1,68 @@
+{
+  "slug": "DOCS_TAB_-_Hashtags_2_9e9cb058c90f",
+  "title": "DOCS TAB - Hashtags 2",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags 2.mp4",
+  "extractedAt": "2026-07-05T03:02:21.287Z",
+  "intervalSec": 30,
+  "durationSec": 164.606259,
+  "frameCount": 5,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Documents",
+      "filevineSection": "Hashtags",
+      "functionId": "docs.hashtag_standard_list",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "use hashtags… same ones… find in Docs tab"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": true,
+      "filevineTab": "Documents",
+      "filevineSection": "Filter",
+      "functionId": "docs.filter_by_hashtag",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "search for it later… pops up easier"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/DOCS_TAB_-_Hashtags_2_9e9cb058c90f.json",
+  "labeledFrameCount": 2,
+  "labeledAt": "2026-07-05"
+}

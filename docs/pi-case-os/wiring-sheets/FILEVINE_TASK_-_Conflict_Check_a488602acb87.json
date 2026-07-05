@@ -1,0 +1,79 @@
+{
+  "slug": "FILEVINE_TASK_-_Conflict_Check_a488602acb87",
+  "title": "FILEVINE TASK - Conflict Check",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-day1",
+  "videoDurationSec": 135,
+  "matterShell": {
+    "description": "Conflict check — defendant driver and owner",
+    "route": "/matters/:id",
+    "selectors": ["conflictCheck", "defendantTab"]
+  },
+  "functions": [
+    {
+      "id": "conflict.open_defendant_tab",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Defendant tab",
+      "filevineTab": "Defendant",
+      "filevineSection": "Driver and owner",
+      "fields": ["defendantDriver", "defendantOwner"],
+      "actions": ["openDefendantTab", "enterDriverOwnerNames"],
+      "transcriptQuote": "defendant tab… driver… owner… two different people sometimes",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "partial",
+      "gapNotes": "Defendant fields partial"
+    },
+    {
+      "id": "conflict.run_global_search",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 45,
+      "filevineSurface": "Global search",
+      "filevineTab": "Search",
+      "filevineSection": "Conflict search",
+      "fields": ["includeArchived"],
+      "actions": ["searchDriverName", "searchOwnerName", "includeArchivedMatters"],
+      "transcriptQuote": "search driver name… search owner… include archived",
+      "praxiumRoute": "/",
+      "praxiumTab": null,
+      "status": "missing",
+      "gapNotes": "No conflict-check search workflow"
+    },
+    {
+      "id": "conflict.document_results",
+      "sequence": 3,
+      "frame": "frame_004.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Activity note",
+      "filevineTab": "Activity",
+      "filevineSection": "Conflict note",
+      "fields": ["conflictClear", "conflictFound"],
+      "actions": ["postConflictCheckNote", "flagIfConflict"],
+      "transcriptQuote": "document conflict check… clear or flag conflict",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "comms",
+      "status": "missing",
+      "gapNotes": "No conflict check documentation template"
+    },
+    {
+      "id": "conflict.complete_task",
+      "sequence": 4,
+      "frame": "frame_005.jpg",
+      "timestampSec": 75,
+      "filevineSurface": "Task",
+      "filevineTab": "Tasks",
+      "filevineSection": "Complete",
+      "fields": ["taskNotes"],
+      "actions": ["markConflictTaskComplete"],
+      "transcriptQuote": "complete conflict check task",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "pipeline",
+      "status": "partial",
+      "gapNotes": "Task complete partial"
+    }
+  ],
+  "labeledFrames": ["frame_002.jpg", "frame_003.jpg", "frame_004.jpg", "frame_005.jpg"]
+}

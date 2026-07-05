@@ -1,0 +1,104 @@
+{
+  "slug": "SUBRO_-Reviewing_the_Lien_SV__1fca3bc67396",
+  "title": "SUBRO -Reviewing the  Lien (SV)",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SUBRO -Reviewing the  Lien (SV).mp4",
+  "extractedAt": "2026-07-05T03:07:17.263Z",
+  "intervalSec": 30,
+  "durationSec": 233.105125,
+  "frameCount": 8,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "functionId": "settlement.subro__revie_1",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "# SUBRO -Reviewing the Lien (SV) **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN aud"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "functionId": "meds.subro__revie_2",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Meds workflow per title: SUBRO -Reviewing the  Lien (SV)"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": true,
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "functionId": "subrogation.subro__revie_3",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Subrogation workflow per title: SUBRO -Reviewing the  Lien (SV)"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": true,
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "functionId": "health.subro__revie_4",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Health workflow per title: SUBRO -Reviewing the  Lien (SV)"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 180,
+      "labeled": true,
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "functionId": "docgen.subro__revie_5",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers DocGen workflow per title: SUBRO -Reviewing the  Lien (SV)"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 210,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/SUBRO_-Reviewing_the_Lien_SV__1fca3bc67396.json",
+  "labeledFrameCount": 5,
+  "labeledAt": "2026-07-05"
+}

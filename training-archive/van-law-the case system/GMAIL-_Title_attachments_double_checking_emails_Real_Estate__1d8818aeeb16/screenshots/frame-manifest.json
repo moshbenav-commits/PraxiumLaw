@@ -1,0 +1,70 @@
+{
+  "slug": "GMAIL-_Title_attachments_double_checking_emails_Real_Estate__1d8818aeeb16",
+  "title": "GMAIL- Title, attachments, double checking emails (Real Estate)",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/GMAIL- Title, attachments, double checking emails (Real Estate).mp4",
+  "extractedAt": "2026-07-05T03:07:10.206Z",
+  "intervalSec": 30,
+  "durationSec": 147.516372,
+  "frameCount": 5,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "functionId": "activity.gmail__title_1",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Activity workflow per title: GMAIL- Title, attachments, double checking emails (Real Estate)"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "functionId": "taskflow.gmail__title_2",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/tasks",
+      "transcriptQuote": "Training covers Taskflow workflow per title: GMAIL- Title, attachments, double checking emails (Real Estate)"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "functionId": "docs.gmail__title_3",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "(Real Estate).mp4` **Time range:** 0.0s – 0.0s ## Transcript This is me trying to record and save things. So we got this email with a bunch of documents and you should always save things. So th"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/GMAIL-_Title_attachments_double_checking_emails_Real_Estate__1d8818aeeb16.json",
+  "labeledFrameCount": 3,
+  "labeledAt": "2026-07-05"
+}

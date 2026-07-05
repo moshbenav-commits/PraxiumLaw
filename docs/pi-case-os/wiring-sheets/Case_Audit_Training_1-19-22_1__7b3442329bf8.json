@@ -1,0 +1,180 @@
+{
+  "slug": "Case_Audit_Training_1-19-22_1__7b3442329bf8",
+  "title": "Case Audit Training 1-19-22 (1)",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: Case Audit Training 1-19-22 (1)",
+    "route": "/matters/:id",
+    "selectors": [
+      "health",
+      "settlement",
+      "subrogation"
+    ]
+  },
+  "functions": [
+    {
+      "id": "health.case_audit_t_1",
+      "sequence": 1,
+      "frame": "frame_015.jpg",
+      "timestampSec": 420,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "therapy one or the other or a general physician or pain management physician then you want to open health insurance subrogation claim because the health insurance needs to be unnoticed what they need",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "settlement.case_audit_t_2",
+      "sequence": 2,
+      "frame": "frame_030.jpg",
+      "timestampSec": 870,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "for so long um let me see here school okay uh we also in nevada we need to make sure that we send a lien to the defendant because the defendant may move and we don't know where he lives there's a rule",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "subrogation.case_audit_t_3",
+      "sequence": 3,
+      "frame": "frame_044.jpg",
+      "timestampSec": 1290,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "he other or a general physician or pain management physician then you want to open health insurance subrogation claim because the health insurance needs to be unnoticed what they need to look out for",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "insurance.case_audit_t_4",
+      "sequence": 4,
+      "frame": "frame_059.jpg",
+      "timestampSec": 1740,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "m to 200 okay when you first do the case intake you need to open the claim you need to send out the letter of rep we might need to go oh remind promise that we might also send out a preservation lette",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "meds.case_audit_t_5",
+      "sequence": 5,
+      "frame": "frame_074.jpg",
+      "timestampSec": 2190,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "to get a low settlement because it's usually based on your meds. It's usually a multiplier of your medical bills. We talked about this. And we can have this discussion later about it, but they're eit",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "demand.case_audit_t_6",
+      "sequence": 6,
+      "frame": "frame_089.jpg",
+      "timestampSec": 2640,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "like the bus probably has a million dollar policy you know right you'll be waiting until you got a policy limit before you make me talk to the client yeah that's like situations when the virtual assi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "docgen.case_audit_t_7",
+      "sequence": 7,
+      "frame": "frame_103.jpg",
+      "timestampSec": 3060,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "exhibit. So how MedPay is to get, it's like a rebate. You need to make sure that you've got like a demand letter saying like, Hey, by the way, I need $2,000 on my MedPay. And here's some bills and re",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "intake.case_audit_t_8",
+      "sequence": 8,
+      "frame": "frame_118.jpg",
+      "timestampSec": 3510,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: Case Audit Training 1-19-22 (1)",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_015.jpg",
+    "frame_030.jpg",
+    "frame_044.jpg",
+    "frame_059.jpg",
+    "frame_074.jpg",
+    "frame_089.jpg",
+    "frame_103.jpg",
+    "frame_118.jpg"
+  ]
+}

@@ -24,15 +24,29 @@
   "updatedAt": "2026-06-18T20:39:54.857788+00:00",
   "hasAudioArchive": true,
   "audioBytes": 3972209,
-  "frameCount": 6,
+  "frameCount": 17,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
     "frame_003.jpg",
     "frame_004.jpg",
     "frame_005.jpg",
-    "frame_006.jpg"
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2/screenshots"
+  "intervalSec": 15,
+  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Reviewing MRIS.mp4",
+  "framesExtractedAt": "2026-07-05T02:25:01.538Z",
+  "frameManifest": "training-archive/van-law-the case system/FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2/screenshots/frame-manifest.json"
 }

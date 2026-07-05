@@ -1,0 +1,80 @@
+{
+  "slug": "GMAIL-_Title_attachments_double_checking_emails_Real_Estate__1d8818aeeb16",
+  "title": "GMAIL- Title, attachments, double checking emails (Real Estate)",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: GMAIL- Title, attachments, double checking emails (Real Estate)",
+    "route": "/matters/:id",
+    "selectors": [
+      "activity",
+      "taskflow",
+      "docs"
+    ]
+  },
+  "functions": [
+    {
+      "id": "activity.gmail__title_1",
+      "sequence": 1,
+      "frame": "frame_001.jpg",
+      "timestampSec": 0,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "Training covers Activity workflow per title: GMAIL- Title, attachments, double checking emails (Real Estate)",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    },
+    {
+      "id": "taskflow.gmail__title_2",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "Training covers Taskflow workflow per title: GMAIL- Title, attachments, double checking emails (Real Estate)",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "docs.gmail__title_3",
+      "sequence": 3,
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "(Real Estate).mp4` **Time range:** 0.0s – 0.0s ## Transcript This is me trying to record and save things. So we got this email with a bunch of documents and you should always save things. So th",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_001.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg"
+  ]
+}

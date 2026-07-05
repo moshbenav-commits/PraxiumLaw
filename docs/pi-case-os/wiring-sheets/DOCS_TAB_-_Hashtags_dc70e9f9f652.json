@@ -1,0 +1,14 @@
+{
+  "slug": "DOCS_TAB_-_Hashtags_dc70e9f9f652",
+  "title": "DOCS TAB - Hashtags",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 271,
+  "matterShell": { "description": "Doc hashtags for findability + detailed VA task notes", "route": "/matters/:id", "selectors": ["docsTab", "activityTab"] },
+  "functions": [
+    { "id": "docs.hashtag_on_upload", "sequence": 1, "frame": "frame_003.jpg", "timestampSec": 45, "filevineTab": "Documents", "filevineSection": "Hashtag label", "fields": ["hashtag"], "actions": ["tagSubrogationRequest", "tagHealthInsuranceCard"], "transcriptQuote": "start using hashtags… subrogation request… easier to find in Docs", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No doc hashtags" },
+    { "id": "activity.detailed_va_task_note", "sequence": 2, "frame": "frame_005.jpg", "timestampSec": 75, "filevineTab": "Activity", "filevineSection": "VA call script", "actions": ["attachDocsInNote", "givePhoneScriptExact"], "transcriptQuote": "tell VJ exactly what to say… attach culinary card… make it easy", "praxiumRoute": "/matters/:id", "praxiumTab": "comms", "status": "partial", "gapNotes": "Activity notes partial" },
+    { "id": "docs.search_by_hashtag", "sequence": 3, "frame": "frame_008.jpg", "timestampSec": 120, "filevineTab": "Documents", "filevineSection": "Search hashtag", "actions": ["searchDocsByHashtag"], "transcriptQuote": "where's insurance card… search hashtag pops up easier", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No doc hashtag search" }
+  ],
+  "labeledFrames": ["frame_003.jpg", "frame_005.jpg", "frame_008.jpg"]
+}

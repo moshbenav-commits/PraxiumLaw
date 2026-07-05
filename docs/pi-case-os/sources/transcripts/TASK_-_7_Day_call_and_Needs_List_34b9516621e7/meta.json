@@ -24,12 +24,16 @@
   "updatedAt": "2026-06-18T20:39:58.066258+00:00",
   "hasAudioArchive": true,
   "audioBytes": 1993574,
-  "frameCount": 3,
+  "frameCount": 4,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
-    "frame_003.jpg"
+    "frame_003.jpg",
+    "frame_004.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/TASK_-_7_Day_call_and_Needs_List_34b9516621e7/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/TASK_-_7_Day_call_and_Needs_List_34b9516621e7/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - 7 Day call and Needs List.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:17.914Z",
+  "frameManifest": "training-archive/van-law-the case system/TASK_-_7_Day_call_and_Needs_List_34b9516621e7/screenshots/frame-manifest.json"
 }

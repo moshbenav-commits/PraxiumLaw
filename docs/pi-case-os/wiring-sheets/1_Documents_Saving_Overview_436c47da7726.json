@@ -1,0 +1,16 @@
+{
+  "slug": "1_Documents_Saving_Overview_436c47da7726",
+  "title": "1. Documents Saving Overview",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 344,
+  "matterShell": { "description": "Document taxonomy — intake, medical, auto, health, invoices, pleadings", "route": "/matters/:id", "selectors": ["docsTab", "intakeTab", "medsTab", "insuranceTab"] },
+  "functions": [
+    { "id": "docs.intake_classification", "sequence": 1, "frame": "frame_003.jpg", "timestampSec": 45, "filevineTab": "Intake", "filevineSection": "Intake docs", "actions": ["classifyIntakePacket", "updateIntakeMedsTreatmentInsuranceTabs"], "transcriptQuote": "intake documents… update intake meds treatment auto health tabs", "praxiumRoute": "/matters/:id", "praxiumTab": "intake", "status": "partial", "gapNotes": "Intake doc workflow partial" },
+    { "id": "docs.medical_post_and_meds", "sequence": 2, "frame": "frame_006.jpg", "timestampSec": 90, "filevineTab": "Meds", "filevineSection": "Records and bills", "actions": ["saveMedicalTimely", "postActivityFeed", "updateMedsTab"], "transcriptQuote": "medical records bills… post activity feed… update meds tab", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "partial", "gapNotes": "Medical save partial" },
+    { "id": "docs.auto_insurance_save", "sequence": 3, "frame": "frame_008.jpg", "timestampSec": 120, "filevineTab": "Insurance", "filevineSection": "1P and 3P", "actions": ["saveAutoInsuranceCorrespondence", "updateInsuranceAutoTab"], "transcriptQuote": "auto insurance… first party third party… insurance auto tab", "praxiumRoute": "/matters/:id", "praxiumTab": "intake", "status": "partial", "gapNotes": "Insurance docs partial" },
+    { "id": "docs.expenses_for_disbursement", "sequence": 4, "frame": "frame_010.jpg", "timestampSec": 150, "filevineTab": "Expenses", "filevineSection": "Invoices receipts", "actions": ["updateExpensesTab", "routeToPaymentAssistants"], "transcriptQuote": "invoices receipts… expenses tab… affects disbursement", "praxiumRoute": "/matters/:id", "praxiumTab": "settlement", "status": "partial", "gapNotes": "Expenses partial" },
+    { "id": "docs.sources_filing_gmail", "sequence": 5, "frame": "frame_012.jpg", "timestampSec": 180, "filevineTab": "Documents", "filevineSection": "Upload pipeline", "actions": ["pullFromFilingRecordsInfoGmail", "uploadToFVAndServer"], "transcriptQuote": "faxes mail… three Gmail accounts… upload to case system and server", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "missing", "gapNotes": "No Gmail ingest pipeline" }
+  ],
+  "labeledFrames": ["frame_003.jpg", "frame_006.jpg", "frame_008.jpg", "frame_010.jpg", "frame_012.jpg"]
+}

@@ -1,0 +1,140 @@
+{
+  "slug": "3_Short_Reduction_28755cb4ca5a",
+  "title": "3. Short Reduction",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 3. Short Reduction",
+    "route": "/matters/:id",
+    "selectors": [
+      "settlement",
+      "meds",
+      "subrogation"
+    ]
+  },
+  "functions": [
+    {
+      "id": "settlement.3_short_redu_1",
+      "sequence": 1,
+      "frame": "frame_006.jpg",
+      "timestampSec": 150,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "# 3. Short Reduction **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN aud",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.3_short_redu_2",
+      "sequence": 2,
+      "frame": "frame_011.jpg",
+      "timestampSec": 300,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "further if there is a lien holder. If there is a JML or RDG listed as nicknamed beside the medical provider, it means that there is a lien holder. So you just have to identify which of the two is the",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "subrogation.3_short_redu_3",
+      "sequence": 3,
+      "frame": "frame_017.jpg",
+      "timestampSec": 480,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "ate a short reduction request to bone and joint specialist. The next step is to check if there is a lien holder. If there is a lien holder, you have to send a request to the lien holder. So some case",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "feed.3_short_redu_4",
+      "sequence": 4,
+      "frame": "frame_022.jpg",
+      "timestampSec": 630,
+      "filevineSurface": "Feed",
+      "filevineTab": "Feed",
+      "filevineSection": "Activity feed",
+      "fields": [],
+      "actions": [
+        "reviewFeedWorkflow",
+        "mapToPraxiumfeed"
+      ],
+      "transcriptQuote": "at it has been sent. Once received, go back to the case system. Okay. Go back to the case system in activity feed. Under task, please leave a note that you had sent the letter to the provider. So that",
+      "praxiumRoute": "/inbox",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Feed parity"
+    },
+    {
+      "id": "taskflow.3_short_redu_5",
+      "sequence": 5,
+      "frame": "frame_028.jpg",
+      "timestampSec": 810,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "save it as PDF. There. So we will proceed on the next part which is to send the letter. Go to your assigned gmail and then copy the text number in the two fields. And remove the dash. And then add at",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "docgen.3_short_redu_6",
+      "sequence": 6,
+      "frame": "frame_033.jpg",
+      "timestampSec": 960,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "90, $10840. So it is correct. $3,276. It means that the amount here is correct. The next step is to generate the letter. So as you can see, the adoption buttons are not showing. You have to click yes",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_006.jpg",
+    "frame_011.jpg",
+    "frame_017.jpg",
+    "frame_022.jpg",
+    "frame_028.jpg",
+    "frame_033.jpg"
+  ]
+}

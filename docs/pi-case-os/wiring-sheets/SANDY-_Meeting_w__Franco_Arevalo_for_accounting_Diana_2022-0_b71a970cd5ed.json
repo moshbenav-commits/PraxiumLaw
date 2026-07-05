@@ -1,0 +1,59 @@
+{
+  "slug": "SANDY-_Meeting_w__Franco_Arevalo_for_accounting_Diana_2022-0_b71a970cd5ed",
+  "title": "SANDY- Meeting w_ Franco Arevalo for accounting (Diana) (2022-01-25 at 13_17 GMT-8)",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: SANDY- Meeting w_ Franco Arevalo for accounting (Diana) (2022-01-25 at 13_17 GMT-8)",
+    "route": "/matters/:id",
+    "selectors": [
+      "meds",
+      "settlement"
+    ]
+  },
+  "functions": [
+    {
+      "id": "meds.sandy__meeti_1",
+      "sequence": 1,
+      "frame": "frame_064.jpg",
+      "timestampSec": 1890,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "insurance. It's not on here. We'll look for that. May I know what we're paying? I mean, what is the provider or the insurance company? I think it's Allstate now. I don't know. Ask Gracie Lynn or Sanga",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "settlement.sandy__meeti_2",
+      "sequence": 2,
+      "frame": "frame_128.jpg",
+      "timestampSec": 3810,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "oing the data entries, we categorize it. We put like attorney fee. We put expenses. We put attorney lien or referrals. That way it will be, I mean, it will be easily, we can easily pull up reports. Un",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_064.jpg",
+    "frame_128.jpg"
+  ]
+}

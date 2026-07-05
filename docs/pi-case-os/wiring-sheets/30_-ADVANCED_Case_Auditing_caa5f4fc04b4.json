@@ -1,0 +1,100 @@
+{
+  "slug": "30_-ADVANCED_Case_Auditing_caa5f4fc04b4",
+  "title": "30.-ADVANCED Case Auditing",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 30.-ADVANCED Case Auditing",
+    "route": "/matters/:id",
+    "selectors": [
+      "intake",
+      "meds",
+      "insurance"
+    ]
+  },
+  "functions": [
+    {
+      "id": "intake.30__advanced_1",
+      "sequence": 1,
+      "frame": "frame_025.jpg",
+      "timestampSec": 720,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: 30.-ADVANCED Case Auditing",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "meds.30__advanced_2",
+      "sequence": 2,
+      "frame": "frame_050.jpg",
+      "timestampSec": 1470,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "Training covers Meds workflow per title: 30.-ADVANCED Case Auditing",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "insurance.30__advanced_3",
+      "sequence": 3,
+      "frame": "frame_076.jpg",
+      "timestampSec": 2250,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Training covers Insurance workflow per title: 30.-ADVANCED Case Auditing",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "taskflow.30__advanced_4",
+      "sequence": 4,
+      "frame": "frame_101.jpg",
+      "timestampSec": 3000,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "Training covers Taskflow workflow per title: 30.-ADVANCED Case Auditing",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_025.jpg",
+    "frame_050.jpg",
+    "frame_076.jpg",
+    "frame_101.jpg"
+  ]
+}

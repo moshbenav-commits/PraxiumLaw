@@ -1,0 +1,59 @@
+{
+  "slug": "LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b",
+  "title": "LITIGATION - Sharing case with litigator Google Drive",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: LITIGATION - Sharing case with litigator Google Drive",
+    "route": "/matters/:id",
+    "selectors": [
+      "docs",
+      "activity"
+    ]
+  },
+  "functions": [
+    {
+      "id": "docs.litigation___1",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "Training covers Docs workflow per title: LITIGATION - Sharing case with litigator Google Drive",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "activity.litigation___2",
+      "sequence": 2,
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "Training covers Activity workflow per title: LITIGATION - Sharing case with litigator Google Drive",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_002.jpg",
+    "frame_004.jpg"
+  ]
+}

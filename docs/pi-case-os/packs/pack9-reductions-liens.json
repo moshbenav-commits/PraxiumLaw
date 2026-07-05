@@ -1,0 +1,11 @@
+{
+  "id": "pack9_reductions_liens",
+  "label": "reductions liens",
+  "intervalSec": 30,
+  "slugs": [
+    "2_Lien_Verification_57a21caf63d2",
+    "3_Short_Reduction_28755cb4ca5a",
+    "4_Long_Reduction_66056ec06edc",
+    "5_Lien_Reduction_27e792e58d67"
+  ]
+}

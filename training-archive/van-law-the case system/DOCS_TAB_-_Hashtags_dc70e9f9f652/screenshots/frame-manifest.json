@@ -1,0 +1,110 @@
+{
+  "slug": "DOCS_TAB_-_Hashtags_dc70e9f9f652",
+  "title": "DOCS TAB - Hashtags",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags.mp4",
+  "extractedAt": "2026-07-05T03:02:23.617Z",
+  "intervalSec": 30,
+  "durationSec": 270.721451,
+  "frameCount": 9,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Documents",
+      "filevineSection": "Hashtag label",
+      "functionId": "docs.hashtag_on_upload",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "start using hashtags… subrogation request… easier to find in Docs"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "VA call script",
+      "functionId": "activity.detailed_va_task_note",
+      "praxiumTab": "comms",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "tell VJ exactly what to say… attach culinary card… make it easy"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 210,
+      "labeled": true,
+      "filevineTab": "Documents",
+      "filevineSection": "Search hashtag",
+      "functionId": "docs.search_by_hashtag",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "where's insurance card… search hashtag pops up easier"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/DOCS_TAB_-_Hashtags_dc70e9f9f652.json",
+  "labeledFrameCount": 3,
+  "labeledAt": "2026-07-05"
+}

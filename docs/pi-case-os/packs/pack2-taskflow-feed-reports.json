@@ -1,0 +1,18 @@
+{
+  "id": "pack2-taskflow-feed-reports",
+  "label": "Taskflow, feed, status charts, case review",
+  "description": "Taskflow, feed, status charts, case review",
+  "intervalSec": 30,
+  "slugs": [
+    "2017_8_11_FILEVINE_-_Creating_Taskflow_and_Updating_Excel_Sp_6683f2e33bcb",
+    "ADVANCED_-_Taskflow_b51b3fdadb87",
+    "FIILEVINE_-_Cleaning_Feed_efbfff9561d4",
+    "FILEVINE_-_Case_Review_f8645f17f487",
+    "FILEVINE_-_Cleaning_your_Feed_Quickly_7e4fb7edde6c",
+    "FILEVINE_-_Feed_-_Going_through_feed_Part_2_ea73348b4c96",
+    "FILEVINE_-_Feed_-_Going_through_feed_Part_3_5299154f2c64",
+    "FILEVINE_-_Task_-_Going_through_Task_Feed_Part_2_9aa87fea6bee",
+    "STATUS_CHART_-_Record_Gathering_Counters_Supplements_Demands_dd71039be2b6",
+    "STATUS_CHART_-_Settlement_Disbursement_Minor_s_Compromise_355103ce9f91"
+  ]
+}

@@ -25,5 +25,16 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:51:59.410904+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 2153619
+  "audioBytes": 2153619,
+  "frameCount": 4,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MISC - Third Party Information for Calls.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:12.518Z",
+  "frameManifest": "training-archive/van-law-the case system/MISC_-_Third_Party_Information_for_Calls_68246c480759/screenshots/frame-manifest.json"
 }

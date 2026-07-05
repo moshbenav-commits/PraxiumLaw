@@ -1,0 +1,180 @@
+{
+  "slug": "MAIL_-_Incoming_Mail_d0578967012d",
+  "title": "MAIL - Incoming Mail",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: MAIL - Incoming Mail",
+    "route": "/matters/:id",
+    "selectors": [
+      "meds",
+      "docs",
+      "feed"
+    ]
+  },
+  "functions": [
+    {
+      "id": "meds.mail___incom_1",
+      "sequence": 1,
+      "frame": "frame_009.jpg",
+      "timestampSec": 240,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "server. But because we upload this to multiple places. And also because I'm not familiar with this provider. We're going to have to do a few things differently. For example. This provider is not curr",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "docs.mail___incom_2",
+      "sequence": 2,
+      "frame": "frame_017.jpg",
+      "timestampSec": 480,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "espondence from insurance companies. I'll just go through the first one with you. First you have to scan it in using ScanSnap. And you'll see on the screen that it'll appear at the bottom. So it's dow",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "feed.mail___incom_3",
+      "sequence": 3,
+      "frame": "frame_026.jpg",
+      "timestampSec": 750,
+      "filevineSurface": "Feed",
+      "filevineTab": "Feed",
+      "filevineSection": "Activity feed",
+      "fields": [],
+      "actions": [
+        "reviewFeedWorkflow",
+        "mapToPraxiumfeed"
+      ],
+      "transcriptQuote": "uest. And then. Don't forget to assign it to her. She'll still see it. Because she goes through her feed. Um. But it's better as a task. That way she knows that she needs to complete something. And th",
+      "praxiumRoute": "/inbox",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Feed parity"
+    },
+    {
+      "id": "taskflow.mail___incom_4",
+      "sequence": 4,
+      "frame": "frame_035.jpg",
+      "timestampSec": 1020,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "sure that all of this is documented properly and that it's uploaded to the appropriate folders and assigned to the appropriate people. So in the mail we get a lot of correspondence from insurance com",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "insurance.mail___incom_5",
+      "sequence": 5,
+      "frame": "frame_043.jpg",
+      "timestampSec": 1260,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "will assign a task. Saying like. Verify receipt. Um. Before. The case managers. You know. Call. The adjuster. They should always make in. Make sure that we haven't received. Something like this alread",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "demand.mail___incom_6",
+      "sequence": 6,
+      "frame": "frame_052.jpg",
+      "timestampSec": 1530,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "om State Farm. Um. So. It's just a short little letter. Read through it. This will acknowledge your demand letter. Of March 3rd. 2017. Received on March 10th. Um. So basically they're just letting us",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "negotiation.mail___incom_7",
+      "sequence": 7,
+      "frame": "frame_061.jpg",
+      "timestampSec": 1800,
+      "filevineSurface": "Negotiations",
+      "filevineTab": "Negotiations",
+      "filevineSection": "Offer log",
+      "fields": [],
+      "actions": [
+        "reviewNegotiationsWorkflow",
+        "mapToPraxiumnegotiation"
+      ],
+      "transcriptQuote": "te. Um. I. Personally. I like to. Um. Say what I did. With this information. So. I'll put. Updated. Negotiation. Negotiation. Tab. Because. We're going to go in. And we're going to upload this. To neg",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Negotiations parity"
+    },
+    {
+      "id": "activity.mail___incom_8",
+      "sequence": 8,
+      "frame": "frame_069.jpg",
+      "timestampSec": 2040,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "Training covers Activity workflow per title: MAIL - Incoming Mail",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_009.jpg",
+    "frame_017.jpg",
+    "frame_026.jpg",
+    "frame_035.jpg",
+    "frame_043.jpg",
+    "frame_052.jpg",
+    "frame_061.jpg",
+    "frame_069.jpg"
+  ]
+}

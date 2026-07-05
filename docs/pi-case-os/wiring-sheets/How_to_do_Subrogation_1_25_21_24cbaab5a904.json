@@ -1,0 +1,180 @@
+{
+  "slug": "How_to_do_Subrogation_1_25_21_24cbaab5a904",
+  "title": "How to do Subrogation 1.25.21",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: How to do Subrogation 1.25.21",
+    "route": "/matters/:id",
+    "selectors": [
+      "health",
+      "settlement",
+      "subrogation"
+    ]
+  },
+  "functions": [
+    {
+      "id": "health.how_to_do_su_1",
+      "sequence": 1,
+      "frame": "frame_022.jpg",
+      "timestampSec": 630,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "kay never mind here we go so we are going to share my screen you only open subrogation when there's health insurance being used if they're not the client doesn't have health insurance or they didn't u",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "settlement.how_to_do_su_2",
+      "sequence": 2,
+      "frame": "frame_044.jpg",
+      "timestampSec": 1290,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "on regardless if they treat it on medicare the reason being is because medicare is a super priority lien basically it's one of those super power liens okay and you always open it at the beginning of t",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "subrogation.how_to_do_su_3",
+      "sequence": 3,
+      "frame": "frame_065.jpg",
+      "timestampSec": 1920,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "# How to do Subrogation 1.25.21 **Kind:** other **Tags:** cancel **Speakers:** — **Complete sales call:**",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "meds.how_to_do_su_4",
+      "sequence": 4,
+      "frame": "frame_087.jpg",
+      "timestampSec": 2580,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "boil my water it pays for a nurse it pays for cremation and burial it pays for lost wages and your medical bills so you can use your pip for whatever you want okay and here's that page you can apply",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "insurance.how_to_do_su_5",
+      "sequence": 5,
+      "frame": "frame_109.jpg",
+      "timestampSec": 3240,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "one of those super power liens okay and you always open it at the beginning of the case because the adjuster will need a letter saying that you didn't use medicare or that there's no claims being paid",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.how_to_do_su_6",
+      "sequence": 6,
+      "frame": "frame_131.jpg",
+      "timestampSec": 3900,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "fset their settlement offer. Rather, your client gets the use of their entire medical bill in their demand letter, not a reduced amount. At trial, the defense also can't tell the jury that your client",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "demand.how_to_do_su_7",
+      "sequence": 7,
+      "frame": "frame_152.jpg",
+      "timestampSec": 4530,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "fset their settlement offer. Rather, your client gets the use of their entire medical bill in their demand letter, not a reduced amount. At trial, the defense also can't tell the jury that your client",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "docs.how_to_do_su_8",
+      "sequence": 8,
+      "frame": "frame_174.jpg",
+      "timestampSec": 5190,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "they saw a doctor. So the doctor is going to send them a bill and then they had x-ray. So, or a CT scan. So those four things are the things you're looking for normally. And the fifth thing is pharma",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_022.jpg",
+    "frame_044.jpg",
+    "frame_065.jpg",
+    "frame_087.jpg",
+    "frame_109.jpg",
+    "frame_131.jpg",
+    "frame_152.jpg",
+    "frame_174.jpg"
+  ]
+}

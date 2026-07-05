@@ -1,0 +1,59 @@
+{
+  "slug": "2017_3_29_CLAIMS-_1st_Party_LOR_f797872ca06b",
+  "title": "2017.3.29 CLAIMS- 1st Party LOR",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 2017.3.29 CLAIMS- 1st Party LOR",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.2017_3_29_cl_1",
+      "sequence": 1,
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "# 2017.3.29 CLAIMS- 1st Party LOR **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN audio:**",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.2017_3_29_cl_2",
+      "sequence": 2,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "# 2017.3.29 CLAIMS- 1st Party LOR **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN audio:**",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_004.jpg",
+    "frame_008.jpg"
+  ]
+}

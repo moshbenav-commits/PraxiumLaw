@@ -1,0 +1,180 @@
+{
+  "slug": "DEMAND_-_How_to_gather_records_for_a_demand_02eb2609d5f7",
+  "title": "DEMAND - How to gather records for a demand",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: DEMAND - How to gather records for a demand",
+    "route": "/matters/:id",
+    "selectors": [
+      "meds",
+      "docgen",
+      "demand"
+    ]
+  },
+  "functions": [
+    {
+      "id": "meds.demand___how_1",
+      "sequence": 1,
+      "frame": "frame_012.jpg",
+      "timestampSec": 330,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": ", we are doing a demand for Shelly Vo Nguyen. So what we're going to do is we're going to go to the meds tab and make sure we have all the medical bills for Shelly. And let's go look in our server bec",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "docgen.demand___how_2",
+      "sequence": 2,
+      "frame": "frame_024.jpg",
+      "timestampSec": 690,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "s it? Las Vegas Spine and Pain Clinic. Because I don't have everything. So. She will do the medical LOR and always send that with a HIPAA. Um, so I know that I'm missing that. Okay. Okay. So, I know I",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "demand.demand___how_3",
+      "sequence": 3,
+      "frame": "frame_036.jpg",
+      "timestampSec": 1050,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "# DEMAND - How to gather records for a demand **Kind:** other **Tags:** cancel **Speakers:** Shelly **Complete",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "insurance.demand___how_4",
+      "sequence": 4,
+      "frame": "frame_048.jpg",
+      "timestampSec": 1410,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "s it? Las Vegas Spine and Pain Clinic. Because I don't have everything. So. She will do the medical LOR and always send that with a HIPAA. Um, so I know that I'm missing that. Okay. Okay. So, I know I",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "settlement.demand___how_5",
+      "sequence": 5,
+      "frame": "frame_060.jpg",
+      "timestampSec": 1770,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "'t need the liens. You know, we just need the medical bills and the records. So, you don't need the lien. Now, let's go look at... The meds tab again. Um... And, we should have one that says Pueblo. S",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "activity.demand___how_6",
+      "sequence": 6,
+      "frame": "frame_072.jpg",
+      "timestampSec": 2130,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "521. Okay, just in case you need it. Okay, so, anyway, we're going to need that. So, go back to the activity tab and put American Specialty Pharmacy. Because, we know we don't have any bills and recor",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    },
+    {
+      "id": "docs.demand___how_7",
+      "sequence": 7,
+      "frame": "frame_084.jpg",
+      "timestampSec": 2490,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "in there. So, definitely missing that. Nothing's in the server. Nothing's in the, um, you know, the docs tab. Um. Now, let's go look at the next one. The next one would be Gary LaTourette. Uh. Wow. Wh",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "subrogation.demand___how_8",
+      "sequence": 8,
+      "frame": "frame_096.jpg",
+      "timestampSec": 2850,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "ill probably need to figure out... Now that she went to Walgreens, we probably need to do insurance subrogation as well. So, let's go see... We need to send a medical records to Walgreens. Walgreens.",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_012.jpg",
+    "frame_024.jpg",
+    "frame_036.jpg",
+    "frame_048.jpg",
+    "frame_060.jpg",
+    "frame_072.jpg",
+    "frame_084.jpg",
+    "frame_096.jpg"
+  ]
+}

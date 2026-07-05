@@ -26,7 +26,7 @@
   "updatedAt": "2026-06-18T20:33:57.248535+00:00",
   "hasAudioArchive": true,
   "audioBytes": 12840432,
-  "frameCount": 15,
+  "frameCount": 27,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -42,8 +42,23 @@
     "frame_012.jpg",
     "frame_013.jpg",
     "frame_014.jpg",
-    "frame_015.jpg"
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg",
+    "frame_018.jpg",
+    "frame_019.jpg",
+    "frame_020.jpg",
+    "frame_021.jpg",
+    "frame_022.jpg",
+    "frame_023.jpg",
+    "frame_024.jpg",
+    "frame_025.jpg",
+    "frame_026.jpg",
+    "frame_027.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/3_Filevine_-_Intake_Tab_28bb0993a7f5/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/3_Filevine_-_Intake_Tab_28bb0993a7f5/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/3. Filevine - Intake Tab.mp4",
+  "framesExtractedAt": "2026-07-05T01:30:54.163Z",
+  "frameManifest": "training-archive/van-law-the case system/3_Filevine_-_Intake_Tab_28bb0993a7f5/screenshots/frame-manifest.json"
 }

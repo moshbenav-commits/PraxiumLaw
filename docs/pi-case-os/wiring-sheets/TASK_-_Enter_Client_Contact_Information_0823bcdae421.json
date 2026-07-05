@@ -1,0 +1,99 @@
+{
+  "slug": "TASK_-_Enter_Client_Contact_Information_0823bcdae421",
+  "title": "TASK - Enter Client Contact Information",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: TASK - Enter Client Contact Information",
+    "route": "/matters/:id",
+    "selectors": [
+      "settlement",
+      "meds",
+      "taskflow"
+    ]
+  },
+  "functions": [
+    {
+      "id": "settlement.task___enter_1",
+      "sequence": 1,
+      "frame": "frame_001.jpg",
+      "timestampSec": 0,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "Training covers Settlement workflow per title: TASK - Enter Client Contact Information",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.task___enter_2",
+      "sequence": 2,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "Training covers Meds workflow per title: TASK - Enter Client Contact Information",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "taskflow.task___enter_3",
+      "sequence": 3,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "Training covers Taskflow workflow per title: TASK - Enter Client Contact Information",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "intake.task___enter_4",
+      "sequence": 4,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: TASK - Enter Client Contact Information",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg"
+  ]
+}

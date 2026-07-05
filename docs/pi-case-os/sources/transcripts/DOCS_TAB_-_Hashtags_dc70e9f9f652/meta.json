@@ -24,15 +24,21 @@
   "updatedAt": "2026-06-18T20:39:29.084546+00:00",
   "hasAudioArchive": true,
   "audioBytes": 4332913,
-  "frameCount": 6,
+  "frameCount": 9,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
     "frame_003.jpg",
     "frame_004.jpg",
     "frame_005.jpg",
-    "frame_006.jpg"
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/DOCS_TAB_-_Hashtags_dc70e9f9f652/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/DOCS_TAB_-_Hashtags_dc70e9f9f652/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags.mp4",
+  "framesExtractedAt": "2026-07-05T03:02:23.617Z",
+  "frameManifest": "training-archive/van-law-the case system/DOCS_TAB_-_Hashtags_dc70e9f9f652/screenshots/frame-manifest.json"
 }

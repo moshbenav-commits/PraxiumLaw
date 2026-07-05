@@ -1,0 +1,180 @@
+{
+  "slug": "Personal_Injury_Workflow_00497e0bea58",
+  "title": "Personal Injury Workflow",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: Personal Injury Workflow",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "health",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.personal_inj_1",
+      "sequence": 1,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "out our you know client so for example you'll call the third party and what you want to know is the adjuster's information and claim number so the name of adjuster so let's assume that it's uh andy th",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "health.personal_inj_2",
+      "sequence": 2,
+      "frame": "frame_032.jpg",
+      "timestampSec": 930,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "r documents. You know, there's a list of documents that we need, like their driver's license, their health insurance card, their auto insurance card, information about the defendant and the traffic ti",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "meds.personal_inj_3",
+      "sequence": 3,
+      "frame": "frame_047.jpg",
+      "timestampSec": 1380,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": ", ambulance bills that they may have, anything that they may already have from some kind of medical provider, if they have a repair estimate, but normally they don't, and anything that they have from",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "team.personal_inj_4",
+      "sequence": 4,
+      "frame": "frame_063.jpg",
+      "timestampSec": 1860,
+      "filevineSurface": "Team",
+      "filevineTab": "Team",
+      "filevineSection": "Roles / primary",
+      "fields": [],
+      "actions": [
+        "reviewTeamWorkflow",
+        "mapToPraxiumteam"
+      ],
+      "transcriptQuote": "these things. Well, it will have here, let's see, the first task is Maria assigned team members and roles. And there's actually a video on how to assign team members and roles. So he's going to fill o",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Team parity"
+    },
+    {
+      "id": "taskflow.personal_inj_5",
+      "sequence": 5,
+      "frame": "frame_079.jpg",
+      "timestampSec": 2340,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "at they can print out the releases. So normally, um, we have the client come in and then there is a needs list that we have as well. And this is kind of what it looks like. So we're going to need thei",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "calendar.personal_inj_6",
+      "sequence": 6,
+      "frame": "frame_095.jpg",
+      "timestampSec": 2820,
+      "filevineSurface": "Calendar",
+      "filevineTab": "Calendar",
+      "filevineSection": "Appointments",
+      "fields": [],
+      "actions": [
+        "reviewCalendarWorkflow",
+        "mapToPraxiumcalendar"
+      ],
+      "transcriptQuote": "uld remove um this paragraph here about the property damage okay okay so then let's go back to here calendar so after that you're going to see if it was acknowledged if it's not acknowledged in like f",
+      "praxiumRoute": "/calendar",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Calendar parity"
+    },
+    {
+      "id": "intake.personal_inj_7",
+      "sequence": 7,
+      "frame": "frame_110.jpg",
+      "timestampSec": 3270,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "er so you would assign it to malloc create the computer folder and folder and rename folder name to intake tab you know we don't need to do that anymore because we actually don't have it malloc calend",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "subrogation.personal_inj_8",
+      "sequence": 8,
+      "frame": "frame_126.jpg",
+      "timestampSec": 3750,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "liability accepted okay so um that's what you're doing there you do not want to open this stuff yet subrogation until later on so we'll worry about that later actually we'll talk about that so in 10 d",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_016.jpg",
+    "frame_032.jpg",
+    "frame_047.jpg",
+    "frame_063.jpg",
+    "frame_079.jpg",
+    "frame_095.jpg",
+    "frame_110.jpg",
+    "frame_126.jpg"
+  ]
+}

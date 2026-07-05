@@ -1,0 +1,16 @@
+{
+  "slug": "2_Saving_Intake_Docs_d3f8707a5c81",
+  "title": "2. Saving Intake Docs",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 1961,
+  "matterShell": { "description": "Intake packet split, upload, tab data entry", "route": "/matters/:id", "selectors": ["intakeTab", "medsTab", "insuranceTab", "docsTab"] },
+  "functions": [
+    { "id": "intake.split_packet_naming", "sequence": 1, "frame": "frame_008.jpg", "timestampSec": 120, "filevineTab": "Intake", "filevineSection": "Split forms", "actions": ["separateQuestionnaireHIPAAReleaseMedicare", "namingConventionIntakePrefix"], "transcriptQuote": "segregate intake packet… intake questionnaire HIPAA general release Medicare", "praxiumRoute": "/matters/:id", "praxiumTab": "intake", "status": "partial", "gapNotes": "Intake upload partial" },
+    { "id": "intake.upload_to_intake_tab", "sequence": 2, "frame": "frame_015.jpg", "timestampSec": 225, "filevineTab": "Intake", "filevineSection": "Attach package", "fields": ["dateOfIntake", "dateOfLoss", "fileName"], "actions": ["uploadIntakePackageAndSplits", "fillClaimantCounts"], "transcriptQuote": "upload intake package… date intake… date loss… file name last first", "praxiumRoute": "/matters/:id", "praxiumTab": "intake", "status": "partial", "gapNotes": "Intake attach partial" },
+    { "id": "intake.cross_tab_from_questionnaire", "sequence": 3, "frame": "frame_025.jpg", "timestampSec": 375, "filevineTab": "Treatment and Injuries", "filevineSection": "Hospital checklist", "actions": ["updateIncidentTreatmentInsuranceMedsFromQuestionnaire"], "transcriptQuote": "treatment injuries hospital… insurance auto 1P 3P… meds UMC ambulance", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "partial", "gapNotes": "Cross-tab intake partial" },
+    { "id": "intake.photos_and_tar_to_docs", "sequence": 4, "frame": "frame_040.jpg", "timestampSec": 600, "filevineTab": "Documents", "filevineSection": "Pictures naming", "actions": ["namePicClientRearDefFront", "uploadDocsTabPoliceReportLicense"], "transcriptQuote": "picture client rear… defendant front… traffic accident report… docs tab", "praxiumRoute": "/matters/:id", "praxiumTab": "documents", "status": "partial", "gapNotes": "Photo naming partial" },
+    { "id": "intake.complete_upload_task", "sequence": 5, "frame": "frame_055.jpg", "timestampSec": 825, "filevineTab": "Activity", "filevineSection": "Task complete", "actions": ["noteTabsUpdated", "completeUploadIntakeTask"], "transcriptQuote": "upload intake sheet… update intake treatment meds incident insurance… complete task", "praxiumRoute": "/matters/:id", "praxiumTab": "pipeline", "status": "partial", "gapNotes": "Task complete partial" }
+  ],
+  "labeledFrames": ["frame_008.jpg", "frame_015.jpg", "frame_025.jpg", "frame_040.jpg", "frame_055.jpg"]
+}

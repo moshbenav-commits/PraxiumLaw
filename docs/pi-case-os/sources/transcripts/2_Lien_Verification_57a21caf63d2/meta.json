@@ -23,5 +23,22 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:51:48.649877+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 5039133
+  "audioBytes": 5039133,
+  "frameCount": 10,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2. Lien Verification.mp4",
+  "framesExtractedAt": "2026-07-05T02:02:39.258Z",
+  "frameManifest": "training-archive/van-law-the case system/2_Lien_Verification_57a21caf63d2/screenshots/frame-manifest.json"
 }

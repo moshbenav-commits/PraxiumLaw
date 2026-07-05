@@ -26,7 +26,7 @@
   "updatedAt": "2026-06-18T20:32:42.398960+00:00",
   "hasAudioArchive": true,
   "audioBytes": 7076364,
-  "frameCount": 10,
+  "frameCount": 15,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -37,8 +37,16 @@
     "frame_007.jpg",
     "frame_008.jpg",
     "frame_009.jpg",
-    "frame_010.jpg"
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/NEGOTIATION_TAB_-_Notating_Offers_and_updating_negotiation_a_22a09332bd85/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/NEGOTIATION_TAB_-_Notating_Offers_and_updating_negotiation_a_22a09332bd85/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/NEGOTIATION TAB - Notating Offers and updating negotiation and settlement calc tab.mp4",
+  "framesExtractedAt": "2026-07-05T01:50:31.164Z",
+  "frameManifest": "training-archive/van-law-the case system/NEGOTIATION_TAB_-_Notating_Offers_and_updating_negotiation_a_22a09332bd85/screenshots/frame-manifest.json"
 }

@@ -1,0 +1,160 @@
+{
+  "slug": "ADVANCED_-_Case_Audit_3b9f8463fe33",
+  "title": "ADVANCED - Case Audit",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: ADVANCED - Case Audit",
+    "route": "/matters/:id",
+    "selectors": [
+      "settlement",
+      "meds",
+      "taskflow"
+    ]
+  },
+  "functions": [
+    {
+      "id": "settlement.advanced___c_1",
+      "sequence": 1,
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "just going to go upwards Farhad let's see what is going on with Farhad this says it's a settlement disbursement case so I'm going to go look on the KPI tab to see what the status is so the status is",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.advanced___c_2",
+      "sequence": 2,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "ing seems verified i'll keep this in here okay uh client is treating and uh and okay we got all the medical bills and client is still treating so that's good it's in the right status client is still t",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "taskflow.advanced___c_3",
+      "sequence": 3,
+      "frame": "frame_012.jpg",
+      "timestampSec": 330,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "we send the affidavit? We did send the affidavit of no assets but nobody is doing anything. Let me assign this to Janine so Janine can do it. Let me assign that to Ricardo because it says, hold on, t",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "intake.advanced___c_4",
+      "sequence": 4,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: ADVANCED - Case Audit",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "insurance.advanced___c_5",
+      "sequence": 5,
+      "frame": "frame_019.jpg",
+      "timestampSec": 540,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Training covers Insurance workflow per title: ADVANCED - Case Audit",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "activity.advanced___c_6",
+      "sequence": 6,
+      "frame": "frame_023.jpg",
+      "timestampSec": 660,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "is. Okay, so we're going to save this as. Oh, I can't. I'll save as. Okay, so let's go back to the activity tab. Okay, status. Is that where we put this? Okay. Draft disbursement letters. So let's gi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    },
+    {
+      "id": "subrogation.advanced___c_7",
+      "sequence": 7,
+      "frame": "frame_027.jpg",
+      "timestampSec": 780,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "e not reducing him because he's not a nice person we'll take out these things here that they're the lien holder so he's got his nice thing here so he's got his nice thing here So he's got his nice thi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_004.jpg",
+    "frame_008.jpg",
+    "frame_012.jpg",
+    "frame_016.jpg",
+    "frame_019.jpg",
+    "frame_023.jpg",
+    "frame_027.jpg"
+  ]
+}

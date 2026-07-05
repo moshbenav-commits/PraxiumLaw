@@ -1,0 +1,26 @@
+{
+  "slug": "2017-05-05_11-20-04_0d9fecac4fd6",
+  "title": "2017-05-05_11-20-04",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017-05-05_11-20-04.mp4",
+  "extractedAt": "2026-07-05T03:07:05.283Z",
+  "intervalSec": 30,
+  "durationSec": 18.808163,
+  "frameCount": 1,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "functionId": "activity.2017_05_05_1_1",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "General PI workflow training: 2017-05-05_11-20-04"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/2017-05-05_11-20-04_0d9fecac4fd6.json",
+  "labeledFrameCount": 1,
+  "labeledAt": "2026-07-05"
+}

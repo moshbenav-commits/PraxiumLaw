@@ -1,0 +1,80 @@
+{
+  "slug": "CLAIMS_-_1st_Party_LOR_-_Property_Damage_Claim_Only_3dfdf9b85e35",
+  "title": "CLAIMS - 1st Party LOR - Property Damage Claim Only",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CLAIMS - 1st Party LOR - Property Damage Claim Only",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "docgen",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.claims___1st_1",
+      "sequence": 1,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "# CLAIMS - 1st Party LOR - Property Damage Claim Only **Kind:** other **Tags:** — **Speakers:** — **Complete sales",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.claims___1st_2",
+      "sequence": 2,
+      "frame": "frame_033.jpg",
+      "timestampSec": 960,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "# CLAIMS - 1st Party LOR - Property Damage Claim Only **Kind:** other **Tags:** — **Speakers:** — **Complete sales",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "meds.claims___1st_3",
+      "sequence": 3,
+      "frame": "frame_049.jpg",
+      "timestampSec": 1440,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "is also a great resource to answer most of your questions and send me a messageIf you are a medical provider, please visit Geico.com slash B2BIf you would prefer to leave me a message, please include",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_016.jpg",
+    "frame_033.jpg",
+    "frame_049.jpg"
+  ]
+}

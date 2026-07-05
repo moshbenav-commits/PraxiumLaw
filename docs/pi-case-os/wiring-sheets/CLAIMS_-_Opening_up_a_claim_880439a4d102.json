@@ -1,0 +1,59 @@
+{
+  "slug": "CLAIMS_-_Opening_up_a_claim_880439a4d102",
+  "title": "CLAIMS - Opening up a claim",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CLAIMS - Opening up a claim",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.claims___ope_1",
+      "sequence": 1,
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "ou are a driver or listed on the policy, please say your date of birth. All others, please have the policy number ready and say continue. Continue. Okay, please say or enter the policy number. 435289.",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.claims___ope_2",
+      "sequence": 2,
+      "frame": "frame_009.jpg",
+      "timestampSec": 240,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "Training covers DocGen workflow per title: CLAIMS - Opening up a claim",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_004.jpg",
+    "frame_009.jpg"
+  ]
+}

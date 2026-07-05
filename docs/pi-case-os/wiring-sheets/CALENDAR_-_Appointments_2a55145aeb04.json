@@ -1,0 +1,59 @@
+{
+  "slug": "CALENDAR_-_Appointments_2a55145aeb04",
+  "title": "CALENDAR - Appointments",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CALENDAR - Appointments",
+    "route": "/calendar",
+    "selectors": [
+      "calendar",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "calendar.calendar___a_1",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Calendar",
+      "filevineTab": "Calendar",
+      "filevineSection": "Appointments",
+      "fields": [],
+      "actions": [
+        "reviewCalendarWorkflow",
+        "mapToPraxiumcalendar"
+      ],
+      "transcriptQuote": "# CALENDAR - Appointments **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:**",
+      "praxiumRoute": "/calendar",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Calendar parity"
+    },
+    {
+      "id": "meds.calendar___a_2",
+      "sequence": 2,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "ve. You know, update on case. What does he want to talk about? Like, does he want to talk about his medical bills? Does he want to talk about something? What does he want to talk about? His car? Whate",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_002.jpg",
+    "frame_005.jpg"
+  ]
+}

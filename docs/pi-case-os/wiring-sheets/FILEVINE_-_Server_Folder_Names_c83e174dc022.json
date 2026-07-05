@@ -1,0 +1,43 @@
+{
+  "slug": "FILEVINE_-_Server_Folder_Names_c83e174dc022",
+  "title": "FILEVINE - Server Folder Names",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack6",
+  "videoDurationSec": 60,
+  "matterShell": { "description": "Server folder naming from intake tab", "route": "/matters/:id", "selectors": ["intakeTab"] },
+  "functions": [
+    {
+      "id": "intake.server_folder_name_driver_passenger",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Intake tab",
+      "filevineTab": "Intake",
+      "filevineSection": "File name / server folder",
+      "fields": ["driverLastName", "passengerLastNames"],
+      "actions": ["readServerFolderFromIntake", "driverFirstThenPassengers"],
+      "transcriptQuote": "driver then passenger… go to intake tab… look for that folder",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "partial",
+      "gapNotes": "File naming convention partial; no server path link"
+    },
+    {
+      "id": "documents.find_mri_by_folder_name",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 45,
+      "filevineSurface": "Server lookup",
+      "filevineTab": "Documents",
+      "filevineSection": "Find client docs",
+      "fields": [],
+      "actions": ["matchIntakeNameToServerFolder", "locateClientMRI"],
+      "transcriptQuote": "which folder… go intake tab… look for client MRI",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "No server folder name display on docs"
+    }
+  ],
+  "labeledFrames": ["frame_002.jpg", "frame_003.jpg"]
+}

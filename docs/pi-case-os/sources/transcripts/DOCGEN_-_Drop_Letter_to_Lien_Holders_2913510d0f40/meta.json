@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:40:48.730902+00:00",
   "hasAudioArchive": true,
   "audioBytes": 6753750,
-  "frameCount": 9,
+  "frameCount": 28,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -34,8 +34,30 @@
     "frame_006.jpg",
     "frame_007.jpg",
     "frame_008.jpg",
-    "frame_009.jpg"
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg",
+    "frame_018.jpg",
+    "frame_019.jpg",
+    "frame_020.jpg",
+    "frame_021.jpg",
+    "frame_022.jpg",
+    "frame_023.jpg",
+    "frame_024.jpg",
+    "frame_025.jpg",
+    "frame_026.jpg",
+    "frame_027.jpg",
+    "frame_028.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/DOCGEN_-_Drop_Letter_to_Lien_Holders_2913510d0f40/screenshots"
+  "intervalSec": 15,
+  "screenshotsDir": "training-archive/van-law-the case system/DOCGEN_-_Drop_Letter_to_Lien_Holders_2913510d0f40/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Drop Letter to Lien Holders.mp4",
+  "framesExtractedAt": "2026-07-05T02:24:15.119Z",
+  "frameManifest": "training-archive/van-law-the case system/DOCGEN_-_Drop_Letter_to_Lien_Holders_2913510d0f40/screenshots/frame-manifest.json"
 }

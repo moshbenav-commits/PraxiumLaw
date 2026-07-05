@@ -1,0 +1,120 @@
+{
+  "slug": "2_Lien_Verification_57a21caf63d2",
+  "title": "2. Lien Verification",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 2. Lien Verification",
+    "route": "/matters/:id",
+    "selectors": [
+      "settlement",
+      "meds",
+      "activity"
+    ]
+  },
+  "functions": [
+    {
+      "id": "settlement.2_lien_verif_1",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "# 2. Lien Verification **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No *",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "meds.2_lien_verif_2",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "t. Now let's proceed with the steps. First is to read your task carefully. Take note of the medical provider where you will send the request. What we have here is to send and tell your request to ADC",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "activity.2_lien_verif_3",
+      "sequence": 3,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "d wait for the metofax confirmation that the fax was sent successfully. Then you can go back to the activity tab. And then leave a note where the request was sent. And then attach your document. And t",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    },
+    {
+      "id": "taskflow.2_lien_verif_4",
+      "sequence": 4,
+      "frame": "frame_007.jpg",
+      "timestampSec": 180,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "this is saved in PDF format. Now, copy the fax number. And then paste it. And a new message on your assigned Gmail. Remove the dashes. And then add at metofax.com. On the subject line, enter the provi",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "docgen.2_lien_verif_5",
+      "sequence": 5,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "ck yes under show more and save it. Now that the buttons for DocChin are showing, you can click the generate button under the lien balance verification. Wait for the document to be generated and then",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_005.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg"
+  ]
+}

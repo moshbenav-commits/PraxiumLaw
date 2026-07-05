@@ -1,0 +1,100 @@
+{
+  "slug": "ADVANCED_-_Case_Review_309deebd9b20",
+  "title": "ADVANCED - Case Review",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: ADVANCED - Case Review",
+    "route": "/matters/:id",
+    "selectors": [
+      "intake",
+      "meds",
+      "insurance"
+    ]
+  },
+  "functions": [
+    {
+      "id": "intake.advanced___c_1",
+      "sequence": 1,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: ADVANCED - Case Review",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "meds.advanced___c_2",
+      "sequence": 2,
+      "frame": "frame_032.jpg",
+      "timestampSec": 930,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "Training covers Meds workflow per title: ADVANCED - Case Review",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "insurance.advanced___c_3",
+      "sequence": 3,
+      "frame": "frame_048.jpg",
+      "timestampSec": 1410,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Training covers Insurance workflow per title: ADVANCED - Case Review",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "taskflow.advanced___c_4",
+      "sequence": 4,
+      "frame": "frame_064.jpg",
+      "timestampSec": 1890,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "Training covers Taskflow workflow per title: ADVANCED - Case Review",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_016.jpg",
+    "frame_032.jpg",
+    "frame_048.jpg",
+    "frame_064.jpg"
+  ]
+}

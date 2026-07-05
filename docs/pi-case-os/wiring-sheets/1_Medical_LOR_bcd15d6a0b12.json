@@ -1,0 +1,15 @@
+{
+  "slug": "1_Medical_LOR_bcd15d6a0b12",
+  "title": "1. Medical LOR",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-step-4-pack7",
+  "videoDurationSec": 823,
+  "matterShell": { "description": "Medical LOR + HIPAA fax workflow", "route": "/matters/:id", "selectors": ["medsTab", "activityTab", "docsTab"] },
+  "functions": [
+    { "id": "medlor.verify_no_duplicate_request", "sequence": 1, "frame": "frame_005.jpg", "timestampSec": 75, "filevineTab": "Meds", "filevineSection": "Provider folder", "actions": ["checkExistingRequests", "verifyRecordsNotReceived"], "transcriptQuote": "ensure no same requests… verify not yet received", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "missing", "gapNotes": "No duplicate LOR guard" },
+    { "id": "medlor.generate_from_meds_tab", "sequence": 2, "frame": "frame_010.jpg", "timestampSec": 150, "filevineTab": "Meds", "filevineSection": "DocGen medical LOR", "actions": ["clickYesSave", "generateMedicalLOR", "editDatesRequested"], "transcriptQuote": "doc gen buttons… generate medical LOR… dates requested DOL to present", "praxiumRoute": "/matters/:id", "praxiumTab": "medical", "status": "missing", "gapNotes": "No med LOR docgen" },
+    { "id": "medlor.attach_hipaa_flatten_pdf", "sequence": 3, "frame": "frame_020.jpg", "timestampSec": 300, "filevineTab": "Intake", "filevineSection": "HIPAA from intake", "actions": ["editIPAAddProvider", "insertHIPAALastPage", "saveFlattenedPDF"], "transcriptQuote": "edit IPA add provider… insert after last… flatten PDF", "praxiumRoute": "/matters/:id", "praxiumTab": "intake", "status": "missing", "gapNotes": "No HIPAA merge workflow" },
+    { "id": "medlor.fax_via_metrofax", "sequence": 4, "frame": "frame_025.jpg", "timestampSec": 375, "filevineTab": "Activity", "filevineSection": "Fax sent note", "actions": ["faxMetrofax", "noteInActivity", "uploadPDF", "deferTaskNotComplete"], "transcriptQuote": "Metrofax… note LOR sent… do not mark complete until records received", "praxiumRoute": "/matters/:id", "praxiumTab": "comms", "status": "missing", "gapNotes": "No fax integration" }
+  ],
+  "labeledFrames": ["frame_005.jpg", "frame_010.jpg", "frame_020.jpg", "frame_025.jpg"]
+}

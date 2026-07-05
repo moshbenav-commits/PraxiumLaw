@@ -1,0 +1,100 @@
+{
+  "slug": "DEMAND_PREP_-_Gathering_Med_Recs_Bills_and_FE_c11e04e5a055",
+  "title": "DEMAND PREP - Gathering Med Recs Bills and FE",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: DEMAND PREP - Gathering Med Recs Bills and FE",
+    "route": "/matters/:id",
+    "selectors": [
+      "docgen",
+      "demand",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "docgen.demand_prep__1",
+      "sequence": 1,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "cs Bills and FE.mp4` **Time range:** 0.0s – 0.0s ## Transcript Today we're trying to get this demand letter out because money just doesn't fly out of the sky if you don't ask for it. If you don'",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "demand.demand_prep__2",
+      "sequence": 2,
+      "frame": "frame_010.jpg",
+      "timestampSec": 270,
+      "filevineSurface": "Demand",
+      "filevineTab": "Demand",
+      "filevineSection": "Demand package",
+      "fields": [],
+      "actions": [
+        "reviewDemandWorkflow",
+        "mapToPraxiumdemand"
+      ],
+      "transcriptQuote": "cs Bills and FE.mp4` **Time range:** 0.0s – 0.0s ## Transcript Today we're trying to get this demand letter out because money just doesn't fly out of the sky if you don't ask for it. If you don'",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+    },
+    {
+      "id": "meds.demand_prep__3",
+      "sequence": 3,
+      "frame": "frame_014.jpg",
+      "timestampSec": 390,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "like $500. So let me print this. So I already reviewed it. So what you normally do is you go to the Meds tab, and you see if it matches what's in the computer. It should match, and then you'll see wha",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "insurance.demand_prep__4",
+      "sequence": 4,
+      "frame": "frame_019.jpg",
+      "timestampSec": 540,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "uff, and we looked and we saw that we're missing a bill from Desert Radiology. So we sent a medical LOR to Desert Radiology, and we have the Desert Radiology bill. So now we can actually use it, altho",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_005.jpg",
+    "frame_010.jpg",
+    "frame_014.jpg",
+    "frame_019.jpg"
+  ]
+}

@@ -28,5 +28,26 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:52:08.089616+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 6742047
+  "audioBytes": 6742047,
+  "frameCount": 14,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/DMV REQUEST- How to.mp4",
+  "framesExtractedAt": "2026-07-05T02:09:00.488Z",
+  "frameManifest": "training-archive/van-law-the case system/DMV_REQUEST-_How_to_8af88bc6a6f5/screenshots/frame-manifest.json"
 }

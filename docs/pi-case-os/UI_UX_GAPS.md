@@ -46,9 +46,9 @@
 | UX-016 | Client comms | **Comms tab** — cadence prompts + contact log; VoxLine SMS Phase 2 |
 | UX-017 | Records | **Medical tab** — LOR status per provider (no date-range LOR builder) |
 | UX-018 | Records | **Medical tab** — COR + alert |
-| UX-019 | Subrogation | No Medicare/health lien module |
+| UX-019 | Subrogation | **Subrogation tab** — Medicare-critical checklist + alerts |
 | UX-020 | Templates | **Settings** white-label profile + merged DOCX at `/settings/templates` |
-| UX-021 | Onboarding | No disclosure acknowledgment gate |
+| UX-021 | Onboarding | **Disclosure gate** — modal on login + template download block |
 | UX-022 | Case audit | **Reports** — PI audit dashboard (cleaner-fish rollup) |
 | UX-023 | Navigation | No contextual help on matter tabs |
 | Portal upload | Documents | Magic-link upload taxonomy on `/upload/:token` (matches staff classify flow) |

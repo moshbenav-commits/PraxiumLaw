@@ -1,0 +1,80 @@
+{
+  "slug": "Deposition_Prep_-_Part_1_e1456f380df2",
+  "title": "Deposition Prep - Part 1",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: Deposition Prep - Part 1",
+    "route": "/matters/:id",
+    "selectors": [
+      "docs",
+      "activity",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "docs.deposition_p_1",
+      "sequence": 1,
+      "frame": "frame_013.jpg",
+      "timestampSec": 360,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "Training covers Docs workflow per title: Deposition Prep - Part 1",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "activity.deposition_p_2",
+      "sequence": 2,
+      "frame": "frame_027.jpg",
+      "timestampSec": 780,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "Training covers Activity workflow per title: Deposition Prep - Part 1",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    },
+    {
+      "id": "meds.deposition_p_3",
+      "sequence": 3,
+      "frame": "frame_040.jpg",
+      "timestampSec": 1170,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "nd let them move on. If you don't remember saying, I'm sorry, I don't remember. I know that's in my medical records. I think I took a photo of that. I think it's written down somewhere, whatever the a",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_013.jpg",
+    "frame_027.jpg",
+    "frame_040.jpg"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "slug": "PLEADINGS_-_Comp_IAFD_DMJT_SUMM_40f864176ae2",
+  "title": "PLEADINGS - Comp, IAFD, DMJT, SUMM",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: PLEADINGS - Comp, IAFD, DMJT, SUMM",
+    "route": "/matters/:id",
+    "selectors": [
+      "docs",
+      "activity"
+    ]
+  },
+  "functions": [
+    {
+      "id": "docs.pleadings____1",
+      "sequence": 1,
+      "frame": "frame_030.jpg",
+      "timestampSec": 870,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "Training covers Docs workflow per title: PLEADINGS - Comp, IAFD, DMJT, SUMM",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "activity.pleadings____2",
+      "sequence": 2,
+      "frame": "frame_061.jpg",
+      "timestampSec": 1800,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "Training covers Activity workflow per title: PLEADINGS - Comp, IAFD, DMJT, SUMM",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_030.jpg",
+    "frame_061.jpg"
+  ]
+}

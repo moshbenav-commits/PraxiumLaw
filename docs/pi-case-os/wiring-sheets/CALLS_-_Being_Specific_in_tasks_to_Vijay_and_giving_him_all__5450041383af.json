@@ -1,0 +1,59 @@
+{
+  "slug": "CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af",
+  "title": "CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2",
+    "route": "/matters/:id",
+    "selectors": [
+      "activity",
+      "taskflow"
+    ]
+  },
+  "functions": [
+    {
+      "id": "activity.calls___bein_1",
+      "sequence": 1,
+      "frame": "frame_001.jpg",
+      "timestampSec": 0,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "Training covers Activity workflow per title: CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    },
+    {
+      "id": "taskflow.calls___bein_2",
+      "sequence": 2,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "Training covers Taskflow workflow per title: CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_001.jpg",
+    "frame_003.jpg"
+  ]
+}

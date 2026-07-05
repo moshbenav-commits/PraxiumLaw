@@ -1,0 +1,38 @@
+{
+  "slug": "SCANSNAP_-_Settings_69f20c7e6dac",
+  "title": "SCANSNAP - Settings",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: SCANSNAP - Settings",
+    "route": "/matters/:id",
+    "selectors": [
+      "docs"
+    ]
+  },
+  "functions": [
+    {
+      "id": "docs.scansnap___s_1",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "color is fine, but I don't need duplex scanning. You should always check your documents before you scan them and see if they're simplex or duplex. And I don't want to rotate them. I don't want blank",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_002.jpg"
+  ]
+}

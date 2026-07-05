@@ -1,0 +1,80 @@
+{
+  "slug": "1_Adding_a_New_Project_523f9a072421",
+  "title": "1. Adding a New Project",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 1. Adding a New Project",
+    "route": "/matters/:id",
+    "selectors": [
+      "meds",
+      "intake",
+      "docs"
+    ]
+  },
+  "functions": [
+    {
+      "id": "meds.1_adding_a_n_1",
+      "sequence": 1,
+      "frame": "frame_007.jpg",
+      "timestampSec": 180,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "ds to sign. Sometimes accident report or traffic ticket, features of the accident, client's initial medical records like hospital records and bills are being received from the client. Basically, this",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "intake.1_adding_a_n_2",
+      "sequence": 2,
+      "frame": "frame_014.jpg",
+      "timestampSec": 390,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "ents that we will send to after that it's time to generate the intake documents so go to intake doc intake tab so we have two types of documents which is for english speaking client whereas in intake",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "docs.1_adding_a_n_3",
+      "sequence": 3,
+      "frame": "frame_020.jpg",
+      "timestampSec": 570,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "te of birth social security number or gender so once all the information for entered we can now hit save after adding the contact card of the client it's time to click the create button in order to ha",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_007.jpg",
+    "frame_014.jpg",
+    "frame_020.jpg"
+  ]
+}

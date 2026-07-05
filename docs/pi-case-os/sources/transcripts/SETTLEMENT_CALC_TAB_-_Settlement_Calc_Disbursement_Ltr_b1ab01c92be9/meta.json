@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:35:27.277458+00:00",
   "hasAudioArchive": true,
   "audioBytes": 8830575,
-  "frameCount": 12,
+  "frameCount": 18,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -37,8 +37,17 @@
     "frame_009.jpg",
     "frame_010.jpg",
     "frame_011.jpg",
-    "frame_012.jpg"
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg",
+    "frame_018.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/SETTLEMENT_CALC_TAB_-_Settlement_Calc_Disbursement_Ltr_b1ab01c92be9/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/SETTLEMENT_CALC_TAB_-_Settlement_Calc_Disbursement_Ltr_b1ab01c92be9/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SETTLEMENT CALC TAB - Settlement Calc Disbursement Ltr.mp4",
+  "framesExtractedAt": "2026-07-05T01:50:34.707Z",
+  "frameManifest": "training-archive/van-law-the case system/SETTLEMENT_CALC_TAB_-_Settlement_Calc_Disbursement_Ltr_b1ab01c92be9/screenshots/frame-manifest.json"
 }

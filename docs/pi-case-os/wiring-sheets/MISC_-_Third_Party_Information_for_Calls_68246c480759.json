@@ -1,0 +1,80 @@
+{
+  "slug": "MISC_-_Third_Party_Information_for_Calls_68246c480759",
+  "title": "MISC - Third Party Information for Calls",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: MISC - Third Party Information for Calls",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "activity",
+      "taskflow"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.misc___third_1",
+      "sequence": 1,
+      "frame": "frame_001.jpg",
+      "timestampSec": 0,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Transcript If you want to find out information about the third party, what you would go to is this insurance tab here. And you would look for third party. And we are going to change this at some poin",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "activity.misc___third_2",
+      "sequence": 2,
+      "frame": "frame_002.jpg",
+      "timestampSec": 30,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "Training covers Activity workflow per title: MISC - Third Party Information for Calls",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    },
+    {
+      "id": "taskflow.misc___third_3",
+      "sequence": 3,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "Training covers Taskflow workflow per title: MISC - Third Party Information for Calls",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg"
+  ]
+}

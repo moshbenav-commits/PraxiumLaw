@@ -23,5 +23,23 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:53:52.238310+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 5102367
+  "audioBytes": 5102367,
+  "frameCount": 11,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor INS Tab 3P LOR (SV).mp4",
+  "framesExtractedAt": "2026-07-05T03:05:07.045Z",
+  "frameManifest": "training-archive/van-law-the case system/ADVANCED_-_Customs_Editor_INS_Tab_3P_LOR_SV__ec9f33bf3542/screenshots/frame-manifest.json"
 }

@@ -1,0 +1,180 @@
+{
+  "slug": "SUBROGATION_-_Google_doc_LOR_draft_subro_explanation_SP__46e2a4aa9bec",
+  "title": "SUBROGATION - Google doc, LOR draft, subro explanation (SP)",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: SUBROGATION - Google doc, LOR draft, subro explanation (SP)",
+    "route": "/matters/:id",
+    "selectors": [
+      "subrogation",
+      "insurance",
+      "settlement"
+    ]
+  },
+  "functions": [
+    {
+      "id": "subrogation.subrogation__1",
+      "sequence": 1,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "# SUBROGATION - Google doc, LOR draft, subro explanation (SP) **Kind:** other **Tags:** — **Speak",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "insurance.subrogation__2",
+      "sequence": 2,
+      "frame": "frame_010.jpg",
+      "timestampSec": 270,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "# SUBROGATION - Google doc, LOR draft, subro explanation (SP) **Kind:** other **Tags:** — **Speakers:** — **Complete sale",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "settlement.subrogation__3",
+      "sequence": 3,
+      "frame": "frame_015.jpg",
+      "timestampSec": 420,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "we know that he's using it, but we've called around to the health insurances looking for where the lien is. And we can't find it. Basically what happens is the health insurance is entitled to be paid",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    },
+    {
+      "id": "docgen.subrogation__4",
+      "sequence": 4,
+      "frame": "frame_020.jpg",
+      "timestampSec": 570,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "# SUBROGATION - Google doc, LOR draft, subro explanation (SP) **Kind:** other **Tags:** — **Speakers:** — **Complete sale",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "health.subrogation__5",
+      "sequence": 5,
+      "frame": "frame_026.jpg",
+      "timestampSec": 750,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "ion. Subrogation is a little bit more complicated. Basically what subrogation is, is our client has health insurance. And he used health insurance when he was treated for his injuries. And here it say",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "meds.subrogation__6",
+      "sequence": 6,
+      "frame": "frame_031.jpg",
+      "timestampSec": 900,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "up after the last page. This is an old one. Um. Also. We need to put in the. We need to put in the provider name. So we're going to put Sierra Health and Life. Slash Health Plan of Nevada. And we do",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "intake.subrogation__7",
+      "sequence": 7,
+      "frame": "frame_036.jpg",
+      "timestampSec": 1050,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "l set that aside for when we generate the document. And then health insurance subrogation is on the intake tab to auto-generate. And you just scroll down to the bottom. And here it is right here. Medi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    },
+    {
+      "id": "docs.subrogation__8",
+      "sequence": 8,
+      "frame": "frame_041.jpg",
+      "timestampSec": 1200,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "re not sending it out saying that she's still of counsel. So here, we're going to hit file and then save as. We're going to go browse the folders. And we're going to save it under Matienzo's file. So",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_005.jpg",
+    "frame_010.jpg",
+    "frame_015.jpg",
+    "frame_020.jpg",
+    "frame_026.jpg",
+    "frame_031.jpg",
+    "frame_036.jpg",
+    "frame_041.jpg"
+  ]
+}

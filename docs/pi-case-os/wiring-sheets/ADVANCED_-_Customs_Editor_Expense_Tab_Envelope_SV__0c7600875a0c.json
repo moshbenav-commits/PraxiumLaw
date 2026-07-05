@@ -1,0 +1,140 @@
+{
+  "slug": "ADVANCED_-_Customs_Editor_Expense_Tab_Envelope_SV__0c7600875a0c",
+  "title": "ADVANCED - Customs Editor Expense Tab Envelope (SV)",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: ADVANCED - Customs Editor Expense Tab Envelope (SV)",
+    "route": "/settings/custom-fields",
+    "selectors": [
+      "customs",
+      "insurance",
+      "meds"
+    ]
+  },
+  "functions": [
+    {
+      "id": "customs.advanced___c_1",
+      "sequence": 1,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Custom field editor",
+      "fields": [],
+      "actions": [
+        "reviewCustomsEditorWorkflow",
+        "mapToPraxiumcustoms"
+      ],
+      "transcriptQuote": "# ADVANCED - Customs Editor Expense Tab Envelope (SV) **Kind:** other **Tags:** — **Speakers:** — **Comple",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Customs Editor parity"
+    },
+    {
+      "id": "insurance.advanced___c_2",
+      "sequence": 2,
+      "frame": "frame_009.jpg",
+      "timestampSec": 240,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "Training covers Insurance workflow per title: ADVANCED - Customs Editor Expense Tab Envelope (SV)",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "meds.advanced___c_3",
+      "sequence": 3,
+      "frame": "frame_014.jpg",
+      "timestampSec": 390,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "range:** 0.0s – 0.0s ## Transcript going to go create an envelope. So I already have one in the meds tab in the disbursement sheet. I'm going to download this. Okay. And I won't need any of this s",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "docgen.advanced___c_4",
+      "sequence": 4,
+      "frame": "frame_018.jpg",
+      "timestampSec": 510,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "how to do it, then you can figure it out how to do it. So I'm gonna go save this as envelope in my doc gen. I always create a folder on my desktop called envelope. Okay, so I'm gonna go save this pag",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "docs.advanced___c_5",
+      "sequence": 5,
+      "frame": "frame_023.jpg",
+      "timestampSec": 660,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "kay, well, if you figure out how to do it, then you can figure it out how to do it. So I'm gonna go save this as envelope in my doc gen. I always create a folder on my desktop called envelope. Okay, s",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "settlement.advanced___c_6",
+      "sequence": 6,
+      "frame": "frame_027.jpg",
+      "timestampSec": 780,
+      "filevineSurface": "Settlement",
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "fields": [],
+      "actions": [
+        "reviewSettlementWorkflow",
+        "mapToPraxiumsettlement"
+      ],
+      "transcriptQuote": "0.0s ## Transcript going to go create an envelope. So I already have one in the meds tab in the disbursement sheet. I'm going to download this. Okay. And I won't need any of this stuff here. So I",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_005.jpg",
+    "frame_009.jpg",
+    "frame_014.jpg",
+    "frame_018.jpg",
+    "frame_023.jpg",
+    "frame_027.jpg"
+  ]
+}

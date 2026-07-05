@@ -1,0 +1,88 @@
+{
+  "slug": "MEDS_TAB_-_Update_the_Meds_Tab_4eb75200b51d",
+  "title": "MEDS TAB - Update the Meds Tab",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/MEDS TAB - Update the Meds Tab.mp4",
+  "extractedAt": "2026-07-05T02:25:12.728Z",
+  "intervalSec": 15,
+  "durationSec": 101.215782,
+  "frameCount": 7,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 15,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Liens sold to",
+      "functionId": "meds.row.lien_sold_to",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "lien was sold to jml financial services… lien sold to is jml financial"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Updated by initials",
+      "functionId": "meds.row.case_manager_initials",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "my initials… i updated with 1650… hit save"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 45,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 75,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/MEDS_TAB_-_Update_the_Meds_Tab_4eb75200b51d.json",
+  "labeledFrameCount": 2,
+  "labeledAt": "2026-07-05"
+}

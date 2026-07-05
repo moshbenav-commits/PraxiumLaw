@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:31:31.666135+00:00",
   "hasAudioArchive": true,
   "audioBytes": 8372917,
-  "frameCount": 12,
+  "frameCount": 17,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -37,8 +37,16 @@
     "frame_009.jpg",
     "frame_010.jpg",
     "frame_011.jpg",
-    "frame_012.jpg"
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/2017_8_11_FILEVINE_-_Run_and_Share_Reports_Seans_Special_Lis_423641749d33/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/2017_8_11_FILEVINE_-_Run_and_Share_Reports_Seans_Special_Lis_423641749d33/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.8.11 FILEVINE - Run and Share Reports Seans Special List.mp4",
+  "framesExtractedAt": "2026-07-05T01:51:08.421Z",
+  "frameManifest": "training-archive/van-law-the case system/2017_8_11_FILEVINE_-_Run_and_Share_Reports_Seans_Special_Lis_423641749d33/screenshots/frame-manifest.json"
 }

@@ -1,0 +1,59 @@
+{
+  "slug": "CLAIMS_-_3rd_Party_Letter_of_Rep_73ecb24e48e8",
+  "title": "CLAIMS - 3rd Party Letter of Rep",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: CLAIMS - 3rd Party Letter of Rep",
+    "route": "/matters/:id",
+    "selectors": [
+      "insurance",
+      "docgen"
+    ]
+  },
+  "functions": [
+    {
+      "id": "insurance.claims___3rd_1",
+      "sequence": 1,
+      "frame": "frame_007.jpg",
+      "timestampSec": 180,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "# CLAIMS - 3rd Party Letter of Rep **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "docgen.claims___3rd_2",
+      "sequence": 2,
+      "frame": "frame_013.jpg",
+      "timestampSec": 360,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "nsurance adjuster's name, and her name is Linda Martinez. So got everything in here, and now we can generate the third-party LOR. And again, we represent Cesar Nava's and Alex Gonzalez. So as soon as",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_007.jpg",
+    "frame_013.jpg"
+  ]
+}

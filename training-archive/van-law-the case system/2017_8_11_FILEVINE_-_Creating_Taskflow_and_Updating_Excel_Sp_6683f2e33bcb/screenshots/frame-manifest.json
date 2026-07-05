@@ -1,0 +1,276 @@
+{
+  "slug": "2017_8_11_FILEVINE_-_Creating_Taskflow_and_Updating_Excel_Sp_6683f2e33bcb",
+  "title": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet.mp4",
+  "extractedAt": "2026-07-05T02:22:20.566Z",
+  "intervalSec": 15,
+  "durationSec": 381.318095,
+  "frameCount": 25,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Organization selector",
+      "functionId": "taskflow.admin.open_taskflow",
+      "praxiumTab": null,
+      "status": "missing",
+      "praxiumRoute": "/admin/taskflow",
+      "transcriptQuote": "So task flow. So let's say in vehicle collisions…"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 15,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 30,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Excel master (Intake + Setup phases)",
+      "functionId": "taskflow.excel.master_spreadsheet",
+      "praxiumTab": null,
+      "status": "missing",
+      "praxiumRoute": "/admin/taskflow",
+      "transcriptQuote": "Phase changes, zero days… Intake specialist, Linda…"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 45,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Intake phase task list",
+      "functionId": "taskflow.admin.intake_phase_tasks",
+      "praxiumTab": null,
+      "status": "missing",
+      "praxiumRoute": "/admin/taskflow",
+      "transcriptQuote": "intake zero days… I want her to do this on day one when the client walks in"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 75,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 90,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 105,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Role assignment",
+      "functionId": "taskflow.admin.save_and_assign_roles",
+      "praxiumTab": null,
+      "status": "partial",
+      "praxiumRoute": "/admin/rbac",
+      "transcriptQuote": "save it all. Assign managers and create roles, right?"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 135,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "MVC Primary / Secondary / Premise",
+      "functionId": "taskflow.admin.project_type_variants",
+      "praxiumTab": null,
+      "status": "missing",
+      "praxiumRoute": "/admin/taskflow",
+      "transcriptQuote": "do this for all three types… primary, secondary… premise"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 150,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 165,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 195,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 210,
+      "labeled": true,
+      "filevineTab": "Taskflow",
+      "filevineSection": "Excel Treatment Phase",
+      "functionId": "taskflow.excel.treatment_phase_rows",
+      "praxiumTab": null,
+      "status": "missing",
+      "praxiumRoute": "/admin/taskflow",
+      "transcriptQuote": "When the phase changes. 10 days. Do 20 days. And then it's to the case manager."
+    },
+    {
+      "filename": "frame_016.jpg",
+      "timestampSec": 225,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_017.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_018.jpg",
+      "timestampSec": 255,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_019.jpg",
+      "timestampSec": 270,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_020.jpg",
+      "timestampSec": 285,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_021.jpg",
+      "timestampSec": 300,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_022.jpg",
+      "timestampSec": 315,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_023.jpg",
+      "timestampSec": 330,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_024.jpg",
+      "timestampSec": 345,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_025.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/2017_8_11_FILEVINE_-_Creating_Taskflow_and_Updating_Excel_Sp_6683f2e33bcb.json",
+  "labeledFrameCount": 6,
+  "labeledAt": "2026-07-05"
+}

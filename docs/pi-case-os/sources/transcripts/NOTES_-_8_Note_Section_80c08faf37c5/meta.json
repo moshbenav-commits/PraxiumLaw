@@ -26,7 +26,7 @@
   "updatedAt": "2026-06-18T20:39:57.456282+00:00",
   "hasAudioArchive": true,
   "audioBytes": 8372834,
-  "frameCount": 12,
+  "frameCount": 17,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -39,8 +39,16 @@
     "frame_009.jpg",
     "frame_010.jpg",
     "frame_011.jpg",
-    "frame_012.jpg"
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/NOTES_-_8_Note_Section_80c08faf37c5/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/NOTES_-_8_Note_Section_80c08faf37c5/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/NOTES - 8 Note Section.mp4",
+  "framesExtractedAt": "2026-07-05T02:09:52.352Z",
+  "frameManifest": "training-archive/van-law-the case system/NOTES_-_8_Note_Section_80c08faf37c5/screenshots/frame-manifest.json"
 }

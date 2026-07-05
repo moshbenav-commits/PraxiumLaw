@@ -1,0 +1,21 @@
+{
+  "slug": "FILEVINE_-_Server_Folder_Names_c83e174dc022",
+  "title": "FILEVINE - Server Folder Names",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Server Folder Names.mp4",
+  "extractedAt": "2026-07-05T03:00:06.059Z",
+  "intervalSec": 30,
+  "durationSec": 38.666467,
+  "frameCount": 1,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ]
+}

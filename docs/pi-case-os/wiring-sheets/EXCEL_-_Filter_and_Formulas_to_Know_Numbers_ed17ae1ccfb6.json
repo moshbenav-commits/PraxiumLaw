@@ -1,0 +1,38 @@
+{
+  "slug": "EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6",
+  "title": "EXCEL - Filter and Formulas to Know Numbers",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: EXCEL - Filter and Formulas to Know Numbers",
+    "route": "/matters/:id",
+    "selectors": [
+      "activity"
+    ]
+  },
+  "functions": [
+    {
+      "id": "activity.excel___filt_1",
+      "sequence": 1,
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "General PI workflow training: EXCEL - Filter and Formulas to Know Numbers",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_003.jpg"
+  ]
+}

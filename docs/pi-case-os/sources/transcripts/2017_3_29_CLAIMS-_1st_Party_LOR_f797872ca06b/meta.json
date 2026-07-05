@@ -24,7 +24,7 @@
   "updatedAt": "2026-06-18T20:32:18.497876+00:00",
   "hasAudioArchive": true,
   "audioBytes": 5654477,
-  "frameCount": 8,
+  "frameCount": 12,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -33,8 +33,15 @@
     "frame_005.jpg",
     "frame_006.jpg",
     "frame_007.jpg",
-    "frame_008.jpg"
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/2017_3_29_CLAIMS-_1st_Party_LOR_f797872ca06b/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/2017_3_29_CLAIMS-_1st_Party_LOR_f797872ca06b/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.3.29 CLAIMS- 1st Party LOR.mp4",
+  "framesExtractedAt": "2026-07-05T03:04:33.642Z",
+  "frameManifest": "training-archive/van-law-the case system/2017_3_29_CLAIMS-_1st_Party_LOR_f797872ca06b/screenshots/frame-manifest.json"
 }

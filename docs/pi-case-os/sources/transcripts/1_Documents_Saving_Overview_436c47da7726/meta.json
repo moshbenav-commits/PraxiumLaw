@@ -23,5 +23,23 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:51:33.087239+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 5500150
+  "audioBytes": 5500150,
+  "frameCount": 11,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Documents Saving Overview.mp4",
+  "framesExtractedAt": "2026-07-05T03:01:25.659Z",
+  "frameManifest": "training-archive/van-law-the case system/1_Documents_Saving_Overview_436c47da7726/screenshots/frame-manifest.json"
 }

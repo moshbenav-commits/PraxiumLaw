@@ -1,0 +1,70 @@
+{
+  "slug": "SERVER_-_Create_new_client_folder_89f2c7313dd8",
+  "title": "SERVER - Create new client folder",
+  "videoPath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/SERVER - Create new client folder.mp4",
+  "extractedAt": "2026-07-05T03:07:14.101Z",
+  "intervalSec": 30,
+  "durationSec": 155.921995,
+  "frameCount": 5,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": true,
+      "filevineTab": "Settlement",
+      "filevineSection": "Calc / reductions",
+      "functionId": "settlement.server___cre_1",
+      "praxiumTab": "settlement",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Settlement workflow per title: SERVER - Create new client folder"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 30,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 60,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "functionId": "meds.server___cre_2",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Meds workflow per title: SERVER - Create new client folder"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 90,
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "functionId": "docs.server___cre_3",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "Training covers Docs workflow per title: SERVER - Create new client folder"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 120,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/SERVER_-_Create_new_client_folder_89f2c7313dd8.json",
+  "labeledFrameCount": 3,
+  "labeledAt": "2026-07-05"
+}

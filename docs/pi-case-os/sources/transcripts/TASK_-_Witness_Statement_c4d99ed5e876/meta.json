@@ -24,12 +24,16 @@
   "updatedAt": "2026-06-18T20:39:40.198901+00:00",
   "hasAudioArchive": true,
   "audioBytes": 1922931,
-  "frameCount": 3,
+  "frameCount": 4,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
-    "frame_003.jpg"
+    "frame_003.jpg",
+    "frame_004.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/TASK_-_Witness_Statement_c4d99ed5e876/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/TASK_-_Witness_Statement_c4d99ed5e876/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Witness Statement.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:18.811Z",
+  "frameManifest": "training-archive/van-law-the case system/TASK_-_Witness_Statement_c4d99ed5e876/screenshots/frame-manifest.json"
 }

@@ -24,12 +24,16 @@
   "updatedAt": "2026-06-18T20:39:40.783332+00:00",
   "hasAudioArchive": true,
   "audioBytes": 2158296,
-  "frameCount": 3,
+  "frameCount": 4,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
-    "frame_003.jpg"
+    "frame_003.jpg",
+    "frame_004.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:08.002Z",
+  "frameManifest": "training-archive/van-law-the case system/CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af/screenshots/frame-manifest.json"
 }

@@ -1,0 +1,100 @@
+{
+  "slug": "TASK_-_Assign_Primary_and_Roles_8a93a331dad8",
+  "title": "TASK - Assign Primary and Roles",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: TASK - Assign Primary and Roles",
+    "route": "/matters/:id",
+    "selectors": [
+      "team",
+      "meds",
+      "taskflow"
+    ]
+  },
+  "functions": [
+    {
+      "id": "team.task___assig_1",
+      "sequence": 1,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Team",
+      "filevineTab": "Team",
+      "filevineSection": "Roles / primary",
+      "fields": [],
+      "actions": [
+        "reviewTeamWorkflow",
+        "mapToPraxiumteam"
+      ],
+      "transcriptQuote": "# TASK - Assign Primary and Roles **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:**",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Team parity"
+    },
+    {
+      "id": "meds.task___assig_2",
+      "sequence": 2,
+      "frame": "frame_010.jpg",
+      "timestampSec": 270,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "et all these tasks for a file clerk. And she's not the file clerk. So she's the accounting. Liza is medical records. So Liza. Liza, Liza, Liza. Where are you? Liza is the... What did we call her? Medi",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "taskflow.task___assig_3",
+      "sequence": 3,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "h. So we do car accidents. You know, if there's three people in a car, then they're going to all be assigned to the same person. It's not going to be like, hey, you take one, I take one, I take one. N",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "intake.task___assig_4",
+      "sequence": 4,
+      "frame": "frame_021.jpg",
+      "timestampSec": 600,
+      "filevineSurface": "Intake",
+      "filevineTab": "Intake",
+      "filevineSection": "Client intake fields",
+      "fields": [],
+      "actions": [
+        "reviewIntakeWorkflow",
+        "mapToPraxiumintake"
+      ],
+      "transcriptQuote": "Training covers Intake workflow per title: TASK - Assign Primary and Roles",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Intake parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_005.jpg",
+    "frame_010.jpg",
+    "frame_016.jpg",
+    "frame_021.jpg"
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "slug": "3rd_PARTY_-_Open_a_claim_and_start_a_case_df30df578ead",
+  "title": "3rd PARTY - Open a claim and start a case",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: 3rd PARTY - Open a claim and start a case",
+    "route": "/matters/:id",
+    "selectors": [
+      "health",
+      "taskflow",
+      "insurance"
+    ]
+  },
+  "functions": [
+    {
+      "id": "health.3rd_party____1",
+      "sequence": 1,
+      "frame": "frame_007.jpg",
+      "timestampSec": 180,
+      "filevineSurface": "Health",
+      "filevineTab": "Health",
+      "filevineSection": "Health insurance",
+      "fields": [],
+      "actions": [
+        "reviewHealthWorkflow",
+        "mapToPraxiumhealth"
+      ],
+      "transcriptQuote": "e what was on his needs list. There wasn't a witness. So we're going to cut no witness. No witness. Health insurance subrogation. Yes. We'll need to open health insurance subrogation. So Kathleen. Hey",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Health parity"
+    },
+    {
+      "id": "taskflow.3rd_party____2",
+      "sequence": 2,
+      "frame": "frame_014.jpg",
+      "timestampSec": 390,
+      "filevineSurface": "Taskflow",
+      "filevineTab": "Taskflow",
+      "filevineSection": "Task assignment",
+      "fields": [],
+      "actions": [
+        "reviewTaskflowWorkflow",
+        "mapToPraxiumtaskflow"
+      ],
+      "transcriptQuote": "hmm. So how long does it take for you guys to do your investigation? It'll take about an hour to be assigned. And then they'll be in contact with our insurer and they will be in contact with you after",
+      "praxiumRoute": "/tasks",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "Praxium pipeline lacks Filevine Taskflow parity"
+    },
+    {
+      "id": "insurance.3rd_party____3",
+      "sequence": 3,
+      "frame": "frame_021.jpg",
+      "timestampSec": 600,
+      "filevineSurface": "Insurance",
+      "filevineTab": "Insurance",
+      "filevineSection": "Claim / adjuster fields",
+      "fields": [],
+      "actions": [
+        "reviewInsuranceWorkflow",
+        "mapToPraxiuminsurance"
+      ],
+      "transcriptQuote": "claim. Okay, one moment. Thanks. It's a non-owner. Hi, I would like to open up a claim. What is the policy number? It is 5X59471. And when did this happen? Yesterday. And what kind of claim is it? Aut",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+    },
+    {
+      "id": "subrogation.3rd_party____4",
+      "sequence": 4,
+      "frame": "frame_028.jpg",
+      "timestampSec": 810,
+      "filevineSurface": "Subrogation",
+      "filevineTab": "Subrogation",
+      "filevineSection": "Health lien workflow",
+      "fields": [],
+      "actions": [
+        "reviewSubrogationWorkflow",
+        "mapToPraxiumsubrogation"
+      ],
+      "transcriptQuote": "needs list. There wasn't a witness. So we're going to cut no witness. No witness. Health insurance subrogation. Yes. We'll need to open health insurance subrogation. So Kathleen. Hey, is it important",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "subrogation",
+      "status": "missing",
+      "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+    },
+    {
+      "id": "docs.3rd_party____5",
+      "sequence": 5,
+      "frame": "frame_035.jpg",
+      "timestampSec": 1020,
+      "filevineSurface": "Docs",
+      "filevineTab": "Docs",
+      "filevineSection": "Document save / naming",
+      "fields": [],
+      "actions": [
+        "reviewDocsWorkflow",
+        "mapToPraxiumdocs"
+      ],
+      "transcriptQuote": "o that they have it. And know that you represent and all this other stuff. Great things. So we will scan in our general power of attorney. And then we have it, and we'll attach this to it. And now we",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine Docs parity"
+    },
+    {
+      "id": "docgen.3rd_party____6",
+      "sequence": 6,
+      "frame": "frame_042.jpg",
+      "timestampSec": 1230,
+      "filevineSurface": "DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Letter generation",
+      "fields": [],
+      "actions": [
+        "reviewDocGenWorkflow",
+        "mapToPraxiumdocgen"
+      ],
+      "transcriptQuote": "info. Yep. Ok then. Thank you. You're welcome. Bye-bye. Bye. Save. Ok. So now let's say you want to generate the third-party letter rep. First things first. Generate third-party letter rep. It's gener",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+    },
+    {
+      "id": "meds.3rd_party____7",
+      "sequence": 7,
+      "frame": "frame_049.jpg",
+      "timestampSec": 1440,
+      "filevineSurface": "Meds",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger",
+      "fields": [],
+      "actions": [
+        "reviewMedsWorkflow",
+        "mapToPraxiummeds"
+      ],
+      "transcriptQuote": "ot take a picture? Okay, cool. So what was needed was. The repair estimate. Repair estimate and any medical bills and hospital bills. Forgot to tell him that. Hospital bills and medical bills that com",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+    },
+    {
+      "id": "team.3rd_party____8",
+      "sequence": 8,
+      "frame": "frame_056.jpg",
+      "timestampSec": 1650,
+      "filevineSurface": "Team",
+      "filevineTab": "Team",
+      "filevineSection": "Roles / primary",
+      "fields": [],
+      "actions": [
+        "reviewTeamWorkflow",
+        "mapToPraxiumteam"
+      ],
+      "transcriptQuote": "t want to hit refresh. And there's other things that you might want to do. Okay. 20 members of your roles. That's done. Only if necessary. Own for first party. So there is no first party. No first par",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "Praxium intake lacks Filevine Team parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_007.jpg",
+    "frame_014.jpg",
+    "frame_021.jpg",
+    "frame_028.jpg",
+    "frame_035.jpg",
+    "frame_042.jpg",
+    "frame_049.jpg",
+    "frame_056.jpg"
+  ]
+}

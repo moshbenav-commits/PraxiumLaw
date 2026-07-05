@@ -1,0 +1,38 @@
+{
+  "slug": "How_to_Hire_on_Upwork_05a70ad738ae",
+  "title": "How to Hire on Upwork",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-bulk-anchor-packs8-12",
+  "videoDurationSec": null,
+  "matterShell": {
+    "description": "Anchor wiring from training: How to Hire on Upwork",
+    "route": "/matters/:id",
+    "selectors": [
+      "activity"
+    ]
+  },
+  "functions": [
+    {
+      "id": "activity.how_to_hire__1",
+      "sequence": 1,
+      "frame": "frame_090.jpg",
+      "timestampSec": 2670,
+      "filevineSurface": "Activity",
+      "filevineTab": "Activity",
+      "filevineSection": "Activity log",
+      "fields": [],
+      "actions": [
+        "reviewActivityWorkflow",
+        "mapToPraxiumactivity"
+      ],
+      "transcriptQuote": "General PI workflow training: How to Hire on Upwork",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "notes",
+      "status": "missing",
+      "gapNotes": "Praxium notes lacks Filevine Activity parity"
+    }
+  ],
+  "labeledFrames": [
+    "frame_090.jpg"
+  ]
+}

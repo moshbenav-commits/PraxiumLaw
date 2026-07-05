@@ -27,13 +27,18 @@
   "updatedAt": "2026-06-18T20:41:05.643228+00:00",
   "hasAudioArchive": true,
   "audioBytes": 3092778,
-  "frameCount": 4,
+  "frameCount": 6,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
     "frame_003.jpg",
-    "frame_004.jpg"
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Desktop/CPP Training - Video Quarantine/LITIGATION - Sharing case with litigator Google Drive.mp4",
+  "framesExtractedAt": "2026-07-05T03:07:11.485Z",
+  "frameManifest": "training-archive/van-law-the case system/LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b/screenshots/frame-manifest.json"
 }
