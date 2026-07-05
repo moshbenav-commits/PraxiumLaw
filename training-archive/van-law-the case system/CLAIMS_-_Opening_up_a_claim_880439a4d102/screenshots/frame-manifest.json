@@ -30,12 +30,14 @@
     {
       "filename": "frame_003.jpg",
       "timestampSec": 60,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Open claim call",
+      "functionId": "insurance.claim.call_carrier_ivr",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "open up a claim with GEICO… enter the policy number 435289… claim types… auto"
     },
     {
       "filename": "frame_004.jpg",
@@ -52,22 +54,26 @@
     {
       "filename": "frame_005.jpg",
       "timestampSec": 120,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Existing claim",
+      "functionId": "insurance.claim.existing_claim_number_path",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "I do have a claim number… sometimes we don't have the claim number, we give them the policy number and they'll give us a claim number"
     },
     {
       "filename": "frame_006.jpg",
       "timestampSec": 150,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Adjuster contact",
+      "functionId": "insurance.claim.capture_adjuster_from_carrier",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "adjuster is Linda Martinez… phone 5202580828… fax 866-568-2132… PO Box 509-119 San Diego"
     },
     {
       "filename": "frame_007.jpg",
@@ -93,23 +99,25 @@
       "filename": "frame_009.jpg",
       "timestampSec": 240,
       "labeled": true,
-      "filevineTab": "DocGen",
-      "filevineSection": "Letter generation",
-      "functionId": "docgen.claims___ope_2",
-      "praxiumTab": "documents",
+      "filevineTab": "Insurance",
+      "filevineSection": "PII minimization",
+      "functionId": "insurance.claim.minimize_client_pii",
+      "praxiumTab": "insurance",
       "status": "missing",
       "praxiumRoute": "/matters/:id",
-      "transcriptQuote": "Training covers DocGen workflow per title: CLAIMS - Opening up a claim"
+      "transcriptQuote": "give them as little information about our clients as possible… don't tell them DOB, social, address… don't tell them how the accident happened"
     },
     {
       "filename": "frame_010.jpg",
       "timestampSec": 270,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Defendant vehicle",
+      "functionId": "insurance.claim.defendant_vehicle_confirm_only",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "what kind of car was Abigail driving… white 2015 Ford Mustang… just so they know it was their client that hit them"
     },
     {
       "filename": "frame_011.jpg",
@@ -143,6 +151,6 @@
     }
   ],
   "wiringSheet": "docs/pi-case-os/wiring-sheets/CLAIMS_-_Opening_up_a_claim_880439a4d102.json",
-  "labeledFrameCount": 2,
+  "labeledFrameCount": 6,
   "labeledAt": "2026-07-05"
 }

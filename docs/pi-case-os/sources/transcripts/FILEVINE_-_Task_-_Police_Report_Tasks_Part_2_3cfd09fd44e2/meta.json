@@ -23,5 +23,28 @@
   "audioFormat": "mp3",
   "updatedAt": "2026-06-17T20:56:06.261932+00:00",
   "hasAudioArchive": true,
-  "audioBytes": 7462180
+  "audioBytes": 7462180,
+  "frameCount": 16,
+  "intervalSec": 30,
+  "frames": [
+    "frame_001.jpg",
+    "frame_002.jpg",
+    "frame_003.jpg",
+    "frame_004.jpg",
+    "frame_005.jpg",
+    "frame_006.jpg",
+    "frame_007.jpg",
+    "frame_008.jpg",
+    "frame_009.jpg",
+    "frame_010.jpg",
+    "frame_011.jpg",
+    "frame_012.jpg",
+    "frame_013.jpg",
+    "frame_014.jpg",
+    "frame_015.jpg",
+    "frame_016.jpg"
+  ],
+  "videoQuarantinePath": "/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/Virtual Assistant with Great English /Day 3/FILEVINE - Task - Police Report Tasks Part 2.mp4",
+  "framesExtractedAt": "2026-07-05T03:13:39.678Z",
+  "frameManifest": "training-archive/van-law-the case system/FILEVINE_-_Task_-_Police_Report_Tasks_Part_2_3cfd09fd44e2/screenshots/frame-manifest.json"
 }

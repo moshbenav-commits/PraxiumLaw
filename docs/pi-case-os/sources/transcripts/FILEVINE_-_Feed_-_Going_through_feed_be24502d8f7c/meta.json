@@ -24,7 +24,7 @@
   "primarySpeaker": "Lewis",
   "audioFormat": "mp3",
   "updatedAt": "2026-06-18T20:38:07.016346+00:00",
-  "frameCount": 15,
+  "frameCount": 24,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -40,8 +40,20 @@
     "frame_012.jpg",
     "frame_013.jpg",
     "frame_014.jpg",
-    "frame_015.jpg"
+    "frame_015.jpg",
+    "frame_016.jpg",
+    "frame_017.jpg",
+    "frame_018.jpg",
+    "frame_019.jpg",
+    "frame_020.jpg",
+    "frame_021.jpg",
+    "frame_022.jpg",
+    "frame_023.jpg",
+    "frame_024.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_-_Feed_-_Going_through_feed_be24502d8f7c/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/FILEVINE_-_Feed_-_Going_through_feed_be24502d8f7c/screenshots",
+  "videoQuarantinePath": "/Users/ricardo/Downloads/_Sorted/Old-Desktop-Backups/Desktop - Ricardo’s MacBook Pro/Training PI/Support Staff/Day 1/FILEVINE - Feed - Going through feed.mp4",
+  "framesExtractedAt": "2026-07-05T03:13:28.553Z",
+  "frameManifest": "training-archive/van-law-the case system/FILEVINE_-_Feed_-_Going_through_feed_be24502d8f7c/screenshots/frame-manifest.json"
 }

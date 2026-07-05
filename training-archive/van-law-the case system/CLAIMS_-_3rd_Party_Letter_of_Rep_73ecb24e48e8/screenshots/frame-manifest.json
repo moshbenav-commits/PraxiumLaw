@@ -40,12 +40,14 @@
     {
       "filename": "frame_004.jpg",
       "timestampSec": 90,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "3P adjuster",
+      "functionId": "insurance.lor.verify_adjuster_before_docgen",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "put all that information in here… adjuster… company… claim number and policy number… represent Alex Gonzalez and Cesar Nava"
     },
     {
       "filename": "frame_005.jpg",
@@ -82,12 +84,14 @@
     {
       "filename": "frame_008.jpg",
       "timestampSec": 210,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "DocGen",
+      "filevineSection": "3P LOR",
+      "functionId": "docgen.lor.generate_3p_with_carrier_name",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "generate the third-party LOR… didn't populate correctly… need to put the company name on here… Geico… attention Linda Martinez"
     },
     {
       "filename": "frame_009.jpg",
@@ -122,12 +126,14 @@
     {
       "filename": "frame_012.jpg",
       "timestampSec": 330,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "DocGen",
+      "filevineSection": "Enclosures",
+      "functionId": "docgen.lor.enclosures_general_releases",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "enclose general releases… one page… rental car so take that paragraph out… two parties' names on there"
     },
     {
       "filename": "frame_013.jpg",
@@ -144,12 +150,14 @@
     {
       "filename": "frame_014.jpg",
       "timestampSec": 390,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Defendant correspondence",
+      "functionId": "docs.save_lor_draft_and_actual",
+      "praxiumTab": "documents",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "save in defendant… third party LOR… save as draft… save as actual PDF… correspondence actual"
     },
     {
       "filename": "frame_015.jpg",
@@ -164,12 +172,14 @@
     {
       "filename": "frame_016.jpg",
       "timestampSec": 450,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Package assembly",
+      "functionId": "docs.merge_lor_with_gr_nitro",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "open in Nitro PDF… combine files… attach general releases… defendants LOR correspondence actual final"
     },
     {
       "filename": "frame_017.jpg",
@@ -184,12 +194,14 @@
     {
       "filename": "frame_018.jpg",
       "timestampSec": 510,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "Send LOR",
+      "functionId": "comms.fax_lor_to_adjuster",
+      "praxiumTab": "comms",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "send via facsimile… 866-568-2132 at metrofax.com… claim number in subject… so they will not bother our clients"
     },
     {
       "filename": "frame_019.jpg",
@@ -213,6 +225,6 @@
     }
   ],
   "wiringSheet": "docs/pi-case-os/wiring-sheets/CLAIMS_-_3rd_Party_Letter_of_Rep_73ecb24e48e8.json",
-  "labeledFrameCount": 2,
+  "labeledFrameCount": 8,
   "labeledAt": "2026-07-05"
 }

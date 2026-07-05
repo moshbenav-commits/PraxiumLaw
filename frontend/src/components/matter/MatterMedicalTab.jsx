@@ -162,6 +162,9 @@ export default function MatterMedicalTab({ matterId }) {
             <div><div className="overline text-[10px]">Total balance</div><div className="font-mono">{formatMoney(summary.total_balance)}</div></div>
             <div><div className="overline text-[10px]">Total lien</div><div className="font-mono">{formatMoney(summary.total_lien)}</div></div>
             <div><div className="overline text-[10px]">Futures est.</div><div className="font-mono">{formatMoney(summary.total_futures_estimate)}</div></div>
+            {summary.lien_sold_count > 0 ? (
+              <div><div className="overline text-[10px]">Lien sold rows</div><div className="font-mono">{summary.lien_sold_count}</div></div>
+            ) : null}
             <div><div className="overline text-[10px]">Still treating</div><div className="font-mono">{summary.still_treating_count}</div></div>
             {summary.alert_count > 0 ? (
               <div><div className="overline text-[10px]">Compliance alerts</div><div className="font-mono text-red-700">{summary.alert_count}</div></div>
@@ -316,12 +319,31 @@ export default function MatterMedicalTab({ matterId }) {
                   <input className={inputClass()} value={row.lien_holder || ""} onChange={(e) => setItems((prev) => prev.map((r) => (r.id === row.id ? { ...r, lien_holder: e.target.value } : r)))} onBlur={(e) => patchRow(row.id, { lien_holder: e.target.value })} />
                 </label>
                 <label className="text-xs">
+                  <span className="font-mono uppercase text-praxium-subtle text-[10px]">Lien sold to</span>
+                  <input className={inputClass()} placeholder="e.g. JML" value={row.lien_sold_to || ""} onChange={(e) => setItems((prev) => prev.map((r) => (r.id === row.id ? { ...r, lien_sold_to: e.target.value } : r)))} onBlur={(e) => patchRow(row.id, { lien_sold_to: e.target.value })} data-testid={`meds-lien-sold-${row.id}`} />
+                </label>
+                <label className="text-xs">
+                  <span className="font-mono uppercase text-praxium-subtle text-[10px]">CPT code</span>
+                  <input className={inputClass()} placeholder="72141" maxLength={20} value={row.cpt_code || ""} onChange={(e) => setItems((prev) => prev.map((r) => (r.id === row.id ? { ...r, cpt_code: e.target.value } : r)))} onBlur={(e) => patchRow(row.id, { cpt_code: e.target.value.toUpperCase() })} />
+                </label>
+                <label className="text-xs">
+                  <span className="font-mono uppercase text-praxium-subtle text-[10px]">Date of service</span>
+                  <input type="date" className={inputClass()} value={row.date_of_service || ""} onChange={(e) => patchRow(row.id, { date_of_service: e.target.value || null })} />
+                </label>
+                <label className="text-xs">
                   <span className="font-mono uppercase text-praxium-subtle text-[10px]">FE amount ($)</span>
                   <input type="number" className={inputClass()} value={row.futures_estimate ?? ""} onChange={(e) => setItems((prev) => prev.map((r) => (r.id === row.id ? { ...r, futures_estimate: e.target.value ? Number(e.target.value) : null } : r)))} onBlur={(e) => patchRow(row.id, { futures_estimate: e.target.value ? Number(e.target.value) : null })} />
                 </label>
                 <label className="text-xs">
                   <span className="font-mono uppercase text-praxium-subtle text-[10px]">FE date</span>
                   <input type="date" className={inputClass()} value={row.futures_estimate_date || ""} onChange={(e) => patchRow(row.id, { futures_estimate_date: e.target.value || null })} />
+                </label>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 mt-3 pt-3 border-t border-praxium-line">
+                <label className="flex items-center gap-2 text-xs">
+                  <input type="checkbox" checked={Boolean(row.chartswap_required)} onChange={(e) => patchRow(row.id, { chartswap_required: e.target.checked })} />
+                  ChartSwap / portal required
                 </label>
               </div>
 

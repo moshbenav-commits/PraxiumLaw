@@ -2,99 +2,126 @@
   "slug": "2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed",
   "title": "2017.7.5 DEMAND - How to draft 3P Demand",
   "labeledAt": "2026-07-05",
-  "labeledBy": "agent-bulk-anchor-packs8-12",
-  "videoDurationSec": null,
+  "labeledBy": "agent-refine-pack8",
+  "videoDurationSec": 1632,
   "matterShell": {
-    "description": "Anchor wiring from training: 2017.7.5 DEMAND - How to draft 3P Demand",
-    "route": "/matters/:id",
-    "selectors": [
-      "meds",
-      "demand",
-      "insurance"
-    ]
+    "description": "Update meds → DocGen 3P demand → yellow-sheet bill order → related passengers",
+    "route": "/matters/:id/demand",
+    "selectors": ["medsTab", "yellowSheet", "docgenDemand", "relatedCase"]
   },
   "functions": [
     {
-      "id": "meds.2017_7_5_dem_1",
+      "id": "demand.prep.update_meds_first",
       "sequence": 1,
-      "frame": "frame_011.jpg",
-      "timestampSec": 300,
-      "filevineSurface": "Meds",
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Meds tab",
       "filevineTab": "Meds",
-      "filevineSection": "Provider ledger",
-      "fields": [],
-      "actions": [
-        "reviewMedsWorkflow",
-        "mapToPraxiummeds"
-      ],
-      "transcriptQuote": "t would be. P-H-O-U-N-G. P-H-O-U-N-G. insurance Alright. Alright. And you would just put in all the medical bills here. So for example, you would put, um, who would you put? So you would go to the med",
+      "filevineSection": "Provider balances",
+      "fields": ["providerBalances[]", "relatedCaseMeds[]"],
+      "actions": ["updateAllMedsBeforeDemand", "syncRelatedCaseMeds"],
+      "transcriptQuote": "what we do is we update all these meds… let's assume the related case, all those meds were updated too",
       "praxiumRoute": "/matters/:id",
       "praxiumTab": "medical",
       "status": "missing",
-      "gapNotes": "Praxium medical lacks Filevine Meds parity"
+      "gapNotes": "Demand flow does not gate on fresh meds totals"
     },
     {
-      "id": "demand.2017_7_5_dem_2",
+      "id": "docgen.demand.generate_3p_policy_limits",
       "sequence": 2,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
+      "filevineSurface": "Insurance old / DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "3P demand letter",
+      "fields": ["deliveryMethod", "policyLimitDemand"],
+      "actions": ["generateThirdPartyDemand", "generateUMUIMIfNeeded", "downloadDocPackage"],
+      "transcriptQuote": "create a demand… policy limits… generate the demand letter",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "partial",
+      "gapNotes": "Demand tab partial; no DocGen policy-limit template merge"
+    },
+    {
+      "id": "demand.verify_adjuster_claim_policy",
+      "sequence": 3,
+      "frame": "frame_015.jpg",
+      "timestampSec": 420,
+      "filevineSurface": "Demand letter header",
+      "filevineTab": "Demand",
+      "filevineSection": "Carrier addressing",
+      "fields": ["adjusterName", "claimNumber", "policyNumber", "carrierAddress"],
+      "actions": ["matchInsuranceTabToLetter", "verifyClaimAndPolicyNumbers"],
+      "transcriptQuote": "make sure this all matches… claim number… policy number… Key Insurance Company",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "gapNotes": "No demand↔insurance field reconcile"
+    },
+    {
+      "id": "demand.yellow_sheet_bill_order",
+      "sequence": 4,
       "frame": "frame_022.jpg",
       "timestampSec": 630,
-      "filevineSurface": "Demand",
+      "filevineSurface": "Yellow sheet + demand body",
       "filevineTab": "Demand",
-      "filevineSection": "Demand package",
-      "fields": [],
-      "actions": [
-        "reviewDemandWorkflow",
-        "mapToPraxiumdemand"
-      ],
-      "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,",
+      "filevineSection": "Medical specials order",
+      "fields": ["yellowSheetOrder[]", "hospitalFirst", "painMgmt", "mri", "surgery", "pharmacy"],
+      "actions": ["orderBillsByYellowSheet", "bigBillsFirst", "addFutureEstimates", "addWageLoss"],
+      "transcriptQuote": "you would go by what the yellow sheet is… hospital first… pain management… MRI… surgery center… pharmacy at the end",
       "praxiumRoute": "/matters/:id",
       "praxiumTab": "demand",
       "status": "missing",
-      "gapNotes": "Praxium demand lacks Filevine Demand parity"
+      "gapNotes": "No yellow-sheet ordered demand builder from Meds"
     },
     {
-      "id": "insurance.2017_7_5_dem_3",
-      "sequence": 3,
-      "frame": "frame_032.jpg",
-      "timestampSec": 930,
-      "filevineSurface": "Insurance",
-      "filevineTab": "Insurance",
-      "filevineSection": "Claim / adjuster fields",
-      "fields": [],
-      "actions": [
-        "reviewInsuranceWorkflow",
-        "mapToPraxiuminsurance"
-      ],
-      "transcriptQuote": "All those correct, right? So let's go to the related case, and we're going to create a demand. And insurance old. And we're going to create, on this one, we have UM, UIM, and third party. So we're go",
+      "id": "demand.multi_client_pluralization",
+      "sequence": 5,
+      "frame": "frame_028.jpg",
+      "timestampSec": 810,
+      "filevineSurface": "Demand letter copy",
+      "filevineTab": "Demand",
+      "filevineSection": "Dual clients",
+      "fields": ["clientCount", "pluralPronouns"],
+      "actions": ["addSecondClientToDemand", "pluralizeClientsLanguage", "mergeRelatedPassengerMeds"],
+      "transcriptQuote": "it only generates for one… put the other person in here… our clients… dual clients",
       "praxiumRoute": "/matters/:id",
-      "praxiumTab": "insurance",
+      "praxiumTab": "demand",
       "status": "missing",
-      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+      "gapNotes": "No multi-client demand letter merge"
     },
     {
-      "id": "docgen.2017_7_5_dem_4",
-      "sequence": 4,
-      "frame": "frame_043.jpg",
-      "timestampSec": 1260,
-      "filevineSurface": "DocGen",
-      "filevineTab": "DocGen",
-      "filevineSection": "Letter generation",
-      "fields": [],
-      "actions": [
-        "reviewDocGenWorkflow",
-        "mapToPraxiumdocgen"
-      ],
-      "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,",
+      "id": "demand.policy_limit_tender_language",
+      "sequence": 6,
+      "frame": "frame_035.jpg",
+      "timestampSec": 1020,
+      "filevineSurface": "Demand closing",
+      "filevineTab": "Demand",
+      "filevineSection": "Policy limit tender",
+      "fields": ["responseDeadlineDays:30", "exhibits[]"],
+      "actions": ["attachPoliceReportPhotos", "set30DayDeadline", "formalTenderLanguage"],
+      "transcriptQuote": "demanding the policy limits… 30 days from when you send it… attach the police report, the photos",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "gapNotes": "No policy-limit tender block + exhibit checklist"
+    },
+    {
+      "id": "demand.save_draft_not_sent",
+      "sequence": 7,
+      "frame": "frame_040.jpg",
+      "timestampSec": 1170,
+      "filevineSurface": "Docs save",
+      "filevineTab": "Docs",
+      "filevineSection": "Demand draft",
+      "fields": ["demandDraftStatus"],
+      "actions": ["saveAsDemandLetterDraft", "holdUntilRecordsComplete"],
+      "transcriptQuote": "save this as our demand letter draft… we're not going to send it yet, we're missing stuff",
       "praxiumRoute": "/matters/:id",
       "praxiumTab": "documents",
-      "status": "missing",
-      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+      "status": "partial",
+      "gapNotes": "Documents tab lacks demand-draft status flag"
     }
   ],
-  "labeledFrames": [
-    "frame_011.jpg",
-    "frame_022.jpg",
-    "frame_032.jpg",
-    "frame_043.jpg"
-  ]
+  "labeledFrames": ["frame_003.jpg", "frame_008.jpg", "frame_015.jpg", "frame_022.jpg", "frame_028.jpg", "frame_035.jpg", "frame_040.jpg"]
 }

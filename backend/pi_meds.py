@@ -205,6 +205,10 @@ def default_ledger_row(
         "balance": 0.0,
         "lien_holder": "",
         "lien_amount": 0.0,
+        "lien_sold_to": "",
+        "cpt_code": "",
+        "date_of_service": None,
+        "chartswap_required": False,
         "futures_estimate": None,
         "futures_estimate_date": None,
         "staff_initials": "",
@@ -248,6 +252,7 @@ def summarize_ledger(rows: list[dict], *, alerts: Optional[list[dict]] = None) -
         if not r.get("still_treating") and r.get("cor_status") == "missing"
     )
     still_treating = sum(1 for r in rows if r.get("still_treating"))
+    lien_sold_count = sum(1 for r in rows if (r.get("lien_sold_to") or "").strip())
     alert_list = alerts or []
     by_code: dict[str, int] = {}
     for a in alert_list:
@@ -260,6 +265,7 @@ def summarize_ledger(rows: list[dict], *, alerts: Optional[list[dict]] = None) -
         "total_futures_estimate": round(total_fe, 2),
         "missing_cor_count": missing_cor,
         "still_treating_count": still_treating,
+        "lien_sold_count": lien_sold_count,
         "alert_count": len(alert_list),
         "alerts_by_code": by_code,
     }
@@ -309,6 +315,10 @@ class MedLedgerPatchIn(BaseModel):
     balance: Optional[float] = None
     lien_holder: Optional[str] = None
     lien_amount: Optional[float] = None
+    lien_sold_to: Optional[str] = Field(None, max_length=120)
+    cpt_code: Optional[str] = Field(None, max_length=20)
+    date_of_service: Optional[str] = None
+    chartswap_required: Optional[bool] = None
     futures_estimate: Optional[float] = None
     futures_estimate_date: Optional[str] = None
     staff_initials: Optional[str] = Field(None, max_length=8)

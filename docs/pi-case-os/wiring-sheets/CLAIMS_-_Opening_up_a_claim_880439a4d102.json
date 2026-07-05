@@ -2,58 +2,94 @@
   "slug": "CLAIMS_-_Opening_up_a_claim_880439a4d102",
   "title": "CLAIMS - Opening up a claim",
   "labeledAt": "2026-07-05",
-  "labeledBy": "agent-bulk-anchor-packs8-12",
-  "videoDurationSec": null,
+  "labeledBy": "agent-refine-pack8",
+  "videoDurationSec": 379,
   "matterShell": {
-    "description": "Anchor wiring from training: CLAIMS - Opening up a claim",
-    "route": "/matters/:id",
-    "selectors": [
-      "insurance",
-      "docgen"
-    ]
+    "description": "Phone claim open → capture adjuster → minimal client PII on carrier call",
+    "route": "/matters/:id/insurance",
+    "selectors": ["claimNumber", "adjusterContact", "piiMinimization"]
   },
   "functions": [
     {
-      "id": "insurance.claims___ope_1",
+      "id": "insurance.claim.call_carrier_ivr",
       "sequence": 1,
-      "frame": "frame_004.jpg",
-      "timestampSec": 90,
-      "filevineSurface": "Insurance",
+      "frame": "frame_003.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Phone / IVR",
       "filevineTab": "Insurance",
-      "filevineSection": "Claim / adjuster fields",
-      "fields": [],
-      "actions": [
-        "reviewInsuranceWorkflow",
-        "mapToPraxiuminsurance"
-      ],
-      "transcriptQuote": "ou are a driver or listed on the policy, please say your date of birth. All others, please have the policy number ready and say continue. Continue. Okay, please say or enter the policy number. 435289.",
+      "filevineSection": "Open claim call",
+      "fields": ["carrierPhone", "policyNumber", "claimType:auto"],
+      "actions": ["callCarrierClaimsLine", "enterPolicyNumber", "selectAutoClaimType"],
+      "transcriptQuote": "open up a claim with GEICO… enter the policy number 435289… claim types… auto",
       "praxiumRoute": "/matters/:id",
       "praxiumTab": "insurance",
       "status": "missing",
-      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+      "gapNotes": "No guided carrier call script with IVR steps"
     },
     {
-      "id": "docgen.claims___ope_2",
+      "id": "insurance.claim.capture_adjuster_from_carrier",
       "sequence": 2,
+      "frame": "frame_006.jpg",
+      "timestampSec": 150,
+      "filevineSurface": "Insurance tab",
+      "filevineTab": "Insurance",
+      "filevineSection": "Adjuster contact",
+      "fields": ["adjusterName", "adjusterPhone", "adjusterFax", "claimNumber", "mailingAddress"],
+      "actions": ["recordAdjusterFromCall", "confirmPhoneAndFax", "saveClaimNumberIfNew"],
+      "transcriptQuote": "adjuster is Linda Martinez… phone 5202580828… fax 866-568-2132… PO Box 509-119 San Diego",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "gapNotes": "Insurance tab partial; no post-call adjuster capture wizard"
+    },
+    {
+      "id": "insurance.claim.minimize_client_pii",
+      "sequence": 3,
       "frame": "frame_009.jpg",
       "timestampSec": 240,
-      "filevineSurface": "DocGen",
-      "filevineTab": "DocGen",
-      "filevineSection": "Letter generation",
+      "filevineSurface": "Call policy",
+      "filevineTab": "Insurance",
+      "filevineSection": "PII minimization",
       "fields": [],
-      "actions": [
-        "reviewDocGenWorkflow",
-        "mapToPraxiumdocgen"
-      ],
-      "transcriptQuote": "Training covers DocGen workflow per title: CLAIMS - Opening up a claim",
+      "actions": ["withholdClientPhoneAddressDOB", "shareInjuriesOnly", "declineAccidentNarrative"],
+      "transcriptQuote": "give them as little information about our clients as possible… don't tell them DOB, social, address… don't tell them how the accident happened",
       "praxiumRoute": "/matters/:id",
-      "praxiumTab": "documents",
+      "praxiumTab": "insurance",
       "status": "missing",
-      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+      "gapNotes": "No carrier-call PII guardrails or staff checklist"
+    },
+    {
+      "id": "insurance.claim.defendant_vehicle_confirm_only",
+      "sequence": 4,
+      "frame": "frame_010.jpg",
+      "timestampSec": 270,
+      "filevineSurface": "Call policy",
+      "filevineTab": "Insurance",
+      "filevineSection": "Defendant vehicle",
+      "fields": ["defendantVehicleDescription", "defendantPlate"],
+      "actions": ["confirmInsuredVehicleOnly", "noClientVehicleDetailsUnlessRequired"],
+      "transcriptQuote": "what kind of car was Abigail driving… white 2015 Ford Mustang… just so they know it was their client that hit them",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "No defendant-only vehicle confirmation prompt on 3P open"
+    },
+    {
+      "id": "insurance.claim.existing_claim_number_path",
+      "sequence": 5,
+      "frame": "frame_005.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Insurance tab",
+      "filevineTab": "Insurance",
+      "filevineSection": "Existing claim",
+      "fields": ["existingClaimNumber"],
+      "actions": ["lookupByClaimNumber", "skipDuplicateOpenIfClaimExists"],
+      "transcriptQuote": "I do have a claim number… sometimes we don't have the claim number, we give them the policy number and they'll give us a claim number",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "gapNotes": "Claim number field exists; no duplicate-open prevention"
     }
   ],
-  "labeledFrames": [
-    "frame_004.jpg",
-    "frame_009.jpg"
-  ]
+  "labeledFrames": ["frame_003.jpg", "frame_005.jpg", "frame_006.jpg", "frame_009.jpg", "frame_010.jpg"]
 }

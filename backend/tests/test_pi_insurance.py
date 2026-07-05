@@ -65,3 +65,23 @@ def test_matter_insurance_patch_3p(auth_headers):
     assert pi["third_party"]["carrier_name"] == "State Farm"
     assert pi["third_party"]["lor"]["status"] == "sent"
     assert pi["third_party"]["limits"]["display"] == "100/300"
+
+
+def test_matter_insurance_carrier_call_pii(auth_headers):
+    mid = auth_headers["X-Matter-Id"]
+    r = client.patch(
+        f"/api/matters/{mid}/insurance",
+        headers=auth_headers,
+        json={
+            "carrier_call_pii": {
+                "withheld_client_phone": True,
+                "withheld_client_address": True,
+                "shared_injuries_only": True,
+                "acknowledged_at": "2026-07-04",
+            },
+        },
+    )
+    assert r.status_code == 200
+    pii = r.json()["pi_insurance"]["carrier_call_pii"]
+    assert pii["withheld_client_phone"] is True
+    assert pii["acknowledged_at"] == "2026-07-04"

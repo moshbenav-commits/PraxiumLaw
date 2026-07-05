@@ -4,19 +4,33 @@ import TopBar from "./TopBar";
 import CommandPalette from "./CommandPalette";
 import CoCounselSidebar from "./CoCounselSidebar";
 import PageLoader from "@/components/common/PageLoader";
+import DisclosureGate from "@/components/DisclosureGate";
 import { useAuth } from "@/contexts/AuthContext";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import api from "@/lib/api";
 
 export default function Shell() {
-  const { user, loading } = useAuth();
+  const { user, loading, refreshMe } = useAuth();
   const location = useLocation();
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [disclosureRequired, setDisclosureRequired] = useState(null);
 
   useEffect(() => {
     setNavOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!user) {
+      setDisclosureRequired(null);
+      return;
+    }
+    api
+      .get("/disclosure")
+      .then((r) => setDisclosureRequired(Boolean(r.data.required)))
+      .catch(() => setDisclosureRequired(false));
+  }, [user]);
 
   useEffect(() => {
     const handler = (e) => {
@@ -42,8 +56,24 @@ export default function Shell() {
   }
   if (!user) return <Navigate to="/login" replace />;
 
+  if (disclosureRequired === null) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-praxium-bg">
+        <PageLoader label="Checking disclosure…" />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex bg-praxium-bg text-praxium-ink">
+      {disclosureRequired ? (
+        <DisclosureGate
+          onAcknowledged={() => {
+            setDisclosureRequired(false);
+            refreshMe?.();
+          }}
+        />
+      ) : null}
       <Sidebar
         mobileOpen={navOpen}
         onClose={() => setNavOpen(false)}

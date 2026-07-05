@@ -80,6 +80,16 @@ def default_pi_insurance() -> dict[str, Any]:
     return {
         "claimant_count": 1,
         "related_case_notes": "",
+        "carrier_call_pii": {
+            "withheld_client_phone": False,
+            "withheld_client_address": False,
+            "withheld_client_dob": False,
+            "withheld_client_ssn": False,
+            "withheld_accident_narrative": False,
+            "shared_injuries_only": False,
+            "defendant_vehicle_confirmed": False,
+            "acknowledged_at": None,
+        },
         "third_party": default_claim_side(),
         "first_party": default_claim_side(),
         "notes": "",
@@ -180,9 +190,11 @@ def merge_pi_insurance(existing: Optional[dict]) -> dict[str, Any]:
     base = default_pi_insurance()
     if not existing:
         return base
+    pii = {**base["carrier_call_pii"], **(existing.get("carrier_call_pii") or {})}
     merged = {
         "claimant_count": existing.get("claimant_count", 1) or 1,
         "related_case_notes": existing.get("related_case_notes") or "",
+        "carrier_call_pii": pii,
         "third_party": _merge_claim_side(existing.get("third_party"), None),
         "first_party": _merge_claim_side(existing.get("first_party"), None),
         "notes": existing.get("notes") or "",
@@ -247,9 +259,21 @@ class ClaimSideIn(BaseModel):
     notes: Optional[str] = None
 
 
+class CarrierCallPiiIn(BaseModel):
+    withheld_client_phone: Optional[bool] = None
+    withheld_client_address: Optional[bool] = None
+    withheld_client_dob: Optional[bool] = None
+    withheld_client_ssn: Optional[bool] = None
+    withheld_accident_narrative: Optional[bool] = None
+    shared_injuries_only: Optional[bool] = None
+    defendant_vehicle_confirmed: Optional[bool] = None
+    acknowledged_at: Optional[str] = None
+
+
 class PiInsurancePatchIn(BaseModel):
     claimant_count: Optional[int] = Field(None, ge=1, le=99)
     related_case_notes: Optional[str] = None
+    carrier_call_pii: Optional[CarrierCallPiiIn] = None
     third_party: Optional[ClaimSideIn] = None
     first_party: Optional[ClaimSideIn] = None
     notes: Optional[str] = None
@@ -292,6 +316,9 @@ def register_pi_insurance_routes(api, db, get_current_user: Callable, now_iso: C
             pi["related_case_notes"] = body.related_case_notes
         if body.notes is not None:
             pi["notes"] = body.notes
+        if body.carrier_call_pii is not None:
+            pii_patch = body.carrier_call_pii.model_dump(exclude_unset=True)
+            pi["carrier_call_pii"] = {**pi["carrier_call_pii"], **pii_patch}
 
         tp = _side_to_dict(body.third_party)
         if tp is not None:

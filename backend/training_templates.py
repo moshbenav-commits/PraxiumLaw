@@ -16,6 +16,8 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 
+from disclosure import require_disclosure_ack
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PI_CASE_OS = REPO_ROOT / "docs" / "pi-case-os"
 TEMPLATES_DOCX = PI_CASE_OS / "sources" / "docs" / "white-label-templates" / "docx"
@@ -338,6 +340,7 @@ def register_training_template_routes(
         merge: bool = True,
         user=Depends(get_current_user),
     ):
+        require_disclosure_ack(user)
         safe = _safe_filename(filename)
         path = TEMPLATES_DOCX / safe
         if not path.is_file():

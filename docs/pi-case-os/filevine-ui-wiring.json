@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "Filevine UI wiring capture — screens → PraxiumLaw routes/tabs. Regenerate with npm run pi:filevine:wiring-seed",
-  "updatedAt": "2026-07-05T03:08:15.847Z",
+  "updatedAt": "2026-07-05T03:15:58.721Z",
   "stats": {
     "videoCount": 64,
     "tabCount": 18,
@@ -354,8 +354,191 @@
           "sampleQuote": "ll go through those tasks later on and uh not worry about right now so you can also build reports and you can go to the case system and look at their how to build reports but you c"
         }
       ],
-      "functions": [],
-      "captureStatus": "transcript_only"
+      "functions": [
+        {
+          "id": "feed.intro.filter_and_pin",
+          "sequence": 1,
+          "frame": "frame_002.jpg",
+          "timestampSec": 30,
+          "filevineSurface": "Global Feed",
+          "filevineTab": "Feed",
+          "filevineSection": "Filter + pin",
+          "fields": [
+            "filter:text",
+            "filter:tasks",
+            "pinnedItems[]"
+          ],
+          "actions": [
+            "filterFeedByText",
+            "pinImportantItem",
+            "unpinWhenDone"
+          ],
+          "transcriptQuote": "filter by text… filter by tasks… pin to my feed… unpin because I know she did it",
+          "praxiumRoute": "/inbox",
+          "praxiumTab": "pipeline",
+          "status": "missing",
+          "gapNotes": "No firm feed with pin/filter"
+        },
+        {
+          "id": "task.intro.schedule_future",
+          "sequence": 2,
+          "frame": "frame_005.jpg",
+          "timestampSec": 120,
+          "filevineSurface": "Tasks",
+          "filevineTab": "Taskflow",
+          "filevineSection": "Due dates",
+          "fields": [
+            "dueDate",
+            "assignedTo"
+          ],
+          "actions": [
+            "assignTaskWithFutureDate",
+            "viewNext7Or30Days"
+          ],
+          "transcriptQuote": "make sure your tasks are set out for the right time… next seven days… next 30 days",
+          "praxiumRoute": "/tasks",
+          "praxiumTab": "pipeline",
+          "status": "partial",
+          "gapNotes": "Tasks exist; no 7/30-day workload view"
+        },
+        {
+          "id": "comms.mailroom.textline_project",
+          "sequence": 3,
+          "frame": "frame_008.jpg",
+          "timestampSec": 210,
+          "filevineSurface": "Mailroom / Textline",
+          "filevineTab": "Textline",
+          "filevineSection": "Correct project",
+          "fields": [
+            "projectScope",
+            "clientPhone"
+          ],
+          "actions": [
+            "sendTextFromCorrectProject",
+            "moveThreadToMatter",
+            "renameInboundMedia"
+          ],
+          "transcriptQuote": "make sure you're in the right project… move this to Jane Doe's project… naming convention for pictures",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "comms",
+          "status": "missing",
+          "gapNotes": "No mailroom with project-scoped SMS + rename"
+        },
+        {
+          "id": "search.global_deeper_archived",
+          "sequence": 4,
+          "frame": "frame_011.jpg",
+          "timestampSec": 300,
+          "filevineSurface": "Global search",
+          "filevineTab": "Search",
+          "filevineSection": "Deeper + archived",
+          "fields": [
+            "query",
+            "includeArchived"
+          ],
+          "actions": [
+            "searchByClaimNumber",
+            "searchDeeper",
+            "includeArchivedCases"
+          ],
+          "transcriptQuote": "search deeper… include archived because those were old cases",
+          "praxiumRoute": "/matters",
+          "praxiumTab": "pipeline",
+          "status": "missing",
+          "gapNotes": "No deep search across archived matters"
+        },
+        {
+          "id": "intake.new_project_create_client",
+          "sequence": 5,
+          "frame": "frame_014.jpg",
+          "timestampSec": 390,
+          "filevineSurface": "New project wizard",
+          "filevineTab": "Intake",
+          "filevineSection": "Create client + PI type",
+          "fields": [
+            "contactType",
+            "phoneNumbers[]",
+            "language",
+            "projectType:PI"
+          ],
+          "actions": [
+            "createNewClient",
+            "selectPersonalInjuryType",
+            "skipOptionalProjectName"
+          ],
+          "transcriptQuote": "create a new project… personal injury project… add phone numbers… they speak Vietnamese",
+          "praxiumRoute": "/matters/new",
+          "praxiumTab": "intake",
+          "status": "partial",
+          "gapNotes": "New matter flow partial vs Filevine wizard"
+        },
+        {
+          "id": "intake.vital_stats_meds_total",
+          "sequence": 6,
+          "frame": "frame_017.jpg",
+          "timestampSec": 480,
+          "filevineSurface": "Matter header / vital stats",
+          "filevineTab": "Meds",
+          "filevineSection": "Running totals",
+          "fields": [
+            "medsTotal",
+            "pdTotal",
+            "classification:VIP"
+          ],
+          "actions": [
+            "addMedsRows",
+            "rollupMedsTotalInHeader",
+            "setVIPClassification"
+          ],
+          "transcriptQuote": "meds total… going to be filled in… classification VIP… big case",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No vital-stats rollup from meds/PD tabs"
+        },
+        {
+          "id": "comms.enable_client_textline",
+          "sequence": 7,
+          "frame": "frame_019.jpg",
+          "timestampSec": 540,
+          "filevineSurface": "Client comms",
+          "filevineTab": "Textline",
+          "filevineSection": "Dedicated line",
+          "fields": [
+            "textlineEnabled",
+            "clientSmsNumber"
+          ],
+          "actions": [
+            "turnOnTextingForClient",
+            "privateClientLine"
+          ],
+          "transcriptQuote": "turn on texting… her own private line she can text here",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "comms",
+          "status": "missing",
+          "gapNotes": "No per-client Textline enable"
+        }
+      ],
+      "captureStatus": "wiring_labeled",
+      "wiringSheet": "docs/pi-case-os/wiring-sheets/1_Filevine_-Introduction_433bea87aae0.json",
+      "wiringLabeledAt": "2026-07-05",
+      "matterShell": {
+        "description": "Platform intro — feed, tasks, mailroom, search, new project, vital stats",
+        "route": "/",
+        "selectors": [
+          "feed",
+          "tasks",
+          "mailroom",
+          "globalSearch",
+          "newProject"
+        ]
+      },
+      "labeledFrameCount": 7,
+      "wiringSummary": {
+        "done": 0,
+        "partial": 2,
+        "missing": 5
+      }
     },
     "2017-06-07_Filevine_Tutorial__d75e6b321e63": {
       "title": "2017-06-07 Filevine Tutorial (live training)",
@@ -1938,8 +2121,118 @@
       "intervalSec": 60,
       "videoQuarantinePath": null,
       "tabMentions": [],
-      "functions": [],
-      "captureStatus": "transcript_only"
+      "functions": [
+        {
+          "id": "customs.advanced.conditional_fields",
+          "sequence": 1,
+          "frame": "frame_003.jpg",
+          "timestampSec": 120,
+          "filevineSurface": "Customs Editor",
+          "filevineTab": "Customs Editor",
+          "filevineSection": "Conditional logic",
+          "fields": [
+            "showWhen",
+            "hideWhen"
+          ],
+          "actions": [
+            "addConditionalField",
+            "linkToContactType"
+          ],
+          "transcriptQuote": "Advanced customs — fields change when contact type is adjuster vs provider",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No conditional custom field rules"
+        },
+        {
+          "id": "customs.advanced.insurance_tab_fields",
+          "sequence": 2,
+          "frame": "frame_006.jpg",
+          "timestampSec": 300,
+          "filevineSurface": "Insurance customs",
+          "filevineTab": "Insurance",
+          "filevineSection": "3P LOR fields",
+          "fields": [
+            "lorTemplate",
+            "adjusterFax",
+            "claimNumber"
+          ],
+          "actions": [
+            "extendInsuranceTabFields",
+            "wireDocGenMerge"
+          ],
+          "transcriptQuote": "See ADVANCED Customs Editor INS Tab 3P LOR — custom insurance fields",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "insurance",
+          "status": "missing",
+          "gapNotes": "Insurance tab fields not admin-configurable"
+        },
+        {
+          "id": "customs.advanced.meds_tab_fields",
+          "sequence": 3,
+          "frame": "frame_009.jpg",
+          "timestampSec": 480,
+          "filevineSurface": "Meds customs",
+          "filevineTab": "Meds",
+          "filevineSection": "Provider ledger columns",
+          "fields": [
+            "lienSold",
+            "knowledgeOfUs",
+            "yellowSheetOrder"
+          ],
+          "actions": [
+            "addMedsColumn",
+            "defaultSortOrder"
+          ],
+          "transcriptQuote": "See ADVANCED Customs Editor Meds Field Tab — ledger columns",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "medical",
+          "status": "missing",
+          "gapNotes": "Meds ledger schema is fixed in code"
+        },
+        {
+          "id": "customs.advanced.deadlines_reminders",
+          "sequence": 4,
+          "frame": "frame_012.jpg",
+          "timestampSec": 660,
+          "filevineSurface": "Deadlines editor",
+          "filevineTab": "Customs Editor",
+          "filevineSection": "Reminders",
+          "fields": [
+            "deadlineRule",
+            "reminderOffset"
+          ],
+          "actions": [
+            "configurePhaseDeadlines",
+            "autoCreateReminders"
+          ],
+          "transcriptQuote": "See ADVANCED Deadlines and Reminders Editor pack",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "pipeline",
+          "status": "missing",
+          "gapNotes": "No deadline/reminder editor"
+        }
+      ],
+      "captureStatus": "wiring_labeled",
+      "title": "Advanced Customs editor the case system",
+      "wiringSheet": "docs/pi-case-os/wiring-sheets/Advanced_Customs_editor_Filevine_77a5c4074ed9.json",
+      "wiringLabeledAt": "2026-07-05",
+      "matterShell": {
+        "description": "Advanced Customs — conditional fields, insurance/meds tab extensions",
+        "route": "/settings/custom-fields",
+        "selectors": [
+          "customsEditor",
+          "conditionalLogic",
+          "insuranceTab",
+          "medsTab"
+        ]
+      },
+      "labeledFrameCount": 4,
+      "wiringSummary": {
+        "done": 0,
+        "partial": 0,
+        "missing": 4
+      }
     },
     "Customs_editor_Filevine_55d383ecbf4c": {
       "filename": "Customs editor the case system.mp4",
@@ -1949,8 +2242,112 @@
       "intervalSec": 60,
       "videoQuarantinePath": null,
       "tabMentions": [],
-      "functions": [],
-      "captureStatus": "transcript_only"
+      "functions": [
+        {
+          "id": "customs.editor.open_pi_project_type",
+          "sequence": 1,
+          "frame": "frame_002.jpg",
+          "timestampSec": 60,
+          "filevineSurface": "Customs Editor",
+          "filevineTab": "Customs Editor",
+          "filevineSection": "Project type",
+          "fields": [
+            "projectType"
+          ],
+          "actions": [
+            "openCustomsEditor",
+            "selectPersonalInjuryTemplate"
+          ],
+          "transcriptQuote": "Customs editor the case system — configure PI matter fields and tabs",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No admin customs/field editor for matter schemas"
+        },
+        {
+          "id": "customs.editor.add_tab_section",
+          "sequence": 2,
+          "frame": "frame_005.jpg",
+          "timestampSec": 240,
+          "filevineSurface": "Customs Editor",
+          "filevineTab": "Customs Editor",
+          "filevineSection": "Tab layout",
+          "fields": [
+            "tabOrder[]",
+            "sectionName"
+          ],
+          "actions": [
+            "addTabSection",
+            "reorderTabs"
+          ],
+          "transcriptQuote": "See CUSTOMS_EDITOR_Webinar — add tabs and sections to PI projects",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No tab/section builder"
+        },
+        {
+          "id": "customs.editor.field_types",
+          "sequence": 3,
+          "frame": "frame_008.jpg",
+          "timestampSec": 420,
+          "filevineSurface": "Customs Editor",
+          "filevineTab": "Customs Editor",
+          "filevineSection": "Field types",
+          "fields": [
+            "fieldType",
+            "dropdownOptions[]",
+            "required"
+          ],
+          "actions": [
+            "addDropdownField",
+            "addDateField",
+            "markRequired"
+          ],
+          "transcriptQuote": "See ADVANCED Customs Editor INS/Meds packs — dropdown and date fields",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No custom field type palette"
+        },
+        {
+          "id": "customs.editor.publish_to_firm",
+          "sequence": 4,
+          "frame": "frame_012.jpg",
+          "timestampSec": 660,
+          "filevineSurface": "Customs Editor",
+          "filevineTab": "Customs Editor",
+          "filevineSection": "Publish",
+          "fields": [],
+          "actions": [
+            "saveAndPublishCustoms",
+            "applyToNewMatters"
+          ],
+          "transcriptQuote": "Publish customs changes to all new PI projects",
+          "praxiumRoute": "/settings/custom-fields",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No publish workflow for schema changes"
+        }
+      ],
+      "captureStatus": "wiring_labeled",
+      "title": "Customs editor the case system",
+      "wiringSheet": "docs/pi-case-os/wiring-sheets/Customs_editor_Filevine_55d383ecbf4c.json",
+      "wiringLabeledAt": "2026-07-05",
+      "matterShell": {
+        "description": "Customs Editor — add fields/tabs to PI project type (transcript missing; anchor from title + webinar pack)",
+        "route": "/settings/custom-fields",
+        "selectors": [
+          "customsEditor",
+          "projectType:PI"
+        ]
+      },
+      "labeledFrameCount": 4,
+      "wiringSummary": {
+        "done": 0,
+        "partial": 0,
+        "missing": 4
+      }
     },
     "DISBURSEMENT_-_Tax_ID_Return_Receipt_DocGen_Scan_In_Red_Appr_38ad63e6437d": {
       "title": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)",
@@ -6260,8 +6657,178 @@
           "sampleQuote": "portant for you to keep this updated at the end. The most important thing is to keep this meds tab updated. You know, it's not doing it. Okay, so the meds tab needs to be updated b"
         }
       ],
-      "functions": [],
-      "captureStatus": "transcript_only"
+      "functions": [
+        {
+          "id": "feed.got_it_acknowledge",
+          "sequence": 1,
+          "frame": "frame_002.jpg",
+          "timestampSec": 30,
+          "filevineSurface": "Feed item",
+          "filevineTab": "Feed",
+          "filevineSection": "Got It",
+          "fields": [],
+          "actions": [
+            "gotIt",
+            "acknowledgeWithoutExtraTasks"
+          ],
+          "transcriptQuote": "hit Got It… Interclient contact information… she did it",
+          "praxiumRoute": "/feed",
+          "praxiumTab": "pipeline",
+          "status": "missing",
+          "gapNotes": "No Got It ack on activity feed"
+        },
+        {
+          "id": "feed.assign_at_mention",
+          "sequence": 2,
+          "frame": "frame_005.jpg",
+          "timestampSec": 120,
+          "filevineSurface": "Feed composer",
+          "filevineTab": "Feed",
+          "filevineSection": "@ assign",
+          "fields": [
+            "assignedTo",
+            "mentionedUsers[]"
+          ],
+          "actions": [
+            "assignToSandy",
+            "atMentionLeslieAndLily",
+            "taskFirstAtSymbol"
+          ],
+          "transcriptQuote": "assign this to Sandy… at Leslie G and then at Lily… task the first one that you put the @ symbol for",
+          "praxiumRoute": "/feed",
+          "praxiumTab": "pipeline",
+          "status": "missing",
+          "gapNotes": "No @mention + assign from feed item"
+        },
+        {
+          "id": "feed.no_extra_task_steps",
+          "sequence": 3,
+          "frame": "frame_008.jpg",
+          "timestampSec": 210,
+          "filevineSurface": "Feed hygiene",
+          "filevineTab": "Feed",
+          "filevineSection": "Task discipline",
+          "fields": [],
+          "actions": [
+            "avoidCompleteAndRecreateTask",
+            "keepOpenUntilLetterReturns"
+          ],
+          "transcriptQuote": "I don't want to pay you extra because you took an extra step… complete this one and create a new task waiting for a letter",
+          "praxiumRoute": "/feed",
+          "praxiumTab": "pipeline",
+          "status": "missing",
+          "gapNotes": "No feed guidance against redundant task churn"
+        },
+        {
+          "id": "feed.reassign_unsigned_lien",
+          "sequence": 4,
+          "frame": "frame_012.jpg",
+          "timestampSec": 330,
+          "filevineSurface": "Feed item",
+          "filevineTab": "Feed",
+          "filevineSection": "Reassign + CC",
+          "fields": [
+            "assignedTo:Isabel",
+            "cc:Carolina"
+          ],
+          "actions": [
+            "atCarolinaForVisibility",
+            "reassignToIsabel",
+            "printForAttorney"
+          ],
+          "transcriptQuote": "unsigned lien… print and give to the attorney… at Carolina… reassign to Isabel",
+          "praxiumRoute": "/feed",
+          "praxiumTab": "pipeline",
+          "status": "partial",
+          "gapNotes": "Tasks reassignable; no feed CC pattern"
+        },
+        {
+          "id": "feed.expense_recovery_alert",
+          "sequence": 5,
+          "frame": "frame_015.jpg",
+          "timestampSec": 420,
+          "filevineSurface": "Feed — costs",
+          "filevineTab": "Feed",
+          "filevineSection": "Expense tracking",
+          "fields": [
+            "policeReportCost",
+            "insuranceSearchCost"
+          ],
+          "actions": [
+            "assignCostReviewToSandy",
+            "recoverExpensesOnSettlement"
+          ],
+          "transcriptQuote": "police report nine dollars… insurance search one fifty… I want to get all this money back",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "settlement",
+          "status": "missing",
+          "gapNotes": "No expense recovery rollup from feed alerts"
+        },
+        {
+          "id": "settlement.lien_verification_before_calc",
+          "sequence": 6,
+          "frame": "frame_018.jpg",
+          "timestampSec": 510,
+          "filevineSurface": "Settlement calc",
+          "filevineTab": "Settlement",
+          "filevineSection": "Lien verification",
+          "fields": [
+            "medsTabSnapshot",
+            "reductionPercent"
+          ],
+          "actions": [
+            "verifyMedsBeforeReduction",
+            "apply25PercentReduction",
+            "updateMedsTabFirst"
+          ],
+          "transcriptQuote": "lien verifications… if these numbers are not right… keep this meds tab updated",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "settlement",
+          "status": "missing",
+          "gapNotes": "Settlement calc lacks meds freshness gate before reductions"
+        },
+        {
+          "id": "meds.over_treat_malpractice_warning",
+          "sequence": 7,
+          "frame": "frame_022.jpg",
+          "timestampSec": 630,
+          "filevineSurface": "Meds tab total",
+          "filevineTab": "Meds",
+          "filevineSection": "Coverage ratio",
+          "fields": [
+            "medsTotal",
+            "policyLimits"
+          ],
+          "actions": [
+            "flagOverTreatmentVsLimits",
+            "accelerateDemandAndReductions"
+          ],
+          "transcriptQuote": "blowing this limit is kind of like doing malpractice… client over-treats, all the money goes to medical providers",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "medical",
+          "status": "missing",
+          "gapNotes": "No meds-total vs limits alert"
+        }
+      ],
+      "captureStatus": "wiring_labeled",
+      "wiringSheet": "docs/pi-case-os/wiring-sheets/FILEVINE_-_Feed_-_Going_through_feed_be24502d8f7c.json",
+      "wiringLabeledAt": "2026-07-05",
+      "matterShell": {
+        "description": "Firm feed — Got It, @assign, lien reduction context, settlement calc tie-in",
+        "route": "/feed",
+        "selectors": [
+          "gotIt",
+          "assignAt",
+          "filterFeed",
+          "settlementCalcLink"
+        ]
+      },
+      "labeledFrameCount": 7,
+      "wiringSummary": {
+        "done": 0,
+        "partial": 1,
+        "missing": 6
+      }
     },
     "FILEVINE_-_Hospital_Bills_and_Records_Treatment_Tracker_314c4afc9780": {
       "title": "FILEVINE - Hospital Bills and Records Treatment Tracker",
@@ -8298,8 +8865,136 @@
           "sampleQuote": "tach the case system. It's acting funny today. Okay. So, I'm not emailing him both police reports. because he will think I need to request the other police report limits and I don'"
         }
       ],
-      "functions": [],
-      "captureStatus": "transcript_only"
+      "functions": [
+        {
+          "id": "task.police.one_report_multi_passenger",
+          "sequence": 1,
+          "frame": "frame_002.jpg",
+          "timestampSec": 30,
+          "filevineSurface": "Police report review",
+          "filevineTab": "Intake",
+          "filevineSection": "Single PR for vehicle",
+          "fields": [
+            "passengerCount",
+            "vehicleCount"
+          ],
+          "actions": [
+            "useOnePoliceReportForAllOccupants",
+            "skipDuplicateRequests"
+          ],
+          "transcriptQuote": "you only need one police report, even though there's five people in the vehicle",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No guidance when one PR covers multiple clients"
+        },
+        {
+          "id": "intake.police.facts_of_loss_from_pr",
+          "sequence": 2,
+          "frame": "frame_006.jpg",
+          "timestampSec": 150,
+          "filevineSurface": "30-day case review",
+          "filevineTab": "Intake",
+          "filevineSection": "Facts of loss",
+          "fields": [
+            "factsOfLoss",
+            "policeDepartment",
+            "prReviewed"
+          ],
+          "actions": [
+            "attachPoliceReportTo30DayReview",
+            "summarizeLaneChangeFacts",
+            "markReviewedReceived"
+          ],
+          "transcriptQuote": "attach it to the 30-day case review… Facts of loss from the police report… Las Vegas Metro… received",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "intake",
+          "status": "missing",
+          "gapNotes": "No 30-day review facts-of-loss block with PR attach"
+        },
+        {
+          "id": "task.police.policy_limits_once",
+          "sequence": 3,
+          "frame": "frame_010.jpg",
+          "timestampSec": 270,
+          "filevineSurface": "Task assignment",
+          "filevineTab": "Taskflow",
+          "filevineSection": "Policy limits",
+          "fields": [
+            "assignedTo",
+            "attorneyApprovalRequired"
+          ],
+          "actions": [
+            "taskPolicyLimitsOnce",
+            "attachDecPageRequest",
+            "avoidTripleOrdering"
+          ],
+          "transcriptQuote": "please get the policy limits for defendant approved by Sandy… we only need the policy limits once",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "insurance",
+          "status": "missing",
+          "gapNotes": "No single policy-limits task with attorney gate"
+        },
+        {
+          "id": "task.police.defendant_insurance_info",
+          "sequence": 4,
+          "frame": "frame_012.jpg",
+          "timestampSec": 330,
+          "filevineSurface": "Insurance task",
+          "filevineTab": "Insurance",
+          "filevineSection": "Defendant carrier",
+          "fields": [
+            "defendantCarrier",
+            "claimNumber"
+          ],
+          "actions": [
+            "requestDefendantInsuranceInfo",
+            "sendTaskToStaff"
+          ],
+          "transcriptQuote": "Please request insurance info on defendant… hit send",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "insurance",
+          "status": "partial",
+          "gapNotes": "Insurance tab partial; no PR→defendant insurance task template"
+        },
+        {
+          "id": "task.police.incomplete_task_sweep",
+          "sequence": 5,
+          "frame": "frame_014.jpg",
+          "timestampSec": 390,
+          "filevineSurface": "Task list",
+          "filevineTab": "Taskflow",
+          "filevineSection": "Incomplete sweep",
+          "fields": [],
+          "actions": [
+            "reviewIncompleteTasks",
+            "completePoliceReportWorkflow"
+          ],
+          "transcriptQuote": "go look at any tasks that are incomplete… anything that needs to be done with this police report",
+          "praxiumRoute": "/tasks",
+          "praxiumTab": "pipeline",
+          "status": "partial",
+          "gapNotes": "Tasks exist; no police-report-specific sweep view"
+        }
+      ],
+      "captureStatus": "wiring_labeled",
+      "wiringSheet": "docs/pi-case-os/wiring-sheets/FILEVINE_-_Task_-_Police_Report_Tasks_Part_2_3cfd09fd44e2.json",
+      "wiringLabeledAt": "2026-07-05",
+      "matterShell": {
+        "description": "Police report facts → 30-day review attach → policy limits task once",
+        "route": "/matters/:id/intake",
+        "selectors": [
+          "policeReportAttach",
+          "factsOfLoss",
+          "policyLimitsTask"
+        ]
+      },
+      "labeledFrameCount": 5,
+      "wiringSummary": {
+        "done": 0,
+        "partial": 2,
+        "missing": 3
+      }
     },
     "FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2": {
       "title": "FILEVINE - Task - Reviewing MRIS",
@@ -14061,97 +14756,186 @@
       "wiringSheet": "docs/pi-case-os/wiring-sheets/2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed.json",
       "wiringLabeledAt": "2026-07-05",
       "matterShell": {
-        "description": "Anchor wiring from training: 2017.7.5 DEMAND - How to draft 3P Demand",
-        "route": "/matters/:id",
+        "description": "Update meds → DocGen 3P demand → yellow-sheet bill order → related passengers",
+        "route": "/matters/:id/demand",
         "selectors": [
-          "meds",
-          "demand",
-          "insurance"
+          "medsTab",
+          "yellowSheet",
+          "docgenDemand",
+          "relatedCase"
         ]
       },
       "functions": [
         {
-          "id": "meds.2017_7_5_dem_1",
+          "id": "demand.prep.update_meds_first",
           "sequence": 1,
-          "frame": "frame_011.jpg",
-          "timestampSec": 300,
-          "filevineSurface": "Meds",
+          "frame": "frame_003.jpg",
+          "timestampSec": 60,
+          "filevineSurface": "Meds tab",
           "filevineTab": "Meds",
-          "filevineSection": "Provider ledger",
-          "fields": [],
-          "actions": [
-            "reviewMedsWorkflow",
-            "mapToPraxiummeds"
+          "filevineSection": "Provider balances",
+          "fields": [
+            "providerBalances[]",
+            "relatedCaseMeds[]"
           ],
-          "transcriptQuote": "t would be. P-H-O-U-N-G. P-H-O-U-N-G. insurance Alright. Alright. And you would just put in all the medical bills here. So for example, you would put, um, who would you put? So you would go to the med",
+          "actions": [
+            "updateAllMedsBeforeDemand",
+            "syncRelatedCaseMeds"
+          ],
+          "transcriptQuote": "what we do is we update all these meds… let's assume the related case, all those meds were updated too",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "medical",
           "status": "missing",
-          "gapNotes": "Praxium medical lacks Filevine Meds parity"
+          "gapNotes": "Demand flow does not gate on fresh meds totals"
         },
         {
-          "id": "demand.2017_7_5_dem_2",
+          "id": "docgen.demand.generate_3p_policy_limits",
           "sequence": 2,
+          "frame": "frame_008.jpg",
+          "timestampSec": 210,
+          "filevineSurface": "Insurance old / DocGen",
+          "filevineTab": "DocGen",
+          "filevineSection": "3P demand letter",
+          "fields": [
+            "deliveryMethod",
+            "policyLimitDemand"
+          ],
+          "actions": [
+            "generateThirdPartyDemand",
+            "generateUMUIMIfNeeded",
+            "downloadDocPackage"
+          ],
+          "transcriptQuote": "create a demand… policy limits… generate the demand letter",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "demand",
+          "status": "partial",
+          "gapNotes": "Demand tab partial; no DocGen policy-limit template merge"
+        },
+        {
+          "id": "demand.verify_adjuster_claim_policy",
+          "sequence": 3,
+          "frame": "frame_015.jpg",
+          "timestampSec": 420,
+          "filevineSurface": "Demand letter header",
+          "filevineTab": "Demand",
+          "filevineSection": "Carrier addressing",
+          "fields": [
+            "adjusterName",
+            "claimNumber",
+            "policyNumber",
+            "carrierAddress"
+          ],
+          "actions": [
+            "matchInsuranceTabToLetter",
+            "verifyClaimAndPolicyNumbers"
+          ],
+          "transcriptQuote": "make sure this all matches… claim number… policy number… Key Insurance Company",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "insurance",
+          "status": "partial",
+          "gapNotes": "No demand↔insurance field reconcile"
+        },
+        {
+          "id": "demand.yellow_sheet_bill_order",
+          "sequence": 4,
           "frame": "frame_022.jpg",
           "timestampSec": 630,
-          "filevineSurface": "Demand",
+          "filevineSurface": "Yellow sheet + demand body",
           "filevineTab": "Demand",
-          "filevineSection": "Demand package",
-          "fields": [],
-          "actions": [
-            "reviewDemandWorkflow",
-            "mapToPraxiumdemand"
+          "filevineSection": "Medical specials order",
+          "fields": [
+            "yellowSheetOrder[]",
+            "hospitalFirst",
+            "painMgmt",
+            "mri",
+            "surgery",
+            "pharmacy"
           ],
-          "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,",
+          "actions": [
+            "orderBillsByYellowSheet",
+            "bigBillsFirst",
+            "addFutureEstimates",
+            "addWageLoss"
+          ],
+          "transcriptQuote": "you would go by what the yellow sheet is… hospital first… pain management… MRI… surgery center… pharmacy at the end",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "demand",
           "status": "missing",
-          "gapNotes": "Praxium demand lacks Filevine Demand parity"
+          "gapNotes": "No yellow-sheet ordered demand builder from Meds"
         },
         {
-          "id": "insurance.2017_7_5_dem_3",
-          "sequence": 3,
-          "frame": "frame_032.jpg",
-          "timestampSec": 930,
-          "filevineSurface": "Insurance",
-          "filevineTab": "Insurance",
-          "filevineSection": "Claim / adjuster fields",
-          "fields": [],
-          "actions": [
-            "reviewInsuranceWorkflow",
-            "mapToPraxiuminsurance"
+          "id": "demand.multi_client_pluralization",
+          "sequence": 5,
+          "frame": "frame_028.jpg",
+          "timestampSec": 810,
+          "filevineSurface": "Demand letter copy",
+          "filevineTab": "Demand",
+          "filevineSection": "Dual clients",
+          "fields": [
+            "clientCount",
+            "pluralPronouns"
           ],
-          "transcriptQuote": "All those correct, right? So let's go to the related case, and we're going to create a demand. And insurance old. And we're going to create, on this one, we have UM, UIM, and third party. So we're go",
+          "actions": [
+            "addSecondClientToDemand",
+            "pluralizeClientsLanguage",
+            "mergeRelatedPassengerMeds"
+          ],
+          "transcriptQuote": "it only generates for one… put the other person in here… our clients… dual clients",
           "praxiumRoute": "/matters/:id",
-          "praxiumTab": "insurance",
+          "praxiumTab": "demand",
           "status": "missing",
-          "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+          "gapNotes": "No multi-client demand letter merge"
         },
         {
-          "id": "docgen.2017_7_5_dem_4",
-          "sequence": 4,
-          "frame": "frame_043.jpg",
-          "timestampSec": 1260,
-          "filevineSurface": "DocGen",
-          "filevineTab": "DocGen",
-          "filevineSection": "Letter generation",
-          "fields": [],
-          "actions": [
-            "reviewDocGenWorkflow",
-            "mapToPraxiumdocgen"
+          "id": "demand.policy_limit_tender_language",
+          "sequence": 6,
+          "frame": "frame_035.jpg",
+          "timestampSec": 1020,
+          "filevineSurface": "Demand closing",
+          "filevineTab": "Demand",
+          "filevineSection": "Policy limit tender",
+          "fields": [
+            "responseDeadlineDays:30",
+            "exhibits[]"
           ],
-          "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,",
+          "actions": [
+            "attachPoliceReportPhotos",
+            "set30DayDeadline",
+            "formalTenderLanguage"
+          ],
+          "transcriptQuote": "demanding the policy limits… 30 days from when you send it… attach the police report, the photos",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "demand",
+          "status": "missing",
+          "gapNotes": "No policy-limit tender block + exhibit checklist"
+        },
+        {
+          "id": "demand.save_draft_not_sent",
+          "sequence": 7,
+          "frame": "frame_040.jpg",
+          "timestampSec": 1170,
+          "filevineSurface": "Docs save",
+          "filevineTab": "Docs",
+          "filevineSection": "Demand draft",
+          "fields": [
+            "demandDraftStatus"
+          ],
+          "actions": [
+            "saveAsDemandLetterDraft",
+            "holdUntilRecordsComplete"
+          ],
+          "transcriptQuote": "save this as our demand letter draft… we're not going to send it yet, we're missing stuff",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "documents",
-          "status": "missing",
-          "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+          "status": "partial",
+          "gapNotes": "Documents tab lacks demand-draft status flag"
         }
       ],
-      "labeledFrameCount": 4,
+      "labeledFrameCount": 7,
       "captureStatus": "wiring_labeled",
       "wiringSummary": {
         "done": 0,
-        "partial": 0,
+        "partial": 3,
         "missing": 4
       }
     },
@@ -14380,59 +15164,159 @@
       "wiringSheet": "docs/pi-case-os/wiring-sheets/CLAIMS_-_3rd_Party_Letter_of_Rep_73ecb24e48e8.json",
       "wiringLabeledAt": "2026-07-05",
       "matterShell": {
-        "description": "Anchor wiring from training: CLAIMS - 3rd Party Letter of Rep",
-        "route": "/matters/:id",
+        "description": "Insurance tab populated → DocGen 3P LOR → merge GR → fax to adjuster",
+        "route": "/matters/:id/insurance",
         "selectors": [
-          "insurance",
-          "docgen"
+          "docgen3pLOR",
+          "generalReleaseMerge",
+          "faxSend"
         ]
       },
       "functions": [
         {
-          "id": "insurance.claims___3rd_1",
+          "id": "insurance.lor.verify_adjuster_before_docgen",
           "sequence": 1,
-          "frame": "frame_007.jpg",
-          "timestampSec": 180,
-          "filevineSurface": "Insurance",
+          "frame": "frame_004.jpg",
+          "timestampSec": 90,
+          "filevineSurface": "Insurance tab",
           "filevineTab": "Insurance",
-          "filevineSection": "Claim / adjuster fields",
-          "fields": [],
-          "actions": [
-            "reviewInsuranceWorkflow",
-            "mapToPraxiuminsurance"
+          "filevineSection": "3P adjuster",
+          "fields": [
+            "adjusterName",
+            "carrierName",
+            "claimNumber",
+            "policyNumber"
           ],
-          "transcriptQuote": "# CLAIMS - 3rd Party Letter of Rep **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN",
+          "actions": [
+            "confirmAdjusterInInsuranceTab",
+            "verifyDualClientMatter"
+          ],
+          "transcriptQuote": "put all that information in here… adjuster… company… claim number and policy number… represent Alex Gonzalez and Cesar Nava",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "insurance",
-          "status": "missing",
-          "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+          "status": "partial",
+          "gapNotes": "Insurance tab partial; no pre-LOR field completeness check"
         },
         {
-          "id": "docgen.claims___3rd_2",
+          "id": "docgen.lor.generate_3p_with_carrier_name",
           "sequence": 2,
-          "frame": "frame_013.jpg",
-          "timestampSec": 360,
+          "frame": "frame_008.jpg",
+          "timestampSec": 210,
           "filevineSurface": "DocGen",
           "filevineTab": "DocGen",
-          "filevineSection": "Letter generation",
-          "fields": [],
-          "actions": [
-            "reviewDocGenWorkflow",
-            "mapToPraxiumdocgen"
+          "filevineSection": "3P LOR",
+          "fields": [
+            "carrierName:GEICO",
+            "attentionAdjuster",
+            "dualClients[]"
           ],
-          "transcriptQuote": "nsurance adjuster's name, and her name is Linda Martinez. So got everything in here, and now we can generate the third-party LOR. And again, we represent Cesar Nava's and Alex Gonzalez. So as soon as",
+          "actions": [
+            "generateThirdPartyLOR",
+            "fixMissingCompanyNameOnMerge",
+            "addSecondClientName"
+          ],
+          "transcriptQuote": "generate the third-party LOR… didn't populate correctly… need to put the company name on here… Geico… attention Linda Martinez",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "documents",
           "status": "missing",
-          "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+          "gapNotes": "No 3P LOR DocGen with carrier c/o merge fix"
+        },
+        {
+          "id": "docgen.lor.enclosures_general_releases",
+          "sequence": 3,
+          "frame": "frame_012.jpg",
+          "timestampSec": 330,
+          "filevineSurface": "Word / DocGen",
+          "filevineTab": "DocGen",
+          "filevineSection": "Enclosures",
+          "fields": [
+            "enclosures:generalReleases[]",
+            "fontSize:11"
+          ],
+          "actions": [
+            "listEnclosedGeneralReleases",
+            "fitOnePage",
+            "removePDParagraphIfRental"
+          ],
+          "transcriptQuote": "enclose general releases… one page… rental car so take that paragraph out… two parties' names on there",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "documents",
+          "status": "missing",
+          "gapNotes": "No LOR enclosure picker from client GR docs"
+        },
+        {
+          "id": "docs.save_lor_draft_and_actual",
+          "sequence": 4,
+          "frame": "frame_014.jpg",
+          "timestampSec": 390,
+          "filevineSurface": "Docs tab",
+          "filevineTab": "Docs",
+          "filevineSection": "Defendant correspondence",
+          "fields": [
+            "folder:correspondence/draft",
+            "folder:correspondence/actual"
+          ],
+          "actions": [
+            "saveAsDraftPDF",
+            "saveAsActualPDF",
+            "nameWithDateAndInitials"
+          ],
+          "transcriptQuote": "save in defendant… third party LOR… save as draft… save as actual PDF… correspondence actual",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "documents",
+          "status": "partial",
+          "gapNotes": "Docs classify partial; no draft vs actual LOR workflow"
+        },
+        {
+          "id": "docs.merge_lor_with_gr_nitro",
+          "sequence": 5,
+          "frame": "frame_016.jpg",
+          "timestampSec": 450,
+          "filevineSurface": "PDF merge",
+          "filevineTab": "Docs",
+          "filevineSection": "Package assembly",
+          "fields": [],
+          "actions": [
+            "combineLORWithClientGeneralReleases",
+            "exportFinalDefendantLOR"
+          ],
+          "transcriptQuote": "open in Nitro PDF… combine files… attach general releases… defendants LOR correspondence actual final",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "documents",
+          "status": "missing",
+          "gapNotes": "No in-app PDF merge for LOR + GR package"
+        },
+        {
+          "id": "comms.fax_lor_to_adjuster",
+          "sequence": 6,
+          "frame": "frame_018.jpg",
+          "timestampSec": 510,
+          "filevineSurface": "Metrofax / email fax",
+          "filevineTab": "Insurance",
+          "filevineSection": "Send LOR",
+          "fields": [
+            "faxNumber",
+            "claimNumberInSubject",
+            "clientNamesInSubject"
+          ],
+          "actions": [
+            "sendViaFacsimile",
+            "attachFinalPDF",
+            "logSentLOR"
+          ],
+          "transcriptQuote": "send via facsimile… 866-568-2132 at metrofax.com… claim number in subject… so they will not bother our clients",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "comms",
+          "status": "missing",
+          "gapNotes": "No fax/send LOR workflow with claim number in cover"
         }
       ],
-      "labeledFrameCount": 2,
+      "labeledFrameCount": 6,
       "captureStatus": "wiring_labeled",
       "wiringSummary": {
         "done": 0,
-        "partial": 0,
-        "missing": 2
+        "partial": 2,
+        "missing": 4
       }
     },
     "CLAIMS_-_Opening_up_a_claim_880439a4d102": {
@@ -14440,59 +15324,135 @@
       "wiringSheet": "docs/pi-case-os/wiring-sheets/CLAIMS_-_Opening_up_a_claim_880439a4d102.json",
       "wiringLabeledAt": "2026-07-05",
       "matterShell": {
-        "description": "Anchor wiring from training: CLAIMS - Opening up a claim",
-        "route": "/matters/:id",
+        "description": "Phone claim open → capture adjuster → minimal client PII on carrier call",
+        "route": "/matters/:id/insurance",
         "selectors": [
-          "insurance",
-          "docgen"
+          "claimNumber",
+          "adjusterContact",
+          "piiMinimization"
         ]
       },
       "functions": [
         {
-          "id": "insurance.claims___ope_1",
+          "id": "insurance.claim.call_carrier_ivr",
           "sequence": 1,
-          "frame": "frame_004.jpg",
-          "timestampSec": 90,
-          "filevineSurface": "Insurance",
+          "frame": "frame_003.jpg",
+          "timestampSec": 60,
+          "filevineSurface": "Phone / IVR",
           "filevineTab": "Insurance",
-          "filevineSection": "Claim / adjuster fields",
-          "fields": [],
-          "actions": [
-            "reviewInsuranceWorkflow",
-            "mapToPraxiuminsurance"
+          "filevineSection": "Open claim call",
+          "fields": [
+            "carrierPhone",
+            "policyNumber",
+            "claimType:auto"
           ],
-          "transcriptQuote": "ou are a driver or listed on the policy, please say your date of birth. All others, please have the policy number ready and say continue. Continue. Okay, please say or enter the policy number. 435289.",
+          "actions": [
+            "callCarrierClaimsLine",
+            "enterPolicyNumber",
+            "selectAutoClaimType"
+          ],
+          "transcriptQuote": "open up a claim with GEICO… enter the policy number 435289… claim types… auto",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "insurance",
           "status": "missing",
-          "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+          "gapNotes": "No guided carrier call script with IVR steps"
         },
         {
-          "id": "docgen.claims___ope_2",
+          "id": "insurance.claim.capture_adjuster_from_carrier",
           "sequence": 2,
+          "frame": "frame_006.jpg",
+          "timestampSec": 150,
+          "filevineSurface": "Insurance tab",
+          "filevineTab": "Insurance",
+          "filevineSection": "Adjuster contact",
+          "fields": [
+            "adjusterName",
+            "adjusterPhone",
+            "adjusterFax",
+            "claimNumber",
+            "mailingAddress"
+          ],
+          "actions": [
+            "recordAdjusterFromCall",
+            "confirmPhoneAndFax",
+            "saveClaimNumberIfNew"
+          ],
+          "transcriptQuote": "adjuster is Linda Martinez… phone 5202580828… fax 866-568-2132… PO Box 509-119 San Diego",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "insurance",
+          "status": "partial",
+          "gapNotes": "Insurance tab partial; no post-call adjuster capture wizard"
+        },
+        {
+          "id": "insurance.claim.minimize_client_pii",
+          "sequence": 3,
           "frame": "frame_009.jpg",
           "timestampSec": 240,
-          "filevineSurface": "DocGen",
-          "filevineTab": "DocGen",
-          "filevineSection": "Letter generation",
+          "filevineSurface": "Call policy",
+          "filevineTab": "Insurance",
+          "filevineSection": "PII minimization",
           "fields": [],
           "actions": [
-            "reviewDocGenWorkflow",
-            "mapToPraxiumdocgen"
+            "withholdClientPhoneAddressDOB",
+            "shareInjuriesOnly",
+            "declineAccidentNarrative"
           ],
-          "transcriptQuote": "Training covers DocGen workflow per title: CLAIMS - Opening up a claim",
+          "transcriptQuote": "give them as little information about our clients as possible… don't tell them DOB, social, address… don't tell them how the accident happened",
           "praxiumRoute": "/matters/:id",
-          "praxiumTab": "documents",
+          "praxiumTab": "insurance",
           "status": "missing",
-          "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+          "gapNotes": "No carrier-call PII guardrails or staff checklist"
+        },
+        {
+          "id": "insurance.claim.defendant_vehicle_confirm_only",
+          "sequence": 4,
+          "frame": "frame_010.jpg",
+          "timestampSec": 270,
+          "filevineSurface": "Call policy",
+          "filevineTab": "Insurance",
+          "filevineSection": "Defendant vehicle",
+          "fields": [
+            "defendantVehicleDescription",
+            "defendantPlate"
+          ],
+          "actions": [
+            "confirmInsuredVehicleOnly",
+            "noClientVehicleDetailsUnlessRequired"
+          ],
+          "transcriptQuote": "what kind of car was Abigail driving… white 2015 Ford Mustang… just so they know it was their client that hit them",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "insurance",
+          "status": "missing",
+          "gapNotes": "No defendant-only vehicle confirmation prompt on 3P open"
+        },
+        {
+          "id": "insurance.claim.existing_claim_number_path",
+          "sequence": 5,
+          "frame": "frame_005.jpg",
+          "timestampSec": 120,
+          "filevineSurface": "Insurance tab",
+          "filevineTab": "Insurance",
+          "filevineSection": "Existing claim",
+          "fields": [
+            "existingClaimNumber"
+          ],
+          "actions": [
+            "lookupByClaimNumber",
+            "skipDuplicateOpenIfClaimExists"
+          ],
+          "transcriptQuote": "I do have a claim number… sometimes we don't have the claim number, we give them the policy number and they'll give us a claim number",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "insurance",
+          "status": "partial",
+          "gapNotes": "Claim number field exists; no duplicate-open prevention"
         }
       ],
-      "labeledFrameCount": 2,
+      "labeledFrameCount": 5,
       "captureStatus": "wiring_labeled",
       "wiringSummary": {
         "done": 0,
-        "partial": 0,
-        "missing": 2
+        "partial": 2,
+        "missing": 3
       }
     },
     "DEMAND_-_How_to_gather_records_for_a_demand_02eb2609d5f7": {
@@ -14774,174 +15734,231 @@
       "wiringSheet": "docs/pi-case-os/wiring-sheets/DEMAND_PREP_-_Part_1_591a23b35b1a.json",
       "wiringLabeledAt": "2026-07-05",
       "matterShell": {
-        "description": "Anchor wiring from training: DEMAND PREP - Part 1",
-        "route": "/matters/:id",
+        "description": "Demand prep — meds↔paper file reconcile, contacts, expenses, liens sold, ChartSwap LOR",
+        "route": "/matters/:id/demand",
         "selectors": [
-          "meds",
-          "docgen",
-          "insurance"
+          "medsTab",
+          "docsTab",
+          "expensesTab",
+          "liensTab",
+          "hardFileReconcile"
         ]
       },
       "functions": [
         {
-          "id": "meds.demand_prep__1",
+          "id": "demand.prep.meds_must_match_paper_file",
           "sequence": 1,
-          "frame": "frame_009.jpg",
-          "timestampSec": 240,
-          "filevineSurface": "Meds",
+          "frame": "frame_005.jpg",
+          "timestampSec": 120,
+          "filevineSurface": "Meds tab vs paper file",
           "filevineTab": "Meds",
-          "filevineSection": "Provider ledger",
-          "fields": [],
-          "actions": [
-            "reviewMedsWorkflow",
-            "mapToPraxiummeds"
+          "filevineSection": "Reconcile",
+          "fields": [
+            "providerBalances[]",
+            "missingHospitalFlag"
           ],
-          "transcriptQuote": "ided to cut a few steps here. Now we've got to do things a little bit harder. So I'm looking in our medical bills tab just to see if we have everything. It doesn't match. Interesting. Why it wouldn't",
+          "actions": [
+            "compareMedsToPaperFile",
+            "flagMissingNorthVistaHospital",
+            "blockDemandUntilMatch"
+          ],
+          "transcriptQuote": "looking in our medical bills tab… It doesn't match… How do we not have the hospital on here?",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "medical",
           "status": "missing",
-          "gapNotes": "Praxium medical lacks Filevine Meds parity"
+          "gapNotes": "No meds↔physical file reconcile gate before demand"
         },
         {
-          "id": "docgen.demand_prep__2",
+          "id": "meds.combine_duplicate_contacts",
           "sequence": 2,
+          "frame": "frame_008.jpg",
+          "timestampSec": 210,
+          "filevineSurface": "Meds contacts",
+          "filevineTab": "Meds",
+          "filevineSection": "Provider naming",
+          "fields": [
+            "providerLegalName",
+            "providerAddress"
+          ],
+          "actions": [
+            "mergeDavidLewisIntoWatchYourBackLLC",
+            "searchBeforeCreateContact",
+            "useFacilityNameNotStaff"
+          ],
+          "transcriptQuote": "combine watch your back… should be no contact that says David Lewis… do not create new contacts unless you're sure they don't already exist",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "medical",
+          "status": "missing",
+          "gapNotes": "No duplicate provider contact merge workflow"
+        },
+        {
+          "id": "docs.save_short_naming_convention",
+          "sequence": 3,
           "frame": "frame_018.jpg",
           "timestampSec": 510,
-          "filevineSurface": "DocGen",
-          "filevineTab": "DocGen",
-          "filevineSection": "Letter generation",
-          "fields": [],
-          "actions": [
-            "reviewDocGenWorkflow",
-            "mapToPraxiumdocgen"
+          "filevineSurface": "Z drive / Docs save",
+          "filevineTab": "Docs",
+          "filevineSection": "Naming",
+          "fields": [
+            "docAbbrev:FE",
+            "docAbbrev:MR",
+            "docAbbrev:B"
           ],
-          "transcriptQuote": "5/DEMAND PREP - Part 1.mp4` **Time range:** 0.0s – 0.0s ## Transcript So we're going to do a demand letter today for Krishana Taylor. Unfortunately, now you guys will learn why when you guys do",
+          "actions": [
+            "saveWithShortFilename",
+            "useFEForFutureEstimate",
+            "avoidLongMicrosoftPaths"
+          ],
+          "transcriptQuote": "FE for futures estimate… MR for medical records… make it as short and abbreviated as you can… Microsoft will have issues",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "documents",
-          "status": "missing",
-          "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+          "status": "partial",
+          "gapNotes": "Docs tab has classify; no enforced short-name convention"
         },
         {
-          "id": "insurance.demand_prep__3",
-          "sequence": 3,
-          "frame": "frame_027.jpg",
-          "timestampSec": 780,
-          "filevineSurface": "Insurance",
-          "filevineTab": "Insurance",
-          "filevineSection": "Claim / adjuster fields",
-          "fields": [],
-          "actions": [
-            "reviewInsuranceWorkflow",
-            "mapToPraxiuminsurance"
-          ],
-          "transcriptQuote": ". She got another injection that just looks like a real big injection for 12,531. And then here's a letter of rep from the other person. So you want to look at these because sometimes you guys don't u",
-          "praxiumRoute": "/matters/:id",
-          "praxiumTab": "insurance",
-          "status": "missing",
-          "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
-        },
-        {
-          "id": "demand.demand_prep__4",
+          "id": "meds.request_specific_provider_lor",
           "sequence": 4,
-          "frame": "frame_036.jpg",
-          "timestampSec": 1050,
-          "filevineSurface": "Demand",
-          "filevineTab": "Demand",
-          "filevineSection": "Demand package",
-          "fields": [],
-          "actions": [
-            "reviewDemandWorkflow",
-            "mapToPraxiumdemand"
+          "frame": "frame_022.jpg",
+          "timestampSec": 630,
+          "filevineSurface": "Medical LOR task",
+          "filevineTab": "Meds",
+          "filevineSection": "Records request",
+          "fields": [
+            "providerName",
+            "chartSwapRequired"
           ],
-          "transcriptQuote": "5/DEMAND PREP - Part 1.mp4` **Time range:** 0.0s – 0.0s ## Transcript So we're going to do a demand letter today for Krishana Taylor. Unfortunately, now you guys will learn why when you guys do",
+          "actions": [
+            "taskMedicalLORToVelasquezOnly",
+            "checkChartSwapBeforeOrdering",
+            "selfFollowUpTaskInOneWeek"
+          ],
+          "transcriptQuote": "send a medical LOR… be very specific… Velasquez Pain Relief… check ChartSwap… task yourself to follow up in a week",
           "praxiumRoute": "/matters/:id",
-          "praxiumTab": "demand",
+          "praxiumTab": "medical",
           "status": "missing",
-          "gapNotes": "Praxium demand lacks Filevine Demand parity"
+          "gapNotes": "No provider-scoped LOR with ChartSwap flag + follow-up task"
         },
         {
-          "id": "settlement.demand_prep__5",
+          "id": "meds.expenses_tab_small_costs",
           "sequence": 5,
-          "frame": "frame_044.jpg",
-          "timestampSec": 1290,
-          "filevineSurface": "Settlement",
-          "filevineTab": "Settlement",
-          "filevineSection": "Calc / reductions",
-          "fields": [],
-          "actions": [
-            "reviewSettlementWorkflow",
-            "mapToPraxiumsettlement"
+          "frame": "frame_028.jpg",
+          "timestampSec": 810,
+          "filevineSurface": "Expenses tab",
+          "filevineTab": "Meds",
+          "filevineSection": "Out-of-pocket / expenses",
+          "fields": [
+            "expenseAmount:4.80",
+            "expenseProvider"
           ],
-          "transcriptQuote": "e got, nope. No, that's 450. So that's a visit. We've got a date of service for 450. We've got that lien, so that doesn't match. And then we've got this, which is 729. So somehow these two things don'",
+          "actions": [
+            "move480BillToExpensesTab",
+            "rollupForSettlementRecovery"
+          ],
+          "transcriptQuote": "attach it to the expenses tab… four dollars and eighty cents… I want my ten dollars back on settlement calculator",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "settlement",
           "status": "missing",
-          "gapNotes": "Praxium settlement lacks Filevine Settlement parity"
+          "gapNotes": "No expenses tab linked to settlement recovery"
         },
         {
-          "id": "docs.demand_prep__6",
+          "id": "meds.lien_sold_to_jml",
           "sequence": 6,
-          "frame": "frame_053.jpg",
-          "timestampSec": 1560,
-          "filevineSurface": "Docs",
-          "filevineTab": "Docs",
-          "filevineSection": "Document save / naming",
-          "fields": [],
-          "actions": [
-            "reviewDocsWorkflow",
-            "mapToPraxiumdocs"
+          "frame": "frame_040.jpg",
+          "timestampSec": 1170,
+          "filevineSurface": "Meds row — lien sold",
+          "filevineTab": "Meds",
+          "filevineSection": "Lien sold",
+          "fields": [
+            "lienSoldTo:JML",
+            "cptCode:72141",
+            "dateOfService",
+            "cmInitials"
           ],
-          "transcriptQuote": "three pieces of things in the hard file that have anything to do with this demand letter. So let me scan those in for you, and I'll tell you why they're important. So I'm going to scan them in for you",
+          "actions": [
+            "markLienSoldToJML",
+            "enterCPTAndDOS",
+            "setCaseManagerInitialsForLetters"
+          ],
+          "transcriptQuote": "JML holds the lien… put liens sold here to JML… 72141 CPT code… case manager initials IM",
           "praxiumRoute": "/matters/:id",
-          "praxiumTab": "documents",
+          "praxiumTab": "medical",
           "status": "missing",
-          "gapNotes": "Praxium documents lacks Filevine Docs parity"
+          "gapNotes": "Meds ledger lacks lien-sold + CPT/DOS fields"
         },
         {
-          "id": "feed.demand_prep__7",
+          "id": "subrogation.loan_in_liens_tab",
           "sequence": 7,
-          "frame": "frame_062.jpg",
-          "timestampSec": 1830,
-          "filevineSurface": "Feed",
-          "filevineTab": "Feed",
-          "filevineSection": "Activity feed",
-          "fields": [],
-          "actions": [
-            "reviewFeedWorkflow",
-            "mapToPraxiumfeed"
-          ],
-          "transcriptQuote": "ap I'm going to put at Leslie so she sees this too this is a reason to have your thing correct your feed because she may never see this because her feed's like got a lot of things on it so we're going",
-          "praxiumRoute": "/inbox",
-          "praxiumTab": "pipeline",
-          "status": "missing",
-          "gapNotes": "Praxium pipeline lacks Filevine Feed parity"
-        },
-        {
-          "id": "subrogation.demand_prep__8",
-          "sequence": 8,
-          "frame": "frame_071.jpg",
-          "timestampSec": 2100,
-          "filevineSurface": "Subrogation",
+          "frame": "frame_015.jpg",
+          "timestampSec": 420,
+          "filevineSurface": "Liens tab",
           "filevineTab": "Subrogation",
-          "filevineSection": "Health lien workflow",
-          "fields": [],
-          "actions": [
-            "reviewSubrogationWorkflow",
-            "mapToPraxiumsubrogation"
+          "filevineSection": "Client loans",
+          "fields": [
+            "loanAmount:1400",
+            "preferredCapitalFunding"
           ],
-          "transcriptQuote": "al spine without contrast. You see that? And they assigned it to JML. So JML holds the lien. What a lien holder does is they buy this debt for cheaper, and they now hold the debt. So let's assume that",
+          "actions": [
+            "recordClientLoanInLiens",
+            "verifyAllLoansBeforeDisbursement"
+          ],
+          "transcriptQuote": "she got a loan… should be in the liens tab… Preferred Capital Funding $1400",
           "praxiumRoute": "/matters/:id",
           "praxiumTab": "subrogation",
           "status": "missing",
-          "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity"
+          "gapNotes": "Subrogation tab lacks client litigation-loan tracking"
+        },
+        {
+          "id": "insurance.update_from_defendant_lor",
+          "sequence": 8,
+          "frame": "frame_012.jpg",
+          "timestampSec": 330,
+          "filevineSurface": "Insurance tab",
+          "filevineTab": "Insurance",
+          "filevineSection": "Defendant carrier sync",
+          "fields": [
+            "claimNumber",
+            "adjusterPhone",
+            "defendantCarrier"
+          ],
+          "actions": [
+            "compareIncomingLORToInsuranceTab",
+            "updateMismatchFromAckLetter"
+          ],
+          "transcriptQuote": "letter of rep from the other person… update all the information… does this match? does his phone number match?",
+          "praxiumRoute": "/matters/:id",
+          "praxiumTab": "insurance",
+          "status": "partial",
+          "gapNotes": "No LOR→insurance field diff on doc ingest"
+        },
+        {
+          "id": "feed.at_mention_for_medical_orders",
+          "sequence": 9,
+          "frame": "frame_035.jpg",
+          "timestampSec": 1020,
+          "filevineSurface": "Activity feed",
+          "filevineTab": "Feed",
+          "filevineSection": "@ assign",
+          "fields": [
+            "assignedTo:Isabel",
+            "cc:Leslie"
+          ],
+          "actions": [
+            "atLeslieForChartSwapVideo",
+            "assignMedRecordsToIsabel"
+          ],
+          "transcriptQuote": "at Leslie… please create a video on ChartSwap… at Isabel get updated medical records",
+          "praxiumRoute": "/inbox",
+          "praxiumTab": "pipeline",
+          "status": "missing",
+          "gapNotes": "No feed @mention on med-order tasks"
         }
       ],
-      "labeledFrameCount": 8,
+      "labeledFrameCount": 9,
       "captureStatus": "wiring_labeled",
       "wiringSummary": {
         "done": 0,
-        "partial": 0,
-        "missing": 8
+        "partial": 2,
+        "missing": 7
       }
     },
     "INS_-_Opening_a_3P_Claim_2_62b6f05541b9": {

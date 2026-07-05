@@ -30,12 +30,14 @@
     {
       "filename": "frame_003.jpg",
       "timestampSec": 60,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Provider balances",
+      "functionId": "demand.prep.update_meds_first",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "what we do is we update all these meds… let's assume the related case, all those meds were updated too"
     },
     {
       "filename": "frame_004.jpg",
@@ -80,12 +82,14 @@
     {
       "filename": "frame_008.jpg",
       "timestampSec": 210,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "DocGen",
+      "filevineSection": "3P demand letter",
+      "functionId": "docgen.demand.generate_3p_policy_limits",
+      "praxiumTab": "demand",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "create a demand… policy limits… generate the demand letter"
     },
     {
       "filename": "frame_009.jpg",
@@ -152,12 +156,14 @@
     {
       "filename": "frame_015.jpg",
       "timestampSec": 420,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Demand",
+      "filevineSection": "Carrier addressing",
+      "functionId": "demand.verify_adjuster_claim_policy",
+      "praxiumTab": "insurance",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "make sure this all matches… claim number… policy number… Key Insurance Company"
     },
     {
       "filename": "frame_016.jpg",
@@ -224,12 +230,12 @@
       "timestampSec": 630,
       "labeled": true,
       "filevineTab": "Demand",
-      "filevineSection": "Demand package",
-      "functionId": "demand.2017_7_5_dem_2",
+      "filevineSection": "Medical specials order",
+      "functionId": "demand.yellow_sheet_bill_order",
       "praxiumTab": "demand",
       "status": "missing",
       "praxiumRoute": "/matters/:id",
-      "transcriptQuote": "**Time range:** 0.0s – 0.0s ## Transcript Okay, so we are doing this, and we're going to do the demand letter. So what we do is we update all these meds. So Red Rock Surgery Center, we don't know,"
+      "transcriptQuote": "you would go by what the yellow sheet is… hospital first… pain management… MRI… surgery center… pharmacy at the end"
     },
     {
       "filename": "frame_023.jpg",
@@ -284,12 +290,14 @@
     {
       "filename": "frame_028.jpg",
       "timestampSec": 810,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Demand",
+      "filevineSection": "Dual clients",
+      "functionId": "demand.multi_client_pluralization",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "it only generates for one… put the other person in here… our clients… dual clients"
     },
     {
       "filename": "frame_029.jpg",
@@ -356,12 +364,14 @@
     {
       "filename": "frame_035.jpg",
       "timestampSec": 1020,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Demand",
+      "filevineSection": "Policy limit tender",
+      "functionId": "demand.policy_limit_tender_language",
+      "praxiumTab": "demand",
+      "status": "missing",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "demanding the policy limits… 30 days from when you send it… attach the police report, the photos"
     },
     {
       "filename": "frame_036.jpg",
@@ -406,12 +416,14 @@
     {
       "filename": "frame_040.jpg",
       "timestampSec": 1170,
-      "labeled": false,
-      "filevineTab": null,
-      "filevineSection": null,
-      "functionId": null,
-      "praxiumTab": null,
-      "status": "unreviewed"
+      "labeled": true,
+      "filevineTab": "Docs",
+      "filevineSection": "Demand draft",
+      "functionId": "demand.save_draft_not_sent",
+      "praxiumTab": "documents",
+      "status": "partial",
+      "praxiumRoute": "/matters/:id",
+      "transcriptQuote": "save this as our demand letter draft… we're not going to send it yet, we're missing stuff"
     },
     {
       "filename": "frame_041.jpg",
@@ -557,6 +569,6 @@
     }
   ],
   "wiringSheet": "docs/pi-case-os/wiring-sheets/2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed.json",
-  "labeledFrameCount": 4,
+  "labeledFrameCount": 10,
   "labeledAt": "2026-07-05"
 }

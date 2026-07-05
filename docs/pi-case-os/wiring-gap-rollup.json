@@ -1,0 +1,824 @@
+{
+  "generatedAt": "2026-07-05T03:16:06.950Z",
+  "videoCount": 139,
+  "functionCount": 732,
+  "tabs": {
+    "intake": {
+      "missing": 67,
+      "partial": 46,
+      "total": 113,
+      "topGaps": [
+        {
+          "id": "intake.vital_stats_meds_total",
+          "gapNotes": "No vital-stats rollup from meds/PD tabs",
+          "source": "1. the case system -Introduction"
+        },
+        {
+          "id": "intake.driver_not_passenger_template",
+          "gapNotes": "No driver/passenger project type gate",
+          "source": "2017-06-07 Filevine Tutorial (live training)"
+        },
+        {
+          "id": "intake.docgen_from_intake",
+          "gapNotes": "No intake-embedded docgen",
+          "source": "3. the case system - Intake Tab"
+        },
+        {
+          "id": "intake.police_report_request",
+          "gapNotes": "Police report intake block missing",
+          "source": "3. the case system - Intake Tab"
+        },
+        {
+          "id": "customs.advanced.conditional_fields",
+          "gapNotes": "No conditional custom field rules",
+          "source": "Advanced Customs editor the case system"
+        },
+        {
+          "id": "customs.editor.open_pi_project_type",
+          "gapNotes": "No admin customs/field editor for matter schemas",
+          "source": "Customs editor the case system"
+        },
+        {
+          "id": "customs.editor.add_tab_section",
+          "gapNotes": "No tab/section builder",
+          "source": "Customs editor the case system"
+        },
+        {
+          "id": "customs.editor.field_types",
+          "gapNotes": "No custom field type palette",
+          "source": "Customs editor the case system"
+        }
+      ]
+    },
+    "medical": {
+      "missing": 79,
+      "partial": 19,
+      "total": 98,
+      "topGaps": [
+        {
+          "id": "customs.meds.lien_balance_verification_letter",
+          "gapNotes": "New customs fields must feed lien balance verification letter",
+          "source": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV)"
+        },
+        {
+          "id": "customs.advanced.meds_tab_fields",
+          "gapNotes": "Meds ledger schema is fixed in code",
+          "source": "Advanced Customs editor the case system"
+        },
+        {
+          "id": "settlement.disbursement.print_reduction_proof",
+          "gapNotes": "No link from settlement to reduction approval doc",
+          "source": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)"
+        },
+        {
+          "id": "docgen.medical.select_bills_for_medpay",
+          "gapNotes": "No bill-picker for med pay enclosures",
+          "source": "DOCGEN- MED PAY to 1st party"
+        },
+        {
+          "id": "docgen.medical.lien_holder_context",
+          "gapNotes": "No lien-holder entity type separate from provider",
+          "source": "DOCGEN - Drop Letter to Lien Holders"
+        },
+        {
+          "id": "docgen.medical.generate_drop_letter_lien",
+          "gapNotes": "No lien-holder drop letter on medical tab",
+          "source": "DOCGEN - Drop Letter to Lien Holders"
+        },
+        {
+          "id": "docgen.medical.drop_letter_fax_verify",
+          "gapNotes": "No fax-from-matter workflow; initials not in template",
+          "source": "DOCGEN - Drop Letter to Lien Holders"
+        },
+        {
+          "id": "docgen.medical.file_drop_letter_zdrive",
+          "gapNotes": "No Z-drive / matter docs filing convention",
+          "source": "DOCGEN - Drop Letter to Lien Holders"
+        }
+      ]
+    },
+    "documents": {
+      "missing": 66,
+      "partial": 12,
+      "total": 78,
+      "topGaps": [
+        {
+          "id": "docs.dropbox_folder_exact_match",
+          "gapNotes": "No Dropbox sync",
+          "source": "7.-DOCS TAB - Dropbox Folder and Naming Docs"
+        },
+        {
+          "id": "docs.related_case_same_dropbox",
+          "gapNotes": "Related matter Dropbox sync missing",
+          "source": "7.-DOCS TAB - Dropbox Folder and Naming Docs"
+        },
+        {
+          "id": "docs.hashtag_standard_list",
+          "gapNotes": "No doc hashtag SSOT",
+          "source": "DOCS TAB - Hashtags 2"
+        },
+        {
+          "id": "docs.filter_by_hashtag",
+          "gapNotes": "Doc hashtag filter missing",
+          "source": "DOCS TAB - Hashtags 2"
+        },
+        {
+          "id": "docs.hashtag_on_every_upload",
+          "gapNotes": "No required hashtag on upload",
+          "source": "DOCS TAB - Hashtags 3"
+        },
+        {
+          "id": "docs.hashtag_on_upload",
+          "gapNotes": "No doc hashtags",
+          "source": "DOCS TAB - Hashtags"
+        },
+        {
+          "id": "docs.search_by_hashtag",
+          "gapNotes": "No doc hashtag search",
+          "source": "DOCS TAB - Hashtags"
+        },
+        {
+          "id": "project.dropbox_folder_link",
+          "gapNotes": "No Dropbox folder auto-create",
+          "source": "FILEVINE - Creating New Project, Roles, Dropbox and Textline"
+        }
+      ]
+    },
+    "pipeline": {
+      "missing": 58,
+      "partial": 17,
+      "total": 75,
+      "topGaps": [
+        {
+          "id": "feed.intro.filter_and_pin",
+          "gapNotes": "No firm feed with pin/filter",
+          "source": "1. the case system -Introduction"
+        },
+        {
+          "id": "search.global_deeper_archived",
+          "gapNotes": "No deep search across archived matters",
+          "source": "1. the case system -Introduction"
+        },
+        {
+          "id": "taskflow.admin.treatment_phase_selector",
+          "gapNotes": "Treatment-phase autotasks not spawned on Praxium phase change",
+          "source": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet"
+        },
+        {
+          "id": "activity.filter_incomplete_batch",
+          "gapNotes": "Incomplete filter on matter activity missing",
+          "source": "2. the case system - Activity Feed"
+        },
+        {
+          "id": "activity.phase_change_auto_tasks",
+          "gapNotes": "No phase-driven task templates",
+          "source": "2. the case system - Activity Feed"
+        },
+        {
+          "id": "customs.advanced.deadlines_reminders",
+          "gapNotes": "No deadline/reminder editor",
+          "source": "Advanced Customs editor the case system"
+        },
+        {
+          "id": "settlement.disbursement.task_receptionist_tax_id",
+          "gapNotes": "No tax-ID collection task type",
+          "source": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)"
+        },
+        {
+          "id": "activity.filter_incomplete_tasks",
+          "gapNotes": "No activity-type filters on matter comms",
+          "source": "FILEVINE - Basics of the case system Part 2"
+        }
+      ]
+    },
+    "insurance": {
+      "missing": 61,
+      "partial": 13,
+      "total": 74,
+      "topGaps": [
+        {
+          "id": "docgen.matter.verify_medpay_regenerate",
+          "gapNotes": "No post-template-update regression test on sample matter",
+          "source": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV)"
+        },
+        {
+          "id": "customs.advanced.insurance_tab_fields",
+          "gapNotes": "Insurance tab fields not admin-configurable",
+          "source": "Advanced Customs editor the case system"
+        },
+        {
+          "id": "docgen.insurance.medpay_threshold_rule",
+          "gapNotes": "No med-pay request threshold automation",
+          "source": "DOCGEN- MED PAY to 1st party"
+        },
+        {
+          "id": "docgen.insurance.generate_medpay_request",
+          "gapNotes": "No first-party med pay letter on insurance tab",
+          "source": "DOCGEN- MED PAY to 1st party"
+        },
+        {
+          "id": "docgen.insurance.medpay_yellow_field_qa",
+          "gapNotes": "No yellow-field QA on generated insurance letters",
+          "source": "DOCGEN- MED PAY to 1st party"
+        },
+        {
+          "id": "docgen.insurance.medpay_nitro_attach_bills",
+          "gapNotes": "No PDF merge/attach pipeline for med pay outbound",
+          "source": "DOCGEN- MED PAY to 1st party"
+        },
+        {
+          "id": "docgen.insurance.medpay_fax_and_file",
+          "gapNotes": "No fax + matter docs filing from insurance tab",
+          "source": "DOCGEN- MED PAY to 1st party"
+        },
+        {
+          "id": "docgen.insurance.medpay_one_page_format",
+          "gapNotes": "No letter formatting helpers",
+          "source": "DOCGEN- MED PAY to 1st party"
+        }
+      ]
+    },
+    "settlement": {
+      "missing": 66,
+      "partial": 7,
+      "total": 73,
+      "topGaps": [
+        {
+          "id": "docgen.settlement.regenerate_disbursement_letter",
+          "gapNotes": "No disbursement letter docgen on settlement/meds",
+          "source": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)"
+        },
+        {
+          "id": "settlement.disbursement.w9_tax_id_lookup",
+          "gapNotes": "No W9/tax-ID registry per provider",
+          "source": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)"
+        },
+        {
+          "id": "settlement.disbursement.edit_reduction_amount",
+          "gapNotes": "Disbursement letter amount not synced from settlement calculator",
+          "source": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)"
+        },
+        {
+          "id": "settlement.disbursement.print_return_envelopes",
+          "gapNotes": "No envelope print workflow",
+          "source": "DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP)"
+        },
+        {
+          "id": "disbursement.queue.review_list",
+          "gapNotes": "No firm-wide disbursement queue",
+          "source": "FILEVINE - Disbursements"
+        },
+        {
+          "id": "disbursement.reduction.smiley_face_approved",
+          "gapNotes": "No reduction-approved indicator on settlement rows",
+          "source": "FILEVINE - Disbursements"
+        },
+        {
+          "id": "disbursement.subro.verify_health_insurance_lien",
+          "gapNotes": "No subrogation lien verify step in disbursement flow",
+          "source": "FILEVINE - Disbursements"
+        },
+        {
+          "id": "disbursement.trust.client_advance_reconcile",
+          "gapNotes": "No trust account tab / client advance tracking",
+          "source": "FILEVINE - Disbursements"
+        }
+      ]
+    },
+    "comms": {
+      "missing": 54,
+      "partial": 9,
+      "total": 63,
+      "topGaps": [
+        {
+          "id": "comms.mailroom.textline_project",
+          "gapNotes": "No mailroom with project-scoped SMS + rename",
+          "source": "1. the case system -Introduction"
+        },
+        {
+          "id": "comms.enable_client_textline",
+          "gapNotes": "No per-client Textline enable",
+          "source": "1. the case system -Introduction"
+        },
+        {
+          "id": "activity.hashtag_glossary",
+          "gapNotes": "No activity hashtag index",
+          "source": "2017-06-07 Filevine Tutorial (live training)"
+        },
+        {
+          "id": "activity.colors.green_task_yellow_note",
+          "gapNotes": "No activity item type colors",
+          "source": "2. the case system - Activity Feed"
+        },
+        {
+          "id": "activity.bolded_vine_pin_assign",
+          "gapNotes": "Bolded vine + assign missing",
+          "source": "2. the case system - Activity Feed"
+        },
+        {
+          "id": "activity.share_link_to_client",
+          "gapNotes": "No expiring doc share links",
+          "source": "2. the case system - Activity Feed"
+        },
+        {
+          "id": "activity.print_feed_pdf",
+          "gapNotes": "No activity export PDF",
+          "source": "2. the case system - Activity Feed"
+        },
+        {
+          "id": "taskflow.admin.edit_autotask_textline_pics",
+          "gapNotes": "No Textline integration; no docs-tab rename task",
+          "source": "ADVANCED - Taskflow"
+        }
+      ]
+    },
+    "notes": {
+      "missing": 29,
+      "partial": 2,
+      "total": 31,
+      "topGaps": [
+        {
+          "id": "review.assign_with_bold_note",
+          "gapNotes": "No bolded-vine formatting in notes",
+          "source": "FILEVINE - Case Review"
+        },
+        {
+          "id": "review.got_it_archive_feed",
+          "gapNotes": "No Got It archive on activity items",
+          "source": "FILEVINE - Case Review"
+        },
+        {
+          "id": "feed.activity.filter_by_type",
+          "gapNotes": "Activity/notes lack notes/emails/text type filters",
+          "source": "FILEVINE - Cleaning your Feed Quickly"
+        },
+        {
+          "id": "feed.activity.cleaning_workflow_order",
+          "gapNotes": "No guided feed-cleaning workflow or saved filter presets",
+          "source": "FILEVINE - Cleaning your Feed Quickly"
+        },
+        {
+          "id": "feed.item.note_vs_task_toggle",
+          "gapNotes": "No note/task type toggle on create",
+          "source": "FILEVINE - Feed - Going through feed Part 2"
+        },
+        {
+          "id": "feed.activity.atmention_create_task",
+          "gapNotes": "No @mention task spawn",
+          "source": "FILEVINE - Feed - Going through feed Part 2"
+        },
+        {
+          "id": "feed.sop.time_billing_on_notes",
+          "gapNotes": "No billable time capture on activity notes",
+          "source": "FILEVINE - Feed - Going through feed Part 2"
+        },
+        {
+          "id": "feed.item.complete_with_context_note",
+          "gapNotes": "Complete without required note/context",
+          "source": "FILEVINE - Feed - Going through feed Part 3"
+        }
+      ]
+    },
+    "demand": {
+      "missing": 27,
+      "partial": 3,
+      "total": 30,
+      "topGaps": [
+        {
+          "id": "docgen.admin.um_uim_demand_dollar_fields",
+          "gapNotes": "Demand docgen missing currency formatting in template",
+          "source": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV)"
+        },
+        {
+          "id": "docgen.demand.red_auto_fields",
+          "gapNotes": "No demand letter auto-merge from matter fields",
+          "source": "DOCGEN - Demand Letter"
+        },
+        {
+          "id": "docgen.demand.yellow_staff_edits",
+          "gapNotes": "No staff-edit vs auto-field distinction in template UI",
+          "source": "DOCGEN - Demand Letter"
+        },
+        {
+          "id": "docgen.demand.totals_validation",
+          "gapNotes": "No demand math validation against meds tab",
+          "source": "DOCGEN - Demand Letter"
+        },
+        {
+          "id": "docgen.demand.futures_estimate_policy_limits",
+          "gapNotes": "No limits-aware futures estimate helper",
+          "source": "DOCGEN - Demand Letter"
+        },
+        {
+          "id": "docgen.demand.wage_loss_expenses",
+          "gapNotes": "Demand builder lacks wage/mileage/expense sections",
+          "source": "DOCGEN - Demand Letter"
+        },
+        {
+          "id": "docgen.demand.exhibit_checklist",
+          "gapNotes": "No exhibit checklist on demand gen",
+          "source": "DOCGEN - Demand Letter"
+        },
+        {
+          "id": "docgen.demand.paralegal_initials_review",
+          "gapNotes": "No demand review/initials workflow",
+          "source": "DOCGEN - Demand Letter"
+        }
+      ]
+    },
+    "subrogation": {
+      "missing": 29,
+      "partial": 1,
+      "total": 30,
+      "topGaps": [
+        {
+          "id": "feed.item.complete_system_task",
+          "gapNotes": "No system lien-reduction feed tasks",
+          "source": "FILEVINE - Feed - Going through feed Part 3"
+        },
+        {
+          "id": "subrogation.demand___how_8",
+          "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity",
+          "source": "DEMAND - How to gather records for a demand"
+        },
+        {
+          "id": "subrogation.loan_in_liens_tab",
+          "gapNotes": "Subrogation tab lacks client litigation-loan tracking",
+          "source": "DEMAND PREP - Part 1"
+        },
+        {
+          "id": "subrogation.subrogation__1",
+          "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity",
+          "source": "SUBROGATION - Google doc, LOR draft, subro explanation (SP)"
+        },
+        {
+          "id": "health.subrogation__5",
+          "gapNotes": "Praxium subrogation lacks Filevine Health parity",
+          "source": "SUBROGATION - Google doc, LOR draft, subro explanation (SP)"
+        },
+        {
+          "id": "health.subrogation__2",
+          "gapNotes": "Praxium subrogation lacks Filevine Health parity",
+          "source": "SUBROGATION LIEN - Rolando Clores"
+        },
+        {
+          "id": "subrogation.subrogation__5",
+          "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity",
+          "source": "SUBROGATION LIEN - Rolando Clores"
+        },
+        {
+          "id": "subrogation.3_short_redu_3",
+          "gapNotes": "Praxium subrogation lacks Filevine Subrogation parity",
+          "source": "3. Short Reduction"
+        }
+      ]
+    },
+    "/admin/templates": {
+      "missing": 22,
+      "partial": 3,
+      "total": 25,
+      "topGaps": [
+        {
+          "id": "docgen.admin.medpay_letter_layout_fix",
+          "gapNotes": "Med pay letter merge order + initials field missing",
+          "source": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV)"
+        },
+        {
+          "id": "docgen.admin.drop_letter_heading_bug",
+          "gapNotes": "Template QA — errant heading propagates to all letters",
+          "source": "DOCGEN - Drop Letter to 3rd Party Insurance"
+        },
+        {
+          "id": "docgen.admin.reorder_intake_sections",
+          "gapNotes": "No intake needs-list section ordering in template admin",
+          "source": "DOCGEN - How To Create Letters 2"
+        },
+        {
+          "id": "docgen.admin.yellow_staff_fields",
+          "gapNotes": "No yellow=staff vs red=auto field policy in admin",
+          "source": "DOCGEN - How To Create Letters 2"
+        },
+        {
+          "id": "docgen.admin.notarized_pages_to_back",
+          "gapNotes": "No notary-page ordering rule in intake template",
+          "source": "DOCGEN - How To Create Letters 2"
+        },
+        {
+          "id": "docgen.admin.replace_intake_upload",
+          "gapNotes": "No replace upload for intake packet",
+          "source": "DOCGEN - How To Create Letters 2"
+        },
+        {
+          "id": "docgen.admin.field_list_adjuster_code",
+          "gapNotes": "No field list picker in template admin",
+          "source": "DOCGEN - How To Create Letters 2"
+        },
+        {
+          "id": "docgen.admin.multi_project_type_parity",
+          "gapNotes": "No per-project-type merge code registry parity",
+          "source": "DOCGEN - How To Create Letters 2"
+        }
+      ]
+    },
+    "tasks": {
+      "missing": 9,
+      "partial": 8,
+      "total": 17,
+      "topGaps": [
+        {
+          "id": "review.activity.incomplete_filter",
+          "gapNotes": "No incomplete-only activity filter",
+          "source": "FILEVINE - Case Review"
+        },
+        {
+          "id": "feed.activity.system_autotasks_overdue",
+          "gapNotes": "No system-spawned feed tasks with overdue badges",
+          "source": "FILEVINE - Cleaning your Feed Quickly"
+        },
+        {
+          "id": "feed.activity.incomplete_only_toggle",
+          "gapNotes": "No incomplete-only or assigned-to-me feed filters",
+          "source": "FILEVINE - Cleaning your Feed Quickly"
+        },
+        {
+          "id": "project.activity.taskflow_intake_spawn",
+          "gapNotes": "No firm feed; phase tasks are static checklist not dated Filevine system tasks",
+          "source": "FILEVINE - Intake"
+        },
+        {
+          "id": "activity.task.assign_complete",
+          "gapNotes": "Manual tasks only; no Filevine task card UX with assign/date/complete",
+          "source": "FILEVINE - Intake"
+        },
+        {
+          "id": "tasks.triage_inbox_down",
+          "gapNotes": "No bulk triage / reschedule on task inbox",
+          "source": "FILEVINE - Task - Going through Task Feed Part 2"
+        },
+        {
+          "id": "tasks.filter_today_7_30",
+          "gapNotes": "No date-range filters on task inbox",
+          "source": "FILEVINE - Task - Going through Task Feed Part 2"
+        },
+        {
+          "id": "status_chart.activity_incomplete_per_case",
+          "gapNotes": "No incomplete filter on activity during status review",
+          "source": "STATUS CHART - Record Gathering Counters Supplements Demands"
+        }
+      ]
+    },
+    "/admin/taskflow": {
+      "missing": 12,
+      "partial": 0,
+      "total": 12,
+      "topGaps": [
+        {
+          "id": "taskflow.admin.open_taskflow",
+          "gapNotes": "No firm-level taskflow editor; PI phase checklist is static not role/offset driven",
+          "source": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet"
+        },
+        {
+          "id": "taskflow.excel.master_spreadsheet",
+          "gapNotes": "Excel is SSOT for Van Law; Praxium has no import/export of task templates",
+          "source": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet"
+        },
+        {
+          "id": "taskflow.admin.edit_autotask_bolded_vines",
+          "gapNotes": "No bolded-vines task bundle on phase change",
+          "source": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet"
+        },
+        {
+          "id": "taskflow.admin.intake_phase_tasks",
+          "gapNotes": "Intake spawn tasks not configurable per org/project type",
+          "source": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet"
+        },
+        {
+          "id": "taskflow.excel.treatment_phase_rows",
+          "gapNotes": "Offset create/due/repeat columns not modeled in Praxium",
+          "source": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet"
+        },
+        {
+          "id": "taskflow.admin.project_type_variants",
+          "gapNotes": "Single PI template; no per-case-type taskflow variants",
+          "source": "2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet"
+        },
+        {
+          "id": "taskflow.admin.nav_advanced_taskflow",
+          "gapNotes": "No admin taskflow route in Praxium nav",
+          "source": "ADVANCED - Taskflow"
+        },
+        {
+          "id": "taskflow.admin.edit_autotask_assign_team",
+          "gapNotes": "No intake→treatment handoff autotask on team assign",
+          "source": "ADVANCED - Taskflow"
+        }
+      ]
+    },
+    "/feed": {
+      "missing": 8,
+      "partial": 0,
+      "total": 8,
+      "topGaps": [
+        {
+          "id": "feed.global.firm_feed",
+          "gapNotes": "No firm-wide feed route; no send-later on feed messages",
+          "source": "FILEVINE - Cleaning your Feed Quickly"
+        },
+        {
+          "id": "feed.global.open_via_lightning",
+          "gapNotes": "No firm-wide feed route",
+          "source": "FILEVINE - Feed - Going through feed Part 2"
+        },
+        {
+          "id": "feed.item.got_it_preassigned",
+          "gapNotes": "No Got It ack separate from task completion",
+          "source": "FILEVINE - Feed - Going through feed Part 2"
+        },
+        {
+          "id": "feed.item.keep_important_on_feed",
+          "gapNotes": "No pin/keep vs ack distinction",
+          "source": "FILEVINE - Feed - Going through feed Part 3"
+        },
+        {
+          "id": "feed.sop.morning_calls_workflow",
+          "gapNotes": "No guided daily feed workflow",
+          "source": "FILEVINE - Feed - Going through feed Part 3"
+        },
+        {
+          "id": "feed.global.unread_recent_filters",
+          "gapNotes": "No unread/recent feed filters",
+          "source": "FIILEVINE - Cleaning Feed"
+        },
+        {
+          "id": "feed.item.pin_to_my_feed",
+          "gapNotes": "No pin/keep-important on feed items",
+          "source": "FIILEVINE - Cleaning Feed"
+        },
+        {
+          "id": "feed.sop.cleaning_order",
+          "gapNotes": "See FILEVINE_-_Cleaning_your_Feed_Quickly wiring sheet",
+          "source": "FIILEVINE - Cleaning Feed"
+        }
+      ]
+    },
+    "/reports": {
+      "missing": 6,
+      "partial": 0,
+      "total": 6,
+      "topGaps": [
+        {
+          "id": "docgen.mass_from_saved_report",
+          "gapNotes": "No bulk docgen from report",
+          "source": "2017-06-07 Filevine Tutorial (live training)"
+        },
+        {
+          "id": "reports.build_custom_columns",
+          "gapNotes": "No custom report builder",
+          "source": "2017.8.11 FILEVINE - Run and Share Reports Seans Special List"
+        },
+        {
+          "id": "reports.30_day_review_fields",
+          "gapNotes": "No 30-day review report columns",
+          "source": "2017.8.11 FILEVINE - Run and Share Reports Seans Special List"
+        },
+        {
+          "id": "reports.export_excel_save",
+          "gapNotes": "No report export/save",
+          "source": "2017.8.11 FILEVINE - Run and Share Reports Seans Special List"
+        },
+        {
+          "id": "reports.share_with_staff",
+          "gapNotes": "No shared saved reports",
+          "source": "2017.8.11 FILEVINE - Run and Share Reports Seans Special List"
+        },
+        {
+          "id": "reports.build_and_schedule",
+          "gapNotes": "No report builder/schedule",
+          "source": "Filevine combine — mega tour + activity supplement"
+        }
+      ]
+    },
+    "/": {
+      "missing": 5,
+      "partial": 1,
+      "total": 6,
+      "topGaps": [
+        {
+          "id": "calendar.sync_and_share",
+          "gapNotes": "No calendar sync",
+          "source": "2017-06-07 Filevine Tutorial (live training)"
+        },
+        {
+          "id": "shell.search.project_and_archived",
+          "gapNotes": "No global cross-matter search with archived",
+          "source": "FILEVINE - Basics of the case system Part 1"
+        },
+        {
+          "id": "conflict.run_global_search",
+          "gapNotes": "No conflict-check search workflow",
+          "source": "FILEVINE TASK - Conflict Check"
+        },
+        {
+          "id": "shell.project_hub_filters",
+          "gapNotes": "No project hub with phase filters",
+          "source": "Filevine Training — official basics (Spencer)"
+        },
+        {
+          "id": "insdoc.search_deeper_policy",
+          "gapNotes": "No search deeper by policy",
+          "source": "5. Saving Auto Insurance Docs Overview"
+        }
+      ]
+    },
+    "reports": {
+      "missing": 5,
+      "partial": 0,
+      "total": 5,
+      "topGaps": [
+        {
+          "id": "review.google_doc_status_parallel",
+          "gapNotes": "No case review Google Doc sync",
+          "source": "FILEVINE - Case Review"
+        },
+        {
+          "id": "tracker.reports.per_staff_treatment_updates",
+          "gapNotes": "No treatment tracker report suite in Praxium",
+          "source": "FILEVINE - Hospital Bills and Records Treatment Tracker"
+        },
+        {
+          "id": "reports.all_projects_star_favorite",
+          "gapNotes": "No All Projects export report in Praxium",
+          "source": "STATUS CHART - Record Gathering Counters Supplements Demands"
+        },
+        {
+          "id": "reports.export_all_projects_excel",
+          "gapNotes": "Pipeline export partial; no Filevine All Projects parity",
+          "source": "STATUS CHART - Record Gathering Counters Supplements Demands"
+        },
+        {
+          "id": "status_chart.yellow_delegate_batch",
+          "gapNotes": "No batch delegate from status chart",
+          "source": "STATUS CHART - Record Gathering Counters Supplements Demands"
+        }
+      ]
+    },
+    "/matters/new": {
+      "missing": 0,
+      "partial": 4,
+      "total": 4,
+      "topGaps": []
+    },
+    "/admin/customs": {
+      "missing": 3,
+      "partial": 0,
+      "total": 3,
+      "topGaps": [
+        {
+          "id": "customs.meds.open_customs_editor",
+          "gapNotes": "No customs editor / matter field layout admin",
+          "source": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV)"
+        },
+        {
+          "id": "customs.meds.edit_meds_tab_layout",
+          "gapNotes": "Medical tab fields fixed; no admin layout editor",
+          "source": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV)"
+        },
+        {
+          "id": "customs.meds.refresh_preview_layout",
+          "gapNotes": "No live layout preview in admin",
+          "source": "ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV)"
+        }
+      ]
+    },
+    "/admin/rbac": {
+      "missing": 0,
+      "partial": 1,
+      "total": 1,
+      "topGaps": []
+    },
+    "/admin/knowledge": {
+      "missing": 1,
+      "partial": 0,
+      "total": 1,
+      "topGaps": [
+        {
+          "id": "review.tetra_knowledge_base",
+          "gapNotes": "No in-app knowledge base / Tettra link",
+          "source": "FILEVINE - Case Review"
+        }
+      ]
+    },
+    "litigation": {
+      "missing": 1,
+      "partial": 0,
+      "total": 1,
+      "topGaps": [
+        {
+          "id": "litigation.deadlines_chain",
+          "gapNotes": "No litigation deadlines chain",
+          "source": "Filevine — full matter tab tour (Jane Doe)"
+        }
+      ]
+    }
+  }
+}

@@ -88,3 +88,5 @@ For each position guide we extracted:
 4. **Attorney gates** — training requires approval; RBAC has no matching enforcement  
 
 Update [`training-ux-gaps.json`](./training-ux-gaps.json) when UI ships or training changes.
+
+**Wiring-derived backlog:** [`WIRING_GAP_ROLLUP.md`](./WIRING_GAP_ROLLUP.md) · regenerate: `npm run pi:filevine:gap-rollup`

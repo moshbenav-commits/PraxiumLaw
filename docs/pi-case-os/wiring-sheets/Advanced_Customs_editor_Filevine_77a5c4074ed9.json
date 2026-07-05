@@ -1,0 +1,79 @@
+{
+  "slug": "Advanced_Customs_editor_Filevine_77a5c4074ed9",
+  "title": "Advanced Customs editor the case system",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-pack13-orphans",
+  "videoDurationSec": 900,
+  "matterShell": {
+    "description": "Advanced Customs — conditional fields, insurance/meds tab extensions",
+    "route": "/settings/custom-fields",
+    "selectors": ["customsEditor", "conditionalLogic", "insuranceTab", "medsTab"]
+  },
+  "functions": [
+    {
+      "id": "customs.advanced.conditional_fields",
+      "sequence": 1,
+      "frame": "frame_003.jpg",
+      "timestampSec": 120,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Conditional logic",
+      "fields": ["showWhen", "hideWhen"],
+      "actions": ["addConditionalField", "linkToContactType"],
+      "transcriptQuote": "Advanced customs — fields change when contact type is adjuster vs provider",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "No conditional custom field rules"
+    },
+    {
+      "id": "customs.advanced.insurance_tab_fields",
+      "sequence": 2,
+      "frame": "frame_006.jpg",
+      "timestampSec": 300,
+      "filevineSurface": "Insurance customs",
+      "filevineTab": "Insurance",
+      "filevineSection": "3P LOR fields",
+      "fields": ["lorTemplate", "adjusterFax", "claimNumber"],
+      "actions": ["extendInsuranceTabFields", "wireDocGenMerge"],
+      "transcriptQuote": "See ADVANCED Customs Editor INS Tab 3P LOR — custom insurance fields",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "gapNotes": "Insurance tab fields not admin-configurable"
+    },
+    {
+      "id": "customs.advanced.meds_tab_fields",
+      "sequence": 3,
+      "frame": "frame_009.jpg",
+      "timestampSec": 480,
+      "filevineSurface": "Meds customs",
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger columns",
+      "fields": ["lienSold", "knowledgeOfUs", "yellowSheetOrder"],
+      "actions": ["addMedsColumn", "defaultSortOrder"],
+      "transcriptQuote": "See ADVANCED Customs Editor Meds Field Tab — ledger columns",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "gapNotes": "Meds ledger schema is fixed in code"
+    },
+    {
+      "id": "customs.advanced.deadlines_reminders",
+      "sequence": 4,
+      "frame": "frame_012.jpg",
+      "timestampSec": 660,
+      "filevineSurface": "Deadlines editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Reminders",
+      "fields": ["deadlineRule", "reminderOffset"],
+      "actions": ["configurePhaseDeadlines", "autoCreateReminders"],
+      "transcriptQuote": "See ADVANCED Deadlines and Reminders Editor pack",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "gapNotes": "No deadline/reminder editor"
+    }
+  ],
+  "labeledFrames": ["frame_003.jpg", "frame_006.jpg", "frame_009.jpg", "frame_012.jpg"]
+}

@@ -67,20 +67,29 @@ function videoDurationSec(videoPath) {
 }
 
 function resolveVideoPath(slug, videoMap) {
+  const meta = loadTranscriptMeta(slug);
+
   const fromMap = videoMap?.matched?.find((m) => m.slug === slug);
   if (fromMap && fs.existsSync(fromMap.quarantinePath)) {
     return fromMap.quarantinePath;
   }
 
-  const meta = loadTranscriptMeta(slug);
+  if (meta?.sourceVideo && fs.existsSync(meta.sourceVideo)) {
+    return meta.sourceVideo;
+  }
+
   if (!meta) return null;
 
   const quarantine = quarantineDir();
   if (!fs.existsSync(quarantine)) return null;
 
+  const exact = path.join(quarantine, meta.filename);
+  if (fs.existsSync(exact)) return exact;
+
   const files = fs.readdirSync(quarantine).filter((f) => /\.(mp4|mov|m4v)$/i.test(f));
   const hit = bestMatch(meta.filename, files.map((f) => ({ filename: f })));
   if (hit) return path.join(quarantine, hit.filename);
+
   return null;
 }
 

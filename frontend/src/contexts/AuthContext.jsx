@@ -51,8 +51,15 @@ export function AuthProvider({ children }) {
     window.location.href = "/login";
   };
 
+  const refreshMe = async () => {
+    const r = await api.get("/auth/me");
+    setUser(r.data.user);
+    setFirm(r.data.firm);
+    return r.data;
+  };
+
   return (
-    <AuthContext.Provider value={{ user, firm, loading, login, signup, logout }}>
+    <AuthContext.Provider value={{ user, firm, loading, login, signup, logout, refreshMe }}>
       {children}
     </AuthContext.Provider>
   );

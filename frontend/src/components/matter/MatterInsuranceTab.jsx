@@ -24,6 +24,57 @@ const POLICY_TYPES = [
   { value: "commercial", label: "Commercial" },
 ];
 
+const CARRIER_PII_ITEMS = [
+  { key: "withheld_client_phone", label: "Did not give client phone" },
+  { key: "withheld_client_address", label: "Did not give client address" },
+  { key: "withheld_client_dob", label: "Did not give client DOB" },
+  { key: "withheld_client_ssn", label: "Did not give client SSN" },
+  { key: "withheld_accident_narrative", label: "Did not describe how accident happened" },
+  { key: "shared_injuries_only", label: "Shared injuries only (no client PII)" },
+  { key: "defendant_vehicle_confirmed", label: "Confirmed defendant vehicle / plate only if asked" },
+];
+
+function CarrierCallPiiChecklist({ pii, onChange, onAcknowledge }) {
+  const complete = CARRIER_PII_ITEMS.every((item) => Boolean(pii?.[item.key]));
+  return (
+    <div className="data-card p-5 space-y-3" data-testid="carrier-call-pii-checklist">
+      <div>
+        <div className="overline mb-1">// carrier open-call PII gate</div>
+        <p className="text-xs text-praxium-subtle">
+          Training: give adjuster policy/claim info only — never client phone, address, DOB, or SSN. Injuries only; no accident narrative.
+        </p>
+      </div>
+      <ul className="space-y-2">
+        {CARRIER_PII_ITEMS.map((item) => (
+          <li key={item.key}>
+            <label className="flex items-start gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={Boolean(pii?.[item.key])}
+                onChange={(e) => onChange({ [item.key]: e.target.checked })}
+                data-testid={`pii-${item.key}`}
+              />
+              <span>{item.label}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+      <button
+        type="button"
+        className="btn-praxium text-sm"
+        disabled={!complete}
+        onClick={onAcknowledge}
+        data-testid="pii-acknowledge"
+      >
+        Acknowledge call followed PII policy
+      </button>
+      {pii?.acknowledged_at ? (
+        <p className="text-xs font-mono text-emerald-800">Acknowledged {pii.acknowledged_at}</p>
+      ) : null}
+    </div>
+  );
+}
+
 function Field({ label, children, hint }) {
   return (
     <label className="block text-sm">
@@ -302,6 +353,24 @@ export default function MatterInsuranceTab({ matterId }) {
           <span>3P LOR follow-up due — call adjuster if no acknowledgment.</span>
         </div>
       ) : null}
+
+      <CarrierCallPiiChecklist
+        pii={piInsurance.carrier_call_pii}
+        onChange={(patch) => {
+          setPiInsurance((prev) => ({
+            ...prev,
+            carrier_call_pii: { ...prev.carrier_call_pii, ...patch },
+          }));
+          save({ carrier_call_pii: { ...piInsurance.carrier_call_pii, ...patch } });
+        }}
+        onAcknowledge={() => {
+          const ts = new Date().toISOString().slice(0, 10);
+          const next = { ...piInsurance.carrier_call_pii, acknowledged_at: ts };
+          setPiInsurance((prev) => ({ ...prev, carrier_call_pii: next }));
+          save({ carrier_call_pii: next });
+          toast.success("Carrier call PII checklist acknowledged");
+        }}
+      />
 
       <div className="data-card p-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Field label="Claimants on this loss (pro rata)" hint="Enter same limits on each related case.">

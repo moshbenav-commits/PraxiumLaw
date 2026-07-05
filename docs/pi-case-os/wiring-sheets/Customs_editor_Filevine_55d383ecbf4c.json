@@ -1,0 +1,79 @@
+{
+  "slug": "Customs_editor_Filevine_55d383ecbf4c",
+  "title": "Customs editor the case system",
+  "labeledAt": "2026-07-05",
+  "labeledBy": "agent-pack13-orphans",
+  "videoDurationSec": 900,
+  "matterShell": {
+    "description": "Customs Editor — add fields/tabs to PI project type (transcript missing; anchor from title + webinar pack)",
+    "route": "/settings/custom-fields",
+    "selectors": ["customsEditor", "projectType:PI"]
+  },
+  "functions": [
+    {
+      "id": "customs.editor.open_pi_project_type",
+      "sequence": 1,
+      "frame": "frame_002.jpg",
+      "timestampSec": 60,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Project type",
+      "fields": ["projectType"],
+      "actions": ["openCustomsEditor", "selectPersonalInjuryTemplate"],
+      "transcriptQuote": "Customs editor the case system — configure PI matter fields and tabs",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "No admin customs/field editor for matter schemas"
+    },
+    {
+      "id": "customs.editor.add_tab_section",
+      "sequence": 2,
+      "frame": "frame_005.jpg",
+      "timestampSec": 240,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Tab layout",
+      "fields": ["tabOrder[]", "sectionName"],
+      "actions": ["addTabSection", "reorderTabs"],
+      "transcriptQuote": "See CUSTOMS_EDITOR_Webinar — add tabs and sections to PI projects",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "No tab/section builder"
+    },
+    {
+      "id": "customs.editor.field_types",
+      "sequence": 3,
+      "frame": "frame_008.jpg",
+      "timestampSec": 420,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Field types",
+      "fields": ["fieldType", "dropdownOptions[]", "required"],
+      "actions": ["addDropdownField", "addDateField", "markRequired"],
+      "transcriptQuote": "See ADVANCED Customs Editor INS/Meds packs — dropdown and date fields",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "No custom field type palette"
+    },
+    {
+      "id": "customs.editor.publish_to_firm",
+      "sequence": 4,
+      "frame": "frame_012.jpg",
+      "timestampSec": 660,
+      "filevineSurface": "Customs Editor",
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Publish",
+      "fields": [],
+      "actions": ["saveAndPublishCustoms", "applyToNewMatters"],
+      "transcriptQuote": "Publish customs changes to all new PI projects",
+      "praxiumRoute": "/settings/custom-fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "gapNotes": "No publish workflow for schema changes"
+    }
+  ],
+  "labeledFrames": ["frame_002.jpg", "frame_005.jpg", "frame_008.jpg", "frame_012.jpg"]
+}

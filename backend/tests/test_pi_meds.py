@@ -67,6 +67,22 @@ def test_meds_ledger_crud(auth_headers):
     r4 = client.get(f"/api/matters/{mid}/meds-ledger", headers=auth_headers)
     assert r4.json()["summary"]["missing_cor_count"] == 1
 
+    r6 = client.patch(
+        f"/api/meds-ledger/{row_id}",
+        headers=auth_headers,
+        json={
+            "lien_sold_to": "JML",
+            "cpt_code": "72141",
+            "date_of_service": "2017-01-31",
+            "chartswap_required": True,
+        },
+    )
+    assert r6.status_code == 200
+    assert r6.json()["lien_sold_to"] == "JML"
+    assert r6.json()["cpt_code"] == "72141"
+    assert r6.json()["chartswap_required"] is True
+    assert client.get(f"/api/matters/{mid}/meds-ledger", headers=auth_headers).json()["summary"]["lien_sold_count"] == 1
+
     r5 = client.delete(f"/api/meds-ledger/{row_id}", headers=auth_headers)
     assert r5.status_code == 200
 

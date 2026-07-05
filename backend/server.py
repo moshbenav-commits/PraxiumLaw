@@ -300,7 +300,11 @@ async def login(req: LoginReq, request: Request):
 @api.get("/auth/me")
 async def me(user=Depends(get_current_user)):
     firm = await db.firms.find_one({"id": user["firm_id"]}, {"_id": 0})
-    return {"user": user, "firm": firm}
+    return {
+        "user": user,
+        "firm": firm,
+        "disclosure_required": user_needs_disclosure(user),
+    }
 
 
 # ──────────────── matters ────────────────
@@ -339,6 +343,7 @@ async def create_matter(m: MatterIn, user=Depends(get_current_user)):
     from pi_client_comms import default_pi_comms
 
     doc["pi_comms"] = default_pi_comms()
+    doc["pi_subrogation"] = default_pi_subrogation()
     await db.matters.insert_one(doc)
     # Activity
     await db.activities.insert_one({
@@ -1132,6 +1137,8 @@ BACKEND_MODULES = (
     "pi_property_damage",
     "pi_comms",
     "pi_audit",
+    "pi_subrogation",
+    "disclosure",
 )
 
 
@@ -1211,6 +1218,8 @@ from pi_settlement import default_pi_settlement, register_pi_settlement_routes
 from pi_property_damage import default_pi_property_damage, register_pi_property_damage_routes, merge_pi_property_damage, compute_pd_summary
 from pi_client_comms import default_pi_comms, register_pi_comms_routes, merge_pi_comms, compute_comms_cadence
 from pi_audit_dashboard import register_pi_audit_routes
+from pi_subrogation import default_pi_subrogation, register_pi_subrogation_routes, merge_pi_subrogation, compute_subrogation_alerts
+from disclosure import register_disclosure_routes, require_disclosure_ack, user_needs_disclosure
 from pi_meds import (
     register_pi_meds_routes,
     summarize_ledger,
@@ -1326,12 +1335,29 @@ register_pi_audit_routes(
     merge_pi_demand=merge_pi_demand,
     merge_pi_property_damage=merge_pi_property_damage,
     merge_pi_comms=merge_pi_comms,
+    merge_pi_subrogation=merge_pi_subrogation,
     merge_ledger_row=merge_ledger_row,
     summarize_ledger=summarize_ledger,
     compute_matter_treatment_alerts=compute_matter_treatment_alerts,
     compute_phase_audit=compute_phase_audit,
     compute_pd_summary=compute_pd_summary,
     compute_comms_cadence=compute_comms_cadence,
+    compute_subrogation_alerts=compute_subrogation_alerts,
+)
+register_pi_subrogation_routes(
+    api,
+    db,
+    get_current_user,
+    now_iso=now,
+    merge_pi_intake=merge_pi_intake,
+)
+register_disclosure_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    log_audit=log_audit,
 )
 
 

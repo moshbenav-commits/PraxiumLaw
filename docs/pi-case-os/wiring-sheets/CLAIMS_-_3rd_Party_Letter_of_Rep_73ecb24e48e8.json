@@ -2,58 +2,110 @@
   "slug": "CLAIMS_-_3rd_Party_Letter_of_Rep_73ecb24e48e8",
   "title": "CLAIMS - 3rd Party Letter of Rep",
   "labeledAt": "2026-07-05",
-  "labeledBy": "agent-bulk-anchor-packs8-12",
-  "videoDurationSec": null,
+  "labeledBy": "agent-refine-pack8",
+  "videoDurationSec": 606,
   "matterShell": {
-    "description": "Anchor wiring from training: CLAIMS - 3rd Party Letter of Rep",
-    "route": "/matters/:id",
-    "selectors": [
-      "insurance",
-      "docgen"
-    ]
+    "description": "Insurance tab populated → DocGen 3P LOR → merge GR → fax to adjuster",
+    "route": "/matters/:id/insurance",
+    "selectors": ["docgen3pLOR", "generalReleaseMerge", "faxSend"]
   },
   "functions": [
     {
-      "id": "insurance.claims___3rd_1",
+      "id": "insurance.lor.verify_adjuster_before_docgen",
       "sequence": 1,
-      "frame": "frame_007.jpg",
-      "timestampSec": 180,
-      "filevineSurface": "Insurance",
+      "frame": "frame_004.jpg",
+      "timestampSec": 90,
+      "filevineSurface": "Insurance tab",
       "filevineTab": "Insurance",
-      "filevineSection": "Claim / adjuster fields",
-      "fields": [],
-      "actions": [
-        "reviewInsuranceWorkflow",
-        "mapToPraxiuminsurance"
-      ],
-      "transcriptQuote": "# CLAIMS - 3rd Party Letter of Rep **Kind:** other **Tags:** — **Speakers:** — **Complete sales call:** No **VIN",
+      "filevineSection": "3P adjuster",
+      "fields": ["adjusterName", "carrierName", "claimNumber", "policyNumber"],
+      "actions": ["confirmAdjusterInInsuranceTab", "verifyDualClientMatter"],
+      "transcriptQuote": "put all that information in here… adjuster… company… claim number and policy number… represent Alex Gonzalez and Cesar Nava",
       "praxiumRoute": "/matters/:id",
       "praxiumTab": "insurance",
-      "status": "missing",
-      "gapNotes": "Praxium insurance lacks Filevine Insurance parity"
+      "status": "partial",
+      "gapNotes": "Insurance tab partial; no pre-LOR field completeness check"
     },
     {
-      "id": "docgen.claims___3rd_2",
+      "id": "docgen.lor.generate_3p_with_carrier_name",
       "sequence": 2,
-      "frame": "frame_013.jpg",
-      "timestampSec": 360,
+      "frame": "frame_008.jpg",
+      "timestampSec": 210,
       "filevineSurface": "DocGen",
       "filevineTab": "DocGen",
-      "filevineSection": "Letter generation",
-      "fields": [],
-      "actions": [
-        "reviewDocGenWorkflow",
-        "mapToPraxiumdocgen"
-      ],
-      "transcriptQuote": "nsurance adjuster's name, and her name is Linda Martinez. So got everything in here, and now we can generate the third-party LOR. And again, we represent Cesar Nava's and Alex Gonzalez. So as soon as",
+      "filevineSection": "3P LOR",
+      "fields": ["carrierName:GEICO", "attentionAdjuster", "dualClients[]"],
+      "actions": ["generateThirdPartyLOR", "fixMissingCompanyNameOnMerge", "addSecondClientName"],
+      "transcriptQuote": "generate the third-party LOR… didn't populate correctly… need to put the company name on here… Geico… attention Linda Martinez",
       "praxiumRoute": "/matters/:id",
       "praxiumTab": "documents",
       "status": "missing",
-      "gapNotes": "Praxium documents lacks Filevine DocGen parity"
+      "gapNotes": "No 3P LOR DocGen with carrier c/o merge fix"
+    },
+    {
+      "id": "docgen.lor.enclosures_general_releases",
+      "sequence": 3,
+      "frame": "frame_012.jpg",
+      "timestampSec": 330,
+      "filevineSurface": "Word / DocGen",
+      "filevineTab": "DocGen",
+      "filevineSection": "Enclosures",
+      "fields": ["enclosures:generalReleases[]", "fontSize:11"],
+      "actions": ["listEnclosedGeneralReleases", "fitOnePage", "removePDParagraphIfRental"],
+      "transcriptQuote": "enclose general releases… one page… rental car so take that paragraph out… two parties' names on there",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "No LOR enclosure picker from client GR docs"
+    },
+    {
+      "id": "docs.save_lor_draft_and_actual",
+      "sequence": 4,
+      "frame": "frame_014.jpg",
+      "timestampSec": 390,
+      "filevineSurface": "Docs tab",
+      "filevineTab": "Docs",
+      "filevineSection": "Defendant correspondence",
+      "fields": ["folder:correspondence/draft", "folder:correspondence/actual"],
+      "actions": ["saveAsDraftPDF", "saveAsActualPDF", "nameWithDateAndInitials"],
+      "transcriptQuote": "save in defendant… third party LOR… save as draft… save as actual PDF… correspondence actual",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "partial",
+      "gapNotes": "Docs classify partial; no draft vs actual LOR workflow"
+    },
+    {
+      "id": "docs.merge_lor_with_gr_nitro",
+      "sequence": 5,
+      "frame": "frame_016.jpg",
+      "timestampSec": 450,
+      "filevineSurface": "PDF merge",
+      "filevineTab": "Docs",
+      "filevineSection": "Package assembly",
+      "fields": [],
+      "actions": ["combineLORWithClientGeneralReleases", "exportFinalDefendantLOR"],
+      "transcriptQuote": "open in Nitro PDF… combine files… attach general releases… defendants LOR correspondence actual final",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "documents",
+      "status": "missing",
+      "gapNotes": "No in-app PDF merge for LOR + GR package"
+    },
+    {
+      "id": "comms.fax_lor_to_adjuster",
+      "sequence": 6,
+      "frame": "frame_018.jpg",
+      "timestampSec": 510,
+      "filevineSurface": "Metrofax / email fax",
+      "filevineTab": "Insurance",
+      "filevineSection": "Send LOR",
+      "fields": ["faxNumber", "claimNumberInSubject", "clientNamesInSubject"],
+      "actions": ["sendViaFacsimile", "attachFinalPDF", "logSentLOR"],
+      "transcriptQuote": "send via facsimile… 866-568-2132 at metrofax.com… claim number in subject… so they will not bother our clients",
+      "praxiumRoute": "/matters/:id",
+      "praxiumTab": "comms",
+      "status": "missing",
+      "gapNotes": "No fax/send LOR workflow with claim number in cover"
     }
   ],
-  "labeledFrames": [
-    "frame_007.jpg",
-    "frame_013.jpg"
-  ]
+  "labeledFrames": ["frame_004.jpg", "frame_008.jpg", "frame_012.jpg", "frame_014.jpg", "frame_016.jpg", "frame_018.jpg"]
 }

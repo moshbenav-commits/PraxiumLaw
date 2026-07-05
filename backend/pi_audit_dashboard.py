@@ -32,12 +32,14 @@ def register_pi_audit_routes(
     merge_pi_demand: Callable,
     merge_pi_property_damage: Callable,
     merge_pi_comms: Callable,
+    merge_pi_subrogation: Callable,
     merge_ledger_row: Callable,
     summarize_ledger: Callable,
     compute_matter_treatment_alerts: Callable,
     compute_phase_audit: Callable,
     compute_pd_summary: Callable,
     compute_comms_cadence: Callable,
+    compute_subrogation_alerts: Callable,
 ):
     async def _matter_issues(matter: dict) -> list[dict[str, Any]]:
         issues: list[dict[str, Any]] = []
@@ -112,6 +114,14 @@ def register_pi_audit_routes(
                 }
             )
 
+        intake = merge_pi_intake(matter.get("pi_intake"))
+        sub_alerts = compute_subrogation_alerts(
+            matter.get("pi_subrogation"),
+            medicare_recipient=intake.get("medicare_recipient"),
+        )
+        for a in sub_alerts:
+            issues.append({**a, "area": "subrogation", "tab": "subrogation"})
+
         unclassified = int(matter.get("unclassified_doc_count") or 0)
         if unclassified:
             issues.append(
@@ -146,6 +156,7 @@ def register_pi_audit_routes(
                 "pi_demand": 1,
                 "pi_property_damage": 1,
                 "pi_comms": 1,
+                "pi_subrogation": 1,
                 "meds_ledger": 1,
             },
         )

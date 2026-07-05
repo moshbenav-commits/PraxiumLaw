@@ -26,7 +26,7 @@
   "updatedAt": "2026-06-18T20:33:38.317744+00:00",
   "hasAudioArchive": true,
   "audioBytes": 22159669,
-  "frameCount": 15,
+  "frameCount": 20,
   "frames": [
     "frame_001.jpg",
     "frame_002.jpg",
@@ -44,6 +44,8 @@
     "frame_014.jpg",
     "frame_015.jpg"
   ],
-  "intervalSec": 45,
-  "screenshotsDir": "training-archive/van-law-the case system/1_Filevine_-Introduction_433bea87aae0/screenshots"
+  "intervalSec": 30,
+  "screenshotsDir": "training-archive/van-law-the case system/1_Filevine_-Introduction_433bea87aae0/screenshots",
+  "durationSec": 600,
+  "frameManifest": "training-archive/van-law-the case system/1_Filevine_-Introduction_433bea87aae0/screenshots/frame-manifest.json"
 }

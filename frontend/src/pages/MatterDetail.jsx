@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import api from "@/lib/api";
 import { STATUSES, STATUS_COLORS, STATUS_DOT, formatDate, formatMoney, PRACTICE_AREAS, timeAgo } from "@/lib/utils";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, ClipboardList, Shield, GitBranch, FileStack, Calculator, Car, Phone } from "lucide-react";
+import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, ClipboardList, Shield, GitBranch, FileStack, Calculator, Car, Phone, HeartPulse } from "lucide-react";
 import { toast } from "sonner";
 import PageLoader from "@/components/common/PageLoader";
 import MatterIntakeTab from "@/components/matter/MatterIntakeTab";
@@ -15,6 +15,7 @@ import MatterDemandTab from "@/components/matter/MatterDemandTab";
 import MatterSettlementTab from "@/components/matter/MatterSettlementTab";
 import MatterPropertyDamageTab from "@/components/matter/MatterPropertyDamageTab";
 import MatterCommsTab from "@/components/matter/MatterCommsTab";
+import MatterSubrogationTab from "@/components/matter/MatterSubrogationTab";
 import { piPhaseLabel, PI_PHASE_COLORS } from "@/lib/utils";
 
 const TABS = [
@@ -30,6 +31,7 @@ const TABS = [
   { id: "documents", label: "Documents", icon: FileText },
   { id: "notes", label: "Notes", icon: MessageSquare },
   { id: "medical", label: "Medical", icon: Stethoscope },
+  { id: "subrogation", label: "Subrogation", icon: HeartPulse },
   { id: "filings", label: "Filings", icon: Scale },
   { id: "portal", label: "Client msgs", icon: Users },
   { id: "chat", label: "Team chat", icon: MessageSquare },
@@ -398,6 +400,7 @@ export default function MatterDetail() {
         )}
 
         {tab === "medical" && <MatterMedicalTab matterId={id} />}
+        {tab === "subrogation" && <MatterSubrogationTab matterId={id} practiceArea={matter.practice_area} />}
 
         {tab === "filings" && (
           <div className="data-card p-5">

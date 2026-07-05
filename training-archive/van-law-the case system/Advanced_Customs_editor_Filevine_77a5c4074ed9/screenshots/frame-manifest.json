@@ -1,0 +1,173 @@
+{
+  "slug": "Advanced_Customs_editor_Filevine_77a5c4074ed9",
+  "title": "Advanced_Customs_editor_Filevine_77a5c4074ed9",
+  "videoPath": "/Users/ricardo/Downloads/_Sorted/Legal/the firm Docs/the case system/Advanced Customs editor the case system.mp4",
+  "extractedAt": "2026-07-05T03:13:45.044Z",
+  "intervalSec": 60,
+  "durationSec": 900,
+  "frameCount": 15,
+  "frames": [
+    {
+      "filename": "frame_001.jpg",
+      "timestampSec": 0,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_002.jpg",
+      "timestampSec": 60,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_003.jpg",
+      "timestampSec": 120,
+      "labeled": true,
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Conditional logic",
+      "functionId": "customs.advanced.conditional_fields",
+      "praxiumTab": "intake",
+      "status": "missing",
+      "praxiumRoute": "/settings/custom-fields",
+      "transcriptQuote": "Advanced customs — fields change when contact type is adjuster vs provider"
+    },
+    {
+      "filename": "frame_004.jpg",
+      "timestampSec": 180,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_005.jpg",
+      "timestampSec": 240,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_006.jpg",
+      "timestampSec": 300,
+      "labeled": true,
+      "filevineTab": "Insurance",
+      "filevineSection": "3P LOR fields",
+      "functionId": "customs.advanced.insurance_tab_fields",
+      "praxiumTab": "insurance",
+      "status": "missing",
+      "praxiumRoute": "/settings/custom-fields",
+      "transcriptQuote": "See ADVANCED Customs Editor INS Tab 3P LOR — custom insurance fields"
+    },
+    {
+      "filename": "frame_007.jpg",
+      "timestampSec": 360,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_008.jpg",
+      "timestampSec": 420,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_009.jpg",
+      "timestampSec": 480,
+      "labeled": true,
+      "filevineTab": "Meds",
+      "filevineSection": "Provider ledger columns",
+      "functionId": "customs.advanced.meds_tab_fields",
+      "praxiumTab": "medical",
+      "status": "missing",
+      "praxiumRoute": "/settings/custom-fields",
+      "transcriptQuote": "See ADVANCED Customs Editor Meds Field Tab — ledger columns"
+    },
+    {
+      "filename": "frame_010.jpg",
+      "timestampSec": 540,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_011.jpg",
+      "timestampSec": 600,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_012.jpg",
+      "timestampSec": 660,
+      "labeled": true,
+      "filevineTab": "Customs Editor",
+      "filevineSection": "Reminders",
+      "functionId": "customs.advanced.deadlines_reminders",
+      "praxiumTab": "pipeline",
+      "status": "missing",
+      "praxiumRoute": "/settings/custom-fields",
+      "transcriptQuote": "See ADVANCED Deadlines and Reminders Editor pack"
+    },
+    {
+      "filename": "frame_013.jpg",
+      "timestampSec": 720,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_014.jpg",
+      "timestampSec": 780,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    },
+    {
+      "filename": "frame_015.jpg",
+      "timestampSec": 840,
+      "labeled": false,
+      "filevineTab": null,
+      "filevineSection": null,
+      "functionId": null,
+      "praxiumTab": null,
+      "status": "unreviewed"
+    }
+  ],
+  "synthetic": true,
+  "wiringSheet": "docs/pi-case-os/wiring-sheets/Advanced_Customs_editor_Filevine_77a5c4074ed9.json",
+  "labeledFrameCount": 4,
+  "labeledAt": "2026-07-05"
+}

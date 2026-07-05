@@ -16,13 +16,15 @@ Each pack = batch of transcript slugs @ **30s** frame interval.
 | 10 | `pack10-case-audit-review.json` | Case audit, cleaner fish, 30-day review (8) |
 | 11 | `pack11-subrogation-medical.json` | Subrogation, hospital/client medical (4) |
 | 12 | `pack12-pi-workflow-misc.json` | Remaining PI workflow (34) |
+| 13 | `pack13-orphans.json` | Intro, feed pt1, police pt2, customs editors (5) |
 
 ```bash
 npm run pi:filevine:extract:rest          # Filevine packs 2–6
 npm run pi:filevine:extract:pi-rest       # PI ops packs 7–12 (~76 videos)
 npm run pi:filevine:extract:dense         # packs 2,3,4,8 @ 15s (force re-extract)
+node scripts/pi-case-os/filevine-extract-frames.mjs --pack=pack13-orphans
 ```
 
-**Coverage (2026-07-05):** ~134 videos · ~7k+ frames. Packs **2, 3, 4, 8** re-shot @ **15s** (~48 videos, ~2× frame density). Remaining 25 quarantine matches skipped as non-PI (jobs, MLS, DocuSign real estate, admin).
+**Coverage (2026-07-05):** **139/139** registry videos `wiring_labeled` · 716+ functions · frames local (gitignored JPGs). Extract prefers `meta.sourceVideo` when quarantine miss.
 
 See `../FILEVINE_UI_CAPTURE_RUNBOOK.md`.
