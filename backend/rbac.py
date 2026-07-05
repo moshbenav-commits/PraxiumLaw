@@ -41,6 +41,8 @@ PERMISSIONS: dict[str, Set[str]] = {
     "settlement.read": {"admin", "partner", "attorney", "paralegal", "staff", "billing"},
     "settlement.draft": {"admin", "partner", "attorney", "paralegal", "staff"},
     "settlement.approve": {"admin", "partner", "attorney"},
+    "expenses.read": {"admin", "partner", "attorney", "paralegal", "staff", "billing"},
+    "expenses.draft": {"admin", "partner", "attorney", "paralegal", "staff"},
 }
 
 

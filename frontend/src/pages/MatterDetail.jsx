@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import api from "@/lib/api";
 import { STATUSES, STATUS_COLORS, STATUS_DOT, formatDate, formatMoney, PRACTICE_AREAS, timeAgo } from "@/lib/utils";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, ClipboardList, Shield, GitBranch, FileStack, Calculator, Car, Phone, HeartPulse } from "lucide-react";
+import { ChevronLeft, Plus, Pin, Briefcase, FileText, CheckSquare, MessageSquare, Stethoscope, Scale, Users, Link2, ClipboardList, Shield, GitBranch, FileStack, Calculator, Car, Phone, HeartPulse, DollarSign } from "lucide-react";
 import { toast } from "sonner";
 import PageLoader from "@/components/common/PageLoader";
 import MatterIntakeTab from "@/components/matter/MatterIntakeTab";
@@ -16,12 +16,14 @@ import MatterSettlementTab from "@/components/matter/MatterSettlementTab";
 import MatterPropertyDamageTab from "@/components/matter/MatterPropertyDamageTab";
 import MatterCommsTab from "@/components/matter/MatterCommsTab";
 import MatterSubrogationTab from "@/components/matter/MatterSubrogationTab";
+import MatterExpensesTab from "@/components/matter/MatterExpensesTab";
 import { piPhaseLabel, PI_PHASE_COLORS } from "@/lib/utils";
 
 const TABS = [
   { id: "overview", label: "Overview", icon: Briefcase },
   { id: "settlement", label: "Settlement", icon: Calculator },
   { id: "demand", label: "Demand", icon: FileStack },
+  { id: "expenses", label: "Expenses", icon: DollarSign },
   { id: "pipeline", label: "Pipeline", icon: GitBranch },
   { id: "intake", label: "Intake", icon: ClipboardList },
   { id: "insurance", label: "Insurance", icon: Shield },
@@ -332,6 +334,7 @@ export default function MatterDetail() {
 
         {tab === "settlement" && <MatterSettlementTab matterId={id} practiceArea={matter.practice_area} />}
         {tab === "demand" && <MatterDemandTab matterId={id} practiceArea={matter.practice_area} />}
+        {tab === "expenses" && <MatterExpensesTab matterId={id} practiceArea={matter.practice_area} />}
         {tab === "pipeline" && <MatterPhaseTab matterId={id} practiceArea={matter.practice_area} onChanged={reload} />}
         {tab === "intake" && <MatterIntakeTab matterId={id} />}
 

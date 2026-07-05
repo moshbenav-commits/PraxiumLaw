@@ -48,6 +48,54 @@ def default_prep_checklist() -> list[dict[str, Any]]:
     return [{"id": i["id"], "label": i["label"], "complete": False, "notes": ""} for i in PREP_CHECKLIST_DEFAULTS]
 
 
+DEFAULT_MILEAGE_RATE = 0.67
+
+
+def default_economic_damages() -> dict[str, Any]:
+    return {
+        "wage_loss_hours": None,
+        "wage_loss_hourly_rate": None,
+        "wage_loss_total": 0.0,
+        "mileage_miles": None,
+        "mileage_rate": DEFAULT_MILEAGE_RATE,
+        "mileage_total": 0.0,
+        "rental_car_total": 0.0,
+        "other_expenses_total": 0.0,
+        "notes": "",
+    }
+
+
+def merge_economic_damages(existing: Optional[dict]) -> dict[str, Any]:
+    base = default_economic_damages()
+    if not existing:
+        return base
+    return {**base, **{k: v for k, v in existing.items() if k in base}}
+
+
+def compute_economic_total(economic: Optional[dict]) -> float:
+    econ = merge_economic_damages(economic)
+    return round(
+        float(econ.get("wage_loss_total") or 0)
+        + float(econ.get("mileage_total") or 0)
+        + float(econ.get("rental_car_total") or 0)
+        + float(econ.get("other_expenses_total") or 0),
+        2,
+    )
+
+
+def apply_economic_auto_totals(economic: dict) -> dict[str, Any]:
+    econ = merge_economic_damages(economic)
+    hours = econ.get("wage_loss_hours")
+    rate = econ.get("wage_loss_hourly_rate")
+    if hours is not None and rate is not None:
+        econ["wage_loss_total"] = round(float(hours) * float(rate), 2)
+    miles = econ.get("mileage_miles")
+    mrate = econ.get("mileage_rate") if econ.get("mileage_rate") is not None else DEFAULT_MILEAGE_RATE
+    if miles is not None:
+        econ["mileage_total"] = round(float(miles) * float(mrate), 2)
+    return econ
+
+
 def default_pi_demand() -> dict[str, Any]:
     return {
         "status": "draft",
@@ -55,6 +103,7 @@ def default_pi_demand() -> dict[str, Any]:
         "prep_checklist": default_prep_checklist(),
         "exhibits": [],
         "specials_total": 0.0,
+        "economic_damages": default_economic_damages(),
         "general_damages_notes": "",
         "letter_draft_notes": "",
         "response_due_date": None,
@@ -100,6 +149,7 @@ def merge_pi_demand(existing: Optional[dict]) -> dict[str, Any]:
         merged["demand_type"] = "third_party"
     if not isinstance(merged.get("exhibits"), list):
         merged["exhibits"] = []
+    merged["economic_damages"] = merge_economic_damages(existing.get("economic_damages"))
     return merged
 
 
@@ -140,6 +190,53 @@ def build_exhibits_from_ledger(rows: list[dict], *, new_id: Callable) -> list[di
 
 def compute_specials_total(exhibits: list[dict]) -> float:
     return round(sum(float(e.get("amount") or 0) for e in exhibits if e.get("included")), 2)
+
+
+def compute_demand_validation(
+    *,
+    exhibits: list[dict],
+    ledger_rows: list[dict],
+    expense_summary: Optional[dict],
+    economic: Optional[dict],
+) -> dict[str, Any]:
+    exhibit_specials = compute_specials_total(exhibits)
+    ledger_specials = round(
+        sum(
+            float(r.get("balance") or 0) or float(r.get("futures_estimate") or 0)
+            for r in ledger_rows
+        ),
+        2,
+    )
+    economic_total = compute_economic_total(economic)
+    expense_ledger_total = float((expense_summary or {}).get("settlement_total") or 0)
+    expense_categories = (expense_summary or {}).get("by_category") or {}
+
+    warnings: list[str] = []
+    if abs(exhibit_specials - ledger_specials) > 0.01:
+        warnings.append(
+            f"Exhibit specials ({exhibit_specials}) differ from meds ledger ({ledger_specials}) — rebuild exhibits"
+        )
+    if expense_ledger_total > 0 and economic_total > 0:
+        ledger_econ_proxy = round(
+            float(expense_categories.get("wage_loss", 0))
+            + float(expense_categories.get("mileage", 0))
+            + float(expense_categories.get("rental_car", 0))
+            + float(expense_categories.get("copay_oob", 0))
+            + float(expense_categories.get("other", 0)),
+            2,
+        )
+        if abs(ledger_econ_proxy - economic_total) > 1.0:
+            warnings.append("Economic damages section may not match Expenses tab totals")
+
+    return {
+        "exhibit_specials": exhibit_specials,
+        "meds_ledger_total": ledger_specials,
+        "specials_match": abs(exhibit_specials - ledger_specials) <= 0.01,
+        "economic_damages_total": economic_total,
+        "expense_ledger_total": expense_ledger_total,
+        "grand_demand_total": round(exhibit_specials + economic_total, 2),
+        "warnings": warnings,
+    }
 
 
 def compute_limits_hint(pi_insurance: Optional[dict], specials_total: float) -> Optional[dict[str, Any]]:
@@ -186,10 +283,23 @@ class ExhibitIn(BaseModel):
     notes: str = ""
 
 
+class EconomicDamagesIn(BaseModel):
+    wage_loss_hours: Optional[float] = Field(None, ge=0)
+    wage_loss_hourly_rate: Optional[float] = Field(None, ge=0)
+    wage_loss_total: Optional[float] = Field(None, ge=0)
+    mileage_miles: Optional[float] = Field(None, ge=0)
+    mileage_rate: Optional[float] = Field(None, ge=0)
+    mileage_total: Optional[float] = Field(None, ge=0)
+    rental_car_total: Optional[float] = Field(None, ge=0)
+    other_expenses_total: Optional[float] = Field(None, ge=0)
+    notes: Optional[str] = Field(None, max_length=4000)
+
+
 class PiDemandPatchIn(BaseModel):
     demand_type: Optional[Literal["third_party", "medpay", "um_uim"]] = None
     prep_checklist: Optional[list[PrepChecklistItemIn]] = None
     exhibits: Optional[list[ExhibitIn]] = None
+    economic_damages: Optional[EconomicDamagesIn] = None
     general_damages_notes: Optional[str] = None
     letter_draft_notes: Optional[str] = None
     response_due_date: Optional[str] = None
@@ -220,6 +330,7 @@ def register_pi_demand_routes(
     *,
     merge_pi_insurance: Callable,
     merge_ledger_row: Callable,
+    summarize_expenses: Optional[Callable] = None,
 ):
     async def _load_matter(matter_id: str, firm_id: str, fields: Optional[dict] = None):
         projection = {"_id": 0, "id": 1, "practice_area": 1, "pi_demand": 1, "pi_insurance": 1, **(fields or {})}
@@ -261,11 +372,31 @@ def register_pi_demand_routes(
         insurance = merge_pi_insurance(m.get("pi_insurance"))
         limits_hint = compute_limits_hint(insurance, pi_demand.get("specials_total") or 0)
         incomplete_prep = sum(1 for i in pi_demand.get("prep_checklist", []) if not i.get("complete"))
+        ledger_rows = await db.med_ledger.find(
+            {"firm_id": user["firm_id"], "matter_id": matter_id},
+            {"_id": 0},
+        ).to_list(500)
+        ledger_items = [merge_ledger_row(r) for r in ledger_rows]
+        expense_summary = None
+        if summarize_expenses:
+            exp_rows = await db.matter_expenses.find(
+                {"firm_id": user["firm_id"], "matter_id": matter_id},
+                {"_id": 0},
+            ).to_list(500)
+            expense_summary = summarize_expenses(exp_rows)
+        validation = compute_demand_validation(
+            exhibits=pi_demand.get("exhibits") or [],
+            ledger_rows=ledger_items,
+            expense_summary=expense_summary,
+            economic=pi_demand.get("economic_damages"),
+        )
         return {
             "matter_id": matter_id,
             "pi_demand": pi_demand,
             "limits_hint": limits_hint,
             "prep_incomplete_count": incomplete_prep,
+            "validation": validation,
+            "expense_summary": expense_summary,
             "can_approve": user.get("role") in APPROVER_ROLES,
             "can_send": user.get("role") in APPROVER_ROLES and pi_demand.get("status") == "approved",
         }
@@ -298,6 +429,12 @@ def register_pi_demand_routes(
                     patch = by_id[row["id"]]
                     row["complete"] = patch.complete
                     row["notes"] = patch.notes
+
+        if body.economic_damages is not None:
+            econ_patch = body.economic_damages.model_dump(exclude_unset=True)
+            pi_demand["economic_damages"] = apply_economic_auto_totals(
+                {**pi_demand["economic_damages"], **econ_patch}
+            )
 
         if body.exhibits is not None:
             pi_demand["exhibits"] = []
@@ -348,6 +485,44 @@ def register_pi_demand_routes(
             {"$set": {"pi_demand": pi_demand, "updated_at": now_iso()}},
         )
         return {"matter_id": matter_id, "pi_demand": pi_demand, "exhibit_count": len(pi_demand["exhibits"])}
+
+    @api.post("/matters/{matter_id}/demand/sync-economic-from-expenses")
+    async def sync_economic_from_expenses(
+        matter_id: str,
+        user=Depends(require_permission("demand.draft", get_current_user)),
+    ):
+        m = await _load_matter(matter_id, user["firm_id"])
+        _assert_pi_matter(m)
+        pi_demand = merge_pi_demand(m.get("pi_demand"))
+        if pi_demand["status"] in ("pending_attorney_review", "sent"):
+            raise HTTPException(400, "Cannot sync economic damages while pending review or after send")
+        if not summarize_expenses:
+            raise HTTPException(501, "Expense sync not configured")
+
+        exp_rows = await db.matter_expenses.find(
+            {"firm_id": user["firm_id"], "matter_id": matter_id},
+            {"_id": 0},
+        ).to_list(500)
+        summary = summarize_expenses(exp_rows)
+        by_cat = summary.get("by_category") or {}
+        econ = pi_demand["economic_damages"]
+        econ["wage_loss_total"] = round(float(by_cat.get("wage_loss", 0)), 2)
+        econ["mileage_total"] = round(float(by_cat.get("mileage", 0)), 2)
+        econ["rental_car_total"] = round(float(by_cat.get("rental_car", 0)), 2)
+        econ["other_expenses_total"] = round(
+            float(by_cat.get("copay_oob", 0))
+            + float(by_cat.get("court_fee", 0))
+            + float(by_cat.get("records_fee", 0))
+            + float(by_cat.get("other", 0)),
+            2,
+        )
+        pi_demand["economic_damages"] = econ
+
+        await db.matters.update_one(
+            {"id": matter_id, "firm_id": user["firm_id"]},
+            {"$set": {"pi_demand": pi_demand, "updated_at": now_iso()}},
+        )
+        return {"matter_id": matter_id, "pi_demand": pi_demand, "expense_summary": summary}
 
     @api.post("/matters/{matter_id}/demand/submit-for-review")
     async def submit_demand_for_review(

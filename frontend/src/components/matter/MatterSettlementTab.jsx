@@ -197,6 +197,19 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
     patchScenario(patch);
   };
 
+  const syncFromExpenses = async () => {
+    setBusy(true);
+    try {
+      const r = await api.post(`/matters/${matterId}/expenses/sync-to-settlement`);
+      toast.success(`Expenses synced: ${formatMoney(r.data.expenses_synced)}`);
+      load();
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Expense sync failed");
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <div className="space-y-5" data-testid="matter-settlement-tab">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -283,7 +296,12 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
                   </label>
                   <label className="text-xs">
                     <span className="font-mono uppercase text-[10px] text-praxium-subtle">Expenses</span>
-                    <input type="number" className={inputClass()} value={scenario.expenses ?? 0} onChange={(e) => patchScenario({ expenses: Number(e.target.value) })} />
+                    <div className="flex gap-2 items-center mt-0.5">
+                      <input type="number" className={inputClass()} value={scenario.expenses ?? 0} onChange={(e) => patchScenario({ expenses: Number(e.target.value) })} />
+                      <button type="button" className="btn-ghost text-[10px] whitespace-nowrap" disabled={busy} onClick={syncFromExpenses} data-testid="settlement-sync-expenses">
+                        <RefreshCw size={10} /> From Expenses
+                      </button>
+                    </div>
                   </label>
                   <label className="text-xs">
                     <span className="font-mono uppercase text-[10px] text-praxium-subtle">MedPay to client</span>

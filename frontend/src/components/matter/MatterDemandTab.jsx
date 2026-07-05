@@ -208,6 +208,12 @@ export default function MatterDemandTab({ matterId, practiceArea }) {
           <span className="text-praxium-subtle font-mono text-[10px] uppercase">Specials</span>
           <div className="font-mono font-semibold">{formatMoney(demand.specials_total)}</div>
         </div>
+        {data.validation ? (
+          <div className="text-sm">
+            <span className="text-praxium-subtle font-mono text-[10px] uppercase">Grand total (med + economic)</span>
+            <div className="font-mono font-semibold">{formatMoney(data.validation.grand_demand_total)}</div>
+          </div>
+        ) : null}
         {data.limits_hint ? (
           <div className="text-xs bg-praxium-bg rounded px-3 py-2 max-w-md">
             BI limit {formatMoney(data.limits_hint.bi_per_person)} ·{" "}
@@ -216,6 +222,23 @@ export default function MatterDemandTab({ matterId, practiceArea }) {
           </div>
         ) : null}
       </div>
+
+      {data.validation?.warnings?.length ? (
+        <div className="flex flex-col gap-1 text-sm bg-amber-50 border border-amber-200 rounded-lg p-3">
+          {data.validation.warnings.map((w) => (
+            <div key={w} className="flex items-start gap-2">
+              <AlertTriangle size={14} className="shrink-0 mt-0.5" />
+              <span>{w}</span>
+            </div>
+          ))}
+        </div>
+      ) : null}
+
+      {data.validation && !data.validation.specials_match ? (
+        <div className="text-xs font-mono text-praxium-subtle">
+          Meds ledger {formatMoney(data.validation.meds_ledger_total)} vs exhibits {formatMoney(data.validation.exhibit_specials)}
+        </div>
+      ) : null}
 
       {demand.status === "pending_attorney_review" && !canApprove ? (
         <div className="flex items-start gap-2 text-sm bg-amber-50 border border-amber-200 rounded-lg p-3">
@@ -308,6 +331,73 @@ export default function MatterDemandTab({ matterId, practiceArea }) {
             </table>
           </div>
         )}
+      </div>
+
+      <div className="data-card p-4 space-y-4" data-testid="demand-economic-damages">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="overline text-[10px]">Economic damages — wage / mileage / expenses</div>
+          <button
+            type="button"
+            className="btn-ghost text-xs"
+            disabled={locked || busy}
+            onClick={async () => {
+              setBusy(true);
+              try {
+                const r = await api.post(`/matters/${matterId}/demand/sync-economic-from-expenses`);
+                setData((prev) => ({ ...prev, pi_demand: r.data.pi_demand, expense_summary: r.data.expense_summary }));
+                toast.success("Pulled totals from Expenses tab");
+                load();
+              } catch (err) {
+                toast.error(err.response?.data?.detail || "Sync failed");
+              } finally {
+                setBusy(false);
+              }
+            }}
+            data-testid="demand-sync-economic"
+          >
+            <RefreshCw size={12} /> Pull from Expenses tab
+          </button>
+        </div>
+        {(() => {
+          const econ = demand.economic_damages || {};
+          const saveEcon = (patch) => savePatch({ economic_damages: { ...econ, ...patch } });
+          return (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Wage loss hours</span>
+                <input type="number" className={inputClass()} disabled={locked || busy} value={econ.wage_loss_hours ?? ""} onChange={(e) => setData((prev) => ({ ...prev, pi_demand: { ...prev.pi_demand, economic_damages: { ...econ, wage_loss_hours: e.target.value ? Number(e.target.value) : null } } }))} onBlur={() => saveEcon({ wage_loss_hours: econ.wage_loss_hours, wage_loss_hourly_rate: econ.wage_loss_hourly_rate })} />
+              </label>
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Hourly rate ($)</span>
+                <input type="number" className={inputClass()} disabled={locked || busy} value={econ.wage_loss_hourly_rate ?? ""} onChange={(e) => setData((prev) => ({ ...prev, pi_demand: { ...prev.pi_demand, economic_damages: { ...econ, wage_loss_hourly_rate: e.target.value ? Number(e.target.value) : null } } }))} onBlur={() => saveEcon({ wage_loss_hours: econ.wage_loss_hours, wage_loss_hourly_rate: econ.wage_loss_hourly_rate })} />
+              </label>
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Wage loss total</span>
+                <div className="font-mono text-sm pt-1">{formatMoney(econ.wage_loss_total)}</div>
+              </label>
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Mileage miles</span>
+                <input type="number" className={inputClass()} disabled={locked || busy} value={econ.mileage_miles ?? ""} onChange={(e) => setData((prev) => ({ ...prev, pi_demand: { ...prev.pi_demand, economic_damages: { ...econ, mileage_miles: e.target.value ? Number(e.target.value) : null } } }))} onBlur={() => saveEcon({ mileage_miles: econ.mileage_miles, mileage_rate: econ.mileage_rate })} />
+              </label>
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Mileage rate ($/mi)</span>
+                <input type="number" step="0.01" className={inputClass()} disabled={locked || busy} value={econ.mileage_rate ?? 0.67} onChange={(e) => setData((prev) => ({ ...prev, pi_demand: { ...prev.pi_demand, economic_damages: { ...econ, mileage_rate: e.target.value ? Number(e.target.value) : 0.67 } } }))} onBlur={() => saveEcon({ mileage_miles: econ.mileage_miles, mileage_rate: econ.mileage_rate })} />
+              </label>
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Mileage total</span>
+                <div className="font-mono text-sm pt-1">{formatMoney(econ.mileage_total)}</div>
+              </label>
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Rental car ($)</span>
+                <input type="number" className={inputClass()} disabled={locked || busy} value={econ.rental_car_total ?? 0} onChange={(e) => setData((prev) => ({ ...prev, pi_demand: { ...prev.pi_demand, economic_damages: { ...econ, rental_car_total: e.target.value ? Number(e.target.value) : 0 } } }))} onBlur={() => saveEcon({ rental_car_total: econ.rental_car_total })} />
+              </label>
+              <label className="text-xs">
+                <span className="font-mono uppercase text-praxium-subtle text-[10px]">Other OOP ($)</span>
+                <input type="number" className={inputClass()} disabled={locked || busy} value={econ.other_expenses_total ?? 0} onChange={(e) => setData((prev) => ({ ...prev, pi_demand: { ...prev.pi_demand, economic_damages: { ...econ, other_expenses_total: e.target.value ? Number(e.target.value) : 0 } } }))} onBlur={() => saveEcon({ other_expenses_total: econ.other_expenses_total })} />
+              </label>
+            </div>
+          );
+        })()}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

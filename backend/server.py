@@ -1214,7 +1214,8 @@ from training_templates import register_training_template_routes
 from pi_documents import register_pi_document_routes, validate_upload_taxonomy, folder_for_doc_type, merge_doc_taxonomy
 from pi_phases import default_pi_phase, register_pi_phase_routes, merge_pi_phase, compute_phase_audit
 from pi_demand import default_pi_demand, register_pi_demand_routes, merge_pi_demand
-from pi_settlement import default_pi_settlement, register_pi_settlement_routes
+from pi_settlement import default_pi_settlement, register_pi_settlement_routes, merge_pi_settlement
+from pi_expenses import register_pi_expenses_routes, summarize_expenses
 from pi_property_damage import default_pi_property_damage, register_pi_property_damage_routes, merge_pi_property_damage, compute_pd_summary
 from pi_client_comms import default_pi_comms, register_pi_comms_routes, merge_pi_comms, compute_comms_cadence
 from pi_audit_dashboard import register_pi_audit_routes
@@ -1300,6 +1301,7 @@ register_pi_demand_routes(
     now_iso=now,
     merge_pi_insurance=merge_pi_insurance,
     merge_ledger_row=merge_ledger_row,
+    summarize_expenses=summarize_expenses,
 )
 register_pi_settlement_routes(
     api,
@@ -1308,6 +1310,14 @@ register_pi_settlement_routes(
     new_id=new_id,
     now_iso=now,
     merge_ledger_row=merge_ledger_row,
+)
+register_pi_expenses_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    merge_pi_settlement=merge_pi_settlement,
 )
 register_pi_property_damage_routes(
     api,
