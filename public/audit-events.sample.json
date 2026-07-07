@@ -1,0 +1,31 @@
+{
+  "description": "Sample audit event — reference shape for Praxium audit log v1. Production SSOT is MongoDB audit_events.",
+  "items": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "firm_id": "firm_example",
+      "ts": "2026-06-29T18:00:00+00:00",
+      "created_at": "2026-06-29T18:00:00+00:00",
+      "actor": {
+        "kind": "user",
+        "id": "usr_example",
+        "name": "Ada Counsel",
+        "email": "ada@examplefirm.law"
+      },
+      "subject": {
+        "kind": "matter",
+        "id": "matter_example"
+      },
+      "action": "matter.viewed",
+      "outcome": "success",
+      "ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0",
+      "meta": {
+        "title": "Smith v. Jones",
+        "case_number": "M-2026-0001"
+      },
+      "prev_hash": "sha256:GENESIS",
+      "hash": "sha256:example_only_not_valid"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "slug": "praxium-law",
+  "displayName": "Praxium Law",
+  "pages": [
+    {
+      "route": "/privacy",
+      "template": "legal",
+      "slots": [
+        "body"
+      ],
+      "legal": true,
+      "bundleId": "privacy-policy"
+    },
+    {
+      "route": "/terms",
+      "template": "legal",
+      "slots": [
+        "body"
+      ],
+      "legal": true,
+      "bundleId": "terms-of-service"
+    },
+    {
+      "route": "/accessibility",
+      "template": "legal",
+      "slots": [
+        "body"
+      ],
+      "legal": true,
+      "bundleId": "accessibility-statement"
+    }
+  ],
+  "legalRoutesAt": "2026-06-30T01:38:51.619Z"
+}

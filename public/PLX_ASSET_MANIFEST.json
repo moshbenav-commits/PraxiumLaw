@@ -6,7 +6,7 @@
   "tagline": "The operating system for the modern law firm.",
   "intake": "brand/praxium-law/PLX_INTAKE.json",
   "copySlots": "brand/praxium-law/PLX_COPY_SLOTS.json",
-  "updatedAt": "2026-06-26",
+  "updatedAt": "2026-07-06",
   "status": "intake-complete",
   "designLab": "brand/design-lab/praxium-law-staging.html",
   "universalKit": "brand/SITE_ASSET_KIT_UNIVERSAL.json",
@@ -31,21 +31,34 @@
       "name": "Logo — π mark + wordmark",
       "tier": "brand",
       "format": "svg",
-      "status": "missing",
+      "status": "on_disk",
       "path": "brand/praxium-law/references/logo/praxium-logo-wordmark.svg",
-      "pages": ["header", "footer", "email"],
+      "pages": [
+        "header",
+        "footer",
+        "email"
+      ],
       "nanoBanana": true,
-      "prompt": "Praxium legal SaaS logo: bold π (pi) symbol in orange #E85D04 square, PRAXIUM wordmark in black #121212, editorial Swiss typography, flat vector on cream #F9F8F6, no gradient glow."
+      "prompt": "Praxium legal SaaS logo: bold π (pi) symbol in orange #E85D04 square, PRAXIUM wordmark in black #121212, editorial Swiss typography, flat vector on cream #F9F8F6, no gradient glow.",
+      "output": "brand/praxium-law/references/logo/praxium-logo-wordmark.svg",
+      "promptBeat": "Praxium legal SaaS logo: bold π (pi) symbol in orange #E85D04 square, PRAXIUM wordmark in black #121212, editorial Swiss typography, flat vector on cream #F9F8F6, no gradient glow.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX002",
       "name": "Favicon / app icon — π mark",
       "tier": "brand",
       "aspect": "1:1",
-      "status": "missing",
-      "pages": ["favicon", "apple-touch"],
+      "status": "regen",
+      "pages": [
+        "favicon",
+        "apple-touch"
+      ],
       "nanoBanana": true,
-      "prompt": "App icon 1:1: orange #E85D04 rounded square with white bold π symbol, minimal legal SaaS, no text, clean flat."
+      "prompt": "App icon 1:1: orange #E85D04 rounded square with white bold π symbol, minimal legal SaaS, no text, clean flat.",
+      "regenPending": true,
+      "promptBeat": "App icon 1:1: orange #E85D04 rounded square with white bold π symbol, minimal legal SaaS, no text, clean flat.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX003",
@@ -53,9 +66,14 @@
       "tier": "brand",
       "aspect": "1200x630",
       "status": "missing",
-      "pages": ["meta-og", "/"],
+      "pages": [
+        "meta-og",
+        "/"
+      ],
       "nanoBanana": true,
-      "prompt": "Social share 1200x630 Praxium Law: cream #F9F8F6 background, headline zone left 'The legal operating system for modern law firms', orange π accent, monospace eyebrow, editorial SaaS, no mock UI text readable."
+      "prompt": "Social share 1200x630 Praxium Law: cream #F9F8F6 background, headline zone left 'The legal operating system for modern law firms', orange π accent, monospace eyebrow, editorial SaaS, no mock UI text readable.",
+      "promptBeat": "Social share 1200x630 Praxium Law: cream #F9F8F6 background, headline zone left 'The legal operating system for modern law firms', orange π accent, monospace eyebrow, editorial SaaS, no mock UI text readable.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX004",
@@ -63,70 +81,109 @@
       "tier": "photoreal",
       "aspect": "16:9",
       "status": "missing",
-      "pages": ["/"],
+      "pages": [
+        "/"
+      ],
       "lcp": true,
       "nanoBanana": true,
-      "prompt": "Modern law firm workspace hero 16:9: warm natural light, attorney desk with organized files, subtle laptop glow, cream and charcoal palette, orange #E85D04 accent lamp or folder tab, copy safe zone left 45%, premium editorial not stocky."
+      "prompt": "Modern law firm workspace hero 16:9: warm natural light, attorney desk with organized files, subtle laptop glow, cream and charcoal palette, orange #E85D04 accent lamp or folder tab, copy safe zone left 45%, premium editorial not stocky.",
+      "promptBeat": "Modern law firm workspace hero 16:9: warm natural light, attorney desk with organized files, subtle laptop glow, cream and charcoal palette, orange #E85D04 accent lamp or folder tab, copy safe zone left 45%, premium editorial not stocky.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX005",
       "name": "Matter canvas marketing still",
       "tier": "ui_still",
       "aspect": "16:9",
-      "status": "missing",
-      "pages": ["/", "product-tour"],
+      "status": "regen",
+      "pages": [
+        "/",
+        "product-tour"
+      ],
       "nanoBanana": true,
-      "prompt": "Abstract legal case management UI mock 16:9: kanban columns, matter cards, orange accent highlights, cream #F9F8F6 shell, dark sidebar, no readable client names or PII, product marketing style."
+      "prompt": "Abstract legal case management UI mock 16:9: kanban columns, matter cards, orange accent highlights, cream #F9F8F6 shell, dark sidebar, no readable client names or PII, product marketing style.",
+      "regenPending": true,
+      "promptBeat": "Abstract legal case management UI mock 16:9: kanban columns, matter cards, orange accent highlights, cream #F9F8F6 shell, dark sidebar, no readable client names or PII, product marketing style.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX006",
       "name": "CoCounsel AI feature still",
       "tier": "ui_still",
       "aspect": "16:9",
-      "status": "missing",
-      "pages": ["/", "#how"],
+      "status": "regen",
+      "pages": [
+        "/",
+        "#how"
+      ],
       "nanoBanana": true,
-      "prompt": "Legal AI assistant panel mock: chat sidebar with demand-letter draft suggestion, orange send button, dark ink text on cream card, no readable case facts, SaaS product marketing."
+      "prompt": "Legal AI assistant panel mock: chat sidebar with demand-letter draft suggestion, orange send button, dark ink text on cream card, no readable case facts, SaaS product marketing.",
+      "regenPending": true,
+      "promptBeat": "Legal AI assistant panel mock: chat sidebar with demand-letter draft suggestion, orange send button, dark ink text on cream card, no readable case facts, SaaS product marketing.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX007",
       "name": "VoxLine / comms feature still",
       "tier": "ui_still",
       "aspect": "16:9",
-      "status": "missing",
-      "pages": ["/", "#how"],
+      "status": "regen",
+      "pages": [
+        "/",
+        "#how"
+      ],
       "nanoBanana": true,
-      "prompt": "Law firm phone system UI mock: call timeline, SMS thread, recording waveform, orange accent, professional dark-on-cream, no phone numbers readable."
+      "prompt": "Law firm phone system UI mock: call timeline, SMS thread, recording waveform, orange accent, professional dark-on-cream, no phone numbers readable.",
+      "regenPending": true,
+      "promptBeat": "Law firm phone system UI mock: call timeline, SMS thread, recording waveform, orange accent, professional dark-on-cream, no phone numbers readable.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX008",
       "name": "MedConnect records feature still",
       "tier": "ui_still",
       "aspect": "16:9",
-      "status": "missing",
-      "pages": ["/", "#how"],
+      "status": "regen",
+      "pages": [
+        "/",
+        "#how"
+      ],
       "nanoBanana": true,
-      "prompt": "Medical records collection dashboard mock: provider list, status chips 'received in 18 days', document thumbnails blurred, orange progress bar, PI law firm SaaS tone."
+      "prompt": "Medical records collection dashboard mock: provider list, status chips 'received in 18 days', document thumbnails blurred, orange progress bar, PI law firm SaaS tone.",
+      "regenPending": true,
+      "promptBeat": "Medical records collection dashboard mock: provider list, status chips 'received in 18 days', document thumbnails blurred, orange progress bar, PI law firm SaaS tone.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX009",
       "name": "Pricing page hero",
       "tier": "photoreal",
       "aspect": "16:9",
-      "status": "missing",
-      "pages": ["/pricing"],
+      "status": "regen",
+      "pages": [
+        "/pricing"
+      ],
       "nanoBanana": true,
-      "prompt": "Editorial still for SaaS pricing page: calculator and transparent pricing concept, cream desk, orange accent pen, open laptop showing blurred tier table, trustworthy B2B legal software."
+      "prompt": "Editorial still for SaaS pricing page: calculator and transparent pricing concept, cream desk, orange accent pen, open laptop showing blurred tier table, trustworthy B2B legal software.",
+      "regenPending": true,
+      "promptBeat": "Editorial still for SaaS pricing page: calculator and transparent pricing concept, cream desk, orange accent pen, open laptop showing blurred tier table, trustworthy B2B legal software.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX010",
       "name": "Auth marketing panel background",
       "tier": "photoreal",
       "aspect": "9:16",
-      "status": "missing",
-      "pages": ["/signup", "/login"],
+      "status": "regen",
+      "pages": [
+        "/signup",
+        "/login"
+      ],
       "nanoBanana": true,
-      "prompt": "Vertical 9:16 auth panel background: modern law library aisle soft bokeh, warm light, orange accent spine labels, no readable book titles, premium SaaS signup aesthetic."
+      "prompt": "Vertical 9:16 auth panel background: modern law library aisle soft bokeh, warm light, orange accent spine labels, no readable book titles, premium SaaS signup aesthetic.",
+      "regenPending": true,
+      "promptBeat": "Vertical 9:16 auth panel background: modern law library aisle soft bokeh, warm light, orange accent spine labels, no readable book titles, premium SaaS signup aesthetic.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX011",
@@ -134,65 +191,145 @@
       "tier": "photoreal",
       "aspect": "16:9",
       "status": "missing",
-      "pages": ["/praxa"],
+      "pages": [
+        "/praxa"
+      ],
       "nanoBanana": true,
-      "prompt": "Praxa HQ consumer injury companion hero 16:9: soft sage #8A9A86 and warm sand #D4A373 palette, journal and phone on bedside table, compassionate calm mood, not hospital, copy safe zone left, legal info not advice tone."
+      "prompt": "Praxa HQ consumer injury companion hero 16:9: soft sage #8A9A86 and warm sand #D4A373 palette, journal and phone on bedside table, compassionate calm mood, not hospital, copy safe zone left, legal info not advice tone.",
+      "promptBeat": "Praxa HQ consumer injury companion hero 16:9: soft sage #8A9A86 and warm sand #D4A373 palette, journal and phone on bedside table, compassionate calm mood, not hospital, copy safe zone left, legal info not advice tone.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX012",
       "name": "Stats section texture",
       "tier": "texture",
       "aspect": "16:9",
-      "status": "missing",
-      "pages": ["homepage-stats"],
+      "status": "regen",
+      "pages": [
+        "homepage-stats"
+      ],
       "nanoBanana": true,
-      "prompt": "Abstract dark #121212 gradient texture with subtle orange #E85D04 light streaks, premium SaaS stats band background, no text."
+      "prompt": "Abstract dark #121212 gradient texture with subtle orange #E85D04 light streaks, premium SaaS stats band background, no text.",
+      "regenPending": true,
+      "promptBeat": "Abstract dark #121212 gradient texture with subtle orange #E85D04 light streaks, premium SaaS stats band background, no text.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX013",
       "name": "CTA band — savings math",
       "tier": "texture",
       "aspect": "16:9",
-      "status": "missing",
-      "pages": ["homepage-cta", "/pricing"],
+      "status": "regen",
+      "pages": [
+        "homepage-cta",
+        "/pricing"
+      ],
       "nanoBanana": true,
-      "prompt": "Abstract financial savings concept: descending bar chart silhouette in orange on charcoal, editorial minimal, space for '$85,980 saved' headline overlay center."
+      "prompt": "Abstract financial savings concept: descending bar chart silhouette in orange on charcoal, editorial minimal, space for '$85,980 saved' headline overlay center.",
+      "regenPending": true,
+      "promptBeat": "Abstract financial savings concept: descending bar chart silhouette in orange on charcoal, editorial minimal, space for '$85,980 saved' headline overlay center.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX014",
       "name": "Trust strip module icons set",
       "tier": "icon",
       "aspect": "1:1",
-      "status": "missing",
+      "status": "regen",
       "count": 6,
-      "pages": ["homepage-trust", "footer"],
+      "pages": [
+        "homepage-trust",
+        "footer"
+      ],
       "nanoBanana": true,
       "items": [
-        { "label": "Stack cost down", "prompt": "Minimal line icon: downward cost arrow + software stack, orange on cream, 1:1." },
-        { "label": "Records speed", "prompt": "Minimal line icon: medical folder with fast clock, orange on cream, 1:1." },
-        { "label": "Fast onboarding", "prompt": "Minimal line icon: rocket or stopwatch 30 sec, orange on cream, 1:1." },
-        { "label": "Zero implementation", "prompt": "Minimal line icon: zero dollar implementation, orange on cream, 1:1." },
-        { "label": "45 modules", "prompt": "Minimal line icon: grid of modules puzzle, orange on cream, 1:1." },
-        { "label": "AI built in", "prompt": "Minimal line icon: spark + document, orange on cream, 1:1." }
-      ]
+        {
+          "label": "Stack cost down",
+          "prompt": "Minimal line icon: downward cost arrow + software stack, orange on cream, 1:1."
+        },
+        {
+          "label": "Records speed",
+          "prompt": "Minimal line icon: medical folder with fast clock, orange on cream, 1:1."
+        },
+        {
+          "label": "Fast onboarding",
+          "prompt": "Minimal line icon: rocket or stopwatch 30 sec, orange on cream, 1:1."
+        },
+        {
+          "label": "Zero implementation",
+          "prompt": "Minimal line icon: zero dollar implementation, orange on cream, 1:1."
+        },
+        {
+          "label": "45 modules",
+          "prompt": "Minimal line icon: grid of modules puzzle, orange on cream, 1:1."
+        },
+        {
+          "label": "AI built in",
+          "prompt": "Minimal line icon: spark + document, orange on cream, 1:1."
+        }
+      ],
+      "regenPending": true,
+      "promptBeat": "Trust strip module icons set. Pages: homepage-trust, footer. Praxium Law brand — match locked VISUAL_DNA palette.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     },
     {
       "id": "PLX015",
       "name": "Praxa π consumer mark",
       "tier": "brand",
       "aspect": "1:1",
-      "status": "missing",
-      "pages": ["/praxa", "praxa-app"],
+      "status": "regen",
+      "pages": [
+        "/praxa",
+        "praxa-app"
+      ],
       "nanoBanana": true,
-      "prompt": "Praxa consumer app icon 1:1: sage green circle with white π, softer than B2B orange, warm injury-companion brand, flat vector."
+      "prompt": "Praxa consumer app icon 1:1: sage green circle with white π, softer than B2B orange, warm injury-companion brand, flat vector.",
+      "regenPending": true,
+      "promptBeat": "Praxa consumer app icon 1:1: sage green circle with white π, softer than B2B orange, warm injury-companion brand, flat vector.\n\nPraxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land.",
+      "promptFamily": "praxium-saas"
     }
   ],
   "pages": [
-    { "route": "/", "assets": ["PLX004", "PLX003", "PLX005", "PLX006", "PLX007", "PLX008", "PLX012", "PLX013", "PLX014"] },
-    { "route": "/pricing", "assets": ["PLX009", "PLX013"] },
-    { "route": "/praxa", "assets": ["PLX011", "PLX015"] },
-    { "route": "/signup", "assets": ["PLX010"] },
-    { "route": "/login", "assets": ["PLX010"] }
+    {
+      "route": "/",
+      "assets": [
+        "PLX004",
+        "PLX003",
+        "PLX005",
+        "PLX006",
+        "PLX007",
+        "PLX008",
+        "PLX012",
+        "PLX013",
+        "PLX014"
+      ]
+    },
+    {
+      "route": "/pricing",
+      "assets": [
+        "PLX009",
+        "PLX013"
+      ]
+    },
+    {
+      "route": "/praxa",
+      "assets": [
+        "PLX011",
+        "PLX015"
+      ]
+    },
+    {
+      "route": "/signup",
+      "assets": [
+        "PLX010"
+      ]
+    },
+    {
+      "route": "/login",
+      "assets": [
+        "PLX010"
+      ]
+    }
   ],
   "generationOrder": [
     "1. PLX001 logo still → SVG trace + favicon PLX002",
@@ -204,8 +341,11 @@
   ],
   "summary": {
     "total": 15,
-    "onDisk": 0,
-    "missingNanoBanana": 15,
-    "brollClips": 8
-  }
+    "onDisk": 1,
+    "brollClips": 8,
+    "missing": 3,
+    "missingNanoBanana": 3
+  },
+  "promptFamily": "praxium-saas",
+  "globalSuffix": "Praxium Suite — legal practice management SaaS for modern law firms. Cream canvas #F9F8F6, ink #121212, orange accent #E85D04, editorial Swiss typography, π mark in orange square. Product UI mocks: blurred placeholders only — no readable client names, case facts, or PII. NOT Expedia automotive, NOT EarnedStar navy/gold review SaaS, NOT purple AI startup gradients. Praxa consumer pages use sage #8A9A86 and warm sand #D4A373 only when asset targets /praxa. TEXT-ONLY — no @url essence refs until boards land."
 }

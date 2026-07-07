@@ -1,0 +1,149 @@
+{
+  "version": "1.0.0",
+  "siteSlug": "praxium-law",
+  "pipelineId": "praxium-law",
+  "promptFamily": "praxium-law-saas",
+  "manifestPath": "brand/praxium-law/PLX_ASSET_MANIFEST.json",
+  "updatedAt": "2026-07-06T21:34:35.740Z",
+  "items": {
+    "PLX002": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX005": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX006": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX007": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX008": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX009": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX010": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX012": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX013": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX014": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX015": {
+      "status": "rejected",
+      "rejectNotes": "Legacy prompt purge — asset removed for full regen with current prompt library (CRE-LEGACY-DELETE).",
+      "rejectedAt": "2026-07-06T20:46:58.194Z",
+      "deleteReason": "legacy_prompt_purge_no_file",
+      "regenRequired": true,
+      "fullRegenRequired": true,
+      "deletedAt": "2026-07-06T20:46:58.195Z",
+      "filesRemoved": [],
+      "hfDeleteStatus": "manual_required",
+      "hfDeleteNote": "Delete in Higgsfield Chrome UI or ignore cloud copy; local + public removal is authoritative for Creytix site."
+    },
+    "PLX001": {
+      "status": "rejected",
+      "output": "brand/praxium-law/references/logo/praxium-logo-wordmark.svg",
+      "rejectNotes": "we don't have any logo for praxiam legal yet we wanted to give we wanted you to give us ideas of what of what we could use",
+      "rejectedAt": "2026-07-06T21:34:35.740Z",
+      "learnedConstraintApplied": false
+    }
+  }
+}

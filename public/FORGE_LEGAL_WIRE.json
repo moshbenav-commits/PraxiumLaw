@@ -1,0 +1,62 @@
+{
+  "wiredAt": "2026-06-30T01:39:03.633Z",
+  "phase": 20,
+  "slug": "praxium-law",
+  "displayName": "Praxium Law",
+  "placeholders": {
+    "siteName": "Praxium Law",
+    "contactEmail": "legal@praxiumlaw.com",
+    "effectiveDate": "2026-06-30",
+    "domain": "https://www.praxiumlaw.com"
+  },
+  "pageTreeAdded": [],
+  "templates": [
+    {
+      "route": "/privacy",
+      "template": "brand/praxium-law/wired/legal/privacy-policy.mdx",
+      "page": "brand/praxium-law/generated-front/src/app/privacy/page.tsx"
+    },
+    {
+      "route": "/terms",
+      "template": "brand/praxium-law/wired/legal/terms-of-service.mdx",
+      "page": "brand/praxium-law/generated-front/src/app/terms/page.tsx"
+    },
+    {
+      "route": "/accessibility",
+      "template": "brand/praxium-law/wired/legal/accessibility-statement.mdx",
+      "page": "brand/praxium-law/generated-front/src/app/accessibility/page.tsx"
+    }
+  ],
+  "pagesWritten": [],
+  "skipped": [
+    {
+      "route": "/privacy",
+      "reason": "page_exists",
+      "file": "brand/praxium-law/generated-front/src/app/privacy/page.tsx"
+    },
+    {
+      "route": "/terms",
+      "reason": "page_exists",
+      "file": "brand/praxium-law/generated-front/src/app/terms/page.tsx"
+    },
+    {
+      "route": "/accessibility",
+      "reason": "page_exists",
+      "file": "brand/praxium-law/generated-front/src/app/accessibility/page.tsx"
+    }
+  ],
+  "footerLinks": [
+    {
+      "route": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "route": "/terms",
+      "label": "Terms"
+    },
+    {
+      "route": "/accessibility",
+      "label": "Accessibility"
+    }
+  ]
+}
