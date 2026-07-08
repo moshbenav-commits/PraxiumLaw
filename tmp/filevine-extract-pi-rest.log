@@ -1,0 +1,387 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> pi:filevine:extract:pi-rest
+> node scripts/pi-case-os/filevine-extract-frames.mjs --packs=pack7-documents-saving,pack8-demand-claims,pack9-reductions-liens,pack10-case-audit-review,pack11-subrogation-medical,pack12-pi-workflow-misc --interval=30 --skip-existing
+
+
+→ 1_Documents_Saving_Overview_436c47da7726
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Documents Saving Overview.mp4
+  duration: 344s · interval: 30s · ~12 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/1_Documents_Saving_Overview_436c47da7726/screenshots
+
+→ 1_Medical_LOR_bcd15d6a0b12
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Medical LOR.mp4
+  duration: 823s · interval: 30s · ~28 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/1_Medical_LOR_bcd15d6a0b12/screenshots
+
+→ 2_Saving_Intake_Docs_d3f8707a5c81
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2. Saving Intake Docs.mp4
+  duration: 1961s · interval: 30s · ~66 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2_Saving_Intake_Docs_d3f8707a5c81/screenshots
+
+→ 3_Saving_Medical_Records_and_Bills_Part_1_6447d544b500
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/3. Saving Medical Records and Bills Part 1.mp4
+  duration: 1450s · interval: 30s · ~49 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/3_Saving_Medical_Records_and_Bills_Part_1_6447d544b500/screenshots
+
+→ 4_Saving_Medical_Records_and_Bills_Part_2_ae7e31338836
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/4. Saving Medical Records and Bills Part 2.mp4
+  duration: 4254s · interval: 30s · ~142 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/4_Saving_Medical_Records_and_Bills_Part_2_ae7e31338836/screenshots
+
+→ 5_Saving_Auto_Insurance_Docs_Overview_702e92266f29
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/5. Saving Auto Insurance Docs Overview.mp4
+  duration: 1702s · interval: 30s · ~57 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/5_Saving_Auto_Insurance_Docs_Overview_702e92266f29/screenshots
+
+→ 7_-DOCS_TAB_-_Dropbox_Folder_and_Naming_Docs_f8f17b352d4e
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/7.-DOCS TAB - Dropbox Folder and Naming Docs.mp4
+  duration: 303s · interval: 30s · ~11 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/7_-DOCS_TAB_-_Dropbox_Folder_and_Naming_Docs_f8f17b352d4e/screenshots
+
+→ DOCS_TAB_-_Hashtags_2_9e9cb058c90f
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags 2.mp4
+  duration: 165s · interval: 30s · ~6 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCS_TAB_-_Hashtags_2_9e9cb058c90f/screenshots
+
+→ DOCS_TAB_-_Hashtags_3_aebb1b8a3e92
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags 3.mp4
+  duration: 105s · interval: 30s · ~4 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCS_TAB_-_Hashtags_3_aebb1b8a3e92/screenshots
+
+→ DOCS_TAB_-_Hashtags_dc70e9f9f652
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCS TAB - Hashtags.mp4
+  duration: 271s · interval: 30s · ~10 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCS_TAB_-_Hashtags_dc70e9f9f652/screenshots
+
+→ 2017_10_6_DEMAND_-_Prep_and_Draft_a_Demand_Letter_Jamille_Wa_bac8b9d0227a
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.10.6 DEMAND - Prep and Draft a Demand Letter Jamille Walton.mp4
+  duration: 1770s · interval: 30s · ~60 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017_10_6_DEMAND_-_Prep_and_Draft_a_Demand_Letter_Jamille_Wa_bac8b9d0227a/screenshots
+
+→ 2017_10_6_DEMAND_-_Prep_and_Draft_a_Demand_Letter_4a9319319ddb
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.10.6 DEMAND - Prep and Draft a Demand Letter.mp4
+  duration: 1992s · interval: 30s · ~67 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017_10_6_DEMAND_-_Prep_and_Draft_a_Demand_Letter_4a9319319ddb/screenshots
+
+→ 2017_3_29_CLAIMS-_1st_Party_LOR_f797872ca06b
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.3.29 CLAIMS- 1st Party LOR.mp4
+  duration: 353s · interval: 30s · ~12 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017_3_29_CLAIMS-_1st_Party_LOR_f797872ca06b/screenshots
+
+→ 2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.7.5 DEMAND - How to draft 3P Demand.mp4
+  duration: 1632s · interval: 30s · ~55 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017_7_5_DEMAND_-_How_to_draft_3P_Demand_6f7289baa3ed/screenshots
+
+→ ADVANCED_-_Customs_Editor_INS_Tab_3P_LOR_SV__ec9f33bf3542
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor INS Tab 3P LOR (SV).mp4
+  duration: 319s · interval: 30s · ~11 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Customs_Editor_INS_Tab_3P_LOR_SV__ec9f33bf3542/screenshots
+
+→ CLAIMS_-_1st_Party_LOR_-_Property_Damage_Claim_Only_3dfdf9b85e35
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - 1st Party LOR - Property Damage Claim Only.mp4
+  duration: 1943s · interval: 30s · ~65 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CLAIMS_-_1st_Party_LOR_-_Property_Damage_Claim_Only_3dfdf9b85e35/screenshots
+
+→ CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_2_1b4d68419e57
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - 3rd PARTY - Open a claim and start a case 2.mp4
+  duration: 465s · interval: 30s · ~16 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CLAIMS_-_3rd_PARTY_-_Open_a_claim_and_start_a_case_2_1b4d68419e57/screenshots
+
+→ CLAIMS_-_3rd_Party_Letter_of_Rep_73ecb24e48e8
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - 3rd Party Letter of Rep.mp4
+  duration: 606s · interval: 30s · ~21 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CLAIMS_-_3rd_Party_Letter_of_Rep_73ecb24e48e8/screenshots
+
+→ CLAIMS_-_Opening_up_a_claim_880439a4d102
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CLAIMS - Opening up a claim.mp4
+  duration: 379s · interval: 30s · ~13 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CLAIMS_-_Opening_up_a_claim_880439a4d102/screenshots
+
+→ DEMAND_-_How_to_gather_records_for_a_demand_02eb2609d5f7
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DEMAND - How to gather records for a demand.mp4
+  duration: 3243s · interval: 30s · ~109 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DEMAND_-_How_to_gather_records_for_a_demand_02eb2609d5f7/screenshots
+
+→ DEMAND_PREP_-_Gathering_Med_Recs_Bills_and_FE_c11e04e5a055
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DEMAND PREP - Gathering Med Recs Bills and FE.mp4
+  duration: 714s · interval: 30s · ~24 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DEMAND_PREP_-_Gathering_Med_Recs_Bills_and_FE_c11e04e5a055/screenshots
+
+→ DEMAND_PREP_-_Part_1_591a23b35b1a
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DEMAND PREP - Part 1.mp4
+  duration: 2406s · interval: 30s · ~81 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DEMAND_PREP_-_Part_1_591a23b35b1a/screenshots
+
+→ INS_-_Opening_a_3P_Claim_2_62b6f05541b9
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/INS - Opening a 3P Claim 2.mp4
+  duration: 770s · interval: 30s · ~26 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/INS_-_Opening_a_3P_Claim_2_62b6f05541b9/screenshots
+
+→ INS_-_Opening_a_3P_Claim_0e2e15673771
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/INS - Opening a 3P Claim.mp4
+  duration: 1503s · interval: 30s · ~51 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/INS_-_Opening_a_3P_Claim_0e2e15673771/screenshots
+
+→ SUBROGATION_-_Google_doc_LOR_draft_subro_explanation_SP__46e2a4aa9bec
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/SUBROGATION - Google doc, LOR draft, subro explanation (SP).mp4
+  duration: 1395s · interval: 30s · ~47 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/SUBROGATION_-_Google_doc_LOR_draft_subro_explanation_SP__46e2a4aa9bec/screenshots
+
+→ SUBROGATION_LIEN_-_Rolando_Clores_293c62ff34d1
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/SUBROGATION LIEN - Rolando Clores.mp4
+  duration: 2205s · interval: 30s · ~74 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/SUBROGATION_LIEN_-_Rolando_Clores_293c62ff34d1/screenshots
+
+→ 2_Lien_Verification_57a21caf63d2
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2. Lien Verification.mp4
+  duration: 315s · interval: 30s · ~11 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2_Lien_Verification_57a21caf63d2/screenshots
+
+→ 3_Short_Reduction_28755cb4ca5a
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/3. Short Reduction.mp4
+  duration: 1169s · interval: 30s · ~39 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/3_Short_Reduction_28755cb4ca5a/screenshots
+
+→ 4_Long_Reduction_66056ec06edc
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/4.  Long Reduction.mp4
+  duration: 996s · interval: 30s · ~34 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/4_Long_Reduction_66056ec06edc/screenshots
+
+→ 5_Lien_Reduction_27e792e58d67
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/5. Lien Reduction.mp4
+  duration: 588s · interval: 30s · ~20 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/5_Lien_Reduction_27e792e58d67/screenshots
+
+→ 30_-ADVANCED_Case_Auditing_caa5f4fc04b4
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/30.-ADVANCED Case Auditing.mp4
+  duration: 3774s · interval: 30s · ~126 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/30_-ADVANCED_Case_Auditing_caa5f4fc04b4/screenshots
+
+→ 5_Week_and_30_Day_Case_Review_-_Pain_Management_and_MRI_eaab125cdd9f
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/5 Week and 30 Day Case Review - Pain Management and MRI.mp4
+  duration: 241s · interval: 30s · ~9 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/5_Week_and_30_Day_Case_Review_-_Pain_Management_and_MRI_eaab125cdd9f/screenshots
+
+→ ADVANCED_-_Case_Audit_3b9f8463fe33
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Case Audit.MP4
+  duration: 918s · interval: 30s · ~31 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Case_Audit_3b9f8463fe33/screenshots
+
+→ ADVANCED_-_Case_Manage_a_File_and_Cleaner_Fish_a_File_867576795f94
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Case Manage a File and Cleaner Fish a File.mp4
+  duration: 4086s · interval: 30s · ~137 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Case_Manage_a_File_and_Cleaner_Fish_a_File_867576795f94/screenshots
+
+→ ADVANCED_-_Case_Review_309deebd9b20
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Case Review.mp4
+  duration: 2387s · interval: 30s · ~80 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Case_Review_309deebd9b20/screenshots
+
+→ Case_Audit_Training_1-19-22_1__7b3442329bf8
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Case Audit Training 1-19-22 (1).mp4
+  duration: 3990s · interval: 30s · ~134 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Case_Audit_Training_1-19-22_1__7b3442329bf8/screenshots
+
+→ Personal_Injury_Workflow_00497e0bea58
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Personal Injury Workflow.mp4
+  duration: 4261s · interval: 30s · ~143 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Personal_Injury_Workflow_00497e0bea58/screenshots
+
+→ Phase_1_Client_3-TASK_-_Fill_out_Intake_Ins_Med_Prov_30_Day__51ad466a8f35
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Phase 1 Client 3-TASK - Fill out Intake, Ins, Med Prov, 30 Day Case.mp4
+  duration: 831s · interval: 30s · ~28 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Phase_1_Client_3-TASK_-_Fill_out_Intake_Ins_Med_Prov_30_Day__51ad466a8f35/screenshots
+
+→ CLIENT_DISCUSSION_-_Hospital_bills_and_records_and_health_in_0a0d15e32f43
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CLIENT DISCUSSION - Hospital bills and records and health insurance subrogation.mp4
+  duration: 2146s · interval: 30s · ~72 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CLIENT_DISCUSSION_-_Hospital_bills_and_records_and_health_in_0a0d15e32f43/screenshots
+
+→ How_to_do_Subrogation_-_Analyn_e8e7fb97d3f0
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/How to do Subrogation - Analyn.mp4
+  duration: 11115s · interval: 30s · ~371 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/How_to_do_Subrogation_-_Analyn_e8e7fb97d3f0/screenshots
+
+→ How_to_do_Subrogation_1_25_21_24cbaab5a904
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/How to do Subrogation 1.25.21.mp4
+  duration: 5891s · interval: 30s · ~197 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/How_to_do_Subrogation_1_25_21_24cbaab5a904/screenshots
+
+→ Subrogation_Meeting_a7fe8b2c1d6c
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Subrogation Meeting.mp4
+  duration: 5749s · interval: 30s · ~192 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Subrogation_Meeting_a7fe8b2c1d6c/screenshots
+
+→ 1_Adding_a_New_Project_523f9a072421
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/1. Adding a New Project.mp4
+  duration: 811s · interval: 30s · ~28 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/1_Adding_a_New_Project_523f9a072421/screenshots
+
+→ 2017-05-05_11-20-04_0d9fecac4fd6
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017-05-05_11-20-04.mp4
+  duration: 19s · interval: 30s · ~1 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017-05-05_11-20-04_0d9fecac4fd6/screenshots
+
+→ 3rd_PARTY_-_Open_a_claim_and_start_a_case_df30df578ead
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/3rd PARTY - Open a claim and start a case.mp4
+  duration: 1893s · interval: 30s · ~64 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/3rd_PARTY_-_Open_a_claim_and_start_a_case_df30df578ead/screenshots
+
+→ ADVANCED_-_Customs_Editor_Expense_Tab_Envelope_SV__0c7600875a0c
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Expense Tab Envelope (SV).mp4
+  duration: 971s · interval: 30s · ~33 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Customs_Editor_Expense_Tab_Envelope_SV__0c7600875a0c/screenshots
+
+→ ADVANCED_-_Customs_Editor_Ins_Field_Down_and_Adding_FIRST_SE_edecb6300dfe
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Ins Field Down and Adding FIRST, SECOND, THIRD (SV).mp4
+  duration: 385s · interval: 30s · ~13 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Customs_Editor_Ins_Field_Down_and_Adding_FIRST_SE_edecb6300dfe/screenshots
+
+→ ADVANCED_-_Deadlines_and_Reminders_Editor_0a63c91fd259
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Deadlines and Reminders Editor.mp4
+  duration: 713s · interval: 30s · ~24 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Deadlines_and_Reminders_Editor_0a63c91fd259/screenshots
+
+→ ADVANCED_-_Merging_Duplicate_Contacts_SV__fdeff58c2b50
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Merging Duplicate Contacts (SV).mp4
+  duration: 108s · interval: 30s · ~4 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Merging_Duplicate_Contacts_SV__fdeff58c2b50/screenshots
+
+→ AGENTMACHINE_-_Updating_Seller_Prospects_9dda58f1383d
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/AGENTMACHINE - Updating Seller Prospects.mp4
+  duration: 1022s · interval: 30s · ~35 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/AGENTMACHINE_-_Updating_Seller_Prospects_9dda58f1383d/screenshots
+
+→ CALENDAR_-_Appointments_2a55145aeb04
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CALENDAR - Appointments.mp4
+  duration: 205s · interval: 30s · ~7 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CALENDAR_-_Appointments_2a55145aeb04/screenshots
+
+→ CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CALLS - Being Specific in tasks to Vijay and giving him all ingredients Part 2.mp4
+  duration: 135s · interval: 30s · ~5 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CALLS_-_Being_Specific_in_tasks_to_Vijay_and_giving_him_all__5450041383af/screenshots
+
+→ CUSTOMS_EDITOR_Webinar_f8fe8223a824
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/CUSTOMS EDITOR Webinar.mp4
+  duration: 1393s · interval: 30s · ~47 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/CUSTOMS_EDITOR_Webinar_f8fe8223a824/screenshots
+
+→ DMV_REQUEST-_How_to_8af88bc6a6f5
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DMV REQUEST- How to.mp4
+  duration: 421s · interval: 30s · ~15 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DMV_REQUEST-_How_to_8af88bc6a6f5/screenshots
+
+→ Deposition_Prep_-_Part_1_e1456f380df2
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Deposition Prep - Part 1.mp4
+  duration: 1604s · interval: 30s · ~54 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Deposition_Prep_-_Part_1_e1456f380df2/screenshots
+
+→ EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/EXCEL - Filter and Formulas to Know Numbers.mp4
+  duration: 192s · interval: 30s · ~7 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/EXCEL_-_Filter_and_Formulas_to_Know_Numbers_ed17ae1ccfb6/screenshots
+
+→ GMAIL_-_Boomerang_606d9a1dcafa
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/GMAIL - Boomerang.mp4
+  duration: 308s · interval: 30s · ~11 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/GMAIL_-_Boomerang_606d9a1dcafa/screenshots
+
+→ GMAIL-_Title_attachments_double_checking_emails_Real_Estate__1d8818aeeb16
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/GMAIL- Title, attachments, double checking emails (Real Estate).mp4
+  duration: 148s · interval: 30s · ~5 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/GMAIL-_Title_attachments_double_checking_emails_Real_Estate__1d8818aeeb16/screenshots
+
+→ How_to_Hire_on_Upwork_05a70ad738ae
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/How to Hire on Upwork.mp4
+  duration: 5376s · interval: 30s · ~180 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/How_to_Hire_on_Upwork_05a70ad738ae/screenshots
+
+→ LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/LITIGATION - Sharing case with litigator Google Drive.mp4
+  duration: 193s · interval: 30s · ~7 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/LITIGATION_-_Sharing_case_with_litigator_Google_Drive_95d45cfd418b/screenshots
+
+→ MAIL_-_Incoming_Mail_d0578967012d
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/MAIL - Incoming Mail.mp4
+  duration: 2330s · interval: 30s · ~78 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/MAIL_-_Incoming_Mail_d0578967012d/screenshots
+
+→ MISC_-_Assigning_Tasks_to_people_155aaabc25cd
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/MISC - Assigning Tasks to people.mp4
+  duration: 315s · interval: 30s · ~11 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/MISC_-_Assigning_Tasks_to_people_155aaabc25cd/screenshots
+
+→ MISC_-_Third_Party_Information_for_Calls_68246c480759
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/MISC - Third Party Information for Calls.mp4
+  duration: 135s · interval: 30s · ~5 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/MISC_-_Third_Party_Information_for_Calls_68246c480759/screenshots
+
+→ NOTES_-_8_Note_Section_80c08faf37c5
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/NOTES - 8 Note Section.mp4
+  duration: 523s · interval: 30s · ~18 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/NOTES_-_8_Note_Section_80c08faf37c5/screenshots
+
+→ PLEADINGS_-_Comp_IAFD_DMJT_SUMM_40f864176ae2
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/PLEADINGS - Comp, IAFD, DMJT, SUMM.mp4
+  duration: 2734s · interval: 30s · ~92 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/PLEADINGS_-_Comp_IAFD_DMJT_SUMM_40f864176ae2/screenshots
+
+→ SANDY-_Meeting_w__Franco_Arevalo_for_accounting_Diana_2022-0_b71a970cd5ed
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/SANDY- Meeting w_ Franco Arevalo for accounting (Diana) (2022-01-25 at 13_17 GMT-8).mp4
+  duration: 5767s · interval: 30s · ~193 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/SANDY-_Meeting_w__Franco_Arevalo_for_accounting_Diana_2022-0_b71a970cd5ed/screenshots
+
+→ SCANSNAP_-_Settings_69f20c7e6dac
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/SCANSNAP - Settings.mp4
+  duration: 91s · interval: 30s · ~4 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/SCANSNAP_-_Settings_69f20c7e6dac/screenshots
+
+→ SERVER_-_Create_new_client_folder_89f2c7313dd8
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/SERVER - Create new client folder.mp4
+  duration: 156s · interval: 30s · ~6 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/SERVER_-_Create_new_client_folder_89f2c7313dd8/screenshots
+
+→ STAMPS_COM_-_Online_and_Desktop_No_Audio_6711771be4ec
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/STAMPS.COM - Online and Desktop No Audio.mp4
+  duration: 700s · interval: 30s · ~24 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/STAMPS_COM_-_Online_and_Desktop_No_Audio_6711771be4ec/screenshots
+
+→ SUBRO_-Reviewing_the_Lien_SV__1fca3bc67396
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/SUBRO -Reviewing the  Lien (SV).mp4
+  duration: 233s · interval: 30s · ~8 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/SUBRO_-Reviewing_the_Lien_SV__1fca3bc67396/screenshots
+
+→ TASK_-_7_Day_call_and_Needs_List_34b9516621e7
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - 7 Day call and Needs List.mp4
+  duration: 125s · interval: 30s · ~5 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/TASK_-_7_Day_call_and_Needs_List_34b9516621e7/screenshots
+
+→ TASK_-_Assign_Primary_and_Roles_8a93a331dad8
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Assign Primary and Roles.mp4
+  duration: 777s · interval: 30s · ~26 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/TASK_-_Assign_Primary_and_Roles_8a93a331dad8/screenshots
+
+→ TASK_-_Enter_Client_Contact_Information_0823bcdae421
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Enter Client Contact Information.mp4
+  duration: 109s · interval: 30s · ~4 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/TASK_-_Enter_Client_Contact_Information_0823bcdae421/screenshots
+
+→ TASK_-_Witness_Statement_c4d99ed5e876
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Witness Statement.mp4
+  duration: 120s · interval: 30s · ~5 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/TASK_-_Witness_Statement_c4d99ed5e876/screenshots
+
+→ Zoom_Meeting_with_Sandy_NV-Arbitration__9ce98b7e6abf
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Zoom Meeting with Sandy (NV-Arbitration).mp4
+  duration: 3107s · interval: 30s · ~104 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Zoom_Meeting_with_Sandy_NV-Arbitration__9ce98b7e6abf/screenshots
+
+→ zoom_0_d5d3b2ad1da3
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/zoom_0.mp4
+  duration: 3256s · interval: 30s · ~109 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/zoom_0_d5d3b2ad1da3/screenshots
+
+Done — extracted 76 video(s), skipped 0, total queued 76.

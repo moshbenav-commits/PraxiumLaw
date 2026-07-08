@@ -1,0 +1,252 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> pi:filevine:extract:rest
+> node scripts/pi-case-os/filevine-extract-frames.mjs --packs=pack2-taskflow-feed-reports,pack3-docgen,pack4-meds-treatment-tasks,pack5-settlement-disbursement,pack6-filevine-misc --interval=30 --skip-existing
+
+
+→ 2017_8_11_FILEVINE_-_Creating_Taskflow_and_Updating_Excel_Sp_6683f2e33bcb
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.8.11 FILEVINE - Creating Taskflow and Updating Excel Spreadsheet.mp4
+  duration: 381s · interval: 30s · ~13 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017_8_11_FILEVINE_-_Creating_Taskflow_and_Updating_Excel_Sp_6683f2e33bcb/screenshots
+
+→ ADVANCED_-_Taskflow_b51b3fdadb87
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Taskflow.mp4
+  duration: 621s · interval: 30s · ~21 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Taskflow_b51b3fdadb87/screenshots
+
+→ FIILEVINE_-_Cleaning_Feed_efbfff9561d4
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FIILEVINE - Cleaning Feed.mp4
+  duration: 2277s · interval: 30s · ~76 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FIILEVINE_-_Cleaning_Feed_efbfff9561d4/screenshots
+
+→ FILEVINE_-_Case_Review_f8645f17f487
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Case Review.mp4
+  duration: 5686s · interval: 30s · ~190 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Case_Review_f8645f17f487/screenshots
+
+→ FILEVINE_-_Cleaning_your_Feed_Quickly_7e4fb7edde6c
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Cleaning your Feed Quickly.mp4
+  duration: 731s · interval: 30s · ~25 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Cleaning_your_Feed_Quickly_7e4fb7edde6c/screenshots
+
+→ FILEVINE_-_Feed_-_Going_through_feed_Part_2_ea73348b4c96
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Feed - Going through feed Part 2.mp4
+  duration: 369s · interval: 30s · ~13 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Feed_-_Going_through_feed_Part_2_ea73348b4c96/screenshots
+
+→ FILEVINE_-_Feed_-_Going_through_feed_Part_3_5299154f2c64
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Feed - Going through feed Part 3.mp4
+  duration: 616s · interval: 30s · ~21 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Feed_-_Going_through_feed_Part_3_5299154f2c64/screenshots
+
+→ FILEVINE_-_Task_-_Going_through_Task_Feed_Part_2_9aa87fea6bee
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Going through Task Feed Part 2.mp4
+  duration: 749s · interval: 30s · ~25 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Task_-_Going_through_Task_Feed_Part_2_9aa87fea6bee/screenshots
+
+→ STATUS_CHART_-_Record_Gathering_Counters_Supplements_Demands_dd71039be2b6
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/STATUS CHART - Record Gathering Counters Supplements Demands and Minors Comp.mp4
+  duration: 2879s · interval: 30s · ~96 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/STATUS_CHART_-_Record_Gathering_Counters_Supplements_Demands_dd71039be2b6/screenshots
+
+→ STATUS_CHART_-_Settlement_Disbursement_Minor_s_Compromise_355103ce9f91
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/STATUS CHART - Settlement Disbursement Minor_s Compromise.mp4
+  duration: 2633s · interval: 30s · ~88 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/STATUS_CHART_-_Settlement_Disbursement_Minor_s_Compromise_355103ce9f91/screenshots
+
+→ ADVANCED_-_Customs_Editor_Meds_Field_Tab_Adding_Fields_and_D_bc623d310756
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/ADVANCED - Customs Editor Meds Field Tab Adding Fields and DocGen (SV).mp4
+  duration: 1301s · interval: 30s · ~44 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/ADVANCED_-_Customs_Editor_Meds_Field_Tab_Adding_Fields_and_D_bc623d310756/screenshots
+
+→ DISBURSEMENT_-_Tax_ID_Return_Receipt_DocGen_Scan_In_Red_Appr_38ad63e6437d
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DISBURSEMENT - Tax ID, Return Receipt, DocGen, Scan In, Red. Approval (SP).mp4
+  duration: 826s · interval: 30s · ~28 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DISBURSEMENT_-_Tax_ID_Return_Receipt_DocGen_Scan_In_Red_Appr_38ad63e6437d/screenshots
+
+→ DOCGEN_-_Demand_Letter_b1e01f2498ec
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Demand Letter.mp4
+  duration: 726s · interval: 30s · ~25 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN_-_Demand_Letter_b1e01f2498ec/screenshots
+
+→ DOCGEN_-_Drop_Letter_to_3rd_Party_Insurance_b8ad45e1cc1c
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Drop Letter to 3rd Party Insurance.mp4
+  duration: 483s · interval: 30s · ~17 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN_-_Drop_Letter_to_3rd_Party_Insurance_b8ad45e1cc1c/screenshots
+
+→ DOCGEN_-_Drop_Letter_to_Lien_Holders_2913510d0f40
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Drop Letter to Lien Holders.mp4
+  duration: 422s · interval: 30s · ~15 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN_-_Drop_Letter_to_Lien_Holders_2913510d0f40/screenshots
+
+→ DOCGEN_-_How_To_Create_Letters_2_ebd8d59c9937
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - How To Create Letters 2.mp4
+  duration: 651s · interval: 30s · ~22 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN_-_How_To_Create_Letters_2_ebd8d59c9937/screenshots
+
+→ DOCGEN_-_How_to_Create_Letters_c2fcd7db459a
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - How to Create Letters.mp4
+  duration: 328s · interval: 30s · ~11 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN_-_How_to_Create_Letters_c2fcd7db459a/screenshots
+
+→ DOCGEN_-_Medical_LOR_to_Copy_Co_21b482ee5649
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Medical LOR to Copy Co.mp4
+  duration: 804s · interval: 30s · ~27 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN_-_Medical_LOR_to_Copy_Co_21b482ee5649/screenshots
+
+→ DOCGEN_-_Revising_Docgen_Documents_b68f23a01df5
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN - Revising Docgen Documents.mp4
+  duration: 467s · interval: 30s · ~16 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN_-_Revising_Docgen_Documents_b68f23a01df5/screenshots
+
+→ DOCGEN-_MED_PAY_to_1st_party_48968accca97
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DOCGEN- MED PAY to 1st party.mp4
+  duration: 550s · interval: 30s · ~19 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DOCGEN-_MED_PAY_to_1st_party_48968accca97/screenshots
+
+→ How_to_Docgen_Intake_Sheets_f432ec0d62a5
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/How to Docgen Intake Sheets.MP4
+  duration: 2290s · interval: 30s · ~77 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/How_to_Docgen_Intake_Sheets_f432ec0d62a5/screenshots
+
+→ TASK_-_Getting_Police_Report_Calling_and_DocGen_Ltr_bfbb99ae10f1
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/TASK - Getting Police Report Calling and DocGen Ltr.mp4
+  duration: 533s · interval: 30s · ~18 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/TASK_-_Getting_Police_Report_Calling_and_DocGen_Ltr_bfbb99ae10f1/screenshots
+
+→ FILEVINE_-_Hospital_Bills_and_Records_Treatment_Tracker_314c4afc9780
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Hospital Bills and Records Treatment Tracker.mp4
+  duration: 2641s · interval: 30s · ~89 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Hospital_Bills_and_Records_Treatment_Tracker_314c4afc9780/screenshots
+
+→ FILEVINE_-_Task_-_Intake_Med_Provider_30_Day_Insurance_0fd3fa87b6b9
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Intake, Med Provider, 30 Day, Insurance.mp4
+  duration: 278s · interval: 30s · ~10 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Task_-_Intake_Med_Provider_30_Day_Insurance_0fd3fa87b6b9/screenshots
+
+→ FILEVINE_-_Task_-_Police_Report_Request_dc93fda09552
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Police Report Request.mp4
+  duration: 222s · interval: 30s · ~8 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Task_-_Police_Report_Request_dc93fda09552/screenshots
+
+→ FILEVINE_-_Task_-_Police_Report_Tasks_Part_1_d35176b2bcbc
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Police Report Tasks Part 1.mp4
+  duration: 412s · interval: 30s · ~14 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Task_-_Police_Report_Tasks_Part_1_d35176b2bcbc/screenshots
+
+→ FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Task - Reviewing MRIS.mp4
+  duration: 248s · interval: 30s · ~9 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Task_-_Reviewing_MRIS_dcff88123da2/screenshots
+
+→ FILEVINE_TASK_-_5_Yrs_of_Med_Treatment_if_priors_no_index_in_a0fa97c5b2ed
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - 5 Yrs of Med Treatment if priors no index info.mp4
+  duration: 568s · interval: 30s · ~19 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_TASK_-_5_Yrs_of_Med_Treatment_if_priors_no_index_in_a0fa97c5b2ed/screenshots
+
+→ FILEVINE_TASK_-_Intake_Treatment_Insurance_Auto_Tab_task_Par_408fb5533689
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Intake, Treatment, Insurance Auto Tab task Part 2.mp4
+  duration: 189s · interval: 30s · ~7 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_TASK_-_Intake_Treatment_Insurance_Auto_Tab_task_Par_408fb5533689/screenshots
+
+→ FILEVINE_TASK_-_Med_Pay_and_Insurance_Declaration_bf6e2956fc7d
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Med Pay and Insurance Declaration.mp4
+  duration: 1635s · interval: 30s · ~55 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_TASK_-_Med_Pay_and_Insurance_Declaration_bf6e2956fc7d/screenshots
+
+→ MEDS_TAB_-_Creating_Contacts_and_Saving_Medical_Bills_f119f77adbea
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/MEDS TAB - Creating Contacts and Saving Medical Bills.mp4
+  duration: 330s · interval: 30s · ~12 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/MEDS_TAB_-_Creating_Contacts_and_Saving_Medical_Bills_f119f77adbea/screenshots
+
+→ MEDS_TAB_-_Update_the_Meds_Tab_4eb75200b51d
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/MEDS TAB - Update the Meds Tab.mp4
+  duration: 101s · interval: 30s · ~4 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/MEDS_TAB_-_Update_the_Meds_Tab_4eb75200b51d/screenshots
+
+→ DISBURSEMENT_SHEET_-_Updating_Rolando_Clores_56fa2b2c5527
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/DISBURSEMENT SHEET - Updating Rolando Clores.mp4
+  duration: 4629s · interval: 30s · ~155 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/DISBURSEMENT_SHEET_-_Updating_Rolando_Clores_56fa2b2c5527/screenshots
+
+→ FILEVINE_-_Disbursements_a37c8cc4d16f
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Disbursements.mp4
+  duration: 3052s · interval: 30s · ~102 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Disbursements_a37c8cc4d16f/screenshots
+
+→ NEGOTIATION_TAB_-_Notating_Offers_and_updating_negotiation_a_22a09332bd85
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/NEGOTIATION TAB - Notating Offers and updating negotiation and settlement calc tab.mp4
+  duration: 442s · interval: 30s · ~15 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/NEGOTIATION_TAB_-_Notating_Offers_and_updating_negotiation_a_22a09332bd85/screenshots
+
+→ SETTLEMENT_CALC_TAB_-_Settlement_Calc_Disbursement_Ltr_b1ab01c92be9
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/SETTLEMENT CALC TAB - Settlement Calc Disbursement Ltr.mp4
+  duration: 552s · interval: 30s · ~19 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/SETTLEMENT_CALC_TAB_-_Settlement_Calc_Disbursement_Ltr_b1ab01c92be9/screenshots
+
+→ Settlement_Disbursement_-_Long_Reduction_Request_fadacdf73a10
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Settlement Disbursement - Long Reduction Request.mp4
+  duration: 198s · interval: 30s · ~7 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Settlement_Disbursement_-_Long_Reduction_Request_fadacdf73a10/screenshots
+
+→ 2017-06-07_Filevine_Tutorial__d75e6b321e63
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017-06-07 Filevine Tutorial .mp4
+  duration: 2703s · interval: 30s · ~91 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017-06-07_Filevine_Tutorial__d75e6b321e63/screenshots
+
+→ 2017_8_11_FILEVINE_-_Run_and_Share_Reports_Seans_Special_Lis_423641749d33
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/2017.8.11 FILEVINE - Run and Share Reports Seans Special List.mp4
+  duration: 523s · interval: 30s · ~18 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/2017_8_11_FILEVINE_-_Run_and_Share_Reports_Seans_Special_Lis_423641749d33/screenshots
+
+→ FILEVINE_-_Creating_New_Project_and_Textline_c25530f13971
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Creating New Project and Textline.mp4
+  duration: 271s · interval: 30s · ~10 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Creating_New_Project_and_Textline_c25530f13971/screenshots
+
+→ FILEVINE_-_Intake_Better_Copy_69d25749e1b6
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Intake Better Copy.mp4
+  duration: 1297s · interval: 30s · ~44 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Intake_Better_Copy_69d25749e1b6/screenshots
+
+→ FILEVINE_-_Server_Folder_Names_c83e174dc022
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE - Server Folder Names.mp4
+  duration: 39s · interval: 30s · ~2 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_-_Server_Folder_Names_c83e174dc022/screenshots
+
+→ FILEVINE_TASK_-_Atty_Directives_and_Team_Members_Roles_Dropb_4981363ceabd
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Atty Directives and Team Members,  Roles, Dropbox Treatment Phase.mp4
+  duration: 218s · interval: 30s · ~8 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_TASK_-_Atty_Directives_and_Team_Members_Roles_Dropb_4981363ceabd/screenshots
+
+→ FILEVINE_TASK_-_Bolded_Vines_for_3P_and_1P_8306397485d4
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Bolded Vines for 3P and 1P.mp4
+  duration: 398s · interval: 30s · ~14 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_TASK_-_Bolded_Vines_for_3P_and_1P_8306397485d4/screenshots
+
+→ FILEVINE_TASK_-_Textline_and_Organizing_Pics_Closed_Cases_Te_c11e7cebddf6
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/FILEVINE TASK - Textline and Organizing Pics Closed Cases Textline Selfies.mp4
+  duration: 323s · interval: 30s · ~11 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/FILEVINE_TASK_-_Textline_and_Organizing_Pics_Closed_Cases_Te_c11e7cebddf6/screenshots
+
+→ Filevine_2_cda9663c5f02
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine 2.mp4
+  duration: 660s · interval: 30s · ~23 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Filevine_2_cda9663c5f02/screenshots
+
+→ Filevine_Training_5bca9bb760a1
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine Training.mov
+  duration: 3491s · interval: 30s · ~117 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Filevine_Training_5bca9bb760a1/screenshots
+
+→ Filevine_7df1e54e36d7
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine.mp4
+  duration: 4112s · interval: 30s · ~138 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Filevine_7df1e54e36d7/screenshots
+
+→ Filevine_combine_a07743d6bd07
+  video: /Users/ricardo/Desktop/CPP Training - Video Quarantine/Filevine_combine.mp4
+  duration: 4767s · interval: 30s · ~159 frames
+  out: /Users/ricardo/Expedia Solutions/PraxiumLaw/training-archive/van-law-the case system/Filevine_combine_a07743d6bd07/screenshots
+
+Done — extracted 49 video(s), skipped 0, total queued 49.
