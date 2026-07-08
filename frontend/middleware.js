@@ -152,6 +152,27 @@ function getCookie(request, name) {
   return null;
 }
 
+// Paths that must always work regardless of the landing-page lock:
+// essence/asset URLs the HF prompt system depends on, the actual product
+// (login/signup/portal/praxa), and the unlock API itself.
+const ALWAYS_OPEN_PREFIXES = [
+  '/api/site-unlock',
+  '/higgsfield/',
+  '/static/',
+  '/login',
+  '/signup',
+  '/portal',
+  '/praxa',
+  '/accept-invite',
+  '/upload/',
+  '/sign/',
+  '/verify-identity/',
+];
+
+function isAlwaysOpen(pathname) {
+  return ALWAYS_OPEN_PREFIXES.some((p) => pathname === p || pathname.startsWith(p));
+}
+
 export default function middleware(request) {
   const password = process.env.SITE_LOCK_PASSWORD;
   const secret = process.env.SITE_LOCK_SECRET;
@@ -162,7 +183,13 @@ export default function middleware(request) {
 
   const url = new URL(request.url);
 
-  if (url.pathname.startsWith('/api/site-unlock')) {
+  // admin.praxiumlaw.com goes straight through (redirected to /login by vercel.json) — never gated.
+  const host = request.headers.get('host') || '';
+  if (host.startsWith('admin.')) {
+    return next();
+  }
+
+  if (isAlwaysOpen(url.pathname)) {
     return next();
   }
 

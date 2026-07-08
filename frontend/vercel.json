@@ -10,6 +10,12 @@
   "redirects": [
     {
       "source": "/",
+      "has": [{ "type": "host", "value": "admin.praxiumlaw.com" }],
+      "destination": "/login",
+      "permanent": false
+    },
+    {
+      "source": "/",
       "has": [{ "type": "host", "value": "praxahq.com" }],
       "destination": "/praxa",
       "permanent": false

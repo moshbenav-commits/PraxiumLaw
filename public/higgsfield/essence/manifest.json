@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-07-08T16:38:25.345Z",
+  "baseUrl": "https://praxiumlaw.com",
+  "indexUrl": "https://praxiumlaw.com/higgsfield/essence",
+  "indexPath": "/higgsfield/essence",
+  "imagePolicy": {
+    "maxLongEdge": 2048,
+    "publicFormat": "webp",
+    "hfUploadFormat": "png",
+    "hfUploadRoot": "brand/higgsfield/essence/upload"
+  },
+  "doc": "docs/prompts/higgsfield/NANO_BANANA_URL_REFERENCE_WORKFLOW.md",
+  "syncCli": "npm run video:flow:essence-public-sync",
+  "hostsSsot": "brand/higgsfield/ESSENCE_PUBLIC_HOSTS.json",
+  "purpose": "Per-site public brand reference gallery for Nano Banana URL grounding — non-EP hosts use productionOrigin from ESSENCE_PUBLIC_HOSTS.json.",
+  "elements": [
+    {
+      "brandKey": "praxium-law",
+      "brandDisplay": "Praxium Law",
+      "elementName": "PLX-Brand-Essence",
+      "promptTag": "@PLX-Brand-Essence",
+      "slug": "plx-brand-essence",
+      "tier": "standard",
+      "category": "prop",
+      "description": "Higgsfield essence reference for @PLX-Brand-Essence",
+      "elementUrl": "https://praxiumlaw.com/higgsfield/essence#plx-brand-essence",
+      "hostSiteRepo": "PraxiumLaw",
+      "hostOrigin": "https://praxiumlaw.com",
+      "medias": [
+        {
+          "role": "pi-mark",
+          "slot": 1,
+          "publicPath": "/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp",
+          "publicUrl": "https://praxiumlaw.com/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp",
+          "localPublicPath": "PraxiumLaw/public/higgsfield/essence/praxium-law/plx-brand-essence/01-pi-mark.webp",
+          "hostSiteRepo": "PraxiumLaw",
+          "hostOrigin": "https://praxiumlaw.com",
+          "uploadPath": "brand/higgsfield/essence/upload/praxium-law/plx-brand-essence/01-pi-mark.png",
+          "width": 512,
+          "height": 512,
+          "bytes": 4504,
+          "maxLongEdge": 2048,
+          "sourcePath": "brand/praxium-law/references/logo/praxium-mark-ref.png"
+        }
+      ]
+    }
+  ],
+  "siteBrandKey": "praxium-law",
+  "siteBrandKeys": [
+    "praxium-law"
+  ]
+}
