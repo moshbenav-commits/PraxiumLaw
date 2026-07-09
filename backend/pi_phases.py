@@ -3,6 +3,7 @@ PI Case OS — phase pipeline (Intake → Treating → Demand → Settlement / L
 """
 from __future__ import annotations
 
+from datetime import datetime, timedelta
 from typing import Any, Callable, Literal, Optional
 
 from fastapi import Depends, HTTPException
@@ -96,6 +97,19 @@ PHASE_TO_STATUS: dict[str, str] = {
     "litigate": "litigation",
     "dropped": "closed",
     "closed": "closed",
+}
+
+PHASE_LETTER_TASKS: dict[str, tuple[dict, ...]] = {
+    "demand": (
+        {"title": "Generate demand letter (DocGen — Demand tab)", "priority": "high", "due_days": 3},
+    ),
+    "settlement_disbursement": (
+        {"title": "Generate reduction request letters (DocGen — Settlement tab)", "priority": "high", "due_days": 3},
+        {"title": "Generate disbursement letter (DocGen — needs attorney-approved scenario)", "priority": "high", "due_days": 5},
+    ),
+    "dropped": (
+        {"title": "Send drop letters to providers / lien holders (DocGen — Demand tab)", "priority": "high", "due_days": 2},
+    ),
 }
 
 
@@ -229,6 +243,38 @@ def register_pi_phase_routes(
     compute_matter_treatment_alerts: Callable,
     enrich_ledger_items: Callable,
 ):
+    async def _spawn_phase_letter_tasks(matter_id, firm_id, user, phase_id, ts):
+        created_titles: list[str] = []
+        for t in PHASE_LETTER_TASKS.get(phase_id, ()):
+            existing = await db.tasks.find_one(
+                {
+                    "firm_id": firm_id,
+                    "matter_id": matter_id,
+                    "title": t["title"],
+                    "status": {"$ne": "done"},
+                }
+            )
+            if existing:
+                continue
+            due_date = (datetime.fromisoformat(ts) + timedelta(days=t["due_days"])).isoformat()
+            await db.tasks.insert_one(
+                {
+                    "id": new_id(),
+                    "firm_id": firm_id,
+                    "matter_id": matter_id,
+                    "title": t["title"],
+                    "description": "Auto-created on PI phase change — see the matter's letter DocGen card.",
+                    "priority": t["priority"],
+                    "status": "open",
+                    "assignee_id": user["id"],
+                    "created_by": user["id"],
+                    "created_at": ts,
+                    "due_date": due_date,
+                }
+            )
+            created_titles.append(t["title"])
+        return created_titles
+
     @api.get("/pi/phases/catalog")
     async def pi_phases_catalog(user=Depends(get_current_user)):
         return {
@@ -308,6 +354,7 @@ def register_pi_phase_routes(
         pi_phase = merge_pi_phase(m.get("pi_phase"))
         ts = now_iso()
         patch_matter: dict[str, Any] = {"updated_at": ts}
+        created_titles: list[str] = []
 
         if body.phase is not None:
             if body.phase not in PHASE_IDS:
@@ -341,6 +388,31 @@ def register_pi_phase_routes(
                         "created_at": ts,
                     }
                 )
+                created_titles = await _spawn_phase_letter_tasks(matter_id, user["firm_id"], user, body.phase, ts)
+                if created_titles:
+                    await db.activities.insert_one(
+                        {
+                            "id": new_id(),
+                            "firm_id": user["firm_id"],
+                            "matter_id": matter_id,
+                            "actor_id": user["id"],
+                            "actor_name": user.get("name"),
+                            "type": "phase_tasks_created",
+                            "description": f"Auto-created {len(created_titles)} letter task(s) for phase {body.phase}",
+                            "created_at": ts,
+                        }
+                    )
+                from workflows import run_workflow_trigger
+
+                await run_workflow_trigger(
+                    db,
+                    firm_id=user["firm_id"],
+                    trigger="pi.phase_changed",
+                    context={"matter_id": matter_id, "from_phase": prev, "to_phase": body.phase},
+                    user_id=user["id"],
+                    new_id=new_id,
+                    now_iso=now_iso,
+                )
 
         if body.phase_notes is not None:
             pi_phase["phase_notes"] = body.phase_notes
@@ -358,4 +430,8 @@ def register_pi_phase_routes(
         await db.matters.update_one({"id": matter_id, "firm_id": user["firm_id"]}, {"$set": patch_matter})
 
         updated = await db.matters.find_one({"id": matter_id}, {"_id": 0, "pi_phase": 1})
-        return {"matter_id": matter_id, "pi_phase": merge_pi_phase(updated.get("pi_phase"))}
+        return {
+            "matter_id": matter_id,
+            "pi_phase": merge_pi_phase(updated.get("pi_phase")),
+            "letter_tasks_created": created_titles,
+        }

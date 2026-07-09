@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import base64
 import io
+import re
 import zipfile
 from datetime import datetime
 from typing import Any, Callable, Literal, Optional
@@ -24,6 +25,7 @@ from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 
 from disclosure import require_disclosure_ack
+from pdf_util import append_pdf_pages, is_pdf, page_count
 from rbac import role_has_permission
 from training_templates import build_firm_merge_tokens
 
@@ -193,6 +195,77 @@ def _watermark_blocks() -> list[dict]:
     return [
         para("DRAFT — PENDING ATTORNEY APPROVAL — NOT FOR SEND", bold=True, align="center"),
         spacer(),
+    ]
+
+
+def _provider_names_match(label: str, provider_name: str) -> bool:
+    a = (label or "").casefold().strip()
+    b = (provider_name or "").casefold().strip()
+    if not a or not b:
+        return False
+    return a in b or b in a
+
+
+def match_bill_documents(bill_docs: list[dict], provider_name: str) -> list[dict]:
+    """Bill documents (taxonomy medical/B) whose provider_label matches a ledger provider."""
+    return [
+        d for d in bill_docs
+        if _provider_names_match((d.get("taxonomy") or {}).get("provider_label") or "", provider_name)
+    ]
+
+
+# Merge-field coverage: which letter fields are filled, and which tab fills them.
+def compute_letter_missing_fields(
+    letter_type: str,
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    demand: dict,
+    insurance: dict,
+    scenarios: list[dict],
+    bill_rows: list[dict],
+) -> list[dict]:
+    tp = insurance.get("third_party") or {}
+    fp = insurance.get("first_party") or {}
+    checks: list[tuple[str, str, str, Any]] = [
+        ("client_name", "Client contact linked", "Contacts", (client or {}).get("name")),
+        ("incident_date", "Date of loss", "Matter", matter.get("incident_date")),
+        ("attorney_name", "Attorney name", "Settings → Templates", tokens.get("ATTORNEY_NAME")),
+        ("firm_address", "Firm address", "Settings → Templates", tokens.get("FIRM_ADDRESS")),
+    ]
+    if letter_type == "demand":
+        checks += [
+            ("tp_carrier", "3P carrier name", "Insurance tab", tp.get("carrier_name")),
+            ("tp_claim", "3P claim number", "Insurance tab", tp.get("claim_number")),
+            ("tp_adjuster", "3P adjuster name", "Insurance tab", (tp.get("adjuster") or {}).get("name")),
+            ("tp_adjuster_address", "3P adjuster mailing address", "Insurance tab", (tp.get("adjuster") or {}).get("mailing_address")),
+            ("exhibits", "Demand exhibits", "Demand tab", (demand.get("exhibits") or None)),
+        ]
+    elif letter_type == "medpay":
+        checks += [
+            ("fp_carrier", "1P carrier name", "Insurance tab", fp.get("carrier_name")),
+            ("fp_claim", "1P claim number", "Insurance tab", fp.get("claim_number")),
+            ("fp_adjuster_address", "1P adjuster mailing address", "Insurance tab", (fp.get("adjuster") or {}).get("mailing_address")),
+            ("medpay_limit", "MedPay limit", "Insurance tab", (fp.get("medpay") or {}).get("limit")),
+            ("bills", "Provider balances", "Medical tab", bill_rows or None),
+        ]
+    elif letter_type == "reduction_request":
+        has_reduction = any(
+            (li.get("reduction_type") or "none") != "none"
+            for s in scenarios for li in (s.get("line_items") or [])
+        )
+        checks.append(("reductions", "Attorney-set reductions", "Settlement tab", has_reduction or None))
+    elif letter_type == "disbursement":
+        checks += [
+            ("client_address", "Client mailing address", "Contacts", (client or {}).get("address")),
+            ("approved_scenario", "Attorney-approved scenario", "Settlement tab",
+             any(s.get("attorney_approved") for s in scenarios) or None),
+        ]
+    return [
+        {"field": field, "label": label, "source": source}
+        for field, label, source, value in checks
+        if not value
     ]
 
 
@@ -808,6 +881,7 @@ LETTER_TYPE_IDS = tuple(row["id"] for row in LETTER_TYPES)
 class LetterGenerateIn(BaseModel):
     letter_type: Literal["demand", "medpay", "drop", "reduction_request", "disbursement"]
     format: Literal["docx", "pdf"] = "docx"
+    include_bills: bool = False
     recipient_name: Optional[str] = Field(None, max_length=300)
     recipient_address: Optional[str] = Field(None, max_length=1000)
     attention: Optional[str] = Field(None, max_length=200)
@@ -879,6 +953,90 @@ def register_pi_letter_routes(
             economic=demand.get("economic_damages"),
         )
 
+    async def _load_bill_documents(matter_id: str, firm_id: str, *, with_data: bool = False) -> list[dict]:
+        projection = {"_id": 0, "id": 1, "name": 1, "content_type": 1, "taxonomy": 1}
+        if with_data:
+            projection["data_b64"] = 1
+        return await db.documents.find(
+            {"firm_id": firm_id, "matter_id": matter_id, "taxonomy.doc_type": "medical", "taxonomy.medical_code": "B"},
+            projection,
+        ).to_list(200)
+
+    async def _resolve_provider_address(firm_id: str, *, provider_id: Optional[str], provider_name: str) -> Optional[dict]:
+        provider = None
+        if provider_id:
+            provider = await db.providers.find_one({"id": provider_id, "firm_id": firm_id}, {"_id": 0})
+        if not provider and provider_name.strip():
+            provider = await db.providers.find_one(
+                {"firm_id": firm_id, "name": {"$regex": f"^{re.escape(provider_name.strip())}$", "$options": "i"}},
+                {"_id": 0},
+            )
+        return provider
+
+    async def _autofill_recipient_address(overrides: dict, firm_id: str, *, provider_id: Optional[str], provider_name: str, warnings_sink: list[str]):
+        """Fill recipient_address from the provider directory when not supplied."""
+        if overrides.get("recipient_address") or not provider_name:
+            return
+        provider = await _resolve_provider_address(firm_id, provider_id=provider_id, provider_name=provider_name)
+        if provider and provider.get("address"):
+            overrides["recipient_address"] = provider["address"]
+            if provider.get("fax") and not overrides.get("attention"):
+                overrides["recipient_address"] += f"\nFax: {provider['fax']}"
+        else:
+            warnings_sink.append(
+                f"No address on file for {provider_name} — add it in the provider directory or type it manually"
+            )
+
+    async def _attach_bill_pdfs(
+        letter_pdf: bytes,
+        *,
+        matter_id: str,
+        firm_id: str,
+        providers_wanted: list[dict],
+        explicit_document_ids: list[str],
+    ) -> tuple[bytes, list[str], list[str], list[str]]:
+        """Append matching bill PDFs to the letter. providers_wanted: [{provider_name}]."""
+        bill_docs = await _load_bill_documents(matter_id, firm_id, with_data=True)
+        by_id = {d["id"]: d for d in bill_docs}
+        attached: list[str] = []
+        missing: list[str] = []
+        warnings: list[str] = []
+        chosen: list[dict] = []
+        seen: set[str] = set()
+
+        for doc_id in explicit_document_ids:
+            doc = by_id.get(doc_id) or await db.documents.find_one(
+                {"id": doc_id, "firm_id": firm_id, "matter_id": matter_id},
+                {"_id": 0, "id": 1, "name": 1, "content_type": 1, "data_b64": 1},
+            )
+            if doc and doc["id"] not in seen:
+                chosen.append(doc)
+                seen.add(doc["id"])
+
+        for row in providers_wanted:
+            name = row.get("provider_name") or ""
+            matches = [d for d in match_bill_documents(bill_docs, name) if d["id"] not in seen]
+            if not matches and not any(
+                _provider_names_match((by_id.get(i, {}).get("taxonomy") or {}).get("provider_label") or "", name)
+                for i in seen
+            ):
+                missing.append(name)
+            for d in matches:
+                chosen.append(d)
+                seen.add(d["id"])
+
+        merged = letter_pdf
+        for doc in chosen:
+            if not is_pdf(doc.get("content_type"), doc.get("name") or ""):
+                warnings.append(f"Bill '{doc.get('name')}' is not a PDF — attach it manually")
+                continue
+            try:
+                merged = append_pdf_pages(merged, base64.b64decode(doc["data_b64"]))
+                attached.append(doc.get("name") or doc["id"])
+            except Exception:
+                warnings.append(f"Could not merge bill '{doc.get('name')}' — file may be corrupt")
+        return merged, attached, missing, warnings
+
     def _find_scenario(settlement: dict, scenario_id: Optional[str]) -> dict:
         scenarios = settlement.get("scenarios") or []
         if not scenarios:
@@ -894,6 +1052,10 @@ def register_pi_letter_routes(
         m = await _load_matter(matter_id, user["firm_id"])
         demand = merge_pi_demand(m.get("pi_demand"))
         settlement = merge_pi_settlement(m.get("pi_settlement"))
+        insurance = merge_pi_insurance(m.get("pi_insurance"))
+        client = await _load_client(m, user["firm_id"])
+        firm = await get_firm_for_user(user)
+        tokens = firm_tokens_raw(firm, user)
         scenarios = settlement.get("scenarios") or []
         has_reduction = any(
             (li.get("reduction_type") or "none") != "none"
@@ -901,6 +1063,23 @@ def register_pi_letter_routes(
             for li in (s.get("line_items") or [])
         )
         has_approved_scenario = any(s.get("attorney_approved") for s in scenarios)
+
+        ledger_rows = await _load_ledger(matter_id, user["firm_id"])
+        bill_rows = [r for r in ledger_rows if float(r.get("balance") or 0) > 0]
+        bill_docs = await _load_bill_documents(matter_id, user["firm_id"])
+        medpay_bills = [
+            {
+                "id": r.get("id"),
+                "provider_name": r.get("provider_name") or "",
+                "specialty": r.get("specialty") or "other",
+                "balance": round(float(r.get("balance") or 0), 2),
+                "has_bill_pdf": any(
+                    is_pdf(d.get("content_type"), d.get("name") or "")
+                    for d in match_bill_documents(bill_docs, r.get("provider_name") or "")
+                ),
+            }
+            for r in bill_rows
+        ]
 
         catalog = []
         for row in LETTER_TYPES:
@@ -915,6 +1094,10 @@ def register_pi_letter_routes(
                     "permission_ok": role_has_permission(user.get("role", "staff"), row["permission"]),
                     "blockers": blockers,
                     "draft_watermark": row["id"] in ("demand", "medpay") and demand.get("status") not in ("approved", "sent"),
+                    "missing_fields": compute_letter_missing_fields(
+                        row["id"], tokens=tokens, matter=m, client=client, demand=demand,
+                        insurance=insurance, scenarios=scenarios, bill_rows=bill_rows,
+                    ),
                 }
             )
 
@@ -927,6 +1110,7 @@ def register_pi_letter_routes(
             "letters": catalog,
             "recent": recent,
             "demand_status": demand.get("status"),
+            "medpay_bills": medpay_bills,
         }
 
     @api.post("/matters/{matter_id}/letters/generate")
@@ -939,6 +1123,8 @@ def register_pi_letter_routes(
         tokens = firm_tokens_raw(firm, user)
         today = now_iso()
         overrides = body.model_dump(exclude_none=True)
+        autofill_warnings: list[str] = []
+        bills_wanted: list[dict] = []
 
         if body.letter_type == "demand":
             demand = merge_pi_demand(m.get("pi_demand"))
@@ -948,6 +1134,11 @@ def register_pi_letter_routes(
                 tokens=tokens, matter=m, client=client, demand=demand, insurance=insurance,
                 validation=_demand_validation(demand, ledger_rows), today_iso=today, overrides=overrides,
             )
+            bills_wanted = [
+                {"provider_name": e.get("provider_name") or "", "document_id": e.get("document_id")}
+                for e in (demand.get("exhibits") or [])
+                if e.get("included")
+            ]
         elif body.letter_type == "medpay":
             demand = merge_pi_demand(m.get("pi_demand"))
             insurance = merge_pi_insurance(m.get("pi_insurance"))
@@ -956,7 +1147,18 @@ def register_pi_letter_routes(
                 tokens=tokens, matter=m, client=client, demand=demand, insurance=insurance,
                 ledger_rows=ledger_rows, today_iso=today, overrides=overrides,
             )
+            selected = set(body.ledger_row_ids or [])
+            bills_wanted = [
+                {"provider_name": r.get("provider_name") or "", "document_id": None}
+                for r in ledger_rows
+                if float(r.get("balance") or 0) > 0 and (not selected or r.get("id") in selected)
+            ]
         elif body.letter_type == "drop":
+            if body.recipient_name:
+                await _autofill_recipient_address(
+                    overrides, user["firm_id"], provider_id=None,
+                    provider_name=body.recipient_name, warnings_sink=autofill_warnings,
+                )
             composed = compose_drop_letter(tokens=tokens, matter=m, client=client, today_iso=today, overrides=overrides)
         elif body.letter_type == "reduction_request":
             settlement = merge_pi_settlement(m.get("pi_settlement"))
@@ -969,6 +1171,17 @@ def register_pi_letter_routes(
                 raise HTTPException(400, "line_item_id required — pick the provider line to reduce")
             if (line.get("reduction_type") or "none") == "none":
                 raise HTTPException(400, "Attorney must set the reduction on this provider line before generating the letter")
+            ledger_row = None
+            if line.get("ledger_row_id"):
+                ledger_row = await db.med_ledger.find_one(
+                    {"id": line["ledger_row_id"], "firm_id": user["firm_id"]}, {"_id": 0, "provider_id": 1}
+                )
+            await _autofill_recipient_address(
+                overrides, user["firm_id"],
+                provider_id=(ledger_row or {}).get("provider_id"),
+                provider_name=line.get("provider_name") or "",
+                warnings_sink=autofill_warnings,
+            )
             composed = compose_reduction_letter(
                 tokens=tokens, matter=m, client=client, line=line, today_iso=today, overrides=overrides,
             )
@@ -987,14 +1200,29 @@ def register_pi_letter_routes(
         else:  # pragma: no cover — Literal already guards
             raise HTTPException(400, "Unknown letter type")
 
+        composed["warnings"] = (composed.get("warnings") or []) + autofill_warnings
+        attached_bills: list[str] = []
+        missing_bill_providers: list[str] = []
         if body.format == "pdf":
             data = render_pdf(composed["blocks"])
             content_type = PDF_MIME
             ext = "pdf"
+            if body.include_bills and body.letter_type in ("demand", "medpay"):
+                explicit_ids = [b["document_id"] for b in bills_wanted if b.get("document_id")]
+                data, attached_bills, missing_bill_providers, attach_warnings = await _attach_bill_pdfs(
+                    data,
+                    matter_id=matter_id,
+                    firm_id=user["firm_id"],
+                    providers_wanted=bills_wanted,
+                    explicit_document_ids=explicit_ids,
+                )
+                composed["warnings"] += attach_warnings
         else:
             data = render_docx(composed["blocks"])
             content_type = DOCX_MIME
             ext = "docx"
+            if body.include_bills:
+                composed["warnings"].append("Bill attachment applies to PDF format — DOCX generated without bills")
 
         stem = composed["filename_stem"]
         if composed.get("watermark"):
@@ -1016,7 +1244,7 @@ def register_pi_letter_routes(
             "version": 1,
             "client_visible": False,
             "extracted_text": None,
-            "page_count": None,
+            "page_count": page_count(data) if ext == "pdf" else None,
             "taxonomy": None,
             "letter": {
                 "letter_type": body.letter_type,
@@ -1026,6 +1254,7 @@ def register_pi_letter_routes(
                 "generated_by_name": user.get("name"),
                 "generated_at": ts,
                 "warnings": composed.get("warnings") or [],
+                "attached_bills": attached_bills,
             },
         }
         await db.documents.insert_one(doc)
@@ -1049,6 +1278,8 @@ def register_pi_letter_routes(
             "letter_type": body.letter_type,
             "watermark": bool(composed.get("watermark")),
             "warnings": composed.get("warnings") or [],
+            "attached_bills": attached_bills,
+            "missing_bill_providers": missing_bill_providers,
         }
 
     @api.post("/matters/{matter_id}/letters/ai-draft")

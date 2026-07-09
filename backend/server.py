@@ -1116,6 +1116,7 @@ BACKEND_MODULES = (
     "pi_demand",
     "pi_settlement",
     "pi_letters",
+    "pi_ai_intake",
     "pi_property_damage",
     "pi_comms",
     "pi_audit",
@@ -1200,6 +1201,7 @@ from pi_phases import default_pi_phase, register_pi_phase_routes, merge_pi_phase
 from pi_demand import default_pi_demand, register_pi_demand_routes, merge_pi_demand, compute_demand_validation
 from pi_settlement import default_pi_settlement, register_pi_settlement_routes, merge_pi_settlement, compute_scenario_totals
 from pi_letters import register_pi_letter_routes
+from pi_ai_intake import register_pi_ai_intake_routes
 from pi_expenses import register_pi_expenses_routes, summarize_expenses
 from pi_property_damage import default_pi_property_damage, register_pi_property_damage_routes, merge_pi_property_damage, compute_pd_summary
 from pi_client_comms import default_pi_comms, register_pi_comms_routes, merge_pi_comms, compute_comms_cadence
@@ -1313,6 +1315,15 @@ register_pi_letter_routes(
     compute_demand_validation=compute_demand_validation,
     compute_scenario_totals=compute_scenario_totals,
     summarize_expenses=summarize_expenses,
+    stream_ai_reply=stream_ai_reply,
+)
+register_pi_ai_intake_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    merge_pi_insurance=merge_pi_insurance,
     stream_ai_reply=stream_ai_reply,
 )
 register_pi_expenses_routes(

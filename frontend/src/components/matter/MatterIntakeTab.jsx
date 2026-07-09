@@ -2,8 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "@/lib/api";
 import { toast } from "sonner";
-import { ClipboardList, ExternalLink, FileText, Printer } from "lucide-react";
+import { ClipboardList, ExternalLink, FileText, Printer, Sparkles } from "lucide-react";
 import PageLoader from "@/components/common/PageLoader";
+import AiIntakeFillModal from "@/components/matter/AiIntakeFillModal";
 
 const CONFLICT_OPTIONS = [
   { value: "pending", label: "Pending" },
@@ -16,6 +17,7 @@ export default function MatterIntakeTab({ matterId }) {
   const [team, setTeam] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [aiFillOpen, setAiFillOpen] = useState(false);
 
   const load = useCallback(() => {
     Promise.all([api.get(`/matters/${matterId}/intake`), api.get("/team")])
@@ -81,6 +83,14 @@ export default function MatterIntakeTab({ matterId }) {
           </p>
         </div>
         <div className="flex flex-wrap gap-2 text-xs">
+          <button
+            type="button"
+            className="btn-ghost py-1.5 inline-flex items-center gap-1"
+            onClick={() => setAiFillOpen(true)}
+            data-testid="intake-ai-fill-open"
+          >
+            <Sparkles size={12} /> AI fill from documents
+          </button>
           <Link to="/settings/templates" className="btn-ghost py-1.5 inline-flex items-center gap-1">
             <FileText size={12} /> Templates
           </Link>
@@ -218,6 +228,16 @@ export default function MatterIntakeTab({ matterId }) {
       </div>
 
       {saving && <p className="text-xs font-mono text-praxium-subtle">Saving…</p>}
+
+      <AiIntakeFillModal
+        matterId={matterId}
+        open={aiFillOpen}
+        onClose={() => setAiFillOpen(false)}
+        onApplied={() => {
+          load();
+          setAiFillOpen(false);
+        }}
+      />
     </div>
   );
 }

@@ -228,3 +228,56 @@ def test_letter_registry_permissions():
     assert LETTER_PERMISSIONS["disbursement"] == "settlement.draft"
     assert {row["id"] for row in LETTER_TYPES} == {"demand", "medpay", "drop", "reduction_request", "disbursement"}
     assert DOCX_MIME.endswith("wordprocessingml.document")
+
+
+# ──────────────── sprint 2: bills, coverage, matching ────────────────
+from pi_letters import compute_letter_missing_fields, match_bill_documents
+
+
+def test_match_bill_documents_fuzzy_provider():
+    docs = [
+        {"id": "d1", "taxonomy": {"provider_label": "Desert Hospital"}},
+        {"id": "d2", "taxonomy": {"provider_label": "desert hospital billing dept"}},
+        {"id": "d3", "taxonomy": {"provider_label": "Valley Chiro"}},
+        {"id": "d4", "taxonomy": {}},
+    ]
+    matched = match_bill_documents(docs, "Desert Hospital")
+    assert {d["id"] for d in matched} == {"d1", "d2"}
+    assert match_bill_documents(docs, "") == []
+
+
+def test_letter_missing_fields_demand():
+    missing = compute_letter_missing_fields(
+        "demand",
+        tokens={"ATTORNEY_NAME": "", "FIRM_ADDRESS": "1 Main St"},
+        matter={"incident_date": None},
+        client=None,
+        demand={"exhibits": []},
+        insurance={"third_party": {"carrier_name": "Acme", "adjuster": {}}, "first_party": {}},
+        scenarios=[],
+        bill_rows=[],
+    )
+    by_field = {m["field"]: m for m in missing}
+    assert "client_name" in by_field and by_field["client_name"]["source"] == "Contacts"
+    assert "attorney_name" in by_field and by_field["attorney_name"]["source"] == "Settings → Templates"
+    assert "tp_claim" in by_field and by_field["tp_claim"]["source"] == "Insurance tab"
+    assert "exhibits" in by_field
+    assert "tp_carrier" not in by_field
+    assert "firm_address" not in by_field
+
+
+def test_letter_missing_fields_disbursement_scenario_gate():
+    missing = compute_letter_missing_fields(
+        "disbursement",
+        tokens=TOKENS, matter=MATTER, client=CLIENT,
+        demand=DEMAND, insurance=INSURANCE,
+        scenarios=[{"attorney_approved": False}], bill_rows=[{"id": "r"}],
+    )
+    assert any(m["field"] == "approved_scenario" for m in missing)
+    ok = compute_letter_missing_fields(
+        "disbursement",
+        tokens=TOKENS, matter=MATTER, client=CLIENT,
+        demand=DEMAND, insurance=INSURANCE,
+        scenarios=[{"attorney_approved": True}], bill_rows=[{"id": "r"}],
+    )
+    assert not any(m["field"] == "approved_scenario" for m in ok)
