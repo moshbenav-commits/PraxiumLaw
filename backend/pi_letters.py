@@ -1291,12 +1291,22 @@ def register_pi_letter_routes(
             {"firm_id": user["firm_id"], "matter_id": matter_id, "letter.letter_type": {"$exists": True}},
             {"_id": 0, "data_b64": 0, "extracted_text": 0},
         ).sort("uploaded_at", -1).to_list(25)
+        # A letter is signable via NativeSign only when it's a filed PDF (signature
+        # merge needs a PDF) and hasn't already produced a signed copy.
+        for doc in recent:
+            doc["signable"] = (doc.get("letter") or {}).get("format") == "pdf"
+        client_signer = {
+            "id": (client or {}).get("id"),
+            "name": (client or {}).get("name"),
+            "email": (client or {}).get("email"),
+        } if client else None
         return {
             "matter_id": matter_id,
             "letters": catalog,
             "recent": recent,
             "demand_status": demand.get("status"),
             "medpay_bills": medpay_bills,
+            "client": client_signer,
         }
 
     @api.post("/matters/{matter_id}/letters/generate")
