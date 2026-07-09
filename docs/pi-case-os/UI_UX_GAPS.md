@@ -62,7 +62,7 @@
 | UX-024 | RBAC | Sidebar shows all items to every role |
 | UX-025 | Search | ⌘K excludes training content |
 | UX-026 | Litigation | No transfer-to-lit wizard |
-| UX-027 | Billing | Disbursement module missing |
+| UX-027 | Billing | Disbursement module missing (disbursement *letter* DocGen shipped on Settlement tab; W9 registry + firm-wide queue still open) |
 | UX-028 | Intake | Cold phone lead script still a content gap |
 
 ---
@@ -71,8 +71,9 @@
 
 1. ~~Document taxonomy + redaction~~ — shipped (UX-009, UX-010)  
 2. ~~**PI phase engine**~~ — shipped (UX-014 partial — task templates not auto-created)  
-3. ~~**Demand builder** + attorney gate~~ — shipped (UX-011, UX-012 partial — no DocGen letter yet)  
-4. ~~**Settlement calculator**~~ — shipped (UX-013 partial — no disbursement letter yet)  
+3. ~~**Demand builder** + attorney gate~~ — shipped (UX-011, UX-012 incl. DocGen demand/MedPay/drop letters, DRAFT-watermarked until attorney approval)  
+4. ~~**Settlement calculator**~~ — shipped (UX-013 incl. DocGen reduction-request + disbursement letters; disbursement gated on attorney-approved scenario)  
+5. **DocGen letters** — shipped (`backend/pi_letters.py`): demand, MedPay (1P), drop, reduction request, disbursement — DOCX/PDF, white-label merge, filed to matter Documents under `Letters`, optional AI narrative draft (`/matters/{id}/letters/ai-draft`). UX-027 disbursement *letter* done; full disbursement module (W9 registry, queue) still open.  
 
 See also [`product-capabilities.md`](./product-capabilities.md) MVP order · [`SITE_WIRING_AUDIT.md`](./SITE_WIRING_AUDIT.md).
 
