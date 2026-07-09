@@ -21,6 +21,7 @@ export default function MatterLettersCard({ matterId, tab, extraPayload = {}, re
   const [dropRecipient, setDropRecipient] = useState({ name: "", address: "" });
   const [selectedBillIds, setSelectedBillIds] = useState([]);
   const [attachBills, setAttachBills] = useState({});
+  const [lorSide, setLorSide] = useState("third_party");
 
   const load = useCallback(() => {
     getMatterLetters(matterId)
@@ -48,7 +49,9 @@ export default function MatterLettersCard({ matterId, tab, extraPayload = {}, re
     setAttachBills((m) => ({ ...m, [letterId]: !m[letterId] }));
   };
 
-  const letters = (data.letters || []).filter((l) => l.tab === tab && l.id !== "reduction_request");
+  const letters = (data.letters || []).filter(
+    (l) => l.tab === tab && l.id !== "reduction_request" && l.id !== "lien_verification"
+  );
   const recent = data.recent || [];
 
   const generate = async (letterType, format) => {
@@ -58,6 +61,9 @@ export default function MatterLettersCard({ matterId, tab, extraPayload = {}, re
       if (letterType === "drop") {
         if (dropRecipient.name.trim()) payload.recipient_name = dropRecipient.name.trim();
         if (dropRecipient.address.trim()) payload.recipient_address = dropRecipient.address.trim();
+      }
+      if (letterType === "lor") {
+        payload.side = lorSide;
       }
       if (letterType === "medpay" && medpayBills.length) {
         payload.ledger_row_ids = selectedBillIds;
@@ -167,6 +173,20 @@ export default function MatterLettersCard({ matterId, tab, extraPayload = {}, re
                     value={dropRecipient.address}
                     onChange={(e) => setDropRecipient((d) => ({ ...d, address: e.target.value }))}
                   />
+                </div>
+              ) : null}
+              {l.id === "lor" ? (
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-[10px] font-mono uppercase text-praxium-subtle">Side</span>
+                  <select
+                    className={inputClass() + " w-auto"}
+                    value={lorSide}
+                    onChange={(e) => setLorSide(e.target.value)}
+                    data-testid="letter-lor-side"
+                  >
+                    <option value="third_party">3P (adverse carrier)</option>
+                    <option value="first_party">1P (own carrier)</option>
+                  </select>
                 </div>
               ) : null}
               {l.id === "medpay" && medpayBills.length ? (

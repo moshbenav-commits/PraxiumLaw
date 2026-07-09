@@ -48,11 +48,25 @@ LETTER_TYPES: tuple[dict[str, str], ...] = (
         "tab": "demand",
     },
     {
+        "id": "lor",
+        "label": "Letter of representation (LOR)",
+        "description": "Notice to a carrier that the firm represents the client — directs all contact to the firm and requests the claim number and policy limits.",
+        "permission": "demand.draft",
+        "tab": "demand",
+    },
+    {
         "id": "drop",
         "label": "Drop letter",
         "description": "Notice of withdrawal of representation to a provider or lien holder.",
         "permission": "demand.draft",
         "tab": "demand",
+    },
+    {
+        "id": "lien_verification",
+        "label": "Lien balance verification",
+        "description": "Ask a provider or lien holder to confirm the current outstanding balance in writing before disbursement.",
+        "permission": "settlement.draft",
+        "tab": "settlement",
     },
     {
         "id": "reduction_request",
@@ -250,6 +264,12 @@ def compute_letter_missing_fields(
             ("medpay_limit", "MedPay limit", "Insurance tab", (fp.get("medpay") or {}).get("limit")),
             ("bills", "Provider balances", "Medical tab", bill_rows or None),
         ]
+    elif letter_type == "lor":
+        checks += [
+            ("tp_carrier", "3P carrier name", "Insurance tab", tp.get("carrier_name")),
+        ]
+    elif letter_type == "lien_verification":
+        checks.append(("bills", "Provider balances", "Medical tab", bill_rows or None))
     elif letter_type == "reduction_request":
         has_reduction = any(
             (li.get("reduction_type") or "none") != "none"
@@ -628,6 +648,170 @@ def compose_drop_letter(
     }
 
 
+# ──────────────── compose: letter of representation ────────────────
+LOR_SIDE_TITLES = {
+    "third_party": "LETTER OF REPRESENTATION",
+    "first_party": "LETTER OF REPRESENTATION — FIRST-PARTY CLAIM",
+}
+
+
+def compose_lor_letter(
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    insurance: dict,
+    side_key: str,
+    today_iso: str,
+    overrides: Optional[dict] = None,
+) -> dict:
+    ov = overrides or {}
+    warnings = _common_warnings(tokens, client)
+    side_key = side_key if side_key in ("third_party", "first_party") else "third_party"
+    side = (insurance.get(side_key) or {}) if insurance else {}
+    adjuster = side.get("adjuster") or {}
+    client_name = (client or {}).get("name") or ""
+    side_label = "first-party" if side_key == "first_party" else "third-party"
+
+    recipient_name = ov.get("recipient_name") or side.get("carrier_name") or ""
+    if not recipient_name:
+        warnings.append(f"No {side_label} carrier on the Insurance tab — recipient left blank")
+
+    blocks: list[dict] = []
+    blocks += letterhead_blocks(tokens)
+    blocks.append(para(fmt_date(today_iso)))
+    blocks.append(spacer())
+    blocks += recipient_blocks(
+        recipient_name,
+        ov.get("recipient_address") or adjuster.get("mailing_address") or "",
+        ov.get("attention") or adjuster.get("name") or "",
+    )
+    re_pairs = [
+        ("Our client" + ("/ your insured" if side_key == "first_party" else ""), client_name),
+        ("Claim number", side.get("claim_number") or ""),
+        ("Policy number", side.get("policy_number") or ""),
+        ("Date of loss", fmt_date(matter.get("incident_date"))),
+    ]
+    if side_key == "third_party":
+        re_pairs.insert(1, ("Your insured", ov.get("insured_name") or ""))
+    blocks += re_blocks(re_pairs)
+    blocks.append(para(LOR_SIDE_TITLES[side_key], bold=True, align="center"))
+    blocks.append(spacer())
+    blocks.append(para(f"Dear {ov.get('attention') or adjuster.get('name') or 'Claims Representative'}:"))
+    blocks.append(spacer())
+    if side_key == "first_party":
+        opening = (
+            f"Please be advised that this office represents {client_name or 'our client'}, your insured, in connection "
+            f"with a claim for benefits arising out of the incident of {fmt_date(matter.get('incident_date')) or '[date of loss]'}."
+        )
+    else:
+        opening = (
+            f"Please be advised that this office represents {client_name or 'our client'} for injuries sustained as a "
+            f"result of the incident of {fmt_date(matter.get('incident_date')) or '[date of loss]'}, caused by your insured."
+        )
+    blocks.append(para(opening))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            "Kindly direct all future correspondence and communication regarding this matter to this office. Please do "
+            "not contact our client directly. We further request that you place your insured's liability carrier on notice "
+            "if you have not already done so."
+        )
+    )
+    blocks.append(spacer())
+    blocks.append(para("So that we may properly evaluate this claim, please provide the following in writing:"))
+    for item in (
+        "Your claim number and the adjuster assigned",
+        "Confirmation of applicable policy limits (bodily injury and, if any, medical payments / PIP)",
+        "A certified or complete copy of the declarations page",
+        "Your position on liability",
+    ):
+        blocks.append(para(f"  • {item}", size="small"))
+    if ov.get("body_notes"):
+        blocks.append(spacer())
+        blocks.append(para(str(ov["body_notes"])))
+    blocks.append(spacer())
+    blocks.append(para("Thank you for your prompt attention. We look forward to your acknowledgment of representation."))
+    blocks += closing_blocks(tokens)
+
+    return {
+        "letter_type": "lor",
+        "title": LETTER_LABELS["lor"],
+        "filename_stem": f"{matter.get('case_number') or matter.get('id')} LOR ({'1P' if side_key == 'first_party' else '3P'})",
+        "blocks": blocks,
+        "warnings": warnings,
+        "watermark": False,
+        "side": side_key,
+    }
+
+
+# ──────────────── compose: lien balance verification ────────────────
+def compose_lien_verification_letter(
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    line: dict,
+    today_iso: str,
+    overrides: Optional[dict] = None,
+) -> dict:
+    ov = overrides or {}
+    warnings = _common_warnings(tokens, client)
+    client_name = (client or {}).get("name") or ""
+    balance = float(line.get("balance") or 0)
+    lien_holder = (line.get("lien_holder") or "").strip()
+    provider = ov.get("recipient_name") or lien_holder or line.get("provider_name") or "Provider"
+    recipient_kind = "lien holder" if lien_holder and lien_holder != line.get("provider_name") else "provider"
+
+    blocks: list[dict] = []
+    blocks += letterhead_blocks(tokens)
+    blocks.append(para(fmt_date(today_iso)))
+    blocks.append(spacer())
+    blocks += recipient_blocks(provider, ov.get("recipient_address") or "", ov.get("attention") or "Billing / Lien Department")
+    blocks += re_blocks(
+        [
+            ("Patient", client_name),
+            ("Date of loss", fmt_date(matter.get("incident_date"))),
+            ("Balance on file", fmt_money(balance) if balance else ""),
+        ]
+    )
+    blocks.append(para("REQUEST FOR VERIFICATION OF OUTSTANDING BALANCE", bold=True, align="center"))
+    blocks.append(spacer())
+    blocks.append(para("To Whom It May Concern:"))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            f"This office represents {client_name or 'the above patient'} in a personal injury claim arising from the "
+            f"incident of {fmt_date(matter.get('incident_date')) or '[date of loss]'}. As we prepare to disburse "
+            "settlement proceeds, we must confirm the exact amount owed."
+        )
+    )
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            f"Please provide written verification of the current outstanding balance owed by {client_name or 'the patient'} "
+            f"as of the date of your response, together with an itemized statement of the charges. If your interest is a "
+            f"lien or assignment, please confirm its current amount and enclose a copy of the lien or assignment."
+        )
+    )
+    if ov.get("body_notes"):
+        blocks.append(spacer())
+        blocks.append(para(str(ov["body_notes"])))
+    blocks.append(spacer())
+    blocks.append(para("A prompt written response will allow us to disburse the correct amount without delay. Thank you."))
+    blocks += closing_blocks(tokens)
+
+    return {
+        "letter_type": "lien_verification",
+        "title": LETTER_LABELS["lien_verification"],
+        "filename_stem": f"{matter.get('case_number') or matter.get('id')} Lien Verification — {provider}",
+        "blocks": blocks,
+        "warnings": warnings,
+        "watermark": False,
+        "recipient_kind": recipient_kind,
+    }
+
+
 # ──────────────── compose: disbursement ────────────────
 def compose_disbursement_letter(
     *,
@@ -879,12 +1063,14 @@ LETTER_TYPE_IDS = tuple(row["id"] for row in LETTER_TYPES)
 
 
 class LetterGenerateIn(BaseModel):
-    letter_type: Literal["demand", "medpay", "drop", "reduction_request", "disbursement"]
+    letter_type: Literal["demand", "medpay", "lor", "drop", "lien_verification", "reduction_request", "disbursement"]
     format: Literal["docx", "pdf"] = "docx"
     include_bills: bool = False
+    side: Optional[Literal["third_party", "first_party"]] = None
     recipient_name: Optional[str] = Field(None, max_length=300)
     recipient_address: Optional[str] = Field(None, max_length=1000)
     attention: Optional[str] = Field(None, max_length=200)
+    insured_name: Optional[str] = Field(None, max_length=300)
     scenario_id: Optional[str] = None
     line_item_id: Optional[str] = None
     ledger_row_ids: Optional[list[str]] = None
@@ -893,7 +1079,7 @@ class LetterGenerateIn(BaseModel):
 
 
 class LetterAiDraftIn(BaseModel):
-    letter_type: Literal["demand", "medpay", "drop", "reduction_request", "disbursement"] = "demand"
+    letter_type: Literal["demand", "medpay", "lor", "drop", "lien_verification", "reduction_request", "disbursement"] = "demand"
     instructions: Optional[str] = Field(None, max_length=2000)
 
 
@@ -1153,6 +1339,12 @@ def register_pi_letter_routes(
                 for r in ledger_rows
                 if float(r.get("balance") or 0) > 0 and (not selected or r.get("id") in selected)
             ]
+        elif body.letter_type == "lor":
+            insurance = merge_pi_insurance(m.get("pi_insurance"))
+            composed = compose_lor_letter(
+                tokens=tokens, matter=m, client=client, insurance=insurance,
+                side_key=body.side or "third_party", today_iso=today, overrides=overrides,
+            )
         elif body.letter_type == "drop":
             if body.recipient_name:
                 await _autofill_recipient_address(
@@ -1160,6 +1352,31 @@ def register_pi_letter_routes(
                     provider_name=body.recipient_name, warnings_sink=autofill_warnings,
                 )
             composed = compose_drop_letter(tokens=tokens, matter=m, client=client, today_iso=today, overrides=overrides)
+        elif body.letter_type == "lien_verification":
+            settlement = merge_pi_settlement(m.get("pi_settlement"))
+            scenario = _find_scenario(settlement, body.scenario_id)
+            lines = scenario.get("line_items") or []
+            line = next((li for li in lines if li.get("id") == body.line_item_id), None) if body.line_item_id else None
+            if body.line_item_id and not line:
+                raise HTTPException(404, "Scenario line item not found")
+            if not line:
+                raise HTTPException(400, "line_item_id required — pick the provider / lien line to verify")
+            ledger_row = None
+            if line.get("ledger_row_id"):
+                ledger_row = await db.med_ledger.find_one(
+                    {"id": line["ledger_row_id"], "firm_id": user["firm_id"]},
+                    {"_id": 0, "provider_id": 1, "lien_holder": 1},
+                )
+            enriched_line = {**line, "lien_holder": (ledger_row or {}).get("lien_holder") or line.get("lien_holder")}
+            await _autofill_recipient_address(
+                overrides, user["firm_id"],
+                provider_id=(ledger_row or {}).get("provider_id"),
+                provider_name=enriched_line.get("lien_holder") or line.get("provider_name") or "",
+                warnings_sink=autofill_warnings,
+            )
+            composed = compose_lien_verification_letter(
+                tokens=tokens, matter=m, client=client, line=enriched_line, today_iso=today, overrides=overrides,
+            )
         elif body.letter_type == "reduction_request":
             settlement = merge_pi_settlement(m.get("pi_settlement"))
             scenario = _find_scenario(settlement, body.scenario_id)

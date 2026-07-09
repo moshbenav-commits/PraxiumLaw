@@ -226,7 +226,9 @@ def test_pdf_renderer_produces_pdf(compose_kwargs):
 def test_letter_registry_permissions():
     assert LETTER_PERMISSIONS["demand"] == "demand.draft"
     assert LETTER_PERMISSIONS["disbursement"] == "settlement.draft"
-    assert {row["id"] for row in LETTER_TYPES} == {"demand", "medpay", "drop", "reduction_request", "disbursement"}
+    assert {row["id"] for row in LETTER_TYPES} == {
+        "demand", "medpay", "lor", "drop", "lien_verification", "reduction_request", "disbursement"
+    }
     assert DOCX_MIME.endswith("wordprocessingml.document")
 
 
@@ -281,3 +283,75 @@ def test_letter_missing_fields_disbursement_scenario_gate():
         scenarios=[{"attorney_approved": True}], bill_rows=[{"id": "r"}],
     )
     assert not any(m["field"] == "approved_scenario" for m in ok)
+
+
+# ──────────────── sprint 3: LOR + lien verification ────────────────
+from pi_letters import compose_lor_letter, compose_lien_verification_letter
+
+
+def test_lor_third_party_directs_contact_and_requests_limits():
+    composed = compose_lor_letter(
+        tokens=TOKENS, matter=MATTER, client=CLIENT, insurance=INSURANCE,
+        side_key="third_party", today_iso="2026-07-08",
+    )
+    assert composed["watermark"] is False
+    assert composed["side"] == "third_party"
+    assert "(3P)" in composed["filename_stem"]
+    text = _docx_text(render_docx(composed["blocks"]))
+    assert "LETTER OF REPRESENTATION" in text
+    assert "Acme Mutual" in text          # 3P carrier as recipient
+    assert "John Doe" in text
+    assert "policy limits" in text.lower()
+    assert "do not contact our client" in text.lower()
+
+
+def test_lor_first_party_uses_own_carrier():
+    composed = compose_lor_letter(
+        tokens=TOKENS, matter=MATTER, client=CLIENT, insurance=INSURANCE,
+        side_key="first_party", today_iso="2026-07-08",
+    )
+    assert composed["side"] == "first_party"
+    assert "(1P)" in composed["filename_stem"]
+    text = _docx_text(render_docx(composed["blocks"]))
+    assert "Own Ins Co" in text
+    assert "FIRST-PARTY" in text
+
+
+def test_lor_warns_without_carrier():
+    composed = compose_lor_letter(
+        tokens=TOKENS, matter=MATTER, client=CLIENT,
+        insurance={"third_party": {}, "first_party": {}},
+        side_key="third_party", today_iso="2026-07-08",
+    )
+    assert any("carrier" in w.lower() for w in composed["warnings"])
+
+
+def test_lien_verification_requests_written_balance():
+    line = {"id": "l1", "provider_name": "Desert Hospital", "balance": 45000, "lien_holder": ""}
+    composed = compose_lien_verification_letter(
+        tokens=TOKENS, matter=MATTER, client=CLIENT, line=line, today_iso="2026-07-08",
+    )
+    assert composed["watermark"] is False
+    assert composed["recipient_kind"] == "provider"
+    text = _docx_text(render_docx(composed["blocks"]))
+    assert "VERIFICATION OF OUTSTANDING BALANCE" in text
+    assert "Desert Hospital" in text
+    assert "$45,000.00" in text
+    assert "John Doe" in text
+
+
+def test_lien_verification_addresses_lien_holder_when_present():
+    line = {"id": "l1", "provider_name": "Desert Hospital", "balance": 45000, "lien_holder": "MedLien Capital LLC"}
+    composed = compose_lien_verification_letter(
+        tokens=TOKENS, matter=MATTER, client=CLIENT, line=line, today_iso="2026-07-08",
+    )
+    assert composed["recipient_kind"] == "lien holder"
+    text = _docx_text(render_docx(composed["blocks"]))
+    assert "MedLien Capital LLC" in text
+
+
+def test_new_letter_types_registered():
+    ids = {row["id"] for row in LETTER_TYPES}
+    assert {"lor", "lien_verification"} <= ids
+    assert LETTER_PERMISSIONS["lor"] == "demand.draft"
+    assert LETTER_PERMISSIONS["lien_verification"] == "settlement.draft"

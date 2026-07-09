@@ -100,10 +100,14 @@ PHASE_TO_STATUS: dict[str, str] = {
 }
 
 PHASE_LETTER_TASKS: dict[str, tuple[dict, ...]] = {
+    "treating": (
+        {"title": "Send letters of representation to carriers (DocGen — Demand tab)", "priority": "high", "due_days": 2},
+    ),
     "demand": (
         {"title": "Generate demand letter (DocGen — Demand tab)", "priority": "high", "due_days": 3},
     ),
     "settlement_disbursement": (
+        {"title": "Verify lien balances before disbursement (DocGen — Settlement tab)", "priority": "high", "due_days": 2},
         {"title": "Generate reduction request letters (DocGen — Settlement tab)", "priority": "high", "due_days": 3},
         {"title": "Generate disbursement letter (DocGen — needs attorney-approved scenario)", "priority": "high", "due_days": 5},
     ),

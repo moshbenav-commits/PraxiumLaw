@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import {
   Calculator,
   ExternalLink,
+  FileCheck,
   FileDown,
   Lock,
   Plus,
@@ -219,6 +220,25 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
     }
   };
 
+  const lienVerificationLetter = async (line) => {
+    if (!scenario) return;
+    setBusy(true);
+    try {
+      const r = await generateLetter(matterId, {
+        letter_type: "lien_verification",
+        format: "docx",
+        scenario_id: scenario.id,
+        line_item_id: line.id,
+      });
+      toast.success(`${r.name} filed on the matter`);
+      (r.warnings || []).forEach((w) => toast.warning(w));
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Lien verification letter failed");
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const syncFromExpenses = async () => {
     setBusy(true);
     try {
@@ -394,20 +414,32 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
                             </td>
                             <td className="py-2 pr-2 text-right font-mono">{formatMoney(payable)}</td>
                             <td className="py-2 text-right">
-                              <button
-                                type="button"
-                                className="btn-ghost text-[10px]"
-                                disabled={busy || (line.reduction_type || "none") === "none"}
-                                title={
-                                  (line.reduction_type || "none") === "none"
-                                    ? "Attorney must set a reduction first"
-                                    : "Generate reduction request letter (DOCX)"
-                                }
-                                onClick={() => reductionLetter(line)}
-                                data-testid={`settlement-reduction-letter-${line.id}`}
-                              >
-                                <FileDown size={10} /> Letter
-                              </button>
+                              <span className="inline-flex gap-1">
+                                <button
+                                  type="button"
+                                  className="btn-ghost text-[10px]"
+                                  disabled={busy || (line.reduction_type || "none") === "none"}
+                                  title={
+                                    (line.reduction_type || "none") === "none"
+                                      ? "Attorney must set a reduction first"
+                                      : "Generate reduction request letter (DOCX)"
+                                  }
+                                  onClick={() => reductionLetter(line)}
+                                  data-testid={`settlement-reduction-letter-${line.id}`}
+                                >
+                                  <FileDown size={10} /> Letter
+                                </button>
+                                <button
+                                  type="button"
+                                  className="btn-ghost text-[10px]"
+                                  disabled={busy}
+                                  title="Generate lien balance verification letter (DOCX)"
+                                  onClick={() => lienVerificationLetter(line)}
+                                  data-testid={`settlement-lien-verify-${line.id}`}
+                                >
+                                  <FileCheck size={10} /> Verify balance
+                                </button>
+                              </span>
                             </td>
                           </tr>
                         );
