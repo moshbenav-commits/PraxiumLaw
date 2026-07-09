@@ -1445,10 +1445,14 @@ async def delete_document(
 
 
 app.include_router(api)
+_cors_origins = [o.strip() for o in os.environ.get("CORS_ORIGINS", "*").split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get("CORS_ORIGINS", "*").split(","),
+    # Wildcard + credentials is invalid per the CORS spec (preflight 400s).
+    # Auth is via Bearer headers, not cookies, so credentials are only enabled
+    # when explicit origins are configured.
+    allow_credentials="*" not in _cors_origins,
+    allow_origins=_cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
