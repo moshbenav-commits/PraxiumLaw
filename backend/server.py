@@ -868,15 +868,10 @@ async def convert_lead(lid: str, user=Depends(get_current_user)):
     return {"matter_id": matter_id, "contact_id": contact_id, "patient_id": patient_id}
 
 
-# ──────────────── CoCounsel AI (Claude Sonnet 4.5) ────────────────
+# ──────────────── CoCounsel AI (Claude — native Anthropic API) ────────────────
 @api.post("/ai/chat")
 async def ai_chat(req: AiChatReq, user=Depends(get_current_user)):
-    """Streaming chat with Claude Sonnet 4.5 via Emergent Universal Key."""
-    if not EMERGENT_LLM_KEY:
-        raise HTTPException(500, "AI not configured")
-
-    from emergentintegrations.llm.chat import LlmChat, UserMessage, TextDelta, StreamDone
-
+    """Streaming chat with Claude. Key: Settings → Integrations vault → env fallback."""
     session_id = req.session_id or new_id()
 
     # Build system message with matter context
@@ -891,9 +886,12 @@ async def ai_chat(req: AiChatReq, user=Depends(get_current_user)):
             }
             context_blurb += f"\n\nCurrent matter context:\n{json.dumps(ctx, indent=2)}"
 
-    chat = LlmChat(
-        api_key=EMERGENT_LLM_KEY, session_id=session_id, system_message=context_blurb,
-    ).with_model("anthropic", "claude-sonnet-4-5-20250929")
+    # Prior turns in this session → multi-turn context (capped at last 20)
+    history = await db.ai_messages.find(
+        {"firm_id": user["firm_id"], "session_id": session_id},
+        {"_id": 0, "role": 1, "content": 1},
+    ).sort("created_at", 1).to_list(200)
+    history = history[-20:]
 
     # Persist user message
     await db.ai_messages.insert_one({
@@ -904,16 +902,12 @@ async def ai_chat(req: AiChatReq, user=Depends(get_current_user)):
 
     async def gen():
         collected = ""
-        try:
-            async for ev in chat.stream_message(UserMessage(text=req.message)):
-                if isinstance(ev, TextDelta):
-                    collected += ev.content
-                    yield ev.content
-                elif isinstance(ev, StreamDone):
-                    break
-        except Exception as e:
-            log.exception("AI stream failed")
-            yield f"\n\n[Error: {e}]"
+        async for chunk in stream_ai_reply(
+            db, system=context_blurb, message=req.message,
+            history=history, session_id=session_id,
+        ):
+            collected += chunk
+            yield chunk
         # persist assistant reply
         await db.ai_messages.insert_one({
             "id": new_id(), "firm_id": user["firm_id"], "user_id": user["id"],
@@ -1009,13 +1003,9 @@ async def praxa_get_journal(authorization: Optional[str] = Header(None)):
 @api.post("/praxa/ai-coach")
 async def praxa_ai_coach(req: dict, authorization: Optional[str] = Header(None)):
     """Insurance coaching for Praxa consumers — claude with care-not-legal-advice guardrails."""
-    if not EMERGENT_LLM_KEY:
-        raise HTTPException(500, "AI not configured")
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(401)
     decode_token(authorization.replace("Bearer ", ""))
-
-    from emergentintegrations.llm.chat import LlmChat, UserMessage, TextDelta, StreamDone
 
     session_id = req.get("session_id") or new_id()
     msg = req.get("message", "")
@@ -1030,18 +1020,9 @@ async def praxa_ai_coach(req: dict, authorization: Optional[str] = Header(None))
         "4. Insurance adjusters are NOT their friends, even when nice.\n"
         "5. Tone: confident, anti-BS, supportive. Never preachy.\n"
     )
-    chat = LlmChat(api_key=EMERGENT_LLM_KEY, session_id=session_id, system_message=sys) \
-        .with_model("anthropic", "claude-sonnet-4-5-20250929")
-
     async def gen():
-        try:
-            async for ev in chat.stream_message(UserMessage(text=msg)):
-                if isinstance(ev, TextDelta):
-                    yield ev.content
-                elif isinstance(ev, StreamDone):
-                    break
-        except Exception as e:
-            yield f"\n\n[Error: {e}]"
+        async for chunk in stream_ai_reply(db, system=sys, message=msg, session_id=session_id):
+            yield chunk
 
     return StreamingResponse(
         gen(), media_type="text/plain",
@@ -1209,6 +1190,8 @@ from db_indexes import ensure_indexes
 from outgoing_webhooks import register_webhook_routes
 from csv_import import register_csv_import_routes
 from api_keys import register_api_key_routes
+from provider_secrets import register_provider_secret_routes
+from ai_provider import stream_ai_reply
 from training import register_training_routes
 from training_templates import register_training_template_routes
 from pi_documents import register_pi_document_routes, validate_upload_taxonomy, folder_for_doc_type, merge_doc_taxonomy
@@ -1257,6 +1240,9 @@ register_csv_import_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit, gen_patient_id,
 )
 register_api_key_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+register_provider_secret_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 register_training_routes(api, get_current_user)

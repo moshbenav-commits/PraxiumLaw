@@ -7,10 +7,15 @@ from typing import Optional
 
 import requests
 
+from provider_secrets import get_extra_cached, get_secret_cached
+
 log = logging.getLogger("praxium.email")
 
 
 def _from_address() -> str:
+    vault_from = get_extra_cached("resend", "email_from").strip()
+    if vault_from:
+        return vault_from
     return os.environ.get("PRAXIUM_EMAIL_FROM", "Praxium Suite <onboarding@resend.dev>").strip()
 
 
@@ -21,14 +26,15 @@ def send_transactional_email(
     *,
     html: Optional[str] = None,
 ) -> bool:
-    """Send email when RESEND_API_KEY is set. Returns True if sent, False if skipped/failed."""
-    api_key = os.environ.get("RESEND_API_KEY", "").strip()
+    """Send email when a Resend key is configured (Settings → Integrations vault,
+    or RESEND_API_KEY env). Returns True if sent, False if skipped/failed."""
+    api_key = get_secret_cached("resend")
     recipient = to.strip().lower()
     if not recipient:
         return False
 
     if not api_key:
-        log.info("Resend skipped (no RESEND_API_KEY): to=%s subject=%s", recipient, subject)
+        log.info("Resend skipped (no key in vault or RESEND_API_KEY): to=%s subject=%s", recipient, subject)
         return False
 
     payload: dict = {

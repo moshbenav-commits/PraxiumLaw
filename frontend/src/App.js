@@ -32,6 +32,7 @@ import Reports from "@/pages/Reports";
 import Settings from "@/pages/Settings";
 import AuditLog from "@/pages/AuditLog";
 import SettingsTeam from "@/pages/SettingsTeam";
+import SettingsIntegrations from "@/pages/SettingsIntegrations";
 import SettingsWorkflows from "@/pages/SettingsWorkflows";
 import AcceptInvite from "@/pages/AcceptInvite";
 import UploadToken from "@/pages/UploadToken";
@@ -140,6 +141,7 @@ function App() {
             <Route path="/training/:type/:slug" element={<TrainingDetail />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/settings/templates" element={<SettingsTemplates />} />
+            <Route path="/settings/integrations" element={<SettingsIntegrations />} />
             <Route path="/settings/team" element={<SettingsTeam />} />
             <Route path="/settings/workflows" element={<SettingsWorkflows />} />
             <Route path="/settings/audit" element={<AuditLog />} />

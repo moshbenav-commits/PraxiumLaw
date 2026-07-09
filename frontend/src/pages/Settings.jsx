@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
-import { Settings as SettingsIcon, LogOut, Users, Shield, Workflow, UserPlus, GraduationCap, FileText } from "lucide-react";
+import { Settings as SettingsIcon, LogOut, Users, Shield, Workflow, UserPlus, GraduationCap, FileText, Plug } from "lucide-react";
 import CopyButton from "@/components/common/CopyButton";
 import PageLoader from "@/components/common/PageLoader";
 import { toast } from "sonner";
@@ -146,6 +146,16 @@ export default function Settings() {
         <p className="text-sm text-praxium-subtle mb-3">Invite attorneys, paralegals, and staff. Manage pending invites.</p>
         <Link to="/settings/team" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-team">
           Manage team →
+        </Link>
+      </div>
+
+      <div className="mt-4 data-card p-5">
+        <div className="overline mb-3 flex items-center gap-2"><Plug size={12} /> // integrations & API keys</div>
+        <p className="text-sm text-praxium-subtle mb-3">
+          Attach the Anthropic key (CoCounsel + Praxa AI) and the Resend key (portal, e-sign, and upload emails). Test connections live.
+        </p>
+        <Link to="/settings/integrations" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-integrations">
+          Manage integrations →
         </Link>
       </div>
 

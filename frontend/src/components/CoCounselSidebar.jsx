@@ -63,7 +63,7 @@ export default function CoCounselSidebar({ open, onClose }) {
             <Sparkles size={11} className="text-white" />
           </div>
           <div className="font-display font-black tracking-tight text-sm">CoCounsel</div>
-          <div className="text-[9px] font-mono uppercase tracking-widest text-praxium-subtle">claude 4.5</div>
+          <div className="text-[9px] font-mono uppercase tracking-widest text-praxium-subtle">claude opus 4.8</div>
         </div>
         <button onClick={onClose} className="text-praxium-subtle hover:text-praxium-ink" data-testid="cocounsel-close">
           <X size={16} />
