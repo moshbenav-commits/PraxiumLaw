@@ -8,12 +8,15 @@ import { toast } from "sonner";
 import {
   Calculator,
   ExternalLink,
+  FileDown,
   Lock,
   Plus,
   RefreshCw,
   CheckCircle2,
 } from "lucide-react";
 import PageLoader from "@/components/common/PageLoader";
+import MatterLettersCard from "@/components/matter/MatterLettersCard";
+import { generateLetter } from "@/lib/lettersApi";
 
 const APPROVER_ROLES = new Set(["admin", "partner", "attorney"]);
 
@@ -197,6 +200,25 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
     patchScenario(patch);
   };
 
+  const reductionLetter = async (line) => {
+    if (!scenario) return;
+    setBusy(true);
+    try {
+      const r = await generateLetter(matterId, {
+        letter_type: "reduction_request",
+        format: "docx",
+        scenario_id: scenario.id,
+        line_item_id: line.id,
+      });
+      toast.success(`${r.name} filed on the matter`);
+      (r.warnings || []).forEach((w) => toast.warning(w));
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Reduction letter failed");
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const syncFromExpenses = async () => {
     setBusy(true);
     try {
@@ -343,7 +365,8 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
                         <th className="text-left py-2 pr-2">Provider</th>
                         <th className="text-right py-2 pr-2">Balance</th>
                         <th className="text-right py-2 pr-2">Reduction %</th>
-                        <th className="text-right py-2">Payable</th>
+                        <th className="text-right py-2 pr-2">Payable</th>
+                        <th className="text-right py-2">Letter</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-praxium-line">
@@ -369,7 +392,23 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
                                 }}
                               />
                             </td>
-                            <td className="py-2 text-right font-mono">{formatMoney(payable)}</td>
+                            <td className="py-2 pr-2 text-right font-mono">{formatMoney(payable)}</td>
+                            <td className="py-2 text-right">
+                              <button
+                                type="button"
+                                className="btn-ghost text-[10px]"
+                                disabled={busy || (line.reduction_type || "none") === "none"}
+                                title={
+                                  (line.reduction_type || "none") === "none"
+                                    ? "Attorney must set a reduction first"
+                                    : "Generate reduction request letter (DOCX)"
+                                }
+                                onClick={() => reductionLetter(line)}
+                                data-testid={`settlement-reduction-letter-${line.id}`}
+                              >
+                                <FileDown size={10} /> Letter
+                              </button>
+                            </td>
                           </tr>
                         );
                       })}
@@ -407,6 +446,13 @@ export default function MatterSettlementTab({ matterId, practiceArea }) {
           </>
         )}
       </div>
+
+      <MatterLettersCard
+        matterId={matterId}
+        tab="settlement"
+        extraPayload={scenario ? { scenario_id: scenario.id } : {}}
+        refreshKey={`${scenario?.id || ""}-${scenario?.attorney_approved ? 1 : 0}`}
+      />
     </div>
   );
 }

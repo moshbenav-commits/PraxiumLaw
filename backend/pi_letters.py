@@ -1,0 +1,1092 @@
+"""
+PI Case OS — DocGen letter automation (UX-012/013 letter gap, UX-027).
+
+Generates demand, MedPay, reduction-request, drop, and disbursement letters
+from matter + firm white-label data, renders DOCX/PDF, and files the output
+as a matter document. Attorney gates: demand/MedPay letters are watermarked
+DRAFT until the demand is attorney-approved; disbursement letters require an
+attorney-approved settlement scenario; reduction letters require the
+attorney-set reduction on the provider line.
+"""
+from __future__ import annotations
+
+import base64
+import io
+import zipfile
+from datetime import datetime
+from typing import Any, Callable, Literal, Optional
+from xml.sax.saxutils import escape as _xml_escape
+
+from fastapi import Depends, HTTPException
+from pydantic import BaseModel, Field
+from reportlab.lib.pagesizes import letter as LETTER_PAGE
+from reportlab.lib.units import inch
+from reportlab.pdfgen import canvas
+
+from disclosure import require_disclosure_ack
+from rbac import role_has_permission
+from training_templates import build_firm_merge_tokens
+
+DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+PDF_MIME = "application/pdf"
+
+LETTER_TYPES: tuple[dict[str, str], ...] = (
+    {
+        "id": "demand",
+        "label": "Demand letter",
+        "description": "Settlement demand to the adverse carrier — exhibits, specials, economic and general damages.",
+        "permission": "demand.draft",
+        "tab": "demand",
+    },
+    {
+        "id": "medpay",
+        "label": "MedPay letter (1P)",
+        "description": "First-party MedPay benefits request with enclosed bills.",
+        "permission": "demand.draft",
+        "tab": "demand",
+    },
+    {
+        "id": "drop",
+        "label": "Drop letter",
+        "description": "Notice of withdrawal of representation to a provider or lien holder.",
+        "permission": "demand.draft",
+        "tab": "demand",
+    },
+    {
+        "id": "reduction_request",
+        "label": "Reduction request",
+        "description": "Ask a provider to accept the attorney-set reduced payoff.",
+        "permission": "settlement.draft",
+        "tab": "settlement",
+    },
+    {
+        "id": "disbursement",
+        "label": "Disbursement letter",
+        "description": "Client settlement statement from the attorney-approved scenario.",
+        "permission": "settlement.draft",
+        "tab": "settlement",
+    },
+)
+
+LETTER_PERMISSIONS = {row["id"]: row["permission"] for row in LETTER_TYPES}
+LETTER_LABELS = {row["id"]: row["label"] for row in LETTER_TYPES}
+
+DEMAND_TYPE_TITLES = {
+    "third_party": "Settlement Demand — Bodily Injury",
+    "medpay": "MedPay Demand — Chronological Exhibits",
+    "um_uim": "UM / UIM Settlement Request",
+}
+
+
+# ──────────────── formatting helpers ────────────────
+def fmt_money(value: Any) -> str:
+    try:
+        return f"${float(value or 0):,.2f}"
+    except (TypeError, ValueError):
+        return "$0.00"
+
+
+def fmt_date(value: Optional[str]) -> str:
+    if not value:
+        return ""
+    try:
+        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return str(value)
+    return f"{dt.strftime('%B')} {dt.day}, {dt.year}"
+
+
+def firm_tokens_raw(firm: Optional[dict], user: Optional[dict] = None) -> dict[str, str]:
+    """build_firm_merge_tokens keys are '{{FIRM_NAME}}' — strip to bare names."""
+    return {k[2:-2]: v for k, v in build_firm_merge_tokens(firm, user).items()}
+
+
+def _wrap_text(text: str, width: int) -> list[str]:
+    words = text.split()
+    lines: list[str] = []
+    current: list[str] = []
+    for word in words:
+        trial = " ".join(current + [word])
+        if len(trial) <= width:
+            current.append(word)
+        else:
+            if current:
+                lines.append(" ".join(current))
+            current = [word]
+    if current:
+        lines.append(" ".join(current))
+    return lines or [""]
+
+
+# ──────────────── letter block model ────────────────
+def para(text: str = "", *, bold: bool = False, align: str = "left", size: str = "normal") -> dict:
+    return {"kind": "para", "text": text or "", "bold": bold, "align": align, "size": size}
+
+
+def heading(text: str) -> dict:
+    return {"kind": "heading", "text": text}
+
+
+def spacer() -> dict:
+    return {"kind": "spacer"}
+
+
+def table(rows: list[list[Any]], *, header: bool = False) -> dict:
+    """rows: list of rows; each cell is str or {text, align, bold}."""
+    norm: list[list[dict]] = []
+    for row in rows:
+        norm.append([c if isinstance(c, dict) else {"text": str(c), "align": "left", "bold": False} for c in row])
+    return {"kind": "table", "rows": norm, "header": header}
+
+
+def _cell(text: str, *, align: str = "left", bold: bool = False) -> dict:
+    return {"text": text, "align": align, "bold": bold}
+
+
+def money_cell(value: Any, *, bold: bool = False) -> dict:
+    return _cell(fmt_money(value), align="right", bold=bold)
+
+
+# ──────────────── shared letter sections ────────────────
+def letterhead_blocks(tokens: dict[str, str]) -> list[dict]:
+    blocks = [para(tokens.get("FIRM_NAME") or "Your Firm", bold=True, align="center", size="title")]
+    contact_bits = [b for b in (tokens.get("FIRM_ADDRESS"), tokens.get("FIRM_PHONE") and f"Tel {tokens['FIRM_PHONE']}", tokens.get("FIRM_FAX") and f"Fax {tokens['FIRM_FAX']}", tokens.get("FIRM_EMAIL")) if b]
+    if contact_bits:
+        blocks.append(para(" · ".join(contact_bits), align="center", size="small"))
+    blocks.append(spacer())
+    return blocks
+
+
+def recipient_blocks(name: str, address: str = "", attention: str = "") -> list[dict]:
+    blocks: list[dict] = []
+    if name:
+        blocks.append(para(name, bold=True))
+    if attention:
+        blocks.append(para(f"Attn: {attention}"))
+    for line in (address or "").splitlines():
+        if line.strip():
+            blocks.append(para(line.strip()))
+    blocks.append(spacer())
+    return blocks
+
+
+def re_blocks(pairs: list[tuple[str, str]]) -> list[dict]:
+    blocks: list[dict] = []
+    for i, (label, value) in enumerate([(l, v) for l, v in pairs if v]):
+        prefix = "Re:  " if i == 0 else "      "
+        blocks.append(para(f"{prefix}{label}: {value}", bold=i == 0))
+    blocks.append(spacer())
+    return blocks
+
+
+def closing_blocks(tokens: dict[str, str]) -> list[dict]:
+    blocks = [spacer(), para("Very truly yours,"), spacer()]
+    attorney = tokens.get("ATTORNEY_NAME") or "Attorney at Law"
+    blocks.append(para(attorney, bold=True))
+    if tokens.get("ATTORNEY_BAR"):
+        blocks.append(para(f"Bar No. {tokens['ATTORNEY_BAR']}", size="small"))
+    blocks.append(para(tokens.get("FIRM_DBA") or tokens.get("FIRM_NAME") or "", size="small"))
+    return blocks
+
+
+def _watermark_blocks() -> list[dict]:
+    return [
+        para("DRAFT — PENDING ATTORNEY APPROVAL — NOT FOR SEND", bold=True, align="center"),
+        spacer(),
+    ]
+
+
+def _common_warnings(tokens: dict[str, str], client: Optional[dict]) -> list[str]:
+    warnings: list[str] = []
+    if not tokens.get("ATTORNEY_NAME"):
+        warnings.append("White-label profile missing attorney name — set it in Settings → Templates")
+    if (tokens.get("FIRM_NAME") or "Your Firm") == "Your Firm":
+        warnings.append("Firm name not configured in white-label profile")
+    if not client:
+        warnings.append("Matter has no linked client contact — client fields are blank")
+    return warnings
+
+
+# ──────────────── compose: demand ────────────────
+def compose_demand_letter(
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    demand: dict,
+    insurance: dict,
+    validation: dict,
+    today_iso: str,
+    overrides: Optional[dict] = None,
+) -> dict:
+    ov = overrides or {}
+    warnings = _common_warnings(tokens, client)
+    demand_type = demand.get("demand_type") or "third_party"
+    side = insurance.get("first_party") if demand_type in ("medpay", "um_uim") else insurance.get("third_party")
+    side = side or {}
+    adjuster = side.get("adjuster") or {}
+
+    recipient_name = ov.get("recipient_name") or side.get("carrier_name") or ""
+    recipient_addr = ov.get("recipient_address") or adjuster.get("mailing_address") or ""
+    attention = ov.get("attention") or adjuster.get("name") or ""
+    if not recipient_name:
+        warnings.append("No carrier on the Insurance tab — recipient left blank")
+
+    client_name = (client or {}).get("name") or ""
+    exhibits = [e for e in (demand.get("exhibits") or []) if e.get("included")]
+    if not exhibits:
+        warnings.append("No included exhibits — rebuild from the Meds ledger before sending")
+
+    watermark = demand.get("status") not in ("approved", "sent")
+    blocks: list[dict] = []
+    if watermark:
+        blocks += _watermark_blocks()
+    blocks += letterhead_blocks(tokens)
+    blocks.append(para(fmt_date(today_iso)))
+    blocks.append(spacer())
+    blocks += recipient_blocks(recipient_name, recipient_addr, attention)
+    blocks += re_blocks(
+        [
+            ("Our client", client_name),
+            ("Claim number", side.get("claim_number") or ""),
+            ("Policy number", side.get("policy_number") or ""),
+            ("Date of loss", fmt_date(matter.get("incident_date"))),
+        ]
+    )
+    blocks.append(para(DEMAND_TYPE_TITLES.get(demand_type, DEMAND_TYPE_TITLES["third_party"]), bold=True, align="center"))
+    blocks.append(para("FOR SETTLEMENT PURPOSES ONLY — NOT ADMISSIBLE", align="center", size="small"))
+    blocks.append(spacer())
+    blocks.append(para(f"Dear {attention or 'Claims Representative'}:"))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            f"This office represents {client_name or 'our client'} in connection with injuries sustained "
+            f"in the incident of {fmt_date(matter.get('incident_date')) or '[date of loss]'}. "
+            "This letter is our formal demand for settlement of the bodily injury claim."
+        )
+    )
+    if matter.get("description"):
+        blocks.append(spacer())
+        blocks.append(heading("FACTS AND LIABILITY"))
+        blocks.append(para(str(matter["description"])))
+    if demand.get("letter_draft_notes"):
+        blocks.append(spacer())
+        blocks.append(heading("INJURIES AND TREATMENT"))
+        blocks.append(para(str(demand["letter_draft_notes"])))
+
+    blocks.append(spacer())
+    blocks.append(heading("MEDICAL SPECIALS"))
+    rows: list[list[Any]] = [[_cell("#", bold=True), _cell("Provider", bold=True), _cell("Specialty", bold=True), _cell("Amount", align="right", bold=True)]]
+    for i, ex in enumerate(sorted(exhibits, key=lambda e: e.get("sort_order") or 0), start=1):
+        rows.append([str(i), ex.get("provider_name") or ex.get("label") or "", ex.get("specialty") or "", money_cell(ex.get("amount"))])
+    rows.append([_cell(""), _cell("Total medical specials", bold=True), _cell(""), money_cell(validation.get("exhibit_specials"), bold=True)])
+    blocks.append(table(rows, header=True))
+
+    econ = demand.get("economic_damages") or {}
+    econ_total = validation.get("economic_damages_total") or 0
+    if econ_total:
+        blocks.append(spacer())
+        blocks.append(heading("ECONOMIC DAMAGES"))
+        econ_rows: list[list[Any]] = []
+        for label, key in (
+            ("Wage loss", "wage_loss_total"),
+            ("Medical mileage", "mileage_total"),
+            ("Rental vehicle", "rental_car_total"),
+            ("Other out-of-pocket expenses", "other_expenses_total"),
+        ):
+            if float(econ.get(key) or 0) > 0:
+                econ_rows.append([label, money_cell(econ.get(key))])
+        econ_rows.append([_cell("Total economic damages", bold=True), money_cell(econ_total, bold=True)])
+        blocks.append(table(econ_rows))
+
+    if demand.get("general_damages_notes"):
+        blocks.append(spacer())
+        blocks.append(heading("GENERAL DAMAGES"))
+        blocks.append(para(str(demand["general_damages_notes"])))
+
+    demand_amount = ov.get("demand_amount")
+    if demand_amount is None:
+        demand_amount = validation.get("grand_demand_total") or 0
+    blocks.append(spacer())
+    blocks.append(heading("DEMAND"))
+    blocks.append(
+        para(
+            f"Based on the foregoing, {client_name or 'our client'} hereby demands "
+            f"{fmt_money(demand_amount)} in full and final settlement of the bodily injury claim."
+        )
+    )
+    if demand.get("response_due_date"):
+        blocks.append(spacer())
+        blocks.append(para(f"Please respond on or before {fmt_date(demand['response_due_date'])}."))
+    blocks += closing_blocks(tokens)
+    if exhibits:
+        blocks.append(spacer())
+        blocks.append(para("Enclosures:", bold=True, size="small"))
+        for ex in sorted(exhibits, key=lambda e: e.get("sort_order") or 0):
+            blocks.append(para(f"  • {ex.get('label') or ex.get('provider_name') or 'Exhibit'}", size="small"))
+
+    return {
+        "letter_type": "demand",
+        "title": LETTER_LABELS["demand"],
+        "filename_stem": f"{matter.get('case_number') or matter.get('id')} Demand Letter",
+        "blocks": blocks,
+        "warnings": warnings,
+        "watermark": watermark,
+    }
+
+
+# ──────────────── compose: medpay ────────────────
+def compose_medpay_letter(
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    demand: dict,
+    insurance: dict,
+    ledger_rows: list[dict],
+    today_iso: str,
+    overrides: Optional[dict] = None,
+) -> dict:
+    ov = overrides or {}
+    warnings = _common_warnings(tokens, client)
+    side = insurance.get("first_party") or {}
+    adjuster = side.get("adjuster") or {}
+    medpay = side.get("medpay") or {}
+
+    recipient_name = ov.get("recipient_name") or side.get("carrier_name") or ""
+    if not recipient_name:
+        warnings.append("First-party carrier not on the Insurance tab — recipient left blank")
+    bills = [r for r in ledger_rows if float(r.get("balance") or 0) > 0]
+    wanted_ids = ov.get("ledger_row_ids")
+    if wanted_ids:
+        bills = [r for r in bills if r.get("id") in set(wanted_ids)]
+    if not bills:
+        warnings.append("No provider balances on the Meds ledger — bill enclosure table is empty")
+    total = round(sum(float(r.get("balance") or 0) for r in bills), 2)
+    client_name = (client or {}).get("name") or ""
+    watermark = demand.get("status") not in ("approved", "sent")
+
+    blocks: list[dict] = []
+    if watermark:
+        blocks += _watermark_blocks()
+    blocks += letterhead_blocks(tokens)
+    blocks.append(para(fmt_date(today_iso)))
+    blocks.append(spacer())
+    blocks += recipient_blocks(recipient_name, ov.get("recipient_address") or adjuster.get("mailing_address") or "", ov.get("attention") or adjuster.get("name") or "")
+    blocks += re_blocks(
+        [
+            ("Our client / your insured", client_name),
+            ("Claim number", side.get("claim_number") or ""),
+            ("Policy number", side.get("policy_number") or ""),
+            ("Date of loss", fmt_date(matter.get("incident_date"))),
+        ]
+    )
+    blocks.append(para("REQUEST FOR MEDICAL PAYMENTS BENEFITS", bold=True, align="center"))
+    blocks.append(spacer())
+    blocks.append(para(f"Dear {ov.get('attention') or adjuster.get('name') or 'Claims Representative'}:"))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            f"This office represents {client_name or 'your insured'} for injuries arising out of the incident of "
+            f"{fmt_date(matter.get('incident_date')) or '[date of loss]'}. Please accept this letter as a formal request "
+            "for payment of Medical Payments benefits under the above policy for the enclosed bills:"
+        )
+    )
+    blocks.append(spacer())
+    rows: list[list[Any]] = [[_cell("Provider", bold=True), _cell("Specialty", bold=True), _cell("Amount", align="right", bold=True)]]
+    for r in bills:
+        rows.append([r.get("provider_name") or "", r.get("specialty") or "", money_cell(r.get("balance"))])
+    rows.append([_cell("Total requested", bold=True), _cell(""), money_cell(total, bold=True)])
+    blocks.append(table(rows, header=True))
+    if medpay.get("limit"):
+        blocks.append(spacer())
+        blocks.append(para(f"We understand the Medical Payments limit under this policy is {fmt_money(medpay['limit'])}.", size="small"))
+    blocks.append(spacer())
+    blocks.append(para("Please issue payment within 30 days and confirm in writing. Contact our office with any questions."))
+    blocks += closing_blocks(tokens)
+
+    return {
+        "letter_type": "medpay",
+        "title": LETTER_LABELS["medpay"],
+        "filename_stem": f"{matter.get('case_number') or matter.get('id')} MedPay Letter",
+        "blocks": blocks,
+        "warnings": warnings,
+        "watermark": watermark,
+        "total_requested": total,
+    }
+
+
+# ──────────────── compose: reduction request ────────────────
+def _line_reduced_amount(line: dict) -> float:
+    balance = float(line.get("balance") or 0)
+    rtype = line.get("reduction_type") or "none"
+    if rtype == "percent":
+        return round(max(0.0, balance * (1 - float(line.get("reduction_percent") or 0) / 100)), 2)
+    if rtype == "flat":
+        return round(max(0.0, balance - float(line.get("reduction_flat") or 0)), 2)
+    return round(balance, 2)
+
+
+def compose_reduction_letter(
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    line: dict,
+    today_iso: str,
+    overrides: Optional[dict] = None,
+) -> dict:
+    ov = overrides or {}
+    warnings = _common_warnings(tokens, client)
+    client_name = (client or {}).get("name") or ""
+    balance = float(line.get("balance") or 0)
+    reduced = _line_reduced_amount(line)
+    provider = ov.get("recipient_name") or line.get("provider_name") or "Provider"
+
+    blocks: list[dict] = []
+    blocks += letterhead_blocks(tokens)
+    blocks.append(para(fmt_date(today_iso)))
+    blocks.append(spacer())
+    blocks += recipient_blocks(provider, ov.get("recipient_address") or "", ov.get("attention") or "Billing / Lien Department")
+    blocks += re_blocks(
+        [
+            ("Patient", client_name),
+            ("Date of loss", fmt_date(matter.get("incident_date"))),
+            ("Outstanding balance", fmt_money(balance)),
+        ]
+    )
+    blocks.append(para("REQUEST FOR REDUCTION OF OUTSTANDING BALANCE", bold=True, align="center"))
+    blocks.append(spacer())
+    blocks.append(para("To Whom It May Concern:"))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            f"This office represents {client_name or 'the above patient'} in a personal injury claim arising from the "
+            f"incident of {fmt_date(matter.get('incident_date')) or '[date of loss]'}. The matter has now resolved. "
+            "After attorney fees, case costs, and the other outstanding medical balances, the recovery available to our "
+            "client is not sufficient to satisfy all balances in full."
+        )
+    )
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            f"We respectfully request that you accept {fmt_money(reduced)} in full and final satisfaction of the "
+            f"outstanding balance of {fmt_money(balance)} (a reduction of {fmt_money(round(balance - reduced, 2))}). "
+            "Payment will issue promptly from settlement proceeds upon your written confirmation."
+        )
+    )
+    if ov.get("body_notes"):
+        blocks.append(spacer())
+        blocks.append(para(str(ov["body_notes"])))
+    blocks.append(spacer())
+    blocks.append(para("Please confirm acceptance in writing at your earliest convenience. Thank you for working with our client."))
+    blocks += closing_blocks(tokens)
+
+    return {
+        "letter_type": "reduction_request",
+        "title": LETTER_LABELS["reduction_request"],
+        "filename_stem": f"{matter.get('case_number') or matter.get('id')} Reduction Request — {provider}",
+        "blocks": blocks,
+        "warnings": warnings,
+        "watermark": False,
+        "reduced_amount": reduced,
+    }
+
+
+# ──────────────── compose: drop letter ────────────────
+def compose_drop_letter(
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    today_iso: str,
+    overrides: Optional[dict] = None,
+) -> dict:
+    ov = overrides or {}
+    warnings = _common_warnings(tokens, client)
+    client_name = (client or {}).get("name") or ""
+    recipient = ov.get("recipient_name") or "To Whom It May Concern"
+    if not ov.get("recipient_name"):
+        warnings.append("No recipient given — letter addressed 'To Whom It May Concern'")
+
+    blocks: list[dict] = []
+    blocks += letterhead_blocks(tokens)
+    blocks.append(para(fmt_date(today_iso)))
+    blocks.append(spacer())
+    blocks += recipient_blocks(ov.get("recipient_name") or "", ov.get("recipient_address") or "", ov.get("attention") or "")
+    blocks += re_blocks(
+        [
+            ("Client / patient", client_name),
+            ("Date of loss", fmt_date(matter.get("incident_date"))),
+            ("Matter", matter.get("case_number") or ""),
+        ]
+    )
+    blocks.append(para("NOTICE OF WITHDRAWAL OF REPRESENTATION", bold=True, align="center"))
+    blocks.append(spacer())
+    blocks.append(para(f"Dear {recipient}:"))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            f"Please be advised that effective {fmt_date(today_iso)}, this office no longer represents "
+            f"{client_name or 'the above client'} in connection with the incident of "
+            f"{fmt_date(matter.get('incident_date')) or '[date of loss]'}."
+        )
+    )
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            "Please direct all future correspondence, billing statements, and lien notices regarding this matter "
+            "directly to the client. This office asserts no further interest in the claim except as may be separately "
+            "noticed in writing."
+        )
+    )
+    if ov.get("body_notes"):
+        blocks.append(spacer())
+        blocks.append(para(str(ov["body_notes"])))
+    blocks += closing_blocks(tokens)
+
+    return {
+        "letter_type": "drop",
+        "title": LETTER_LABELS["drop"],
+        "filename_stem": f"{matter.get('case_number') or matter.get('id')} Drop Letter",
+        "blocks": blocks,
+        "warnings": warnings,
+        "watermark": False,
+    }
+
+
+# ──────────────── compose: disbursement ────────────────
+def compose_disbursement_letter(
+    *,
+    tokens: dict[str, str],
+    matter: dict,
+    client: Optional[dict],
+    scenario: dict,
+    computed: dict,
+    today_iso: str,
+    overrides: Optional[dict] = None,
+) -> dict:
+    ov = overrides or {}
+    warnings = _common_warnings(tokens, client)
+    client_name = (client or {}).get("name") or ""
+    fee_label = (
+        f"Attorney fee (flat)"
+        if scenario.get("attorney_fee_flat") is not None
+        else f"Attorney fee ({scenario.get('attorney_fee_pct') or 0:g}%)"
+    )
+
+    blocks: list[dict] = []
+    blocks += letterhead_blocks(tokens)
+    blocks.append(para(fmt_date(today_iso)))
+    blocks.append(spacer())
+    blocks += recipient_blocks(ov.get("recipient_name") or client_name, ov.get("recipient_address") or (client or {}).get("address") or "")
+    blocks += re_blocks(
+        [
+            ("Matter", matter.get("case_number") or matter.get("title") or ""),
+            ("Date of loss", fmt_date(matter.get("incident_date"))),
+            ("Scenario", scenario.get("name") or ""),
+        ]
+    )
+    blocks.append(para("SETTLEMENT DISBURSEMENT STATEMENT", bold=True, align="center"))
+    blocks.append(spacer())
+    blocks.append(para(f"Dear {client_name or 'Client'}:"))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            "We are pleased to enclose your settlement disbursement statement. The figures below reflect the "
+            "attorney-approved distribution of the settlement proceeds in your matter:"
+        )
+    )
+    blocks.append(spacer())
+    rows: list[list[Any]] = [
+        [_cell("Gross settlement", bold=True), money_cell(computed.get("gross_settlement"), bold=True)],
+        [fee_label, money_cell(computed.get("attorney_fee"))],
+        ["Case expenses", money_cell(computed.get("expenses"))],
+    ]
+    for line in scenario.get("line_items") or []:
+        payout = _line_reduced_amount(line)
+        if payout <= 0:
+            continue
+        rows.append([f"Medical payout — {line.get('provider_name') or 'Provider'}", money_cell(payout)])
+    if float(computed.get("medpay_to_client") or 0) > 0:
+        rows.append(["MedPay reimbursement to client", money_cell(computed.get("medpay_to_client"))])
+    rows.append([_cell("NET TO CLIENT", bold=True), money_cell(computed.get("net_to_client"), bold=True)])
+    blocks.append(table(rows))
+    blocks.append(spacer())
+    blocks.append(
+        para(
+            "Please review the statement above. By signing below you acknowledge and approve this disbursement. "
+            "Your net proceeds will issue from the firm trust account upon receipt of your signed approval."
+        )
+    )
+    blocks.append(spacer())
+    blocks.append(spacer())
+    blocks.append(para("_________________________________            _______________"))
+    blocks.append(para(f"{client_name or 'Client'}                                                        Date", size="small"))
+    blocks += closing_blocks(tokens)
+
+    return {
+        "letter_type": "disbursement",
+        "title": LETTER_LABELS["disbursement"],
+        "filename_stem": f"{matter.get('case_number') or matter.get('id')} Disbursement Letter",
+        "blocks": blocks,
+        "warnings": warnings,
+        "watermark": False,
+    }
+
+
+# ──────────────── DOCX renderer (zip/XML, no python-docx) ────────────────
+_DOCX_CONTENT_TYPES = (
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+    '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+    '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+    '<Default Extension="xml" ContentType="application/xml"/>'
+    '<Override PartName="/word/document.xml" '
+    'ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>'
+    "</Types>"
+)
+
+_DOCX_RELS = (
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+    '<Relationship Id="rId1" '
+    'Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" '
+    'Target="word/document.xml"/>'
+    "</Relationships>"
+)
+
+_SIZE_HALF_POINTS = {"title": "32", "normal": "22", "small": "18"}
+_ALIGN_VALS = {"left": "left", "center": "center", "right": "right"}
+
+
+def _run_xml(text: str, *, bold: bool, size: str) -> str:
+    props = f'<w:sz w:val="{_SIZE_HALF_POINTS.get(size, "22")}"/>'
+    if bold:
+        props = "<w:b/>" + props
+    return f'<w:r><w:rPr>{props}</w:rPr><w:t xml:space="preserve">{_xml_escape(text)}</w:t></w:r>'
+
+
+def _para_xml(text: str, *, bold: bool = False, align: str = "left", size: str = "normal") -> str:
+    jc = f'<w:jc w:val="{_ALIGN_VALS.get(align, "left")}"/>'
+    return f"<w:p><w:pPr>{jc}</w:pPr>{_run_xml(text, bold=bold, size=size)}</w:p>"
+
+
+def _table_xml(rows: list[list[dict]]) -> str:
+    n_cols = max(len(r) for r in rows) if rows else 1
+    col_w = 9360 // n_cols
+    grid = "".join(f'<w:gridCol w:w="{col_w}"/>' for _ in range(n_cols))
+    border = '<w:top w:val="single" w:sz="4" w:color="999999"/><w:bottom w:val="single" w:sz="4" w:color="999999"/><w:start w:val="single" w:sz="4" w:color="999999"/><w:end w:val="single" w:sz="4" w:color="999999"/><w:insideH w:val="single" w:sz="4" w:color="999999"/><w:insideV w:val="single" w:sz="4" w:color="999999"/>'
+    parts = [
+        "<w:tbl><w:tblPr>",
+        '<w:tblW w:w="9360" w:type="dxa"/>',
+        f"<w:tblBorders>{border}</w:tblBorders>",
+        "</w:tblPr>",
+        f"<w:tblGrid>{grid}</w:tblGrid>",
+    ]
+    for row in rows:
+        parts.append("<w:tr>")
+        for i in range(n_cols):
+            cell = row[i] if i < len(row) else {"text": "", "align": "left", "bold": False}
+            parts.append(
+                f'<w:tc><w:tcPr><w:tcW w:w="{col_w}" w:type="dxa"/></w:tcPr>'
+                + _para_xml(cell.get("text", ""), bold=cell.get("bold", False), align=cell.get("align", "left"))
+                + "</w:tc>"
+            )
+        parts.append("</w:tr>")
+    parts.append("</w:tbl>")
+    return "".join(parts)
+
+
+def render_docx(blocks: list[dict]) -> bytes:
+    body_parts: list[str] = []
+    for block in blocks:
+        kind = block.get("kind")
+        if kind == "para":
+            body_parts.append(_para_xml(block["text"], bold=block.get("bold", False), align=block.get("align", "left"), size=block.get("size", "normal")))
+        elif kind == "heading":
+            body_parts.append(_para_xml(block["text"], bold=True))
+        elif kind == "spacer":
+            body_parts.append("<w:p/>")
+        elif kind == "table":
+            body_parts.append(_table_xml(block["rows"]))
+            body_parts.append("<w:p/>")
+    document = (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+        "<w:body>"
+        + "".join(body_parts)
+        + '<w:sectPr><w:pgSz w:w="12240" w:h="15840"/>'
+        '<w:pgMar w:top="1080" w:right="1440" w:bottom="1080" w:left="1440"/></w:sectPr>'
+        "</w:body></w:document>"
+    )
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", compression=zipfile.ZIP_DEFLATED) as z:
+        z.writestr("[Content_Types].xml", _DOCX_CONTENT_TYPES)
+        z.writestr("_rels/.rels", _DOCX_RELS)
+        z.writestr("word/document.xml", document)
+    return buf.getvalue()
+
+
+# ──────────────── PDF renderer (reportlab) ────────────────
+_PDF_FONT_SIZES = {"title": 14, "normal": 10.5, "small": 8.5}
+_PDF_WRAP = {"title": 70, "normal": 92, "small": 110}
+
+
+def render_pdf(blocks: list[dict]) -> bytes:
+    buf = io.BytesIO()
+    w, h = LETTER_PAGE
+    c = canvas.Canvas(buf, pagesize=LETTER_PAGE)
+    margin = 1.0 * inch
+    usable = w - 2 * margin
+    y = h - margin
+
+    def ensure_space(need: float):
+        nonlocal y
+        if y < margin + need:
+            c.showPage()
+            y = h - margin
+
+    def draw_line(text: str, *, bold: bool, size: str, align: str):
+        nonlocal y
+        fs = _PDF_FONT_SIZES.get(size, 10.5)
+        font = "Helvetica-Bold" if bold else "Helvetica"
+        c.setFont(font, fs)
+        ensure_space(fs + 6)
+        if align == "center":
+            c.drawCentredString(w / 2, y, text)
+        elif align == "right":
+            c.drawRightString(w - margin, y, text)
+        else:
+            c.drawString(margin, y, text)
+        y -= fs + 4
+
+    for block in blocks:
+        kind = block.get("kind")
+        if kind == "spacer":
+            y -= 10
+            continue
+        if kind == "heading":
+            y -= 4
+            draw_line(block["text"], bold=True, size="normal", align="left")
+            continue
+        if kind == "para":
+            size = block.get("size", "normal")
+            for chunk in _wrap_text(block.get("text") or "", _PDF_WRAP.get(size, 92)):
+                draw_line(chunk, bold=block.get("bold", False), size=size, align=block.get("align", "left"))
+            continue
+        if kind == "table":
+            rows = block.get("rows") or []
+            if not rows:
+                continue
+            n_cols = max(len(r) for r in rows)
+            col_w = usable / n_cols
+            for row in rows:
+                ensure_space(18)
+                c.setLineWidth(0.3)
+                for i in range(n_cols):
+                    cell = row[i] if i < len(row) else {"text": ""}
+                    font = "Helvetica-Bold" if cell.get("bold") else "Helvetica"
+                    c.setFont(font, 9.5)
+                    text = str(cell.get("text") or "")[:60]
+                    x0 = margin + i * col_w
+                    if cell.get("align") == "right":
+                        c.drawRightString(x0 + col_w - 4, y, text)
+                    else:
+                        c.drawString(x0 + 2, y, text)
+                y -= 6
+                c.line(margin, y, w - margin, y)
+                y -= 10
+            y -= 4
+    c.save()
+    return buf.getvalue()
+
+
+# ──────────────── request models ────────────────
+LETTER_TYPE_IDS = tuple(row["id"] for row in LETTER_TYPES)
+
+
+class LetterGenerateIn(BaseModel):
+    letter_type: Literal["demand", "medpay", "drop", "reduction_request", "disbursement"]
+    format: Literal["docx", "pdf"] = "docx"
+    recipient_name: Optional[str] = Field(None, max_length=300)
+    recipient_address: Optional[str] = Field(None, max_length=1000)
+    attention: Optional[str] = Field(None, max_length=200)
+    scenario_id: Optional[str] = None
+    line_item_id: Optional[str] = None
+    ledger_row_ids: Optional[list[str]] = None
+    demand_amount: Optional[float] = Field(None, ge=0)
+    body_notes: Optional[str] = Field(None, max_length=8000)
+
+
+class LetterAiDraftIn(BaseModel):
+    letter_type: Literal["demand", "medpay", "drop", "reduction_request", "disbursement"] = "demand"
+    instructions: Optional[str] = Field(None, max_length=2000)
+
+
+def _assert_pi_matter(matter: Optional[dict]):
+    if not matter:
+        raise HTTPException(404, "Matter not found")
+    if matter.get("practice_area") != "personal_injury":
+        raise HTTPException(400, "Letter generation applies to personal injury matters only")
+
+
+def _require_letter_permission(user: dict, letter_type: str):
+    perm = LETTER_PERMISSIONS.get(letter_type)
+    if not perm or not role_has_permission(user.get("role", "staff"), perm):
+        raise HTTPException(403, f"Role '{user.get('role')}' cannot generate {letter_type} letters")
+
+
+# ──────────────── routes ────────────────
+def register_pi_letter_routes(
+    api,
+    db,
+    get_current_user: Callable,
+    new_id: Callable,
+    now_iso: Callable,
+    *,
+    merge_pi_demand: Callable,
+    merge_pi_settlement: Callable,
+    merge_pi_insurance: Callable,
+    merge_ledger_row: Callable,
+    get_firm_for_user: Callable,
+    compute_demand_validation: Callable,
+    compute_scenario_totals: Callable,
+    summarize_expenses: Optional[Callable] = None,
+    stream_ai_reply: Optional[Callable] = None,
+):
+    async def _load_matter(matter_id: str, firm_id: str) -> dict:
+        m = await db.matters.find_one({"id": matter_id, "firm_id": firm_id}, {"_id": 0})
+        _assert_pi_matter(m)
+        return m
+
+    async def _load_client(matter: dict, firm_id: str) -> Optional[dict]:
+        client_id = matter.get("client_id") or matter.get("client_contact_id")
+        if not client_id:
+            return None
+        return await db.contacts.find_one({"id": client_id, "firm_id": firm_id}, {"_id": 0})
+
+    async def _load_ledger(matter_id: str, firm_id: str) -> list[dict]:
+        rows = await db.med_ledger.find(
+            {"firm_id": firm_id, "matter_id": matter_id}, {"_id": 0}
+        ).sort("created_at", 1).to_list(500)
+        return [merge_ledger_row(r) for r in rows]
+
+    def _demand_validation(demand: dict, ledger_rows: list[dict]) -> dict:
+        return compute_demand_validation(
+            exhibits=demand.get("exhibits") or [],
+            ledger_rows=ledger_rows,
+            expense_summary=None,
+            economic=demand.get("economic_damages"),
+        )
+
+    def _find_scenario(settlement: dict, scenario_id: Optional[str]) -> dict:
+        scenarios = settlement.get("scenarios") or []
+        if not scenarios:
+            raise HTTPException(400, "No settlement scenarios yet — create one on the Settlement tab")
+        sid = scenario_id or settlement.get("active_scenario_id")
+        scenario = next((s for s in scenarios if s.get("id") == sid), None) if sid else scenarios[0]
+        if not scenario:
+            raise HTTPException(404, "Scenario not found")
+        return scenario
+
+    @api.get("/matters/{matter_id}/letters")
+    async def list_matter_letters(matter_id: str, user=Depends(get_current_user)):
+        m = await _load_matter(matter_id, user["firm_id"])
+        demand = merge_pi_demand(m.get("pi_demand"))
+        settlement = merge_pi_settlement(m.get("pi_settlement"))
+        scenarios = settlement.get("scenarios") or []
+        has_reduction = any(
+            (li.get("reduction_type") or "none") != "none"
+            for s in scenarios
+            for li in (s.get("line_items") or [])
+        )
+        has_approved_scenario = any(s.get("attorney_approved") for s in scenarios)
+
+        catalog = []
+        for row in LETTER_TYPES:
+            blockers: list[str] = []
+            if row["id"] == "disbursement" and not has_approved_scenario:
+                blockers.append("Requires an attorney-approved settlement scenario")
+            if row["id"] == "reduction_request" and not has_reduction:
+                blockers.append("Attorney must set a reduction on a provider line first")
+            catalog.append(
+                {
+                    **row,
+                    "permission_ok": role_has_permission(user.get("role", "staff"), row["permission"]),
+                    "blockers": blockers,
+                    "draft_watermark": row["id"] in ("demand", "medpay") and demand.get("status") not in ("approved", "sent"),
+                }
+            )
+
+        recent = await db.documents.find(
+            {"firm_id": user["firm_id"], "matter_id": matter_id, "letter.letter_type": {"$exists": True}},
+            {"_id": 0, "data_b64": 0, "extracted_text": 0},
+        ).sort("uploaded_at", -1).to_list(25)
+        return {
+            "matter_id": matter_id,
+            "letters": catalog,
+            "recent": recent,
+            "demand_status": demand.get("status"),
+        }
+
+    @api.post("/matters/{matter_id}/letters/generate")
+    async def generate_matter_letter(matter_id: str, body: LetterGenerateIn, user=Depends(get_current_user)):
+        _require_letter_permission(user, body.letter_type)
+        require_disclosure_ack(user)
+        m = await _load_matter(matter_id, user["firm_id"])
+        client = await _load_client(m, user["firm_id"])
+        firm = await get_firm_for_user(user)
+        tokens = firm_tokens_raw(firm, user)
+        today = now_iso()
+        overrides = body.model_dump(exclude_none=True)
+
+        if body.letter_type == "demand":
+            demand = merge_pi_demand(m.get("pi_demand"))
+            insurance = merge_pi_insurance(m.get("pi_insurance"))
+            ledger_rows = await _load_ledger(matter_id, user["firm_id"])
+            composed = compose_demand_letter(
+                tokens=tokens, matter=m, client=client, demand=demand, insurance=insurance,
+                validation=_demand_validation(demand, ledger_rows), today_iso=today, overrides=overrides,
+            )
+        elif body.letter_type == "medpay":
+            demand = merge_pi_demand(m.get("pi_demand"))
+            insurance = merge_pi_insurance(m.get("pi_insurance"))
+            ledger_rows = await _load_ledger(matter_id, user["firm_id"])
+            composed = compose_medpay_letter(
+                tokens=tokens, matter=m, client=client, demand=demand, insurance=insurance,
+                ledger_rows=ledger_rows, today_iso=today, overrides=overrides,
+            )
+        elif body.letter_type == "drop":
+            composed = compose_drop_letter(tokens=tokens, matter=m, client=client, today_iso=today, overrides=overrides)
+        elif body.letter_type == "reduction_request":
+            settlement = merge_pi_settlement(m.get("pi_settlement"))
+            scenario = _find_scenario(settlement, body.scenario_id)
+            lines = scenario.get("line_items") or []
+            line = next((li for li in lines if li.get("id") == body.line_item_id), None) if body.line_item_id else None
+            if body.line_item_id and not line:
+                raise HTTPException(404, "Scenario line item not found")
+            if not line:
+                raise HTTPException(400, "line_item_id required — pick the provider line to reduce")
+            if (line.get("reduction_type") or "none") == "none":
+                raise HTTPException(400, "Attorney must set the reduction on this provider line before generating the letter")
+            composed = compose_reduction_letter(
+                tokens=tokens, matter=m, client=client, line=line, today_iso=today, overrides=overrides,
+            )
+        elif body.letter_type == "disbursement":
+            settlement = merge_pi_settlement(m.get("pi_settlement"))
+            scenario = _find_scenario(settlement, body.scenario_id)
+            if not scenario.get("attorney_approved"):
+                raise HTTPException(403, "Disbursement letter requires an attorney-approved scenario — approve it on the Settlement tab first")
+            computed = compute_scenario_totals(
+                scenario, default_fee_pct=float(settlement.get("default_attorney_fee_pct") or 33.333)
+            )
+            composed = compose_disbursement_letter(
+                tokens=tokens, matter=m, client=client, scenario=scenario, computed=computed,
+                today_iso=today, overrides=overrides,
+            )
+        else:  # pragma: no cover — Literal already guards
+            raise HTTPException(400, "Unknown letter type")
+
+        if body.format == "pdf":
+            data = render_pdf(composed["blocks"])
+            content_type = PDF_MIME
+            ext = "pdf"
+        else:
+            data = render_docx(composed["blocks"])
+            content_type = DOCX_MIME
+            ext = "docx"
+
+        stem = composed["filename_stem"]
+        if composed.get("watermark"):
+            stem += " (DRAFT)"
+        name = f"{stem}.{ext}"
+        ts = now_iso()
+        doc = {
+            "id": new_id(),
+            "firm_id": user["firm_id"],
+            "matter_id": matter_id,
+            "name": name,
+            "folder": "Letters",
+            "content_type": content_type,
+            "size_bytes": len(data),
+            "data_b64": base64.b64encode(data).decode(),
+            "uploaded_by": user["id"],
+            "uploaded_by_name": user.get("name"),
+            "uploaded_at": ts,
+            "version": 1,
+            "client_visible": False,
+            "extracted_text": None,
+            "page_count": None,
+            "taxonomy": None,
+            "letter": {
+                "letter_type": body.letter_type,
+                "format": ext,
+                "watermark": bool(composed.get("watermark")),
+                "generated_by": user["id"],
+                "generated_by_name": user.get("name"),
+                "generated_at": ts,
+                "warnings": composed.get("warnings") or [],
+            },
+        }
+        await db.documents.insert_one(doc)
+        await db.activities.insert_one(
+            {
+                "id": new_id(),
+                "firm_id": user["firm_id"],
+                "matter_id": matter_id,
+                "actor_id": user["id"],
+                "actor_name": user.get("name"),
+                "type": "letter_generated",
+                "description": f"Generated {composed['title']} ({ext.upper()}){' — DRAFT watermark' if composed.get('watermark') else ''}",
+                "created_at": ts,
+            }
+        )
+        return {
+            "document_id": doc["id"],
+            "name": name,
+            "content_type": content_type,
+            "format": ext,
+            "letter_type": body.letter_type,
+            "watermark": bool(composed.get("watermark")),
+            "warnings": composed.get("warnings") or [],
+        }
+
+    @api.post("/matters/{matter_id}/letters/ai-draft")
+    async def ai_draft_letter_narrative(matter_id: str, body: LetterAiDraftIn, user=Depends(get_current_user)):
+        _require_letter_permission(user, body.letter_type)
+        if not stream_ai_reply:
+            raise HTTPException(501, "AI drafting not configured")
+        m = await _load_matter(matter_id, user["firm_id"])
+        client = await _load_client(m, user["firm_id"])
+        demand = merge_pi_demand(m.get("pi_demand"))
+        ledger_rows = await _load_ledger(matter_id, user["firm_id"])
+        validation = _demand_validation(demand, ledger_rows)
+
+        context = {
+            "client": (client or {}).get("name"),
+            "date_of_loss": m.get("incident_date"),
+            "facts": m.get("description"),
+            "medical_specials": validation.get("exhibit_specials"),
+            "economic_damages": validation.get("economic_damages_total"),
+            "providers": [
+                {"name": r.get("provider_name"), "specialty": r.get("specialty"), "balance": r.get("balance")}
+                for r in ledger_rows
+            ][:40],
+            "general_damages_notes": demand.get("general_damages_notes"),
+        }
+        system = (
+            "You are a personal-injury paralegal drafting the injuries-and-treatment narrative section of a "
+            f"{LETTER_LABELS.get(body.letter_type, 'demand letter')}. Write 2-4 professional paragraphs in plain "
+            "prose (no headings, no placeholders, no salutations). Use only the facts provided — never invent "
+            "diagnoses, dates, or amounts. This is a draft for attorney review."
+        )
+        message = f"Matter context:\n{context}\n"
+        if body.instructions:
+            message += f"\nStaff instructions: {body.instructions}"
+
+        collected = ""
+        async for chunk in stream_ai_reply(db, system=system, message=message, max_tokens=1500):
+            collected += chunk
+        if collected.strip().startswith("[Error:"):
+            raise HTTPException(400, collected.strip().strip("[]"))
+        return {"draft": collected.strip(), "letter_type": body.letter_type}

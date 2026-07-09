@@ -14,8 +14,11 @@ import {
   RefreshCw,
   Send,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import PageLoader from "@/components/common/PageLoader";
+import MatterLettersCard from "@/components/matter/MatterLettersCard";
+import { aiDraftLetterNarrative } from "@/lib/lettersApi";
 
 const DEMAND_TYPES = [
   { value: "third_party", label: "3P bodily injury demand" },
@@ -43,6 +46,23 @@ export default function MatterDemandTab({ matterId, practiceArea }) {
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
   const [rejectNotes, setRejectNotes] = useState("");
+  const [aiDrafting, setAiDrafting] = useState(false);
+
+  const aiDraftNarrative = async () => {
+    setAiDrafting(true);
+    try {
+      const r = await aiDraftLetterNarrative(matterId, { letterType: "demand" });
+      setData((prev) => ({
+        ...prev,
+        pi_demand: { ...prev.pi_demand, letter_draft_notes: r.draft },
+      }));
+      toast.success("AI narrative drafted — review, edit, then it saves on blur");
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "AI draft failed — check Settings → Integrations");
+    } finally {
+      setAiDrafting(false);
+    }
+  };
 
   const load = useCallback(() => {
     api
@@ -415,7 +435,18 @@ export default function MatterDemandTab({ matterId, practiceArea }) {
           />
         </label>
         <label className="data-card p-4 block text-xs">
-          <span className="font-mono uppercase text-praxium-subtle text-[10px]">Letter draft notes</span>
+          <span className="font-mono uppercase text-praxium-subtle text-[10px] flex items-center justify-between">
+            Letter draft notes — injuries &amp; treatment narrative
+            <button
+              type="button"
+              className="btn-ghost text-[10px] normal-case"
+              disabled={locked || busy || aiDrafting}
+              onClick={aiDraftNarrative}
+              data-testid="demand-ai-draft-narrative"
+            >
+              <Sparkles size={10} /> {aiDrafting ? "Drafting…" : "AI draft"}
+            </button>
+          </span>
           <textarea
             className={inputClass() + " mt-1 min-h-[80px] text-sm"}
             value={demand.letter_draft_notes || ""}
@@ -428,6 +459,8 @@ export default function MatterDemandTab({ matterId, practiceArea }) {
           />
         </label>
       </div>
+
+      <MatterLettersCard matterId={matterId} tab="demand" refreshKey={demand.status} />
 
       <label className="data-card p-4 block text-xs max-w-xs">
         <span className="font-mono uppercase text-praxium-subtle text-[10px]">Response due (calendar)</span>
