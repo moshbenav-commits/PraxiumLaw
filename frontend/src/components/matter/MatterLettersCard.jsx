@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { FileText, FileDown, Lock } from "lucide-react";
+import { FileText, FileDown, Lock, PenLine } from "lucide-react";
 import { formatDate, formatMoney } from "@/lib/utils";
-import { getMatterLetters, generateLetter } from "@/lib/lettersApi";
+import { getMatterLetters, generateLetter, sendLetterForSignature } from "@/lib/lettersApi";
 import { downloadB64File } from "@/lib/documentsApi";
 import api from "@/lib/api";
 
@@ -98,6 +98,32 @@ export default function MatterLettersCard({ matterId, tab, extraPayload = {}, re
       downloadB64File(r.data.name, r.data.content_type, r.data.data_b64);
     } catch {
       toast.error("Download failed");
+    }
+  };
+
+  const client = data.client;
+
+  const sendForSignature = async (doc) => {
+    if (!client?.name || !client?.email) {
+      toast.error("Link a client contact with name and email first (Intake tab)");
+      return;
+    }
+    setBusy(true);
+    try {
+      const r = await sendLetterForSignature(matterId, doc, client);
+      const url = r.dev_sign_url || r.sign_request?.sign_url;
+      if (r.dev_sign_url && url) {
+        await navigator.clipboard.writeText(url);
+        toast.success("Sign link copied (dev)");
+      } else if (r.email_sent) {
+        toast.success(`Sign request emailed to ${client.name}`);
+      } else {
+        toast.success("Sign request created (configure email to notify the client)");
+      }
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Could not send for signature");
+    } finally {
+      setBusy(false);
     }
   };
 
@@ -244,6 +270,18 @@ export default function MatterLettersCard({ matterId, tab, extraPayload = {}, re
                 </button>
                 {doc.letter?.watermark ? (
                   <span className="text-[10px] font-mono uppercase text-amber-800">draft</span>
+                ) : null}
+                {doc.signable ? (
+                  <button
+                    type="button"
+                    className="btn-ghost text-[10px] inline-flex items-center gap-1"
+                    disabled={busy}
+                    onClick={() => sendForSignature(doc)}
+                    title="Send this PDF letter to the client for e-signature (NativeSign)"
+                    data-testid={`letter-sign-${doc.id}`}
+                  >
+                    <PenLine size={10} /> Sign
+                  </button>
                 ) : null}
                 <span className="text-praxium-subtle ml-auto font-mono">
                   {formatDate(doc.uploaded_at)} · {doc.letter?.generated_by_name || ""}

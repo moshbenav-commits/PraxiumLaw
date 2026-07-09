@@ -14,6 +14,19 @@ export async function generateLetter(matterId, payload) {
   return r.data;
 }
 
+// Send an already-filed PDF letter through the NativeSign in-app signature flow.
+// `letterDoc` is a recent-letter row (needs id + name); `client` is {name, email}.
+export async function sendLetterForSignature(matterId, letterDoc, client) {
+  const r = await api.post(`/matters/${matterId}/sign-requests`, {
+    title: letterDoc.name || "Letter for signature",
+    document_title: letterDoc.name || "Letter",
+    document_id: letterDoc.id,
+    signer_name: client?.name,
+    signer_email: client?.email,
+  });
+  return r.data;
+}
+
 export async function aiDraftLetterNarrative(matterId, { letterType = "demand", instructions } = {}) {
   const r = await api.post(`/matters/${matterId}/letters/ai-draft`, {
     letter_type: letterType,
