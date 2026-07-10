@@ -33,11 +33,12 @@ End-to-end pre-lit → litigation → settlement → disbursement → close-out 
 
 | Gap | Add |
 |-----|-----|
-| Checklists mostly prose | **Structured JSON checklists per phase** (feed the app + [training](articles/)); one exists (`intake-packet-checklist.json`) |
-| KPIs/case-grade referenced | **Metrics & case-grade framework** (cycle time, spend-vs-limits, demand triggers) |
-| Valuation is attorney-gated (correctly) | **Damages worksheet** (data capture only, not advice) to support attorney valuation |
-| Onboarding/training | Extend [`training-guides/`](./training-guides/) into a **certification path** per role |
-| Jurisdiction differences | **State matrix** (SOL, minor thresholds, lien rules, solicitation rules) — high value, high effort |
+| Checklists mostly prose | ✅ Added [`checklists/phase-checklists.json`](checklists/phase-checklists.json) (13 phases, 58 items, article refs + attorney gates) |
+| KPIs/case-grade referenced | ✅ Added [KPIS_AND_CASE_GRADE.md](KPIS_AND_CASE_GRADE.md) |
+| Valuation is attorney-gated (correctly) | ✅ Added [DAMAGES_WORKSHEET.md](DAMAGES_WORKSHEET.md) (data capture only) |
+| Jurisdiction differences | ✅ Added [JURISDICTION_MATRIX.md](JURISDICTION_MATRIX.md) (template + methodology; verify-per-state) |
+| Onboarding/training | Extend [`training-guides/`](./training-guides/) into a **certification path** per role — *still open* |
+| Client experience | **Multilingual (EN/ES) client-communication template library** — *still open* |
 
 ## How PraxHQ improves the procedures
 

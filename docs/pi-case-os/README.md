@@ -24,6 +24,10 @@ Anything added to the **site, app, or exports** must be white-labeled (`{{FIRM_N
 | [`product-capabilities.md`](./product-capabilities.md) | What PraxiumLaw must do |
 | [`system-spec.md`](./system-spec.md) | Full process map |
 | [`gaps.md`](./gaps.md) | Gaps and attorney gates |
+| [`GAP_ANALYSIS_AND_ROADMAP.md`](./GAP_ANALYSIS_AND_ROADMAP.md) · [`GLOSSARY.md`](./GLOSSARY.md) · [`REFERENCES.md`](./REFERENCES.md) | Roadmap · terminology · public authorities |
+| [`KPIS_AND_CASE_GRADE.md`](./KPIS_AND_CASE_GRADE.md) · [`DAMAGES_WORKSHEET.md`](./DAMAGES_WORKSHEET.md) · [`JURISDICTION_MATRIX.md`](./JURISDICTION_MATRIX.md) | Metrics/case-grade · damages data-capture · per-state matrix template |
+| [`checklists/`](./checklists/) | Machine-readable per-phase checklists (JSON) for the app task/gate UI |
+| [`../praxhq/`](../praxhq/) | **PraxHQ** — the PI helper app (product + legal/HIPAA research) |
 | [`articles/`](./articles/) | Knowledge-base articles (white-label) — **54 articles (00–53) by department**; see [`articles/README.md`](./articles/README.md). Start at [`00`](./articles/00-case-lifecycle-and-workflow-map.md) (end-to-end case map). 01–24 pre-lit PI; 25–53 add demand drafting, settlement/disbursement, liens & subrogation, litigation, specialty departments, close-out, trust accounting, firm HIPAA, referral/marketing compliance, intake call script, Medicare set-aside, UM/UIM, wage-loss, expanded property damage, records retrieval, and non-medical liens |
 | [`training-guides/`](./training-guides/) | **Position training guides** (8 roles) |
 | [`SITE_WIRING_AUDIT.md`](./SITE_WIRING_AUDIT.md) | PraxiumLaw app wiring vs PI spec |
