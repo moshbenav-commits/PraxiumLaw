@@ -25,6 +25,7 @@ Full text: [`../DISCLOSURE.md`](../DISCLOSURE.md) · White-label rules: [`../WHI
 - [17 — In-office intake coaching](17-in-office-intake-coaching.md)
 - [23 — Intake forms & signature packet](23-intake-forms-and-signature-packet.md)
 - [35 — Lead intake & sign-up operations](35-lead-intake-and-signup-operations.md)
+- [47 — Inbound lead-intake call script](47-inbound-lead-intake-call-script.md)
 
 ### Treatment & medical management
 - [02 — Hospital bills (client retrieves)](02-hospital-bills-client-retrieves.md)
@@ -59,6 +60,7 @@ Full text: [`../DISCLOSURE.md`](../DISCLOSURE.md) · White-label rules: [`../WHI
 - [27 — Settlement & disbursement workflow](27-settlement-and-disbursement-workflow.md)
 - [29 — Health insurance subrogation & medical liens](29-health-insurance-subrogation.md)
 - [40 — File close-out, reconciliation & retention](40-file-closeout-reconciliation-and-retention.md)
+- [45 — Trust accounting & three-way reconciliation](45-trust-accounting-and-reconciliation.md)
 
 ### Litigation & specialty departments
 - [22 — Transfer to litigation notices](22-transfer-to-litigation.md)
@@ -75,7 +77,8 @@ Full text: [`../DISCLOSURE.md`](../DISCLOSURE.md) · White-label rules: [`../WHI
 - [37 — CLE & ethics compliance](37-cle-and-ethics-compliance.md)
 - [38 — Firm operations & office policies](38-firm-operations-and-office-policies.md)
 - [44 — Referral sources & marketing compliance](44-referral-sources-and-marketing-compliance.md)
+- [46 — Firm HIPAA & client-data security](46-firm-hipaa-and-data-security.md)
 
 ---
 
-*Articles 01–24 cover the pre-litigation PI lifecycle. Articles 25–44 add settlement/disbursement, lien resolution, litigation, specialty departments (minor's compromise, mass torts, premises, workers' comp, MIST), close-out, firm operations, and referral/marketing compliance. All are original, firm-neutral write-ups; public sources in [`../REFERENCES.md`](../REFERENCES.md), terms in [`../GLOSSARY.md`](../GLOSSARY.md).*
+*Articles 01–24 cover the pre-litigation PI lifecycle. Articles 25–47 add settlement/disbursement, lien resolution, litigation, specialty departments (minor's compromise, mass torts, premises, workers' comp, MIST), close-out, trust accounting, firm HIPAA/data security, referral/marketing compliance, and the inbound intake call script. All are original, firm-neutral write-ups; public sources in [`../REFERENCES.md`](../REFERENCES.md), terms in [`../GLOSSARY.md`](../GLOSSARY.md).*

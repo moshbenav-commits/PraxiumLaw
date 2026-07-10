@@ -13,8 +13,8 @@ End-to-end pre-lit → litigation → settlement → disbursement → close-out 
 | Gap | Add | Ties to |
 |-----|-----|---------|
 | Referral/marketing legality was implicit | ✅ Added [44 — Referral sources & marketing compliance](articles/44-referral-sources-and-marketing-compliance.md) | [PraxHQ legal memo](../praxhq/LEGAL_REGULATORY_RESEARCH.md) |
-| Trust-accounting detail thin (art. 27/40 summarize) | **Dedicated trust-accounting & 3-way reconciliation SOP** (Rule 1.15: separate accounts, ledgers, monthly reconciliation, no commingling) | Disbursement, PraxHQ "money stays in trust" |
-| Data/privacy policy is high-level | **HIPAA + client-data security SOP** for the firm (mirrors [PraxHQ HIPAA](../praxhq/HIPAA_COMPLIANCE.md)) | PraxHQ, ops |
+| Trust-accounting detail thin (art. 27/40 summarize) | ✅ Added [45 — Trust accounting & three-way reconciliation](articles/45-trust-accounting-and-reconciliation.md) (Rule 1.15) | Disbursement, PraxHQ "money stays in trust" |
+| Data/privacy policy is high-level | ✅ Added [46 — Firm HIPAA & client-data security](articles/46-firm-hipaa-and-data-security.md) | [PraxHQ HIPAA](../praxhq/HIPAA_COMPLIANCE.md), ops |
 | Future-medicals/government-benefit protection | **Medicare Set-Aside (MSA) & special-needs/structured-settlement SOP** (protect benefits, future care) | Subrogation (29), minor's compromise (30) |
 
 ### P1 — Completeness (finish the operational chain)
