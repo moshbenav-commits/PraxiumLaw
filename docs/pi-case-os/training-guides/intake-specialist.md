@@ -1,6 +1,6 @@
 # Training Guide — Intake Specialist
 
-**PraxiumLaw role:** `staff` or `paralegal`  
+**PraxiumLaw role:** `staff` or `paralegal` 
 **Reports to:** Supervising attorney · Case manager (after sign-up)
 
 ---
@@ -30,10 +30,10 @@ You are the **first operational touch** after marketing hands off a lead. Your j
 
 ## Attorney gates (you prepare — attorney decides)
 
-- Sign / decline representation  
-- Fee agreement exceptions  
-- Conflict resolution when hit found  
-- Lyft/Uber/work-driving preservation strategy  
+- Sign / decline representation 
+- Fee agreement exceptions 
+- Conflict resolution when hit found 
+- Lyft/Uber/work-driving preservation strategy 
 
 ---
 
@@ -47,9 +47,9 @@ Full catalog: [`../articles/23-intake-forms-and-signature-packet.md`](../article
 
 | Template | Use |
 |----------|-----|
-| `MVA Questionnaire & Intake.docx` | Primary bilingual EN/ES questionnaire (~8 pages) |
-| `INTAKE SHEET - FILLABLE MVA QUESTIONNAIRE.docx` | Fillable variant |
-| `PI Intake MVA Questionnaire (Fillable).docx` | Alternate fillable |
+| `firm template` | Primary bilingual EN/ES questionnaire (~8 pages) |
+| `firm template` | Fillable variant |
+| `firm template` | Alternate fillable |
 
 Enter key fields into PraxiumLaw matter/contact after legibility check.
 
@@ -57,17 +57,17 @@ Enter key fields into PraxiumLaw matter/contact after legibility check.
 
 | Document | Template |
 |----------|----------|
-| Fee agreement | `(WA) Contingency Fee Agreement.docx` |
-| Limited POA | `6.- LIMITED POWER OF ATTORNEY WA.docx` |
-| General release | `4.-GENERAL RELEASE WA.docx` |
-| Wage auth | `(WA) Wage Loss Verification.docx` |
-| HIPAA | **Blank facility at sign** — `(WA) HIPAA - Minor.docx` or intake pack HIPAA |
-| Medicare questionnaire | `7.- Medicare Questionaire 1 WA.docx` if Medicare |
-| Intake bundle | `(WA) Intake Docs - Not a Medicare Recipient.docx` **or** `(WA) Intake - Medicare Recipient.docx` |
-| Disclosure consent | `3.- CONSENT FOR DISCLOSURE OF INFORMATION WA.docx` |
-| PD disclosure | `8.- Property Damage Disclosure WA.docx` |
-| ISO auth | `9.- ISO Authorization WA.docx` |
-| Out of state | `(WA) Out of State Intake.docx` |
+| Fee agreement | `firm template` |
+| Limited POA | `firm template` |
+| General release | `firm template` |
+| Wage auth | `firm template` |
+| HIPAA | **Blank facility at sign** — `firm template` or intake pack HIPAA |
+| Medicare questionnaire | `firm template` if Medicare |
+| Intake bundle | `firm template` **or** `firm template` |
+| Disclosure consent | `firm template` |
+| PD disclosure | `firm template` |
+| ISO auth | `firm template` |
+| Out of state | `firm template` |
 
 **Medicare branch:** Ask at intake — wrong pack breaks subrogation workflow later.
 
@@ -92,17 +92,17 @@ Hospital stack = up to **four** bills (facility, ER doc, radiology, ambulance). 
 
 ## Day 0 checklist
 
-- [ ] Create **contact** + **matter** in PraxiumLaw (`/matters/new`) — set DOL, SOL (e.g. NV: 2 years from DOL)  
-- [ ] Enter intake fields: language, texting preference, DOB, marital status, role in accident  
-- [ ] Assign team roles (case manager, attorney, clerical, billing) on matter  
-- [ ] Generate intake documents (English/Spanish per firm policy)  
-- [ ] Run **conflict check** — see [`../articles/13-conflict-check-and-related-cases.md`](../articles/13-conflict-check-and-related-cases.md)  
-- [ ] Walk **Needs List** — see [`../articles/01-intake-needs-list.md`](../articles/01-intake-needs-list.md)  
-- [ ] Collect declarations page, ID, health card, photos, estimates  
-- [ ] Enable client **text line** — text only, not voice  
-- [ ] Book chiro/PT **and** GP/pain management  
-- [ ] Open **3P claim** day one — see [`../articles/04-opening-3p-and-1p-claims.md`](../articles/04-opening-3p-and-1p-claims.md)  
-- [ ] Coach client: speak to adjuster about **PD only** — [`../articles/03-property-damage-liability-timing.md`](../articles/03-property-damage-liability-timing.md)  
+- [ ] Create **contact** + **matter** in PraxiumLaw (`/matters/new`) — set DOL, SOL (e.g., 2 years in many states — confirm yours) 
+- [ ] Enter intake fields: language, texting preference, DOB, marital status, role in accident 
+- [ ] Assign team roles (case manager, attorney, clerical, billing) on matter 
+- [ ] Generate intake documents (English/Spanish per firm policy) 
+- [ ] Run **conflict check** — see [`../articles/13-conflict-check-and-related-cases.md`](../articles/13-conflict-check-and-related-cases.md) 
+- [ ] Walk **Needs List** — see [`../articles/01-intake-needs-list.md`](../articles/01-intake-needs-list.md) 
+- [ ] Collect declarations page, ID, health card, photos, estimates 
+- [ ] Enable client **text line** — text only, not voice 
+- [ ] Book chiro/PT **and** GP/pain management 
+- [ ] Open **3P claim** day one — see [`../articles/04-opening-3p-and-1p-claims.md`](../articles/04-opening-3p-and-1p-claims.md) 
+- [ ] Coach client: speak to adjuster about **PD only** — [`../articles/03-property-damage-liability-timing.md`](../articles/03-property-damage-liability-timing.md) 
 
 ---
 
@@ -125,37 +125,37 @@ Hospital stack = up to **four** bills (facility, ER doc, radiology, ambulance). 
 
 ## Not wired yet (work offline / manual)
 
-- Related-case linker on conflict check  
-- In-app intake scripts / coaching prompts  
-- Cold **phone lead** greeting script — **gap**; in-office coaching only in [`../articles/17-in-office-intake-coaching.md`](../articles/17-in-office-intake-coaching.md)  
+- Related-case linker on conflict check 
+- In-app intake scripts / coaching prompts 
+- Cold **phone lead** greeting script — **gap**; in-office coaching only in [`../articles/17-in-office-intake-coaching.md`](../articles/17-in-office-intake-coaching.md) 
 
 ---
 
 ## Required reading
 
-1. [`../articles/23-intake-forms-and-signature-packet.md`](../articles/23-intake-forms-and-signature-packet.md) — **forms catalog**  
-2. [`../articles/01-intake-needs-list.md`](../articles/01-intake-needs-list.md)  
-3. [`../articles/24-medical-documents-reference.md`](../articles/24-medical-documents-reference.md) — what to collect vs sign  
-4. [`../articles/17-in-office-intake-coaching.md`](../articles/17-in-office-intake-coaching.md)  
-5. [`../articles/13-conflict-check-and-related-cases.md`](../articles/13-conflict-check-and-related-cases.md)  
-6. [`../articles/18-document-taxonomy.md`](../articles/18-document-taxonomy.md)  
-7. [`../articles/16-treatment-compliance-coaching.md`](../articles/16-treatment-compliance-coaching.md)  
+1. [`../articles/23-intake-forms-and-signature-packet.md`](../articles/23-intake-forms-and-signature-packet.md) — **forms catalog** 
+2. [`../articles/01-intake-needs-list.md`](../articles/01-intake-needs-list.md) 
+3. [`../articles/24-medical-documents-reference.md`](../articles/24-medical-documents-reference.md) — what to collect vs sign 
+4. [`../articles/17-in-office-intake-coaching.md`](../articles/17-in-office-intake-coaching.md) 
+5. [`../articles/13-conflict-check-and-related-cases.md`](../articles/13-conflict-check-and-related-cases.md) 
+6. [`../articles/18-document-taxonomy.md`](../articles/18-document-taxonomy.md) 
+7. [`../articles/16-treatment-compliance-coaching.md`](../articles/16-treatment-compliance-coaching.md) 
 
 ---
 
 ## Common mistakes
 
-- Letting client discuss **injuries** with 3P adjuster before attorney strategy  
-- Skipping owner conflict check when driver ≠ registered owner  
-- Data entry before questionnaire is legible  
-- Calling the **text-only** line for voice  
-- Opening 1P/MedPay too early (training: 3P first; 1P last resort)  
+- Letting client discuss **injuries** with 3P adjuster before attorney strategy 
+- Skipping owner conflict check when driver ≠ registered owner 
+- Data entry before questionnaire is legible 
+- Calling the **text-only** line for voice 
+- Opening 1P/MedPay too early (training: 3P first; 1P last resort) 
 
 ---
 
 ## First week goals
 
-1. Complete one supervised intake end-to-end  
-2. Memorize Needs List top 10 items  
-3. Practice PD-only client script aloud  
-4. File 5 documents with correct taxonomy labels  
+1. Complete one supervised intake end-to-end 
+2. Memorize Needs List top 10 items 
+3. Practice PD-only client script aloud 
+4. File 5 documents with correct taxonomy labels 

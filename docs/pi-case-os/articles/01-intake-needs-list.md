@@ -1,7 +1,9 @@
 # The Intake Needs List: What Every New PI Client Must Bring
 
 **Category:** Client Intake  
-**Source:** Personal Injury Workflow training transcript  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers, intake staff
 
 ---

@@ -1,0 +1,57 @@
+# PraxiumLaw PI Case OS — Gap Analysis & Improvement Roadmap
+
+Where the SOP set (44 articles, [`articles/`](./articles/)) is strong, what's still missing, and a prioritized plan to improve Praxium Law's procedures — including where **PraxHQ** ([`../praxhq/`](../praxhq/)) plugs in. See [`DISCLOSURE.md`](./DISCLOSURE.md); legal-sensitive items need counsel.
+
+## Where we're strong
+
+End-to-end pre-lit → litigation → settlement → disbursement → close-out is covered, plus specialty departments (minor's compromise, mass torts, premises, workers' comp, MIST), lien/subrogation, ethics/CLE, and firm operations — all white-label with a [lifecycle map](articles/00-case-lifecycle-and-workflow-map.md) and public [references](./REFERENCES.md).
+
+## Gaps & additions — prioritized
+
+### P0 — Compliance-critical (do before scaling / before PraxHQ launch)
+
+| Gap | Add | Ties to |
+|-----|-----|---------|
+| Referral/marketing legality was implicit | ✅ Added [44 — Referral sources & marketing compliance](articles/44-referral-sources-and-marketing-compliance.md) | [PraxHQ legal memo](../praxhq/LEGAL_REGULATORY_RESEARCH.md) |
+| Trust-accounting detail thin (art. 27/40 summarize) | **Dedicated trust-accounting & 3-way reconciliation SOP** (Rule 1.15: separate accounts, ledgers, monthly reconciliation, no commingling) | Disbursement, PraxHQ "money stays in trust" |
+| Data/privacy policy is high-level | **HIPAA + client-data security SOP** for the firm (mirrors [PraxHQ HIPAA](../praxhq/HIPAA_COMPLIANCE.md)) | PraxHQ, ops |
+| Future-medicals/government-benefit protection | **Medicare Set-Aside (MSA) & special-needs/structured-settlement SOP** (protect benefits, future care) | Subrogation (29), minor's compromise (30) |
+
+### P1 — Completeness (finish the operational chain)
+
+| Gap | Add |
+|-----|-----|
+| Demand exists; **UM/UIM claim** has no standalone procedure | **UM/UIM & first-party claim SOP** (setoffs, stacking, bad-faith time-limit demands) |
+| Wage-loss/lost-earnings documentation is referenced, not detailed | **Wage-loss & lost-earning-capacity documentation SOP** |
+| Property damage (03) is thin on total-loss/diminished-value/rental | **Expand PD**: total loss, diminished value, rental/loss-of-use, deductible recovery |
+| Records retrieval process assumes manual | **Records-retrieval & vendor SOP** (authorizations, portals, certificates, follow-up cadence) |
+| Other liens on recovery | **Non-medical liens SOP**: child support, bankruptcy, probate, divorce, government |
+| Bad-faith handling | **Insurer bad-faith / policy-limits time-demand SOP** |
+| Client experience is procedural | **Client-communication template library** (multilingual, esp. EN/ES) |
+
+### P2 — Enhancement / product & data
+
+| Gap | Add |
+|-----|-----|
+| Checklists mostly prose | **Structured JSON checklists per phase** (feed the app + [training](articles/)); one exists (`intake-packet-checklist.json`) |
+| KPIs/case-grade referenced | **Metrics & case-grade framework** (cycle time, spend-vs-limits, demand triggers) |
+| Valuation is attorney-gated (correctly) | **Damages worksheet** (data capture only, not advice) to support attorney valuation |
+| Onboarding/training | Extend [`training-guides/`](./training-guides/) into a **certification path** per role |
+| Jurisdiction differences | **State matrix** (SOL, minor thresholds, lien rules, solicitation rules) — high value, high effort |
+
+## How PraxHQ improves the procedures
+
+- **Automates the client-facing cadence** ([11](articles/11-client-call-cadence.md)), reminders, and document capture — reducing missed appointments and treatment gaps ([05](articles/05-treatment-gaps-and-mri-timing.md), [16](articles/16-treatment-compliance-coaching.md)).
+- **Standardizes logistics** (towing, rides) as a repeatable, logged workflow tied to [PD timing](articles/03-property-damage-liability-timing.md).
+- **Feeds structured data** back into the case file for the metrics/case-grade framework (P2) — the data foundation for later automation.
+- **Keeps compliance visible**: every PraxHQ touchpoint carries the guardrails in [44](articles/44-referral-sources-and-marketing-compliance.md) and the [integration map](../praxhq/INTEGRATION_MAP.md).
+
+## Suggested order
+
+1. **P0** trust-accounting + firm HIPAA/data SOPs (compliance foundation for PraxHQ).
+2. **Counsel review** of the PraxHQ model (research-memo checklist) — gate before build.
+3. **P1** UM/UIM, wage-loss, PD expansion, records-retrieval (highest daily-use value).
+4. **P2** structured checklists + metrics (the data layer PraxHQ needs).
+5. Template library + state matrix as capacity allows.
+
+*Everything here is process/compliance guidance, not legal advice. P0 and any fee/referral/data item require qualified counsel per jurisdiction.*

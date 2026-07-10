@@ -1,7 +1,9 @@
 # Client Call Cadence: 3-Day, 7-Day, and Monthly
 
 **Category:** Case Manager Tips  
-**Source:** Personal Injury Workflow; Case Manage / Cleaner Fish; 7-day Needs List task  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers
 
 ---

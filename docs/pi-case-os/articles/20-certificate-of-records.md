@@ -1,7 +1,8 @@
 # Certificate of Records (COR)
 
 **Category:** Medical Record Tracking · Litigation readiness  
-**Source:** Lit Audit SOP  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).
 
 ---

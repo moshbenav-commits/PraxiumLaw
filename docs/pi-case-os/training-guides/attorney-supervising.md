@@ -43,7 +43,7 @@ Staff handles routine coaching; you handle strategy and authority.
 | When | You review |
 |------|------------|
 | ~30 days | MRI plan, outlier treatment — [`../articles/07-thirty-day-case-review.md`](../articles/07-thirty-day-case-review.md) |
-| Pre-demand | Yellow sheet complete — [`../articles/09-demand-prep-checklist.md`](../articles/09-demand-prep-checklist.md) |
+| Pre-demand | demand worksheet complete — [`../articles/09-demand-prep-checklist.md`](../articles/09-demand-prep-checklist.md) |
 | Offer received | Settlement scenarios — [`../articles/10-settlement-calculator-scenarios.md`](../articles/10-settlement-calculator-scenarios.md) |
 | Limits low vs med spend | Chiro/Meds vs limits strategy |
 
