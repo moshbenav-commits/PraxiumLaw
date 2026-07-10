@@ -15,19 +15,19 @@ End-to-end pre-lit → litigation → settlement → disbursement → close-out 
 | Referral/marketing legality was implicit | ✅ Added [44 — Referral sources & marketing compliance](articles/44-referral-sources-and-marketing-compliance.md) | [PraxHQ legal memo](../praxhq/LEGAL_REGULATORY_RESEARCH.md) |
 | Trust-accounting detail thin (art. 27/40 summarize) | ✅ Added [45 — Trust accounting & three-way reconciliation](articles/45-trust-accounting-and-reconciliation.md) (Rule 1.15) | Disbursement, PraxHQ "money stays in trust" |
 | Data/privacy policy is high-level | ✅ Added [46 — Firm HIPAA & client-data security](articles/46-firm-hipaa-and-data-security.md) | [PraxHQ HIPAA](../praxhq/HIPAA_COMPLIANCE.md), ops |
-| Future-medicals/government-benefit protection | **Medicare Set-Aside (MSA) & special-needs/structured-settlement SOP** (protect benefits, future care) | Subrogation (29), minor's compromise (30) |
+| Future-medicals/government-benefit protection | ✅ Added [48 — Medicare set-aside, structured settlements & future medicals](articles/48-medicare-set-aside-and-future-medicals.md) | Subrogation (29), minor's compromise (30) |
 
 ### P1 — Completeness (finish the operational chain)
 
 | Gap | Add |
 |-----|-----|
-| Demand exists; **UM/UIM claim** has no standalone procedure | **UM/UIM & first-party claim SOP** (setoffs, stacking, bad-faith time-limit demands) |
-| Wage-loss/lost-earnings documentation is referenced, not detailed | **Wage-loss & lost-earning-capacity documentation SOP** |
-| Property damage (03) is thin on total-loss/diminished-value/rental | **Expand PD**: total loss, diminished value, rental/loss-of-use, deductible recovery |
-| Records retrieval process assumes manual | **Records-retrieval & vendor SOP** (authorizations, portals, certificates, follow-up cadence) |
-| Other liens on recovery | **Non-medical liens SOP**: child support, bankruptcy, probate, divorce, government |
-| Bad-faith handling | **Insurer bad-faith / policy-limits time-demand SOP** |
-| Client experience is procedural | **Client-communication template library** (multilingual, esp. EN/ES) |
+| Demand exists; **UM/UIM claim** has no standalone procedure | ✅ Added [49 — UM/UIM & first-party claims](articles/49-um-uim-and-first-party-claims.md) (setoffs, stacking, consent-to-settle) |
+| Wage-loss/lost-earnings documentation is referenced, not detailed | ✅ Added [50 — Wage-loss & lost-earning-capacity documentation](articles/50-wage-loss-documentation.md) |
+| Property damage (03) is thin on total-loss/diminished-value/rental | ✅ Added [51 — Property damage: total loss, diminished value, rental & deductible](articles/51-property-damage-total-loss-and-diminished-value.md) |
+| Records retrieval process assumes manual | ✅ Added [52 — Records retrieval & vendor management](articles/52-records-retrieval-and-vendors.md) |
+| Other liens on recovery | ✅ Added [53 — Non-medical liens & claims](articles/53-non-medical-liens-and-claims.md) |
+| Bad-faith handling | ✅ Folded into [49 — UM/UIM & first-party claims](articles/49-um-uim-and-first-party-claims.md) (policy-limits time-limit demands) |
+| Client experience is procedural | **Client-communication template library** (multilingual, esp. EN/ES) — *still open* |
 
 ### P2 — Enhancement / product & data
 

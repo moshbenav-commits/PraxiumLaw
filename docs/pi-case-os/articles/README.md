@@ -35,12 +35,15 @@ Full text: [`../DISCLOSURE.md`](../DISCLOSURE.md) · White-label rules: [`../WHI
 - [16 — Treatment compliance coaching](16-treatment-compliance-coaching.md)
 - [21 — Medical LOR workflow](21-medical-lor-workflow.md)
 - [24 — Medical documents reference](24-medical-documents-reference.md)
+- [52 — Records retrieval & vendor management](52-records-retrieval-and-vendors.md)
 
 ### Claims, coverage & property damage
 - [03 — Property damage & liability timing](03-property-damage-liability-timing.md)
 - [04 — Opening 3P & 1P claims](04-opening-3p-and-1p-claims.md)
 - [15 — Policy limits & claimants](15-policy-limits-and-claimants.md)
 - [33 — Auto insurance coverage reference](33-auto-insurance-coverage-reference.md)
+- [49 — UM/UIM & first-party claims](49-um-uim-and-first-party-claims.md)
+- [51 — Property damage: total loss, diminished value, rental & deductible](51-property-damage-total-loss-and-diminished-value.md)
 
 ### Case management & review
 - [06 — Social media & sub-rosa](06-social-media-and-subrosa.md)
@@ -61,6 +64,9 @@ Full text: [`../DISCLOSURE.md`](../DISCLOSURE.md) · White-label rules: [`../WHI
 - [29 — Health insurance subrogation & medical liens](29-health-insurance-subrogation.md)
 - [40 — File close-out, reconciliation & retention](40-file-closeout-reconciliation-and-retention.md)
 - [45 — Trust accounting & three-way reconciliation](45-trust-accounting-and-reconciliation.md)
+- [48 — Medicare set-aside, structured settlements & future medicals](48-medicare-set-aside-and-future-medicals.md)
+- [50 — Wage-loss & lost-earning-capacity documentation](50-wage-loss-documentation.md)
+- [53 — Non-medical liens & claims on the recovery](53-non-medical-liens-and-claims.md)
 
 ### Litigation & specialty departments
 - [22 — Transfer to litigation notices](22-transfer-to-litigation.md)
@@ -81,4 +87,4 @@ Full text: [`../DISCLOSURE.md`](../DISCLOSURE.md) · White-label rules: [`../WHI
 
 ---
 
-*Articles 01–24 cover the pre-litigation PI lifecycle. Articles 25–47 add settlement/disbursement, lien resolution, litigation, specialty departments (minor's compromise, mass torts, premises, workers' comp, MIST), close-out, trust accounting, firm HIPAA/data security, referral/marketing compliance, and the inbound intake call script. All are original, firm-neutral write-ups; public sources in [`../REFERENCES.md`](../REFERENCES.md), terms in [`../GLOSSARY.md`](../GLOSSARY.md).*
+*Articles 01–24 cover the pre-litigation PI lifecycle. Articles 25–53 add settlement/disbursement, lien resolution, litigation, specialty departments (minor's compromise, mass torts, premises, workers' comp, MIST), close-out, trust accounting, firm HIPAA/data security, referral/marketing compliance, the inbound intake call script, Medicare set-aside/future medicals, UM/UIM & first-party claims, wage-loss, expanded property damage, records retrieval, and non-medical liens. All are original, firm-neutral write-ups; public sources in [`../REFERENCES.md`](../REFERENCES.md), terms in [`../GLOSSARY.md`](../GLOSSARY.md).*
