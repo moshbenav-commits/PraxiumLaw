@@ -10,15 +10,15 @@ Layers: **MKT** = marketing site · **APP** = firm-app UI · **API** = backend �
 | E2 | No solution pages for Citation OS / Booking / Billing OS / VA automation | MKT | All | **Closed in this branch** (`/solutions/:slug`) |
 | E3 | Landing nav/footer don't surface the expansion; practice-area chips are dead (non-links) | MKT | All | **Closed in this branch** |
 | E4 | VA-replacement ROI story absent from marketing (the platform's strongest sales math after stack-savings) | MKT | VA automation | **Closed in this branch** (automation solution page) |
-| E5 | Practice-area **module engine** — matter templates/phases/checklists are PI-only (`pi_*` fields hard-coded on matter) | APP+API | Practice areas | Open — P1 of [EXPANSION_ARCHITECTURE](./EXPANSION_ARCHITECTURE.md) |
+| E5 | Practice-area **module engine** — matter templates/phases/checklists are PI-only (`pi_*` fields hard-coded on matter) | APP+API | Practice areas | **v1 shipped in this branch** (`backend/practice_modules.py` + `/settings/modules`: catalog, firm toggles, matter assignment, day-one task packs). Per-module *phase sets* still open — P2 |
 | E6 | Citation matter type: no citation record, extraction queue, or ask-ladder UI | APP+API | Citation OS | Open — P2 |
 | E7 | Intake-mailbox classifier (detect tickets/bills/court mail in a monitored inbox) | CORE | Citation OS + Billing OS | Open — P1 (shared build) |
-| E8 | Letter-persistence engine (outbound → expected-response timer → auto follow-up) | CORE | Citation OS + Billing OS | Open — P1 (shared build) |
+| E8 | Letter-persistence engine (outbound → expected-response timer → auto follow-up) | CORE | Citation OS + Billing OS | **v1 shipped in this branch** (`backend/persistence.py`: timers + sweep → follow-up/escalation tasks). Auto-send awaits mail adapters — P2 |
 | E9 | Booking: `/calendar` is tasks+SOL only — no resources, blocks, waitlists, care plans, cross-org requests, no-show engine | APP+API | Booking | Open — P2 (PraxHQ side exists as spec only) |
 | E10 | Billing: `billing.py` is an API stub with **no UI**; no case financial ledger, lien state machines, reduction engine, disbursement gates, trust recon | APP+API | Billing OS | Open — P1 (ledger) / P2 (negotiation engine) |
-| E11 | Attorney gates exist for PI demand only — reductions/disbursement/trust gates not enforced in code | API | Billing OS | Open — P1 |
+| E11 | Attorney gates exist for PI demand only — reductions/disbursement/trust gates not enforced in code | API | Billing OS | **Registry shipped in this branch** (`backend/gates.py` + rbac permissions + decision records). Enforcement wiring lands with each consuming flow (Billing OS/Citation OS) — P2 |
 | E12 | Role-based nav hiding absent (all sidebar items visible to every role) — required for VA-phase-out exception queues | APP | VA automation | Open — P2 |
-| E13 | Exception-queue framework (confidence-gated automation → human queue) exists nowhere | CORE | All | Open — P1 |
+| E13 | Exception-queue framework (confidence-gated automation → human queue) exists nowhere | CORE | All | **Shipped in this branch** (`backend/exceptions_queue.py`: raise/list/summary/resolve). Queue UI page — P2 |
 | E14 | Jurisdiction Matrix is a doc template, not data — Citation OS and module deadline packs need it queryable | API | Citation OS + modules | Open — P2 |
 | E15 | Court-approval workflow (minors/WC/wrongful-death) not built | APP+API | Modules | Open — P3 |
 | E16 | Expert-witness management (med-mal/product) not built | APP+API | Modules | Open — P3 |
