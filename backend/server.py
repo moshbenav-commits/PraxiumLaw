@@ -1267,6 +1267,16 @@ register_persistence_routes(
 from exceptions_queue import register_exception_routes  # noqa: E402
 register_exception_routes(api, db, get_current_user, require_permission, new_id, now)
 
+from billing_os import register_billing_os_routes  # noqa: E402
+register_billing_os_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from citations import register_citation_routes  # noqa: E402
+register_citation_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
 
 async def _firm_name_for_user(user: dict) -> Optional[str]:
     firm = await _firm_for_user(user)

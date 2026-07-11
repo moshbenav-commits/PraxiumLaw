@@ -38,6 +38,11 @@ INDEX_SPECS = [
     ("outbound_items", [("firm_id", 1), ("status", 1), ("expected_response_by", 1)], False),
     ("outbound_items", [("firm_id", 1), ("matter_id", 1)], False),
     ("exceptions", [("firm_id", 1), ("status", 1), ("kind", 1)], False),
+    ("ledger_entries", [("firm_id", 1), ("matter_id", 1), ("created_at", 1)], False),
+    ("liens", [("firm_id", 1), ("matter_id", 1)], False),
+    ("liens", [("firm_id", 1), ("state", 1)], False),
+    ("citations", [("firm_id", 1), ("state", 1)], False),
+    ("citations", [("firm_id", 1), ("matter_id", 1)], False),
 ]
 
 
