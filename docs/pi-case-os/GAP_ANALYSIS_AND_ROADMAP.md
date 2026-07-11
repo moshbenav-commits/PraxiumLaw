@@ -37,8 +37,10 @@ End-to-end pre-lit → litigation → settlement → disbursement → close-out 
 | KPIs/case-grade referenced | ✅ Added [KPIS_AND_CASE_GRADE.md](KPIS_AND_CASE_GRADE.md) |
 | Valuation is attorney-gated (correctly) | ✅ Added [DAMAGES_WORKSHEET.md](DAMAGES_WORKSHEET.md) (data capture only) |
 | Jurisdiction differences | ✅ Added [JURISDICTION_MATRIX.md](JURISDICTION_MATRIX.md) (template + methodology; verify-per-state) |
-| Onboarding/training | Extend [`training-guides/`](./training-guides/) into a **certification path** per role — *still open* |
-| Client experience | **Multilingual (EN/ES) client-communication template library** — *still open* |
+| Onboarding/training | ✅ Added [training-guides/CERTIFICATION_PATH.md](training-guides/CERTIFICATION_PATH.md) (Trainee → Certified → Senior, all 8 roles) |
+| Client experience | ✅ Added [templates/client-comms/](templates/client-comms/) — bilingual EN/ES client-message library (10 templates) |
+
+**Roadmap status:** P0 ✅ · P1 ✅ · P2 ✅ — all identified gaps addressed. Remaining work is now *build* (wire the docs into the app) rather than documentation.
 
 ## How PraxHQ improves the procedures
 
