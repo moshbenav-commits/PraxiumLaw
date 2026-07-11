@@ -5,6 +5,10 @@ import { Toaster } from "sonner";
 
 import Landing from "@/pages/Landing";
 import Pricing from "@/pages/Pricing";
+import PracticeAreas from "@/pages/PracticeAreas";
+import PracticeAreaDetail from "@/pages/PracticeAreaDetail";
+import Solutions from "@/pages/Solutions";
+import SolutionDetail from "@/pages/SolutionDetail";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
 import IntakeForm from "@/pages/IntakeForm";
@@ -69,6 +73,10 @@ function App() {
           {/* Marketing & public */}
           <Route path="/" element={<Landing />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/practice-areas" element={<PracticeAreas />} />
+          <Route path="/practice-areas/:slug" element={<PracticeAreaDetail />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/intake/:firmSlug?" element={<IntakeForm />} />
