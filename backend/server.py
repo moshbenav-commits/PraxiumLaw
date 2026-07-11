@@ -1259,6 +1259,11 @@ register_practice_module_routes(
 from gates import register_gate_routes  # noqa: E402
 register_gate_routes(api, db, get_current_user, new_id, now, log_audit)
 
+from persistence import register_persistence_routes  # noqa: E402
+register_persistence_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
 
 async def _firm_name_for_user(user: dict) -> Optional[str]:
     firm = await _firm_for_user(user)

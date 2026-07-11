@@ -35,6 +35,8 @@ INDEX_SPECS = [
     ("api_keys", [("key_hash", 1)], True),
     ("matters", [("firm_id", 1), ("module_id", 1)], False),
     ("gate_decisions", [("firm_id", 1), ("resource_id", 1), ("created_at", -1)], False),
+    ("outbound_items", [("firm_id", 1), ("status", 1), ("expected_response_by", 1)], False),
+    ("outbound_items", [("firm_id", 1), ("matter_id", 1)], False),
 ]
 
 
