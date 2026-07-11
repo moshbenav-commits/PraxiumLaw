@@ -1251,6 +1251,11 @@ register_provider_secret_routes(
 )
 register_training_routes(api, get_current_user)
 
+from practice_modules import register_practice_module_routes  # noqa: E402
+register_practice_module_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
 
 async def _firm_name_for_user(user: dict) -> Optional[str]:
     firm = await _firm_for_user(user)

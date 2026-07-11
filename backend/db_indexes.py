@@ -33,6 +33,7 @@ INDEX_SPECS = [
     ("med_ledger", [("firm_id", 1), ("matter_id", 1)], False),
     ("api_keys", [("firm_id", 1), ("active", 1)], False),
     ("api_keys", [("key_hash", 1)], True),
+    ("matters", [("firm_id", 1), ("module_id", 1)], False),
 ]
 
 
