@@ -4,6 +4,7 @@ import api from "@/lib/api";
 import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import usePageMeta from "@/components/landing/usePageMeta";
+import { getAttribution } from "@/lib/attribution";
 
 export default function IntakeForm() {
   const { firmSlug } = useParams();
@@ -27,7 +28,7 @@ export default function IntakeForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await api.post("/intake", { ...form, firm_slug: firmSlug });
+      await api.post("/intake", { ...form, firm_slug: firmSlug, ...getAttribution(window.location.pathname) });
       setSubmitted(true);
     } catch (err) {
       toast.error(err.response?.data?.detail || "Submission failed — please try again");
