@@ -63,6 +63,7 @@ import TrainingHub from "@/pages/training/TrainingHub";
 import TrainingDetail from "@/pages/training/TrainingDetail";
 import IntakePacketChecklist from "@/pages/training/IntakePacketChecklist";
 import SettingsTemplates from "@/pages/settings/SettingsTemplates";
+import SettingsModules from "@/pages/settings/SettingsModules";
 
 function App() {
   return (
@@ -152,6 +153,7 @@ function App() {
             <Route path="/settings/integrations" element={<SettingsIntegrations />} />
             <Route path="/settings/team" element={<SettingsTeam />} />
             <Route path="/settings/workflows" element={<SettingsWorkflows />} />
+            <Route path="/settings/modules" element={<SettingsModules />} />
             <Route path="/settings/audit" element={<AuditLog />} />
             <Route path="/settings/identity-review" element={<IdentityReview />} />
           </Route>
