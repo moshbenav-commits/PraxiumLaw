@@ -1297,6 +1297,16 @@ register_mail_provider_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 
+from reductions import register_reduction_routes  # noqa: E402
+register_reduction_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from module_phase_engine import register_module_phase_engine_routes  # noqa: E402
+register_module_phase_engine_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
 
 async def _firm_name_for_user(user: dict) -> Optional[str]:
     firm = await _firm_for_user(user)

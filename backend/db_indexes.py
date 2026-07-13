@@ -46,6 +46,8 @@ INDEX_SPECS = [
     ("mail_items", [("firm_id", 1), ("status", 1)], False),
     ("mail_items", [("firm_id", 1), ("created_at", 1)], False),
     ("trust_reconciliations", [("firm_id", 1), ("created_at", -1)], False),
+    ("reductions", [("firm_id", 1), ("lien_id", 1)], False),
+    ("reductions", [("firm_id", 1), ("matter_id", 1), ("state", 1)], False),
 ]
 
 

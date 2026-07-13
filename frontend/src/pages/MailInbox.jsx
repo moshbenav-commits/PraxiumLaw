@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { Mailbox, AlertTriangle, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 import PageLoader from "@/components/common/PageLoader";
 import EmptyState from "@/components/common/EmptyState";
+import { Link } from "react-router-dom";
 
 // Mirrors backend/mail_adapters.py TICKET_TYPES.
 const TICKET_TYPES = [
@@ -274,12 +275,13 @@ export default function MailInbox() {
                         </span>
                       )}
                       {routedToCitation && (
-                        <span
-                          className="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 border border-praxium-line text-praxium-subtle flex items-center gap-1"
+                        <Link
+                          to="/citations"
+                          className="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 border border-praxium-line text-praxium-subtle flex items-center gap-1 hover:border-praxium-accent hover:text-praxium-accent"
                           data-testid={`mail-routed-citation-${item.id}`}
                         >
                           <ArrowRight size={10} /> Citation
-                        </span>
+                        </Link>
                       )}
                     </div>
                     <div className="text-xs font-mono text-praxium-subtle mt-1">

@@ -30,6 +30,7 @@ from typing import Any, Callable, Optional
 
 from fastapi import Body, Header, HTTPException
 from starlette.requests import Request
+from webhook_security import verify_signature
 
 from exceptions_queue import raise_exception
 from mail_adapters import LOW_CONFIDENCE_THRESHOLD, classify_mail
@@ -103,10 +104,12 @@ def _verify_signature(provider: str, headers: Any, raw: Any) -> bool:
     - Mailgun: verify `signature`/`token`/`timestamp` via HMAC-SHA256 against
       the Mailgun signing key (see Mailgun's "Securing Webhooks" docs).
 
-    Not implemented yet — always returns True. Called from the webhook route
-    below so the security seam is explicit and easy to find/wire up later.
+    Delegates to webhook_security.verify_signature: fail-open in dev when no
+    signing-key env var is set, strict/fail-closed once a key is configured.
+    NOTE: generic/sendgrid HMAC-over-raw-body should receive the raw request
+    bytes (await request.body()) in production; mailgun verifies the payload dict.
     """
-    return True
+    return verify_signature(provider, headers, raw)
 
 
 def register_mail_provider_routes(api, db, get_current_user, require_permission, new_id, now_iso, log_audit):

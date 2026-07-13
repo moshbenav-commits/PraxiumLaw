@@ -5,6 +5,7 @@ import { Receipt, Plus, ShieldCheck, Send, Landmark, ChevronRight } from "lucide
 import PageLoader from "@/components/common/PageLoader";
 import EmptyState from "@/components/common/EmptyState";
 import { formatMoney, formatDate } from "@/lib/utils";
+import ReductionPanel from "@/components/billing/ReductionPanel";
 
 const LEDGER_ENTRY_TYPES = [
   "provider_bill",
@@ -462,6 +463,8 @@ export default function Billing() {
                           </div>
                         </div>
                       </div>
+
+                      <ReductionPanel lienId={lien.id} lien={lien} onChanged={refreshAll} />
 
                       {options.length > 0 && (
                         <div className="mt-3 pt-3 border-t border-praxium-line flex flex-wrap items-end gap-2">
