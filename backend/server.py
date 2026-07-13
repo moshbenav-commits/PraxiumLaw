@@ -1287,6 +1287,16 @@ register_mail_adapter_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 
+from trust_recon import register_trust_recon_routes  # noqa: E402
+register_trust_recon_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from mail_provider import register_mail_provider_routes  # noqa: E402
+register_mail_provider_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
 
 async def _firm_name_for_user(user: dict) -> Optional[str]:
     firm = await _firm_for_user(user)

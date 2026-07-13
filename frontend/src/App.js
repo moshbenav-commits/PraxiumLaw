@@ -36,6 +36,8 @@ import Reports from "@/pages/Reports";
 import ExceptionsQueue from "@/pages/ExceptionsQueue";
 import Citations from "@/pages/Citations";
 import Billing from "@/pages/Billing";
+import MailInbox from "@/pages/MailInbox";
+import TrustReconciliation from "@/pages/TrustReconciliation";
 import Settings from "@/pages/Settings";
 import AuditLog from "@/pages/AuditLog";
 import SettingsTeam from "@/pages/SettingsTeam";
@@ -151,6 +153,8 @@ function App() {
             <Route path="/exceptions" element={<ExceptionsQueue />} />
             <Route path="/citations" element={<Citations />} />
             <Route path="/billing" element={<Billing />} />
+            <Route path="/mailbox" element={<MailInbox />} />
+            <Route path="/trust" element={<TrustReconciliation />} />
             <Route path="/training" element={<TrainingHub />} />
             <Route path="/training/intake-checklist" element={<IntakePacketChecklist />} />
             <Route path="/training/:type/:slug" element={<TrainingDetail />} />
