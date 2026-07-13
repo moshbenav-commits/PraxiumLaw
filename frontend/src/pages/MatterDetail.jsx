@@ -11,6 +11,7 @@ import MatterInsuranceTab from "@/components/matter/MatterInsuranceTab";
 import MatterMedicalTab from "@/components/matter/MatterMedicalTab";
 import MatterDocumentsTab from "@/components/matter/MatterDocumentsTab";
 import MatterPhaseTab from "@/components/matter/MatterPhaseTab";
+import PhaseSetPanel from "@/components/matter/PhaseSetPanel";
 import MatterDemandTab from "@/components/matter/MatterDemandTab";
 import MatterSettlementTab from "@/components/matter/MatterSettlementTab";
 import MatterPropertyDamageTab from "@/components/matter/MatterPropertyDamageTab";
@@ -335,7 +336,12 @@ export default function MatterDetail() {
         {tab === "settlement" && <MatterSettlementTab matterId={id} practiceArea={matter.practice_area} />}
         {tab === "demand" && <MatterDemandTab matterId={id} practiceArea={matter.practice_area} />}
         {tab === "expenses" && <MatterExpensesTab matterId={id} practiceArea={matter.practice_area} />}
-        {tab === "pipeline" && <MatterPhaseTab matterId={id} practiceArea={matter.practice_area} onChanged={reload} />}
+        {tab === "pipeline" && (
+          <div className="space-y-5">
+            <PhaseSetPanel matterId={id} currentPhaseKey={matter.pi_phase?.current} />
+            <MatterPhaseTab matterId={id} practiceArea={matter.practice_area} onChanged={reload} />
+          </div>
+        )}
         {tab === "intake" && <MatterIntakeTab matterId={id} />}
 
         {tab === "insurance" && <MatterInsuranceTab matterId={id} />}

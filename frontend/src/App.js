@@ -5,6 +5,10 @@ import { Toaster } from "sonner";
 
 import Landing from "@/pages/Landing";
 import Pricing from "@/pages/Pricing";
+import PracticeAreas from "@/pages/PracticeAreas";
+import PracticeAreaDetail from "@/pages/PracticeAreaDetail";
+import Solutions from "@/pages/Solutions";
+import SolutionDetail from "@/pages/SolutionDetail";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
 import IntakeForm from "@/pages/IntakeForm";
@@ -29,6 +33,11 @@ import VoxLine from "@/pages/VoxLine";
 import Inbox from "@/pages/Inbox";
 import Marketplace from "@/pages/Marketplace";
 import Reports from "@/pages/Reports";
+import ExceptionsQueue from "@/pages/ExceptionsQueue";
+import Citations from "@/pages/Citations";
+import Billing from "@/pages/Billing";
+import MailInbox from "@/pages/MailInbox";
+import TrustReconciliation from "@/pages/TrustReconciliation";
 import Settings from "@/pages/Settings";
 import AuditLog from "@/pages/AuditLog";
 import SettingsTeam from "@/pages/SettingsTeam";
@@ -59,6 +68,7 @@ import TrainingHub from "@/pages/training/TrainingHub";
 import TrainingDetail from "@/pages/training/TrainingDetail";
 import IntakePacketChecklist from "@/pages/training/IntakePacketChecklist";
 import SettingsTemplates from "@/pages/settings/SettingsTemplates";
+import SettingsModules from "@/pages/settings/SettingsModules";
 
 function App() {
   return (
@@ -69,6 +79,10 @@ function App() {
           {/* Marketing & public */}
           <Route path="/" element={<Landing />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/practice-areas" element={<PracticeAreas />} />
+          <Route path="/practice-areas/:slug" element={<PracticeAreaDetail />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/intake/:firmSlug?" element={<IntakeForm />} />
@@ -136,6 +150,11 @@ function App() {
             <Route path="/inbox" element={<Inbox />} />
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/reports" element={<Reports />} />
+            <Route path="/exceptions" element={<ExceptionsQueue />} />
+            <Route path="/citations" element={<Citations />} />
+            <Route path="/billing" element={<Billing />} />
+            <Route path="/mailbox" element={<MailInbox />} />
+            <Route path="/trust" element={<TrustReconciliation />} />
             <Route path="/training" element={<TrainingHub />} />
             <Route path="/training/intake-checklist" element={<IntakePacketChecklist />} />
             <Route path="/training/:type/:slug" element={<TrainingDetail />} />
@@ -144,6 +163,7 @@ function App() {
             <Route path="/settings/integrations" element={<SettingsIntegrations />} />
             <Route path="/settings/team" element={<SettingsTeam />} />
             <Route path="/settings/workflows" element={<SettingsWorkflows />} />
+            <Route path="/settings/modules" element={<SettingsModules />} />
             <Route path="/settings/audit" element={<AuditLog />} />
             <Route path="/settings/identity-review" element={<IdentityReview />} />
           </Route>
