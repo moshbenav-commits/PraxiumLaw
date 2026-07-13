@@ -34,6 +34,8 @@ import Inbox from "@/pages/Inbox";
 import Marketplace from "@/pages/Marketplace";
 import Reports from "@/pages/Reports";
 import ExceptionsQueue from "@/pages/ExceptionsQueue";
+import Citations from "@/pages/Citations";
+import Billing from "@/pages/Billing";
 import Settings from "@/pages/Settings";
 import AuditLog from "@/pages/AuditLog";
 import SettingsTeam from "@/pages/SettingsTeam";
@@ -147,6 +149,8 @@ function App() {
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/exceptions" element={<ExceptionsQueue />} />
+            <Route path="/citations" element={<Citations />} />
+            <Route path="/billing" element={<Billing />} />
             <Route path="/training" element={<TrainingHub />} />
             <Route path="/training/intake-checklist" element={<IntakePacketChecklist />} />
             <Route path="/training/:type/:slug" element={<TrainingDetail />} />

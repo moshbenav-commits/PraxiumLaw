@@ -1277,6 +1277,16 @@ register_citation_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
 
+from module_phases import register_module_phase_routes  # noqa: E402
+register_module_phase_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from mail_adapters import register_mail_adapter_routes  # noqa: E402
+register_mail_adapter_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
 
 async def _firm_name_for_user(user: dict) -> Optional[str]:
     firm = await _firm_for_user(user)
