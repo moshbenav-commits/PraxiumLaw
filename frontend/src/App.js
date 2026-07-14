@@ -4,6 +4,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { Toaster } from "sonner";
 
 import Landing from "@/pages/Landing";
+import PartneredWithCreytix from "@/pages/PartneredWithCreytix";
 import Pricing from "@/pages/Pricing";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
@@ -68,6 +69,7 @@ function App() {
         <Routes>
           {/* Marketing & public */}
           <Route path="/" element={<Landing />} />
+          <Route path="/partnered-with-creytix" element={<PartneredWithCreytix />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

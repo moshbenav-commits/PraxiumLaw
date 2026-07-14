@@ -15,6 +15,7 @@ import LandingMobileNav from "../components/landing/LandingMobileNav";
 import SavingsCalculator from "../components/landing/SavingsCalculator";
 import usePageMeta from "../components/landing/usePageMeta";
 import PraxiumLogo from "../components/PraxiumLogo";
+import { CreytixPartnerLockup } from "../components/CreytixPartnerLockup";
 import { TIERS, LEAD_FEES } from "@/data/marketing";
 
 // ──────────────── data ────────────────
@@ -575,7 +576,10 @@ export default function Landing() {
             </nav>
           </div>
           <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[11px] font-mono text-white/40">
-            <p>Built for U.S. law firms · Designed for firms switching from Filevine · Not affiliated with Filevine, Inc.</p>
+            <div className="flex flex-col gap-3">
+              <CreytixPartnerLockup partnerName="Praxium Law" />
+              <p>Built for U.S. law firms · Designed for firms switching from Filevine · Not affiliated with Filevine, Inc.</p>
+            </div>
             <p>© 2026 Praxium Suite · praxiumlaw.com · praxahq.com</p>
           </div>
         </div>
