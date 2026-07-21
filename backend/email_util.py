@@ -188,6 +188,22 @@ def send_esign_invite_email(
     return send_transactional_email(to, subject, text, html=html)
 
 
+def send_password_reset_email(to: str, reset_url: str) -> bool:
+    subject = "Reset your PraxiumLaw password"
+    text = (
+        "We received a request to reset your PraxiumLaw password.\n\n"
+        f"Reset your password using this link (expires in 60 minutes):\n{reset_url}\n\n"
+        "If you did not request this, you can safely ignore this email — your password will not change."
+    )
+    html = (
+        "<p>We received a request to reset your PraxiumLaw password.</p>"
+        f'<p><a href="{reset_url}">Reset your password</a></p>'
+        "<p>This link expires in 60 minutes.</p>"
+        "<p>If you did not request this, you can safely ignore this email — your password will not change.</p>"
+    )
+    return send_transactional_email(to, subject, text, html=html)
+
+
 def send_upload_link_email(
     to: str,
     upload_url: str,

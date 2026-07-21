@@ -11,7 +11,9 @@ import os
 import logging
 import json
 import base64
+import hashlib
 import secrets
+import time
 from pathlib import Path
 from pydantic import BaseModel, Field, EmailStr
 from typing import List, Optional, Any
@@ -96,6 +98,15 @@ class SignupReq(BaseModel):
 
 class LoginReq(BaseModel):
     email: EmailStr
+    password: str
+
+
+class ForgotPasswordReq(BaseModel):
+    email: EmailStr
+
+
+class ResetPasswordReq(BaseModel):
+    token: str
     password: str
 
 
@@ -305,6 +316,82 @@ async def me(user=Depends(get_current_user)):
         "firm": firm,
         "disclosure_required": user_needs_disclosure(user),
     }
+
+
+# ──────────────── password reset ────────────────
+# In-memory only — 5 requests/hour/email. Does NOT survive a process restart
+# and is NOT shared across multiple workers/instances (each worker gets its
+# own counter). Acceptable as a first pass since there's no existing
+# rate-limiting utility anywhere else in the codebase to reuse; flagged as a
+# known limitation rather than silently treated as fine.
+RESET_RATE_LIMIT_MAX = 5
+RESET_RATE_LIMIT_WINDOW_SECONDS = 60 * 60
+_reset_rate_limit_hits: dict[str, list] = {}
+
+
+def _reset_rate_limited(email: str) -> bool:
+    now_ts = time.time()
+    window_start = now_ts - RESET_RATE_LIMIT_WINDOW_SECONDS
+    hits = [t for t in _reset_rate_limit_hits.get(email, []) if t > window_start]
+    if len(hits) >= RESET_RATE_LIMIT_MAX:
+        _reset_rate_limit_hits[email] = hits
+        return True
+    hits.append(now_ts)
+    _reset_rate_limit_hits[email] = hits
+    return False
+
+
+def _hash_reset_token(token: str) -> str:
+    return hashlib.sha256(token.encode()).hexdigest()
+
+
+@api.post("/auth/forgot-password")
+async def forgot_password(req: ForgotPasswordReq):
+    email = req.email.lower()
+    if not _reset_rate_limited(email):
+        user = await db.users.find_one({"email": email})
+        if user:
+            raw_token = secrets.token_urlsafe(32)
+            expires_at = (datetime.now(timezone.utc) + timedelta(minutes=60)).isoformat()
+            await db.users.update_one(
+                {"id": user["id"]},
+                {"$set": {
+                    "reset_token_hash": _hash_reset_token(raw_token),
+                    "reset_token_expires_at": expires_at,
+                }},
+            )
+            frontend_url = os.environ.get("PRAXIUM_FRONTEND_URL", "http://localhost:3000").rstrip("/")
+            reset_url = f"{frontend_url}/reset-password?token={raw_token}"
+            from email_util import send_password_reset_email
+
+            send_password_reset_email(email, reset_url)
+    # Always respond ok — no user enumeration, and no rate-limit signal either.
+    return {"ok": True}
+
+
+@api.post("/auth/reset-password")
+async def reset_password(req: ResetPasswordReq):
+    user = await db.users.find_one({"reset_token_hash": _hash_reset_token(req.token)})
+    expires_at = user.get("reset_token_expires_at") if user else None
+    if not user or not expires_at or datetime.fromisoformat(expires_at) < datetime.now(timezone.utc):
+        raise HTTPException(400, "Invalid or expired reset link")
+
+    # Signup has no server-side password validation today (SignupReq just
+    # requires a non-empty string; the only length rule lives client-side in
+    # Signup.jsx as minLength=6). There's no backend validation code path to
+    # reuse, so mirroring that same minLength=6 rule here instead of
+    # reimplementing something stricter in parallel.
+    if len(req.password) < 6:
+        raise HTTPException(400, "Password must be at least 6 characters")
+
+    await db.users.update_one(
+        {"id": user["id"]},
+        {
+            "$set": {"password_hash": hash_pw(req.password)},
+            "$unset": {"reset_token_hash": "", "reset_token_expires_at": ""},
+        },
+    )
+    return {"ok": True}
 
 
 # ──────────────── matters ────────────────
