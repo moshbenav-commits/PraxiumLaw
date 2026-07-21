@@ -1,8 +1,8 @@
 import axios from "axios";
 import api from "@/lib/api";
 
-const API = process.env.REACT_APP_BACKEND_URL
-  ? `${process.env.REACT_APP_BACKEND_URL}/api`
+const API = import.meta.env.REACT_APP_BACKEND_URL
+  ? `${import.meta.env.REACT_APP_BACKEND_URL}/api`
   : "http://localhost:8000/api";
 
 export async function listSignRequests(matterId) {
