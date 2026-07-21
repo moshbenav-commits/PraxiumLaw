@@ -164,6 +164,8 @@ const ALWAYS_OPEN_PREFIXES = [
   '/portal',
   '/praxa',
   '/accept-invite',
+  '/forgot-password',
+  '/reset-password',
   '/upload/',
   '/sign/',
   '/verify-identity/',
