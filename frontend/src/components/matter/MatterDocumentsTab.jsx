@@ -8,7 +8,7 @@ import PageLoader from "@/components/common/PageLoader";
 import PdfViewerModal from "@/components/pdf/PdfViewerModal";
 import { isPdfDoc, viewDocument } from "@/lib/documentsApi";
 
-const TYPE_BADGE: Record<string, string> = {
+const TYPE_BADGE = {
   intake: "bg-blue-100 text-blue-900",
   medical: "bg-emerald-100 text-emerald-900",
   auto_insurance: "bg-amber-100 text-amber-900",
