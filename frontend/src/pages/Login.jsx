@@ -4,6 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import AuthMarketingPanel from "@/components/auth/AuthMarketingPanel";
+import PasswordInput from "@/components/auth/PasswordInput";
 import usePageMeta from "@/components/landing/usePageMeta";
 
 export default function Login() {
@@ -70,11 +71,15 @@ export default function Login() {
                 />
               </div>
               <div>
-                <label className="overline block mb-1.5">Password</label>
-                <input
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="overline">Password</label>
+                  <Link to="/forgot-password" className="text-[10px] font-mono uppercase tracking-wider text-praxium-accent hover:underline" data-testid="login-forgot-password-link">
+                    Forgot password?
+                  </Link>
+                </div>
+                <PasswordInput
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  type="password"
                   required
                   autoComplete="current-password"
                   data-testid="login-password"

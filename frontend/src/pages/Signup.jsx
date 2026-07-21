@@ -4,6 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import AuthMarketingPanel from "@/components/auth/AuthMarketingPanel";
+import PasswordInput from "@/components/auth/PasswordInput";
 import usePageMeta from "@/components/landing/usePageMeta";
 
 export default function Signup() {
@@ -94,10 +95,9 @@ export default function Signup() {
               </div>
               <div>
                 <label className="overline block mb-1.5">Password</label>
-                <input
+                <PasswordInput
                   value={form.password}
                   onChange={upd("password")}
-                  type="password"
                   required
                   minLength={6}
                   autoComplete="new-password"

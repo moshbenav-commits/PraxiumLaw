@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import api from "@/lib/api";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import PasswordInput from "@/components/auth/PasswordInput";
 import usePageMeta from "@/components/landing/usePageMeta";
 
 export default function AcceptInvite() {
@@ -55,8 +56,7 @@ export default function AcceptInvite() {
         <form onSubmit={submit} className="mt-6 space-y-4">
           <div>
             <label className="overline block mb-1">Password</label>
-            <input
-              type="password"
+            <PasswordInput
               required
               minLength={8}
               value={password}
@@ -66,8 +66,7 @@ export default function AcceptInvite() {
           </div>
           <div>
             <label className="overline block mb-1">Confirm</label>
-            <input
-              type="password"
+            <PasswordInput
               required
               value={confirm}
               onChange={(e) => setConfirm(e.target.value)}
