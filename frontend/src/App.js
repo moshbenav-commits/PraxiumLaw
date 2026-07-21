@@ -8,6 +8,8 @@ import PartneredWithCreytix from "@/pages/PartneredWithCreytix";
 import Pricing from "@/pages/Pricing";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
+import ForgotPassword from "@/pages/ForgotPassword";
+import ResetPassword from "@/pages/ResetPassword";
 import IntakeForm from "@/pages/IntakeForm";
 import NotFound from "@/pages/NotFound";
 
@@ -73,6 +75,8 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/intake/:firmSlug?" element={<IntakeForm />} />
           <Route path="/verify-identity/demo" element={<VerifyIdentityDemo />} />
           <Route path="/verify-identity/:token" element={<VerifyIdentity />} />
