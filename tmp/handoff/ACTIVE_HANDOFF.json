@@ -1,0 +1,20 @@
+{
+  "thread": "Agent discoverability + Git Fast Sync surfaces",
+  "repos": ["expedia-solutions"],
+  "branch": "feat/creytix-pack-program",
+  "inFlight": [
+    "docs/creytix/CREYTIX_AGENT_SURFACE_CHECKLIST.md",
+    "agent-discoverability-ship.mdc",
+    "creytix-agent-surface.mdc tombstone",
+    "creytix-git-fast-sync.mdc + quick pastes",
+    "CLAUDE.md / ai-task-router / FLEET_PENDING / cursor README"
+  ],
+  "nextStep": "Ricardo: commit/push discoverability + Fast Sync surfaces when ready; other Macs: git pull + skim FLEET_PENDING Agent discoverability section",
+  "verify": [
+    "test -f docs/creytix/CREYTIX_AGENT_SURFACE_CHECKLIST.md",
+    "rg -n 'ADS-AC|agent-discoverability-ship' .cursor/rules/agent-discoverability-ship.mdc CLAUDE.md docs/prompts/cursor/README.md"
+  ],
+  "lane": "hold_local",
+  "push": false,
+  "updatedAt": "2026-07-14T04:10:00Z"
+}
