@@ -1,20 +1,19 @@
 {
-  "thread": "Agent discoverability + Git Fast Sync surfaces",
+  "thread": "AlignHeart rebrand — Phase 4b app-dir rename (aligned-chemistry-front/back -> alignheart-front/back)",
   "repos": ["expedia-solutions"],
-  "branch": "feat/creytix-pack-program",
+  "branch": "rebrand/alignheart-phase4a",
   "inFlight": [
-    "docs/creytix/CREYTIX_AGENT_SURFACE_CHECKLIST.md",
-    "agent-discoverability-ship.mdc",
-    "creytix-agent-surface.mdc tombstone",
-    "creytix-git-fast-sync.mdc + quick pastes",
-    "CLAUDE.md / ai-task-router / FLEET_PENDING / cursor README"
+    "aligned-chemistry-front/ -> alignheart-front/ (git mv on disk, ~1121 D + 182 A, UNCOMMITTED)",
+    "aligned-chemistry-back/ -> alignheart-back/ (~170 D + A, UNCOMMITTED)",
+    "408 modified files repointing imports/tsconfig/paths + brand/docs/scripts",
+    "2124 total working-tree changes not yet committed"
   ],
-  "nextStep": "Ricardo: commit/push discoverability + Fast Sync surfaces when ready; other Macs: git pull + skim FLEET_PENDING Agent discoverability section",
+  "nextStep": "New session: (1) resume from handoff branch or working tree; (2) finish Phase 4b per docs/creytix/ALIGNHEART_REBRAND_MIGRATION_PLAN.md section 2 — fix imports/tsconfig/vercel config for renamed app dirs, ship public/assets aligned-chemistry URL redirects BEFORE any deploy, rename docs/aligned-chemistry/; (3) verify tsc --noEmit on alignheart-front + node --check changed scripts; (4) commit in small local slices (RT-05: no push/deploy without Ricardo's per-action OK). See docs/creytix/HANDOFF_ALIGNHEART_PHASE4B.md.",
   "verify": [
-    "test -f docs/creytix/CREYTIX_AGENT_SURFACE_CHECKLIST.md",
-    "rg -n 'ADS-AC|agent-discoverability-ship' .cursor/rules/agent-discoverability-ship.mdc CLAUDE.md docs/prompts/cursor/README.md"
+    "test -d alignheart-front && ! test -d aligned-chemistry-front",
+    "rg -l 'aligned-chemistry-front|aligned-chemistry-back' --glob '!docs/**' --glob '!*.md' | head"
   ],
   "lane": "hold_local",
   "push": false,
-  "updatedAt": "2026-07-14T04:10:00Z"
+  "updatedAt": "2026-07-22T12:00:00Z"
 }
