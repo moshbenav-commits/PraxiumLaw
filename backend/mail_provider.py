@@ -30,7 +30,7 @@ from typing import Any, Callable, Optional
 
 from fastapi import Body, Header, HTTPException
 from starlette.requests import Request
-from webhook_security import verify_signature
+from webhook_security import compute_idempotency_key, verify_signature
 
 from exceptions_queue import raise_exception
 from mail_adapters import LOW_CONFIDENCE_THRESHOLD, classify_mail
@@ -106,8 +106,15 @@ def _verify_signature(provider: str, headers: Any, raw: Any) -> bool:
 
     Delegates to webhook_security.verify_signature: fail-open in dev when no
     signing-key env var is set, strict/fail-closed once a key is configured.
-    NOTE: generic/sendgrid HMAC-over-raw-body should receive the raw request
-    bytes (await request.body()) in production; mailgun verifies the payload dict.
+
+    `raw` MUST be the exact raw request body bytes for sendgrid/generic (their
+    HMAC is computed over the literal bytes the sender signed — FastAPI's
+    re-parsed `dict` is NOT byte-identical to that, so passing the dict here
+    would make every real signature fail to verify). Mailgun is the one
+    exception: its signature fields (`timestamp`/`token`/`signature`) travel
+    IN the parsed payload rather than over the whole body, so callers pass the
+    dict for that provider instead — see `mail_provider_webhook` below, which
+    picks the right one per provider.
     """
     return verify_signature(provider, headers, raw)
 
@@ -126,13 +133,29 @@ def register_mail_provider_routes(api, db, get_current_user, require_permission,
         provider's servers, not a logged-in user) — the tenant is instead
         supplied explicitly via `firm_id` (query param) or the `X-Firm-Id`
         header, and `_verify_signature` is the seam where provider-signature
-        verification belongs before this is trusted in production."""
+        verification belongs before this is trusted in production.
+
+        Idempotent: a retried delivery (provider timeout/5xx/at-least-once
+        redelivery) of an already-processed event returns the SAME response
+        (marked `duplicate: true`) instead of creating a second `mail_items`
+        row / a second `citations` row — see `webhook_receipts` below."""
         resolved_firm_id = firm_id or x_firm_id
         if not resolved_firm_id:
             raise HTTPException(400, "firm_id is required (query param or X-Firm-Id header)")
 
-        if not _verify_signature(provider, request.headers, body):
+        raw_body = await request.body()
+        # Mailgun's signature covers {timestamp, token} INSIDE the parsed
+        # payload, not the raw bytes, so its verifier needs the dict.
+        # sendgrid/generic sign the literal raw bytes — passing the
+        # FastAPI-reparsed dict there would never match a real signature.
+        signature_source: Any = body if provider.lower() == "mailgun" else raw_body
+        if not _verify_signature(provider, request.headers, signature_source):
             raise HTTPException(401, "Signature verification failed")
+
+        idem_key = compute_idempotency_key(provider, resolved_firm_id, request.headers, signature_source)
+        existing = await db.webhook_receipts.find_one({"key": idem_key}, {"_id": 0})
+        if existing:
+            return {**existing["response"], "duplicate": True}
 
         normalized = normalize(provider, body)
         from_addr = normalized["from_addr"]
@@ -221,9 +244,19 @@ def register_mail_provider_routes(api, db, get_current_user, require_permission,
             now_iso=now_iso,
         )
 
-        return {
+        response = {
             "provider": provider,
             "ticket_type": ticket_type,
             "confidence": confidence,
             "routed_to": routed_to,
         }
+        await db.webhook_receipts.insert_one({
+            "id": new_id(),
+            "key": idem_key,
+            "firm_id": resolved_firm_id,
+            "provider": provider,
+            "mail_item_id": item_id,
+            "response": response,
+            "created_at": now_iso(),
+        })
+        return response

@@ -66,6 +66,12 @@ GENERIC_WEBHOOK_KEY_ENV = "GENERIC_WEBHOOK_KEY"
 SENDGRID_SIGNATURE_HEADER = "X-Twilio-Email-Event-Webhook-Signature"
 GENERIC_SIGNATURE_HEADER = "X-Webhook-Signature"
 
+# Optional explicit idempotency key a sender can supply (e.g. a custom relay
+# or a provider that exposes a stable per-delivery message id). See
+# `compute_idempotency_key` below — receiver ("Ricardo: webhook receiver
+# smoke") gate item, docs/creytix/projects/pipelines/praxiumlaw.PIPELINE.md.
+EVENT_ID_HEADER = "X-Webhook-Event-Id"
+
 
 def _to_bytes(raw: Any) -> bytes:
     """Normalize a raw request body (bytes, str, or None) to bytes for HMAC."""
@@ -281,6 +287,42 @@ def verify_generic(headers: dict, raw: Any) -> bool:
     return hmac.compare_digest(expected, str(signature))
 
 
+def compute_idempotency_key(provider: str, firm_id: str, headers: Any, raw: Any) -> str:
+    """Deterministic dedupe key for one inbound webhook delivery, used by
+    `mail_provider.py` to make `POST /mail/webhook/{provider}` idempotent —
+    a provider retry (timeout, 5xx, at-least-once delivery guarantee) must
+    not create a second `mail_items` row / a second `citations` row for the
+    same event.
+
+    Preference order:
+      1. An explicit per-delivery id: the caller-supplied `X-Webhook-Event-Id`
+         header (generic relays), or an `event_id`/`id` field inside the
+         parsed payload dict, or Mailgun's `token` (already required to be
+         unique per Mailgun's own replay-protection scheme — see
+         `verify_mailgun`).
+      2. Falling back to a SHA-256 hash of the exact raw bytes: a provider
+         that resends the SAME event (no id at all, e.g. a naive generic
+         relay) resends byte-identical bodies, so the hash still dedupes
+         correctly with zero extra provider cooperation.
+
+    Scoped by `firm_id` + `provider` so two different tenants (or a mailgun
+    vs. generic delivery) never collide on the same key by coincidence.
+    """
+    provider_key = (provider or "").lower()
+
+    explicit: Optional[str] = _get_header(headers, EVENT_ID_HEADER)
+    if not explicit and isinstance(raw, dict):
+        explicit = raw.get("event_id") or raw.get("id")
+        if not explicit and provider_key == "mailgun":
+            explicit = raw.get("token")
+
+    if explicit:
+        return f"{firm_id}:{provider_key}:{explicit}"
+
+    digest = hashlib.sha256(_to_bytes(raw)).hexdigest()
+    return f"{firm_id}:{provider_key}:sha256:{digest}"
+
+
 def verify_signature(provider: str, headers: Any, raw: Any) -> bool:
     """Dispatcher matching mail_provider.py's `_verify_signature(provider,
     headers, raw)` seam. `raw` may be the raw request body (bytes/str) for
@@ -395,7 +437,41 @@ if __name__ == "__main__":
         "dispatcher: unknown provider falls back to generic",
         verify_signature("carrier-pigeon", {GENERIC_SIGNATURE_HEADER: expected_sig}, body) is True,
     )
+
+    # --- generic: TAMPERED payload (signature is for the ORIGINAL body, a
+    # modified body is presented under that same stale signature) -> False.
+    # This is the real-world tamper scenario the "webhook receiver smoke"
+    # gate cares about, distinct from just supplying a wrong signature string.
+    tampered_body = body.replace(b"world", b"WORLD")
+    _check(
+        "generic: tampered payload under original signature -> False",
+        verify_generic({GENERIC_SIGNATURE_HEADER: expected_sig}, tampered_body) is False,
+    )
     del os.environ[GENERIC_WEBHOOK_KEY_ENV]
+
+    # --- idempotency key: stable / scoped / prefers explicit id ---
+    raw_a = b'{"body":"a"}'
+    raw_b = b'{"body":"b"}'
+    _check(
+        "idempotency: identical delivery -> same key",
+        compute_idempotency_key("generic", "firm_1", {}, raw_a)
+        == compute_idempotency_key("generic", "firm_1", {}, raw_a),
+    )
+    _check(
+        "idempotency: different firm -> different key",
+        compute_idempotency_key("generic", "firm_1", {}, raw_a)
+        != compute_idempotency_key("generic", "firm_2", {}, raw_a),
+    )
+    _check(
+        "idempotency: different body -> different key",
+        compute_idempotency_key("generic", "firm_1", {}, raw_a)
+        != compute_idempotency_key("generic", "firm_1", {}, raw_b),
+    )
+    _check(
+        "idempotency: explicit X-Webhook-Event-Id wins over body hash",
+        compute_idempotency_key("generic", "firm_1", {EVENT_ID_HEADER: "evt_1"}, raw_a)
+        == compute_idempotency_key("generic", "firm_1", {EVENT_ID_HEADER: "evt_1"}, raw_b),
+    )
 
     print(f"\n{'ALL PASSED' if failures == 0 else f'{failures} FAILURE(S)'}")
     sys.exit(1 if failures else 0)
