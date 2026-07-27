@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import api from "@/lib/api";
 import { timeAgo } from "@/lib/utils";
 import { toast } from "sonner";
-import { Copy, ExternalLink, Eye, Plus, ShieldCheck } from "lucide-react";
+import { Copy, ExternalLink, Eye, FileText, Plus, ShieldCheck, Sparkles } from "lucide-react";
 import PageLoader from "@/components/common/PageLoader";
 import PdfViewerModal from "@/components/pdf/PdfViewerModal";
 import { isPdfDoc, viewDocument } from "@/lib/documentsApi";
+import { classifyDocument } from "@/lib/docgenApi";
+import DocgenTemplateModal from "@/components/matter/DocgenTemplateModal";
 
 const TYPE_BADGE = {
   intake: "bg-blue-100 text-blue-900",
@@ -123,6 +125,9 @@ export default function MatterDocumentsTab({
   const [redactionDoc, setRedactionDoc] = useState(null);
   const [redactionBusy, setRedactionBusy] = useState(false);
   const [filterType, setFilterType] = useState("all");
+  const [docgenOpen, setDocgenOpen] = useState(false);
+  const [classifyBusy, setClassifyBusy] = useState({});
+  const [classifySuggestions, setClassifySuggestions] = useState({});
 
   useEffect(() => {
     api.get("/pi/documents/taxonomy").then((r) => setCatalog(r.data)).finally(() => setLoadingCatalog(false));
@@ -199,6 +204,40 @@ export default function MatterDocumentsTab({
     }
   };
 
+  // AI classifier suggestion — PROPOSAL only, never auto-applied. Staff
+  // confirms through the existing taxonomy PATCH route (patchTaxonomy above).
+  const runClassify = async (doc) => {
+    setClassifyBusy((b) => ({ ...b, [doc.id]: true }));
+    try {
+      const r = await classifyDocument(doc.id);
+      setClassifySuggestions((s) => ({ ...s, [doc.id]: r.proposal }));
+      if (!r.changed) toast.info("AI agrees with the current classification");
+    } catch (err) {
+      toast.error(err.response?.data?.detail || "Classification failed");
+    } finally {
+      setClassifyBusy((b) => ({ ...b, [doc.id]: false }));
+    }
+  };
+
+  const confirmClassification = async (doc) => {
+    const proposal = classifySuggestions[doc.id];
+    if (!proposal) return;
+    await patchTaxonomy(doc.id, { doc_type: proposal.doc_type, medical_code: proposal.medical_code || undefined });
+    setClassifySuggestions((s) => {
+      const next = { ...s };
+      delete next[doc.id];
+      return next;
+    });
+  };
+
+  const dismissClassification = (docId) => {
+    setClassifySuggestions((s) => {
+      const next = { ...s };
+      delete next[docId];
+      return next;
+    });
+  };
+
   if (loadingCatalog) return <PageLoader label="Loading documents…" />;
 
   const filtered = filterType === "all"
@@ -228,6 +267,14 @@ export default function MatterDocumentsTab({
             <Plus size={14} /> Upload document
             <input type="file" onChange={onFilePick} className="hidden" />
           </label>
+          <button
+            type="button"
+            className="btn-ghost text-xs"
+            onClick={() => setDocgenOpen(true)}
+            data-testid="matter-docgen-open"
+          >
+            <FileText size={12} /> Generate from template
+          </button>
           <button type="button" className="btn-ghost text-xs" onClick={onCreateUploadLink}>
             <Copy size={12} /> Magic upload link
           </button>
@@ -286,6 +333,40 @@ export default function MatterDocumentsTab({
                     {tax.medical_code ? (
                       <span className="ml-1 text-[10px] font-mono text-praxium-subtle">{tax.medical_code}</span>
                     ) : null}
+                    {classifySuggestions[d.id] ? (
+                      <div
+                        className="mt-1 text-[10px] font-mono bg-violet-50 text-violet-900 border border-violet-200 rounded px-1.5 py-1 flex items-center gap-1 flex-wrap max-w-[220px]"
+                        data-testid={`classify-suggestion-${d.id}`}
+                      >
+                        <Sparkles size={10} className="shrink-0" />
+                        <span>
+                          AI: {typeLabel(classifySuggestions[d.id].doc_type)}
+                          {classifySuggestions[d.id].medical_code ? ` (${classifySuggestions[d.id].medical_code})` : ""}
+                          {" "}· {Math.round(classifySuggestions[d.id].confidence * 100)}%
+                        </span>
+                        <button
+                          type="button"
+                          className="underline"
+                          onClick={() => confirmClassification(d)}
+                          data-testid={`classify-confirm-${d.id}`}
+                        >
+                          Confirm
+                        </button>
+                        <button type="button" className="underline" onClick={() => dismissClassification(d.id)}>
+                          Dismiss
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        className="mt-1 text-[10px] font-mono text-praxium-subtle hover:text-praxium-accent inline-flex items-center gap-1"
+                        onClick={() => runClassify(d)}
+                        disabled={Boolean(classifyBusy[d.id])}
+                        data-testid={`classify-suggest-${d.id}`}
+                      >
+                        <Sparkles size={10} /> {classifyBusy[d.id] ? "Classifying…" : "Suggest type"}
+                      </button>
+                    )}
                   </td>
                   <td className="py-2 text-xs">
                     {needsRedaction ? (
@@ -348,6 +429,13 @@ export default function MatterDocumentsTab({
       />
 
       <PdfViewerModal open={pdfViewer.open} title={pdfViewer.title} pdfBase64={pdfViewer.b64} onClose={() => setPdfViewer({ open: false, title: "", b64: "" })} />
+
+      <DocgenTemplateModal
+        matterId={matterId}
+        open={docgenOpen}
+        onClose={() => setDocgenOpen(false)}
+        onGenerated={reload}
+      />
     </>
   );
 }

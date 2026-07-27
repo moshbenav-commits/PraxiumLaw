@@ -432,11 +432,89 @@ def _resolve_placeholder(base: str, filt: Optional[str], facts: dict[str, Option
 
 
 # ──────────────── DOCX merge (extends training_templates' zip/XML approach) ────────────────
+#
+# IMPORTANT: in these real, Word-authored/Filevine-exported templates, a single
+# visual "{{token}}" is very often split across MULTIPLE <w:r> runs — Word
+# inserts run breaks at spell-check proofing marks (<w:proofErr>), formatting
+# changes, and revision boundaries mid-token. A naive text.replace("{{X}}", …)
+# on the raw XML (the approach training_templates.py uses for the handful of
+# always-single-run {{FIRM_*}} tokens) silently MISSES most of these — verified
+# empirically against the actual 106-file corpus. So placeholder matching here
+# is scoped to one <w:p> paragraph's concatenated VISIBLE text at a time, and
+# substitutions are spliced back into the exact runs they came from — every
+# other byte of the paragraph (all formatting/proofing/tracked-change markup)
+# is left untouched.
+_RUN_TEXT_RE = re.compile(r"<w:t(?:\s[^>]*)?>(.*?)</w:t>", re.DOTALL)
+_PARAGRAPH_RE = re.compile(r"<w:p(?:\s[^>]*)?>.*?</w:p>", re.DOTALL)
+
 _WATERMARK_PARA = (
     '<w:p><w:pPr><w:jc w:val="center"/></w:pPr>'
     '<w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr>'
     '<w:t xml:space="preserve">{text}</w:t></w:r></w:p>'
 )
+
+
+def _merge_paragraph_text(
+    paragraph_xml: str,
+    facts: dict[str, Optional[str]],
+    needs_review: dict[str, str],
+    filled_counter: list[int],
+) -> str:
+    runs = list(_RUN_TEXT_RE.finditer(paragraph_xml))
+    if not runs:
+        return paragraph_xml
+
+    spans: list[tuple[int, int]] = []
+    pos = 0
+    for m in runs:
+        t = m.group(1)
+        spans.append((pos, pos + len(t)))
+        pos += len(t)
+    full_text = "".join(m.group(1) for m in runs)
+
+    # (start, end, replacement) in full_text coordinates — non-overlapping,
+    # left-to-right, since regex matches never overlap.
+    pieces: list[tuple[int, int, str]] = []
+    for pm in _PLACEHOLDER_RE.finditer(full_text):
+        base, filt = _parse_placeholder(pm.group(1))
+        value, label = _resolve_placeholder(base, filt, facts)
+        if value is None:
+            resolved_label = label or f"Unmapped placeholder: {{{{{base}}}}}"
+            needs_review[base] = resolved_label
+            replacement = f"[NEEDS REVIEW: {resolved_label}]"
+        else:
+            filled_counter[0] += 1
+            replacement = value
+        pieces.append((pm.start(), pm.end(), replacement))
+
+    if not pieces:
+        return paragraph_xml
+
+    new_text: list[Optional[str]] = [None] * len(runs)
+    for i, (s_i, e_i) in enumerate(spans):
+        overlaps = [p for p in pieces if p[1] > s_i and p[0] < e_i]
+        if not overlaps:
+            continue
+        original = runs[i].group(1)
+        out: list[str] = []
+        cursor = s_i
+        for p_start, p_end, repl in overlaps:
+            if p_start > cursor:
+                out.append(original[cursor - s_i : p_start - s_i])  # untouched literal text, already-escaped
+            if p_start >= s_i:
+                out.append(_xml_escape(repl))  # emit the value/marker exactly once, on its first run
+            cursor = max(cursor, min(p_end, e_i))
+        if cursor < e_i:
+            out.append(original[cursor - s_i :])
+        new_text[i] = "".join(out)
+
+    result = paragraph_xml
+    for i in range(len(runs) - 1, -1, -1):  # reverse order so earlier offsets stay valid
+        if new_text[i] is None:
+            continue
+        m = runs[i]
+        result = result[: m.start(1)] + new_text[i] + result[m.end(1) :]
+    return result
 
 
 def merge_matter_docx_bytes(
@@ -450,17 +528,10 @@ def merge_matter_docx_bytes(
     visible '[NEEDS REVIEW: ...]' marker rather than left silently blank or
     invented. Returns (merged_bytes, needs_review[{token,label}], filled_count)."""
     needs_review: dict[str, str] = {}
-    filled_count = 0
+    filled_counter = [0]
 
-    def _sub(match: "re.Match[str]") -> str:
-        nonlocal filled_count
-        base, filt = _parse_placeholder(match.group(1))
-        value, label = _resolve_placeholder(base, filt, facts)
-        if value is None:
-            needs_review[base] = label or f"Unmapped placeholder: {{{{{base}}}}}"
-            return f"[NEEDS REVIEW: {needs_review[base]}]"
-        filled_count += 1
-        return _xml_escape(value)
+    def _sub_paragraph(pm: "re.Match[str]") -> str:
+        return _merge_paragraph_text(pm.group(0), facts, needs_review, filled_counter)
 
     buf_in = io.BytesIO(raw)
     buf_out = io.BytesIO()
@@ -470,13 +541,13 @@ def merge_matter_docx_bytes(
                 data = zin.read(item.filename)
                 if item.filename.endswith(".xml") or item.filename.endswith(".rels"):
                     text = data.decode("utf-8")
-                    text = _PLACEHOLDER_RE.sub(_sub, text)
+                    text = _PARAGRAPH_RE.sub(_sub_paragraph, text)
                     if watermark_text and item.filename == "word/document.xml":
                         marker = _WATERMARK_PARA.format(text=_xml_escape(watermark_text))
                         text = text.replace("<w:body>", "<w:body>" + marker, 1)
                     data = text.encode("utf-8")
                 zout.writestr(item, data)
-    return buf_out.getvalue(), [{"token": k, "label": v} for k, v in needs_review.items()], filled_count
+    return buf_out.getvalue(), [{"token": k, "label": v} for k, v in needs_review.items()], filled_counter[0]
 
 
 # ──────────────── request models ────────────────
