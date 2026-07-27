@@ -139,7 +139,7 @@ export default function Landing() {
                   Replace eight tools with one. Save $86,000 a year. Get AI that actually ships your demand letter.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
-                  <Link to="/signup" data-testid="hero-cta-signup" className="group bg-praxium-accent text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent-hover transition-colors flex items-center gap-3">
+                  <Link to="/signup" data-testid="hero-cta-signup" className="group bg-praxium-accent-hover text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent transition-colors flex items-center gap-3">
                     Start 30 days free <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
                   </Link>
                   <a href="#truth" className="rounded-full border border-praxium-line px-6 py-4 text-sm font-mono uppercase tracking-[0.15em] text-praxium-ink hover:border-praxium-accent hover:text-praxium-accent transition-colors flex items-center gap-2">
@@ -251,7 +251,7 @@ export default function Landing() {
       {/* ─── STATS ─── */}
       <section className="bg-praxium-ink text-white py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 mb-6">// outcomes // not promises</div>
+          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/60 mb-6">// outcomes // not promises</div>
           <h2 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-3xl">
             Delivering advantage<br />
             at the <span className="text-praxium-accent italic">unit-level.</span>
@@ -390,10 +390,10 @@ export default function Landing() {
       <section className="bg-praxa-bg text-praxa-ink py-32 px-6 praxa-surface border-y border-praxium-line">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-12 items-center">
           <div className="col-span-12 lg:col-span-7">
-            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxa-sage mb-6">// praxa for consumers // your funnel</div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#5E6C5A] mb-6">// praxa for consumers // your funnel</div>
             <h2 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl text-praxa-ink" style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 600 }}>
               And then there's<br />
-              <span className="text-praxa-accent italic">Praxa.</span>
+              <span className="text-[#B48354] italic">Praxa.</span>
             </h2>
             <p className="mt-8 text-lg text-praxa-ink/70 max-w-xl leading-relaxed">
               Praxa is the consumer app for injured people navigating insurance. We coach them. We journal their symptoms. We connect them to vetted doctors. And when their case grows beyond DIY — we route them to you. Marketplace tier subscribers receive these leads automatically.
@@ -406,7 +406,7 @@ export default function Landing() {
           </div>
           <div className="col-span-12 lg:col-span-5">
             <div className="bg-white rounded-3xl p-6 border border-praxa-line shadow-xl max-w-sm mx-auto">
-              <div className="text-[10px] uppercase tracking-[0.25em] text-praxa-sage">Today</div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-[#5E6C5A]">Today</div>
               <div className="mt-2 text-xl font-semibold">How's the pain?</div>
               <div className="mt-4 grid grid-cols-10 gap-1">
                 {Array.from({ length: 10 }, (_, i) => (
@@ -459,8 +459,8 @@ export default function Landing() {
           </p>
           <div className="mt-16 flex xl:grid xl:grid-cols-5 gap-4 xl:gap-px overflow-x-auto snap-x snap-mandatory pb-4 xl:pb-0 -mx-2 px-2 xl:mx-0 xl:px-0 xl:overflow-visible bg-transparent xl:bg-praxium-line xl:border xl:border-praxium-line scrollbar-thin">
             {TIERS.map((t) => (
-              <div key={t.name} data-testid={`pricing-tier-${t.name.toLowerCase()}`} className={`relative shrink-0 w-[min(100%,280px)] sm:w-[260px] xl:w-auto snap-center bg-praxium-surface p-6 lg:p-8 flex flex-col min-h-[420px] ${t.popular ? "xl:scale-[1.03] xl:z-10 xl:shadow-2xl bg-praxium-ink text-white ring-2 ring-praxium-accent xl:ring-offset-2 ring-offset-praxium-surface" : "border border-praxium-line xl:border-0"}`}>
-                {t.popular && <div className="absolute -top-3 left-6 px-3 py-1 bg-praxium-accent text-white text-[9px] font-mono uppercase tracking-[0.2em] rounded-full">Most Popular</div>}
+              <div key={t.name} data-testid={`pricing-tier-${t.name.toLowerCase()}`} className={`relative shrink-0 w-[min(100%,280px)] sm:w-[260px] xl:w-auto snap-center p-6 lg:p-8 flex flex-col min-h-[420px] ${t.popular ? "xl:scale-[1.03] xl:z-10 xl:shadow-2xl bg-praxium-ink text-white ring-2 ring-praxium-accent xl:ring-offset-2 ring-offset-praxium-surface" : "bg-praxium-surface border border-praxium-line xl:border-0"}`}>
+                {t.popular && <div className="absolute -top-3 left-6 px-3 py-1 bg-praxium-accent-hover text-white text-[9px] font-mono uppercase tracking-[0.2em] rounded-full">Most Popular</div>}
                 <div className={`font-display font-black text-xl ${t.popular ? "text-white" : ""}`}>{t.name}</div>
                 <div className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${t.popular ? "text-white/60" : "text-praxium-subtle"}`}>{t.sub}</div>
                 <div className="mt-6 flex items-baseline gap-1">
@@ -475,7 +475,7 @@ export default function Landing() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/signup" className={`mt-8 block text-center text-xs font-mono uppercase tracking-[0.15em] py-3 rounded-full transition-colors ${t.popular ? "bg-praxium-accent text-white hover:bg-praxium-accent-hover" : "border border-praxium-line hover:border-praxium-accent hover:text-praxium-accent"}`}>
+                <Link to="/signup" className={`mt-8 block text-center text-xs font-mono uppercase tracking-[0.15em] py-3 rounded-full transition-colors ${t.popular ? "bg-praxium-accent-hover text-white hover:bg-praxium-accent" : "border border-praxium-line hover:border-praxium-accent hover:text-praxium-accent"}`}>
                   Start →
                 </Link>
               </div>
@@ -490,7 +490,7 @@ export default function Landing() {
                   <h3 className="font-display font-black text-2xl lg:text-3xl tracking-[-0.02em]">Per-lead pricing — no hidden math</h3>
                   <p className="mt-2 text-sm text-praxium-ink/70 max-w-xl">Marketplace subscribers receive LawMatch leads. You pay a flat marketing fee per qualified case — Rule 7.2 safe, never a percentage of recovery.</p>
                 </div>
-                <Link to="/signup" className="shrink-0 text-xs font-mono uppercase tracking-[0.15em] text-praxium-accent hover:underline">Start on Marketplace →</Link>
+                <Link to="/signup" className="shrink-0 text-xs font-mono uppercase tracking-[0.15em] text-praxium-accent-text hover:underline">Start on Marketplace →</Link>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-praxium-line border border-praxium-line">
                 {LEAD_FEES.map((l) => (
@@ -533,10 +533,17 @@ export default function Landing() {
 
       {/* ─── FINAL CTA ─── */}
       <section className="bg-praxium-ink text-white py-32 lg:py-40 px-6 relative overflow-hidden">
-        <div className="absolute -right-20 -bottom-20 text-[36rem] font-display font-black text-white/[0.03] leading-none pointer-events-none">π</div>
+        {/* Decorative background glyph — rendered via ::before (see
+            .praxium-watermark-pi in index.css) so it is not a scanned DOM
+            text node; a literal text child at 3% opacity is indistinguishable
+            from invisible to the fleet contrast auditor. */}
+        <div
+          aria-hidden="true"
+          className="praxium-watermark-pi absolute -right-20 -bottom-20 text-[36rem] font-display font-black text-white/[0.03] leading-none pointer-events-none select-none"
+        />
         <div className="max-w-5xl mx-auto text-center relative">
           <ScrollReveal>
-            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 mb-8">// final word</div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/60 mb-8">// final word</div>
             <h2 className="font-display font-black tracking-[-0.04em] leading-[0.88] text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
               Start your 30 days.<br />
               <span className="text-praxium-accent italic">No card. No consultants.</span>
@@ -545,7 +552,7 @@ export default function Landing() {
               Migrate from Filevine in 14 days — free. You'll save more in month one than you'll pay all year.
             </p>
             <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
-              <Link to="/signup" data-testid="final-cta-signup" className="bg-praxium-accent text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-white hover:text-praxium-ink transition-colors flex items-center gap-3 group">
+              <Link to="/signup" data-testid="final-cta-signup" className="bg-praxium-accent-hover text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-white hover:text-praxium-ink transition-colors flex items-center gap-3 group">
                 See your savings in 60 seconds <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
               </Link>
               <a href="#truth" className="rounded-full border border-white/20 px-6 py-4 text-sm font-mono uppercase tracking-[0.15em] text-white/70 hover:border-praxium-accent hover:text-praxium-accent transition-colors">
@@ -561,7 +568,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-6 py-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm rounded-sm">π</div>
+              <div className="w-7 h-7 bg-praxium-accent-hover flex items-center justify-center font-display font-black text-white text-sm rounded-sm">π</div>
               <span className="font-display font-black tracking-tight">PRAXIUM SUITE</span>
             </div>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
@@ -575,7 +582,7 @@ export default function Landing() {
               <Link to="/accessibility" className="hover:text-praxium-accent transition-colors">Accessibility</Link>
             </nav>
           </div>
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[11px] font-mono text-white/40">
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[11px] font-mono text-white/60">
             <div className="flex flex-col gap-3">
               <CreytixPartnerLockup partnerName="Praxium Law" />
               <p>Built for U.S. law firms · Designed for firms switching from Filevine · Not affiliated with Filevine, Inc.</p>

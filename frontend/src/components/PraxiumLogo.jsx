@@ -26,7 +26,7 @@ export default function PraxiumLogo({
   const inner = (
     <div className={`flex items-center gap-2.5 ${className}`} data-testid={testId}>
       <div
-        className={`${s.mark} rounded-sm bg-praxium-accent flex items-center justify-center font-display font-black text-white shrink-0`}
+        className={`${s.mark} rounded-sm bg-praxium-accent-hover flex items-center justify-center font-display font-black text-white shrink-0`}
         aria-hidden
       >
         π

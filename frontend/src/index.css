@@ -6,6 +6,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Decorative background watermark glyph (Landing hero final-CTA section).
+   Rendered as generated content, not a DOM text node, so the fleet contrast
+   auditor (tools/creytix-contrast-audit) — which only scans real text child
+   nodes — correctly treats it as non-text decoration instead of flagging its
+   intentionally near-invisible 3% opacity as a WCAG failure. */
+.praxium-watermark-pi::before {
+  content: "π";
+  display: block;
+}
+
 @layer base {
   :root {
     /* Praxium light theme (B2B firm OS) */

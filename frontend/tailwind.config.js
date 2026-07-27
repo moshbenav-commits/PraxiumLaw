@@ -37,6 +37,12 @@ module.exports = {
           line: '#E5E4E1',
           accent: '#E85D04',
           'accent-hover': '#DC2F02',
+          // Darker rust used for SMALL orange text sitting directly on light
+          // backgrounds (badges, captions, inline links). `accent` itself only
+          // clears WCAG AA at large-text sizes (headings) — see
+          // CONTRAST_AUDIT_FLEET_2026-07-26.md. Never use accent-hover's
+          // #DC2F02 here; it still fails on the pale peach chip backgrounds.
+          'accent-text': '#9A3412',
           sidebar: '#121212',
           'sidebar-ink': '#F9F8F6',
         },

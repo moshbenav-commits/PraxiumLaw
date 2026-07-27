@@ -11,7 +11,7 @@ const STAGES = [
     render: () => (
       <div className="space-y-3">
         <div className="border border-praxium-line p-3 bg-praxium-bg">
-          <div className="text-[10px] font-mono uppercase tracking-[0.15em] text-praxium-accent flex items-center gap-1.5">
+          <div className="text-[10px] font-mono uppercase tracking-[0.15em] text-praxium-accent-text flex items-center gap-1.5">
             <Sparkles size={10} /> new lead · LawMatch
           </div>
           <div className="mt-2 font-display font-bold text-praxium-ink">
@@ -174,7 +174,7 @@ export default function MatterLifecycleTour() {
       {/* Stage body */}
       <div className="grid grid-cols-12 gap-px bg-praxium-line border-x border-b border-praxium-line">
         <div className="col-span-12 lg:col-span-5 bg-praxium-surface p-8">
-          <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-praxium-accent mb-3">
+          <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-praxium-accent-text mb-3">
             // step {STAGES[active].n} · {STAGES[active].label.toLowerCase()}
           </div>
           <h3 className="font-display font-black text-3xl lg:text-4xl tracking-[-0.02em] leading-[0.98] text-praxium-ink">

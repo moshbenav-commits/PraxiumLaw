@@ -37,7 +37,7 @@ export function MockBrowserChrome({
               : "bg-white text-praxium-subtle border border-praxium-line"
           }`}
         >
-          <span className={dark ? "text-emerald-400/70" : "text-praxium-accent/70"}>●</span>{" "}
+          <span className={dark ? "text-emerald-400/70" : "text-praxium-accent-text"}>●</span>{" "}
           {url}
         </div>
         <ArrowUpRight
@@ -57,9 +57,9 @@ export function StatusPip({ label, tone = "neutral", className = "" }) {
   const tones = {
     neutral: "bg-praxium-line/60 text-praxium-subtle",
     positive: "bg-emerald-500/15 text-emerald-700",
-    warning: "bg-amber-500/15 text-amber-700",
+    warning: "bg-amber-500/15 text-amber-800",
     danger: "bg-rose-500/15 text-rose-700",
-    accent: "bg-praxium-accent/15 text-praxium-accent",
+    accent: "bg-praxium-accent/15 text-praxium-accent-text",
     live: "bg-emerald-500/15 text-emerald-700",
     dark: "bg-white/10 text-white/80",
   };
@@ -92,7 +92,7 @@ export function AnnotationPin({ label, side = "right", className = "" }) {
         <span className="relative w-2 h-2 rounded-full bg-praxium-accent" />
       </span>
       <span className="w-10 border-t border-dashed border-praxium-accent/70" />
-      <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-praxium-accent whitespace-nowrap bg-praxium-bg px-1.5 py-0.5 border border-praxium-accent/40">
+      <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-praxium-accent-text whitespace-nowrap bg-praxium-bg px-1.5 py-0.5 border border-praxium-accent/40">
         {label}
       </span>
     </div>
@@ -115,7 +115,7 @@ export function AvatarGroup({ users = [], size = 24, dark = false }) {
         >
           <span
             style={{
-              background: u.color || "#E85D04",
+              background: u.color || "#DC2F02",
               width: "100%",
               height: "100%",
               borderRadius: "9999px",
