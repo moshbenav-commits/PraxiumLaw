@@ -1289,6 +1289,8 @@ from pi_demand import default_pi_demand, register_pi_demand_routes, merge_pi_dem
 from pi_settlement import default_pi_settlement, register_pi_settlement_routes, merge_pi_settlement, compute_scenario_totals
 from pi_letters import register_pi_letter_routes
 from pi_ai_intake import register_pi_ai_intake_routes
+from pi_docgen import register_pi_docgen_routes
+from pi_doc_classify import register_pi_doc_classify_routes
 from pi_expenses import register_pi_expenses_routes, summarize_expenses
 from pi_property_damage import default_pi_property_damage, register_pi_property_damage_routes, merge_pi_property_damage, compute_pd_summary
 from pi_client_comms import default_pi_comms, register_pi_comms_routes, merge_pi_comms, compute_comms_cadence
@@ -1411,6 +1413,26 @@ register_pi_ai_intake_routes(
     new_id=new_id,
     now_iso=now,
     merge_pi_insurance=merge_pi_insurance,
+    stream_ai_reply=stream_ai_reply,
+)
+register_pi_docgen_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
+    get_firm_for_user=_firm_for_user,
+    merge_pi_insurance=merge_pi_insurance,
+    merge_pi_property_damage=merge_pi_property_damage,
+    merge_pi_settlement=merge_pi_settlement,
+    merge_ledger_row=merge_ledger_row,
+)
+register_pi_doc_classify_routes(
+    api,
+    db,
+    get_current_user,
+    new_id=new_id,
+    now_iso=now,
     stream_ai_reply=stream_ai_reply,
 )
 register_pi_expenses_routes(
