@@ -66,7 +66,7 @@ export default function CoCounselChatMock() {
                 className={`w-6 h-6 shrink-0 rounded-sm flex items-center justify-center text-[10px] font-mono uppercase tracking-wider ${
                   m.role === "user"
                     ? "bg-praxium-line text-praxium-ink"
-                    : "bg-praxium-accent text-white"
+                    : "bg-praxium-accent-hover text-white"
                 }`}
               >
                 {m.role === "user" ? "You" : "π"}

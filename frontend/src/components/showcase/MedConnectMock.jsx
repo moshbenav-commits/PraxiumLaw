@@ -84,7 +84,7 @@ export default function MedConnectMock() {
             <div className="mt-1 font-display font-black text-xl tabular text-praxium-ink">
               {s.v}
             </div>
-            <div className="text-[10px] font-mono text-praxium-subtle/80">
+            <div className="text-[10px] font-mono text-praxium-subtle">
               {s.sub}
             </div>
           </div>

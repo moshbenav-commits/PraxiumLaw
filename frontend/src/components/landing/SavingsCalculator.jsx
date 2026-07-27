@@ -71,7 +71,7 @@ export default function SavingsCalculator() {
 
       <Link
         to="/signup"
-        className="mt-6 inline-flex items-center gap-2 text-sm font-mono uppercase tracking-[0.15em] text-praxium-accent hover:underline group"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-mono uppercase tracking-[0.15em] text-praxium-accent-text hover:underline group"
         data-testid="savings-calculator-cta"
       >
         Start with {attorneys} seats
