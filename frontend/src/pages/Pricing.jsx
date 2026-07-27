@@ -15,7 +15,7 @@ export default function Pricing() {
       <header className="border-b border-praxium-line bg-praxium-surface">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-praxium-accent flex items-center justify-center font-display font-black text-white text-base">π</div>
+            <div className="w-8 h-8 bg-praxium-accent-hover flex items-center justify-center font-display font-black text-white text-base">π</div>
             <span className="font-display font-black tracking-tight">PRAXIUM</span>
           </Link>
           <div className="flex items-center gap-4">
@@ -43,11 +43,11 @@ export default function Pricing() {
           {TIERS.map((t) => (
             <div
               key={t.name}
-              className={`relative shrink-0 w-[min(100%,280px)] sm:w-[260px] xl:w-auto snap-center bg-praxium-surface p-6 lg:p-8 flex flex-col min-h-[420px] border border-praxium-line xl:border-0 ${
-                t.popular ? "xl:scale-[1.03] xl:z-10 xl:shadow-2xl bg-praxium-ink text-white ring-2 ring-praxium-accent" : ""
+              className={`relative shrink-0 w-[min(100%,280px)] sm:w-[260px] xl:w-auto snap-center p-6 lg:p-8 flex flex-col min-h-[420px] ${
+                t.popular ? "xl:scale-[1.03] xl:z-10 xl:shadow-2xl bg-praxium-ink text-white ring-2 ring-praxium-accent" : "bg-praxium-surface border border-praxium-line xl:border-0"
               }`}
             >
-              {t.popular && <div className="absolute -top-3 left-6 px-3 py-1 bg-praxium-accent text-white text-[9px] font-mono uppercase tracking-[0.2em] rounded-full">Most Popular</div>}
+              {t.popular && <div className="absolute -top-3 left-6 px-3 py-1 bg-praxium-accent-hover text-white text-[9px] font-mono uppercase tracking-[0.2em] rounded-full">Most Popular</div>}
               <div className={`font-display font-black text-xl ${t.popular ? "text-white" : ""}`}>{t.name}</div>
               <div className={`text-[10px] font-mono uppercase tracking-wider mt-1 ${t.popular ? "text-white/60" : "text-praxium-subtle"}`}>{t.sub}</div>
               <div className="mt-6 flex items-baseline gap-1">
@@ -62,7 +62,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link to="/signup" className={`mt-8 block text-center text-xs font-mono uppercase tracking-[0.15em] py-3 rounded-full transition-colors ${t.popular ? "bg-praxium-accent text-white hover:bg-praxium-accent-hover" : "border border-praxium-line hover:border-praxium-accent hover:text-praxium-accent"}`}>
+              <Link to="/signup" className={`mt-8 block text-center text-xs font-mono uppercase tracking-[0.15em] py-3 rounded-full transition-colors ${t.popular ? "bg-praxium-accent-hover text-white hover:bg-praxium-accent" : "border border-praxium-line hover:border-praxium-accent hover:text-praxium-accent"}`}>
                 Start →
               </Link>
             </div>
@@ -86,7 +86,7 @@ export default function Pricing() {
         </ScrollReveal>
 
         <div className="mt-12 text-center space-y-4">
-          <Link to="/" className="text-sm font-mono text-praxium-accent hover:underline">← Back to homepage</Link>
+          <Link to="/" className="text-sm font-mono text-praxium-accent-text hover:underline">← Back to homepage</Link>
           <p className="text-[11px] font-mono text-praxium-subtle">
             <Link to="/terms" className="hover:text-praxium-accent">Terms</Link>
             {" · "}
