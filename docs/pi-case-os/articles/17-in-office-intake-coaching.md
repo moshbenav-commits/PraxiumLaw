@@ -1,7 +1,9 @@
 # In-Office Intake Coaching (from live intake recording)
 
 **Category:** Client Intake · Treatment Compliance  
-**Source:** `intake-calls/Intake herman.txt` (+ related intake transcripts) — transcribed 2026-07-04  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers  
 **Note:** This is an **in-person** intake, not a cold phone lead. Cold inbound lead scripts remain a gap — see `gaps.md`.
 

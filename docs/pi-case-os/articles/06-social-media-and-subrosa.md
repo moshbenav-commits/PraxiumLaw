@@ -1,7 +1,9 @@
 # Social Media, Subrosa, and Spoliation
 
 **Category:** Client Coaching  
-**Source:** Personal Injury Workflow (internet surveillance acknowledgment)  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers  
 **Sensitivity:** Client education — not a substitute for attorney advice
 

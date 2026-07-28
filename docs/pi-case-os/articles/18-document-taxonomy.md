@@ -1,7 +1,8 @@
 # Document Taxonomy: How to Classify Everything That Comes In
 
 **Category:** Records & Operations  
-**Source:** Training PI — Documents Saving Overview  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).
 
 ---

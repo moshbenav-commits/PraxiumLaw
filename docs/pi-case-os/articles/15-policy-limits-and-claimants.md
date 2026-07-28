@@ -1,7 +1,9 @@
 # Policy Limits, Claimants, and Driver vs Owner
 
 **Category:** Insurance Communication · Settlement Prep  
-**Source:** Personal Injury Workflow; Case Manage / Cleaner Fish; med training notes  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers
 
 ---
@@ -31,11 +33,11 @@ If the adverse **driver** is not the **owner**, there may be more than one polic
 
 ## Coverage vocabulary from med training notes
 
-- Nevada minimum example discussed: **25/50**
+- State-minimum example (varies by state; some states set **25/50**)
 - Additional common stacks: 50/100, 100/300, 250/500, 1M
 - UIM (uninsured / underinsured motorist)
 - Collision
-- MedPay / PIP (PIP noted as WA-required in notes)
+- MedPay / PIP (required or available in some states — confirm yours)
 
 ## How limits change the client conversation
 
