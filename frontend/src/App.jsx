@@ -1,7 +1,9 @@
 import "@/App.css";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Toaster } from "sonner";
+import { recordFirstTouch } from "@/lib/attribution";
 
 import Landing from "@/pages/Landing";
 import PartneredWithCreytix from "@/pages/PartneredWithCreytix";
@@ -64,6 +66,10 @@ import IntakePacketChecklist from "@/pages/training/IntakePacketChecklist";
 import SettingsTemplates from "@/pages/settings/SettingsTemplates";
 
 function App() {
+  useEffect(() => {
+    recordFirstTouch();
+  }, []);
+
   return (
     <BrowserRouter>
       <AuthProvider>
