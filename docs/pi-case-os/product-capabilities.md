@@ -4,7 +4,7 @@
 **Disclosure:** Firms must edit documents and have counsel review language. See [`DISCLOSURE.md`](./DISCLOSURE.md).
 
 **Question:** Are the training materials enough to define what PraxiumLaw must do?  
-**Answer:** **Yes for pre-litigation MVA case management** — video transcripts + Training PI scripts describe a complete operational system (roles, phases, tasks, letters, gates, failure modes, and treatment-compliance coaching). **Lead/intake phone scripts** live in separate **audio** files — Whisper in progress under `intake-calls/`.
+**Answer:** **Yes for pre-litigation MVA case management** — video transcripts + standard-practice scripts describe a complete operational system (roles, phases, tasks, letters, gates, failure modes, and treatment-compliance coaching). **Lead/intake phone scripts** live in separate **audio** files — Whisper in progress under `intake-calls/`.
 
 **Source corpus:** `sources/` (transcripts, training-pi-text, letter templates, intake audio). Capabilities below are **product requirements**, not a specific case-system UI.
 
@@ -24,7 +24,7 @@
 | Lien reductions (short/long) | **Yes** | Procedural, attorney sets % |
 | Settlement / trust / disbursement checklist | **Yes** | Status-chart settlement phase |
 | Case audit / pipeline reporting | **Yes** | Phase filters, incomplete-task audits |
-| Demand letter structure | **Yes** | Yellow-sheet order, exhibits, 30-day response |
+| Demand letter structure | **Yes** | demand worksheet order, exhibits, 30-day response |
 | Lead scripts / marketing intake phone | **Pending** | Live intake audio found (not in video archive); transcription in progress — see `gaps.md` + `intake-calls/` |
 | Full litigation (pleadings, dep, EUO) | **Partial** | Modules exist; not required for MVP pre-lit |
 | Jurisdiction packs beyond NV (+ some WA) | **Partial** | NV-heavy; WA differences mentioned, not fully specified |
@@ -129,7 +129,7 @@ PraxiumLaw must:
 ### 10. Demand package
 
 - Trigger demand when: MMI, client stops (after attorney ramifications talk), or meds ≈ **40–60% of limits** (training heuristic).
-- Build demand from Meds using **yellow-sheet priority order** (hospital / large items first, not pharmacy first).
+- Build demand from Meds using **demand worksheet priority order** (hospital / large items first, not pharmacy first).
 - Include futures estimates, wage loss if any, police report, photos, repair estimate.
 - Support **3P demand**, **MedPay demand** (chronological bills + buffer over limit), **1P/UM request** (training: request benefits, not “demand” same as tort).
 - Multi-client demands (plural language, combined specials).
@@ -159,7 +159,7 @@ PraxiumLaw must:
 
 ### 14. Team operations
 
-- Role-based task assignment and “cleaner fish” audit role.
+- Role-based task assignment and the QA-audit role audit role.
 - Incomplete-task filters and pinned status notes (3P adjuster, claim #, PD blockers).
 - Exportable pipeline reports for managers (who is stuck in demand, waiting on offer, settlement).
 - Letter/template engine (LOR, medical LOR, preservation, lien, MedPay stop-pay, demand, reduction, subro, drop, disbursement) using **white-label placeholders only**.
@@ -206,10 +206,10 @@ Do **not** invent product features for:
 3. **Insurance (3P/1P) + LOR + liability + limits**
 4. **Treatment compliance coaching prompts + Meds ledger + MRI/gap alerts**
 5. **Document taxonomy + redaction + Medical LOR + COR**
-6. **Demand builder (yellow-sheet order) + approval gate**
+6. **Demand builder (demand worksheet order) + approval gate**
 7. **Offers + settlement scenarios + reductions** (disbursement reconcile first)
 8. **Subrogation module (Medicare-critical path first)**
 9. **Disbursement / trust checklist**
-10. **Audit reports by phase** (+ lit audit / transfer-to-lit as phase 2)
+10. **Audit reports by phase** (+ litigation audit / transfer-to-lit as phase 2)
 
 See [`IMPROVEMENTS.md`](./IMPROVEMENTS.md) for the full prioritization from the source corpus.

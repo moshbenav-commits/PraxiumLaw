@@ -91,13 +91,13 @@ PraxiumLaw today includes a **product definition + training corpus** under `docs
 | Document taxonomy + redaction | Document types, redaction checklist before export |
 | 3P/1P, LOR, liability, limits | Insurance entities + claim workflows |
 | Treatment compliance / MRI gates | Tasks + alerts (no-show, gap, MRI due) |
-| Demand yellow-sheet order | Demand package builder |
+| Demand demand worksheet order | Demand package builder |
 | Settlement scenarios / reductions | Offers + calculator + reduction letters |
 | Subrogation rules | Health-plan liens + Medicare path |
 | Attorney gates | RBAC: staff prepare, attorney approve |
 | White-label templates (106) | Template library + firm profile merge |
 | Articles (22) | In-app help / knowledge base |
-| Lit audit / transfer-to-lit | Phase 2 (litigation module) |
+| litigation audit / transfer-to-lit | Phase 2 (litigation module) |
 
 ---
 
@@ -122,7 +122,7 @@ Implement from `product-capabilities.md` MVP order:
 
 ### Phase 2 — After MVP
 
-- Lit audit checklist + transfer-to-lit letters (`IMPROVEMENTS.md` P1)  
+- litigation audit checklist + transfer-to-lit letters (`IMPROVEMENTS.md` P1)  
 - In-app knowledge base from `articles/`  
 - Full template merge UI (all 106 types)  
 - Spanish status letters, bilingual intake  

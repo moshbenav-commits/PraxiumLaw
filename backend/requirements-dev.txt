@@ -1,0 +1,4 @@
+# Dev/test-only dependencies — NOT part of the production requirements.txt.
+# Used for backend/tests/test_intake_attribution.py (in-memory Mongo mock, no real MongoDB needed).
+pytest>=7.4.0
+mongomock-motor>=0.0.29

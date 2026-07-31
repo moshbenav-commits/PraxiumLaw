@@ -1,7 +1,9 @@
 # Demand Package Preparation Checklist
 
 **Category:** Demand Package Preparation  
-**Source:** Demand Prep Part 1; PI Workflow; demand gather-records modules  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers  
 **Gate:** Attorney or office manager reviews demand before send
 

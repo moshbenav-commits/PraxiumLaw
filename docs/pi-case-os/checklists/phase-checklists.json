@@ -1,0 +1,155 @@
+{
+  "$comment": "PraxiumLaw PI Case OS phase checklists. Firm-neutral; adapt per policy/jurisdiction. Not legal advice. Keep 'article' refs in sync with docs/pi-case-os/articles.",
+  "version": "1.0.0",
+  "phases": [
+    {
+      "key": "lead_qualify",
+      "title": "Lead & qualify",
+      "gate": null,
+      "items": [
+        {"id": "capture_contact", "label": "Capture contact + preferred language", "article": "47"},
+        {"id": "dol_sol", "label": "Record date of loss; flag statute of limitations", "article": "47"},
+        {"id": "facts_type", "label": "Capture facts of loss and case type", "article": "35"},
+        {"id": "working_flag", "label": "Ask if working at time of loss (workers'-comp flag)", "article": "42"},
+        {"id": "coverage", "label": "Identify coverage (3P, UM/UIM, MedPay/PIP)", "article": "33"},
+        {"id": "conflict", "label": "Run conflict check", "article": "13"},
+        {"id": "source", "label": "Log referral source (compliance)", "article": "44"},
+        {"id": "accept", "label": "Attorney accept/decline decision", "article": "35", "gate": "attorney"}
+      ]
+    },
+    {
+      "key": "sign_up",
+      "title": "Sign up",
+      "gate": null,
+      "items": [
+        {"id": "fee_agreement", "label": "Signed contingency-fee agreement (written)", "article": "23", "gate": "attorney"},
+        {"id": "hipaa_auth", "label": "Signed HIPAA authorization", "article": "23", "phi": true},
+        {"id": "intake_forms", "label": "Intake forms + ID captured", "article": "23"},
+        {"id": "open_matter", "label": "Open matter and create file", "article": "36"},
+        {"id": "needs_list", "label": "Deliver needs list", "article": "01"}
+      ]
+    },
+    {
+      "key": "open_claims",
+      "title": "Open claims",
+      "gate": null,
+      "items": [
+        {"id": "lor_3p", "label": "Send 3P letter of representation (day one)", "article": "04"},
+        {"id": "lor_1p", "label": "Open/confirm 1P coverage (UM/UIM, MedPay/PIP)", "article": "04"},
+        {"id": "limits", "label": "Request/confirm policy limits", "article": "15"},
+        {"id": "coverage_facts", "label": "Confirm household coverage / stacking", "article": "49"}
+      ]
+    },
+    {
+      "key": "property_damage",
+      "title": "Property damage",
+      "gate": null,
+      "items": [
+        {"id": "pd_timing", "label": "Handle PD before any BI release", "article": "03"},
+        {"id": "total_loss", "label": "Evaluate repair vs. total loss / ACV", "article": "51"},
+        {"id": "rental", "label": "Arrange rental / loss of use", "article": "51"},
+        {"id": "deductible", "label": "Track deductible recovery", "article": "51"}
+      ]
+    },
+    {
+      "key": "treatment",
+      "title": "Treatment management",
+      "gate": null,
+      "items": [
+        {"id": "care_started", "label": "Confirm treatment started; no gaps", "article": "05", "phi": true},
+        {"id": "compliance", "label": "Coach treatment compliance", "article": "16", "phi": true},
+        {"id": "records_hygiene", "label": "Maintain meds/records hygiene", "article": "08", "phi": true},
+        {"id": "imaging", "label": "Time imaging (MRI) appropriately", "article": "05", "phi": true},
+        {"id": "social_media", "label": "Social-media / sub-rosa caution given", "article": "06"}
+      ]
+    },
+    {
+      "key": "records_demand_prep",
+      "title": "Records & demand prep",
+      "gate": null,
+      "items": [
+        {"id": "records_requests", "label": "Request records/bills; track cadence", "article": "52", "phi": true},
+        {"id": "cor", "label": "Obtain certificates of records where needed", "article": "20", "phi": true},
+        {"id": "reconcile", "label": "Reconcile all providers: records + bills match", "article": "09", "phi": true},
+        {"id": "wage_loss", "label": "Collect wage-loss documentation", "article": "50"},
+        {"id": "redact", "label": "Redact before sending to carriers", "article": "19", "phi": true}
+      ]
+    },
+    {
+      "key": "demand",
+      "title": "Demand",
+      "gate": "attorney",
+      "items": [
+        {"id": "draft", "label": "Draft demand (and UM/UIM demand if applicable)", "article": "39"},
+        {"id": "damages", "label": "Complete damages worksheet (data only)", "article": "39"},
+        {"id": "attorney_review", "label": "Attorney reviews and approves demand", "article": "39", "gate": "attorney"},
+        {"id": "send_calendar", "label": "Send demand and calendar the response", "article": "39"}
+      ]
+    },
+    {
+      "key": "negotiate",
+      "title": "Negotiate",
+      "gate": "attorney",
+      "items": [
+        {"id": "log_offers", "label": "Log offers/counters; scenario the net", "article": "10"},
+        {"id": "authority", "label": "Attorney sets settlement authority", "article": "10", "gate": "attorney"},
+        {"id": "limits_demand", "label": "Consider policy-limits/bad-faith time demand", "article": "49", "gate": "attorney"}
+      ]
+    },
+    {
+      "key": "litigate",
+      "title": "Litigate (if needed)",
+      "gate": "attorney",
+      "items": [
+        {"id": "sol_recalendar", "label": "Confirm and re-calendar SOL and sub-deadlines", "article": "31"},
+        {"id": "transfer_notices", "label": "Send transfer-to-litigation notices", "article": "22"},
+        {"id": "file_suit", "label": "Attorney decision: file suit", "article": "31", "gate": "attorney"}
+      ]
+    },
+    {
+      "key": "special_approvals",
+      "title": "Special approvals",
+      "gate": "attorney",
+      "items": [
+        {"id": "minor_compromise", "label": "Minor's compromise: court approval + blocked account", "article": "30", "gate": "attorney"},
+        {"id": "future_medicals", "label": "MSA / SNT / structured settlement screen", "article": "48", "gate": "attorney"}
+      ]
+    },
+    {
+      "key": "settle",
+      "title": "Settle",
+      "gate": "attorney",
+      "items": [
+        {"id": "final_offer", "label": "Confirm final offer; attorney authorizes", "article": "27", "gate": "attorney"},
+        {"id": "release", "label": "Attorney-reviewed release (guard UM/UIM & PD)", "article": "27", "gate": "attorney"},
+        {"id": "final_liens", "label": "Obtain final lien/subrogation figures", "article": "29"},
+        {"id": "consent_to_settle", "label": "UIM consent-to-settle before releasing 3P", "article": "49", "gate": "attorney"}
+      ]
+    },
+    {
+      "key": "disburse",
+      "title": "Disburse",
+      "gate": "attorney",
+      "items": [
+        {"id": "disb_sheet", "label": "Finalize disbursement sheet (all liens + loans)", "article": "25"},
+        {"id": "reductions", "label": "Send reduction requests; apply approvals", "article": "26"},
+        {"id": "nonmedical_liens", "label": "Confirm non-medical liens resolved", "article": "53", "gate": "attorney"},
+        {"id": "trust", "label": "Trust deposit + three-way reconciliation", "article": "45", "gate": "attorney"},
+        {"id": "client_signoff", "label": "Client signs release + disbursement statement", "article": "27"},
+        {"id": "pay", "label": "Pay providers/liens; release client net", "article": "27", "gate": "attorney"}
+      ]
+    },
+    {
+      "key": "close_out",
+      "title": "Close out",
+      "gate": "attorney",
+      "items": [
+        {"id": "reconcile_zero", "label": "Trust balanced to zero for matter", "article": "40", "gate": "attorney"},
+        {"id": "liens_satisfied", "label": "All liens satisfied and documented", "article": "40"},
+        {"id": "closing_letter", "label": "Send closing letter + documents", "article": "40"},
+        {"id": "retention", "label": "Retain file per schedule", "article": "40"},
+        {"id": "case_grade", "label": "Complete case-grade scorecard", "article": "36"}
+      ]
+    }
+  ]
+}

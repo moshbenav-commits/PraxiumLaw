@@ -1,7 +1,9 @@
 # Settlement Calculator Scenarios and the Negotiations Tab
 
 **Category:** Settlement Negotiation Guidelines  
-**Source:** Negotiation Tab training  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers (data entry); attorneys (reduction decisions)
 
 ---

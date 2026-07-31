@@ -25,12 +25,12 @@ export default function PraxiumLogo({
 
   const inner = (
     <div className={`flex items-center gap-2.5 ${className}`} data-testid={testId}>
-      <div
-        className={`${s.mark} rounded-sm bg-praxium-accent-hover flex items-center justify-center font-display font-black text-white shrink-0`}
+      <img
+        src="/brand/praxium-mark.svg"
+        alt=""
         aria-hidden
-      >
-        π
-      </div>
+        className={`${s.mark} rounded-sm shrink-0`}
+      />
       <div className="leading-none">
         <div className={`font-display font-black tracking-tight ${s.word} ${wordClass}`}>PRAXIUM</div>
         {showSubtitle && s.sub && (

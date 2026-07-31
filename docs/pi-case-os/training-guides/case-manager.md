@@ -20,7 +20,7 @@ Keep cases moving on the **training timeline**: treat → gather records → dem
 | **Intake** | Handoff from intake specialist; verify Needs List complete |
 | **Treating** | Appointments, gap prevention, MRI timing, monthly visits during demand |
 | **Record gathering** | Medical LOR, lien verification, COR, prior records (5 yr) |
-| **Demand** | Yellow-sheet package assembly — **attorney approves send** |
+| **Demand** | demand worksheet package assembly — **attorney approves send** |
 | **Waiting / Counter** | Track 30-day response; log offers; supplement when new bills |
 | **Settlement** | Populate calculator from Meds — **attorney sets reductions** |
 | **Litigate / Drop** | Transfer letters — attorney decision |
@@ -70,7 +70,7 @@ Every provider: specialty, LTD/NTD, balance, lien holder, futures estimate (FE),
 | Step | Who |
 |------|-----|
 | Reconcile Meds, exhibits, chronology | Case manager |
-| Draft demand per yellow-sheet order | Case manager |
+| Draft demand per demand worksheet order | Case manager |
 | **Review and approve send** | **Attorney** |
 | Log offers, run settlement scenarios | Case manager enters balances |
 | **Reduction % or flat amounts** | **Attorney** |
@@ -81,7 +81,7 @@ Every provider: specialty, LTD/NTD, balance, lien holder, futures estimate (FE),
 
 ---
 
-## Case audit (“cleaner fish”)
+## Case audit (the QA-audit role)
 
 Periodic file audit against timeline checklist: police report, lien, liability, MRI, limits, med totals, subro, PD, client contact. Flag gaps before they become malpractice or low offers.
 

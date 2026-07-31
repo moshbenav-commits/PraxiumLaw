@@ -1,7 +1,9 @@
 # How to Run a 30-Day (and 5-Week) Case Review
 
 **Category:** Treatment Milestone Checklist  
-**Source:** 5-Week and 30-Day Case Review — Pain Management and MRI  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers
 
 ---

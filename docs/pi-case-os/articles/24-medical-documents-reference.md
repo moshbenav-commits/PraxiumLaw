@@ -1,8 +1,9 @@
 # Medical Documents — Types, Naming, and Workflow
 
-**Category:** Medical Record Tracking  
-**Source:** `system-spec.md` §2b, §3 · Med training · Medical LOR scripts · Lit audit  
-**Audience:** Case manager, paralegal, records staff, clerical  
+**Category:** Medical Record Tracking 
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use. 
+**References:** [`../REFERENCES.md`](../REFERENCES.md) 
+**Audience:** Case manager, paralegal, records staff, clerical 
 **White-label:** Any firm — [`../DISCLOSURE.md`](../DISCLOSURE.md)
 
 ---
@@ -35,10 +36,10 @@ See [`18-document-taxonomy.md`](./18-document-taxonomy.md).
 
 One ER visit often produces **four** separate items — each needs its own Meds row and files:
 
-1. **Hospital facility** bill  
-2. **ER physician group** (contracted)  
-3. **Radiology group** (contracted)  
-4. **Ambulance**  
+1. **Hospital facility** bill 
+2. **ER physician group** (contracted) 
+3. **Radiology group** (contracted) 
+4. **Ambulance** 
 
 Training prefers **client self-retrieval** of hospital/ambulance mail for ~30 days (reduction leverage) — [`02-hospital-bills-client-retrieves.md`](./02-hospital-bills-client-retrieves.md).
 
@@ -54,8 +55,8 @@ Keep names short; use hashtags if the system has no folders:
 | **B** | Bill | `B Hospital ABC 2024.03.15` |
 | **FE** | Futures estimate | `FE Pain Mgmt Injection 3500 2024.04.01` |
 
-- Date style in training: `YYYY.MM.DD` with leading zeros  
-- Tag **client** vs **defendant** photos separately  
+- Date style in training: `YYYY.MM.DD` with leading zeros 
+- Tag **client** vs **defendant** photos separately 
 - Case manager **initials** on Meds entries (letters pull staff initials)
 
 Upload to matter → Documents; classify type **Medical**; update **Meds tab** balances.
@@ -66,7 +67,7 @@ Upload to matter → Documents; classify type **Medical**; update **Meds tab** b
 
 | Moment | Rule |
 |--------|------|
-| **At intake signing** | HIPAA signed with **facility name blank** — template: `(WA) HIPAA - Minor.docx` or HIPAA in intake pack |
+| **At intake signing** | HIPAA signed with **facility name blank** — template: `firm template` or HIPAA in intake pack |
 | **When requesting records** | Fill **provider name** on HIPAA; attach to Medical LOR; combine to one PDF |
 
 **Prior accidents (5 years):** Request **records only** (not bills); narrow HIPAA date range to five years prior — do not use blank facility copy without editing dates.
@@ -77,21 +78,21 @@ Upload to matter → Documents; classify type **Medical**; update **Meds tab** b
 
 | Template | When to use |
 |----------|-------------|
-| `(WA) Medical Letter of Rep.docx` / `(WA) Medical LOR_Non Hospital.docx` | Standard records + bills request |
-| `(WA) Chiropractor Request for Bills_Records.docx` | Chiro-specific |
-| `(WA) Chiropractor Letter of Rep.docx` | Chiro LOR |
+| `firm template` | Standard records + bills request |
+| `firm template` | Chiro-specific |
+| `firm template` | Chiro LOR |
 | **High-Tech letter** (training module) | Invoice **≥ ~$100** or uncooperative facility — always with signed HIPAA page |
-| `(NV)` medical/chiro variants | Nevada matters |
+| Jurisdiction variants | Where your state differs |
 
 Full send workflow: [`21-medical-lor-workflow.md`](./21-medical-lor-workflow.md)
 
 **Before sending:**
 
-1. Confirm records/bills actually missing  
-2. **No duplicate paid request**  
-3. Choose records only, bills only, or both  
-4. Date range: DOL → present (or specific DOS)  
-5. Check **ChartSwap** / portal requirements first  
+1. Confirm records/bills actually missing 
+2. **No duplicate paid request** 
+3. Choose records only, bills only, or both 
+4. Date range: DOL → present (or specific DOS) 
+5. Check **ChartSwap** / portal requirements first 
 
 ---
 
@@ -110,7 +111,7 @@ Full send workflow: [`21-medical-lor-workflow.md`](./21-medical-lor-workflow.md)
 
 Every provider on Meds with:
 
-- Specialty · first treatment date · LTD/NTD · balance · lien holder · FE if any · **COR status** · case manager initials  
+- Specialty · first treatment date · LTD/NTD · balance · lien holder · FE if any · **COR status** · case manager initials 
 
 Meds must match Documents tab before demand. Duplicates break settlement calculator.
 

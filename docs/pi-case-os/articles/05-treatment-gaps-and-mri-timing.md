@@ -1,7 +1,9 @@
 # Treatment Gaps and MRI Timing
 
 **Category:** Treatment Milestone Checklist  
-**Source:** Personal Injury Workflow; 5-Week and 30-Day Case Review training  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers
 
 ---

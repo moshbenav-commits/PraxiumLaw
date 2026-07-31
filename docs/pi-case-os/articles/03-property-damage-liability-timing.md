@@ -1,7 +1,9 @@
 # Property Damage Timing and Liability Acceptance
 
 **Category:** Insurance Communication · Client Coaching  
-**Source:** Personal Injury Workflow; Case Manage / Cleaner Fish  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers
 
 ---

@@ -8,8 +8,12 @@ White-label **pre-litigation personal injury case management** system: workflows
 
 | Doc | Purpose |
 |-----|---------|
-| [`DISCLOSURE.md`](./DISCLOSURE.md) | **Not legal advice.** Firms must **edit documents** and have **counsel review language** before use. |
+| [`DISCLOSURE.md`](./DISCLOSURE.md) | **Not legal advice.** Recommended procedures only — **cross-reference against your own** and have **counsel review language** before use. |
 | [`WHITE_LABEL.md`](./WHITE_LABEL.md) | Placeholders, no firm-specific branding, site/app checklist |
+| [`REFERENCES.md`](./REFERENCES.md) | Public legal authorities (ABA rules, CMS/Medicare, ERISA, court rules) behind the articles |
+| [`GLOSSARY.md`](./GLOSSARY.md) | Industry terms to keep vs. firm jargon to avoid |
+| [`GAP_ANALYSIS_AND_ROADMAP.md`](./GAP_ANALYSIS_AND_ROADMAP.md) | What's missing and the prioritized improvement plan |
+| [`../praxhq/`](../praxhq/) | **PraxHQ** coordination platform — role, integration map, and **legal/regulatory research** (read before building) |
 
 Anything added to the **site, app, or exports** must be white-labeled (`{{FIRM_NAME}}`, etc.) and show the disclosure.
 
@@ -20,8 +24,13 @@ Anything added to the **site, app, or exports** must be white-labeled (`{{FIRM_N
 | [`product-capabilities.md`](./product-capabilities.md) | What PraxiumLaw must do |
 | [`system-spec.md`](./system-spec.md) | Full process map |
 | [`gaps.md`](./gaps.md) | Gaps and attorney gates |
-| [`articles/`](./articles/) | Knowledge-base articles (white-label) |
-| [`training-guides/`](./training-guides/) | **Position training guides** (8 roles) |
+| [`GAP_ANALYSIS_AND_ROADMAP.md`](./GAP_ANALYSIS_AND_ROADMAP.md) · [`GLOSSARY.md`](./GLOSSARY.md) · [`REFERENCES.md`](./REFERENCES.md) | Roadmap · terminology · public authorities |
+| [`KPIS_AND_CASE_GRADE.md`](./KPIS_AND_CASE_GRADE.md) · [`DAMAGES_WORKSHEET.md`](./DAMAGES_WORKSHEET.md) · [`JURISDICTION_MATRIX.md`](./JURISDICTION_MATRIX.md) | Metrics/case-grade · damages data-capture · per-state matrix template |
+| [`checklists/`](./checklists/) | Machine-readable per-phase checklists (JSON) for the app task/gate UI |
+| [`templates/client-comms/`](./templates/client-comms/) | Bilingual **EN/ES** client-message templates (coordination only, not legal advice) |
+| [`../praxhq/`](../praxhq/) | **PraxHQ** — the PI helper app (product + legal/HIPAA research) |
+| [`articles/`](./articles/) | Knowledge-base articles (white-label) — **54 articles (00–53) by department**; see [`articles/README.md`](./articles/README.md). Start at [`00`](./articles/00-case-lifecycle-and-workflow-map.md) (end-to-end case map). 01–24 pre-lit PI; 25–53 add demand drafting, settlement/disbursement, liens & subrogation, litigation, specialty departments, close-out, trust accounting, firm HIPAA, referral/marketing compliance, intake call script, Medicare set-aside, UM/UIM, wage-loss, expanded property damage, records retrieval, and non-medical liens |
+| [`training-guides/`](./training-guides/) | **Position training guides** (8 roles) + [`CERTIFICATION_PATH.md`](./training-guides/CERTIFICATION_PATH.md) (Trainee→Certified→Senior) |
 | [`SITE_WIRING_AUDIT.md`](./SITE_WIRING_AUDIT.md) | PraxiumLaw app wiring vs PI spec |
 | [`UI_UX_GAPS.md`](./UI_UX_GAPS.md) | Training-derived UI/UX gap backlog |
 | [`training-ux-gaps.json`](./training-ux-gaps.json) | Same gaps (JSON for `/training` API) |
@@ -32,7 +41,7 @@ Anything added to the **site, app, or exports** must be white-labeled (`{{FIRM_N
 | Path | Description |
 |------|-------------|
 | [`sources/`](./sources/) | PI training docs, letter templates, scripts (text), video transcripts |
-| [`sources/training-pi-text/`](./sources/training-pi-text/) | **All Training PI `.docx` scripts extracted to `.txt`** (38 files) |
+| [`sources/training-pi-text/`](./sources/training-pi-text/) | **All standard PI practice `.docx` scripts extracted to `.txt`** (38 files) |
 | [`sources/transcripts/`](./sources/transcripts/) | Video training transcripts (168 modules) |
 | [`intake-calls/`](./intake-calls/) | Intake call **transcripts only** (4 `.txt` files — no raw audio) |
 | [`sources/docs/white-label-templates/`](./sources/docs/white-label-templates/) | 106 scrubbed DOCX + 106 PDFs |
