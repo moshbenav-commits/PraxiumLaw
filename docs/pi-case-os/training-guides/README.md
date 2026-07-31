@@ -31,7 +31,7 @@ Each guide lists **PraxiumLaw routes** that exist today vs **PI modules still to
 | Virtual assistant (remote) | [`virtual-assistant.md`](./virtual-assistant.md) | `staff` |
 | Firm admin / office manager | [`firm-admin-onboarding.md`](./firm-admin-onboarding.md) | `admin`, `partner` |
 
-**Case audit / “cleaner fish”** — quality review tasks are assigned to a designated staff member (often senior case manager or paralegal). See [`case-manager.md`](./case-manager.md) § Case audit.
+**Case audit / the QA-audit role** — quality review tasks are assigned to a designated staff member (often senior case manager or paralegal). See [`case-manager.md`](./case-manager.md) § Case audit.
 
 ---
 

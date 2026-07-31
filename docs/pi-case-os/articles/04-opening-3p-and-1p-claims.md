@@ -1,7 +1,9 @@
 # Opening Third-Party and First-Party Claims
 
 **Category:** Insurance Communication Rules  
-**Source:** Personal Injury Workflow; Case Manage / Cleaner Fish; claims training modules  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers
 
 ---

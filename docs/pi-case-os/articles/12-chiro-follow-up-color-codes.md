@@ -1,14 +1,16 @@
 # Chiro and Clinic Follow-Up Color Codes
 
 **Category:** Doctor Network Coordination  
-**Source:** Med training notes  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Junior callers, medical management staff
 
 ---
 
 Treatment tracking in training uses shared sheets (in addition to the case system) with **color codes** so callers can sort active work instantly.
 
-## Nevada chiro sheet colors
+## Clinic follow-up color codes
 
 | Color | Meaning |
 |-------|---------|

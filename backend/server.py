@@ -174,6 +174,18 @@ class IntakeReq(BaseModel):
     description: str
     source: Optional[str] = "website"
     firm_slug: Optional[str] = None
+    # Marketing/lead attribution (all optional — populated by the public intake form)
+    utm_source: Optional[str] = None
+    utm_medium: Optional[str] = None
+    utm_campaign: Optional[str] = None
+    utm_term: Optional[str] = None
+    utm_content: Optional[str] = None
+    gclid: Optional[str] = None
+    fbclid: Optional[str] = None
+    source_page: Optional[str] = None
+    landing_page: Optional[str] = None
+    referrer: Optional[str] = None
+    first_touch_at: Optional[str] = None
 
 
 class ProviderIn(BaseModel):
@@ -877,11 +889,58 @@ async def list_filings(matter_id: Optional[str] = None, user=Depends(get_current
 
 
 # ──────────────── intake (LawMatch) ────────────────
+ATTRIBUTION_FIELDS = [
+    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
+    "gclid", "fbclid", "source_page", "landing_page", "referrer", "first_touch_at",
+]
+
+
+def _sanitize_attribution(doc: dict) -> None:
+    """Strip and cap each attribution field to 300 chars before it is stored."""
+    for field in ATTRIBUTION_FIELDS:
+        val = doc.get(field)
+        if isinstance(val, str):
+            doc[field] = val.strip()[:300]
+
+
+def _notify_new_lead(doc: dict) -> None:
+    """Best-effort email notification for a new intake lead. Never raises."""
+    from email_util import send_transactional_email
+
+    notify_to = os.environ.get("PRAXIUM_LEAD_NOTIFY_EMAIL") or os.environ.get("LEAD_NOTIFY_EMAIL")
+    if not notify_to:
+        log.info("Lead notify skipped (no PRAXIUM_LEAD_NOTIFY_EMAIL/LEAD_NOTIFY_EMAIL configured)")
+        return
+    subject = f"[PraxiumLaw] New intake lead — {doc.get('name')}"
+    lines = [
+        f"Name: {doc.get('name')}",
+        f"Email: {doc.get('email')}",
+        f"Phone: {doc.get('phone')}",
+        f"Case type: {doc.get('case_type')}",
+        f"Firm routing: {doc.get('assigned_to')}" + (f" ({doc.get('firm_id')})" if doc.get("firm_id") else ""),
+        f"AI score: {doc.get('ai_score')}",
+        "",
+        "Attribution:",
+        f"  source_page: {doc.get('source_page') or ''}",
+        f"  landing_page: {doc.get('landing_page') or ''}",
+        f"  referrer: {doc.get('referrer') or ''}",
+        f"  utm_source: {doc.get('utm_source') or ''}",
+        f"  utm_medium: {doc.get('utm_medium') or ''}",
+        f"  utm_campaign: {doc.get('utm_campaign') or ''}",
+        f"  utm_term: {doc.get('utm_term') or ''}",
+        f"  utm_content: {doc.get('utm_content') or ''}",
+        f"  gclid: {doc.get('gclid') or ''}",
+        f"  fbclid: {doc.get('fbclid') or ''}",
+    ]
+    send_transactional_email(notify_to, subject, "\n".join(lines))
+
+
 @api.post("/intake")
 async def submit_intake(req: IntakeReq):
     """Public endpoint for consumer intake. Routes to firm or partner network."""
     doc = req.model_dump()
     doc.update({"id": new_id(), "status": "new", "ai_score": None, "created_at": now()})
+    _sanitize_attribution(doc)
     # Try resolve firm by slug
     firm = None
     if req.firm_slug:
@@ -903,6 +962,10 @@ async def submit_intake(req: IntakeReq):
     doc["ai_score"] = max(0, min(100, score))
     await db.leads.insert_one(doc)
     doc.pop("_id", None)
+    try:
+        _notify_new_lead(doc)
+    except Exception:
+        log.exception("Lead notify email failed (non-fatal)")
     return {"ok": True, "lead_id": doc["id"], "score": doc["ai_score"]}
 
 

@@ -31,7 +31,7 @@
 | UX-008 | Medical | No-show / MRI / gap alerts | **Medical tab** — compliance alert panel + row color codes |
 | UX-009 | Documents | Required taxonomy on upload | **Documents tab** — classify on upload |
 | UX-010 | Documents | Redaction gate before carrier send | **Documents tab** — checklist + carrier OK flag |
-| UX-011 | Demand | Demand builder + exhibits | **Demand tab** — yellow-sheet order + rebuild from Meds |
+| UX-011 | Demand | Demand builder + exhibits | **Demand tab** — demand worksheet order + rebuild from Meds |
 | UX-012 | Attorney gates | Block demand send without attorney | **Demand tab** — approve/reject + send gate (RBAC) |
 | UX-013 | Settlement | Calculator + reductions | **Settlement tab** — offers, scenarios, attorney net gate |
 | UX-014 | Pipeline | PI phases (Treating → Demand…) | **Pipeline tab** + PI kanban on `/matters` |

@@ -4,8 +4,7 @@
 
 Flagged for **manual completion**. Nothing below was invented to fill holes; each item is either missing, vague, conflicting, or attorney-only in the source corpus.
 
-**Sources reviewed:** PI video training transcripts, med training notes, MVA questionnaire, letter templates, local PDFs (limited text extraction).  
-**Not available:** Google Drive knowledge stubs (titles only; body not on disk).
+**Sources reviewed:** PI video training transcripts, med training notes, MVA questionnaire, letter templates, local PDFs (limited text extraction), and (2026-07-10) the Google Drive knowledge SOPs — now readable and processed into white-label articles 25–38.
 
 ---
 
@@ -40,36 +39,29 @@ Google Drive stubs still include a **Leads Scripts** title (body not on disk).
 
 ---
 
-## Google Drive / knowledge SOPs (inaccessible)
+## Google Drive / knowledge SOPs — RESOLVED (2026-07-10)
 
-These titles exist as **stubs only** — body not on disk:
+Previously stubs-only; now readable and processed. Each was rewritten as an **original, white-label** procedure (no source firm named, jurisdiction-neutral, with public references). Mapping:
 
-| Title | Likely relevance |
-|-------|------------------|
-| Leads Scripts | May duplicate intake audio — export if needed |
-| Intake | Intake SOP |
-| Negotiations | Negotiation playbook |
-| Demand | Demand drafting standards |
-| Treatments and Medical Management (Jr. Caller Tasks) | Treatment calling scripts |
-| Procedure for Handling Pre-Litigation Claims | End-to-end pre-lit SOP |
-| Opening Claims (1P and 3P) | Claims SOP |
-| Policy Limits | Limits procedure |
-| Liens and Dropping a Client | Lien + termination |
-| Minor Impact Soft Tissue (MIST) Cases | MIST strategy |
-| Health Insurance Subrogation | Subro detail |
-| Auto Liability Insurance | Coverage education |
-| Using Our Tettra Important SOP'S | SOP index |
-| PI-After-signing a lead guideline | Post-sign checklist |
-| Lead Submission Training | Lead ops |
-| MSK EVALUATION TEMPLATE (ENG) | Medical evaluation template |
-| Laws NRS and Case Law | Legal research (attorney) |
-| Litigation | Lit handoff |
-| Premise Liability Slip and Falls | Non-MVA |
-| Workers Compensation | Work-comp |
-| Washington Cases | WA-specific |
-| Minor's Compromise | Minors detail |
+| Source topic | Now covered by |
+|--------------|----------------|
+| Negotiations | [`articles/26-reduction-requests-and-negotiation.md`](articles/26-reduction-requests-and-negotiation.md) |
+| Settlement & Disbursements | [`articles/25`](articles/25-disbursement-sheet-preparation.md), [`27`](articles/27-settlement-and-disbursement-workflow.md) |
+| Liens and Dropping a Client | [`articles/28-client-termination-and-attorney-liens.md`](articles/28-client-termination-and-attorney-liens.md) |
+| Health Insurance Subrogation | [`articles/29-health-insurance-subrogation.md`](articles/29-health-insurance-subrogation.md) |
+| Minor's Compromise | [`articles/30-minors-compromise-and-court-approval.md`](articles/30-minors-compromise-and-court-approval.md) |
+| Litigation | [`articles/31-litigation-handoff-and-management.md`](articles/31-litigation-handoff-and-management.md) |
+| Mass Torts | [`articles/32-mass-tort-intake-and-management.md`](articles/32-mass-tort-intake-and-management.md) |
+| Auto Liability Insurance | [`articles/33-auto-insurance-coverage-reference.md`](articles/33-auto-insurance-coverage-reference.md) |
+| Emails, Mails, and Correspondences | [`articles/34-correspondence-and-communications.md`](articles/34-correspondence-and-communications.md) |
+| Leads Scripts / Lead Submission | [`articles/35-lead-intake-and-signup-operations.md`](articles/35-lead-intake-and-signup-operations.md) |
+| Filevine / Filevine Customs Editor / Tettra SOP index | [`articles/36-case-management-system-setup.md`](articles/36-case-management-system-setup.md) |
+| Continuing Legal Education | [`articles/37-cle-and-ethics-compliance.md`](articles/37-cle-and-ethics-compliance.md) |
+| Office Rules / HR / Onboarding / Payroll / Job Duties | [`articles/38-firm-operations-and-office-policies.md`](articles/38-firm-operations-and-office-policies.md) |
 
-**Action:** Export knowledge docs to markdown and re-run extraction if those scripts are needed.
+**Now added (2026-07-10):** Premises Liability [`41`](articles/41-premises-liability-slip-and-fall.md), Workers' Compensation [`42`](articles/42-workers-compensation-coordination.md), and MIST [`43`](articles/43-mist-minor-impact-soft-tissue.md) as dedicated departments; demand-letter drafting [`39`](articles/39-demand-letter-drafting.md); file close-out/retention [`40`](articles/40-file-closeout-reconciliation-and-retention.md); and an end-to-end [`00` case-lifecycle map](articles/00-case-lifecycle-and-workflow-map.md).
+
+**Still open (deferred, low priority):** a state-by-state jurisdiction matrix; and state-specific statute research (intentionally not reproduced — replaced by neutral pointers in [`REFERENCES.md`](./REFERENCES.md)).
 
 ---
 
@@ -87,7 +79,7 @@ These titles exist as **stubs only** — body not on disk:
 | Meds tab reconciliation for demand | Demand Prep Part 1 |
 | Offer logging + settlement scenarios | Negotiation tab training |
 | Chiro color-code follow-up | Med training notes |
-| Conflict check + related cases | Cleaner Fish / PI Workflow |
+| Conflict check + related cases | QA-audit (case audit) / PI Workflow |
 | NV SOL 2 years | Explicit |
 
 ---
@@ -141,7 +133,7 @@ Training assumes a licensed attorney / supervising attorney for:
 8. **Trust accounting / disbursement approval**
 9. **Minor’s compromise** court process
 10. **Case valuation** answers to “how much will I get?”
-11. **NRS / case law** application (doc title only; no body)
+11. **state statute / case law** application (doc title only; no body)
 12. **Transfer to litigation** matrix (module exists; attorney-led)
 
 PraxiumLaw product implication: **hard gates** — staff prepare; attorney approves.

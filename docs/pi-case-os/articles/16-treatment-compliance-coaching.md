@@ -1,7 +1,9 @@
 # Treatment Compliance Coaching: Getting Clients to Do What the Case Needs
 
 **Category:** Pain Education & Treatment Compliance  
-**Source:** Personal Injury Workflow; Case Audit; Treatment Tracker; med training notes  
+**Recommended procedure** — cross-reference against your firm's policy and jurisdiction before use.  
+**White-label:** Any firm. See [`../DISCLOSURE.md`](../DISCLOSURE.md).  
+**References:** [`../REFERENCES.md`](../REFERENCES.md)  
 **Audience:** Case managers  
 **Sensitivity:** Coaching supports medical recommendations — it does not replace physician judgment
 

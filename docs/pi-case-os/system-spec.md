@@ -533,7 +533,7 @@ Close     Disbursement, liens/loans paid, reviews requested
 | Intake specialist / junior VA | Data entry, picture organization, tabs, DocGen |
 | Clerical / filing | Physical files, mail |
 | Accounting / disbursements | Settlement checks, trust |
-| Cleaner fish | Audit/cleanup of incomplete tasks and tabs (named role in training) |
+| QA-audit (case audit) | Audit/cleanup of incomplete tasks and tabs (named role in training) |
 | POC | Point of contact assigning limit pulls / admin tasks |
 
 ---
@@ -545,7 +545,7 @@ Use these terms in product copy and UI where applicable:
 - Needs List  
 - Letter of Representation (LOR) / Letter of Rep  
 - Bolded Vines  
-- Cleaner Fish  
+- QA-audit (case audit)  
 - 30-day case review / 5-week review  
 - Meds tab  
 - Futures Estimate (FE)  
