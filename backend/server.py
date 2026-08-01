@@ -1355,6 +1355,7 @@ from pi_ai_intake import register_pi_ai_intake_routes
 from pi_docgen import register_pi_docgen_routes
 from pi_doc_classify import register_pi_doc_classify_routes
 from pi_expenses import register_pi_expenses_routes, summarize_expenses
+from partner_vault import register_partner_vault_routes
 from pi_property_damage import default_pi_property_damage, register_pi_property_damage_routes, merge_pi_property_damage, compute_pd_summary
 from pi_client_comms import default_pi_comms, register_pi_comms_routes, merge_pi_comms, compute_comms_cadence
 from pi_audit_dashboard import register_pi_audit_routes
@@ -1505,6 +1506,14 @@ register_pi_expenses_routes(
     new_id=new_id,
     now_iso=now,
     merge_pi_settlement=merge_pi_settlement,
+)
+register_partner_vault_routes(
+    api,
+    db,
+    get_current_user,
+    new_id,
+    now,
+    log_audit,
 )
 register_pi_property_damage_routes(
     api,
