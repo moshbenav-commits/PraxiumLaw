@@ -2,6 +2,15 @@
 
 **Updated:** 2026-07-04
 
+> **STALE — flagged 2026-08-01 by an architecture-vs-reality audit.** This
+> doc's "Phase 1 not started" / "PI case OS modules not implemented yet"
+> framing is out of date: `curl https://api.praxiumlaw.com/api/health` shows
+> 13 live `pi_*` backend modules, and git history shows a real "Ship PI Case
+> OS matter tabs, audit dashboard, and template merge" commit already
+> merged. The document below describes an earlier, no-longer-current state.
+> Needs a real rewrite reflecting what actually shipped — not done here,
+> flagging so nobody treats this file as current.
+
 ---
 
 ## Short answer
