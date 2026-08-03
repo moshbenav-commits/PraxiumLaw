@@ -167,6 +167,82 @@ Policy: `docs/CUSTOM_TOOLS_MARKETPLACE_POLICY.md`
 Events: `matter.created` · `matter.status_changed` · `document.uploaded` · `signature.completed`  
 Payloads signed with `X-Praxium-Signature: sha256=<hmac>`.
 
+### Inbound webhook receiver (mail providers)
+
+| Method | Path | Auth |
+|--------|------|------|
+| POST | `/mail/webhook/{provider}` | none (provider signature, not a logged-in user) — `provider` ∈ `sendgrid` \| `mailgun` \| `generic` |
+
+Unauthenticated by design — the caller is the provider's servers, not a
+Praxium user — so the tenant is supplied explicitly via `?firm_id=` (query
+param) or the `X-Firm-Id` header, and trust instead comes from an HMAC-SHA256
+signature. Code: `backend/mail_provider.py` (route) + `backend/webhook_security.py`
+(pure, dependency-free verification + idempotency-key logic).
+
+**Signing scheme per provider:**
+
+| Provider | Signature header | Scheme | Secret env var |
+|---|---|---|---|
+| `generic` | `X-Webhook-Signature` | HMAC-SHA256 hex digest of the raw request body | `GENERIC_WEBHOOK_KEY` |
+| `sendgrid` | `X-Twilio-Email-Event-Webhook-Signature` | HMAC-SHA256 hex digest of the raw request body (documented fallback — SendGrid's native Inbound Parse has no built-in signing; this is for a proxy/relay that re-signs at the edge) | `SENDGRID_WEBHOOK_KEY` |
+| `mailgun` | fields inside the payload (`timestamp`, `token`, `signature`) | HMAC-SHA256 of `timestamp + token`, plus a 15-minute replay window on `timestamp` | `MAILGUN_SIGNING_KEY` |
+
+Behavior when the relevant `*_KEY` env var is **unset**: verification is
+skipped (fail-open) — a dev/staging convenience so local testing doesn't
+require provisioning a secret first. The moment a key **is** set for a
+provider, that provider's check becomes strict/fail-closed: a missing,
+mismatched, or (for Mailgun) stale-timestamp signature gets **401 Signature
+verification failed**. **Production must set the real secret** — see
+`ALLOW_UNVERIFIED_WHEN_NO_KEY` in `webhook_security.py`.
+
+**Idempotent:** every request computes a dedupe key (`compute_idempotency_key`
+in `webhook_security.py`) — an explicit `X-Webhook-Event-Id` header or an
+`id`/`event_id`/(Mailgun) `token` field in the payload if present, else a
+SHA-256 hash of the raw body — scoped by `firm_id` + `provider`. The key is
+looked up in the `webhook_receipts` collection (unique index on `key`); a
+retried delivery of an already-processed event returns the same response with
+`"duplicate": true` instead of re-creating the `mail_items`/`citations` rows.
+
+**Self-test (zero external deps, no real secret — proves the crypto + dedupe
+logic with a TEST secret):**
+
+```bash
+python3 backend/webhook_security.py            # inline __main__ self-test
+python3 backend/tests/test_webhook_security.py  # same checks, pytest-discoverable
+```
+
+Both sign a sample payload and assert it's accepted, tamper the payload under
+the original (now-stale) signature and assert it's rejected, and assert the
+idempotency key is stable/scoped/id-preferring. Last run: all checks passed
+(`ALL PASSED`, exit 0).
+
+**Ricardo's live smoke test (the one remaining step — HTTPS endpoint + a REAL
+secret, not the test one above):**
+
+1. Set the real secret once, wherever the sender is (`generic` provider is the
+   simplest path for a manual/curl smoke): on Vercel `praxiumlaw-back`, set
+   `GENERIC_WEBHOOK_KEY` to a long random value (e.g. `openssl rand -hex 32`).
+   Store the same value in the Creytix vault — never paste it in chat/plaintext.
+2. Deploy so the env var takes effect (this makes the endpoint fail-closed).
+3. From a machine with the secret, sign a sample body and POST it to the real
+   HTTPS URL:
+   ```bash
+   SECRET="<the real GENERIC_WEBHOOK_KEY value>"
+   BODY='{"from_addr":"smoke@example.com","subject":"smoke test","body":"hello"}'
+   SIG=$(python3 -c "import hmac,hashlib,sys; print(hmac.new(sys.argv[1].encode(), sys.argv[2].encode(), hashlib.sha256).hexdigest())" "$SECRET" "$BODY")
+   curl -i -X POST "https://api.praxiumlaw.com/api/mail/webhook/generic?firm_id=<a real firm_id>" \
+     -H "Content-Type: application/json" \
+     -H "X-Webhook-Signature: $SIG" \
+     -d "$BODY"
+   ```
+   Expect `200` with a `mail_items` row created. Re-POST the exact same
+   command — expect `200` again with `"duplicate": true` and no second row
+   (idempotency check). Then flip one character in `$BODY` without
+   recomputing `$SIG` (or just send a garbage `X-Webhook-Signature`) and
+   confirm `401 Signature verification failed`.
+4. Tick the gate off in `docs/creytix/projects/pipelines/praxiumlaw.PIPELINE.md`
+   (Stage 2) once both the 200/duplicate/401 cases are confirmed live.
+
 ### Integration API keys (phase 18)
 
 | Method | Path |
@@ -194,7 +270,7 @@ Phase map: workspace `docs/fleet/PRAXIUM_PHASES.md` · smoke: `npm run praxium:s
 
 ## Mongo collections
 
-`users` · `firms` · `matters` · `contacts` · `tasks` · `notes` · `documents` · `activities` · `leads` · `providers` · `treatments` · `filings` · `chat_messages` · `ai_messages` · `praxa_users` · `praxa_journal` · `partner_inquiries` · `magic_links` · `identity_verification_sessions` · `audit_events` · `team_invites` · `workflows` · `firm_tools` · `custom_tool_requests` · `billing_inquiries` · `webhook_endpoints` · `webhook_events` · `webhook_deliveries` · `api_keys`
+`users` · `firms` · `matters` · `contacts` · `tasks` · `notes` · `documents` · `activities` · `leads` · `providers` · `treatments` · `filings` · `chat_messages` · `ai_messages` · `praxa_users` · `praxa_journal` · `partner_inquiries` · `magic_links` · `identity_verification_sessions` · `audit_events` · `team_invites` · `workflows` · `firm_tools` · `custom_tool_requests` · `billing_inquiries` · `webhook_endpoints` · `webhook_events` · `webhook_deliveries` · `api_keys` · `mail_items` · `webhook_receipts` (inbound webhook idempotency — unique on `key`, see "Inbound webhook receiver" above)
 
 Indexes ensured on startup — `backend/db_indexes.py`.
 

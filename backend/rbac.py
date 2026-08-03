@@ -43,6 +43,11 @@ PERMISSIONS: dict[str, Set[str]] = {
     "settlement.approve": {"admin", "partner", "attorney"},
     "expenses.read": {"admin", "partner", "attorney", "paralegal", "staff", "billing"},
     "expenses.draft": {"admin", "partner", "attorney", "paralegal", "staff"},
+    # Attorney gates (gates.py) — licensed-judgment actions
+    "reductions.approve": {"admin", "partner", "attorney"},
+    "disbursement.approve": {"admin", "partner", "attorney"},
+    "trust.execute": {"admin", "partner"},
+    "citations.strategy": {"admin", "partner", "attorney"},
 }
 
 
