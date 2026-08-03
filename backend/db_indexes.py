@@ -35,6 +35,25 @@ INDEX_SPECS = [
     ("api_keys", [("key_hash", 1)], True),
     ("vault_scopes", [("firm_id", 1), ("owner_user_id", 1)], False),
     ("vault_items", [("firm_id", 1), ("scope_id", 1)], False),
+    ("matters", [("firm_id", 1), ("module_id", 1)], False),
+    ("gate_decisions", [("firm_id", 1), ("resource_id", 1), ("created_at", -1)], False),
+    ("outbound_items", [("firm_id", 1), ("status", 1), ("expected_response_by", 1)], False),
+    ("outbound_items", [("firm_id", 1), ("matter_id", 1)], False),
+    ("exceptions", [("firm_id", 1), ("status", 1), ("kind", 1)], False),
+    ("ledger_entries", [("firm_id", 1), ("matter_id", 1), ("created_at", 1)], False),
+    ("liens", [("firm_id", 1), ("matter_id", 1)], False),
+    ("liens", [("firm_id", 1), ("state", 1)], False),
+    ("citations", [("firm_id", 1), ("state", 1)], False),
+    ("citations", [("firm_id", 1), ("matter_id", 1)], False),
+    ("mail_items", [("firm_id", 1), ("status", 1)], False),
+    ("mail_items", [("firm_id", 1), ("created_at", 1)], False),
+    # Inbound webhook receiver idempotency (mail_provider.py) — unique so a
+    # racing duplicate delivery can't slip past the find-then-insert check.
+    ("webhook_receipts", [("key", 1)], True),
+    ("webhook_receipts", [("firm_id", 1), ("created_at", -1)], False),
+    ("trust_reconciliations", [("firm_id", 1), ("created_at", -1)], False),
+    ("reductions", [("firm_id", 1), ("lien_id", 1)], False),
+    ("reductions", [("firm_id", 1), ("matter_id", 1), ("state", 1)], False),
 ]
 
 
