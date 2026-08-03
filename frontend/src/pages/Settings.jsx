@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
-import { Settings as SettingsIcon, LogOut, Users, Shield, Workflow, UserPlus, GraduationCap, FileText, Plug } from "lucide-react";
+import { Settings as SettingsIcon, LogOut, Users, Shield, Workflow, UserPlus, GraduationCap, FileText, Plug, Layers } from "lucide-react";
 import CopyButton from "@/components/common/CopyButton";
 import PageLoader from "@/components/common/PageLoader";
 import { toast } from "sonner";
@@ -156,6 +156,16 @@ export default function Settings() {
         </p>
         <Link to="/settings/integrations" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-integrations">
           Manage integrations →
+        </Link>
+      </div>
+
+      <div className="mt-4 data-card p-5">
+        <div className="overline mb-3 flex items-center gap-2"><Layers size={12} /> // practice areas</div>
+        <p className="text-sm text-praxium-subtle mb-3">
+          Enable practice-area modules — each adds intake packs, day-one tasks, and deadline categories on the shared core.
+        </p>
+        <Link to="/settings/modules" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-modules">
+          Manage practice areas →
         </Link>
       </div>
 

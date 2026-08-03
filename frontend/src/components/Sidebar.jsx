@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard, Briefcase, Users, FileText, CheckSquare, Calendar,
   MessageSquare, Stethoscope, Scale, BarChart3, Inbox, Settings, Sparkles,
-  Network, ScrollText, Phone, X, GraduationCap,
+  Network, ScrollText, Phone, X, GraduationCap, AlertTriangle, Gavel, Receipt, Mailbox, Landmark,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn, initials } from "@/lib/utils";
@@ -24,6 +24,11 @@ const NAV = [
   { to: "/voxline", label: "VoxLine", icon: Phone, testid: "nav-voxline" },
   { to: "/marketplace", label: "LawMatch", icon: Network, testid: "nav-marketplace" },
   { to: "/reports", label: "Reports", icon: BarChart3, testid: "nav-reports" },
+  { to: "/exceptions", label: "Exceptions", icon: AlertTriangle, testid: "nav-exceptions" },
+  { to: "/citations", label: "Citations", icon: Gavel, testid: "nav-citations" },
+  { to: "/billing", label: "Billing", icon: Receipt, testid: "nav-billing" },
+  { to: "/mailbox", label: "Intake Mailbox", icon: Mailbox, testid: "nav-mailbox" },
+  { to: "/trust", label: "Trust Recon", icon: Landmark, testid: "nav-trust" },
 ];
 
 export default function Sidebar({ onAiToggle, mobileOpen, onClose }) {

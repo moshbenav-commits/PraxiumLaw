@@ -17,6 +17,7 @@ import usePageMeta from "../components/landing/usePageMeta";
 import PraxiumLogo from "../components/PraxiumLogo";
 import { CreytixPartnerLockup } from "../components/CreytixPartnerLockup";
 import { TIERS, LEAD_FEES } from "@/data/marketing";
+import { SOLUTIONS } from "@/data/expansion";
 
 // ──────────────── data ────────────────
 const STACK = [
@@ -67,6 +68,8 @@ const STATS = [
   { value: "4.5", label: "Claude Sonnet AI built in (not 2/5 Sidebar AI)" },
 ];
 
+// Multi-practice-area badges/links are deferred until other firms sign up
+// (docs/PRAXIUMLAW_BIBLE.md 2026-08-02 entry) — PI-only for now.
 const PRACTICE_AREAS = [
   { icon: Scale, label: "Personal injury" },
   { icon: Users, label: "Family law" },
@@ -104,6 +107,7 @@ export default function Landing() {
           <nav className="hidden md:flex items-center gap-1">
             <a href="#truth" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">The math</a>
             <a href="#how" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Product</a>
+            <Link to="/solutions" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors" data-testid="landing-solutions-link">Solutions</Link>
             <Link to="/pricing" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Pricing</Link>
             <Link to="/praxa" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors" data-testid="landing-praxa-link">Praxa</Link>
             <Link to="/login" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] hover:text-praxium-accent transition-colors" data-testid="landing-login">Sign in</Link>
@@ -386,6 +390,44 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* ─── OPERATIONS LAYER (expansion solutions) ─── */}
+      <section id="operations" className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-6">// beyond case management // the operations layer</div>
+            <h2 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-4xl">
+              The systems that run<br />
+              the <span className="text-praxium-accent italic">whole firm.</span>
+            </h2>
+            <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
+              Tickets caught in the mail. Treatment kept on schedule. The billing department as software. The clerical layer retired for good.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-praxium-line border border-praxium-line">
+              {SOLUTIONS.map((s) => (
+                <Link
+                  key={s.slug}
+                  to={`/solutions/${s.slug}`}
+                  data-testid={`landing-solution-${s.slug}`}
+                  className="group bg-praxium-surface p-8 lg:p-10 hover:bg-praxium-bg transition-colors"
+                >
+                  <div className="flex items-start justify-between">
+                    <s.icon size={24} className="text-praxium-accent" strokeWidth={1.4} />
+                    <ArrowUpRight size={16} className="text-praxium-subtle group-hover:text-praxium-accent group-hover:rotate-45 transition-all" />
+                  </div>
+                  <div className="mt-5 font-display font-black text-2xl tracking-[-0.02em]">{s.name}</div>
+                  <p className="mt-3 text-sm text-praxium-ink/70 leading-relaxed">{s.headline}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-6 text-xs font-mono uppercase tracking-[0.15em]">
+              <Link to="/solutions" className="text-praxium-accent hover:underline">All solutions →</Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ─── PRAXA CONSUMER SIDE ─── */}
       <section className="bg-praxa-bg text-praxa-ink py-32 px-6 praxa-surface border-y border-praxium-line">
         <div className="max-w-7xl mx-auto grid grid-cols-12 gap-12 items-center">
@@ -573,6 +615,7 @@ export default function Landing() {
             </div>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
               <a href="#how" className="hover:text-praxium-accent transition-colors">Features</a>
+              <Link to="/solutions" className="hover:text-praxium-accent transition-colors">Solutions</Link>
               <Link to="/pricing" className="hover:text-praxium-accent transition-colors">Pricing</Link>
               <Link to="/praxa" className="hover:text-praxium-accent transition-colors">Praxa</Link>
               <Link to="/login" className="hover:text-praxium-accent transition-colors">Sign in</Link>

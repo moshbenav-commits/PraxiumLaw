@@ -1404,6 +1404,62 @@ register_provider_secret_routes(
 )
 register_training_routes(api, get_current_user)
 
+from practice_modules import register_practice_module_routes  # noqa: E402
+register_practice_module_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from gates import register_gate_routes  # noqa: E402
+register_gate_routes(api, db, get_current_user, new_id, now, log_audit)
+
+from persistence import register_persistence_routes  # noqa: E402
+register_persistence_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from exceptions_queue import register_exception_routes  # noqa: E402
+register_exception_routes(api, db, get_current_user, require_permission, new_id, now)
+
+from billing_os import register_billing_os_routes  # noqa: E402
+register_billing_os_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from citations import register_citation_routes  # noqa: E402
+register_citation_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from module_phases import register_module_phase_routes  # noqa: E402
+register_module_phase_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from mail_adapters import register_mail_adapter_routes  # noqa: E402
+register_mail_adapter_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from trust_recon import register_trust_recon_routes  # noqa: E402
+register_trust_recon_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from mail_provider import register_mail_provider_routes  # noqa: E402
+register_mail_provider_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from reductions import register_reduction_routes  # noqa: E402
+register_reduction_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
+from module_phase_engine import register_module_phase_engine_routes  # noqa: E402
+register_module_phase_engine_routes(
+    api, db, get_current_user, require_permission, new_id, now, log_audit,
+)
+
 
 async def _firm_name_for_user(user: dict) -> Optional[str]:
     firm = await _firm_for_user(user)
