@@ -16,16 +16,22 @@ FAKE_ENVELOPE = {"iv_b64": "aaaa", "tag_b64": "bbbb", "ciphertext_b64": "cccc"}
 
 @pytest.fixture
 def auth_headers():
-    import time
+    # int(time.time()) is second-granularity — this whole file's suite runs
+    # in well under a second against the shared in-memory mongomock DB
+    # (conftest.py), so two tests calling this fixture in the same second
+    # collided on the same signup email ("Email already registered"),
+    # failing every test after the first. uuid4 makes each call unique
+    # regardless of timing.
+    import uuid
 
-    ts = int(time.time())
+    unique = uuid.uuid4().hex[:12]
     r = client.post(
         "/api/auth/signup",
         json={
-            "email": f"vault+{ts}@praxium.law",
+            "email": f"vault+{unique}@praxium.law",
             "password": "Demo1234!",
             "name": "Vault Test",
-            "firm_name": f"Vault Firm {ts}",
+            "firm_name": f"Vault Firm {unique}",
         },
     )
     assert r.status_code == 200, r.text
