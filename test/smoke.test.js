@@ -23,17 +23,13 @@ test("package.json parses", () => {
   assert.doesNotThrow(() => JSON.parse(raw));
 });
 
-test("declared entry resolves or exists on disk", () => {
+test("declared entry exists on disk", () => {
   const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
   const entry = resolveEntry(pkg);
   if (!entry) return; // nothing declared — the parses-check above is the whole smoke test
   const entryAbs = path.join(__dirname, "..", entry);
-  try {
-    require(entryAbs);
-  } catch {
-    // Missing deps or a non-require()-able source (e.g. bare TypeScript
-    // without a loader) are expected in some targets — fall back to just
-    // asserting the declared entry file exists on disk.
-    assert.ok(fs.existsSync(entryAbs), `entry file ${entry} should exist`);
-  }
+  // Existence only — deliberately NOT require()d: importing an entry executes
+  // it, and server entries call listen() on import (two fleet targets bound
+  // real ports from inside this test before this was changed).
+  assert.ok(fs.existsSync(entryAbs), `entry file ${entry} should exist`);
 });
