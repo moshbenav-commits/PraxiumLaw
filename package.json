@@ -19,6 +19,7 @@
     "pi:filevine:wiring-seed": "node scripts/pi-case-os/filevine-wiring-seed.mjs",
     "pi:filevine:apply-sheet": "node scripts/pi-case-os/filevine-apply-wiring-sheet.mjs",
     "pi:filevine:gap-rollup": "node scripts/pi-case-os/filevine-wiring-gap-rollup.mjs --write",
-    "pi:filevine:capture:day1": "npm run pi:filevine:map && npm run pi:filevine:extract:day1 && npm run pi:filevine:wiring-seed"
+    "pi:filevine:capture:day1": "npm run pi:filevine:map && npm run pi:filevine:extract:day1 && npm run pi:filevine:wiring-seed",
+    "test": "node --test test/smoke.test.js"
   }
 }
