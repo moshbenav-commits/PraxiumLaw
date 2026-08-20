@@ -1025,10 +1025,10 @@ async def convert_lead(lid: str, user=Depends(get_current_user)):
     return {"matter_id": matter_id, "contact_id": contact_id, "patient_id": patient_id}
 
 
-# ──────────────── CoCounsel AI (Claude — native Anthropic API) ────────────────
+# ──────────────── CoCounsel AI (Groq free · OpenRouter fallback) ────────────────
 @api.post("/ai/chat")
 async def ai_chat(req: AiChatReq, user=Depends(get_current_user)):
-    """Streaming chat with Claude. Key: Settings → Integrations vault → env fallback."""
+    """Streaming chat (Groq free by default). Key: Integrations vault → env fallback."""
     session_id = req.session_id or new_id()
 
     # Build system message with matter context
@@ -1159,7 +1159,7 @@ async def praxa_get_journal(authorization: Optional[str] = Header(None)):
 
 @api.post("/praxa/ai-coach")
 async def praxa_ai_coach(req: dict, authorization: Optional[str] = Header(None)):
-    """Insurance coaching for Praxa consumers — claude with care-not-legal-advice guardrails."""
+    """Insurance coaching for Praxa consumers — free LLM with care-not-legal-advice guardrails."""
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(401)
     decode_token(authorization.replace("Bearer ", ""))

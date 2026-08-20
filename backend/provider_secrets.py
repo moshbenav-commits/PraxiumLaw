@@ -1,10 +1,10 @@
 """
 Praxium Suite — provider secrets vault (Settings → Integrations).
 
-Stores platform-level third-party provider credentials (Anthropic AI, Resend
-email) in Mongo, encrypted at rest with a Fernet key derived from JWT_SECRET.
-Environment variables remain a fallback so existing deploys keep working:
-resolution order is vault → env.
+Stores platform-level third-party provider credentials (OpenRouter / Groq AI,
+optional Anthropic, Resend email) in Mongo, encrypted at rest with a Fernet
+key derived from JWT_SECRET. Environment variables remain a fallback so
+existing deploys keep working: resolution order is vault → env.
 
 Also keeps a small in-process cache so sync call sites (email_util) can read
 the current value without an event loop. Async callers refresh via motor
@@ -28,9 +28,22 @@ from pydantic import BaseModel
 log = logging.getLogger("praxium.providers")
 
 # provider id → env var fallback + metadata for the settings UI
+# AI default is Groq free (see ai_provider.py). Anthropic is optional.
 PROVIDERS: dict[str, dict] = {
+    "groq": {
+        "label": "Groq (free CoCounsel + Praxa AI)",
+        "env": "GROQ_API_KEY",
+        "secret_field": "api_key",
+        "extra_fields": [],
+    },
+    "openrouter": {
+        "label": "OpenRouter (optional free fallback)",
+        "env": "OPENROUTER_API_KEY",
+        "secret_field": "api_key",
+        "extra_fields": [],
+    },
     "anthropic": {
-        "label": "Anthropic (CoCounsel + Praxa AI)",
+        "label": "Anthropic (optional — set PRAXIUM_AI_ALLOW_ANTHROPIC=1)",
         "env": "ANTHROPIC_API_KEY",
         "secret_field": "api_key",
         "extra_fields": [],
@@ -183,6 +196,28 @@ async def _test_anthropic(api_key: str) -> tuple[bool, str]:
         return False, f"{type(e).__name__}: {e}"
 
 
+def _test_openai_compat(api_key: str, *, base_url: str, model: str, label: str) -> tuple[bool, str]:
+    try:
+        resp = _requests.post(
+            f"{base_url.rstrip('/')}/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json={
+                "model": model,
+                "messages": [{"role": "user", "content": "Reply with the single word: ok"}],
+                "max_tokens": 8,
+            },
+            timeout=30,
+        )
+        if resp.status_code >= 400:
+            return False, f"{label} returned {resp.status_code}: {resp.text[:200]}"
+        content = (
+            ((resp.json().get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+        ).strip()
+        return True, f"{label} responded: {content[:60] or 'ok'}"
+    except Exception as e:  # noqa: BLE001
+        return False, f"{type(e).__name__}: {e}"
+
+
 def _test_resend(api_key: str) -> tuple[bool, str]:
     try:
         resp = _requests.get(
@@ -286,7 +321,25 @@ def register_provider_secret_routes(
         key = get_secret_cached(provider)
         if not key:
             return {"ok": False, "detail": "No key configured (vault or env)."}
-        if provider == "anthropic":
+        if provider == "groq":
+            ok, detail = _test_openai_compat(
+                key,
+                base_url="https://api.groq.com/openai/v1",
+                model=(
+                    os.environ.get("PRAXIUM_GROQ_MODEL")
+                    or os.environ.get("GROQ_MODEL")
+                    or "qwen/qwen3.6-27b"
+                ),
+                label="Groq",
+            )
+        elif provider == "openrouter":
+            ok, detail = _test_openai_compat(
+                key,
+                base_url="https://openrouter.ai/api/v1",
+                model=os.environ.get("PRAXIUM_AI_MODEL", "meta-llama/llama-3.3-70b-instruct:free"),
+                label="OpenRouter",
+            )
+        elif provider == "anthropic":
             ok, detail = await _test_anthropic(key)
         elif provider == "resend":
             ok, detail = _test_resend(key)

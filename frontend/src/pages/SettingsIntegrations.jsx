@@ -5,11 +5,27 @@ import PageLoader from "@/components/common/PageLoader";
 import { toast } from "sonner";
 
 const PROVIDER_META = {
+  groq: {
+    icon: Bot,
+    title: "CoCounsel + Praxa AI — Groq (free)",
+    blurb:
+      "Default AI lane (no Anthropic). Free-tier Groq models power CoCounsel (⌘J) and the Praxa insurance coach. Paste a Groq API key (gsk_…). Stored encrypted.",
+    placeholder: "gsk_…",
+    docs: "https://console.groq.com/keys",
+  },
+  openrouter: {
+    icon: Bot,
+    title: "AI fallback — OpenRouter (free)",
+    blurb:
+      "Used only when Groq is not set. Paste an OpenRouter key (sk-or-…) for :free community models.",
+    placeholder: "sk-or-v1-…",
+    docs: "https://openrouter.ai/keys",
+  },
   anthropic: {
     icon: Bot,
-    title: "CoCounsel AI — Anthropic",
+    title: "Anthropic (optional)",
     blurb:
-      "Powers the CoCounsel sidebar (⌘J) and the Praxa insurance coach. Paste an Anthropic API key (sk-ant-…). Stored encrypted; never shown again in full.",
+      "Not used by default. Only when the API has PRAXIUM_AI_ALLOW_ANTHROPIC=1. Prefer Groq free instead.",
     placeholder: "sk-ant-api03-…",
     docs: "https://platform.claude.com/",
   },
