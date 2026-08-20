@@ -1134,35 +1134,14 @@ async def praxa_signup(req: PraxaUserIn):
     return {"token": token, "user": {"id": uid, "email": req.email.lower(), "name": req.name}}
 
 
-@api.post("/praxa/journal")
-async def praxa_journal(entry: dict, authorization: Optional[str] = Header(None)):
-    if not authorization or not authorization.startswith("Bearer "):
-        raise HTTPException(401)
-    payload = decode_token(authorization.replace("Bearer ", ""))
-    doc = {
-        "id": new_id(), "user_id": payload["sub"],
-        "pain_level": entry.get("pain_level"), "notes": entry.get("notes"),
-        "symptoms": entry.get("symptoms", []), "created_at": now(),
-    }
-    await db.praxa_journal.insert_one(doc)
-    doc.pop("_id", None)
-    return doc
-
-
-@api.get("/praxa/journal")
-async def praxa_get_journal(authorization: Optional[str] = Header(None)):
-    if not authorization or not authorization.startswith("Bearer "):
-        raise HTTPException(401)
-    payload = decode_token(authorization.replace("Bearer ", ""))
-    return await db.praxa_journal.find({"user_id": payload["sub"]}, {"_id": 0}).sort("created_at", -1).to_list(500)
-
-
 @api.post("/praxa/ai-coach")
 async def praxa_ai_coach(req: dict, authorization: Optional[str] = Header(None)):
     """Insurance coaching for Praxa consumers — free LLM with care-not-legal-advice guardrails."""
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(401)
-    decode_token(authorization.replace("Bearer ", ""))
+    payload = decode_token(authorization.replace("Bearer ", ""))
+    if payload.get("firm") != "praxa":
+        raise HTTPException(401, "Praxa session required")
 
     session_id = req.get("session_id") or new_id()
     msg = req.get("message", "")
@@ -1395,6 +1374,7 @@ from pi_meds import (
 )
 from pi_intake import default_pi_intake, register_pi_intake_routes, merge_pi_intake
 from pi_insurance import default_pi_insurance, register_pi_insurance_routes, merge_pi_insurance
+from praxa_product import register_praxa_product_routes
 
 register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
 register_audit_routes(api, db, get_current_user, require_permission, new_id, now)
@@ -1500,6 +1480,9 @@ async def _firm_for_user(user: dict) -> Optional[dict]:
 
 register_training_template_routes(
     api, get_current_user, get_firm_name=_firm_name_for_user, get_firm_for_user=_firm_for_user
+)
+register_praxa_product_routes(
+    api, db, new_id=new_id, now=now, decode_token=decode_token
 )
 register_pi_intake_routes(api, db, get_current_user, now_iso=now)
 register_pi_insurance_routes(api, db, get_current_user, now_iso=now)

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, BookOpen, Heart, Phone, Check, Sparkles } from "lucide-react";
 import PainJournalMock from "../../components/showcase/PainJournalMock";
@@ -9,10 +10,17 @@ import usePageMeta from "../../components/landing/usePageMeta";
 import { PRAXA_TIERS } from "@/data/marketing";
 
 export default function PraxaLanding() {
+  const signedIn = useMemo(
+    () => typeof window !== "undefined" && !!localStorage.getItem("praxa_token"),
+    [],
+  );
+  const appHref = signedIn ? "/praxa/app" : "/praxa/signup";
+  const ctaLabel = signedIn ? "Open app" : "Start free";
+
   usePageMeta({
     title: "Praxa HQ — Navigate Insurance After an Injury",
     description:
-      "Track symptoms, get coached on what to say to adjusters, and find vetted doctors who bill from settlement. Free to start. Legal information, not legal advice.",
+      "Track symptoms, get coached on what to say to adjusters, and request doctor matches. Free to start. Legal information, not legal advice.",
   });
 
   return (
@@ -35,11 +43,11 @@ export default function PraxaLanding() {
           </nav>
           <div className="flex items-center gap-2">
             <Link
-              to="/praxa/signup"
+              to={appHref}
               className="hidden md:inline-flex bg-praxa-ink text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-90"
               data-testid="praxa-cta-top"
             >
-              Start free
+              {ctaLabel}
             </Link>
             <PraxaMobileNav />
           </div>
@@ -59,11 +67,19 @@ export default function PraxaLanding() {
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              to="/praxa/signup"
+              to={appHref}
               className="bg-praxa-accent text-white px-7 py-3.5 rounded-full text-base font-medium hover:opacity-90 flex items-center gap-2"
               data-testid="praxa-cta-hero"
             >
-              Get started — free <ArrowRight size={16} />
+              {signedIn ? (
+                <>
+                  Open your app <ArrowRight size={16} />
+                </>
+              ) : (
+                <>
+                  Get started — free <ArrowRight size={16} />
+                </>
+              )}
             </Link>
             <a
               href="#pricing"
@@ -127,28 +143,28 @@ export default function PraxaLanding() {
       <section id="doctors" className="bg-white border-y border-praxa-line">
         <div className="max-w-5xl mx-auto px-6 py-16 lg:py-24 grid grid-cols-12 gap-10 lg:gap-12 items-center">
           <ScrollReveal className="col-span-12 lg:col-span-6">
-            <div className="text-xs uppercase tracking-[0.2em] text-praxa-sage mb-3">Doctor network</div>
+            <div className="text-xs uppercase tracking-[0.2em] text-praxa-sage mb-3">Doctor match</div>
             <h2 className="font-light text-3xl lg:text-4xl tracking-tight leading-tight">
-              Find treatment <span className="text-praxa-accent font-semibold">today.</span>
-              <br />
-              Pay from settlement.
+              Request care that fits{" "}
+              <span className="text-praxa-accent font-semibold">your ZIP.</span>
             </h2>
             <p className="mt-5 text-praxa-subtle leading-relaxed max-w-md">
-              Vetted providers who accept a Letter of Protection — zero out-of-pocket while your case resolves. Orthopedics, imaging, chiropractic, mental health.
+              Tell us where you are and what you need. A coordinator follows up with vetted options —
+              including providers who may accept a Letter of Protection. No fake instant map of
+              doctors we don&apos;t have.
             </p>
-            <div className="mt-6 grid grid-cols-2 gap-2 max-w-sm">
+            <ul className="mt-6 space-y-2 text-sm text-praxa-ink/80 max-w-md">
               {[
-                { k: "LOP-accepting", v: "100%" },
-                { k: "Avg wait", v: "< 48 hrs" },
-                { k: "Out-of-pocket", v: "$0" },
-                { k: "In your area", v: "Vetted" },
-              ].map((s) => (
-                <div key={s.k} className="bg-praxa-bg rounded-xl p-3 border border-praxa-line">
-                  <div className="text-[10px] uppercase tracking-[0.15em] text-praxa-sage font-semibold">{s.k}</div>
-                  <div className="font-consumer font-semibold text-praxa-ink text-lg mt-1 tabular">{s.v}</div>
-                </div>
+                "Real match request — not a stock provider list",
+                "Orthopedics, PT, imaging, chiropractic, mental health",
+                "LOP preference when you need treatment before settlement",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <Check size={14} className="text-praxa-sage shrink-0 mt-0.5" />
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </ScrollReveal>
           <ScrollReveal delay={100} className="col-span-12 lg:col-span-6">
             <DoctorMatchMock />
@@ -162,10 +178,10 @@ export default function PraxaLanding() {
           <h2 className="font-semibold text-2xl lg:text-3xl tracking-tight text-center mb-10">Everything in your pocket</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { icon: BookOpen, title: "Symptom Journal", body: "Daily pain log, sleep, activities affected. Photos over time. Timestamped and exportable." },
+              { icon: BookOpen, title: "Symptom Journal", body: "Daily pain log, sleep, activities, optional photo. Timestamped CSV export when you need a record." },
               { icon: Phone, title: "Insurance Coach", body: "Adjuster called? Here's what to say — and what never to say on a recorded line." },
-              { icon: ShieldCheck, title: "Doctor Network", body: "Vetted doctors who treat now and accept Letter of Protection. No upfront cost." },
-              { icon: Heart, title: "Settlement Estimator", body: "See what comparable cases settled for. Premium tier — estimate only, not a guarantee." },
+              { icon: ShieldCheck, title: "Doctor Match", body: "Request vetted care near you. We follow up — we don't invent a live network on the screen." },
+              { icon: Heart, title: "Your data", body: "Profile, journal, and match history exportable anytime. Sign out when you're done." },
             ].map((f) => (
               <div key={f.title} className="bg-white rounded-2xl p-6 border border-praxa-line hover:shadow-md transition-shadow">
                 <f.icon className="text-praxa-accent mb-3" size={22} strokeWidth={1.6} />
@@ -218,12 +234,12 @@ export default function PraxaLanding() {
                     ))}
                   </ul>
                   <Link
-                    to="/praxa/signup"
+                    to={appHref}
                     className={`mt-8 block text-center py-3 rounded-full text-sm font-medium transition-opacity ${
                       t.popular ? "bg-praxa-accent text-white hover:opacity-90" : "bg-praxa-ink text-white hover:opacity-90"
                     }`}
                   >
-                    {t.price === 0 ? "Start free" : "Get started"}
+                    {signedIn ? "Open app" : t.price === 0 ? "Start free" : "Get started"}
                   </Link>
                 </div>
               ))}
@@ -241,11 +257,19 @@ export default function PraxaLanding() {
               Five minutes to set up. Log today&apos;s pain before you forget how it actually felt.
             </p>
             <Link
-              to="/praxa/signup"
+              to={appHref}
               className="mt-8 inline-flex items-center gap-2 bg-praxa-accent text-white px-8 py-3.5 rounded-full font-medium hover:opacity-90"
               data-testid="praxa-cta-bottom"
             >
-              Sign up free <ArrowRight size={16} />
+              {signedIn ? (
+                <>
+                  Open app <ArrowRight size={16} />
+                </>
+              ) : (
+                <>
+                  Sign up free <ArrowRight size={16} />
+                </>
+              )}
             </Link>
           </div>
           <p className="mt-8 text-xs text-praxa-subtle text-center max-w-2xl mx-auto leading-relaxed">

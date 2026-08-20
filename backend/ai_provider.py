@@ -220,6 +220,10 @@ async def stream_ai_reply(
 
     try:
         if backend in ("openrouter", "groq"):
+            extra_body: dict[str, Any] = {}
+            # Groq Qwen 3.x dumps visible <think> blocks unless reasoning is off.
+            if backend == "groq" and "qwen" in str(opts.get("model", "")).lower():
+                extra_body["reasoning_effort"] = "none"
             async for chunk in stream_openai_compat(
                 key,
                 base_url=opts["base_url"],
@@ -228,6 +232,7 @@ async def stream_ai_reply(
                 messages=msgs,
                 max_tokens=max_tokens,
                 extra_headers=opts.get("extra_headers") or {},
+                extra_body=extra_body or None,
             ):
                 yield chunk
         elif backend == "anthropic":
