@@ -28,9 +28,22 @@ from pydantic import BaseModel
 log = logging.getLogger("praxium.providers")
 
 # provider id → env var fallback + metadata for the settings UI
+# AI default is OpenRouter free (see ai_provider.py). Anthropic is optional.
 PROVIDERS: dict[str, dict] = {
+    "openrouter": {
+        "label": "OpenRouter (free CoCounsel + Praxa AI)",
+        "env": "OPENROUTER_API_KEY",
+        "secret_field": "api_key",
+        "extra_fields": [],
+    },
+    "groq": {
+        "label": "Groq (free AI fallback)",
+        "env": "GROQ_API_KEY",
+        "secret_field": "api_key",
+        "extra_fields": [],
+    },
     "anthropic": {
-        "label": "Anthropic (CoCounsel + Praxa AI)",
+        "label": "Anthropic (optional — set PRAXIUM_AI_ALLOW_ANTHROPIC=1)",
         "env": "ANTHROPIC_API_KEY",
         "secret_field": "api_key",
         "extra_fields": [],
