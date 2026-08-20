@@ -943,24 +943,31 @@ async def submit_intake(req: IntakeReq):
     _sanitize_attribution(doc)
     # Try resolve firm by slug
     firm = None
-    if req.firm_slug:
-        firm = await db.firms.find_one({"slug": req.firm_slug}, {"_id": 0})
-    if firm:
-        doc["firm_id"] = firm["id"]
-        doc["assigned_to"] = "firm"
-    else:
-        doc["assigned_to"] = "marketplace"
-    # Simple keyword-based AI score for Phase 1
-    score = 50
-    desc = (req.description or "").lower()
-    if any(w in desc for w in ["surgery", "hospital", "broken", "fracture", "permanent", "disability"]):
-        score += 25
-    if any(w in desc for w in ["insurance refused", "denied", "lawsuit", "filed"]):
-        score += 10
-    if any(w in desc for w in ["minor", "scratch", "no injury", "fine"]):
-        score -= 20
-    doc["ai_score"] = max(0, min(100, score))
-    await db.leads.insert_one(doc)
+    try:
+        if req.firm_slug:
+            firm = await db.firms.find_one({"slug": req.firm_slug}, {"_id": 0})
+        if firm:
+            doc["firm_id"] = firm["id"]
+            doc["assigned_to"] = "firm"
+        else:
+            doc["assigned_to"] = "marketplace"
+        # Simple keyword-based AI score for Phase 1
+        score = 50
+        desc = (req.description or "").lower()
+        if any(w in desc for w in ["surgery", "hospital", "broken", "fracture", "permanent", "disability"]):
+            score += 25
+        if any(w in desc for w in ["insurance refused", "denied", "lawsuit", "filed"]):
+            score += 10
+        if any(w in desc for w in ["minor", "scratch", "no injury", "fine"]):
+            score -= 20
+        doc["ai_score"] = max(0, min(100, score))
+        await db.leads.insert_one(doc)
+    except Exception:
+        log.exception("Intake persist failed (mongo unreachable or write error)")
+        raise HTTPException(
+            status_code=503,
+            detail="Intake temporarily unavailable — database unreachable. Lead was not stored.",
+        )
     doc.pop("_id", None)
     try:
         _notify_new_lead(doc)
