@@ -1,18 +1,18 @@
 {
-  "thread": "EP exit-intent — ET mobile QA done; mini-i7 CDP stills handoff",
-  "repos": ["expedia-solutions", "ExpediaTransmissions-Front"],
+  "thread": "Surgical EPP→EPT/EPE commerce port",
+  "repos": ["ExpediaTransmissions-Front", "ExpediaEngines-Front", "expedia-solutions"],
   "branch": "laptop-main",
   "inFlight": [
-    "ET mobile cart exit-intent QA PASS on vercel alias (control arm YOUR CART IS SAVED)",
-    "Fleet inbox job rewritten to cdp:image:submit (Gemini→Qwen); FLEET_PENDING row already CDP",
-    "mini-i7 SSH unreachable from laptop — job must land via git push + mini pull"
+    "EPT 581f791 + EPE 0ea7d528 + workspace 2e823170f4 pushed",
+    "Warranty add-on live in source on both subsidiaries (Coming soon)",
+    "EPE homepage rail wired (null unless design-magic pilot)",
+    "EPT homepage rail still needs transmissions-scoped design-magic kit"
   ],
-  "nextStep": "On mini-i7 after git:pull:all / fleet:post-pull: run inbox job 20260707T160856Z-ep-exit-intent-nano-batch-7-pending-reconcile-ca (7× cdp:image:submit + cart-dark poll only) → brand:image-qa:gate --apply → review :3025 → fleet:job:done",
+  "nextStep": "Port EPP src/lib/design-magic + src/components/design-magic to ExpediaTransmissions-Front (not EPE engines theme), then wire HomepageHeroDesignMagicRail. A5 sandbox still needs local non-prod Postgres.",
   "verify": [
-    "rg -n 'cdp:image:submit' docs/fleet/jobs/inbox/20260707T160856Z-ep-exit-intent-nano-batch-7-pending-reconcile-ca.json",
-    "test -f tmp/qa-exit-intent/et-mobile-squint-final.json"
+    "EPT/EPE vercel.json git.deploymentEnabled false — push did not deploy"
   ],
   "lane": "push_only",
   "push": true,
-  "updatedAt": "2026-08-20T19:56:00.000Z"
+  "updatedAt": "2026-08-21T00:10:00.000Z"
 }
