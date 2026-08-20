@@ -1,9 +1,9 @@
 {
-  "thread": "Praxium × GMI pitch + site functional",
-  "repos": ["GoldMedalInjury-Front", "expedia-solutions"],
-  "inFlight": "Pitch SSOT + canvas done; heroes on main 7cbde51; need redeploy + Praxium bridge",
-  "nextStep": "Approve GMI deploy:prod; then intake API bridge firmSlug; Frontier rebind #202",
-  "verify": "Open canvas PraxiumGmiLinePitch · docs/creytix/PRAXIUM_GMI_LINE_PITCH_AND_WIRING.md",
+  "thread": "GMI deploy + Praxium intake bridge",
+  "repos": ["GoldMedalInjury-Front", "expedia-solutions", "PraxiumLaw"],
+  "inFlight": "GMI prod live with heroes; bridge client+envs ready; Praxium /intake 500",
+  "nextStep": "Fix Praxium POST /api/intake (#206) + seed firms.slug=gold-medal-injury",
+  "verify": "https://www.goldmedalinjury.com · curl api.praxiumlaw.com/api/intake",
   "lane": "praxiumlaw / brand-sites",
-  "updatedAt": "2026-08-20T10:35:00Z"
+  "updatedAt": "2026-08-20T10:58:00Z"
 }
