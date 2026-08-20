@@ -1,19 +1,18 @@
 {
-  "thread": "AlignHeart rebrand — Phase 4b app-dir rename (aligned-chemistry-front/back -> alignheart-front/back)",
-  "repos": ["expedia-solutions"],
-  "branch": "rebrand/alignheart-phase4a",
+  "thread": "EP exit-intent — ET mobile QA done; mini-i7 CDP stills handoff",
+  "repos": ["expedia-solutions", "ExpediaTransmissions-Front"],
+  "branch": "laptop-main",
   "inFlight": [
-    "aligned-chemistry-front/ -> alignheart-front/ (git mv on disk, ~1121 D + 182 A, UNCOMMITTED)",
-    "aligned-chemistry-back/ -> alignheart-back/ (~170 D + A, UNCOMMITTED)",
-    "408 modified files repointing imports/tsconfig/paths + brand/docs/scripts",
-    "2124 total working-tree changes not yet committed"
+    "ET mobile cart exit-intent QA PASS on vercel alias (control arm YOUR CART IS SAVED)",
+    "Fleet inbox job rewritten to cdp:image:submit (Gemini→Qwen); FLEET_PENDING row already CDP",
+    "mini-i7 SSH unreachable from laptop — job must land via git push + mini pull"
   ],
-  "nextStep": "New session: (1) resume from handoff branch or working tree; (2) finish Phase 4b per docs/creytix/ALIGNHEART_REBRAND_MIGRATION_PLAN.md section 2 — fix imports/tsconfig/vercel config for renamed app dirs, ship public/assets aligned-chemistry URL redirects BEFORE any deploy, rename docs/aligned-chemistry/; (3) verify tsc --noEmit on alignheart-front + node --check changed scripts; (4) commit in small local slices (RT-05: no push/deploy without Ricardo's per-action OK). See docs/creytix/HANDOFF_ALIGNHEART_PHASE4B.md.",
+  "nextStep": "On mini-i7 after git:pull:all / fleet:post-pull: run inbox job 20260707T160856Z-ep-exit-intent-nano-batch-7-pending-reconcile-ca (7× cdp:image:submit + cart-dark poll only) → brand:image-qa:gate --apply → review :3025 → fleet:job:done",
   "verify": [
-    "test -d alignheart-front && ! test -d aligned-chemistry-front",
-    "rg -l 'aligned-chemistry-front|aligned-chemistry-back' --glob '!docs/**' --glob '!*.md' | head"
+    "rg -n 'cdp:image:submit' docs/fleet/jobs/inbox/20260707T160856Z-ep-exit-intent-nano-batch-7-pending-reconcile-ca.json",
+    "test -f tmp/qa-exit-intent/et-mobile-squint-final.json"
   ],
-  "lane": "hold_local",
-  "push": false,
-  "updatedAt": "2026-07-22T12:00:00Z"
+  "lane": "push_only",
+  "push": true,
+  "updatedAt": "2026-08-20T19:56:00.000Z"
 }
