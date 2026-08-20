@@ -1375,6 +1375,7 @@ from pi_meds import (
 from pi_intake import default_pi_intake, register_pi_intake_routes, merge_pi_intake
 from pi_insurance import default_pi_insurance, register_pi_insurance_routes, merge_pi_insurance
 from praxa_product import register_praxa_product_routes
+from praxa_ops import register_praxa_ops_routes
 
 register_identity_verification_routes(api, db, JWT_SECRET, get_current_user, new_id, now)
 register_audit_routes(api, db, get_current_user, require_permission, new_id, now)
@@ -1484,6 +1485,7 @@ register_training_template_routes(
 register_praxa_product_routes(
     api, db, new_id=new_id, now=now, decode_token=decode_token
 )
+register_praxa_ops_routes(api, db, get_current_user, now=now)
 register_pi_intake_routes(api, db, get_current_user, now_iso=now)
 register_pi_insurance_routes(api, db, get_current_user, now_iso=now)
 register_pi_meds_routes(api, db, get_current_user, new_id=new_id, now_iso=now)

@@ -54,6 +54,105 @@ class DoctorMatchIn(BaseModel):
     prefer_lop: bool = True
 
 
+class SettlementEstimateIn(BaseModel):
+    """Educational band inputs — not a case valuation."""
+
+    injury_category: str = Field(
+        description="soft_tissue | fracture | disc | surgery | catastrophic"
+    )
+    severity: int = Field(ge=1, le=5, description="1 mild … 5 severe within category")
+    treatment: str = Field(description="none | conservative | ongoing | surgery_done")
+    liability: str = Field(description="disputed | unclear | clear")
+    state: str = "CA"
+
+
+# Educational midpoint anchors (USD). Wide bands on purpose — not market comps DB.
+_ESTIMATE_BASE = {
+    "soft_tissue": (8_000, 18_000, 40_000),
+    "fracture": (25_000, 75_000, 180_000),
+    "disc": (50_000, 125_000, 275_000),
+    "surgery": (100_000, 250_000, 550_000),
+    "catastrophic": (500_000, 1_500_000, 5_000_000),
+}
+
+_TREATMENT_MULT = {
+    "none": 0.65,
+    "conservative": 1.0,
+    "ongoing": 1.15,
+    "surgery_done": 1.35,
+}
+
+_LIABILITY_MULT = {
+    "disputed": 0.55,
+    "unclear": 0.85,
+    "clear": 1.15,
+}
+
+
+def compute_settlement_estimate(body: SettlementEstimateIn) -> dict:
+    cat = (body.injury_category or "").strip().lower()
+    if cat not in _ESTIMATE_BASE:
+        raise HTTPException(
+            400,
+            f"injury_category must be one of {sorted(_ESTIMATE_BASE)}",
+        )
+    treatment = (body.treatment or "").strip().lower()
+    if treatment not in _TREATMENT_MULT:
+        raise HTTPException(400, f"treatment must be one of {sorted(_TREATMENT_MULT)}")
+    liability = (body.liability or "").strip().lower()
+    if liability not in _LIABILITY_MULT:
+        raise HTTPException(400, f"liability must be one of {sorted(_LIABILITY_MULT)}")
+
+    low0, mid0, high0 = _ESTIMATE_BASE[cat]
+    # Severity 1→0.75 … 5→1.35 of mid-band spread
+    sev = 0.75 + (body.severity - 1) * 0.15
+    t_m = _TREATMENT_MULT[treatment]
+    l_m = _LIABILITY_MULT[liability]
+    factor = sev * t_m * l_m
+
+    def _round_band(n: float) -> int:
+        if n >= 1_000_000:
+            return int(round(n / 50_000) * 50_000)
+        if n >= 100_000:
+            return int(round(n / 5_000) * 5_000)
+        return int(round(n / 1_000) * 1_000)
+
+    low = _round_band(low0 * factor)
+    mid = _round_band(mid0 * factor)
+    high = _round_band(high0 * factor)
+    if low > mid:
+        low = mid
+    if high < mid:
+        high = mid
+
+    return {
+        "currency": "USD",
+        "band": {"low": low, "mid": mid, "high": high},
+        "inputs": {
+            "injury_category": cat,
+            "severity": body.severity,
+            "treatment": treatment,
+            "liability": liability,
+            "state": (body.state or "CA").upper()[:2],
+        },
+        "methodology": (
+            "Deterministic educational ranges from category anchors × severity × "
+            "treatment × liability clarity. Not pulled from a live verdicts database."
+        ),
+        "disclaimer": (
+            "This is NOT a settlement valuation, demand number, or legal advice. "
+            "Real outcomes depend on medical proof, venue, insurance limits, liens, "
+            "comparative fault, and counsel strategy. Talk to a licensed attorney "
+            "before relying on any number."
+        ),
+        "next_steps": [
+            "Keep your symptom journal accurate and exportable",
+            "Do not sign a release without attorney review",
+            "For a free case review: goldmedalinjury.com/free-consultation",
+        ],
+    }
+
+
 def register_praxa_product_routes(
     api: APIRouter,
     db: Any,
@@ -260,3 +359,21 @@ def register_praxa_product_routes(
             "doctor_match_requests": matches,
             "notice": "Photos omitted from bulk export — open an entry to view an attached photo.",
         }
+
+    @api.post("/praxa/settlement-estimate")
+    async def praxa_settlement_estimate(
+        body: SettlementEstimateIn, authorization: Optional[str] = Header(None)
+    ):
+        payload = _auth(authorization)
+        result = compute_settlement_estimate(body)
+        # Persist last estimate for account export (no PII beyond inputs)
+        await db.praxa_estimate_runs.insert_one(
+            {
+                "id": new_id(),
+                "user_id": payload["sub"],
+                "created_at": now(),
+                "inputs": result["inputs"],
+                "band": result["band"],
+            }
+        )
+        return result
