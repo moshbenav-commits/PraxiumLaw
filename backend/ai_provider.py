@@ -98,6 +98,47 @@ async def resolve_ai_backend(db) -> tuple[str, str, dict[str, Any]]:
     return "none", "", {}
 
 
+def _strip_think_stream() -> Any:
+    """Stateful filter: drop Qwen/Groq <think>…</think> blocks from streamed text."""
+    buf = ""
+    in_think = False
+
+    def feed(chunk: str) -> str:
+        nonlocal buf, in_think
+        if not chunk:
+            return ""
+        buf += chunk
+        out: list[str] = []
+        while buf:
+            if in_think:
+                end = buf.find("</think>")
+                if end < 0:
+                    # keep a short tail in case the close tag is split across chunks
+                    if len(buf) > 16:
+                        buf = buf[-16:]
+                    return "".join(out)
+                buf = buf[end + len("</think>") :]
+                in_think = False
+                continue
+            start = buf.find("<think>")
+            if start < 0:
+                # hold a short prefix that might be a partial open tag
+                hold = min(len("<think>") - 1, len(buf))
+                if hold and "<" in buf[-hold:]:
+                    out.append(buf[:-hold])
+                    buf = buf[-hold:]
+                else:
+                    out.append(buf)
+                    buf = ""
+                return "".join(out)
+            out.append(buf[:start])
+            buf = buf[start + len("<think>") :]
+            in_think = True
+        return "".join(out)
+
+    return feed
+
+
 async def stream_openai_compat(
     api_key: str,
     *,
@@ -122,6 +163,7 @@ async def stream_openai_compat(
     }
     url = f"{base_url.rstrip('/')}/chat/completions"
     timeout = httpx.Timeout(60.0, connect=15.0)
+    filter_think = _strip_think_stream()
     async with httpx.AsyncClient(timeout=timeout) as client:
         async with client.stream("POST", url, headers=headers, json=body) as resp:
             if resp.status_code >= 400:
@@ -149,7 +191,9 @@ async def stream_openai_compat(
                 delta = choices[0].get("delta") or {}
                 content = delta.get("content")
                 if content:
-                    yield content
+                    cleaned = filter_think(content)
+                    if cleaned:
+                        yield cleaned
 
 
 async def stream_anthropic(
