@@ -29,7 +29,9 @@ export default function PraxaLanding() {
             <a href="#truth" className="hover:text-praxa-ink transition-colors">Why Praxa</a>
             <a href="#doctors" className="hover:text-praxa-ink transition-colors">Doctors</a>
             <a href="#pricing" className="hover:text-praxa-ink transition-colors">Pricing</a>
-            <Link to="/" className="hover:text-praxa-ink transition-colors">For law firms</Link>
+            <a href="https://www.praxiumlaw.com/" className="hover:text-praxa-ink transition-colors">
+              For law firms
+            </a>
           </nav>
           <div className="flex items-center gap-2">
             <Link
@@ -249,10 +251,24 @@ export default function PraxaLanding() {
           <p className="mt-8 text-xs text-praxa-subtle text-center max-w-2xl mx-auto leading-relaxed">
             Praxa provides legal information, not legal advice. For specific legal advice about your case, talk to a licensed attorney in your state. We can connect you with one from our partner network.
           </p>
-          <div className="mt-6 text-center">
-            <Link to="/" className="text-sm text-praxa-sage hover:underline">
-              For law firms? Visit Praxium Suite at www.praxiumlaw.com →
-            </Link>
+          <div className="mt-6 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center">
+            <a
+              href="https://www.goldmedalinjury.com/free-consultation"
+              className="text-sm text-praxa-sage hover:underline"
+              data-testid="praxa-gmi-intake"
+            >
+              Need a free case review? Gold Medal Injury →
+            </a>
+            <span className="hidden text-praxa-line sm:inline" aria-hidden>
+              ·
+            </span>
+            <a
+              href="https://www.praxiumlaw.com/"
+              className="text-sm text-praxa-sage hover:underline"
+              data-testid="praxa-firm-os"
+            >
+              For law firms? Praxium Suite →
+            </a>
           </div>
         </ScrollReveal>
       </section>
