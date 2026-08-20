@@ -1,9 +1,9 @@
 {
-  "thread": "Gold Medal Injury — laptop image lane + placeholder site",
+  "thread": "Praxium × GMI pitch + site functional",
   "repos": ["GoldMedalInjury-Front", "expedia-solutions"],
-  "inFlight": "Lane draining GMI stills; attorneys WebP wired on main (be2b621); live still needs deploy",
-  "nextStep": "Approve: (1) requeue stale About job ~55m (2) SKIP_POST_DEPLOY_SMOKE=1 deploy:prod for GoldMedalInjury-Front",
-  "verify": "npm run image:lane:status · https://www.goldmedalinjury.com/attorneys after deploy",
-  "lane": "media-pipeline / brand-sites",
-  "updatedAt": "2026-08-20T09:10:00Z"
+  "inFlight": "Pitch SSOT + canvas done; heroes on main 7cbde51; need redeploy + Praxium bridge",
+  "nextStep": "Approve GMI deploy:prod; then intake API bridge firmSlug; Frontier rebind #202",
+  "verify": "Open canvas PraxiumGmiLinePitch · docs/creytix/PRAXIUM_GMI_LINE_PITCH_AND_WIRING.md",
+  "lane": "praxiumlaw / brand-sites",
+  "updatedAt": "2026-08-20T10:35:00Z"
 }
