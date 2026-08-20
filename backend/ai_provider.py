@@ -28,6 +28,9 @@ async def resolve_ai_backend(db) -> tuple[str, str]:
     key = await get_secret(db, "anthropic")
     if key:
         return "anthropic", key
+    env_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if env_key:
+        return "anthropic", env_key
     legacy = os.environ.get("EMERGENT_LLM_KEY", "").strip()
     if legacy:
         return "emergent", legacy
