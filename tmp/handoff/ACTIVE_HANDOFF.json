@@ -1,18 +1,19 @@
 {
-  "thread": "Praxium intake 500 / GMI bridge",
-  "updatedAt": "2026-08-20T11:25:00Z",
-  "lane": "praxiumlaw",
-  "repos": ["PraxiumLaw"],
-  "inFlight": "mongo:false — need working Atlas MONGO_URL (vault EP URI auth-fails; EP prod mongo is not Atlas)",
-  "nextStep": "Ricardo: Atlas → Network Access allow 0.0.0.0/0 (or Vercel), create DB user, paste mongodb+srv URI as Vercel praxiumlaw-back Production MONGO_URL + DB_NAME=praxium_prod; then redeploy + seed firm",
-  "verify": [
-    "curl -s https://api.praxiumlaw.com/api/health → mongo:true",
-    "POST /api/intake with firm_slug=gold-medal-injury → ok",
-    "python ensure_gmi_firm.py after mongo up"
+  "thread": "AlignHeart rebrand — Phase 4b app-dir rename (aligned-chemistry-front/back -> alignheart-front/back)",
+  "repos": ["expedia-solutions"],
+  "branch": "rebrand/alignheart-phase4a",
+  "inFlight": [
+    "aligned-chemistry-front/ -> alignheart-front/ (git mv on disk, ~1121 D + 182 A, UNCOMMITTED)",
+    "aligned-chemistry-back/ -> alignheart-back/ (~170 D + A, UNCOMMITTED)",
+    "408 modified files repointing imports/tsconfig/paths + brand/docs/scripts",
+    "2124 total working-tree changes not yet committed"
   ],
-  "shipped": {
-    "commit": "ebfa4b6",
-    "deploy": "dpl_BgZUmPK2fwBQN9meLsB65oGRv9RT (+ redeploy pending)",
-    "behavior": "intake returns 503 instead of 500; health.mongoError class"
-  }
+  "nextStep": "New session: (1) resume from handoff branch or working tree; (2) finish Phase 4b per docs/creytix/ALIGNHEART_REBRAND_MIGRATION_PLAN.md section 2 — fix imports/tsconfig/vercel config for renamed app dirs, ship public/assets aligned-chemistry URL redirects BEFORE any deploy, rename docs/aligned-chemistry/; (3) verify tsc --noEmit on alignheart-front + node --check changed scripts; (4) commit in small local slices (RT-05: no push/deploy without Ricardo's per-action OK). See docs/creytix/HANDOFF_ALIGNHEART_PHASE4B.md.",
+  "verify": [
+    "test -d alignheart-front && ! test -d aligned-chemistry-front",
+    "rg -l 'aligned-chemistry-front|aligned-chemistry-back' --glob '!docs/**' --glob '!*.md' | head"
+  ],
+  "lane": "hold_local",
+  "push": false,
+  "updatedAt": "2026-07-22T12:00:00Z"
 }
