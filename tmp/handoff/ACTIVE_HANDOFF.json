@@ -1,10 +1,9 @@
 {
-  "thread": "Gold Medal Injury site-complete + laptop qwen-edit stills",
-  "status": "in-progress",
-  "lane": "laptop-image-lane",
-  "repos": ["expedia-solutions", "GoldMedalInjury-Front"],
-  "inFlight": "14 identity-safe qwen-edit jobs (pending 13 · running 1 · about hero first). Worker com.creytix.image-lane KeepAlive.",
-  "nextStep": "When image:lane:status shows GMI jobs in done, run image:lane:promote if needed, copy stills into GoldMedalInjury-Front/public/marketing as WebP, point assets.heroHome at gmi-hero-home and assets.heroContact at gmi-hero-contact.",
-  "verify": "npm run image:lane:status · http://localhost:3023 · http://localhost:3025/app/assets/review?site=gold-medal-injury · http://localhost:3025/app/tools/image-lane",
-  "updatedAt": "2026-08-20T08:18:00Z"
+  "thread": "Gold Medal Injury — laptop image lane + placeholder site",
+  "repos": ["GoldMedalInjury-Front", "expedia-solutions"],
+  "inFlight": "Lane draining GMI stills; attorneys WebP wired on main (be2b621); live still needs deploy",
+  "nextStep": "Approve: (1) requeue stale About job ~55m (2) SKIP_POST_DEPLOY_SMOKE=1 deploy:prod for GoldMedalInjury-Front",
+  "verify": "npm run image:lane:status · https://www.goldmedalinjury.com/attorneys after deploy",
+  "lane": "media-pipeline / brand-sites",
+  "updatedAt": "2026-08-20T09:10:00Z"
 }
