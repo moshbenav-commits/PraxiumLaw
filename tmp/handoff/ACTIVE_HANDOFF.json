@@ -1,9 +1,18 @@
 {
-  "thread": "GMI deploy + Praxium intake bridge",
-  "repos": ["GoldMedalInjury-Front", "expedia-solutions", "PraxiumLaw"],
-  "inFlight": "GMI prod live with heroes; bridge client+envs ready; Praxium /intake 500",
-  "nextStep": "Fix Praxium POST /api/intake (#206) + seed firms.slug=gold-medal-injury",
-  "verify": "https://www.goldmedalinjury.com · curl api.praxiumlaw.com/api/intake",
-  "lane": "praxiumlaw / brand-sites",
-  "updatedAt": "2026-08-20T10:58:00Z"
+  "thread": "Praxium intake 500 / GMI bridge",
+  "updatedAt": "2026-08-20T11:25:00Z",
+  "lane": "praxiumlaw",
+  "repos": ["PraxiumLaw"],
+  "inFlight": "mongo:false — need working Atlas MONGO_URL (vault EP URI auth-fails; EP prod mongo is not Atlas)",
+  "nextStep": "Ricardo: Atlas → Network Access allow 0.0.0.0/0 (or Vercel), create DB user, paste mongodb+srv URI as Vercel praxiumlaw-back Production MONGO_URL + DB_NAME=praxium_prod; then redeploy + seed firm",
+  "verify": [
+    "curl -s https://api.praxiumlaw.com/api/health → mongo:true",
+    "POST /api/intake with firm_slug=gold-medal-injury → ok",
+    "python ensure_gmi_firm.py after mongo up"
+  ],
+  "shipped": {
+    "commit": "ebfa4b6",
+    "deploy": "dpl_BgZUmPK2fwBQN9meLsB65oGRv9RT (+ redeploy pending)",
+    "behavior": "intake returns 503 instead of 500; health.mongoError class"
+  }
 }

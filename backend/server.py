@@ -1295,12 +1295,27 @@ async def root():
 
 @api.get("/health")
 async def health():
+    """Public health. mongoError is a short class only — never connection strings."""
     mongo_ok = False
+    mongo_error = None
+    mongo_configured = bool((os.environ.get("MONGO_URL") or "").strip())
     try:
         await db.command("ping")
         mongo_ok = True
-    except Exception:
+    except Exception as exc:
         mongo_ok = False
+        name = type(exc).__name__
+        msg = str(exc).lower()
+        if "auth" in msg or "authentication" in msg:
+            mongo_error = "auth_failed"
+        elif "timeout" in msg or "timed out" in msg:
+            mongo_error = "timeout"
+        elif "dns" in msg or "nodename" in msg or "srv" in msg:
+            mongo_error = "dns"
+        elif not mongo_configured:
+            mongo_error = "missing_mongo_url"
+        else:
+            mongo_error = name
     return {
         "ok": mongo_ok,
         "ts": now(),
@@ -1309,6 +1324,9 @@ async def health():
         "maxProgramPhase": MAX_PROGRAM_PHASE,
         "modules": list(BACKEND_MODULES),
         "mongo": mongo_ok,
+        "mongoConfigured": mongo_configured,
+        "mongoError": mongo_error,
+        "dbNameSet": bool((os.environ.get("DB_NAME") or "").strip()),
     }
 
 
