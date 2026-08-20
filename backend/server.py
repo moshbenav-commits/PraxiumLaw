@@ -1025,10 +1025,10 @@ async def convert_lead(lid: str, user=Depends(get_current_user)):
     return {"matter_id": matter_id, "contact_id": contact_id, "patient_id": patient_id}
 
 
-# ──────────────── CoCounsel AI (Claude — native Anthropic API) ────────────────
+# ──────────────── CoCounsel AI (Groq free · OpenRouter fallback) ────────────────
 @api.post("/ai/chat")
 async def ai_chat(req: AiChatReq, user=Depends(get_current_user)):
-    """Streaming chat (OpenRouter free by default). Key: Integrations vault → env fallback."""
+    """Streaming chat (Groq free by default). Key: Integrations vault → env fallback."""
     session_id = req.session_id or new_id()
 
     # Build system message with matter context

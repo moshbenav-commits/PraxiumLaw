@@ -28,17 +28,17 @@ from pydantic import BaseModel
 log = logging.getLogger("praxium.providers")
 
 # provider id → env var fallback + metadata for the settings UI
-# AI default is OpenRouter free (see ai_provider.py). Anthropic is optional.
+# AI default is Groq free (see ai_provider.py). Anthropic is optional.
 PROVIDERS: dict[str, dict] = {
-    "openrouter": {
-        "label": "OpenRouter (free CoCounsel + Praxa AI)",
-        "env": "OPENROUTER_API_KEY",
+    "groq": {
+        "label": "Groq (free CoCounsel + Praxa AI)",
+        "env": "GROQ_API_KEY",
         "secret_field": "api_key",
         "extra_fields": [],
     },
-    "groq": {
-        "label": "Groq (free AI fallback)",
-        "env": "GROQ_API_KEY",
+    "openrouter": {
+        "label": "OpenRouter (optional free fallback)",
+        "env": "OPENROUTER_API_KEY",
         "secret_field": "api_key",
         "extra_fields": [],
     },
@@ -321,19 +321,23 @@ def register_provider_secret_routes(
         key = get_secret_cached(provider)
         if not key:
             return {"ok": False, "detail": "No key configured (vault or env)."}
-        if provider == "openrouter":
+        if provider == "groq":
+            ok, detail = _test_openai_compat(
+                key,
+                base_url="https://api.groq.com/openai/v1",
+                model=(
+                    os.environ.get("PRAXIUM_GROQ_MODEL")
+                    or os.environ.get("GROQ_MODEL")
+                    or "qwen/qwen3.6-27b"
+                ),
+                label="Groq",
+            )
+        elif provider == "openrouter":
             ok, detail = _test_openai_compat(
                 key,
                 base_url="https://openrouter.ai/api/v1",
                 model=os.environ.get("PRAXIUM_AI_MODEL", "meta-llama/llama-3.3-70b-instruct:free"),
                 label="OpenRouter",
-            )
-        elif provider == "groq":
-            ok, detail = _test_openai_compat(
-                key,
-                base_url="https://api.groq.com/openai/v1",
-                model=os.environ.get("PRAXIUM_GROQ_MODEL", "llama-3.3-70b-versatile"),
-                label="Groq",
             )
         elif provider == "anthropic":
             ok, detail = await _test_anthropic(key)

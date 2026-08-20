@@ -1,12 +1,13 @@
 """
 Praxium Suite — AI provider (CoCounsel + Praxa coach).
 
-Default lane: **free** OpenAI-compatible chat (OpenRouter `:free` models,
-then Groq free tier). Anthropic is opt-in only (`PRAXIUM_AI_ALLOW_ANTHROPIC=1`).
+Default lane: **free** Groq chat (no Anthropic). Fallback OpenRouter `:free`
+when a working OpenRouter key is set. Anthropic is opt-in only
+(`PRAXIUM_AI_ALLOW_ANTHROPIC=1`).
 
 Key resolution order:
-  1. OpenRouter — vault `openrouter` → `OPENROUTER_API_KEY`
-  2. Groq — vault `groq` → `GROQ_API_KEY`
+  1. Groq — vault `groq` → `GROQ_API_KEY` (free tier)
+  2. OpenRouter — vault `openrouter` → `OPENROUTER_API_KEY`
   3. Anthropic — only when PRAXIUM_AI_ALLOW_ANTHROPIC=1
      (vault `anthropic` → `ANTHROPIC_API_KEY` → legacy `EMERGENT_LLM_KEY`)
 
@@ -26,9 +27,10 @@ from provider_secrets import get_secret
 
 log = logging.getLogger("praxium.ai")
 
-# Free default — OpenRouter community model ($0). Override with PRAXIUM_AI_MODEL.
+# Free default — Groq model currently available on this account's free tier.
+# Override with PRAXIUM_GROQ_MODEL or GROQ_MODEL.
+GROQ_FREE_MODEL = "qwen/qwen3.6-27b"
 OPENROUTER_FREE_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
-GROQ_FREE_MODEL = "llama-3.3-70b-versatile"
 ANTHROPIC_MODEL = os.environ.get("PRAXIUM_AI_ANTHROPIC_MODEL", "claude-sonnet-4-5-20250929")
 
 
@@ -46,11 +48,27 @@ def _openrouter_model() -> str:
 
 
 def _groq_model() -> str:
-    return os.environ.get("PRAXIUM_GROQ_MODEL", GROQ_FREE_MODEL).strip() or GROQ_FREE_MODEL
+    return (
+        os.environ.get("PRAXIUM_GROQ_MODEL")
+        or os.environ.get("GROQ_MODEL")
+        or GROQ_FREE_MODEL
+    ).strip() or GROQ_FREE_MODEL
 
 
 async def resolve_ai_backend(db) -> tuple[str, str, dict[str, Any]]:
-    """Returns (backend, key, opts). backend: openrouter | groq | anthropic | emergent | none."""
+    """Returns (backend, key, opts). backend: groq | openrouter | anthropic | emergent | none."""
+    groq_key = await get_secret(db, "groq") or os.environ.get("GROQ_API_KEY", "").strip()
+    if groq_key:
+        return (
+            "groq",
+            groq_key,
+            {
+                "model": _groq_model(),
+                "base_url": "https://api.groq.com/openai/v1",
+                "extra_headers": {},
+            },
+        )
+
     or_key = await get_secret(db, "openrouter") or os.environ.get("OPENROUTER_API_KEY", "").strip()
     if or_key:
         return (
@@ -63,18 +81,6 @@ async def resolve_ai_backend(db) -> tuple[str, str, dict[str, Any]]:
                     "HTTP-Referer": os.environ.get("PRAXIUM_PUBLIC_URL", "https://www.praxiumlaw.com"),
                     "X-Title": "Praxium Suite",
                 },
-            },
-        )
-
-    groq_key = await get_secret(db, "groq") or os.environ.get("GROQ_API_KEY", "").strip()
-    if groq_key:
-        return (
-            "groq",
-            groq_key,
-            {
-                "model": _groq_model(),
-                "base_url": "https://api.groq.com/openai/v1",
-                "extra_headers": {},
             },
         )
 
@@ -101,6 +107,7 @@ async def stream_openai_compat(
     messages: list[dict],
     max_tokens: int = 2048,
     extra_headers: Optional[dict[str, str]] = None,
+    extra_body: Optional[dict[str, Any]] = None,
 ) -> AsyncIterator[str]:
     """Stream text from an OpenAI-compatible /chat/completions endpoint."""
     headers = {
@@ -113,6 +120,7 @@ async def stream_openai_compat(
         "messages": [{"role": "system", "content": system}, *messages],
         "stream": True,
         "max_tokens": max_tokens,
+        **(extra_body or {}),
     }
     url = f"{base_url.rstrip('/')}/chat/completions"
     timeout = httpx.Timeout(60.0, connect=15.0)
@@ -198,8 +206,8 @@ async def stream_ai_reply(
     backend, key, opts = await resolve_ai_backend(db)
     if backend == "none":
         yield (
-            "[Error: AI is not configured. Set OPENROUTER_API_KEY (free models) or "
-            "GROQ_API_KEY on the API, or attach a key under Settings → Integrations.]"
+            "[Error: AI is not configured. Set GROQ_API_KEY (free) on the API, "
+            "or attach a Groq key under Settings → Integrations.]"
         )
         return
 
@@ -212,6 +220,10 @@ async def stream_ai_reply(
 
     try:
         if backend in ("openrouter", "groq"):
+            extra_body: dict[str, Any] = {}
+            # Groq Qwen 3.x dumps visible <think> blocks unless reasoning is off.
+            if backend == "groq" and "qwen" in str(opts.get("model", "")).lower():
+                extra_body["reasoning_effort"] = "none"
             async for chunk in stream_openai_compat(
                 key,
                 base_url=opts["base_url"],
@@ -220,6 +232,7 @@ async def stream_ai_reply(
                 messages=msgs,
                 max_tokens=max_tokens,
                 extra_headers=opts.get("extra_headers") or {},
+                extra_body=extra_body or None,
             ):
                 yield chunk
         elif backend == "anthropic":

@@ -5,27 +5,27 @@ import PageLoader from "@/components/common/PageLoader";
 import { toast } from "sonner";
 
 const PROVIDER_META = {
-  openrouter: {
-    icon: Bot,
-    title: "CoCounsel + Praxa AI — OpenRouter (free)",
-    blurb:
-      "Default AI lane. Uses free OpenRouter models (e.g. Llama 3.3 70B :free) for CoCounsel (⌘J) and the Praxa insurance coach. Paste an OpenRouter key (sk-or-…). Stored encrypted.",
-    placeholder: "sk-or-v1-…",
-    docs: "https://openrouter.ai/keys",
-  },
   groq: {
     icon: Bot,
-    title: "AI fallback — Groq (free tier)",
+    title: "CoCounsel + Praxa AI — Groq (free)",
     blurb:
-      "Used when OpenRouter is not set. Paste a Groq API key. Free-tier Llama models.",
+      "Default AI lane (no Anthropic). Free-tier Groq models power CoCounsel (⌘J) and the Praxa insurance coach. Paste a Groq API key (gsk_…). Stored encrypted.",
     placeholder: "gsk_…",
     docs: "https://console.groq.com/keys",
+  },
+  openrouter: {
+    icon: Bot,
+    title: "AI fallback — OpenRouter (free)",
+    blurb:
+      "Used only when Groq is not set. Paste an OpenRouter key (sk-or-…) for :free community models.",
+    placeholder: "sk-or-v1-…",
+    docs: "https://openrouter.ai/keys",
   },
   anthropic: {
     icon: Bot,
     title: "Anthropic (optional)",
     blurb:
-      "Not used by default. Only when the API has PRAXIUM_AI_ALLOW_ANTHROPIC=1. Prefer OpenRouter free instead.",
+      "Not used by default. Only when the API has PRAXIUM_AI_ALLOW_ANTHROPIC=1. Prefer Groq free instead.",
     placeholder: "sk-ant-api03-…",
     docs: "https://platform.claude.com/",
   },
