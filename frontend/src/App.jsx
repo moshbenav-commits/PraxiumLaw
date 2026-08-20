@@ -33,6 +33,7 @@ import Calendar from "@/pages/Calendar";
 import Documents from "@/pages/Documents";
 import Chat from "@/pages/Chat";
 import MedConnect from "@/pages/MedConnect";
+import PraxaDoctorMatchQueue from "@/pages/PraxaDoctorMatchQueue";
 import CourtConnect from "@/pages/CourtConnect";
 import NativeSign from "@/pages/NativeSign";
 import VoxLine from "@/pages/VoxLine";
@@ -155,6 +156,7 @@ function App() {
             <Route path="/documents" element={<Documents />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/medconnect" element={<MedConnect />} />
+            <Route path="/praxa-matches" element={<PraxaDoctorMatchQueue />} />
             <Route path="/courtconnect" element={<CourtConnect />} />
             <Route path="/esign" element={<NativeSign />} />
             <Route path="/voxline" element={<VoxLine />} />

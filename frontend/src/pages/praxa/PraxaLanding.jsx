@@ -181,7 +181,7 @@ export default function PraxaLanding() {
               { icon: BookOpen, title: "Symptom Journal", body: "Daily pain log, sleep, activities, optional photo. Timestamped CSV export when you need a record." },
               { icon: Phone, title: "Insurance Coach", body: "Adjuster called? Here's what to say — and what never to say on a recorded line." },
               { icon: ShieldCheck, title: "Doctor Match", body: "Request vetted care near you. We follow up — we don't invent a live network on the screen." },
-              { icon: Heart, title: "Your data", body: "Profile, journal, and match history exportable anytime. Sign out when you're done." },
+              { icon: Heart, title: "Settlement estimator", body: "Educational dollar bands from injury + treatment + liability clarity. Not a valuation of your case." },
             ].map((f) => (
               <div key={f.title} className="bg-white rounded-2xl p-6 border border-praxa-line hover:shadow-md transition-shadow">
                 <f.icon className="text-praxa-accent mb-3" size={22} strokeWidth={1.6} />

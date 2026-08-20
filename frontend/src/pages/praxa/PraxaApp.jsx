@@ -14,6 +14,7 @@ import {
   LogOut,
   Camera,
   Check,
+  Calculator,
 } from "lucide-react";
 
 const SYMPTOMS = [
@@ -120,6 +121,7 @@ export default function PraxaApp() {
         {tab === "home" && <HomeTab user={user} onGo={setTab} />}
         {tab === "journal" && <JournalTab />}
         {tab === "coach" && <CoachTab />}
+        {tab === "estimate" && <EstimateTab />}
         {tab === "providers" && <DoctorsTab />}
         {tab === "account" && (
           <AccountTab user={user} setUser={setUser} onLogout={() => logout(nav)} />
@@ -127,11 +129,12 @@ export default function PraxaApp() {
       </div>
 
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-praxa-line z-40">
-        <div className="max-w-md mx-auto grid grid-cols-5">
+        <div className="max-w-md mx-auto grid grid-cols-6">
           {[
             { id: "home", icon: Heart, label: "Home" },
             { id: "journal", icon: BookOpen, label: "Journal" },
             { id: "coach", icon: MessageCircle, label: "Coach" },
+            { id: "estimate", icon: Calculator, label: "Estimate" },
             { id: "providers", icon: ShieldCheck, label: "Doctors" },
             { id: "account", icon: User, label: "Account" },
           ].map((t) => (
@@ -144,8 +147,8 @@ export default function PraxaApp() {
                 tab === t.id ? "text-praxa-accent" : "text-praxa-subtle"
               }`}
             >
-              <t.icon size={18} />
-              <span className="text-[10px] uppercase tracking-widest">{t.label}</span>
+              <t.icon size={16} />
+              <span className="text-[9px] uppercase tracking-widest">{t.label}</span>
             </button>
           ))}
         </div>
@@ -201,6 +204,21 @@ function HomeTab({ user, onGo }) {
           className="mt-3 text-sm text-praxa-accent"
         >
           Ask coach →
+        </button>
+      </div>
+
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line">
+        <div className="text-xs uppercase tracking-widest text-praxa-sage">Educational range</div>
+        <div className="mt-2 font-semibold">Settlement estimator</div>
+        <p className="text-sm text-praxa-subtle mt-1">
+          Wide educational bands only — not what your case is worth.
+        </p>
+        <button
+          type="button"
+          onClick={() => onGo("estimate")}
+          className="mt-3 text-sm text-praxa-accent font-medium"
+        >
+          Run estimate →
         </button>
       </div>
 
@@ -590,6 +608,157 @@ function CoachTab() {
           {streaming ? <Loader2 className="animate-spin" size={14} /> : <Send size={14} />}
         </button>
       </div>
+    </div>
+  );
+}
+
+function EstimateTab() {
+  const [injury, setInjury] = useState("soft_tissue");
+  const [severity, setSeverity] = useState(3);
+  const [treatment, setTreatment] = useState("conservative");
+  const [liability, setLiability] = useState("unclear");
+  const [result, setResult] = useState(null);
+  const [err, setErr] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  const money = (n) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    }).format(n);
+
+  const run = async () => {
+    setSaving(true);
+    setErr("");
+    try {
+      const r = await api.post(
+        "/praxa/settlement-estimate",
+        {
+          injury_category: injury,
+          severity,
+          treatment,
+          liability,
+          state: "CA",
+        },
+        { headers: authHeaders() },
+      );
+      setResult(r.data);
+    } catch (e) {
+      setErr(e?.response?.data?.detail || "Could not run estimate");
+      setResult(null);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="space-y-4">
+      <h1 className="text-3xl font-light">Settlement estimator</h1>
+      <p className="text-sm text-praxa-subtle">
+        Educational ranges only. Not a valuation of your case. Not legal advice.
+      </p>
+
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-4">
+        <div>
+          <label className="text-xs uppercase tracking-widest text-praxa-sage">Injury category</label>
+          <select
+            value={injury}
+            onChange={(e) => setInjury(e.target.value)}
+            className="mt-1 w-full px-4 py-3 border border-praxa-line rounded-xl text-sm bg-white"
+            data-testid="estimate-injury"
+          >
+            <option value="soft_tissue">Soft tissue / sprain-strain</option>
+            <option value="fracture">Fracture</option>
+            <option value="disc">Disc injury</option>
+            <option value="surgery">Surgery indicated / done</option>
+            <option value="catastrophic">Catastrophic / TBI / paralysis</option>
+          </select>
+        </div>
+        <div>
+          <label className="text-xs uppercase tracking-widest text-praxa-sage">
+            Severity within category (1–5)
+          </label>
+          <div className="mt-2 flex gap-1">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setSeverity(n)}
+                className={`flex-1 h-9 rounded-md text-sm ${
+                  severity === n ? "bg-praxa-accent text-white" : "bg-praxa-line text-praxa-subtle"
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <label className="text-xs uppercase tracking-widest text-praxa-sage">Treatment so far</label>
+          <select
+            value={treatment}
+            onChange={(e) => setTreatment(e.target.value)}
+            className="mt-1 w-full px-4 py-3 border border-praxa-line rounded-xl text-sm bg-white"
+            data-testid="estimate-treatment"
+          >
+            <option value="none">Little / none yet</option>
+            <option value="conservative">Conservative care (PT, meds)</option>
+            <option value="ongoing">Ongoing specialist care</option>
+            <option value="surgery_done">Surgery completed</option>
+          </select>
+        </div>
+        <div>
+          <label className="text-xs uppercase tracking-widest text-praxa-sage">Liability clarity</label>
+          <select
+            value={liability}
+            onChange={(e) => setLiability(e.target.value)}
+            className="mt-1 w-full px-4 py-3 border border-praxa-line rounded-xl text-sm bg-white"
+            data-testid="estimate-liability"
+          >
+            <option value="disputed">Disputed / shared fault</option>
+            <option value="unclear">Unclear</option>
+            <option value="clear">Clear other-party fault</option>
+          </select>
+        </div>
+        {err && <p className="text-sm text-red-600">{err}</p>}
+        <button
+          type="button"
+          onClick={run}
+          disabled={saving}
+          data-testid="estimate-run"
+          className="bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium disabled:opacity-50"
+        >
+          {saving ? "Calculating…" : "Show educational range"}
+        </button>
+      </div>
+
+      {result && (
+        <div className="bg-praxa-ink text-white rounded-3xl p-6 space-y-3" data-testid="estimate-result">
+          <div className="text-xs uppercase tracking-widest text-white/50">Illustrative band</div>
+          <div className="text-2xl font-light tabular">
+            {money(result.band.low)} – {money(result.band.high)}
+          </div>
+          <div className="text-sm text-white/70">
+            Midpoint of this exercise: <span className="text-white font-medium">{money(result.band.mid)}</span>
+          </div>
+          <p className="text-xs text-white/55 leading-relaxed border-t border-white/10 pt-3">
+            {result.disclaimer}
+          </p>
+          <p className="text-[11px] text-white/40">{result.methodology}</p>
+          <ul className="text-xs text-white/70 space-y-1">
+            {(result.next_steps || []).map((s) => (
+              <li key={s}>· {s}</li>
+            ))}
+          </ul>
+          <a
+            href="https://www.goldmedalinjury.com/free-consultation"
+            className="inline-block mt-2 text-sm text-praxa-accent"
+          >
+            Free case review →
+          </a>
+        </div>
+      )}
     </div>
   );
 }
