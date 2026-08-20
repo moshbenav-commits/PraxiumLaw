@@ -65,10 +65,10 @@ def register_praxa_product_routes(
     def _auth(authorization: Optional[str]) -> dict:
         if not authorization or not authorization.startswith("Bearer "):
             raise HTTPException(401, "Sign in to Praxa to continue")
-        payload = decode_token(authorization.replace("Bearer ", ""))
-        if payload.get("firm") not in (None, "praxa") and payload.get("firm") != "praxa":
-            # make_token(uid, "praxa") stores firm="praxa"
-            pass
+        try:
+            payload = decode_token(authorization.replace("Bearer ", ""))
+        except Exception as e:  # noqa: BLE001
+            raise HTTPException(401, "Invalid or expired session") from e
         if payload.get("firm") != "praxa":
             raise HTTPException(401, "Praxa session required")
         return payload
@@ -124,8 +124,7 @@ def register_praxa_product_routes(
         return {"user": user}
 
     @api.post("/praxa/journal")
-    async def praxa_journal_v2(entry: PraxaJournalIn, authorization: Optional[str] = Header(None)):
-        """Supersedes loose dict handler when this module is registered after — see server wiring."""
+    async def praxa_journal_create(entry: PraxaJournalIn, authorization: Optional[str] = Header(None)):
         payload = _auth(authorization)
         photo = _validate_photo(entry.photo_data_url)
         doc = {
@@ -137,51 +136,23 @@ def register_praxa_product_routes(
             "sleep_quality": entry.sleep_quality,
             "activities_affected": (entry.activities_affected or "").strip()[:500],
             "photo_data_url": photo,
+            "has_photo": bool(photo),
             "created_at": now(),
         }
         await db.praxa_journal.insert_one(doc)
         doc.pop("_id", None)
-        # Never return huge photo twice in list views — include once here
         return doc
 
     @api.get("/praxa/journal")
-    async def praxa_get_journal_v2(authorization: Optional[str] = Header(None)):
+    async def praxa_journal_list(authorization: Optional[str] = Header(None)):
         payload = _auth(authorization)
         rows = await db.praxa_journal.find(
             {"user_id": payload["sub"]},
             {"_id": 0, "photo_data_url": 0},
         ).sort("created_at", -1).to_list(500)
-        # Attach has_photo flag via second pass for entries that have photos
-        ids = [r["id"] for r in rows]
-        if ids:
-            with_photo = {
-                d["id"]
-                for d in await db.praxa_journal.find(
-                    {"id": {"$in": ids}, "photo_data_url": {"$exists": True, "$ne": None}},
-                    {"id": 1, "_id": 0},
-                ).to_list(500)
-            }
-            for r in rows:
-                r["has_photo"] = r["id"] in with_photo
+        for r in rows:
+            r["has_photo"] = bool(r.get("has_photo"))
         return rows
-
-    @api.get("/praxa/journal/{entry_id}")
-    async def praxa_journal_one(entry_id: str, authorization: Optional[str] = Header(None)):
-        payload = _auth(authorization)
-        doc = await db.praxa_journal.find_one(
-            {"id": entry_id, "user_id": payload["sub"]}, {"_id": 0}
-        )
-        if not doc:
-            raise HTTPException(404)
-        return doc
-
-    @api.delete("/praxa/journal/{entry_id}")
-    async def praxa_journal_delete(entry_id: str, authorization: Optional[str] = Header(None)):
-        payload = _auth(authorization)
-        res = await db.praxa_journal.delete_one({"id": entry_id, "user_id": payload["sub"]})
-        if res.deleted_count == 0:
-            raise HTTPException(404)
-        return {"ok": True}
 
     @api.get("/praxa/journal/export.csv")
     async def praxa_journal_export(authorization: Optional[str] = Header(None)):
@@ -214,38 +185,29 @@ def register_praxa_product_routes(
                     "yes" if r.get("has_photo") else "no",
                 ]
             )
-        # has_photo not on docs without second query — compute
-        data = buf.getvalue()
-        # Fix has_photo column properly
-        buf2 = io.StringIO()
-        w2 = csv.writer(buf2)
-        w2.writerow(
-            [
-                "created_at",
-                "pain_level",
-                "sleep_quality",
-                "symptoms",
-                "activities_affected",
-                "notes",
-            ]
-        )
-        for r in rows:
-            w2.writerow(
-                [
-                    r.get("created_at", ""),
-                    r.get("pain_level", ""),
-                    r.get("sleep_quality", ""),
-                    ";".join(r.get("symptoms") or []),
-                    r.get("activities_affected", ""),
-                    (r.get("notes") or "").replace("\n", " "),
-                ]
-            )
-        data = buf2.getvalue()
         return StreamingResponse(
-            iter([data]),
+            iter([buf.getvalue()]),
             media_type="text/csv",
             headers={"Content-Disposition": 'attachment; filename="praxa-journal.csv"'},
         )
+
+    @api.get("/praxa/journal/{entry_id}")
+    async def praxa_journal_one(entry_id: str, authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        doc = await db.praxa_journal.find_one(
+            {"id": entry_id, "user_id": payload["sub"]}, {"_id": 0}
+        )
+        if not doc:
+            raise HTTPException(404)
+        return doc
+
+    @api.delete("/praxa/journal/{entry_id}")
+    async def praxa_journal_delete(entry_id: str, authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        res = await db.praxa_journal.delete_one({"id": entry_id, "user_id": payload["sub"]})
+        if res.deleted_count == 0:
+            raise HTTPException(404)
+        return {"ok": True}
 
     @api.post("/praxa/doctor-match")
     async def praxa_doctor_match(body: DoctorMatchIn, authorization: Optional[str] = Header(None)):
@@ -270,7 +232,7 @@ def register_praxa_product_routes(
             "request": doc,
             "message": (
                 "Match request received. A coordinator will follow up with vetted options "
-                "near your ZIP. This is not a live directory listing."
+                "near your ZIP. This is not an instant directory listing."
             ),
         }
 
@@ -296,5 +258,5 @@ def register_praxa_product_routes(
             "user": user,
             "journal": journal,
             "doctor_match_requests": matches,
-            "notice": "Photos omitted from bulk export — open individual entries to download images.",
+            "notice": "Photos omitted from bulk export — open an entry to view an attached photo.",
         }

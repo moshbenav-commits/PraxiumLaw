@@ -1,53 +1,149 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api, { streamAiChat } from "@/lib/api";
-import { BookOpen, MessageCircle, ShieldCheck, Phone, Send, Loader2, Heart } from "lucide-react";
+import {
+  BookOpen,
+  MessageCircle,
+  ShieldCheck,
+  Send,
+  Loader2,
+  Heart,
+  Download,
+  Trash2,
+  User,
+  LogOut,
+  Camera,
+  Check,
+} from "lucide-react";
+
+const SYMPTOMS = [
+  { id: "neck", label: "Neck" },
+  { id: "back", label: "Back" },
+  { id: "headache", label: "Headache" },
+  { id: "shoulder", label: "Shoulder" },
+  { id: "knee", label: "Knee" },
+  { id: "hip", label: "Hip" },
+  { id: "sleep", label: "Sleep issues" },
+  { id: "anxiety", label: "Anxiety" },
+  { id: "numbness", label: "Numbness" },
+  { id: "dizziness", label: "Dizziness" },
+  { id: "other", label: "Other" },
+];
+
+const SPECIALTIES = [
+  { id: "general", label: "General / not sure" },
+  { id: "ortho", label: "Orthopedics" },
+  { id: "pt", label: "Physical therapy" },
+  { id: "chiro", label: "Chiropractic" },
+  { id: "imaging", label: "Imaging / MRI" },
+  { id: "mental", label: "Mental health" },
+];
+
+function authHeaders() {
+  return { Authorization: `Bearer ${localStorage.getItem("praxa_token")}` };
+}
+
+function timeOfDay() {
+  const h = new Date().getHours();
+  if (h < 12) return "morning";
+  if (h < 18) return "afternoon";
+  return "evening";
+}
+
+function logout(nav) {
+  localStorage.removeItem("praxa_token");
+  localStorage.removeItem("praxa_user");
+  nav("/praxa");
+}
 
 export default function PraxaApp() {
   const nav = useNavigate();
   const [tab, setTab] = useState("home");
   const [user, setUser] = useState(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const u = localStorage.getItem("praxa_user");
     const t = localStorage.getItem("praxa_token");
-    if (!u || !t) { nav("/praxa/signup"); return; }
+    if (!u || !t) {
+      nav("/praxa/signup");
+      return;
+    }
     setUser(JSON.parse(u));
-  }, []);
+    setReady(true);
+    api
+      .get("/praxa/me", { headers: authHeaders() })
+      .then((r) => {
+        if (r.data?.user) {
+          setUser(r.data.user);
+          localStorage.setItem("praxa_user", JSON.stringify(r.data.user));
+        }
+      })
+      .catch(() => {});
+  }, [nav]);
 
-  if (!user) return null;
+  if (!ready || !user) {
+    return (
+      <div className="min-h-screen bg-praxa-bg flex items-center justify-center text-praxa-subtle text-sm">
+        <Loader2 className="animate-spin mr-2" size={16} /> Loading…
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-praxa-bg praxa-surface text-praxa-ink pb-20">
-      {/* Top */}
+    <div className="min-h-screen bg-praxa-bg praxa-surface text-praxa-ink pb-24">
       <header className="sticky top-0 z-40 bg-praxa-bg/80 backdrop-blur-xl border-b border-praxa-line">
         <div className="max-w-md mx-auto px-5 py-4 flex items-center justify-between">
           <Link to="/praxa" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-praxa-accent flex items-center justify-center text-white text-sm font-bold">π</div>
-            <span className="font-semibold tracking-tight">Praxa <span className="text-praxa-sage text-[10px] font-normal ml-0.5 uppercase tracking-widest">HQ</span></span>
+            <div className="w-7 h-7 rounded-full bg-praxa-accent flex items-center justify-center text-white text-sm font-bold">
+              π
+            </div>
+            <span className="font-semibold tracking-tight">
+              Praxa{" "}
+              <span className="text-praxa-sage text-[10px] font-normal ml-0.5 uppercase tracking-widest">
+                HQ
+              </span>
+            </span>
           </Link>
-          <div className="text-xs text-praxa-sage">Hi, {user.name?.split(" ")[0]}</div>
+          <button
+            type="button"
+            onClick={() => setTab("account")}
+            className="text-xs text-praxa-sage hover:text-praxa-ink"
+            data-testid="praxa-open-account"
+          >
+            Hi, {user.name?.split(" ")[0] || "there"}
+          </button>
         </div>
       </header>
 
       <div className="max-w-md mx-auto px-5 py-6">
-        {tab === "home" && <HomeTab user={user} />}
+        {tab === "home" && <HomeTab user={user} onGo={setTab} />}
         {tab === "journal" && <JournalTab />}
         {tab === "coach" && <CoachTab />}
-        {tab === "providers" && <ProvidersTab />}
+        {tab === "providers" && <DoctorsTab />}
+        {tab === "account" && (
+          <AccountTab user={user} setUser={setUser} onLogout={() => logout(nav)} />
+        )}
       </div>
 
-      {/* Bottom nav */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-praxa-line">
-        <div className="max-w-md mx-auto grid grid-cols-4">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-praxa-line z-40">
+        <div className="max-w-md mx-auto grid grid-cols-5">
           {[
             { id: "home", icon: Heart, label: "Home" },
             { id: "journal", icon: BookOpen, label: "Journal" },
             { id: "coach", icon: MessageCircle, label: "Coach" },
             { id: "providers", icon: ShieldCheck, label: "Doctors" },
+            { id: "account", icon: User, label: "Account" },
           ].map((t) => (
-            <button key={t.id} onClick={() => setTab(t.id)} data-testid={`praxa-tab-${t.id}`}
-              className={`flex flex-col items-center gap-1 py-3 ${tab === t.id ? "text-praxa-accent" : "text-praxa-subtle"}`}>
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setTab(t.id)}
+              data-testid={`praxa-tab-${t.id}`}
+              className={`flex flex-col items-center gap-1 py-3 ${
+                tab === t.id ? "text-praxa-accent" : "text-praxa-subtle"
+              }`}
+            >
               <t.icon size={18} />
               <span className="text-[10px] uppercase tracking-widest">{t.label}</span>
             </button>
@@ -58,82 +154,330 @@ export default function PraxaApp() {
   );
 }
 
-function HomeTab({ user }) {
+function HomeTab({ user, onGo }) {
   return (
     <div className="space-y-4">
       <div>
         <div className="text-xs uppercase tracking-widest text-praxa-sage">Today</div>
         <h1 className="text-3xl font-light mt-1">Good {timeOfDay()}.</h1>
+        <p className="text-sm text-praxa-subtle mt-1">
+          {user.name?.split(" ")[0]}, keep a real record — not a tough face.
+        </p>
       </div>
 
       <div className="bg-white rounded-3xl p-6 border border-praxa-line">
-        <div className="text-xs uppercase tracking-widest text-praxa-sage">Today's check-in</div>
+        <div className="text-xs uppercase tracking-widest text-praxa-sage">Today&apos;s check-in</div>
         <div className="mt-2 text-xl font-semibold">How are you feeling?</div>
-        <p className="text-sm text-praxa-subtle mt-1">Be honest. Future-you will thank present-you.</p>
-        <button onClick={() => document.querySelector("[data-testid='praxa-tab-journal']")?.click()} data-testid="praxa-quick-log"
-          className="mt-4 bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium">Log today →</button>
+        <p className="text-sm text-praxa-subtle mt-1">
+          Pain, sleep, what you couldn&apos;t do. Future-you will thank present-you.
+        </p>
+        <button
+          type="button"
+          onClick={() => onGo("journal")}
+          data-testid="praxa-quick-log"
+          className="mt-4 bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium"
+        >
+          Log today →
+        </button>
       </div>
 
       <div className="bg-white rounded-3xl p-6 border border-praxa-line">
         <div className="text-xs uppercase tracking-widest text-praxa-sage">Insurance rule #1</div>
         <div className="mt-2 text-xl font-semibold leading-tight">Be accurate. Not strong.</div>
-        <p className="text-sm text-praxa-subtle mt-2">When the adjuster asks "How are you?" — describe what hurts. Don't say "I'm fine" to be polite.</p>
+        <p className="text-sm text-praxa-subtle mt-2">
+          When the adjuster asks &ldquo;How are you?&rdquo; — describe what hurts. Don&apos;t say
+          &ldquo;I&apos;m fine&rdquo; to be polite.
+        </p>
       </div>
 
       <div className="bg-praxa-ink text-white rounded-3xl p-6">
         <div className="text-xs uppercase tracking-widest text-white/60">Ask your coach</div>
-        <div className="mt-2 text-lg font-semibold">"They want a recorded statement. What do I do?"</div>
-        <button onClick={() => document.querySelector("[data-testid='praxa-tab-coach']")?.click()} className="mt-3 text-sm text-praxa-accent flex items-center gap-1">
+        <div className="mt-2 text-lg font-semibold">
+          &ldquo;They want a recorded statement. What do I do?&rdquo;
+        </div>
+        <button
+          type="button"
+          onClick={() => onGo("coach")}
+          className="mt-3 text-sm text-praxa-accent"
+        >
           Ask coach →
+        </button>
+      </div>
+
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line">
+        <div className="text-xs uppercase tracking-widest text-praxa-sage">Need care?</div>
+        <div className="mt-2 font-semibold">Request a doctor match</div>
+        <p className="text-sm text-praxa-subtle mt-1">
+          Tell us your ZIP and specialty. A coordinator follows up — not a fake instant list.
+        </p>
+        <button
+          type="button"
+          onClick={() => onGo("providers")}
+          className="mt-3 text-sm text-praxa-accent font-medium"
+        >
+          Request match →
         </button>
       </div>
     </div>
   );
 }
 
-function timeOfDay() {
-  const h = new Date().getHours();
-  if (h < 12) return "morning";
-  if (h < 18) return "afternoon";
-  return "evening";
-}
-
 function JournalTab() {
   const [entries, setEntries] = useState([]);
   const [painLevel, setPainLevel] = useState(5);
   const [notes, setNotes] = useState("");
+  const [symptoms, setSymptoms] = useState([]);
+  const [sleep, setSleep] = useState(null);
+  const [activities, setActivities] = useState("");
+  const [photo, setPhoto] = useState(null);
+  const [saving, setSaving] = useState(false);
+  const [err, setErr] = useState("");
+  const fileRef = useRef(null);
 
-  const load = () => api.get("/praxa/journal", { headers: { Authorization: `Bearer ${localStorage.getItem("praxa_token")}` } }).then((r) => setEntries(r.data));
-  useEffect(load, []);
+  const load = useCallback(() => {
+    api
+      .get("/praxa/journal", { headers: authHeaders() })
+      .then((r) => setEntries(r.data || []))
+      .catch(() => setEntries([]));
+  }, []);
+
+  useEffect(load, [load]);
+
+  const toggleSymptom = (id) => {
+    setSymptoms((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
+  };
+
+  const onPhoto = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      setErr("Choose an image file");
+      return;
+    }
+    if (file.size > 150_000) {
+      setErr("Photo must be under ~150KB — try a smaller photo");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setPhoto(String(reader.result));
+      setErr("");
+    };
+    reader.readAsDataURL(file);
+  };
 
   const log = async () => {
-    await api.post("/praxa/journal", { pain_level: painLevel, notes }, { headers: { Authorization: `Bearer ${localStorage.getItem("praxa_token")}` } });
-    setNotes("");
+    setSaving(true);
+    setErr("");
+    try {
+      await api.post(
+        "/praxa/journal",
+        {
+          pain_level: painLevel,
+          notes,
+          symptoms,
+          sleep_quality: sleep,
+          activities_affected: activities,
+          photo_data_url: photo || undefined,
+        },
+        { headers: authHeaders() },
+      );
+      setNotes("");
+      setSymptoms([]);
+      setSleep(null);
+      setActivities("");
+      setPhoto(null);
+      if (fileRef.current) fileRef.current.value = "";
+      load();
+    } catch (e) {
+      setErr(e?.response?.data?.detail || "Could not save entry");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const remove = async (id) => {
+    if (!window.confirm("Delete this journal entry?")) return;
+    await api.delete(`/praxa/journal/${id}`, { headers: authHeaders() });
     load();
+  };
+
+  const exportCsv = async () => {
+    const res = await api.get("/praxa/journal/export.csv", {
+      headers: authHeaders(),
+      responseType: "blob",
+    });
+    const url = URL.createObjectURL(res.data);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "praxa-journal.csv";
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
     <div className="space-y-4">
-      <h1 className="text-3xl font-light">Journal</h1>
-      <div className="bg-white rounded-3xl p-6 border border-praxa-line">
-        <div className="text-xs uppercase tracking-widest text-praxa-sage">Pain level today</div>
-        <div className="mt-3 grid grid-cols-10 gap-1">
-          {Array.from({ length: 10 }, (_, i) => (
-            <button key={i} onClick={() => setPainLevel(i + 1)} data-testid={`pain-${i + 1}`}
-              className={`h-10 rounded-md text-sm font-mono ${i < painLevel ? "bg-praxa-accent text-white" : "bg-praxa-line text-praxa-subtle"}`}>{i + 1}</button>
-          ))}
-        </div>
-        <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} placeholder="What's going on today?"
-          data-testid="journal-notes" className="mt-4 w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent" />
-        <button onClick={log} data-testid="journal-log" className="mt-3 bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium">Log entry</button>
+      <div className="flex items-center justify-between gap-3">
+        <h1 className="text-3xl font-light">Journal</h1>
+        <button
+          type="button"
+          onClick={exportCsv}
+          className="text-xs flex items-center gap-1 text-praxa-sage hover:text-praxa-ink"
+          data-testid="journal-export"
+        >
+          <Download size={14} /> Export CSV
+        </button>
       </div>
+
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-4">
+        <div>
+          <div className="text-xs uppercase tracking-widest text-praxa-sage">Pain level (0–10)</div>
+          <div className="mt-3 grid grid-cols-11 gap-1">
+            {Array.from({ length: 11 }, (_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setPainLevel(i)}
+                data-testid={`pain-${i}`}
+                className={`h-9 rounded-md text-xs font-mono ${
+                  i <= painLevel ? "bg-praxa-accent text-white" : "bg-praxa-line text-praxa-subtle"
+                }`}
+              >
+                {i}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="text-xs uppercase tracking-widest text-praxa-sage mb-2">Symptoms</div>
+          <div className="flex flex-wrap gap-1.5">
+            {SYMPTOMS.map((s) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => toggleSymptom(s.id)}
+                className={`text-xs px-2.5 py-1.5 rounded-full border ${
+                  symptoms.includes(s.id)
+                    ? "bg-praxa-accent text-white border-praxa-accent"
+                    : "border-praxa-line text-praxa-subtle"
+                }`}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="text-xs uppercase tracking-widest text-praxa-sage mb-2">Sleep (1–5)</div>
+          <div className="flex gap-1">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setSleep(n)}
+                className={`flex-1 h-9 rounded-md text-sm ${
+                  sleep === n ? "bg-praxa-ink text-white" : "bg-praxa-line text-praxa-subtle"
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <input
+          value={activities}
+          onChange={(e) => setActivities(e.target.value)}
+          placeholder="Activities you couldn't do today"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+          data-testid="journal-activities"
+        />
+
+        <textarea
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          rows={3}
+          placeholder="What's going on today?"
+          data-testid="journal-notes"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+        />
+
+        <div className="flex items-center gap-3">
+          <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onPhoto} />
+          <button
+            type="button"
+            onClick={() => fileRef.current?.click()}
+            className="text-sm flex items-center gap-1.5 text-praxa-sage border border-praxa-line px-3 py-2 rounded-full"
+          >
+            <Camera size={14} /> {photo ? "Photo attached" : "Add photo"}
+          </button>
+          {photo && (
+            <button type="button" onClick={() => setPhoto(null)} className="text-xs text-praxa-subtle">
+              Remove
+            </button>
+          )}
+        </div>
+
+        {err && <p className="text-sm text-red-600">{err}</p>}
+
+        <button
+          type="button"
+          onClick={log}
+          disabled={saving}
+          data-testid="journal-log"
+          className="bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium disabled:opacity-60"
+        >
+          {saving ? "Saving…" : "Log entry"}
+        </button>
+      </div>
+
       <div className="space-y-2">
+        {entries.length === 0 && (
+          <p className="text-sm text-praxa-subtle text-center py-6">No entries yet. Log today.</p>
+        )}
         {entries.map((e) => (
-          <div key={e.id} className="bg-white border border-praxa-line p-4 rounded-2xl" data-testid={`entry-${e.id}`}>
-            <div className="flex justify-between items-center">
-              <span className="text-xs uppercase tracking-widest text-praxa-sage">{new Date(e.created_at).toLocaleDateString()}</span>
-              <span className="font-mono text-sm">{e.pain_level}/10</span>
+          <div
+            key={e.id}
+            className="bg-white border border-praxa-line p-4 rounded-2xl"
+            data-testid={`entry-${e.id}`}
+          >
+            <div className="flex justify-between items-start gap-2">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-praxa-sage">
+                  {new Date(e.created_at).toLocaleString()}
+                </span>
+                <div className="font-mono text-sm mt-0.5">
+                  Pain {e.pain_level}/10
+                  {e.sleep_quality != null ? ` · Sleep ${e.sleep_quality}/5` : ""}
+                  {e.has_photo ? " · 📷" : ""}
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => remove(e.id)}
+                className="text-praxa-subtle hover:text-red-600 p-1"
+                aria-label="Delete entry"
+              >
+                <Trash2 size={14} />
+              </button>
             </div>
+            {(e.symptoms || []).length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-1">
+                {e.symptoms.map((s) => (
+                  <span
+                    key={s}
+                    className="text-[10px] uppercase tracking-wider bg-praxa-bg border border-praxa-line px-2 py-0.5 rounded-full"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            )}
+            {e.activities_affected && (
+              <p className="mt-2 text-sm text-praxa-subtle">Couldn&apos;t: {e.activities_affected}</p>
+            )}
             {e.notes && <p className="mt-2 text-sm">{e.notes}</p>}
           </div>
         ))}
@@ -148,7 +492,9 @@ function CoachTab() {
   const [streaming, setStreaming] = useState(false);
   const [sid, setSid] = useState(null);
   const endRef = useRef(null);
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const send = async (text) => {
     if (!text.trim() || streaming) return;
@@ -157,43 +503,90 @@ function CoachTab() {
     setStreaming(true);
     try {
       await streamAiChat({
-        isPraxa: true, message: text, sessionId: sid,
-        onChunk: (_, full) => setMessages((m) => { const c = [...m]; c[c.length - 1] = { role: "assistant", content: full }; return c; }),
+        isPraxa: true,
+        message: text,
+        sessionId: sid,
+        onChunk: (_, full) =>
+          setMessages((m) => {
+            const c = [...m];
+            c[c.length - 1] = { role: "assistant", content: full };
+            return c;
+          }),
         onDone: (_, s) => setSid(s),
       });
-    } finally { setStreaming(false); }
+    } finally {
+      setStreaming(false);
+    }
   };
 
   return (
     <div className="flex flex-col h-[calc(100vh-180px)]">
-      <h1 className="text-3xl font-light mb-3">Insurance Coach</h1>
+      <h1 className="text-3xl font-light mb-1">Insurance Coach</h1>
+      <p className="text-xs text-praxa-subtle mb-3">
+        General information only — not legal advice for your case.
+      </p>
       <div className="flex-1 overflow-y-auto space-y-3 pb-3">
         {messages.length === 0 && (
           <div className="bg-white border border-praxa-line rounded-2xl p-5">
-            <div className="text-sm text-praxa-subtle">Hey. I'm your coach. Ask me anything about your insurance situation. I'll give you the playbook — not legal advice.</div>
+            <div className="text-sm text-praxa-subtle">
+              Ask about adjuster calls, releases, deadlines, or scary letters. I&apos;ll give you the
+              playbook — then point you to a licensed attorney for case-specific advice.
+            </div>
             <div className="mt-3 space-y-1.5">
-              {["What do I say if they call?", "Should I sign their release?", "How long do I have to file?"].map((q) => (
-                <button key={q} onClick={() => send(q)} data-testid={`coach-quick-${q.slice(0, 10)}`}
-                  className="w-full text-left px-3 py-2 text-sm bg-praxa-bg rounded-xl">{q}</button>
+              {[
+                "What do I say if they call?",
+                "Should I sign their release?",
+                "How long do I have to file?",
+              ].map((q) => (
+                <button
+                  key={q}
+                  type="button"
+                  onClick={() => send(q)}
+                  data-testid={`coach-quick-${q.slice(0, 10)}`}
+                  className="w-full text-left px-3 py-2 text-sm bg-praxa-bg rounded-xl"
+                >
+                  {q}
+                </button>
               ))}
             </div>
           </div>
         )}
         {messages.map((m, i) => (
           <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-            <div className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm whitespace-pre-wrap ${m.role === "user" ? "bg-praxa-accent text-white" : "bg-white border border-praxa-line"}`}>
-              {m.content || (streaming && i === messages.length - 1 ? <Loader2 className="animate-spin" size={14} /> : "")}
+            <div
+              className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm whitespace-pre-wrap ${
+                m.role === "user"
+                  ? "bg-praxa-accent text-white"
+                  : "bg-white border border-praxa-line"
+              }`}
+            >
+              {m.content ||
+                (streaming && i === messages.length - 1 ? (
+                  <Loader2 className="animate-spin" size={14} />
+                ) : (
+                  ""
+                ))}
             </div>
           </div>
         ))}
         <div ref={endRef} />
       </div>
       <div className="flex gap-2 sticky bottom-20">
-        <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send(input)}
-          placeholder="Ask anything..." data-testid="coach-input"
-          className="flex-1 px-4 py-2.5 border border-praxa-line rounded-full text-sm outline-none focus:border-praxa-accent bg-white" />
-        <button onClick={() => send(input)} disabled={!input.trim() || streaming} data-testid="coach-send"
-          className="bg-praxa-accent text-white w-10 h-10 rounded-full flex items-center justify-center">
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && send(input)}
+          placeholder="Ask anything..."
+          data-testid="coach-input"
+          className="flex-1 px-4 py-2.5 border border-praxa-line rounded-full text-sm outline-none focus:border-praxa-accent bg-white"
+        />
+        <button
+          type="button"
+          onClick={() => send(input)}
+          disabled={!input.trim() || streaming}
+          data-testid="coach-send"
+          className="bg-praxa-accent text-white w-10 h-10 rounded-full flex items-center justify-center"
+        >
           {streaming ? <Loader2 className="animate-spin" size={14} /> : <Send size={14} />}
         </button>
       </div>
@@ -201,30 +594,245 @@ function CoachTab() {
   );
 }
 
-function ProvidersTab() {
+function DoctorsTab() {
+  const [zip, setZip] = useState("");
+  const [specialty, setSpecialty] = useState("general");
+  const [notes, setNotes] = useState("");
+  const [preferLop, setPreferLop] = useState(true);
+  const [requests, setRequests] = useState([]);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  const load = useCallback(() => {
+    api
+      .get("/praxa/doctor-match", { headers: authHeaders() })
+      .then((r) => setRequests(r.data || []))
+      .catch(() => setRequests([]));
+  }, []);
+
+  useEffect(load, [load]);
+
+  const submit = async () => {
+    setSaving(true);
+    setErr("");
+    setMsg("");
+    try {
+      const r = await api.post(
+        "/praxa/doctor-match",
+        { zip_code: zip, specialty, notes, prefer_lop: preferLop },
+        { headers: authHeaders() },
+      );
+      setMsg(r.data?.message || "Request received.");
+      setZip("");
+      setNotes("");
+      load();
+    } catch (e) {
+      setErr(e?.response?.data?.detail || "Could not submit request");
+    } finally {
+      setSaving(false);
+    }
+  };
+
   return (
     <div className="space-y-4">
-      <h1 className="text-3xl font-light">Doctor Network</h1>
-      <p className="text-sm text-praxa-subtle">Vetted providers near you who treat now, bill the settlement (Letter of Protection).</p>
-      <div className="space-y-2">
-        {[
-          { name: "Dr. M. Patel, MD", spec: "Orthopedic", dist: "1.2 mi", lop: true },
-          { name: "Coastal PT", spec: "Physical Therapy", dist: "2.4 mi", lop: true },
-          { name: "Spine MRI Center", spec: "Imaging", dist: "3.1 mi", lop: true },
-        ].map((p) => (
-          <div key={p.name} className="bg-white rounded-2xl p-4 border border-praxa-line" data-testid={`provider-card-${p.name.slice(0, 6)}`}>
-            <div className="flex justify-between items-start">
-              <div>
-                <div className="font-semibold">{p.name}</div>
-                <div className="text-xs text-praxa-subtle">{p.spec} · {p.dist}</div>
-              </div>
-              {p.lop && <span className="text-[10px] uppercase tracking-widest bg-praxa-sage text-white px-2 py-0.5 rounded-full">LOP</span>}
-            </div>
-            <button className="mt-3 text-sm text-praxa-accent flex items-center gap-1"><Phone size={12} /> Book →</button>
-          </div>
-        ))}
+      <h1 className="text-3xl font-light">Doctor match</h1>
+      <p className="text-sm text-praxa-subtle">
+        We don&apos;t show a fake directory. Submit your ZIP and needs — a coordinator follows up with
+        vetted options, including Letter of Protection where available.
+      </p>
+
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-4">
+        <div>
+          <label className="text-xs uppercase tracking-widest text-praxa-sage">ZIP code</label>
+          <input
+            value={zip}
+            onChange={(e) => setZip(e.target.value)}
+            inputMode="numeric"
+            placeholder="92101"
+            data-testid="doctor-zip"
+            className="mt-1 w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+          />
+        </div>
+        <div>
+          <label className="text-xs uppercase tracking-widest text-praxa-sage">Specialty</label>
+          <select
+            value={specialty}
+            onChange={(e) => setSpecialty(e.target.value)}
+            className="mt-1 w-full px-4 py-3 border border-praxa-line rounded-xl text-sm bg-white outline-none focus:border-praxa-accent"
+            data-testid="doctor-specialty"
+          >
+            {SPECIALTIES.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <textarea
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          rows={3}
+          placeholder="Injuries, preferred language, insurance situation…"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+          data-testid="doctor-notes"
+        />
+        <label className="flex items-center gap-2 text-sm cursor-pointer">
+          <input
+            type="checkbox"
+            checked={preferLop}
+            onChange={(e) => setPreferLop(e.target.checked)}
+            className="rounded border-praxa-line"
+          />
+          Prefer providers who accept Letter of Protection
+        </label>
+        {err && <p className="text-sm text-red-600">{err}</p>}
+        {msg && (
+          <p className="text-sm text-praxa-sage flex items-start gap-2">
+            <Check size={16} className="shrink-0 mt-0.5" /> {msg}
+          </p>
+        )}
+        <button
+          type="button"
+          onClick={submit}
+          disabled={saving || zip.replace(/\D/g, "").length < 5}
+          data-testid="doctor-match-submit"
+          className="bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium disabled:opacity-50"
+        >
+          {saving ? "Sending…" : "Request match"}
+        </button>
       </div>
-      <p className="text-[10px] text-praxa-subtle">Network is curated by outcomes, not paid placement. No referral kickbacks.</p>
+
+      {requests.length > 0 && (
+        <div className="space-y-2">
+          <div className="text-xs uppercase tracking-widest text-praxa-sage">Your requests</div>
+          {requests.map((r) => (
+            <div
+              key={r.id}
+              className="bg-white border border-praxa-line rounded-2xl p-4 text-sm"
+              data-testid={`match-req-${r.id}`}
+            >
+              <div className="flex justify-between gap-2">
+                <span className="font-medium">
+                  ZIP {r.zip_code} · {r.specialty}
+                </span>
+                <span className="text-[10px] uppercase tracking-widest text-praxa-sage">
+                  {r.status}
+                </span>
+              </div>
+              <div className="text-xs text-praxa-subtle mt-1">
+                {new Date(r.created_at).toLocaleString()}
+                {r.prefer_lop ? " · LOP preferred" : ""}
+              </div>
+              {r.notes && <p className="mt-2 text-praxa-subtle">{r.notes}</p>}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function AccountTab({ user, setUser, onLogout }) {
+  const [name, setName] = useState(user.name || "");
+  const [phone, setPhone] = useState(user.phone || "");
+  const [incident, setIncident] = useState(user.incident_date || "");
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState("");
+
+  const save = async () => {
+    setSaving(true);
+    setMsg("");
+    try {
+      const r = await api.patch(
+        "/praxa/me",
+        { name, phone, incident_date: incident || undefined },
+        { headers: authHeaders() },
+      );
+      if (r.data?.user) {
+        setUser(r.data.user);
+        localStorage.setItem("praxa_user", JSON.stringify(r.data.user));
+      }
+      setMsg("Saved.");
+    } catch (e) {
+      setMsg(e?.response?.data?.detail || "Could not save");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const exportAll = async () => {
+    const r = await api.get("/praxa/export.json", { headers: authHeaders() });
+    const blob = new Blob([JSON.stringify(r.data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "praxa-export.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div className="space-y-4">
+      <h1 className="text-3xl font-light">Account</h1>
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-3">
+        <div className="text-xs text-praxa-subtle">{user.email}</div>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+          data-testid="account-name"
+        />
+        <input
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Phone"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+        />
+        <input
+          type="date"
+          value={incident}
+          onChange={(e) => setIncident(e.target.value)}
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+        />
+        {msg && <p className="text-sm text-praxa-sage">{msg}</p>}
+        <button
+          type="button"
+          onClick={save}
+          disabled={saving}
+          className="bg-praxa-ink text-white px-5 py-2.5 rounded-full text-sm font-medium"
+          data-testid="account-save"
+        >
+          {saving ? "Saving…" : "Save profile"}
+        </button>
+      </div>
+
+      <button
+        type="button"
+        onClick={exportAll}
+        className="w-full flex items-center justify-center gap-2 bg-white border border-praxa-line rounded-2xl py-3 text-sm"
+        data-testid="account-export"
+      >
+        <Download size={14} /> Download my data (JSON)
+      </button>
+
+      <p className="text-[11px] text-praxa-subtle leading-relaxed">
+        Praxa provides legal information, not legal advice. For advice about your case, talk to a
+        licensed attorney.{" "}
+        <a href="https://www.goldmedalinjury.com/free-consultation" className="text-praxa-sage underline">
+          Free case review →
+        </a>
+      </p>
+
+      <button
+        type="button"
+        onClick={onLogout}
+        className="w-full flex items-center justify-center gap-2 text-sm text-praxa-subtle py-3"
+        data-testid="account-logout"
+      >
+        <LogOut size={14} /> Sign out
+      </button>
     </div>
   );
 }
