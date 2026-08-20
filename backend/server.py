@@ -943,24 +943,31 @@ async def submit_intake(req: IntakeReq):
     _sanitize_attribution(doc)
     # Try resolve firm by slug
     firm = None
-    if req.firm_slug:
-        firm = await db.firms.find_one({"slug": req.firm_slug}, {"_id": 0})
-    if firm:
-        doc["firm_id"] = firm["id"]
-        doc["assigned_to"] = "firm"
-    else:
-        doc["assigned_to"] = "marketplace"
-    # Simple keyword-based AI score for Phase 1
-    score = 50
-    desc = (req.description or "").lower()
-    if any(w in desc for w in ["surgery", "hospital", "broken", "fracture", "permanent", "disability"]):
-        score += 25
-    if any(w in desc for w in ["insurance refused", "denied", "lawsuit", "filed"]):
-        score += 10
-    if any(w in desc for w in ["minor", "scratch", "no injury", "fine"]):
-        score -= 20
-    doc["ai_score"] = max(0, min(100, score))
-    await db.leads.insert_one(doc)
+    try:
+        if req.firm_slug:
+            firm = await db.firms.find_one({"slug": req.firm_slug}, {"_id": 0})
+        if firm:
+            doc["firm_id"] = firm["id"]
+            doc["assigned_to"] = "firm"
+        else:
+            doc["assigned_to"] = "marketplace"
+        # Simple keyword-based AI score for Phase 1
+        score = 50
+        desc = (req.description or "").lower()
+        if any(w in desc for w in ["surgery", "hospital", "broken", "fracture", "permanent", "disability"]):
+            score += 25
+        if any(w in desc for w in ["insurance refused", "denied", "lawsuit", "filed"]):
+            score += 10
+        if any(w in desc for w in ["minor", "scratch", "no injury", "fine"]):
+            score -= 20
+        doc["ai_score"] = max(0, min(100, score))
+        await db.leads.insert_one(doc)
+    except Exception:
+        log.exception("Intake persist failed (mongo unreachable or write error)")
+        raise HTTPException(
+            status_code=503,
+            detail="Intake temporarily unavailable — database unreachable. Lead was not stored.",
+        )
     doc.pop("_id", None)
     try:
         _notify_new_lead(doc)
@@ -1288,12 +1295,27 @@ async def root():
 
 @api.get("/health")
 async def health():
+    """Public health. mongoError is a short class only — never connection strings."""
     mongo_ok = False
+    mongo_error = None
+    mongo_configured = bool((os.environ.get("MONGO_URL") or "").strip())
     try:
         await db.command("ping")
         mongo_ok = True
-    except Exception:
+    except Exception as exc:
         mongo_ok = False
+        name = type(exc).__name__
+        msg = str(exc).lower()
+        if "auth" in msg or "authentication" in msg:
+            mongo_error = "auth_failed"
+        elif "timeout" in msg or "timed out" in msg:
+            mongo_error = "timeout"
+        elif "dns" in msg or "nodename" in msg or "srv" in msg:
+            mongo_error = "dns"
+        elif not mongo_configured:
+            mongo_error = "missing_mongo_url"
+        else:
+            mongo_error = name
     return {
         "ok": mongo_ok,
         "ts": now(),
@@ -1302,6 +1324,9 @@ async def health():
         "maxProgramPhase": MAX_PROGRAM_PHASE,
         "modules": list(BACKEND_MODULES),
         "mongo": mongo_ok,
+        "mongoConfigured": mongo_configured,
+        "mongoError": mongo_error,
+        "dbNameSet": bool((os.environ.get("DB_NAME") or "").strip()),
     }
 
 
