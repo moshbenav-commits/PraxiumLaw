@@ -201,7 +201,7 @@ export default function PraxaLanding() {
             <h2 className="font-semibold text-3xl lg:text-4xl tracking-tight text-center">Honest numbers. No surprises.</h2>
             <p className="mt-4 text-praxa-subtle text-center max-w-lg mx-auto">
               Free forever for the basics — including one educational settlement estimate.
-              Premium unlocks unlimited runs. Card checkout is not live yet; request Premium or redeem a code.
+              Premium unlocks unlimited runs. Subscribe from Account when card checkout is enabled, or request Premium / redeem a code.
             </p>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
               {PRAXA_TIERS.map((t) => (

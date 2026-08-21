@@ -12,9 +12,20 @@ import os
 import re
 from typing import Any, Callable, Optional
 
-from fastapi import APIRouter, Header, HTTPException
+from fastapi import APIRouter, Header, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
+
+from praxa_stripe import (
+    SKU_PREMIUM,
+    SKU_SECOND_OPINION,
+    apply_checkout_completed,
+    checkout_disabled_message,
+    checkout_enabled,
+    create_checkout_session,
+    frontend_base_url,
+    verify_and_parse_webhook,
+)
 
 
 MAX_PHOTO_BYTES = 280_000  # ~280KB data URL payload after base64
@@ -84,6 +95,10 @@ class SecondOpinionIn(BaseModel):
     summary: str
     goals: str = ""
     urgency: str = "normal"  # normal | soon | urgent
+
+
+class CheckoutIn(BaseModel):
+    sku: str  # premium | second_opinion
 
 
 class DocumentIn(BaseModel):
@@ -273,6 +288,7 @@ def register_praxa_product_routes(
         payload = _auth(authorization)
         user = await _load_user(payload["sub"])
         runs = await db.praxa_estimate_runs.count_documents({"user_id": payload["sub"]})
+        card_checkout = checkout_enabled()
         return {
             "user": user,
             "entitlements": {
@@ -280,9 +296,11 @@ def register_praxa_product_routes(
                 "estimate_runs_used": runs,
                 "estimate_runs_free_limit": FREE_ESTIMATE_RUNS,
                 "estimates_unlimited": _normalize_plan(user) == "premium",
-                "card_checkout": False,
+                "card_checkout": card_checkout,
                 "checkout_note": (
-                    "Card billing is not live yet. Request Premium interest or redeem a code."
+                    "Subscribe with card from Account — Premium $9.99/mo or Second Opinion $99."
+                    if card_checkout
+                    else "Card billing is not live yet. Request Premium interest or redeem a code."
                 ),
             },
         }
@@ -321,14 +339,17 @@ def register_praxa_product_routes(
         }
         await db.praxa_upgrade_interest.insert_one(doc)
         doc.pop("_id", None)
-        return {
-            "ok": True,
-            "interest": doc,
-            "message": (
+        if checkout_enabled():
+            msg = (
+                "Thanks — we recorded your interest. You can also subscribe instantly from "
+                "Account when card checkout is enabled on this environment."
+            )
+        else:
+            msg = (
                 "Thanks — we recorded your Premium interest. Card checkout is not live yet; "
                 "a coordinator can unlock Premium when you're ready."
-            ),
-        }
+            )
+        return {"ok": True, "interest": doc, "message": msg}
 
     @api.post("/praxa/redeem-code")
     async def praxa_redeem_code(
@@ -344,6 +365,44 @@ def register_praxa_product_routes(
         )
         user = await _load_user(payload["sub"])
         return {"ok": True, "user": user, "message": "Premium unlocked."}
+
+    @api.post("/praxa/checkout")
+    async def praxa_checkout(body: CheckoutIn, authorization: Optional[str] = Header(None)):
+        if not checkout_enabled():
+            raise HTTPException(503, checkout_disabled_message())
+        payload = _auth(authorization)
+        user = await _load_user(payload["sub"])
+        sku = (body.sku or "").strip().lower()
+        if sku not in {SKU_PREMIUM, SKU_SECOND_OPINION}:
+            raise HTTPException(400, f"sku must be premium or second_opinion")
+        if sku == SKU_PREMIUM and _normalize_plan(user) == "premium":
+            raise HTTPException(400, "You already have Premium.")
+        base = frontend_base_url()
+        success_url = f"{base}/praxa/app?checkout=success&session_id={{CHECKOUT_SESSION_ID}}"
+        cancel_url = f"{base}/praxa/app?checkout=cancel"
+        try:
+            session = create_checkout_session(user, sku, success_url, cancel_url)
+        except ValueError as e:
+            raise HTTPException(400, str(e)) from e
+        except RuntimeError as e:
+            raise HTTPException(502, str(e)) from e
+        return session
+
+    @api.post("/praxa/stripe/webhook")
+    async def praxa_stripe_webhook(request: Request):
+        payload = await request.body()
+        sig = request.headers.get("stripe-signature") or request.headers.get("Stripe-Signature")
+        try:
+            event = verify_and_parse_webhook(payload, sig)
+        except ValueError as e:
+            raise HTTPException(400, str(e)) from e
+        if event.get("type") == "checkout.session.completed":
+            session_obj = (event.get("data") or {}).get("object") or {}
+            try:
+                await apply_checkout_completed(db, session_obj, now())
+            except ValueError as e:
+                raise HTTPException(400, str(e)) from e
+        return {"received": True}
 
     @api.post("/praxa/journal")
     async def praxa_journal_create(entry: PraxaJournalIn, authorization: Optional[str] = Header(None)):
@@ -627,18 +686,24 @@ def register_praxa_product_routes(
         plan = _normalize_plan(user)
         used = await db.praxa_estimate_runs.count_documents({"user_id": payload["sub"]})
         if plan != "premium" and used >= FREE_ESTIMATE_RUNS:
+            card_checkout = checkout_enabled()
             raise HTTPException(
                 status_code=402,
                 detail={
                     "code": "premium_required",
                     "message": (
-                        "Free includes one educational estimate. Upgrade to Premium for "
-                        "unlimited runs — card checkout is not live yet; request Premium "
-                        "or redeem a code."
+                        "Free includes one educational estimate. Subscribe to Premium "
+                        "($9.99/mo) from Account for unlimited runs."
+                        if card_checkout
+                        else (
+                            "Free includes one educational estimate. Upgrade to Premium for "
+                            "unlimited runs — card checkout is not live yet; request Premium "
+                            "or redeem a code."
+                        )
                     ),
                     "estimate_runs_used": used,
                     "estimate_runs_free_limit": FREE_ESTIMATE_RUNS,
-                    "card_checkout": False,
+                    "card_checkout": card_checkout,
                 },
             )
         result = compute_settlement_estimate(body)
