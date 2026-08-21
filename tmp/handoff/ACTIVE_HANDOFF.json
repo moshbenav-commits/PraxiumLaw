@@ -1,11 +1,9 @@
 {
-  "thread": "Session Drive (PRC-031) — idle LaunchAgent loaded; this chat's drive work done",
-  "repos": [
-    "expedia-solutions"
-  ],
-  "inFlight": null,
-  "nextStep": null,
-  "verify": "launchctl print gui/$(id -u)/com.expedia.creytix.session-drive-idle",
+  "thread": "Fleet functional consultation — landfill follow-up pushed; Week 3 P7 dry-run next",
+  "repos": ["expedia-solutions"],
+  "inFlight": "image:existing:review --site=creytix --limit=40 --dry-run",
+  "nextStep": "Fold P7 dry-run counts into media-pipeline Stage 2; do not --queue REPLACE without Ricardo. Do not deploy EP front unless he says deploy it.",
+  "verify": "git log -1 --oneline 6572c1222b; npm run projects:gates | rg Unclassified || true",
   "lane": "creytix-platform",
-  "updatedAt": "2026-08-21T18:15:39.546Z"
+  "updatedAt": "2026-08-21T18:35:00.000Z"
 }
