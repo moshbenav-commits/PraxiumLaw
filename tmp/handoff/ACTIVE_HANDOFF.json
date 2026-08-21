@@ -1,16 +1,17 @@
 {
-  "thread": "Sancochi logo pig revamp (Logo Lab)",
+  "thread": "Laptop disk critical — reclaim + LaCie protocol",
   "repos": ["expedia-solutions"],
-  "inFlight": "Ricardo picked T1 vector-badge as intended master. qwen-edit il-0-1787341248592-pq34 still generating (MLX thread active, 24 steps). T2 enamel + T3 icon-only pending. Live public/brand not swapped.",
-  "nextStep": "When T1 PNG lands: Gate 8 --apply --dir=brand/sancochi/logos/workshop, show Ricardo the study, wait for use this mark, then lock LOGO_DIRECTION_PICK + MASCOT_DIRECTION_PICK and derive favicon/OG. Skip soda-cup. Skip Seedance. Skip deploy.",
+  "inFlight": "Longrun lacie-workspace-copy RUNNING. Dest growing; first-pass ditto not done.",
+  "nextStep": "When first-pass ditto is done, run: bash scripts/fleet-workspace-copy-to-lacie.sh --second-pass. If that log shows Number of files transferred: 0, STOP and ask Ricardo to quit Cursor — then switch home path per docs/fleet/LAPTOP_LACIE_WORKSPACE.md.",
   "constraints": [
-    "Do not write live public/brand until Ricardo says use this mark.",
-    "Do not invent a soda-cup / Pixar / photoreal pig mascot.",
-    "Do not fleet-queue 160 Sancochi stills until the new pig is locked.",
-    "Do not Seedance / generate_video.",
-    "Do not deploy:prod."
+    "Do not symlink node_modules/.next.",
+    "Do not delete the internal copy until second-pass gate.",
+    "Do not switch ~/Expedia Solutions symlink while Cursor has the tree open.",
+    "Do not OmniRoute npm install until tens of GB free.",
+    "Never GNU rsync --info=stats2 on this Mac (openrsync).",
+    "Shared ACTIVE_HANDOFF — keep LaCie nextStep until copy gate clears; do not overwrite with other chat work."
   ],
-  "verify": "ls brand/sancochi/logos/workshop/sc-logo-revamp-t1-vector-badge.png; npm run brand:image-qa:gate -- --apply --dir=brand/sancochi/logos/workshop",
+  "verify": "npm run creytix:longrun -- status ; du -sh '/Volumes/LaCie/Expedia Solutions' ; rg -n 'first-pass ditto done|Number of files transferred' tmp/expedia-solutions-lacie-rsync.log /tmp/expedia-solutions-lacie-rsync.log ; df -h /System/Volumes/Data",
   "lane": "laptop",
-  "updatedAt": "2026-08-21T19:57:00Z"
+  "updatedAt": "2026-08-21T20:02:00Z"
 }
