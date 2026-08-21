@@ -1,17 +1,16 @@
 {
-  "thread": "Plug-in 3D scene pack apply",
-  "repos": ["expedia-solutions"],
+  "thread": "Site revamp hairline stills",
+  "repos": ["expedia-solutions", "QuickStudy-Front", "FastTrackTrafficSchool-Front"],
   "branch": "laptop-main",
   "inFlight": [
-    "scene pack --apply emits demo plates + lab page without waiting on CDP",
-    "site-revamp runs --apply when SCENE_PACK.json exists (advisory)"
+    "GT/FP/QS/FTT stamped scroll-scale-reveal below fold",
+    "Cruze still NEED_GENERATE; OYA keep hairline"
   ],
-  "nextStep": "Drop background.webp + subject.webp (RGBA) into brand/creytix/scene-plates/ then --from-dir and cdp:image:submit --limit 2, then --emit --strict.",
+  "nextStep": "Capture or CDP one static San Ysidro approach still for Cruze homepage below wait-times, then stamp data-cx-motion=scroll-parallax-layer. Do not invent a photo for Own Your Algorithm.",
   "verify": [
-    "cd \"/Users/ricardo/Expedia Solutions\" && npm run creytix:scene:pack -- --apply --site=creytix",
-    "Open http://localhost:8792/brand/design-lab/scene-pack-creytix.html after brand:design-lab:preview"
+    "cd \"/Users/ricardo/Expedia Solutions\" && npm run creytix:site:revamp -- --fleet-assess"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T01:05:00.000Z"
+  "updatedAt": "2026-08-21T01:26:00.000Z"
 }
