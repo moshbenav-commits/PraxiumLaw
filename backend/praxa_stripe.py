@@ -195,9 +195,15 @@ def create_checkout_session(
 
 
 def verify_and_parse_webhook(payload_bytes: bytes, stripe_signature_header: Optional[str]) -> dict:
-    secret = (os.environ.get("STRIPE_WEBHOOK_SECRET") or "").strip()
+    # Prefer Praxa-specific secret so EP's shared vault whsec is not reused.
+    secret = (
+        (os.environ.get("PRAXA_STRIPE_WEBHOOK_SECRET") or "").strip()
+        or (os.environ.get("STRIPE_WEBHOOK_SECRET") or "").strip()
+    )
     if not secret:
-        raise ValueError("STRIPE_WEBHOOK_SECRET is not configured")
+        raise ValueError(
+            "PRAXA_STRIPE_WEBHOOK_SECRET (or STRIPE_WEBHOOK_SECRET) is not configured"
+        )
     if not stripe_signature_header:
         raise ValueError("Missing Stripe-Signature header")
 
