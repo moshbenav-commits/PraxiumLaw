@@ -1,10 +1,10 @@
 {
   "thread": "Laptop disk critical — reclaim + LaCie protocol",
   "repos": ["expedia-solutions"],
-  "inFlight": "Caches reclaimed; parked node_modules pruned (~11GB). Heartbeat critical-reclaim + nightly/compress launchd installed. Workspace is 257GB still on internal SSD.",
-  "nextStep": "After Cursor can quit: rsync ~/Expedia Solutions to /Volumes/LaCie/Expedia Solutions, then replace the home path with a symlink. Until then keep fleet:disk:critical-reclaim on heartbeat.",
-  "constraints": ["Do not symlink node_modules/.next (OFFLOAD_LAYOUT_RULE). Do not OmniRoute npm install until tens of GB free. No deploy:prod."],
-  "verify": "df -h /System/Volumes/Data ; python3 scripts/mac-drive-cleanup.py --check --json",
+  "inFlight": "ditto copy of ~/Expedia Solutions to /Volumes/LaCie/Expedia Solutions (pid in /tmp/expedia-solutions-lacie-rsync.pid). Heartbeat reclaim + nightly/compress launchd installed.",
+  "nextStep": "When rsync log shows Number of files transferred: 0 on a second pass, quit Cursor and switch the home path per docs/fleet/LAPTOP_LACIE_WORKSPACE.md.",
+  "constraints": ["Do not symlink node_modules/.next. Do not delete the internal copy until the second rsync verify. Do not OmniRoute npm install until tens of GB free."],
+  "verify": "df -h /System/Volumes/Data ; tail -20 /tmp/expedia-solutions-lacie-rsync.log",
   "lane": "laptop",
-  "updatedAt": "2026-08-21T19:32:00Z"
+  "updatedAt": "2026-08-21T19:40:00Z"
 }
