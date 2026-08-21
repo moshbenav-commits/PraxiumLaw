@@ -1,13 +1,14 @@
 {
-  "thread": "Atlas unblocked drain — EarnedStar Production Ready",
-  "repos": ["expedia-solutions", "earnedstar-back"],
+  "thread": "Creytix Image House — stills paste is scene beat only",
+  "repos": ["expedia-solutions"],
   "inFlight": [],
-  "nextStep": "Search Console + Bing is Ricardo-only. Nested earnedstar-back deploy script + vercel.json still need commit/push if not landed.",
+  "nextStep": "Submit stills with cdp:image:submit (Gemini → Qwen). Do not run brand:higgsfield:prompt-sync after the URL-essence strip.",
   "verify": [
-    "curl -sS https://earnedstar-back.vercel.app/api/health",
-    "npm run earnedstar:smoke"
+    "npm run creytix:image -- --check",
+    "npm run creytix:image -- --strip-url-paste",
+    "npm run creytix:image:test"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T02:40:00Z"
+  "updatedAt": "2026-08-21T02:30:00Z"
 }
