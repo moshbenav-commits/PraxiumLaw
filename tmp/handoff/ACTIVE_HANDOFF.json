@@ -1,13 +1,13 @@
 {
-  "thread": "Creytix Guide subject plate (fake-3d-depth)",
+  "thread": "Creytix Guide subject plate (fake-3d-depth) via Image Lane qwen-edit",
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Image Lane qwen-edit job il-1787218654542-uaq9 (jumped queue) with creytix-golem refs \u2192 meta.output brand/creytix/scene-plates/fake-3d-depth__subject.webp",
-  "nextStep": "Wait for current running creytixv2-r007 to finish; Guide subject claims next. Then image:lane:promote (auto if meta.output) + Gate 8 + review URL.",
+  "inFlight": "Image Lane qwen-edit job il-1787218654542-uaq9 queued front with golem refs; CreytixImages mounted; waiting on running Inspector regen then Guide claim → meta.output brand/creytix/scene-plates/fake-3d-depth__subject.webp",
+  "nextStep": "When uaq9 completes → confirm promote to fake-3d-depth__subject.webp → Gate 8 → http://localhost:3025/app/creative/pipeline?step=review&site=creytix. Do not regen background plate.",
   "verify": "ls queue/done/*uaq9*; file brand/creytix/scene-plates/fake-3d-depth__subject.webp; npm run brand:image-qa:gate -- --apply --site=creytix",
   "lane": "media-pipeline",
-  "updatedAt": "2026-08-21T11:45:56.484418+00:00",
   "jobId": "il-1787218654542-uaq9",
-  "stagingId": "nano-creytix-scene-fake-3d-depth-subject"
+  "stagingId": "nano-creytix-scene-fake-3d-depth-subject",
+  "updatedAt": "2026-08-21T11:49:00.000Z"
 }
