@@ -21,7 +21,8 @@ cd "/Users/ricardo/Expedia Solutions" && npm run praxa:stripe:setup -- --from-va
 |----------|----------|-------|
 | `PRAXA_CHECKOUT_ENABLED` | To charge | Must be exactly `1` or checkout routes return **503** |
 | `STRIPE_SECRET_KEY` | When enabled | `sk_*` or `rk_*` (test or live) |
-| `STRIPE_WEBHOOK_SECRET` | Webhook | From Stripe Dashboard → Webhooks → signing secret (`whsec_*`) |
+| `PRAXA_STRIPE_WEBHOOK_SECRET` | Webhook (preferred) | Signing secret for the Praxa endpoint only (`whsec_*`) |
+| `STRIPE_WEBHOOK_SECRET` | Webhook fallback | Shared vault secret — prefer `PRAXA_STRIPE_WEBHOOK_SECRET` so EP's webhook is not reused |
 | `PRAXA_STRIPE_PRICE_PREMIUM` | Optional | Override price id (else lookup `praxa_premium_monthly`) |
 | `PRAXA_STRIPE_PRICE_SECOND_OPINION` | Optional | Override price id (else lookup `praxa_second_opinion`) |
 | `PRAXA_FRONTEND_URL` | Optional | Success/cancel redirect base (else `PRAXIUM_FRONTEND_URL` or `https://www.praxahq.com`) |

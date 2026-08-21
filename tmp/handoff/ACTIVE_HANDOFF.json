@@ -1,19 +1,16 @@
 {
-  "thread": "Keep creating needed stills (Image Lane)",
+  "thread": "Creytix Image House — one prompt system, one review, lanes as engines",
   "repos": ["expedia-solutions"],
-  "branch": "laptop-main",
   "inFlight": [
-    "Unstuck hung creytixv2-r013 (no progress ~25m); requeued + worker kickstart",
-    "mflux regenerating r013 (pid active)",
-    "Promoted Gate-8 PASS: c15, creytix002, c19",
-    "Taste static rebuilt (31 cards)"
+    "IMAGE_HOUSE.json + creytix:image CLI + Pipeline Follow parent image-house",
+    "Always-on creytix-image-house.mdc; nested prompt-sync / asset-approval / image-pre-taste"
   ],
-  "nextStep": "Leave Image Lane draining (16 pending after r013). Promote when done. Review http://localhost:3025/app/assets/review or http://127.0.0.1:3019/review",
+  "nextStep": "Verify npm run creytix:image -- --check and pipeline detect, then use pipeline step=review as the only review URL.",
   "verify": [
-    "cd \"/Users/ricardo/Expedia Solutions\" && npm run image:lane:status",
-    "tail -f ~/Library/Logs/creytix-image-lane/worker.err.log"
+    "npm run creytix:image -- --check",
+    "npm run creytix:pipeline -- --detect \"one prompt system image lanes image review\""
   ],
-  "lane": "push_only",
+  "lane": "hold_local",
   "push": false,
-  "updatedAt": "2026-08-21T02:04:30.000Z"
+  "updatedAt": "2026-08-21T02:00:00Z"
 }
