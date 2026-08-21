@@ -82,12 +82,36 @@ async function startCheckout(sku, setMsg, setSaving) {
   }
 }
 
+function stripCheckoutQueryParams() {
+  const url = new URL(window.location.href);
+  url.searchParams.delete("checkout");
+  const qs = url.searchParams.toString();
+  window.history.replaceState({}, "", qs ? `${url.pathname}?${qs}` : url.pathname);
+}
+
 export default function PraxaApp() {
   const nav = useNavigate();
   const [tab, setTab] = useState("home");
   const [user, setUser] = useState(null);
   const [entitlements, setEntitlements] = useState(null);
   const [ready, setReady] = useState(false);
+  const [checkoutBanner, setCheckoutBanner] = useState("");
+
+  const refreshMe = useCallback(() => {
+    return api
+      .get("/praxa/me", { headers: authHeaders() })
+      .then((r) => {
+        if (r.data?.user) {
+          setUser(r.data.user);
+          localStorage.setItem("praxa_user", JSON.stringify(r.data.user));
+        }
+        if (r.data?.entitlements) {
+          setEntitlements(r.data.entitlements);
+        }
+        return r.data;
+      })
+      .catch(() => null);
+  }, []);
 
   useEffect(() => {
     const u = localStorage.getItem("praxa_user");
@@ -98,19 +122,27 @@ export default function PraxaApp() {
     }
     setUser(JSON.parse(u));
     setReady(true);
-    api
-      .get("/praxa/me", { headers: authHeaders() })
-      .then((r) => {
-        if (r.data?.user) {
-          setUser(r.data.user);
-          localStorage.setItem("praxa_user", JSON.stringify(r.data.user));
+    refreshMe();
+  }, [nav, refreshMe]);
+
+  useEffect(() => {
+    if (!ready) return;
+    const checkout = new URLSearchParams(window.location.search).get("checkout");
+    if (checkout !== "success" && checkout !== "cancel") return;
+
+    if (checkout === "success") {
+      refreshMe().then((data) => {
+        setCheckoutBanner("Payment received — Premium unlocks when Stripe confirms.");
+        stripCheckoutQueryParams();
+        if (data?.user?.plan === "premium") {
+          setTab("account");
         }
-        if (r.data?.entitlements) {
-          setEntitlements(r.data.entitlements);
-        }
-      })
-      .catch(() => {});
-  }, [nav]);
+      });
+    } else {
+      setCheckoutBanner("Checkout canceled — no charge was made.");
+      stripCheckoutQueryParams();
+    }
+  }, [ready, refreshMe]);
 
   if (!ready || !user) {
     return (
@@ -147,6 +179,23 @@ export default function PraxaApp() {
       </header>
 
       <div className="max-w-md mx-auto px-5 py-6">
+        {checkoutBanner && (
+          <div
+            className="mb-4 bg-white border border-praxa-line rounded-2xl p-4 text-sm text-praxa-ink flex items-start justify-between gap-3"
+            data-testid="checkout-return-banner"
+            role="status"
+          >
+            <span>{checkoutBanner}</span>
+            <button
+              type="button"
+              onClick={() => setCheckoutBanner("")}
+              className="text-praxa-subtle hover:text-praxa-ink shrink-0 p-0.5"
+              aria-label="Dismiss"
+            >
+              <X size={16} />
+            </button>
+          </div>
+        )}
         {tab === "home" && <HomeTab user={user} onGo={setTab} />}
         {tab === "journal" && <JournalTab />}
         {tab === "coach" && <CoachTab />}
@@ -159,7 +208,7 @@ export default function PraxaApp() {
         )}
         {tab === "providers" && <DoctorsTab />}
         {tab === "files" && <FilesTab />}
-        {tab === "opinion" && <OpinionTab />}
+        {tab === "opinion" && <OpinionTab entitlements={entitlements} />}
         {tab === "account" && (
           <AccountTab
             user={user}
@@ -1354,14 +1403,17 @@ function FilesTab() {
   );
 }
 
-function OpinionTab() {
+function OpinionTab({ entitlements }) {
   const [requests, setRequests] = useState([]);
   const [summary, setSummary] = useState("");
   const [goals, setGoals] = useState("");
   const [urgency, setUrgency] = useState("normal");
   const [err, setErr] = useState("");
   const [msg, setMsg] = useState("");
+  const [checkoutMsg, setCheckoutMsg] = useState("");
   const [saving, setSaving] = useState(false);
+  const [checkoutBusy, setCheckoutBusy] = useState(false);
+  const cardCheckout = Boolean(entitlements?.card_checkout);
 
   const load = useCallback(() => {
     api
@@ -1406,10 +1458,42 @@ function OpinionTab() {
     <div className="space-y-4">
       <h1 className="text-3xl font-light">Second opinion</h1>
       <p className="text-xs text-praxa-subtle leading-relaxed">
-        Partner attorney document review is listed at $99 on our site — but{" "}
-        <strong>this app does not charge your card</strong>. Submit a request and a coordinator will
-        follow up. Review is arranged separately; nothing is completed automatically here.
+        {cardCheckout ? (
+          <>
+            Partner attorney document review is <strong>$99</strong> when you&apos;re ready for paid
+            review. Submit a free request below anytime — a coordinator follows up either way. Pay
+            when you want to lock in the paid document review path.
+          </>
+        ) : (
+          <>
+            Partner attorney document review is listed at $99 on our site — but{" "}
+            <strong>card checkout is not live in this app yet</strong>. Submit a free request and a
+            coordinator will follow up. Review is arranged separately.
+          </>
+        )}
       </p>
+
+      {cardCheckout && (
+        <div className="bg-praxa-ink text-white rounded-3xl p-6 space-y-3" data-testid="opinion-paid-checkout">
+          <div className="text-xs uppercase tracking-widest text-white/50">Paid review</div>
+          <p className="text-sm text-white/85 leading-relaxed">
+            Ready for attorney document review? Pay $99 to start the paid coordinator path — or submit
+            the free form below first.
+          </p>
+          <button
+            type="button"
+            onClick={() => startCheckout("second_opinion", setCheckoutMsg, setCheckoutBusy)}
+            disabled={checkoutBusy}
+            className="w-full bg-praxa-accent text-white px-5 py-3 rounded-full text-sm font-medium disabled:opacity-50"
+            data-testid="opinion-checkout-second"
+          >
+            {checkoutBusy ? "Opening checkout…" : "Pay $99 for second opinion review"}
+          </button>
+          {checkoutMsg && (
+            <p className="text-xs text-praxa-sage">{checkoutMsg}</p>
+          )}
+        </div>
+      )}
 
       <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-3">
         <textarea
