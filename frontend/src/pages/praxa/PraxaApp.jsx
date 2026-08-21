@@ -60,10 +60,33 @@ function logout(nav) {
   nav("/praxa");
 }
 
+async function startCheckout(sku, setMsg, setSaving) {
+  setSaving(true);
+  setMsg("");
+  try {
+    const r = await api.post("/praxa/checkout", { sku }, { headers: authHeaders() });
+    const url = r.data?.url;
+    if (!url) {
+      setMsg("Checkout could not start — try again.");
+      return;
+    }
+    window.location.href = url;
+  } catch (e) {
+    setMsg(
+      typeof e?.response?.data?.detail === "string"
+        ? e.response.data.detail
+        : e?.response?.data?.detail?.message || "Could not start checkout",
+    );
+  } finally {
+    setSaving(false);
+  }
+}
+
 export default function PraxaApp() {
   const nav = useNavigate();
   const [tab, setTab] = useState("home");
   const [user, setUser] = useState(null);
+  const [entitlements, setEntitlements] = useState(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -81,6 +104,9 @@ export default function PraxaApp() {
         if (r.data?.user) {
           setUser(r.data.user);
           localStorage.setItem("praxa_user", JSON.stringify(r.data.user));
+        }
+        if (r.data?.entitlements) {
+          setEntitlements(r.data.entitlements);
         }
       })
       .catch(() => {});
@@ -125,13 +151,22 @@ export default function PraxaApp() {
         {tab === "journal" && <JournalTab />}
         {tab === "coach" && <CoachTab />}
         {tab === "estimate" && (
-          <EstimateTab user={user} onGoAccount={() => setTab("account")} />
+          <EstimateTab
+            user={user}
+            entitlements={entitlements}
+            onGoAccount={() => setTab("account")}
+          />
         )}
         {tab === "providers" && <DoctorsTab />}
         {tab === "files" && <FilesTab />}
         {tab === "opinion" && <OpinionTab />}
         {tab === "account" && (
-          <AccountTab user={user} setUser={setUser} onLogout={() => logout(nav)} />
+          <AccountTab
+            user={user}
+            setUser={setUser}
+            entitlements={entitlements}
+            onLogout={() => logout(nav)}
+          />
         )}
       </div>
 
@@ -706,7 +741,7 @@ const MATCH_STATUS_LABELS = {
   declined: "Couldn't match",
 };
 
-function EstimateTab({ user, onGoAccount }) {
+function EstimateTab({ user, entitlements, onGoAccount }) {
   const [injury, setInjury] = useState("soft_tissue");
   const [severity, setSeverity] = useState(3);
   const [treatment, setTreatment] = useState("conservative");
@@ -720,6 +755,8 @@ function EstimateTab({ user, onGoAccount }) {
 
   const plan = user?.plan || "free";
   const isPremium = plan === "premium";
+  const cardCheckout = Boolean(entitlements?.card_checkout);
+  const [checkoutBusy, setCheckoutBusy] = useState(false);
 
   const money = (n) =>
     new Intl.NumberFormat("en-US", {
@@ -803,13 +840,30 @@ function EstimateTab({ user, onGoAccount }) {
           <div className="text-xs uppercase tracking-widest text-white/50">Premium</div>
           <p className="text-sm text-white/85 leading-relaxed">{gate.message}</p>
           <p className="text-[11px] text-white/45">
-            No card charge from this screen — checkout is not live yet.
+            {cardCheckout
+              ? "Subscribe with card from Account — no surprise charges from this screen."
+              : "No card charge from this screen — checkout is not live yet."}
           </p>
           <div className="flex flex-wrap gap-2 pt-1">
+            {cardCheckout && (
+              <button
+                type="button"
+                onClick={() => startCheckout("premium", setInterestMsg, setCheckoutBusy)}
+                disabled={checkoutBusy}
+                className="bg-praxa-accent text-white px-4 py-2 rounded-full text-sm disabled:opacity-50"
+                data-testid="estimate-subscribe-premium"
+              >
+                {checkoutBusy ? "Opening checkout…" : "Subscribe Premium — $9.99/mo"}
+              </button>
+            )}
             <button
               type="button"
               onClick={requestPremium}
-              className="bg-praxa-accent text-white px-4 py-2 rounded-full text-sm"
+              className={
+                cardCheckout
+                  ? "border border-white/30 text-white px-4 py-2 rounded-full text-sm"
+                  : "bg-praxa-accent text-white px-4 py-2 rounded-full text-sm"
+              }
               data-testid="estimate-request-premium"
             >
               Request Premium
@@ -1445,7 +1499,7 @@ function OpinionTab() {
   );
 }
 
-function AccountTab({ user, setUser, onLogout }) {
+function AccountTab({ user, setUser, entitlements, onLogout }) {
   const [name, setName] = useState(user.name || "");
   const [phone, setPhone] = useState(user.phone || "");
   const [incident, setIncident] = useState(user.incident_date || "");
@@ -1453,6 +1507,10 @@ function AccountTab({ user, setUser, onLogout }) {
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
   const plan = user?.plan || "free";
+  const cardCheckout = Boolean(entitlements?.card_checkout);
+  const checkoutNote =
+    entitlements?.checkout_note ||
+    "Card billing is not live yet. Request Premium interest or redeem a code.";
 
   const save = async () => {
     setSaving(true);
@@ -1565,10 +1623,18 @@ function AccountTab({ user, setUser, onLogout }) {
       {plan !== "premium" && (
         <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-3">
           <div className="text-xs uppercase tracking-widest text-praxa-sage">Premium</div>
-          <p className="text-sm text-praxa-subtle">
-            Unlimited educational estimates. Card checkout is not live — request Premium or redeem a
-            code. No surprise charges from this screen.
-          </p>
+          <p className="text-sm text-praxa-subtle">{checkoutNote}</p>
+          {cardCheckout && (
+            <button
+              type="button"
+              onClick={() => startCheckout("premium", setMsg, setSaving)}
+              disabled={saving}
+              className="w-full bg-praxa-accent text-white px-5 py-3 rounded-full text-sm font-medium disabled:opacity-50"
+              data-testid="account-subscribe-premium"
+            >
+              {saving ? "Opening checkout…" : "Subscribe Premium — $9.99/mo"}
+            </button>
+          )}
           <div className="flex gap-2">
             <input
               value={code}

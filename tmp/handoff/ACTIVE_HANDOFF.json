@@ -3,16 +3,17 @@
   "repos": ["expedia-solutions"],
   "branch": "laptop-main",
   "inFlight": [
-    "Image Lane healthy: pending 16 · running creytixv2-r013 (~20m into ~22–34m qwen-edit)",
-    "Promoted c15 / creytix002 / c19 after Gate 8",
-    "Mac Studio still unreachable from laptop"
+    "Unstuck hung creytixv2-r013 (no progress ~25m); requeued + worker kickstart",
+    "mflux regenerating r013 (pid active)",
+    "Promoted Gate-8 PASS: c15, creytix002, c19",
+    "Taste static rebuilt (31 cards)"
   ],
-  "nextStep": "Leave Image Lane draining. After r013 finishes, next pending includes creytixv2-r007/r004/r003/r006 then EP/AH/GMI/SC/EP powertrain regens. Review: http://localhost:3025/app/assets/review",
+  "nextStep": "Leave Image Lane draining (16 pending after r013). Promote when done. Review http://localhost:3025/app/assets/review or http://127.0.0.1:3019/review",
   "verify": [
     "cd \"/Users/ricardo/Expedia Solutions\" && npm run image:lane:status",
     "tail -f ~/Library/Logs/creytix-image-lane/worker.err.log"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T01:57:00.000Z"
+  "updatedAt": "2026-08-21T02:04:30.000Z"
 }
