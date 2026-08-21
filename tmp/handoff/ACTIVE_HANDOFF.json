@@ -1,10 +1,16 @@
 {
-  "thread": "Laptop disk critical — reclaim + LaCie protocol",
+  "thread": "Sancochi logo pig revamp (Logo Lab)",
   "repos": ["expedia-solutions"],
-  "inFlight": "ditto copy of ~/Expedia Solutions to /Volumes/LaCie/Expedia Solutions (pid in /tmp/expedia-solutions-lacie-rsync.pid). Heartbeat reclaim + nightly/compress launchd installed.",
-  "nextStep": "When rsync log shows Number of files transferred: 0 on a second pass, quit Cursor and switch the home path per docs/fleet/LAPTOP_LACIE_WORKSPACE.md.",
-  "constraints": ["Do not symlink node_modules/.next. Do not delete the internal copy until the second rsync verify. Do not OmniRoute npm install until tens of GB free."],
-  "verify": "df -h /System/Volumes/Data ; tail -20 /tmp/expedia-solutions-lacie-rsync.log",
+  "inFlight": "Ricardo picked T1 vector-badge as intended master. qwen-edit il-0-1787341248592-pq34 still generating (MLX thread active, 24 steps). T2 enamel + T3 icon-only pending. Live public/brand not swapped.",
+  "nextStep": "When T1 PNG lands: Gate 8 --apply --dir=brand/sancochi/logos/workshop, show Ricardo the study, wait for use this mark, then lock LOGO_DIRECTION_PICK + MASCOT_DIRECTION_PICK and derive favicon/OG. Skip soda-cup. Skip Seedance. Skip deploy.",
+  "constraints": [
+    "Do not write live public/brand until Ricardo says use this mark.",
+    "Do not invent a soda-cup / Pixar / photoreal pig mascot.",
+    "Do not fleet-queue 160 Sancochi stills until the new pig is locked.",
+    "Do not Seedance / generate_video.",
+    "Do not deploy:prod."
+  ],
+  "verify": "ls brand/sancochi/logos/workshop/sc-logo-revamp-t1-vector-badge.png; npm run brand:image-qa:gate -- --apply --dir=brand/sancochi/logos/workshop",
   "lane": "laptop",
-  "updatedAt": "2026-08-21T19:40:00Z"
+  "updatedAt": "2026-08-21T19:57:00Z"
 }
