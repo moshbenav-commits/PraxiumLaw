@@ -20,9 +20,9 @@ export const PRAXA_TIERS = [
     sub: "Start tonight",
     features: [
       "Symptom journal + CSV export",
+      "Document locker",
       "Insurance Coach AI",
-      "Doctor match requests",
-      "1 educational settlement estimate",
+      "Doctor match + 1 educational estimate",
     ],
   },
   {
@@ -43,9 +43,10 @@ export const PRAXA_TIERS = [
     sub: "one-time",
     once: true,
     features: [
+      "Request in-app — coordinator queues review",
       "Partner attorney document review",
-      "Written summary in 48 hrs",
-      "Plain-English next steps",
+      "Written summary target 48 hrs",
+      "No card charge until coordinator confirms",
     ],
   },
 ];
