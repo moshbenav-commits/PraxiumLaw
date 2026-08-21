@@ -27,13 +27,12 @@ cd "/Users/ricardo/Expedia Solutions" && npm run praxa:stripe:setup -- --from-va
 | `PRAXA_STRIPE_PRICE_SECOND_OPINION` | Optional | Override price id (else lookup `praxa_second_opinion`) |
 | `PRAXA_FRONTEND_URL` | Optional | Success/cancel redirect base (else `PRAXIUM_FRONTEND_URL` or `https://www.praxahq.com`) |
 
-**Do not** set `PRAXA_CHECKOUT_ENABLED=1` until webhook + keys are configured on production.
-
 ## Stripe Dashboard — webhook endpoint
 
 - **URL:** `https://api.praxiumlaw.com/api/praxa/stripe/webhook`
 - **Events:** `checkout.session.completed` (minimum)
 - **Auth:** none (signature verified via `Stripe-Signature` header)
+- **Endpoint id (live):** `we_1U6hyqHWiwLnRBZ8h5yVogUy`
 
 Routes are mounted under `/api` in `backend/server.py`.
 
@@ -44,13 +43,17 @@ Routes are mounted under `/api` in `backend/server.py`.
 | `POST` | `/api/praxa/checkout` | Bearer Praxa JWT — body `{ "sku": "premium" \| "second_opinion" }` → `{ url, session_id }` |
 | `POST` | `/api/praxa/stripe/webhook` | Stripe signature only |
 
-## Enable checkout (production)
+## Production status (2026-08-21)
 
-1. Set `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` on the API host (vault / env).
-2. Register webhook URL in Stripe Dashboard (above).
-3. Set `PRAXA_CHECKOUT_ENABLED=1` on the API host and redeploy.
-4. Confirm `/praxa/me` returns `entitlements.card_checkout: true`.
-5. Test with Stripe test mode before live keys.
+| Item | Status |
+|------|--------|
+| Catalog prices | Live on shared Expedia Solutions Stripe account |
+| Webhook endpoint | Created + `PRAXA_STRIPE_WEBHOOK_SECRET` on `praxiumlaw-back` |
+| `STRIPE_SECRET_KEY` | Set on `praxiumlaw-back` (live `rk_`/`sk_`) |
+| `PRAXA_CHECKOUT_ENABLED` | **`1`** — card checkout is live |
+| Consumer CTAs | Account / Estimate → Premium $9.99/mo · Opinion → $99 second opinion |
+
+**Smoke:** unauthenticated `POST /api/praxa/checkout` should return **401** (not 503). Signed-in Account shows **Subscribe Premium**. First real charge uses **live** Stripe — prefer vault `sk_test_` for sandbox smokes with card `4242`.
 
 ## Local tests
 
