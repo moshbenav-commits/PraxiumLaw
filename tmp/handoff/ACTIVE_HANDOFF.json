@@ -1,16 +1,13 @@
 {
-  "thread": "Creytix Image House — one prompt system, one review, lanes as engines",
-  "repos": ["expedia-solutions"],
-  "inFlight": [
-    "IMAGE_HOUSE.json + creytix:image CLI + Pipeline Follow parent image-house",
-    "Always-on creytix-image-house.mdc; nested prompt-sync / asset-approval / image-pre-taste"
-  ],
-  "nextStep": "Verify npm run creytix:image -- --check and pipeline detect, then use pipeline step=review as the only review URL.",
+  "thread": "Atlas unblocked drain — EarnedStar Production Ready",
+  "repos": ["expedia-solutions", "earnedstar-back"],
+  "inFlight": [],
+  "nextStep": "Search Console + Bing is Ricardo-only. Nested earnedstar-back deploy script + vercel.json still need commit/push if not landed.",
   "verify": [
-    "npm run creytix:image -- --check",
-    "npm run creytix:pipeline -- --detect \"one prompt system image lanes image review\""
+    "curl -sS https://earnedstar-back.vercel.app/api/health",
+    "npm run earnedstar:smoke"
   ],
-  "lane": "hold_local",
+  "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T02:00:00Z"
+  "updatedAt": "2026-08-21T02:40:00Z"
 }
