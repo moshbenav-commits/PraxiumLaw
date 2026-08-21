@@ -1,9 +1,9 @@
 {
-  "thread": "Fleet functional consultation — landfill follow-up pushed; Week 3 P7 dry-run next",
+  "thread": "Sancochi mascot = logo line drawing (SC-LOGO-A-circular)",
   "repos": ["expedia-solutions"],
-  "inFlight": "image:existing:review --site=creytix --limit=40 --dry-run",
-  "nextStep": "Fold P7 dry-run counts into media-pipeline Stage 2; do not --queue REPLACE without Ricardo. Do not deploy EP front unless he says deploy it.",
-  "verify": "git log -1 --oneline 6572c1222b; npm run projects:gates | rg Unclassified || true",
-  "lane": "creytix-platform",
-  "updatedAt": "2026-08-21T18:35:00.000Z"
+  "inFlight": "none",
+  "nextStep": "Unpause 107-image Taste Gate: npm run image:review -- --site=sancochi (or image-voice-review). Do not invent soda-cup mascot. Do not Seedance until video gate. Do not deploy unless Ricardo says deploy it.",
+  "verify": "brand/sancochi/MASCOT_DIRECTION_PICK.json status=picked · refLocal=brand/sancochi/revamped/logo-circular-revamp-9x16.png",
+  "lane": "brand-sites",
+  "updatedAt": "2026-08-21T19:25:00.000Z"
 }
