@@ -31,12 +31,12 @@
   "waitForMode": "any",
   "checkIn": {
     "afterSec": 250,
-    "nextCheckAt": "2026-08-21T23:14:50.789Z",
+    "nextCheckAt": "2026-08-21T23:51:40.965Z",
     "estimateSec": 2000,
-    "plannedAt": "2026-08-21T23:10:40.789Z",
+    "plannedAt": "2026-08-21T23:47:30.965Z",
     "reason": "second-pass still gated: no === second-pass done; transferred 11158 ≠ 0; longrun STOPPED; path-switch blocked; poll only — next full turn reruns --second-pass"
   },
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-21T23:10:40.791Z"
+  "updatedAt": "2026-08-21T23:47:30.966Z"
 }
