@@ -1,14 +1,16 @@
 {
-  "thread": "Creytix Image House — stills paste is scene beat only",
-  "repos": ["expedia-solutions"],
-  "inFlight": [],
-  "nextStep": "Submit stills with cdp:image:submit (Gemini → Qwen). Do not run brand:higgsfield:prompt-sync after the URL-essence strip.",
+  "thread": "Creytix scene-pack subject regen (laptop CDP)",
+  "repos": ["expedia-solutions", "creytix-front"],
+  "inFlight": [
+    "Pipeline built. Gemini attached creytix-golem.png and sent; generation timed out. Image Lane qwen-edit blocked: CreytixImages unmounted."
+  ],
+  "nextStep": "Mount CreytixImages, then IMAGE_LANE_ROOT from pin + image:lane:enqueue qwen-edit --ref creytix-golem.png for nano-creytix-scene-fake-3d-depth-subject. Do not regen the good background.",
   "verify": [
-    "npm run creytix:image -- --check",
-    "npm run creytix:image -- --strip-url-paste",
-    "npm run creytix:image:test"
+    "test -d /Volumes/CreytixImages/creytix-image-lane-live",
+    "npm run image:lane:enqueue -- --engine qwen-edit --ref creytix-front/public/creytix/mascot/creytix-golem.png --width 1280 --height 720 --meta-output brand/creytix/scene-plates/fake-3d-depth__subject.webp --meta-source-staging-id nano-creytix-scene-fake-3d-depth-subject --meta-brand creytix --out-prefix fake-3d-depth-subject --prompt \"Lock Creytix Guide as the attached rune-golem (lantern + CX belly). Isolated RGBA cutout, no environment, no letters.\"",
+    "npm run brand:image-qa:gate -- --apply --dir=brand/creytix/scene-plates"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T02:30:00Z"
+  "updatedAt": "2026-08-21T04:55:00Z"
 }
