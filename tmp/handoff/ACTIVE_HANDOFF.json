@@ -1,9 +1,10 @@
 {
-  "thread": "Sancochi mascot = logo line drawing (SC-LOGO-A-circular)",
+  "thread": "Laptop disk critical — reclaim + LaCie protocol",
   "repos": ["expedia-solutions"],
-  "inFlight": "none",
-  "nextStep": "Unpause 107-image Taste Gate: npm run image:review -- --site=sancochi (or image-voice-review). Do not invent soda-cup mascot. Do not Seedance until video gate. Do not deploy unless Ricardo says deploy it.",
-  "verify": "brand/sancochi/MASCOT_DIRECTION_PICK.json status=picked · refLocal=brand/sancochi/revamped/logo-circular-revamp-9x16.png",
-  "lane": "brand-sites",
-  "updatedAt": "2026-08-21T19:25:00.000Z"
+  "inFlight": "Caches reclaimed; parked node_modules pruned (~11GB). Heartbeat critical-reclaim + nightly/compress launchd installed. Workspace is 257GB still on internal SSD.",
+  "nextStep": "After Cursor can quit: rsync ~/Expedia Solutions to /Volumes/LaCie/Expedia Solutions, then replace the home path with a symlink. Until then keep fleet:disk:critical-reclaim on heartbeat.",
+  "constraints": ["Do not symlink node_modules/.next (OFFLOAD_LAYOUT_RULE). Do not OmniRoute npm install until tens of GB free. No deploy:prod."],
+  "verify": "df -h /System/Volumes/Data ; python3 scripts/mac-drive-cleanup.py --check --json",
+  "lane": "laptop",
+  "updatedAt": "2026-08-21T19:32:00Z"
 }
