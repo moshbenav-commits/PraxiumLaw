@@ -3,13 +3,13 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "bbmq still running; uaq9 #1 pending. LOCAL_MODEL qwen-image-edit-2509-4bit now symlinked to offload q4 (~25G) for faster next claim.",
-  "nextStep": "Wait bbmq \u2192 uaq9 (should use local 4bit) \u2192 auto-promote + Gate 8 \u2192 review URL",
+  "inFlight": "Preempted bbmq/r007; Guide uaq9 CLAIMED and rendering on local 4bit",
+  "nextStep": "Wait uaq9 done \u2192 auto-promote + Gate 8 --expect-transparent \u2192 review URL",
   "verify": "npm run image:lane:status; file brand/creytix/scene-plates/fake-3d-depth__subject.webp; npm run brand:image-qa:gate -- --apply",
   "lane": "media-pipeline",
   "jobId": "il-1787218654542-uaq9",
   "stagingId": "nano-creytix-scene-fake-3d-depth-subject",
-  "updatedAt": "2026-08-21T12:04:23.536521+00:00",
+  "updatedAt": "2026-08-21T12:11:28.391521+00:00",
   "notes": [
     "Rec #317: save local qwen-image-edit-2509-4bit under IMAGE_LANE_ROOT/models",
     "Commits: 835be3221f thread \u00b7 2f81f3c974 golem attach on prompt-regen"
