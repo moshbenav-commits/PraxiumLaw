@@ -1,18 +1,13 @@
 {
-  "thread": "Motion Studio AnimTOON-3B skip-closed + pending/recs drain",
-  "repos": ["expedia-solutions"],
-  "branch": "laptop-main",
-  "inFlight": [
-    "animtoon-3b CLI --animtoon-3b skip-closed (no weights on this machine)",
-    "recs 193 292 175 315 marked done",
-    "#316 blocked: CreytixImages unmounted"
+  "thread": "Creytix Guide subject plate (fake-3d-depth)",
+  "repos": [
+    "expedia-solutions"
   ],
-  "nextStep": "Mount CreytixImages, then Image Lane qwen-edit --ref creytix-golem.png for nano-creytix-scene-fake-3d-depth-subject. Do not regen the good background. Higgsfield stills banned.",
-  "verify": [
-    "npm run creytix:motion-studio:ready",
-    "npx tsx packages/creytix-motion-studio/src/motion-tools-cli.ts --animtoon-3b \"logo pulse\""
-  ],
-  "lane": "push_only",
-  "push": false,
-  "updatedAt": "2026-08-21T11:30:00Z"
+  "inFlight": "Image Lane qwen-edit job il-1787218654542-uaq9 (jumped queue) with creytix-golem refs \u2192 meta.output brand/creytix/scene-plates/fake-3d-depth__subject.webp",
+  "nextStep": "Wait for current running creytixv2-r007 to finish; Guide subject claims next. Then image:lane:promote (auto if meta.output) + Gate 8 + review URL.",
+  "verify": "ls queue/done/*uaq9*; file brand/creytix/scene-plates/fake-3d-depth__subject.webp; npm run brand:image-qa:gate -- --apply --site=creytix",
+  "lane": "media-pipeline",
+  "updatedAt": "2026-08-21T11:45:56.484418+00:00",
+  "jobId": "il-1787218654542-uaq9",
+  "stagingId": "nano-creytix-scene-fake-3d-depth-subject"
 }
