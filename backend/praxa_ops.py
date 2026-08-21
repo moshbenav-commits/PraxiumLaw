@@ -23,6 +23,11 @@ class DoctorMatchPatch(BaseModel):
     assigned_to: Optional[str] = None
 
 
+class ConsumerPlanPatch(BaseModel):
+    plan: str = Field(description="free | premium")
+    note: Optional[str] = None
+
+
 def register_praxa_ops_routes(
     api: APIRouter,
     db: Any,
@@ -93,3 +98,34 @@ def register_praxa_ops_routes(
         await db.praxa_doctor_requests.update_one({"id": request_id}, {"$set": update})
         out = await db.praxa_doctor_requests.find_one({"id": request_id}, {"_id": 0})
         return {"ok": True, "request": out}
+
+    @api.get("/praxa-ops/upgrade-interest")
+    async def ops_list_upgrade_interest(user=Depends(get_current_user)):
+        rows = await db.praxa_upgrade_interest.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
+        return {"interests": rows, "count": len(rows)}
+
+    @api.patch("/praxa-ops/consumers/{user_id}/plan")
+    async def ops_set_consumer_plan(
+        user_id: str,
+        body: ConsumerPlanPatch,
+        user=Depends(get_current_user),
+    ):
+        plan = (body.plan or "").strip().lower()
+        if plan not in {"free", "premium"}:
+            raise HTTPException(400, "plan must be free or premium")
+        doc = await db.praxa_users.find_one({"id": user_id}, {"_id": 0})
+        if not doc:
+            raise HTTPException(404, "Consumer not found")
+        update = {
+            "plan": plan,
+            "plan_updated_at": now(),
+            "plan_updated_by": user.get("id"),
+            "plan_updated_by_email": user.get("email"),
+        }
+        if body.note:
+            update["plan_note"] = body.note.strip()[:500]
+        if plan == "premium":
+            update["premium_unlocked_at"] = now()
+        await db.praxa_users.update_one({"id": user_id}, {"$set": update})
+        out = await db.praxa_users.find_one({"id": user_id}, {"_id": 0})
+        return {"ok": True, "user": out}

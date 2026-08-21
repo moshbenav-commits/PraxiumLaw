@@ -47,6 +47,16 @@ export default function PraxaDoctorMatchQueue() {
       .finally(() => setLoading(false));
   }, [load]);
 
+  const grantPremium = async (userId) => {
+    if (!userId) return;
+    try {
+      await api.patch(`/praxa-ops/consumers/${userId}/plan`, { plan: "premium" });
+      toast.success("Consumer marked Premium");
+    } catch (e) {
+      toast.error(e?.response?.data?.detail || "Could not grant Premium");
+    }
+  };
+
   const patch = async (id, nextStatus) => {
     const note = window.prompt("Internal staff note (optional — not shown to consumer):");
     if (note === null) return;
@@ -160,6 +170,16 @@ export default function PraxaDoctorMatchQueue() {
                   Mark {s}
                 </button>
               ))}
+              {r.user_id && (
+                <button
+                  type="button"
+                  onClick={() => grantPremium(r.user_id)}
+                  className="text-xs px-3 py-1.5 border border-praxium-accent text-praxium-accent rounded-sm"
+                  data-testid={`grant-premium-${r.id}`}
+                >
+                  Grant Premium
+                </button>
+              )}
             </div>
           </div>
         ))}

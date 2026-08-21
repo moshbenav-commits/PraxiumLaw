@@ -8,6 +8,7 @@ from __future__ import annotations
 import base64
 import csv
 import io
+import os
 import re
 from typing import Any, Callable, Optional
 
@@ -17,6 +18,9 @@ from pydantic import BaseModel, Field
 
 
 MAX_PHOTO_BYTES = 280_000  # ~280KB data URL payload after base64
+# Free tier: one educational estimate. Premium: unlimited. No live Stripe yet.
+FREE_ESTIMATE_RUNS = 1
+_DEFAULT_PREMIUM_CODES = "PRAXA-PREMIUM"
 SYMPTOM_ALLOW = {
     "neck",
     "back",
@@ -64,6 +68,26 @@ class SettlementEstimateIn(BaseModel):
     treatment: str = Field(description="none | conservative | ongoing | surgery_done")
     liability: str = Field(description="disputed | unclear | clear")
     state: str = "CA"
+
+
+class UpgradeInterestIn(BaseModel):
+    note: str = ""
+
+
+class RedeemCodeIn(BaseModel):
+    code: str
+
+
+def _premium_codes() -> set[str]:
+    raw = os.environ.get("PRAXA_PREMIUM_CODES", _DEFAULT_PREMIUM_CODES)
+    return {c.strip().upper() for c in raw.split(",") if c.strip()}
+
+
+def _normalize_plan(user: Optional[dict]) -> str:
+    if not user:
+        return "free"
+    plan = (user.get("plan") or "free").strip().lower()
+    return plan if plan in {"free", "premium"} else "free"
 
 
 # Educational midpoint anchors (USD). Wide bands on purpose — not market comps DB.
@@ -200,13 +224,34 @@ def register_praxa_product_routes(
             raise HTTPException(400, f"Invalid photo: {e}") from e
         return data_url
 
+    async def _load_user(uid: str) -> dict:
+        user = await db.praxa_users.find_one({"id": uid}, {"_id": 0})
+        if not user:
+            raise HTTPException(404, "Account not found")
+        plan = _normalize_plan(user)
+        if user.get("plan") != plan:
+            await db.praxa_users.update_one({"id": uid}, {"$set": {"plan": plan}})
+            user["plan"] = plan
+        return user
+
     @api.get("/praxa/me")
     async def praxa_me(authorization: Optional[str] = Header(None)):
         payload = _auth(authorization)
-        user = await db.praxa_users.find_one({"id": payload["sub"]}, {"_id": 0})
-        if not user:
-            raise HTTPException(404, "Account not found")
-        return {"user": user}
+        user = await _load_user(payload["sub"])
+        runs = await db.praxa_estimate_runs.count_documents({"user_id": payload["sub"]})
+        return {
+            "user": user,
+            "entitlements": {
+                "plan": _normalize_plan(user),
+                "estimate_runs_used": runs,
+                "estimate_runs_free_limit": FREE_ESTIMATE_RUNS,
+                "estimates_unlimited": _normalize_plan(user) == "premium",
+                "card_checkout": False,
+                "checkout_note": (
+                    "Card billing is not live yet. Request Premium interest or redeem a code."
+                ),
+            },
+        }
 
     @api.patch("/praxa/me")
     async def praxa_patch_me(body: PraxaProfilePatch, authorization: Optional[str] = Header(None)):
@@ -219,8 +264,52 @@ def register_praxa_product_routes(
         if "phone" in update:
             update["phone"] = update["phone"].strip()[:40]
         await db.praxa_users.update_one({"id": payload["sub"]}, {"$set": update})
-        user = await db.praxa_users.find_one({"id": payload["sub"]}, {"_id": 0})
+        user = await _load_user(payload["sub"])
         return {"user": user}
+
+    @api.post("/praxa/upgrade-interest")
+    async def praxa_upgrade_interest(
+        body: UpgradeInterestIn, authorization: Optional[str] = Header(None)
+    ):
+        """Honest waitlist — no Stripe charge. Staff can later grant plan=premium."""
+        payload = _auth(authorization)
+        user = await _load_user(payload["sub"])
+        if _normalize_plan(user) == "premium":
+            return {"ok": True, "already_premium": True, "message": "You already have Premium."}
+        doc = {
+            "id": new_id(),
+            "user_id": payload["sub"],
+            "email": user.get("email"),
+            "name": user.get("name"),
+            "note": (body.note or "").strip()[:1000],
+            "created_at": now(),
+            "status": "queued",
+        }
+        await db.praxa_upgrade_interest.insert_one(doc)
+        doc.pop("_id", None)
+        return {
+            "ok": True,
+            "interest": doc,
+            "message": (
+                "Thanks — we recorded your Premium interest. Card checkout is not live yet; "
+                "a coordinator can unlock Premium when you're ready."
+            ),
+        }
+
+    @api.post("/praxa/redeem-code")
+    async def praxa_redeem_code(
+        body: RedeemCodeIn, authorization: Optional[str] = Header(None)
+    ):
+        payload = _auth(authorization)
+        code = (body.code or "").strip().upper()
+        if not code or code not in _premium_codes():
+            raise HTTPException(400, "Invalid or expired code")
+        await db.praxa_users.update_one(
+            {"id": payload["sub"]},
+            {"$set": {"plan": "premium", "premium_unlocked_at": now(), "premium_code": code}},
+        )
+        user = await _load_user(payload["sub"])
+        return {"ok": True, "user": user, "message": "Premium unlocked."}
 
     @api.post("/praxa/journal")
     async def praxa_journal_create(entry: PraxaJournalIn, authorization: Optional[str] = Header(None)):
@@ -384,8 +473,25 @@ def register_praxa_product_routes(
         body: SettlementEstimateIn, authorization: Optional[str] = Header(None)
     ):
         payload = _auth(authorization)
+        user = await _load_user(payload["sub"])
+        plan = _normalize_plan(user)
+        used = await db.praxa_estimate_runs.count_documents({"user_id": payload["sub"]})
+        if plan != "premium" and used >= FREE_ESTIMATE_RUNS:
+            raise HTTPException(
+                status_code=402,
+                detail={
+                    "code": "premium_required",
+                    "message": (
+                        "Free includes one educational estimate. Upgrade to Premium for "
+                        "unlimited runs — card checkout is not live yet; request Premium "
+                        "or redeem a code."
+                    ),
+                    "estimate_runs_used": used,
+                    "estimate_runs_free_limit": FREE_ESTIMATE_RUNS,
+                    "card_checkout": False,
+                },
+            )
         result = compute_settlement_estimate(body)
-        # Persist for history + account export (no PII beyond inputs)
         run_id = new_id()
         await db.praxa_estimate_runs.insert_one(
             {
@@ -396,4 +502,11 @@ def register_praxa_product_routes(
                 "band": result["band"],
             }
         )
-        return {**result, "id": run_id}
+        return {
+            **result,
+            "id": run_id,
+            "plan": plan,
+            "estimate_runs_remaining": None
+            if plan == "premium"
+            else max(0, FREE_ESTIMATE_RUNS - used - 1),
+        }

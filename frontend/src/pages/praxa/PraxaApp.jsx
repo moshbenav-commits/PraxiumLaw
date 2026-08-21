@@ -121,7 +121,9 @@ export default function PraxaApp() {
         {tab === "home" && <HomeTab user={user} onGo={setTab} />}
         {tab === "journal" && <JournalTab />}
         {tab === "coach" && <CoachTab />}
-        {tab === "estimate" && <EstimateTab />}
+        {tab === "estimate" && (
+          <EstimateTab user={user} onGoAccount={() => setTab("account")} />
+        )}
         {tab === "providers" && <DoctorsTab />}
         {tab === "account" && (
           <AccountTab user={user} setUser={setUser} onLogout={() => logout(nav)} />
@@ -628,7 +630,7 @@ const MATCH_STATUS_LABELS = {
   declined: "Couldn't match",
 };
 
-function EstimateTab() {
+function EstimateTab({ user, onGoAccount }) {
   const [injury, setInjury] = useState("soft_tissue");
   const [severity, setSeverity] = useState(3);
   const [treatment, setTreatment] = useState("conservative");
@@ -636,7 +638,12 @@ function EstimateTab() {
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState([]);
   const [err, setErr] = useState("");
+  const [gate, setGate] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [interestMsg, setInterestMsg] = useState("");
+
+  const plan = user?.plan || "free";
+  const isPremium = plan === "premium";
 
   const money = (n) =>
     new Intl.NumberFormat("en-US", {
@@ -654,9 +661,24 @@ function EstimateTab() {
 
   useEffect(loadHistory, [loadHistory]);
 
+  const requestPremium = async () => {
+    setInterestMsg("");
+    try {
+      const r = await api.post(
+        "/praxa/upgrade-interest",
+        { note: "From settlement estimator gate" },
+        { headers: authHeaders() },
+      );
+      setInterestMsg(r.data?.message || "Interest recorded.");
+    } catch (e) {
+      setInterestMsg(e?.response?.data?.detail || "Could not record interest");
+    }
+  };
+
   const run = async () => {
     setSaving(true);
     setErr("");
+    setGate(null);
     try {
       const r = await api.post(
         "/praxa/settlement-estimate",
@@ -672,8 +694,14 @@ function EstimateTab() {
       setResult(r.data);
       loadHistory();
     } catch (e) {
-      setErr(e?.response?.data?.detail || "Could not run estimate");
-      setResult(null);
+      const detail = e?.response?.data?.detail;
+      if (e?.response?.status === 402 && detail?.code === "premium_required") {
+        setGate(detail);
+        setResult(null);
+      } else {
+        setErr(typeof detail === "string" ? detail : detail?.message || "Could not run estimate");
+        setResult(null);
+      }
     } finally {
       setSaving(false);
     }
@@ -684,7 +712,43 @@ function EstimateTab() {
       <h1 className="text-3xl font-light">Settlement estimator</h1>
       <p className="text-sm text-praxa-subtle">
         Educational ranges only. Not a valuation of your case. Not legal advice.
+        {isPremium ? (
+          <span className="text-praxa-sage"> · Premium — unlimited runs</span>
+        ) : (
+          <span> · Free includes 1 run</span>
+        )}
       </p>
+
+      {gate && (
+        <div
+          className="bg-praxa-ink text-white rounded-3xl p-6 space-y-3"
+          data-testid="estimate-premium-gate"
+        >
+          <div className="text-xs uppercase tracking-widest text-white/50">Premium</div>
+          <p className="text-sm text-white/85 leading-relaxed">{gate.message}</p>
+          <p className="text-[11px] text-white/45">
+            No card charge from this screen — checkout is not live yet.
+          </p>
+          <div className="flex flex-wrap gap-2 pt-1">
+            <button
+              type="button"
+              onClick={requestPremium}
+              className="bg-praxa-accent text-white px-4 py-2 rounded-full text-sm"
+              data-testid="estimate-request-premium"
+            >
+              Request Premium
+            </button>
+            <button
+              type="button"
+              onClick={onGoAccount}
+              className="border border-white/30 text-white px-4 py-2 rounded-full text-sm"
+            >
+              Redeem a code
+            </button>
+          </div>
+          {interestMsg && <p className="text-xs text-praxa-sage">{interestMsg}</p>}
+        </div>
+      )}
 
       <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-4">
         <div>
@@ -964,8 +1028,10 @@ function AccountTab({ user, setUser, onLogout }) {
   const [name, setName] = useState(user.name || "");
   const [phone, setPhone] = useState(user.phone || "");
   const [incident, setIncident] = useState(user.incident_date || "");
+  const [code, setCode] = useState("");
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
+  const plan = user?.plan || "free";
 
   const save = async () => {
     setSaving(true);
@@ -988,6 +1054,41 @@ function AccountTab({ user, setUser, onLogout }) {
     }
   };
 
+  const redeem = async () => {
+    setSaving(true);
+    setMsg("");
+    try {
+      const r = await api.post("/praxa/redeem-code", { code }, { headers: authHeaders() });
+      if (r.data?.user) {
+        setUser(r.data.user);
+        localStorage.setItem("praxa_user", JSON.stringify(r.data.user));
+      }
+      setMsg(r.data?.message || "Premium unlocked.");
+      setCode("");
+    } catch (e) {
+      setMsg(e?.response?.data?.detail || "Could not redeem code");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const requestPremium = async () => {
+    setSaving(true);
+    setMsg("");
+    try {
+      const r = await api.post(
+        "/praxa/upgrade-interest",
+        { note: "From account tab" },
+        { headers: authHeaders() },
+      );
+      setMsg(r.data?.message || "Interest recorded.");
+    } catch (e) {
+      setMsg(e?.response?.data?.detail || "Could not record interest");
+    } finally {
+      setSaving(false);
+    }
+  };
+
   const exportAll = async () => {
     const r = await api.get("/praxa/export.json", { headers: authHeaders() });
     const blob = new Blob([JSON.stringify(r.data, null, 2)], { type: "application/json" });
@@ -1003,7 +1104,12 @@ function AccountTab({ user, setUser, onLogout }) {
     <div className="space-y-4">
       <h1 className="text-3xl font-light">Account</h1>
       <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-3">
-        <div className="text-xs text-praxa-subtle">{user.email}</div>
+        <div className="flex items-center justify-between gap-2">
+          <div className="text-xs text-praxa-subtle">{user.email}</div>
+          <span className="text-[10px] uppercase tracking-widest text-praxa-sage" data-testid="account-plan">
+            {plan}
+          </span>
+        </div>
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -1034,6 +1140,43 @@ function AccountTab({ user, setUser, onLogout }) {
           {saving ? "Saving…" : "Save profile"}
         </button>
       </div>
+
+      {plan !== "premium" && (
+        <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-3">
+          <div className="text-xs uppercase tracking-widest text-praxa-sage">Premium</div>
+          <p className="text-sm text-praxa-subtle">
+            Unlimited educational estimates. Card checkout is not live — request Premium or redeem a
+            code. No surprise charges from this screen.
+          </p>
+          <div className="flex gap-2">
+            <input
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              placeholder="Premium code"
+              className="flex-1 px-4 py-2.5 border border-praxa-line rounded-xl text-sm"
+              data-testid="account-premium-code"
+            />
+            <button
+              type="button"
+              onClick={redeem}
+              disabled={saving || !code.trim()}
+              className="bg-praxa-accent text-white px-4 py-2.5 rounded-full text-sm disabled:opacity-50"
+              data-testid="account-redeem"
+            >
+              Redeem
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={requestPremium}
+            disabled={saving}
+            className="text-sm text-praxa-sage underline"
+            data-testid="account-request-premium"
+          >
+            Request Premium interest
+          </button>
+        </div>
+      )}
 
       <button
         type="button"

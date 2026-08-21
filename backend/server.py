@@ -1123,15 +1123,28 @@ async def praxa_signup(req: PraxaUserIn):
     existing = await db.praxa_users.find_one({"email": req.email.lower()})
     if existing:
         token = make_token(existing["id"], "praxa")
-        return {"token": token, "user": {"id": existing["id"], "email": existing["email"], "name": existing["name"]}}
+        plan = existing.get("plan") or "free"
+        return {
+            "token": token,
+            "user": {
+                "id": existing["id"],
+                "email": existing["email"],
+                "name": existing["name"],
+                "plan": plan,
+            },
+        }
     uid = new_id()
     doc = {
         "id": uid, "email": req.email.lower(), "name": req.name, "phone": req.phone,
         "incident_date": req.incident_date, "created_at": now(), "case_stage": "discovery",
+        "plan": "free",
     }
     await db.praxa_users.insert_one(doc)
     token = make_token(uid, "praxa")
-    return {"token": token, "user": {"id": uid, "email": req.email.lower(), "name": req.name}}
+    return {
+        "token": token,
+        "user": {"id": uid, "email": req.email.lower(), "name": req.name, "plan": "free"},
+    }
 
 
 @api.post("/praxa/ai-coach")
