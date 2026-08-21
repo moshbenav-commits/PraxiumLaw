@@ -3,17 +3,16 @@
   "repos": ["expedia-solutions"],
   "branch": "laptop-main",
   "inFlight": [
-    "Image Lane overnight loop running — pending 16 · running 1",
-    "Promoted latest done → brand stills + Gate 8",
-    "Cruze 16:9 still still queued to mini-i7 CDP inbox"
+    "Image Lane healthy: pending 16 · running creytixv2-r013 (~20m into ~22–34m qwen-edit)",
+    "Promoted c15 / creytix002 / c19 after Gate 8",
+    "Mac Studio still unreachable from laptop"
   ],
-  "nextStep": "Leave Image Lane draining. For CDP (Gemini/Qwen) queue + Cruze: Cmd+Q Chrome then npm run video:flow:chrome-debug:main, or let mini-i7 take inbox job 20260821T013055Z-cruze-tijuana-16-9-approach-still-via-cdp.",
+  "nextStep": "Leave Image Lane draining. After r013 finishes, next pending includes creytixv2-r007/r004/r003/r006 then EP/AH/GMI/SC/EP powertrain regens. Review: http://localhost:3025/app/assets/review",
   "verify": [
     "cd \"/Users/ricardo/Expedia Solutions\" && npm run image:lane:status",
-    "http://localhost:3025/app/assets/review",
-    "http://localhost:3025/app/tools/image-lane"
+    "tail -f ~/Library/Logs/creytix-image-lane/worker.err.log"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T01:45:00.000Z"
+  "updatedAt": "2026-08-21T01:57:00.000Z"
 }
