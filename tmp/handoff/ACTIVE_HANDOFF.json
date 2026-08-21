@@ -1,18 +1,9 @@
 {
-  "thread": "Creytix Guide subject plate (fake-3d-depth)",
-  "repos": [
-    "expedia-solutions"
-  ],
-  "inFlight": "Preempted bbmq/r007; Guide uaq9 CLAIMED and rendering on local 4bit",
-  "nextStep": "Wait uaq9 done \u2192 auto-promote + Gate 8 --expect-transparent \u2192 review URL",
-  "verify": "npm run image:lane:status; file brand/creytix/scene-plates/fake-3d-depth__subject.webp; npm run brand:image-qa:gate -- --apply",
-  "lane": "media-pipeline",
-  "jobId": "il-1787218654542-uaq9",
-  "stagingId": "nano-creytix-scene-fake-3d-depth-subject",
-  "updatedAt": "2026-08-21T12:11:28.391521+00:00",
-  "notes": [
-    "Rec #317: save local qwen-image-edit-2509-4bit under IMAGE_LANE_ROOT/models",
-    "Commits: 835be3221f thread \u00b7 2f81f3c974 golem attach on prompt-regen"
-  ],
-  "localModel": "/Users/ricardo/creytix-image-lane/models/qwen-image-edit-2509-4bit"
+  "thread": "AlignHeart beta launch — TOTP, free/paid coach, quiz, Guided Path",
+  "repos": ["alignheart-front", "alignheart-back", "expedia-solutions"],
+  "inFlight": "Guided Path AH-GP1/GP3 slice + unpaid chat banner + docs; tests next",
+  "nextStep": "cd alignheart-front && npm run dev → http://localhost:3111/begin",
+  "verify": "alignheart-back npm run test:coach; alignheart-front vitest find-yourself",
+  "lane": "alignheart",
+  "updatedAt": "2026-08-21T16:54:00Z"
 }

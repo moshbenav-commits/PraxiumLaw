@@ -176,10 +176,11 @@ def create_checkout_session(
         params["customer_email"] = email
 
     if key == SKU_PREMIUM:
+        # Subscription Checkout rejects statement_descriptor_suffix on
+        # subscription_data — descriptor is account / invoice level.
         params["subscription_data[metadata][product_line]"] = metadata["product_line"]
         params["subscription_data[metadata][sku]"] = metadata["sku"]
         params["subscription_data[metadata][praxa_user_id]"] = metadata["praxa_user_id"]
-        params["subscription_data[statement_descriptor_suffix]"] = _STATEMENT_SUFFIX
     else:
         params["payment_intent_data[metadata][product_line]"] = metadata["product_line"]
         params["payment_intent_data[metadata][sku]"] = metadata["sku"]
