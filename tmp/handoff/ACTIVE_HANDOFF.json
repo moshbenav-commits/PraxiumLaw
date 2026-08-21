@@ -3,7 +3,7 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "second-pass rsync STOPPED: 11158 files / ~29GB transferred (not 0); vanished-file errors; no === second-pass done marker; longrun lacie-workspace-copy + second-pass stopped; path-switch blocked",
+  "inFlight": "poll 15:51: waitFor still missing === second-pass done; transferred 11158 ≠ 0; longrun lacie-workspace-second-pass STOPPED; path-switch blocked",
   "nextStep": "Do not path-switch (transferred ≠ 0). Next full turn: rerun bash scripts/fleet-workspace-copy-to-lacie.sh --second-pass (or creytix:longrun -- start --id=lacie-workspace-second-pass) until Number of files transferred is 0; then --awaiting-ricardo and ask Ricardo to quit Cursor + run path switch from docs/fleet/LAPTOP_LACIE_WORKSPACE.md.",
   "constraints": [
     "Do not symlink or switch ~/Expedia Solutions while Cursor has the tree open",
@@ -30,13 +30,13 @@
   ],
   "waitForMode": "any",
   "checkIn": {
-    "afterSec": 450,
-    "nextCheckAt": "2026-08-21T22:50:15.452Z",
-    "estimateSec": 3600,
-    "plannedAt": "2026-08-21T22:42:45.452Z",
-    "reason": "second-pass rsync finished: 11158 files (~29GB) transferred, not 0; path-switch blocked; waitFor still missing === second-pass done; poll only — next full turn reruns --second-pass"
+    "afterSec": 375,
+    "nextCheckAt": "2026-08-21T22:58:59.937Z",
+    "estimateSec": 3000,
+    "plannedAt": "2026-08-21T22:52:44.937Z",
+    "reason": "second-pass still gated: no === second-pass done; 11158 files transferred (not 0); longrun second-pass STOPPED; path-switch blocked; poll only — next full turn reruns --second-pass"
   },
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-21T22:42:45.453Z"
+  "updatedAt": "2026-08-21T22:52:44.944Z"
 }
