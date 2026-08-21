@@ -3,26 +3,18 @@
   "repos": [
     "expedia-solutions",
     "FastTrackTrafficSchool-Front",
-    "expedia-parts-front",
-    "auction-front",
-    "earnedstar-front",
-    "creytix-front",
-    "ExpediaEngines-Front",
-    "ExpediaTransmissions-Front",
-    "GoldMedalInjury-Front",
-    "Sancochi-Front",
     "QuickStudy-Front"
   ],
   "branch": "laptop-main",
   "inFlight": [
-    "Composition stamps + Fast Track resolver alias landed. Fleet assess: 22/22 wirable, still-generic 0.",
-    "Homepage REDESIGN from mood boards still later (#290). Below-fold stills for GT/QS/FP/Cruze/OYA (#293)."
+    "Template-clone homepages redesigned: GoTianguis, ForgePilot, QuickStudy, Fast Track.",
+    "Fleet assess prints scroll=hairline vs scroll=yes. NO-STILL rows in FLEET_SCROLL_MOTION.json."
   ],
-  "nextStep": "Start remaining homepage REDESIGN from locked mood boards (House of Bid + Expedia Parts as north stars). Do not treat kit-class stamps as the redesign.",
+  "nextStep": "Remaining homepage REDESIGN (#290) for other wired fronts. High-end below-fold photos then data-cx-motion for GT/QS/FP/FTT/Cruze/OYA (#293). Do not stamp SVG placeholders.",
   "verify": [
     "cd \"/Users/ricardo/Expedia Solutions\" && npm run creytix:site:revamp -- --fleet-assess"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T00:40:00.000Z"
+  "updatedAt": "2026-08-21T00:20:00.000Z"
 }
