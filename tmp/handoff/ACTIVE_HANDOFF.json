@@ -1,0 +1,22 @@
+{
+  "thread": "Highest-impact completion — EarnedStar free Groq + Condo books",
+  "repos": [
+    "expedia-solutions",
+    "earnedstar-back",
+    "creytix-front"
+  ],
+  "branch": "laptop-main",
+  "inFlight": [
+    "EarnedStar: Groq gpt-oss-120b wired in code; GROQ_API_KEY + EARNEDSTAR_LLM_MODEL + INDEXNOW_API_KEY set on earnedstar-back Production. Health still false until Production redeploy (Ricardo-gated). Paid OpenAI unused.",
+    "Creytix Condo: booksReconcile + Connect catalog already landed.",
+    "Site revamp: remaining REDESIGN homepages after this gate."
+  ],
+  "nextStep": "Ask Ricardo: approve Production redeploy of earnedstar-back so Groq + IndexNow load. Do not deploy:prod until yes.",
+  "verify": [
+    "cd earnedstar-back && npm run test:llm",
+    "from earnedstar-back: vercel env ls production --scope expedia-solutions (names only) — GROQ_API_KEY, EARNEDSTAR_LLM_MODEL, INDEXNOW_API_KEY"
+  ],
+  "lane": "push_only",
+  "push": false,
+  "updatedAt": "2026-08-21T00:26:00.000Z"
+}
