@@ -152,7 +152,7 @@ export default function Settings() {
       <div className="mt-4 data-card p-5">
         <div className="overline mb-3 flex items-center gap-2"><Plug size={12} /> // integrations & API keys</div>
         <p className="text-sm text-praxium-subtle mb-3">
-          Attach the Anthropic key (CoCounsel + Praxa AI) and the Resend key (portal, e-sign, and upload emails). Test connections live.
+          Attach the Groq key first (CoCounsel + Praxa AI) and the Resend key (portal, e-sign, and upload emails). Test connections live.
         </p>
         <Link to="/settings/integrations" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-integrations">
           Manage integrations →
