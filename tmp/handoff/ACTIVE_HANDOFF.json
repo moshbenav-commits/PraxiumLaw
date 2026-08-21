@@ -1,16 +1,18 @@
 {
-  "thread": "Creytix scene-pack subject regen (laptop CDP)",
-  "repos": ["expedia-solutions", "creytix-front"],
+  "thread": "Motion Studio AnimTOON-3B skip-closed + pending/recs drain",
+  "repos": ["expedia-solutions"],
+  "branch": "laptop-main",
   "inFlight": [
-    "Pipeline built. Gemini attached creytix-golem.png and sent; generation timed out. Image Lane qwen-edit blocked: CreytixImages unmounted."
+    "animtoon-3b CLI --animtoon-3b skip-closed (no weights on this machine)",
+    "recs 193 292 175 315 marked done",
+    "#316 blocked: CreytixImages unmounted"
   ],
-  "nextStep": "Mount CreytixImages, then IMAGE_LANE_ROOT from pin + image:lane:enqueue qwen-edit --ref creytix-golem.png for nano-creytix-scene-fake-3d-depth-subject. Do not regen the good background.",
+  "nextStep": "Mount CreytixImages, then Image Lane qwen-edit --ref creytix-golem.png for nano-creytix-scene-fake-3d-depth-subject. Do not regen the good background. Higgsfield stills banned.",
   "verify": [
-    "test -d /Volumes/CreytixImages/creytix-image-lane-live",
-    "npm run image:lane:enqueue -- --engine qwen-edit --ref creytix-front/public/creytix/mascot/creytix-golem.png --width 1280 --height 720 --meta-output brand/creytix/scene-plates/fake-3d-depth__subject.webp --meta-source-staging-id nano-creytix-scene-fake-3d-depth-subject --meta-brand creytix --out-prefix fake-3d-depth-subject --prompt \"Lock Creytix Guide as the attached rune-golem (lantern + CX belly). Isolated RGBA cutout, no environment, no letters.\"",
-    "npm run brand:image-qa:gate -- --apply --dir=brand/creytix/scene-plates"
+    "npm run creytix:motion-studio:ready",
+    "npx tsx packages/creytix-motion-studio/src/motion-tools-cli.ts --animtoon-3b \"logo pulse\""
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T04:55:00Z"
+  "updatedAt": "2026-08-21T11:30:00Z"
 }
