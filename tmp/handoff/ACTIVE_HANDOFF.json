@@ -1,13 +1,18 @@
 {
-  "thread": "Creytix Guide subject plate (fake-3d-depth) via Image Lane qwen-edit",
+  "thread": "Creytix Guide subject plate (fake-3d-depth)",
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Image Lane qwen-edit job il-1787218654542-uaq9 queued front with golem refs; CreytixImages mounted; waiting on running Inspector regen then Guide claim → meta.output brand/creytix/scene-plates/fake-3d-depth__subject.webp",
-  "nextStep": "When uaq9 completes → confirm promote to fake-3d-depth__subject.webp → Gate 8 → http://localhost:3025/app/creative/pipeline?step=review&site=creytix. Do not regen background plate.",
-  "verify": "ls queue/done/*uaq9*; file brand/creytix/scene-plates/fake-3d-depth__subject.webp; npm run brand:image-qa:gate -- --apply --site=creytix",
+  "inFlight": "bbmq still running; uaq9 #1 pending. LOCAL_MODEL qwen-image-edit-2509-4bit now symlinked to offload q4 (~25G) for faster next claim.",
+  "nextStep": "Wait bbmq \u2192 uaq9 (should use local 4bit) \u2192 auto-promote + Gate 8 \u2192 review URL",
+  "verify": "npm run image:lane:status; file brand/creytix/scene-plates/fake-3d-depth__subject.webp; npm run brand:image-qa:gate -- --apply",
   "lane": "media-pipeline",
   "jobId": "il-1787218654542-uaq9",
   "stagingId": "nano-creytix-scene-fake-3d-depth-subject",
-  "updatedAt": "2026-08-21T11:49:00.000Z"
+  "updatedAt": "2026-08-21T12:04:23.536521+00:00",
+  "notes": [
+    "Rec #317: save local qwen-image-edit-2509-4bit under IMAGE_LANE_ROOT/models",
+    "Commits: 835be3221f thread \u00b7 2f81f3c974 golem attach on prompt-regen"
+  ],
+  "localModel": "/Users/ricardo/creytix-image-lane/models/qwen-image-edit-2509-4bit"
 }
