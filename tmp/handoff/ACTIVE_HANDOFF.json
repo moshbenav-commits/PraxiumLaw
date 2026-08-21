@@ -1,9 +1,9 @@
 {
-  "thread": "laptop-disk-critical \u2192 LaCie workspace (second-pass)",
+  "thread": "laptop-disk-critical → LaCie workspace (second-pass)",
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "second-pass Apple rsync --stats (longrun lacie-workspace-second-pass pid 55901)",
+  "inFlight": "second-pass rsync still running (~9.5m elapsed; waitFor no '=== second-pass done' yet; longrun pid 55901)",
   "nextStep": "When second-pass log shows done: if Number of files transferred is 0, --awaiting-ricardo and ask Ricardo to quit Cursor + run path switch from docs/fleet/LAPTOP_LACIE_WORKSPACE.md. Else replan check-in or fix deltas.",
   "constraints": [
     "Do not symlink or switch ~/Expedia Solutions while Cursor has the tree open",
@@ -29,13 +29,13 @@
   ],
   "waitForMode": "any",
   "checkIn": {
-    "afterSec": 338,
-    "nextCheckAt": "2026-08-21T22:27:09.136605Z",
-    "estimateSec": 2700,
-    "plannedAt": "2026-08-21T22:21:31.136605Z",
-    "reason": "LaCie second-pass Apple rsync --stats (~45m)"
+    "afterSec": 263,
+    "nextCheckAt": "2026-08-21T22:35:44.410Z",
+    "estimateSec": 2100,
+    "plannedAt": "2026-08-21T22:31:21.410Z",
+    "reason": "LaCie second-pass rsync still running (~9.5m in; waitFor gated)"
   },
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-21T22:22:14.583016Z"
+  "updatedAt": "2026-08-21T22:31:21.412Z"
 }
