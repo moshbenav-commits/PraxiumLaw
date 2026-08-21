@@ -1,33 +1,41 @@
 {
-  "thread": "Laptop disk critical — reclaim + LaCie protocol",
-  "repos": ["expedia-solutions"],
-  "inFlight": "First-pass ditto still RUNNING (pid 22645 / ditto 22650, ~5.8% CPU). Dest already 259G. Fake log stamps of 'first-pass ditto done (stamped)' are not the script. Drive waitFor is now the real Next: --second-pass line after ditto exits.",
-  "nextStep": "When ditto pid 22650 is gone and the log has 'Next: bash scripts/fleet-workspace-copy-to-lacie.sh --second-pass' (no '(stamped)'), start: npm run creytix:longrun -- start --id=lacie-workspace-second-pass. If Number of files transferred: 0, STOP and ask Ricardo to quit Cursor — then switch home path per docs/fleet/LAPTOP_LACIE_WORKSPACE.md.",
-  "constraints": [
-    "Do not symlink node_modules/.next.",
-    "Do not delete the internal copy until second-pass gate.",
-    "Do not switch ~/Expedia Solutions symlink while Cursor has the tree open.",
-    "Do not OmniRoute npm install until tens of GB free.",
-    "Never GNU rsync --info=stats2 on this Mac (openrsync).",
-    "Do not start second-pass rsync while ditto is still writing.",
-    "Shared ACTIVE_HANDOFF — keep LaCie nextStep until copy gate clears; do not overwrite with other chat work."
+  "thread": "laptop-disk-critical \u2192 LaCie workspace (second-pass)",
+  "repos": [
+    "expedia-solutions"
   ],
-  "verify": "pgrep -lf 'ditto /Users/ricardo/Expedia Solutions' ; npm run creytix:longrun -- status ; rg -n 'Next: bash scripts/fleet-workspace-copy-to-lacie.sh --second-pass|Number of files transferred' /tmp/expedia-solutions-lacie-rsync.log",
+  "inFlight": "second-pass Apple rsync --stats (longrun lacie-workspace-second-pass pid 55901)",
+  "nextStep": "When second-pass log shows done: if Number of files transferred is 0, --awaiting-ricardo and ask Ricardo to quit Cursor + run path switch from docs/fleet/LAPTOP_LACIE_WORKSPACE.md. Else replan check-in or fix deltas.",
+  "constraints": [
+    "Do not symlink or switch ~/Expedia Solutions while Cursor has the tree open",
+    "Do not delete internal SSD copy until second-pass gate passes",
+    "Do not force-kill ditto/rsync without status"
+  ],
+  "verify": [
+    "rg 'second-pass rsync done|Number of files transferred' /tmp/expedia-solutions-lacie-rsync.log tmp/expedia-solutions-lacie-rsync.log",
+    "npm run creytix:longrun -- status"
+  ],
+  "lane": "fleet-disk",
   "waitFor": [
     {
       "type": "logContains",
+      "path": "tmp/expedia-solutions-lacie-rsync.log",
+      "needle": "=== second-pass done"
+    },
+    {
+      "type": "logContains",
       "path": "/tmp/expedia-solutions-lacie-rsync.log",
-      "needle": "Next: bash scripts/fleet-workspace-copy-to-lacie.sh --second-pass"
+      "needle": "=== second-pass done"
     }
   ],
-  "waitForMode": "all",
+  "waitForMode": "any",
   "checkIn": {
-    "afterSec": 600,
-    "nextCheckAt": "2026-08-21T22:27:00Z",
-    "estimateSec": 1800,
-    "plannedAt": "2026-08-21T22:17:00Z",
-    "reason": "ditto still copying leftovers onto LaCie; dest already 259G"
+    "afterSec": 338,
+    "nextCheckAt": "2026-08-21T22:27:09.136605Z",
+    "estimateSec": 2700,
+    "plannedAt": "2026-08-21T22:21:31.136605Z",
+    "reason": "LaCie second-pass Apple rsync --stats (~45m)"
   },
-  "lane": "laptop",
-  "updatedAt": "2026-08-21T22:17:00Z"
+  "paused": false,
+  "awaitingRicardo": false,
+  "updatedAt": "2026-08-21T22:22:14.583016Z"
 }
