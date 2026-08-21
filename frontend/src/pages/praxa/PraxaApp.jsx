@@ -630,7 +630,7 @@ const MATCH_STATUS_LABELS = {
   declined: "Couldn't match",
 };
 
-function EstimateTab({ user, setUser, onGoAccount }) {
+function EstimateTab({ user, onGoAccount }) {
   const [injury, setInjury] = useState("soft_tissue");
   const [severity, setSeverity] = useState(3);
   const [treatment, setTreatment] = useState("conservative");
@@ -816,7 +816,7 @@ function EstimateTab({ user, setUser, onGoAccount }) {
         <button
           type="button"
           onClick={run}
-          disabled={saving || (!!gate && !isPremium)}
+          disabled={saving}
           data-testid="estimate-run"
           className="bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium disabled:opacity-50"
         >
