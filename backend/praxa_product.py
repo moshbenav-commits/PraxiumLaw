@@ -335,11 +335,19 @@ def register_praxa_product_routes(
             ),
         }
 
+    _MATCH_CONSUMER_PROJ = {
+        "_id": 0,
+        "staff_notes": 0,
+        "assigned_to": 0,
+        "updated_by": 0,
+        "updated_by_email": 0,
+    }
+
     @api.get("/praxa/doctor-match")
     async def praxa_doctor_match_list(authorization: Optional[str] = Header(None)):
         payload = _auth(authorization)
         return await db.praxa_doctor_requests.find(
-            {"user_id": payload["sub"]}, {"_id": 0}
+            {"user_id": payload["sub"]}, _MATCH_CONSUMER_PROJ
         ).sort("created_at", -1).to_list(50)
 
     @api.get("/praxa/export.json")
@@ -350,6 +358,9 @@ def register_praxa_product_routes(
             {"user_id": payload["sub"]}, {"_id": 0, "photo_data_url": 0}
         ).sort("created_at", 1).to_list(2000)
         matches = await db.praxa_doctor_requests.find(
+            {"user_id": payload["sub"]}, _MATCH_CONSUMER_PROJ
+        ).sort("created_at", 1).to_list(100)
+        estimates = await db.praxa_estimate_runs.find(
             {"user_id": payload["sub"]}, {"_id": 0}
         ).sort("created_at", 1).to_list(100)
         return {
@@ -357,8 +368,16 @@ def register_praxa_product_routes(
             "user": user,
             "journal": journal,
             "doctor_match_requests": matches,
-            "notice": "Photos omitted from bulk export — open an entry to view an attached photo.",
+            "settlement_estimates": estimates,
+            "notice": "Photos omitted from bulk export — open an entry to view an attached photo. Estimates are educational only.",
         }
+
+    @api.get("/praxa/settlement-estimate")
+    async def praxa_settlement_estimate_list(authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        return await db.praxa_estimate_runs.find(
+            {"user_id": payload["sub"]}, {"_id": 0}
+        ).sort("created_at", -1).to_list(30)
 
     @api.post("/praxa/settlement-estimate")
     async def praxa_settlement_estimate(
@@ -366,14 +385,15 @@ def register_praxa_product_routes(
     ):
         payload = _auth(authorization)
         result = compute_settlement_estimate(body)
-        # Persist last estimate for account export (no PII beyond inputs)
+        # Persist for history + account export (no PII beyond inputs)
+        run_id = new_id()
         await db.praxa_estimate_runs.insert_one(
             {
-                "id": new_id(),
+                "id": run_id,
                 "user_id": payload["sub"],
                 "created_at": now(),
                 "inputs": result["inputs"],
                 "band": result["band"],
             }
         )
-        return result
+        return {**result, "id": run_id}

@@ -18,6 +18,8 @@ ALLOWED_STATUS = {"queued", "contacted", "matched", "closed", "declined"}
 class DoctorMatchPatch(BaseModel):
     status: Optional[str] = None
     staff_notes: Optional[str] = None
+    # Shown to the consumer in Praxa (keep short; not internal staff notes)
+    consumer_message: Optional[str] = None
     assigned_to: Optional[str] = None
 
 
@@ -84,6 +86,8 @@ def register_praxa_ops_routes(
             update["status"] = body.status
         if body.staff_notes is not None:
             update["staff_notes"] = body.staff_notes.strip()[:4000]
+        if body.consumer_message is not None:
+            update["consumer_message"] = body.consumer_message.strip()[:500]
         if body.assigned_to is not None:
             update["assigned_to"] = body.assigned_to.strip()[:120]
         await db.praxa_doctor_requests.update_one({"id": request_id}, {"$set": update})

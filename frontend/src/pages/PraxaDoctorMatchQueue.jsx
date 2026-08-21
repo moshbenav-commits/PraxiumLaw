@@ -48,12 +48,17 @@ export default function PraxaDoctorMatchQueue() {
   }, [load]);
 
   const patch = async (id, nextStatus) => {
-    const note = window.prompt("Staff note (optional):");
+    const note = window.prompt("Internal staff note (optional — not shown to consumer):");
     if (note === null) return;
+    const consumerMsg = window.prompt(
+      "Message for the consumer in Praxa (optional — they will see this):",
+    );
+    if (consumerMsg === null) return;
     try {
       await api.patch(`/praxa-ops/doctor-match/${id}`, {
         status: nextStatus,
         staff_notes: note || undefined,
+        consumer_message: consumerMsg || undefined,
       });
       toast.success(`Marked ${nextStatus}`);
       load();
@@ -135,7 +140,12 @@ export default function PraxaDoctorMatchQueue() {
             {r.notes && <p className="mt-2 text-sm text-praxium-ink/80">{r.notes}</p>}
             {r.staff_notes && (
               <p className="mt-2 text-xs text-praxium-subtle border-t border-praxium-line pt-2">
-                Staff: {r.staff_notes}
+                Staff (internal): {r.staff_notes}
+              </p>
+            )}
+            {r.consumer_message && (
+              <p className="mt-1 text-xs text-praxium-ink">
+                Shown to consumer: {r.consumer_message}
               </p>
             )}
             <div className="mt-3 flex flex-wrap gap-2">

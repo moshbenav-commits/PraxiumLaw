@@ -612,12 +612,29 @@ function CoachTab() {
   );
 }
 
+const INJURY_LABELS = {
+  soft_tissue: "Soft tissue",
+  fracture: "Fracture",
+  disc: "Disc",
+  surgery: "Surgery",
+  catastrophic: "Catastrophic",
+};
+
+const MATCH_STATUS_LABELS = {
+  queued: "Queued — we'll follow up",
+  contacted: "We're reaching out",
+  matched: "Options shared",
+  closed: "Closed",
+  declined: "Couldn't match",
+};
+
 function EstimateTab() {
   const [injury, setInjury] = useState("soft_tissue");
   const [severity, setSeverity] = useState(3);
   const [treatment, setTreatment] = useState("conservative");
   const [liability, setLiability] = useState("unclear");
   const [result, setResult] = useState(null);
+  const [history, setHistory] = useState([]);
   const [err, setErr] = useState("");
   const [saving, setSaving] = useState(false);
 
@@ -627,6 +644,15 @@ function EstimateTab() {
       currency: "USD",
       maximumFractionDigits: 0,
     }).format(n);
+
+  const loadHistory = useCallback(() => {
+    api
+      .get("/praxa/settlement-estimate", { headers: authHeaders() })
+      .then((r) => setHistory(Array.isArray(r.data) ? r.data : []))
+      .catch(() => setHistory([]));
+  }, []);
+
+  useEffect(loadHistory, [loadHistory]);
 
   const run = async () => {
     setSaving(true);
@@ -644,6 +670,7 @@ function EstimateTab() {
         { headers: authHeaders() },
       );
       setResult(r.data);
+      loadHistory();
     } catch (e) {
       setErr(e?.response?.data?.detail || "Could not run estimate");
       setResult(null);
@@ -757,6 +784,32 @@ function EstimateTab() {
           >
             Free case review →
           </a>
+        </div>
+      )}
+
+      {history.length > 0 && (
+        <div className="space-y-2" data-testid="estimate-history">
+          <div className="text-xs uppercase tracking-widest text-praxa-sage">Past runs</div>
+          {history.map((h) => (
+            <div
+              key={h.id}
+              className="bg-white border border-praxa-line rounded-2xl p-4 text-sm flex justify-between gap-3"
+            >
+              <div>
+                <div className="font-medium">
+                  {INJURY_LABELS[h.inputs?.injury_category] || h.inputs?.injury_category} · sev{" "}
+                  {h.inputs?.severity}
+                </div>
+                <div className="text-xs text-praxa-subtle mt-0.5">
+                  {h.created_at ? new Date(h.created_at).toLocaleString() : ""}
+                </div>
+              </div>
+              <div className="text-right tabular text-praxa-ink shrink-0">
+                {money(h.band?.low)} – {money(h.band?.high)}
+              </div>
+            </div>
+          ))}
+          <p className="text-[11px] text-praxa-subtle">Educational only — not a case valuation.</p>
         </div>
       )}
     </div>
@@ -885,8 +938,8 @@ function DoctorsTab() {
                 <span className="font-medium">
                   ZIP {r.zip_code} · {r.specialty}
                 </span>
-                <span className="text-[10px] uppercase tracking-widest text-praxa-sage">
-                  {r.status}
+                <span className="text-[10px] uppercase tracking-widest text-praxa-sage text-right max-w-[45%]">
+                  {MATCH_STATUS_LABELS[r.status] || r.status}
                 </span>
               </div>
               <div className="text-xs text-praxa-subtle mt-1">
@@ -894,6 +947,11 @@ function DoctorsTab() {
                 {r.prefer_lop ? " · LOP preferred" : ""}
               </div>
               {r.notes && <p className="mt-2 text-praxa-subtle">{r.notes}</p>}
+              {r.consumer_message && (
+                <p className="mt-2 text-sm text-praxa-ink border-t border-praxa-line pt-2">
+                  Update: {r.consumer_message}
+                </p>
+              )}
             </div>
           ))}
         </div>
