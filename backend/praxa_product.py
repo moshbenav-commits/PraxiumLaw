@@ -18,6 +18,8 @@ from pydantic import BaseModel, Field
 
 
 MAX_PHOTO_BYTES = 280_000  # ~280KB data URL payload after base64
+MAX_DOCUMENT_DATA_URL = 400_000  # data URL char cap — same spirit as photo limits
+_OPINION_URGENCY = {"normal", "soon", "urgent"}
 # Free tier: one educational estimate. Premium: unlimited. No live Stripe yet.
 FREE_ESTIMATE_RUNS = 1
 _DEFAULT_PREMIUM_CODES = "PRAXA-PREMIUM"
@@ -76,6 +78,18 @@ class UpgradeInterestIn(BaseModel):
 
 class RedeemCodeIn(BaseModel):
     code: str
+
+
+class SecondOpinionIn(BaseModel):
+    summary: str
+    goals: str = ""
+    urgency: str = "normal"  # normal | soon | urgent
+
+
+class DocumentIn(BaseModel):
+    name: str
+    data_url: str
+    mime: Optional[str] = None
 
 
 def _premium_codes() -> set[str]:
@@ -223,6 +237,26 @@ def register_praxa_product_routes(
         except Exception as e:  # noqa: BLE001
             raise HTTPException(400, f"Invalid photo: {e}") from e
         return data_url
+
+    def _validate_document_data_url(data_url: str) -> str:
+        if not isinstance(data_url, str) or not data_url.startswith("data:"):
+            raise HTTPException(400, "File must be a data URL (data:*;base64,…)")
+        if len(data_url) > MAX_DOCUMENT_DATA_URL:
+            raise HTTPException(400, "File too large — use a smaller attachment")
+        if ";base64," not in data_url:
+            raise HTTPException(400, "File must be base64-encoded in the data URL")
+        try:
+            _, b64 = data_url.split(",", 1)
+            base64.b64decode(b64, validate=False)
+        except Exception as e:  # noqa: BLE001
+            raise HTTPException(400, f"Invalid file data: {e}") from e
+        return data_url
+
+    def _normalize_urgency(raw: str) -> str:
+        u = (raw or "normal").strip().lower()
+        if u not in _OPINION_URGENCY:
+            raise HTTPException(400, f"urgency must be one of {sorted(_OPINION_URGENCY)}")
+        return u
 
     async def _load_user(uid: str) -> dict:
         user = await db.praxa_users.find_one({"id": uid}, {"_id": 0})
@@ -400,6 +434,8 @@ def register_praxa_product_routes(
     @api.post("/praxa/doctor-match")
     async def praxa_doctor_match(body: DoctorMatchIn, authorization: Optional[str] = Header(None)):
         payload = _auth(authorization)
+        user = await _load_user(payload["sub"])
+        consumer_plan = _normalize_plan(user)
         zip_code = re.sub(r"[^0-9]", "", body.zip_code)[:10]
         if len(zip_code) < 5:
             raise HTTPException(400, "Enter a valid ZIP code")
@@ -412,6 +448,8 @@ def register_praxa_product_routes(
             "prefer_lop": bool(body.prefer_lop),
             "status": "queued",
             "created_at": now(),
+            "consumer_plan": consumer_plan,
+            "priority": consumer_plan == "premium",
         }
         await db.praxa_doctor_requests.insert_one(doc)
         doc.pop("_id", None)
@@ -439,6 +477,106 @@ def register_praxa_product_routes(
             {"user_id": payload["sub"]}, _MATCH_CONSUMER_PROJ
         ).sort("created_at", -1).to_list(50)
 
+    _OPINION_CONSUMER_PROJ = {
+        "_id": 0,
+        "staff_notes": 0,
+        "updated_by": 0,
+        "updated_by_email": 0,
+    }
+
+    @api.post("/praxa/second-opinion")
+    async def praxa_second_opinion_create(
+        body: SecondOpinionIn, authorization: Optional[str] = Header(None)
+    ):
+        payload = _auth(authorization)
+        user = await _load_user(payload["sub"])
+        summary = (body.summary or "").strip()
+        if len(summary) < 10:
+            raise HTTPException(400, "Add a short summary (at least 10 characters)")
+        plan = _normalize_plan(user)
+        doc = {
+            "id": new_id(),
+            "user_id": payload["sub"],
+            "email": user.get("email"),
+            "name": user.get("name"),
+            "summary": summary[:4000],
+            "goals": (body.goals or "").strip()[:2000],
+            "urgency": _normalize_urgency(body.urgency),
+            "status": "queued",
+            "created_at": now(),
+            "plan": plan,
+        }
+        await db.praxa_second_opinion.insert_one(doc)
+        doc.pop("_id", None)
+        return {
+            "ok": True,
+            "request": doc,
+            "message": (
+                "Second opinion request queued. A coordinator will review — "
+                "no card charge from this app. Partner review is arranged separately."
+            ),
+        }
+
+    @api.get("/praxa/second-opinion")
+    async def praxa_second_opinion_list(authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        return await db.praxa_second_opinion.find(
+            {"user_id": payload["sub"]}, _OPINION_CONSUMER_PROJ
+        ).sort("created_at", -1).to_list(50)
+
+    @api.post("/praxa/documents")
+    async def praxa_document_create(body: DocumentIn, authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        await _load_user(payload["sub"])
+        name = (body.name or "").strip()[:200]
+        if not name:
+            raise HTTPException(400, "Document name required")
+        data_url = _validate_document_data_url(body.data_url)
+        mime = (body.mime or "").strip()[:120] or None
+        if not mime and ";" in data_url.split(",", 1)[0]:
+            mime = data_url.split(",", 1)[0].replace("data:", "").split(";")[0] or None
+        doc = {
+            "id": new_id(),
+            "user_id": payload["sub"],
+            "name": name,
+            "data_url": data_url,
+            "mime": mime,
+            "has_file": True,
+            "created_at": now(),
+        }
+        await db.praxa_documents.insert_one(doc)
+        doc.pop("_id", None)
+        doc.pop("data_url", None)
+        return doc
+
+    @api.get("/praxa/documents")
+    async def praxa_document_list(authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        rows = await db.praxa_documents.find(
+            {"user_id": payload["sub"]}, {"_id": 0, "data_url": 0}
+        ).sort("created_at", -1).to_list(200)
+        for r in rows:
+            r["has_file"] = bool(r.get("has_file", True))
+        return rows
+
+    @api.get("/praxa/documents/{doc_id}")
+    async def praxa_document_one(doc_id: str, authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        doc = await db.praxa_documents.find_one(
+            {"id": doc_id, "user_id": payload["sub"]}, {"_id": 0}
+        )
+        if not doc:
+            raise HTTPException(404)
+        return doc
+
+    @api.delete("/praxa/documents/{doc_id}")
+    async def praxa_document_delete(doc_id: str, authorization: Optional[str] = Header(None)):
+        payload = _auth(authorization)
+        res = await db.praxa_documents.delete_one({"id": doc_id, "user_id": payload["sub"]})
+        if res.deleted_count == 0:
+            raise HTTPException(404)
+        return {"ok": True}
+
     @api.get("/praxa/export.json")
     async def praxa_full_export(authorization: Optional[str] = Header(None)):
         payload = _auth(authorization)
@@ -452,13 +590,25 @@ def register_praxa_product_routes(
         estimates = await db.praxa_estimate_runs.find(
             {"user_id": payload["sub"]}, {"_id": 0}
         ).sort("created_at", 1).to_list(100)
+        opinions = await db.praxa_second_opinion.find(
+            {"user_id": payload["sub"]}, _OPINION_CONSUMER_PROJ
+        ).sort("created_at", 1).to_list(100)
+        documents = await db.praxa_documents.find(
+            {"user_id": payload["sub"]},
+            {"_id": 0, "id": 1, "name": 1, "mime": 1, "created_at": 1, "has_file": 1},
+        ).sort("created_at", 1).to_list(500)
         return {
             "exported_at": now(),
             "user": user,
             "journal": journal,
             "doctor_match_requests": matches,
             "settlement_estimates": estimates,
-            "notice": "Photos omitted from bulk export — open an entry to view an attached photo. Estimates are educational only.",
+            "second_opinion": opinions,
+            "documents": documents,
+            "notice": (
+                "Photos and file blobs omitted from bulk export — open an entry or document "
+                "to view attachments. Estimates are educational only."
+            ),
         }
 
     @api.get("/praxa/settlement-estimate")

@@ -1,16 +1,19 @@
 {
-  "thread": "Site revamp hairline stills",
+  "thread": "Keep creating needed stills (Image Lane)",
   "repos": ["expedia-solutions"],
   "branch": "laptop-main",
   "inFlight": [
-    "OYA manifesto clip-reveal stamped",
-    "Cruze 16:9 still queued to mini-i7 CDP (C214 too small)"
+    "Image Lane overnight loop running — pending 16 · running 1",
+    "Promoted latest done → brand stills + Gate 8",
+    "Cruze 16:9 still still queued to mini-i7 CDP inbox"
   ],
-  "nextStep": "On mini-i7: run inbox job 20260821T013055Z-cruze-tijuana-16-9-approach-still-via-cdp. Laptop: do not invent OYA photos. Do not stamp 320px Caltrans JPEG.",
+  "nextStep": "Leave Image Lane draining. For CDP (Gemini/Qwen) queue + Cruze: Cmd+Q Chrome then npm run video:flow:chrome-debug:main, or let mini-i7 take inbox job 20260821T013055Z-cruze-tijuana-16-9-approach-still-via-cdp.",
   "verify": [
-    "cd \"/Users/ricardo/Expedia Solutions\" && npm run creytix:site:revamp -- --fleet-assess"
+    "cd \"/Users/ricardo/Expedia Solutions\" && npm run image:lane:status",
+    "http://localhost:3025/app/assets/review",
+    "http://localhost:3025/app/tools/image-lane"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T01:32:00.000Z"
+  "updatedAt": "2026-08-21T01:45:00.000Z"
 }

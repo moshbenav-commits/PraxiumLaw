@@ -15,6 +15,9 @@ import {
   Camera,
   Check,
   Calculator,
+  FileText,
+  ClipboardList,
+  X,
 } from "lucide-react";
 
 const SYMPTOMS = [
@@ -125,34 +128,42 @@ export default function PraxaApp() {
           <EstimateTab user={user} onGoAccount={() => setTab("account")} />
         )}
         {tab === "providers" && <DoctorsTab />}
+        {tab === "files" && <FilesTab />}
+        {tab === "opinion" && <OpinionTab />}
         {tab === "account" && (
           <AccountTab user={user} setUser={setUser} onLogout={() => logout(nav)} />
         )}
       </div>
 
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-praxa-line z-40">
-        <div className="max-w-md mx-auto grid grid-cols-6">
-          {[
-            { id: "home", icon: Heart, label: "Home" },
-            { id: "journal", icon: BookOpen, label: "Journal" },
-            { id: "coach", icon: MessageCircle, label: "Coach" },
-            { id: "estimate", icon: Calculator, label: "Estimate" },
-            { id: "providers", icon: ShieldCheck, label: "Doctors" },
-            { id: "account", icon: User, label: "Account" },
-          ].map((t) => (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => setTab(t.id)}
-              data-testid={`praxa-tab-${t.id}`}
-              className={`flex flex-col items-center gap-1 py-3 ${
-                tab === t.id ? "text-praxa-accent" : "text-praxa-subtle"
-              }`}
-            >
-              <t.icon size={16} />
-              <span className="text-[9px] uppercase tracking-widest">{t.label}</span>
-            </button>
-          ))}
+        <div className="max-w-md mx-auto overflow-x-auto">
+          <div className="flex min-w-max">
+            {[
+              { id: "home", icon: Heart, label: "Home" },
+              { id: "journal", icon: BookOpen, label: "Journal" },
+              { id: "coach", icon: MessageCircle, label: "Coach" },
+              { id: "estimate", icon: Calculator, label: "Estimate" },
+              { id: "providers", icon: ShieldCheck, label: "Doctors" },
+              { id: "files", icon: FileText, label: "Files" },
+              { id: "opinion", icon: ClipboardList, label: "Opinion" },
+              { id: "account", icon: User, label: "Account" },
+            ].map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setTab(t.id)}
+                data-testid={`praxa-tab-${t.id}`}
+                className={`flex flex-col items-center gap-1 py-3 px-3 min-w-[4.25rem] ${
+                  tab === t.id ? "text-praxa-accent" : "text-praxa-subtle"
+                }`}
+              >
+                <t.icon size={16} />
+                <span className="text-[9px] uppercase tracking-widest whitespace-nowrap">
+                  {t.label}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
     </div>
@@ -238,6 +249,25 @@ function HomeTab({ user, onGo }) {
           Request match →
         </button>
       </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <button
+          type="button"
+          onClick={() => onGo("files")}
+          className="bg-white rounded-2xl p-4 border border-praxa-line text-left"
+        >
+          <div className="text-xs uppercase tracking-widest text-praxa-sage">Locker</div>
+          <div className="mt-1 font-semibold text-sm">Your files</div>
+        </button>
+        <button
+          type="button"
+          onClick={() => onGo("opinion")}
+          className="bg-white rounded-2xl p-4 border border-praxa-line text-left"
+        >
+          <div className="text-xs uppercase tracking-widest text-praxa-sage">Review</div>
+          <div className="mt-1 font-semibold text-sm">Second opinion</div>
+        </button>
+      </div>
     </div>
   );
 }
@@ -252,6 +282,7 @@ function JournalTab() {
   const [photo, setPhoto] = useState(null);
   const [saving, setSaving] = useState(false);
   const [err, setErr] = useState("");
+  const [photoView, setPhotoView] = useState(null);
   const fileRef = useRef(null);
 
   const load = useCallback(() => {
@@ -320,6 +351,17 @@ function JournalTab() {
     if (!window.confirm("Delete this journal entry?")) return;
     await api.delete(`/praxa/journal/${id}`, { headers: authHeaders() });
     load();
+  };
+
+  const viewPhoto = async (id) => {
+    try {
+      const res = await api.get(`/praxa/journal/${id}`, { headers: authHeaders() });
+      if (res.data?.photo_data_url) {
+        setPhotoView(res.data.photo_data_url);
+      }
+    } catch {
+      setErr("Could not load photo");
+    }
   };
 
   const exportCsv = async () => {
@@ -499,9 +541,43 @@ function JournalTab() {
               <p className="mt-2 text-sm text-praxa-subtle">Couldn&apos;t: {e.activities_affected}</p>
             )}
             {e.notes && <p className="mt-2 text-sm">{e.notes}</p>}
+            {e.has_photo && (
+              <button
+                type="button"
+                onClick={() => viewPhoto(e.id)}
+                className="mt-2 text-xs text-praxa-accent font-medium"
+                data-testid={`view-photo-${e.id}`}
+              >
+                View photo
+              </button>
+            )}
           </div>
         ))}
       </div>
+
+      {photoView && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+          role="dialog"
+          aria-label="Journal photo"
+        >
+          <div className="relative max-w-md w-full">
+            <button
+              type="button"
+              onClick={() => setPhotoView(null)}
+              className="absolute -top-10 right-0 text-white p-2"
+              aria-label="Close"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={photoView}
+              alt="Journal entry"
+              className="w-full rounded-2xl max-h-[70vh] object-contain bg-black"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -1013,6 +1089,351 @@ function DoctorsTab() {
               {r.notes && <p className="mt-2 text-praxa-subtle">{r.notes}</p>}
               {r.consumer_message && (
                 <p className="mt-2 text-sm text-praxa-ink border-t border-praxa-line pt-2">
+                  Update: {r.consumer_message}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function FilesTab() {
+  const [docs, setDocs] = useState([]);
+  const [name, setName] = useState("");
+  const [pendingFile, setPendingFile] = useState(null);
+  const [err, setErr] = useState("");
+  const [msg, setMsg] = useState("");
+  const [saving, setSaving] = useState(false);
+  const [viewDoc, setViewDoc] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const load = useCallback(() => {
+    api
+      .get("/praxa/documents", { headers: authHeaders() })
+      .then((r) => setDocs(r.data || []))
+      .catch(() => setDocs([]));
+  }, []);
+
+  useEffect(load, [load]);
+
+  const onFile = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 280_000) {
+      setErr("File must be under ~280KB");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setName((n) => n || file.name.replace(/\.[^.]+$/, "").slice(0, 200));
+      setPendingFile({ dataUrl: String(reader.result), mime: file.type });
+      setErr("");
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const upload = async () => {
+    if (!pendingFile?.dataUrl) {
+      setErr("Choose a file first");
+      return;
+    }
+    const docName = (name || "Document").trim();
+    if (!docName) {
+      setErr("Name required");
+      return;
+    }
+    setSaving(true);
+    setErr("");
+    setMsg("");
+    try {
+      await api.post(
+        "/praxa/documents",
+        {
+          name: docName,
+          data_url: pendingFile.dataUrl,
+          mime: pendingFile.mime || undefined,
+        },
+        { headers: authHeaders() },
+      );
+      setName("");
+      setPendingFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      setMsg("File saved to your locker.");
+      load();
+    } catch (e) {
+      setErr(e?.response?.data?.detail || "Could not upload");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const openDoc = async (id) => {
+    try {
+      const res = await api.get(`/praxa/documents/${id}`, { headers: authHeaders() });
+      setViewDoc(res.data);
+    } catch {
+      setErr("Could not open file");
+    }
+  };
+
+  const remove = async (id) => {
+    if (!window.confirm("Delete this file?")) return;
+    await api.delete(`/praxa/documents/${id}`, { headers: authHeaders() });
+    load();
+  };
+
+  return (
+    <div className="space-y-4">
+      <h1 className="text-3xl font-light">Document locker</h1>
+      <p className="text-xs text-praxa-subtle">
+        Store letters, bills, or photos for your records. Files stay in your account — not shared
+        automatically.
+      </p>
+
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-3">
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Document name"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+          data-testid="doc-name"
+        />
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*,application/pdf,.pdf"
+          onChange={onFile}
+          className="w-full text-sm"
+          data-testid="doc-file-input"
+        />
+        {err && <p className="text-sm text-red-600">{err}</p>}
+        {msg && <p className="text-sm text-praxa-sage">{msg}</p>}
+        <button
+          type="button"
+          onClick={upload}
+          disabled={saving}
+          className="bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium disabled:opacity-50"
+          data-testid="doc-upload"
+        >
+          {saving ? "Uploading…" : "Save file"}
+        </button>
+      </div>
+
+      <div className="space-y-2">
+        {docs.length === 0 && (
+          <p className="text-sm text-praxa-subtle text-center py-6">No files yet.</p>
+        )}
+        {docs.map((d) => (
+          <div
+            key={d.id}
+            className="bg-white border border-praxa-line rounded-2xl p-4 flex justify-between gap-2 items-start"
+            data-testid={`doc-${d.id}`}
+          >
+            <div>
+              <div className="font-medium text-sm">{d.name}</div>
+              <div className="text-xs text-praxa-subtle mt-0.5">
+                {d.created_at ? new Date(d.created_at).toLocaleString() : ""}
+                {d.mime ? ` · ${d.mime}` : ""}
+              </div>
+            </div>
+            <div className="flex gap-2 shrink-0">
+              {d.has_file && (
+                <button
+                  type="button"
+                  onClick={() => openDoc(d.id)}
+                  className="text-xs text-praxa-accent"
+                >
+                  View
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => remove(d.id)}
+                className="text-praxa-subtle hover:text-red-600 p-1"
+                aria-label="Delete"
+              >
+                <Trash2 size={14} />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {viewDoc?.data_url && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+          role="dialog"
+          aria-label="Document preview"
+        >
+          <div className="relative max-w-md w-full bg-white rounded-2xl p-4 max-h-[85vh] overflow-auto">
+            <button
+              type="button"
+              onClick={() => setViewDoc(null)}
+              className="absolute top-3 right-3 text-praxa-subtle p-1"
+              aria-label="Close"
+            >
+              <X size={20} />
+            </button>
+            <div className="font-medium text-sm mb-3 pr-8">{viewDoc.name}</div>
+            {viewDoc.data_url.startsWith("data:image/") ? (
+              <img
+                src={viewDoc.data_url}
+                alt={viewDoc.name}
+                className="w-full rounded-lg"
+              />
+            ) : (
+              <a
+                href={viewDoc.data_url}
+                download={viewDoc.name}
+                className="text-sm text-praxa-accent underline"
+              >
+                Download file
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function OpinionTab() {
+  const [requests, setRequests] = useState([]);
+  const [summary, setSummary] = useState("");
+  const [goals, setGoals] = useState("");
+  const [urgency, setUrgency] = useState("normal");
+  const [err, setErr] = useState("");
+  const [msg, setMsg] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  const load = useCallback(() => {
+    api
+      .get("/praxa/second-opinion", { headers: authHeaders() })
+      .then((r) => setRequests(r.data || []))
+      .catch(() => setRequests([]));
+  }, []);
+
+  useEffect(load, [load]);
+
+  const submit = async () => {
+    setSaving(true);
+    setErr("");
+    setMsg("");
+    try {
+      const r = await api.post(
+        "/praxa/second-opinion",
+        { summary, goals, urgency },
+        { headers: authHeaders() },
+      );
+      setSummary("");
+      setGoals("");
+      setUrgency("normal");
+      setMsg(r.data?.message || "Request queued.");
+      load();
+    } catch (e) {
+      setErr(e?.response?.data?.detail || "Could not submit");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const STATUS_LABELS = {
+    queued: "Queued",
+    reviewing: "In review",
+    delivered: "Delivered",
+    closed: "Closed",
+    declined: "Declined",
+  };
+
+  return (
+    <div className="space-y-4">
+      <h1 className="text-3xl font-light">Second opinion</h1>
+      <p className="text-xs text-praxa-subtle leading-relaxed">
+        Partner attorney document review is listed at $99 on our site — but{" "}
+        <strong>this app does not charge your card</strong>. Submit a request and a coordinator will
+        follow up. Review is arranged separately; nothing is completed automatically here.
+      </p>
+
+      <div className="bg-white rounded-3xl p-6 border border-praxa-line space-y-3">
+        <textarea
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+          rows={4}
+          placeholder="Brief summary — what happened, where you are in treatment, what you're unsure about"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+          data-testid="opinion-summary"
+        />
+        <textarea
+          value={goals}
+          onChange={(e) => setGoals(e.target.value)}
+          rows={2}
+          placeholder="What do you want from this review? (optional)"
+          className="w-full px-4 py-3 border border-praxa-line rounded-xl text-sm outline-none focus:border-praxa-accent"
+        />
+        <div>
+          <div className="text-xs uppercase tracking-widest text-praxa-sage mb-2">Urgency</div>
+          <div className="flex gap-2">
+            {[
+              { id: "normal", label: "Normal" },
+              { id: "soon", label: "Soon" },
+              { id: "urgent", label: "Urgent" },
+            ].map((u) => (
+              <button
+                key={u.id}
+                type="button"
+                onClick={() => setUrgency(u.id)}
+                className={`flex-1 py-2 rounded-full text-xs border ${
+                  urgency === u.id
+                    ? "bg-praxa-accent text-white border-praxa-accent"
+                    : "border-praxa-line text-praxa-subtle"
+                }`}
+              >
+                {u.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        {err && <p className="text-sm text-red-600">{err}</p>}
+        {msg && (
+          <p className="text-sm text-praxa-sage flex items-start gap-2">
+            <Check size={16} className="shrink-0 mt-0.5" /> {msg}
+          </p>
+        )}
+        <button
+          type="button"
+          onClick={submit}
+          disabled={saving || summary.trim().length < 10}
+          data-testid="opinion-submit"
+          className="bg-praxa-accent text-white px-5 py-2.5 rounded-full text-sm font-medium disabled:opacity-50"
+        >
+          {saving ? "Sending…" : "Request second opinion"}
+        </button>
+      </div>
+
+      {requests.length > 0 && (
+        <div className="space-y-2">
+          <div className="text-xs uppercase tracking-widest text-praxa-sage">Your requests</div>
+          {requests.map((r) => (
+            <div
+              key={r.id}
+              className="bg-white border border-praxa-line rounded-2xl p-4 text-sm"
+              data-testid={`opinion-req-${r.id}`}
+            >
+              <div className="flex justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-widest text-praxa-sage">
+                  {STATUS_LABELS[r.status] || r.status}
+                </span>
+                <span className="text-xs text-praxa-subtle">
+                  {r.created_at ? new Date(r.created_at).toLocaleString() : ""}
+                </span>
+              </div>
+              <p className="mt-2">{r.summary}</p>
+              {r.goals && <p className="mt-1 text-praxa-subtle">Goals: {r.goals}</p>}
+              {r.consumer_message && (
+                <p className="mt-2 text-sm border-t border-praxa-line pt-2">
                   Update: {r.consumer_message}
                 </p>
               )}

@@ -234,6 +234,12 @@ export default function PraxaLanding() {
                       </li>
                     ))}
                   </ul>
+                  {t.name === "Second opinion" && (
+                    <p className={`mt-4 text-xs leading-relaxed ${t.popular ? "text-white/70" : "text-praxa-subtle"}`}>
+                      Start your request in the Praxa app after signup — no instant card charge here; a coordinator
+                      queues partner review separately.
+                    </p>
+                  )}
                   <Link
                     to={appHref}
                     className={`mt-8 block text-center py-3 rounded-full text-sm font-medium transition-opacity ${
