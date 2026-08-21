@@ -1,18 +1,14 @@
 {
-  "thread": "Surgical EPP→EPT/EPE commerce port",
-  "repos": ["ExpediaTransmissions-Front", "ExpediaEngines-Front", "expedia-solutions"],
-  "branch": "laptop-main",
-  "inFlight": [
-    "EPT 581f791 + EPE 0ea7d528 + workspace 2e823170f4 pushed",
-    "Warranty add-on live in source on both subsidiaries (Coming soon)",
-    "EPE homepage rail wired (null unless design-magic pilot)",
-    "EPT homepage rail still needs transmissions-scoped design-magic kit"
-  ],
-  "nextStep": "Port EPP src/lib/design-magic + src/components/design-magic to ExpediaTransmissions-Front (not EPE engines theme), then wire HomepageHeroDesignMagicRail. A5 sandbox still needs local non-prod Postgres.",
+  "thread": "Creytix Image House — stills paste is scene beat only",
+  "repos": ["expedia-solutions"],
+  "inFlight": [],
+  "nextStep": "Submit stills with cdp:image:submit (Gemini → Qwen). Do not run brand:higgsfield:prompt-sync after the URL-essence strip.",
   "verify": [
-    "EPT/EPE vercel.json git.deploymentEnabled false — push did not deploy"
+    "npm run creytix:image -- --check",
+    "npm run creytix:image -- --strip-url-paste",
+    "npm run creytix:image:test"
   ],
   "lane": "push_only",
-  "push": true,
-  "updatedAt": "2026-08-21T00:10:00.000Z"
+  "push": false,
+  "updatedAt": "2026-08-21T02:30:00Z"
 }

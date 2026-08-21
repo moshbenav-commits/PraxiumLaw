@@ -14,7 +14,39 @@ export const LEAD_FEES = [
 ];
 
 export const PRAXA_TIERS = [
-  { name: "Free", price: 0, sub: "Start tonight", features: ["Symptom journal", "Document locker", "Basic education", "Doctor match requests"] },
-  { name: "Premium", price: 9.99, sub: "most people upgrade here", popular: true, features: ["Full Insurance Coach AI", "Settlement estimator (educational)", "Priority attorney match", "Export-ready journal"] },
-  { name: "Second opinion", price: 99, sub: "one-time", once: true, features: ["Partner attorney document review", "Written summary in 48 hrs", "Plain-English next steps"] },
+  {
+    name: "Free",
+    price: 0,
+    sub: "Start tonight",
+    features: [
+      "Symptom journal + CSV export",
+      "Document locker",
+      "Insurance Coach AI",
+      "Doctor match + 1 educational estimate",
+    ],
+  },
+  {
+    name: "Premium",
+    price: 9.99,
+    sub: "most people upgrade here",
+    popular: true,
+    features: [
+      "Unlimited settlement estimates",
+      "Priority doctor-match follow-up",
+      "Premium unlock via code or coordinator",
+      "Card checkout coming soon — no surprise charges",
+    ],
+  },
+  {
+    name: "Second opinion",
+    price: 99,
+    sub: "one-time",
+    once: true,
+    features: [
+      "Request in-app — coordinator queues review",
+      "Partner attorney document review",
+      "Written summary target 48 hrs",
+      "No card charge until coordinator confirms",
+    ],
+  },
 ];

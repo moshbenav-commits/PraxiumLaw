@@ -200,7 +200,8 @@ export default function PraxaLanding() {
             <div className="text-xs uppercase tracking-[0.2em] text-praxa-sage mb-3 text-center">Pricing</div>
             <h2 className="font-semibold text-3xl lg:text-4xl tracking-tight text-center">Honest numbers. No surprises.</h2>
             <p className="mt-4 text-praxa-subtle text-center max-w-lg mx-auto">
-              Free forever for the basics. Upgrade when you want AI coaching and settlement intelligence.
+              Free forever for the basics — including one educational settlement estimate.
+              Premium unlocks unlimited runs. Subscribe from Account when card checkout is enabled, or request Premium / redeem a code.
             </p>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
               {PRAXA_TIERS.map((t) => (
@@ -233,6 +234,12 @@ export default function PraxaLanding() {
                       </li>
                     ))}
                   </ul>
+                  {t.name === "Second opinion" && (
+                    <p className={`mt-4 text-xs leading-relaxed ${t.popular ? "text-white/70" : "text-praxa-subtle"}`}>
+                      Start your request in the Praxa app after signup — no instant card charge here; a coordinator
+                      queues partner review separately.
+                    </p>
+                  )}
                   <Link
                     to={appHref}
                     className={`mt-8 block text-center py-3 rounded-full text-sm font-medium transition-opacity ${
