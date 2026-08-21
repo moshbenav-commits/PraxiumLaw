@@ -1,22 +1,28 @@
 {
-  "thread": "Highest-impact completion — EarnedStar free Groq + Condo books",
+  "thread": "Site revamp kits + fleet scroll composition",
   "repos": [
     "expedia-solutions",
-    "earnedstar-back",
-    "creytix-front"
+    "FastTrackTrafficSchool-Front",
+    "expedia-parts-front",
+    "auction-front",
+    "earnedstar-front",
+    "creytix-front",
+    "ExpediaEngines-Front",
+    "ExpediaTransmissions-Front",
+    "GoldMedalInjury-Front",
+    "Sancochi-Front",
+    "QuickStudy-Front"
   ],
   "branch": "laptop-main",
   "inFlight": [
-    "EarnedStar: Groq gpt-oss-120b wired in code; GROQ_API_KEY + EARNEDSTAR_LLM_MODEL + INDEXNOW_API_KEY set on earnedstar-back Production. Health still false until Production redeploy (Ricardo-gated). Paid OpenAI unused.",
-    "Creytix Condo: booksReconcile + Connect catalog already landed.",
-    "Site revamp: remaining REDESIGN homepages after this gate."
+    "Composition stamps + Fast Track resolver alias landed. Fleet assess: 22/22 wirable, still-generic 0.",
+    "Homepage REDESIGN from mood boards still later (#290). Below-fold stills for GT/QS/FP/Cruze/OYA (#293)."
   ],
-  "nextStep": "Ask Ricardo: approve Production redeploy of earnedstar-back so Groq + IndexNow load. Do not deploy:prod until yes.",
+  "nextStep": "Start remaining homepage REDESIGN from locked mood boards (House of Bid + Expedia Parts as north stars). Do not treat kit-class stamps as the redesign.",
   "verify": [
-    "cd earnedstar-back && npm run test:llm",
-    "from earnedstar-back: vercel env ls production --scope expedia-solutions (names only) — GROQ_API_KEY, EARNEDSTAR_LLM_MODEL, INDEXNOW_API_KEY"
+    "cd \"/Users/ricardo/Expedia Solutions\" && npm run creytix:site:revamp -- --fleet-assess"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T00:26:00.000Z"
+  "updatedAt": "2026-08-21T00:40:00.000Z"
 }
