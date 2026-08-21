@@ -1,20 +1,17 @@
 {
-  "thread": "Site revamp kits + fleet scroll composition",
-  "repos": [
-    "expedia-solutions",
-    "FastTrackTrafficSchool-Front",
-    "QuickStudy-Front"
-  ],
+  "thread": "Plug-in 3D scene pack apply",
+  "repos": ["expedia-solutions"],
   "branch": "laptop-main",
   "inFlight": [
-    "Template-clone homepages redesigned: GoTianguis, ForgePilot, QuickStudy, Fast Track.",
-    "Fleet assess prints scroll=hairline vs scroll=yes. NO-STILL rows in FLEET_SCROLL_MOTION.json."
+    "scene pack --apply emits demo plates + lab page without waiting on CDP",
+    "site-revamp runs --apply when SCENE_PACK.json exists (advisory)"
   ],
-  "nextStep": "Remaining homepage REDESIGN (#290) for other wired fronts. High-end below-fold photos then data-cx-motion for GT/QS/FP/FTT/Cruze/OYA (#293). Do not stamp SVG placeholders.",
+  "nextStep": "Drop background.webp + subject.webp (RGBA) into brand/creytix/scene-plates/ then --from-dir and cdp:image:submit --limit 2, then --emit --strict.",
   "verify": [
-    "cd \"/Users/ricardo/Expedia Solutions\" && npm run creytix:site:revamp -- --fleet-assess"
+    "cd \"/Users/ricardo/Expedia Solutions\" && npm run creytix:scene:pack -- --apply --site=creytix",
+    "Open http://localhost:8792/brand/design-lab/scene-pack-creytix.html after brand:design-lab:preview"
   ],
   "lane": "push_only",
   "push": false,
-  "updatedAt": "2026-08-21T00:20:00.000Z"
+  "updatedAt": "2026-08-21T01:05:00.000Z"
 }
