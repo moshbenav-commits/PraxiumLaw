@@ -1,9 +1,11 @@
 {
-  "thread": "AlignHeart beta launch — TOTP, free/paid coach, quiz, Guided Path",
-  "repos": ["alignheart-front", "alignheart-back", "expedia-solutions"],
-  "inFlight": "Guided Path AH-GP1/GP3 slice + unpaid chat banner + docs; tests next",
-  "nextStep": "cd alignheart-front && npm run dev → http://localhost:3111/begin",
-  "verify": "alignheart-back npm run test:coach; alignheart-front vitest find-yourself",
-  "lane": "alignheart",
-  "updatedAt": "2026-08-21T16:54:00Z"
+  "thread": "Session Drive (PRC-031) — idle LaunchAgent loaded; this chat's drive work done",
+  "repos": [
+    "expedia-solutions"
+  ],
+  "inFlight": null,
+  "nextStep": null,
+  "verify": "launchctl print gui/$(id -u)/com.expedia.creytix.session-drive-idle",
+  "lane": "creytix-platform",
+  "updatedAt": "2026-08-21T18:15:39.546Z"
 }
