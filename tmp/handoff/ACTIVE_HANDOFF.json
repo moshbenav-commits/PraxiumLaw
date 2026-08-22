@@ -1,24 +1,24 @@
 {
-  "thread": "laptop-disk-critical → Prime Video offload + reclaim",
-  "repos": [
-    "expedia-solutions",
-    "creytix-front"
-  ],
-  "inFlight": "Cursor Application Support offload VERIFIED. STATUS DONE 2026-08-21 23:11:59. snapshots + globalStorage are symlinks to /Volumes/LaCie/offload/Cursor. SSD ~90Gi free (was ~55Gi). Prime Video still INNER_LINKED pkgs=65.",
-  "nextStep": "Keep LaCie plugged in. Remaining Library heavies only if Ricardo picks: Docker ~18G, WhatsApp ~13G, Google ~11G. Do not start those without a pick. Workspace path-switch still blocked while Cursor has the tree open.",
+  "thread": "laptop MacCare + Library heavies offload",
+  "repos": ["expedia-solutions"],
+  "inFlight": "MacCare SAFE applied (npm cache, Google Keystone disabled, local TM snapshots thinned). library-heavy-offload.sh --all running: Docker.raw sparse then WhatsApp Message then Google DriveFS/caches. Chrome profiles stay on SSD.",
+  "nextStep": "When /Volumes/LaCie/offload/{Docker,WhatsApp,Google}/STATUS.txt all say DONE, verify df and symlinks. Keep LaCie plugged in. If WhatsApp TCC fails, re-run --whatsapp from Terminal.app.",
   "constraints": [
-    "Keep LaCie plugged in — Prime Video titles and Cursor snapshots/globalStorage live there",
-    "Do not use /Volumes/LaCie 1 (Time Machine)",
+    "Keep LaCie plugged in — Prime, Cursor, and new heavies live there",
+    "Do not use /Volumes/LaCie 1",
     "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
-    "Do not offload WhatsApp / Google / Docker without a later pick",
-    "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp",
-    "Do not delete /Volumes/LaCie/offload/Cursor"
+    "Do not move Chrome profiles",
+    "Do not delete /Volumes/LaCie/offload/{PrimeVideo,Cursor,Docker,WhatsApp,Google}"
   ],
   "verify": [
-    "cat /Volumes/LaCie/offload/Cursor/STATUS.txt",
-    "ls -ld ~/Library/Application\\ Support/Cursor/snapshots ~/Library/Application\\ Support/Cursor/User/globalStorage"
+    "cat /Volumes/LaCie/offload/Docker/STATUS.txt",
+    "cat /Volumes/LaCie/offload/WhatsApp/STATUS.txt",
+    "cat /Volumes/LaCie/offload/Google/STATUS.txt",
+    "df -h /System/Volumes/Data /Volumes/LaCie"
   ],
   "lane": "fleet-disk",
-  "waitFor": [],
-  "updatedAt": "2026-08-22T11:18:30.000Z"
+  "waitFor": [
+    { "glob": "/Volumes/LaCie/offload/Google/STATUS.txt", "contains": "DONE" }
+  ],
+  "updatedAt": "2026-08-22T11:30:00.000Z"
 }
