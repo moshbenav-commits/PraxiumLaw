@@ -3,13 +3,14 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "POLL: /tmp/prime-video-offload.log has 16 lines, no connection ok/DONE/ABORT; start pid 7439 gone; rsync hit TCC Operation not permitted then Interrupted system call. Still gated — do not rerun from this check-in.",
-  "nextStep": "When /tmp/prime-video-offload.log contains 'connection ok' or 'DONE', confirm symlink at ~/Library/Containers/com.amazon.aiv.AIVApp, df -h /, then continue Library heavies. If ABORT, restore SSD copy (script already does) and rerun from Terminal.app if TCC blocked Cursor.",
+  "inFlight": "Copy verified on LaCie (~35G, rsync rc=0). pid 92152 dead: mv of ~/Library/Containers/com.amazon.aiv.AIVApp → .ssd-bak got Operation not permitted (TCC). Path is still a real directory. No connection ok / ABORT.",
+  "nextStep": "When /tmp/prime-video-offload.log contains 'connection ok' or 'DONE', confirm symlink at ~/Library/Containers/com.amazon.aiv.AIVApp, df -h /, then continue Library heavies. Link must run from Terminal.app (Cursor cannot mv Containers): cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/prime-video-offload.sh --link",
   "constraints": [
     "Do not delete Prime Video downloads without a verified LaCie copy + symlink",
     "Do not use /Volumes/LaCie 1 (Time Machine)",
     "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
-    "Keep metadata + .movpkg together so Prime Video still sees titles"
+    "Keep metadata + .movpkg together so Prime Video still sees titles",
+    "Do not open Prime Video until the symlink is in place"
   ],
   "verify": [
     "tail -20 /tmp/prime-video-offload.log",
@@ -32,12 +33,12 @@
   "waitForMode": "any",
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-22T00:42:16.705Z",
+  "updatedAt": "2026-08-22T00:56:50.498Z",
   "checkIn": {
     "afterSec": 120,
-    "nextCheckAt": "2026-08-22T00:44:16.704Z",
-    "estimateSec": 600,
-    "plannedAt": "2026-08-22T00:42:16.704Z",
-    "reason": "Prime Video offload still gated: no connection ok/DONE/ABORT; TCC blocked Cursor rsync; rerun from Terminal.app on next full turn if still stuck"
+    "nextCheckAt": "2026-08-22T00:58:50.496Z",
+    "estimateSec": 900,
+    "plannedAt": "2026-08-22T00:56:50.496Z",
+    "reason": "copy verified; mv TCC-blocked; wait Terminal --link / connection ok"
   }
 }
