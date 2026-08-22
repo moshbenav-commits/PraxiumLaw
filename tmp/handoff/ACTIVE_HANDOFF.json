@@ -1,23 +1,21 @@
 {
-  "thread": "Mass blob/image offload to LaCie",
-  "repos": [
-    "expedia-solutions"
+  "thread": "laptop disk mass offload — Documents hex = HF Qwen blobs",
+  "updatedAt": "2026-08-22T16:29:00-07:00",
+  "repos": ["expedia-solutions"],
+  "inFlight": [
+    "LaCie mass offload: ollama models rsync (~41G/155G) — STATUS STARTED 09:03",
+    "Image-lane HF models on CreytixImages: Qwen+FLUX+models/ symlinked DONE"
   ],
-  "inFlight": "Terminal.app running blob-image-mass-offload (~213G, skip image-lane)",
-  "nextStep": "When STATUS.txt says DONE: df -h; then offload image-lane if idle; optional Docker prune",
+  "nextStep": "Wait for /Volumes/LaCie/offload/blobs-images/STATUS.txt → DONE; then df + verify ollama symlink. Keep CreytixImages mounted for image-lane.",
   "constraints": [
-    "Keep LaCie plugged direct (no USB hub)",
-    "Do not move whole Expedia Solutions workspace",
-    "Image lane skipped while generating"
+    "Never use /Volumes/LaCie 1",
+    "Do not symlink whole Expedia Solutions workspace",
+    "Keep /Volumes/CreytixImages plugged for Qwen/FLUX/models symlinks"
   ],
   "verify": [
-    "cat /Volumes/LaCie/offload/blobs-images/STATUS.txt",
-    "df -h /System/Volumes/Data"
+    "ls -ld ~/creytix-image-lane/env/hf-cache/hub/models--Qwen*",
+    "df -h /System/Volumes/Data",
+    "cat /Volumes/LaCie/offload/blobs-images/STATUS.txt"
   ],
-  "lane": "laptop",
-  "waitFor": {
-    "glob": "/Volumes/LaCie/offload/blobs-images/STATUS.txt",
-    "logContains": "DONE"
-  },
-  "updatedAt": "2026-08-22T16:03:57Z"
+  "lane": "creytix-platform"
 }
