@@ -3,8 +3,8 @@
   "updatedAt": "2026-08-22T10:22:00-07:00",
   "repos": ["expedia-solutions"],
   "inFlight": [
-    "Ollama models rsync ~112G/155G → /Volumes/LaCie/offload/blobs-images/ollama-models (mass offload pid still running)",
-    "After ollama DONE: mass queue continues Claude heavies, Chrome OptGuide, Downloads, lora-train, CDP profiles"
+    "Ollama models already symlink → /Volumes/LaCie/offload/blobs-images/ollama-models",
+    "Mass offload STATUS.txt still STARTED 2026-08-22 09:03:41 — remaining Claude heavies, Chrome OptGuide, Downloads, lora-train, CDP profiles"
   ],
   "nextStep": "Wait for /Volumes/LaCie/offload/blobs-images/STATUS.txt → DONE; verify ~/.ollama/models is symlink; tmutil thinlocalsnapshots again; df should jump toward ~500Gi free.",
   "doneThisSession": [
