@@ -3,8 +3,8 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Blocked on Ricardo: Prime Video is running (inner-link ok, 64 pkgs). Need Downloads confirm. Cursor still open — cannot run 61G app-support offload.",
-  "nextStep": "Ricardo confirm Downloads in Prime Video. After Cursor.app quits, Terminal: cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/cursor-app-support-offload.sh --now. Optional later (ask first): Docker 18G, WhatsApp 13G, Google 11G.",
+  "inFlight": "Prime Video inner-link DONE (64 pkgs on LaCie, app launched). Cursor 56G Application Support still on SSD — offload only after Cursor quits.",
+  "nextStep": "Quit Cursor, then in Terminal.app: cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/cursor-app-support-offload.sh --now",
   "constraints": [
     "Keep LaCie plugged in — Prime Video offline titles live there",
     "Do not use /Volumes/LaCie 1 (Time Machine)",
@@ -16,11 +16,26 @@
   "verify": [
     "grep INNER_LINKED /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
     "test ! -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp",
-    "pgrep -f '/Applications/Prime Video.app/Contents/MacOS/Prime Video'"
+    "pgrep -f '/Applications/Prime Video.app/Contents/MacOS/Prime Video'",
+    "grep DONE /Volumes/LaCie/offload/Cursor/offload.log"
   ],
   "lane": "fleet-disk",
-  "waitFor": [],
-  "paused": false,
-  "awaitingRicardo": false,
-  "updatedAt": "2026-08-22T02:07:30.000Z"
+  "waitFor": [
+    {
+      "type": "logContains",
+      "path": "/Volumes/LaCie/offload/Cursor/offload.log",
+      "needle": "DONE"
+    }
+  ],
+  "waitForMode": "any",
+  "paused": true,
+  "awaitingRicardo": true,
+  "updatedAt": "2026-08-22T02:10:00.000Z",
+  "checkIn": {
+    "afterSec": 0,
+    "nextCheckAt": null,
+    "estimateSec": 0,
+    "plannedAt": "2026-08-22T02:10:00.000Z",
+    "reason": "blocked: Ricardo must quit Cursor before cursor-app-support-offload.sh"
+  }
 }
