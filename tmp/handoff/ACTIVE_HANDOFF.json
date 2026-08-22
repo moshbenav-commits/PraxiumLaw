@@ -1,38 +1,40 @@
 {
   "thread": "laptop-disk-critical → Prime Video offload + reclaim",
   "repos": [
-    "expedia-solutions"
+    "expedia-solutions",
+    "creytix-front"
   ],
-  "inFlight": "Downloads confirmed. Cursor Application Support offload (~61G) approved. Cursor is still open — Ricardo starts the wait-script in Terminal.app, then Cmd+Q.",
-  "nextStep": "In Terminal.app (not this chat): cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/cursor-app-support-offload.sh   Then Cmd+Q Cursor. Leave LaCie plugged in. Success: grep DONE /Volumes/LaCie/offload/Cursor/offload.log",
+  "inFlight": "Check-in: Prime Video DOWN. Dhc9Tq still linked (64). reOMCB still a real SSD dir. STATUS.txt has no reOMCB — Terminal --inner-link not run. Cursor offload not started.",
+  "nextStep": "Operator home: http://localhost:3025/app/maccare/offload (copy cards). Quit Prime Video (Cmd+Q). In Terminal.app: cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/prime-video-offload.sh --inner-link   Success: STATUS.txt lists both Dhc9Tq and reOMCB. Then Cursor offload after Cmd+Q Cursor.",
   "constraints": [
     "Keep LaCie plugged in — Prime Video offline titles live there",
     "Do not use /Volumes/LaCie 1 (Time Machine)",
     "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
     "Do not run cursor-app-support-offload while Cursor is open",
     "Do not offload WhatsApp / Google / Docker without a later pick",
-    "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp"
+    "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp",
+    "Prime Video --inner-link must run in Terminal.app (Cursor cannot write ~/Library/Containers)"
   ],
   "verify": [
-    "grep INNER_LINKED /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
-    "test ! -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp",
-    "grep DONE /Volumes/LaCie/offload/Cursor/offload.log",
-    "ls -ld \"$HOME/Library/Application Support/Cursor/snapshots\" \"$HOME/Library/Application Support/Cursor/User/globalStorage\""
+    "cat /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
+    "test ! -d /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library/com.apple.UserManagedAssets.reOMCB || test -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library/com.apple.UserManagedAssets.reOMCB",
+    "find /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library -maxdepth 1 -type d -name 'com.apple.UserManagedAssets.*' | wc -l"
   ],
   "lane": "fleet-disk",
   "waitFor": [
     {
       "type": "logContains",
-      "path": "/Volumes/LaCie/offload/Cursor/offload.log",
-      "needle": "DONE"
+      "path": "/Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
+      "needle": "reOMCB"
     }
   ],
   "waitForMode": "any",
-  "updatedAt": "2026-08-22T02:14:10.067Z",
+  "updatedAt": "2026-08-22T02:19:25.115Z",
   "checkIn": {
-    "afterSec": 150,
-    "nextCheckAt": "2026-08-22T02:16:40.066Z",
-    "estimateSec": 1200,
-    "plannedAt": "2026-08-22T02:14:10.066Z"
+    "afterSec": 120,
+    "nextCheckAt": "2026-08-22T02:21:25.113Z",
+    "estimateSec": 600,
+    "plannedAt": "2026-08-22T02:19:25.113Z",
+    "reason": "Prime Video quit; waiting Terminal --inner-link so STATUS lists reOMCB"
   }
 }
