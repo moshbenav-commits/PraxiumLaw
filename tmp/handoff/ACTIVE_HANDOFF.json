@@ -1,22 +1,22 @@
 {
   "thread": "laptop SSD clear + LaCie mass offload",
-  "updatedAt": "2026-08-22T11:16:00-07:00",
+  "updatedAt": "2026-08-22T11:24:30-07:00",
   "repos": ["expedia-solutions"],
   "inFlight": [
-    "Mass offload: Downloads → then lora-train → CDP Chrome profiles (~40G+ remaining queue)",
-    "STATUS still STARTED until script finishes"
+    "Mass resume2: rsync lora-train 6G, then CDP profiles (~36G: instagram 13G + playwright chromes)",
+    "pid in /tmp/blob-mass-resume2.pid"
   ],
-  "nextStep": "Wait STATUS.txt → DONE; verify Downloads/lora/CDP symlinks; optional Docker Desktop prune if not running; Cursor App Support offload needs Cursor quit.",
+  "nextStep": "Wait STATUS DONE; verify lora+CDP symlinks; optional: start Docker Desktop then docker system prune; Cursor App Support needs Cursor quit.",
   "doneThisSession": [
-    "Ollama 156G → LaCie symlink — SSD ~522Gi free",
-    "Claude heavies + .claude symlinked",
-    "Chrome OptGuide / classifier / model store / OnDeviceHeadSuggest symlinked",
-    "pull-protect prune + APFS thin earlier"
+    "SSD ~533Gi free (was ~37Gi start of day)",
+    "Ollama/Claude/Chrome blobs on LaCie",
+    "Downloads emptied in-place (macOS blocks renaming Downloads); files at /Volumes/LaCie/offload/blobs-images/Downloads",
+    "Gradle caches purged ~4G"
   ],
   "constraints": [
     "Never /Volumes/LaCie 1",
     "Keep CreytixImages + LaCie mounted",
-    "Do not symlink whole Expedia Solutions"
+    "Downloads cannot be symlinked — empty+LaCie path only"
   ],
   "lane": "creytix-platform"
 }
