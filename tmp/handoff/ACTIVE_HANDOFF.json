@@ -1,21 +1,28 @@
 {
-  "thread": "laptop disk mass offload — Documents hex = HF Qwen blobs",
-  "updatedAt": "2026-08-22T16:29:00-07:00",
+  "thread": "laptop SSD clear + LaCie mass offload",
+  "updatedAt": "2026-08-22T10:22:00-07:00",
   "repos": ["expedia-solutions"],
   "inFlight": [
-    "LaCie mass offload: ollama models rsync (~41G/155G) — STATUS STARTED 09:03",
-    "Image-lane HF models on CreytixImages: Qwen+FLUX+models/ symlinked DONE"
+    "Ollama models rsync ~112G/155G → /Volumes/LaCie/offload/blobs-images/ollama-models (mass offload pid still running)",
+    "After ollama DONE: mass queue continues Claude heavies, Chrome OptGuide, Downloads, lora-train, CDP profiles"
   ],
-  "nextStep": "Wait for /Volumes/LaCie/offload/blobs-images/STATUS.txt → DONE; then df + verify ollama symlink. Keep CreytixImages mounted for image-lane.",
+  "nextStep": "Wait for /Volumes/LaCie/offload/blobs-images/STATUS.txt → DONE; verify ~/.ollama/models is symlink; tmutil thinlocalsnapshots again; df should jump toward ~500Gi free.",
+  "doneThisSession": [
+    "pull-protect pruned keep-3: 240G → 2.1G; APFS thin unlocked space → 364Gi free (was ~90Gi)",
+    "tmp/land-harvest-learn → LaCie symlink",
+    "image-lane HF (Qwen/FLUX/models) on CreytixImages",
+    "npm/Spotify/Homebrew/electron caches purged; MacCare reclaim-only (0 actions); fleet-disk-slim"
+  ],
   "constraints": [
-    "Never use /Volumes/LaCie 1",
+    "Never use /Volumes/LaCie 1 (Time Machine)",
+    "Prefer /Volumes/LaCie and /Volumes/CreytixImages — CreytixVault also mounted; do not auto-offload there unless Ricardo says so",
     "Do not symlink whole Expedia Solutions workspace",
-    "Keep /Volumes/CreytixImages plugged for Qwen/FLUX/models symlinks"
+    "Keep /Volumes/CreytixImages plugged for Qwen/FLUX/models"
   ],
   "verify": [
-    "ls -ld ~/creytix-image-lane/env/hf-cache/hub/models--Qwen*",
     "df -h /System/Volumes/Data",
-    "cat /Volumes/LaCie/offload/blobs-images/STATUS.txt"
+    "cat /Volumes/LaCie/offload/blobs-images/STATUS.txt",
+    "ls -ld ~/.ollama/models ~/creytix-image-lane"
   ],
   "lane": "creytix-platform"
 }
