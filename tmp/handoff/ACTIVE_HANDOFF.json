@@ -1,8 +1,27 @@
 {
   "thread": "Meta vault R2 + Muse Spark desktop",
-  "repos": ["creytix-front", "expedia-solutions"],
-  "inFlight": [],
+  "repos": [
+    "creytix-front",
+    "expedia-solutions"
+  ],
+  "inFlight": [
+    "Check-in: Cursor STATUS=WAITING_FOR_CURSOR_QUIT (wait-script pid 43268); Meta restash + muse CLI still human."
+  ],
   "nextStep": "In Creytix IDE.app (reopened after hot-install): re-stash MODEL_API_KEY or META_API_KEY, confirm R2 synced toast, pick muse-spark-1.2. Muse Code CLI: run Meta install.sh in Terminal.app only — not Session auto.",
-  "updatedAt": "2026-08-22T05:10:00.000Z",
-  "lane": "creytix-platform"
+  "waitFor": [
+    {
+      "type": "logContains",
+      "path": "/Volumes/LaCie/offload/Cursor/STATUS.txt",
+      "needle": "DONE"
+    }
+  ],
+  "updatedAt": "2026-08-22T05:12:31.533Z",
+  "lane": "creytix-platform",
+  "checkIn": {
+    "afterSec": 120,
+    "nextCheckAt": "2026-08-22T05:14:31.532Z",
+    "estimateSec": 780,
+    "plannedAt": "2026-08-22T05:12:31.532Z",
+    "reason": "Cursor still open; STATUS=WAITING_FOR_CURSOR_QUIT; wait-script pid=43268; Meta MODEL_API_KEY restash + muse CLI still human; keep Terminal+LaCie; full Cmd+Q needed"
+  }
 }
