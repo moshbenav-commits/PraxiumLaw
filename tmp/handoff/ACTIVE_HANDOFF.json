@@ -1,42 +1,43 @@
 {
-  "thread": "laptop-disk-critical → LaCie workspace (second-pass)",
+  "thread": "laptop-disk-critical → Prime Video offload + reclaim",
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "poll 16:09: waitFor still missing === second-pass done; transferred 11158 ≠ 0; longrun lacie-workspace-second-pass STOPPED; path-switch blocked",
-  "nextStep": "Do not path-switch (transferred ≠ 0). Next full turn: rerun bash scripts/fleet-workspace-copy-to-lacie.sh --second-pass (or creytix:longrun -- start --id=lacie-workspace-second-pass) until Number of files transferred is 0; then --awaiting-ricardo and ask Ricardo to quit Cursor + run path switch from docs/fleet/LAPTOP_LACIE_WORKSPACE.md.",
+  "inFlight": "POLL: /tmp/prime-video-offload.log has 16 lines, no connection ok/DONE/ABORT; start pid 7439 gone; rsync hit TCC Operation not permitted then Interrupted system call. Still gated — do not rerun from this check-in.",
+  "nextStep": "When /tmp/prime-video-offload.log contains 'connection ok' or 'DONE', confirm symlink at ~/Library/Containers/com.amazon.aiv.AIVApp, df -h /, then continue Library heavies. If ABORT, restore SSD copy (script already does) and rerun from Terminal.app if TCC blocked Cursor.",
   "constraints": [
-    "Do not symlink or switch ~/Expedia Solutions while Cursor has the tree open",
-    "Do not delete internal SSD copy until second-pass gate passes",
-    "Do not force-kill ditto/rsync without status",
-    "Progress poll only — do not start another rsync from a check-in"
+    "Do not delete Prime Video downloads without a verified LaCie copy + symlink",
+    "Do not use /Volumes/LaCie 1 (Time Machine)",
+    "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
+    "Keep metadata + .movpkg together so Prime Video still sees titles"
   ],
   "verify": [
-    "rg 'second-pass rsync done|Number of files transferred|=== second-pass done' /tmp/expedia-solutions-lacie-rsync.log tmp/expedia-solutions-lacie-rsync.log",
-    "npm run creytix:longrun -- status"
+    "tail -20 /tmp/prime-video-offload.log",
+    "ls -ld ~/Library/Containers/com.amazon.aiv.AIVApp",
+    "df -h / /Volumes/LaCie"
   ],
   "lane": "fleet-disk",
   "waitFor": [
     {
       "type": "logContains",
-      "path": "tmp/expedia-solutions-lacie-rsync.log",
-      "needle": "=== second-pass done"
+      "path": "/tmp/prime-video-offload.log",
+      "needle": "connection ok"
     },
     {
       "type": "logContains",
-      "path": "/tmp/expedia-solutions-lacie-rsync.log",
-      "needle": "=== second-pass done"
+      "path": "/tmp/prime-video-offload.log",
+      "needle": "ABORT:"
     }
   ],
   "waitForMode": "any",
-  "checkIn": {
-    "afterSec": 250,
-    "nextCheckAt": "2026-08-21T23:51:40.965Z",
-    "estimateSec": 2000,
-    "plannedAt": "2026-08-21T23:47:30.965Z",
-    "reason": "second-pass still gated: no === second-pass done; transferred 11158 ≠ 0; longrun STOPPED; path-switch blocked; poll only — next full turn reruns --second-pass"
-  },
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-21T23:47:30.966Z"
+  "updatedAt": "2026-08-22T00:20:46.966Z",
+  "checkIn": {
+    "afterSec": 120,
+    "nextCheckAt": "2026-08-22T00:22:46.965Z",
+    "estimateSec": 600,
+    "plannedAt": "2026-08-22T00:20:46.965Z",
+    "reason": "Prime Video offload still gated: log has no connection ok/DONE/ABORT; pid 7439 gone after TCC rsync errors. Poll only; do not restart copy from Cursor."
+  }
 }
