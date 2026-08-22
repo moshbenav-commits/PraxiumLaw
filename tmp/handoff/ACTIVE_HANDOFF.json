@@ -3,7 +3,7 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Offload still gated: Docker=SKIPPED (sparse), WhatsApp=STARTED, Google/STATUS.txt missing. LaCie mounted. Waiting DONE on Google (and ideally WhatsApp).",
+  "inFlight": "Still gated: Docker=SKIPPED, WhatsApp=STARTED, Google STATUS missing; LaCie OK.",
   "nextStep": "When /Volumes/LaCie/offload/{Docker,WhatsApp,Google}/STATUS.txt all say DONE, verify df and symlinks. Keep LaCie plugged in. If WhatsApp TCC fails, re-run --whatsapp from Terminal.app.",
   "constraints": [
     "Keep LaCie plugged in — Prime, Cursor, and new heavies live there",
@@ -25,12 +25,12 @@
       "contains": "DONE"
     }
   ],
-  "updatedAt": "2026-08-22T14:10:04.940Z",
+  "updatedAt": "2026-08-22T14:17:02.808Z",
   "checkIn": {
     "afterSec": 120,
-    "nextCheckAt": "2026-08-22T14:12:04.939Z",
-    "estimateSec": 660,
-    "plannedAt": "2026-08-22T14:10:04.939Z",
-    "reason": "WhatsApp STARTED; Google STATUS missing; Docker SKIPPED — still waiting Google DONE; LaCie plugged"
+    "nextCheckAt": "2026-08-22T14:19:02.807Z",
+    "estimateSec": 540,
+    "plannedAt": "2026-08-22T14:17:02.807Z",
+    "reason": "WhatsApp STARTED; Google STATUS missing; waitFor Google DONE"
   }
 }
