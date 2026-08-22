@@ -3,7 +3,7 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Copy verified on LaCie (~35G, rsync rc=0). pid 92152 dead: mv of ~/Library/Containers/com.amazon.aiv.AIVApp → .ssd-bak got Operation not permitted (TCC). Path is still a real directory. No connection ok / ABORT.",
+  "inFlight": "Still waiting Terminal --link: log has copy verified (~35G rc=0) but no connection ok/DONE/ABORT; AIVApp is still a real dir; disk / 92% ~1.0Gi free.",
   "nextStep": "When /tmp/prime-video-offload.log contains 'connection ok' or 'DONE', confirm symlink at ~/Library/Containers/com.amazon.aiv.AIVApp, df -h /, then continue Library heavies. Link must run from Terminal.app (Cursor cannot mv Containers): cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/prime-video-offload.sh --link",
   "constraints": [
     "Do not delete Prime Video downloads without a verified LaCie copy + symlink",
@@ -33,12 +33,12 @@
   "waitForMode": "any",
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-22T00:56:50.498Z",
+  "updatedAt": "2026-08-22T01:10:36.650Z",
   "checkIn": {
     "afterSec": 120,
-    "nextCheckAt": "2026-08-22T00:58:50.496Z",
-    "estimateSec": 900,
-    "plannedAt": "2026-08-22T00:56:50.496Z",
-    "reason": "copy verified; mv TCC-blocked; wait Terminal --link / connection ok"
+    "nextCheckAt": "2026-08-22T01:12:36.649Z",
+    "estimateSec": 180,
+    "plannedAt": "2026-08-22T01:10:36.649Z",
+    "reason": "copy verified; TCC still blocks mv; wait Terminal --link for connection ok"
   }
 }
