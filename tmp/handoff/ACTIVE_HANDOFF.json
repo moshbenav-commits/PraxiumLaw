@@ -1,40 +1,8 @@
 {
-  "thread": "laptop-disk-critical → Prime Video offload + reclaim",
-  "repos": [
-    "expedia-solutions",
-    "creytix-front"
-  ],
-  "inFlight": "Check-in 21:15: still gated — STATUS=WAITING_FOR_CURSOR_QUIT; wait-script pid=43268 tty=s003 ~1h52m; LaCie OK. Cursor PIDs still hold state.vscdb open (not a full quit).",
-  "nextStep": "Cmd+Q Cursor (full quit). Terminal wait-script is already running (pid 43268, tty s003). Keep that window open and LaCie plugged in. Success: /Volumes/LaCie/offload/Cursor/STATUS.txt starts with DONE.",
-  "constraints": [
-    "Keep LaCie plugged in — Prime Video offline titles live there",
-    "Do not use /Volumes/LaCie 1 (Time Machine)",
-    "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
-    "Do not run cursor-app-support-offload while Cursor is open (wait-script handles after quit)",
-    "Do not offload WhatsApp / Google / Docker without a later pick",
-    "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp",
-    "Prime Video --inner-link must run in Terminal.app (Cursor cannot write ~/Library/Containers)"
-  ],
-  "verify": [
-    "cat /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
-    "cat /Volumes/LaCie/offload/Cursor/STATUS.txt",
-    "test -L \"/Users/ricardo/Library/Application Support/Cursor/snapshots\" || true"
-  ],
-  "lane": "fleet-disk",
-  "waitFor": [
-    {
-      "type": "logContains",
-      "path": "/Volumes/LaCie/offload/Cursor/STATUS.txt",
-      "needle": "DONE"
-    }
-  ],
-  "waitForMode": "any",
-  "updatedAt": "2026-08-22T04:15:02.015Z",
-  "checkIn": {
-    "afterSec": 120,
-    "nextCheckAt": "2026-08-22T04:17:02.014Z",
-    "estimateSec": 900,
-    "plannedAt": "2026-08-22T04:15:02.014Z",
-    "reason": "Cursor still holding state.vscdb; STATUS=WAITING_FOR_CURSOR_QUIT pid=43268; keep Terminal+LaCie; full Cmd+Q needed"
-  }
+  "thread": "Muse Spark + Relate P1 IDE overlay + desktop hot-install",
+  "repos": ["creytix-front", "expedia-solutions"],
+  "inFlight": [],
+  "nextStep": "Confirm Creytix IDE.app chat markdown/slash after hot-install; paste MODEL_API_KEY then npm run creytix:omniroute:sync if Spark should be callable. Do not git-merge feat/creytix-relate-p1 (CRM + 162 commits still parked).",
+  "updatedAt": "2026-08-22T05:00:00.000Z",
+  "lane": "creytix-platform"
 }
