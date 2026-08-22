@@ -3,21 +3,21 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Prime Video inner-link DONE (64 pkgs on LaCie, app launched). Cursor 56G Application Support still on SSD — offload only after Cursor quits.",
-  "nextStep": "Quit Cursor, then in Terminal.app: cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/cursor-app-support-offload.sh --now",
+  "inFlight": "Downloads confirmed. Cursor Application Support offload (~61G) approved. Cursor is still open — Ricardo starts the wait-script in Terminal.app, then Cmd+Q.",
+  "nextStep": "In Terminal.app (not this chat): cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/cursor-app-support-offload.sh   Then Cmd+Q Cursor. Leave LaCie plugged in. Success: grep DONE /Volumes/LaCie/offload/Cursor/offload.log",
   "constraints": [
     "Keep LaCie plugged in — Prime Video offline titles live there",
     "Do not use /Volumes/LaCie 1 (Time Machine)",
     "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
     "Do not run cursor-app-support-offload while Cursor is open",
-    "Do not offload WhatsApp / Google without Ricardo pick",
+    "Do not offload WhatsApp / Google / Docker without a later pick",
     "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp"
   ],
   "verify": [
     "grep INNER_LINKED /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
     "test ! -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp",
-    "pgrep -f '/Applications/Prime Video.app/Contents/MacOS/Prime Video'",
-    "grep DONE /Volumes/LaCie/offload/Cursor/offload.log"
+    "grep DONE /Volumes/LaCie/offload/Cursor/offload.log",
+    "ls -ld \"$HOME/Library/Application Support/Cursor/snapshots\" \"$HOME/Library/Application Support/Cursor/User/globalStorage\""
   ],
   "lane": "fleet-disk",
   "waitFor": [
@@ -28,14 +28,11 @@
     }
   ],
   "waitForMode": "any",
-  "paused": true,
-  "awaitingRicardo": true,
-  "updatedAt": "2026-08-22T02:10:00.000Z",
+  "updatedAt": "2026-08-22T02:14:10.067Z",
   "checkIn": {
-    "afterSec": 0,
-    "nextCheckAt": null,
-    "estimateSec": 0,
-    "plannedAt": "2026-08-22T02:10:00.000Z",
-    "reason": "blocked: Ricardo must quit Cursor before cursor-app-support-offload.sh"
+    "afterSec": 150,
+    "nextCheckAt": "2026-08-22T02:16:40.066Z",
+    "estimateSec": 1200,
+    "plannedAt": "2026-08-22T02:14:10.066Z"
   }
 }
