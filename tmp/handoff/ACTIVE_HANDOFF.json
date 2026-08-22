@@ -3,29 +3,24 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Copying Configurator 15G restore leftover (04C81C1B… TemporaryItems) to /Volumes/LaCie/offload/ConfiguratorTmp. Cursor stays open.",
-  "nextStep": "When /Volumes/LaCie/offload/ConfiguratorTmp/offload.log contains 'DONE', confirm source gone, df -h /, then wait for Cursor quit for globalStorage/snapshots offload.",
+  "inFlight": "Blocked on Ricardo: Prime Video is running (inner-link ok, 64 pkgs). Need Downloads confirm. Cursor still open — cannot run 61G app-support offload.",
+  "nextStep": "Ricardo confirm Downloads in Prime Video. After Cursor.app quits, Terminal: cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/cursor-app-support-offload.sh --now. Optional later (ask first): Docker 18G, WhatsApp 13G, Google 11G.",
   "constraints": [
     "Keep LaCie plugged in — Prime Video offline titles live there",
     "Do not use /Volumes/LaCie 1 (Time Machine)",
     "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
     "Do not run cursor-app-support-offload while Cursor is open",
-    "Do not offload WhatsApp / Google without Ricardo pick"
+    "Do not offload WhatsApp / Google without Ricardo pick",
+    "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp"
   ],
   "verify": [
-    "tail -20 /Volumes/LaCie/offload/ConfiguratorTmp/offload.log",
-    "df -h / /System/Volumes/Data /Volumes/LaCie"
+    "grep INNER_LINKED /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
+    "test ! -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp",
+    "pgrep -f '/Applications/Prime Video.app/Contents/MacOS/Prime Video'"
   ],
   "lane": "fleet-disk",
-  "waitFor": [
-    {
-      "type": "logContains",
-      "path": "/Volumes/LaCie/offload/ConfiguratorTmp/offload.log",
-      "needle": "DONE"
-    }
-  ],
-  "waitForMode": "any",
+  "waitFor": [],
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-22T01:49:20.000Z"
+  "updatedAt": "2026-08-22T02:07:30.000Z"
 }
