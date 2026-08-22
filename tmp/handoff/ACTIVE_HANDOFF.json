@@ -32,12 +32,12 @@
   "waitForMode": "any",
   "paused": false,
   "awaitingRicardo": false,
-  "updatedAt": "2026-08-22T00:20:46.966Z",
+  "updatedAt": "2026-08-22T00:42:16.705Z",
   "checkIn": {
     "afterSec": 120,
-    "nextCheckAt": "2026-08-22T00:22:46.965Z",
+    "nextCheckAt": "2026-08-22T00:44:16.704Z",
     "estimateSec": 600,
-    "plannedAt": "2026-08-22T00:20:46.965Z",
-    "reason": "Prime Video offload still gated: log has no connection ok/DONE/ABORT; pid 7439 gone after TCC rsync errors. Poll only; do not restart copy from Cursor."
+    "plannedAt": "2026-08-22T00:42:16.704Z",
+    "reason": "Prime Video offload still gated: no connection ok/DONE/ABORT; TCC blocked Cursor rsync; rerun from Terminal.app on next full turn if still stuck"
   }
 }
