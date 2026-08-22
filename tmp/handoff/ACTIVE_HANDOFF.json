@@ -4,7 +4,7 @@
     "expedia-solutions",
     "creytix-front"
   ],
-  "inFlight": "Check-in 21:02: still gated — STATUS.txt=WAITING_FOR_CURSOR_QUIT, wait-script pid=43268 tty=s003 elapsed=1h39m, LaCie mounted. Cursor has not fully quit.",
+  "inFlight": "Check-in 21:15: still gated — STATUS=WAITING_FOR_CURSOR_QUIT; wait-script pid=43268 tty=s003 ~1h52m; LaCie OK. Cursor PIDs still hold state.vscdb open (not a full quit).",
   "nextStep": "Cmd+Q Cursor (full quit). Terminal wait-script is already running (pid 43268, tty s003). Keep that window open and LaCie plugged in. Success: /Volumes/LaCie/offload/Cursor/STATUS.txt starts with DONE.",
   "constraints": [
     "Keep LaCie plugged in — Prime Video offline titles live there",
@@ -29,12 +29,12 @@
     }
   ],
   "waitForMode": "any",
-  "updatedAt": "2026-08-22T04:03:00.174Z",
+  "updatedAt": "2026-08-22T04:15:02.015Z",
   "checkIn": {
     "afterSec": 120,
-    "nextCheckAt": "2026-08-22T04:05:00.173Z",
+    "nextCheckAt": "2026-08-22T04:17:02.014Z",
     "estimateSec": 900,
-    "plannedAt": "2026-08-22T04:03:00.173Z",
-    "reason": "Cursor still open: STATUS=WAITING_FOR_CURSOR_QUIT pid=43268; keep Terminal+LaCie"
+    "plannedAt": "2026-08-22T04:15:02.014Z",
+    "reason": "Cursor still holding state.vscdb; STATUS=WAITING_FOR_CURSOR_QUIT pid=43268; keep Terminal+LaCie; full Cmd+Q needed"
   }
 }
