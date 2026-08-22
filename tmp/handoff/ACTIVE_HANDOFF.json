@@ -4,8 +4,8 @@
     "expedia-solutions",
     "creytix-front"
   ],
-  "inFlight": "Check-in: Prime Video DOWN. Dhc9Tq still linked (64). reOMCB still a real SSD dir. STATUS.txt has no reOMCB — Terminal --inner-link not run. Cursor offload not started.",
-  "nextStep": "Operator home: http://localhost:3025/app/maccare/offload (copy cards). Quit Prime Video (Cmd+Q). In Terminal.app: cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/prime-video-offload.sh --inner-link   Success: STATUS.txt lists both Dhc9Tq and reOMCB. Then Cursor offload after Cmd+Q Cursor.",
+  "inFlight": "Terminal --inner-link ran and FAILED: rsync extra reOMCB rc=23 (in-progress Hidden Inventory 3 .frag vanished). Dhc9Tq still linked (64 pkgs). reOMCB still a real SSD dir (~344K stub BD2D669EF4DC19B5). LaCie reOMCB has stale 115M 52AA10B9 package. Script now retries rc=23 and --delete stale dest. Cursor offload not started.",
+  "nextStep": "Keep Prime Video quit. In Terminal.app (not Cursor): cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/prime-video-offload.sh --inner-link   Success: STATUS.txt is INNER_LINKED and names both Dhc9Tq and reOMCB; leftover real UserManagedAssets dirs = 0. Then Cursor Application Support offload (wait-script, then Cmd+Q Cursor).",
   "constraints": [
     "Keep LaCie plugged in — Prime Video offline titles live there",
     "Do not use /Volumes/LaCie 1 (Time Machine)",
@@ -17,7 +17,7 @@
   ],
   "verify": [
     "cat /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
-    "test ! -d /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library/com.apple.UserManagedAssets.reOMCB || test -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library/com.apple.UserManagedAssets.reOMCB",
+    "test -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library/com.apple.UserManagedAssets.reOMCB",
     "find /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library -maxdepth 1 -type d -name 'com.apple.UserManagedAssets.*' | wc -l"
   ],
   "lane": "fleet-disk",
@@ -29,12 +29,12 @@
     }
   ],
   "waitForMode": "any",
-  "updatedAt": "2026-08-22T02:19:25.115Z",
+  "updatedAt": "2026-08-22T02:22:40.000Z",
   "checkIn": {
     "afterSec": 120,
-    "nextCheckAt": "2026-08-22T02:21:25.113Z",
-    "estimateSec": 600,
-    "plannedAt": "2026-08-22T02:19:25.113Z",
-    "reason": "Prime Video quit; waiting Terminal --inner-link so STATUS lists reOMCB"
+    "nextCheckAt": "2026-08-22T02:24:40.000Z",
+    "estimateSec": 180,
+    "plannedAt": "2026-08-22T02:22:40.000Z",
+    "reason": "Waiting Terminal re-run of --inner-link after rc=23 retry fix"
   }
 }
