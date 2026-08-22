@@ -1,8 +1,8 @@
 {
-  "thread": "Muse Spark + Relate P1 IDE overlay + desktop hot-install",
+  "thread": "Meta vault R2 + Muse Spark desktop",
   "repos": ["creytix-front", "expedia-solutions"],
-  "inFlight": [],
-  "nextStep": "Confirm Creytix IDE.app chat markdown/slash after hot-install; paste MODEL_API_KEY then npm run creytix:omniroute:sync if Spark should be callable. Do not git-merge feat/creytix-relate-p1 (CRM + 162 commits still parked).",
-  "updatedAt": "2026-08-22T05:00:00.000Z",
+  "inFlight": ["creytix:ide:desktop:bundle + hot-install for R2 runtime env"],
+  "nextStep": "Finish desktop bundle/hot-install; in Creytix IDE.app re-stash MODEL_API_KEY as Muse Spark (expect R2 synced toast); pick muse-spark-1.2 in the model picker. Muse Code CLI stays Terminal — run Meta install.sh there, not Session auto.",
+  "updatedAt": "2026-08-22T05:06:00.000Z",
   "lane": "creytix-platform"
 }
