@@ -1,27 +1,23 @@
 {
-  "thread": "laptop MacCare + Library heavies offload",
+  "thread": "Mass blob/image offload to LaCie",
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "none",
-  "nextStep": "BLOCKED on Ricardo Docker pick only. Keep LaCie plugged in. WhatsApp+Google already DONE — do not re-run. Say: (1) docker system prune -a, or (2) FORCE_DOCKER_SPARSE=1 offload. Path-switch still blocked while Cursor has the tree open.",
+  "inFlight": "Terminal.app running blob-image-mass-offload (~213G, skip image-lane)",
+  "nextStep": "When STATUS.txt says DONE: df -h; then offload image-lane if idle; optional Docker prune",
   "constraints": [
-    "Keep LaCie plugged in — Prime, Cursor, WhatsApp Message, Google DriveFS/Caches live there",
-    "Do not use /Volumes/LaCie 1",
-    "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
-    "Do not move Chrome profiles",
-    "Do not delete /Volumes/LaCie/offload/{PrimeVideo,Cursor,Docker,WhatsApp,Google}",
-    "Do not FORCE_DOCKER_SPARSE or docker prune without Ricardo pick",
-    "Ignore stale Session Drive text that still lists WhatsApp/Google as unpicked"
+    "Keep LaCie plugged direct (no USB hub)",
+    "Do not move whole Expedia Solutions workspace",
+    "Image lane skipped while generating"
   ],
   "verify": [
-    "test -d /Volumes/LaCie",
-    "cat /Volumes/LaCie/offload/WhatsApp/STATUS.txt",
-    "cat /Volumes/LaCie/offload/Google/STATUS.txt",
-    "cat /Volumes/LaCie/offload/Docker/STATUS.txt",
-    "df -h /System/Volumes/Data /Volumes/LaCie"
+    "cat /Volumes/LaCie/offload/blobs-images/STATUS.txt",
+    "df -h /System/Volumes/Data"
   ],
-  "lane": "fleet-disk",
-  "waitFor": [],
-  "updatedAt": "2026-08-22T15:39:30.000Z"
+  "lane": "laptop",
+  "waitFor": {
+    "glob": "/Volumes/LaCie/offload/blobs-images/STATUS.txt",
+    "logContains": "DONE"
+  },
+  "updatedAt": "2026-08-22T16:03:57Z"
 }
