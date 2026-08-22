@@ -1,22 +1,24 @@
 {
-  "thread": "laptop SSD clear + LaCie mass offload",
-  "updatedAt": "2026-08-22T11:24:30-07:00",
+  "thread": "laptop SSD clear — LaCie symlink offload",
   "repos": ["expedia-solutions"],
+  "lane": "media-pipeline",
+  "updatedAt": "2026-08-22T18:35:00-07:00",
   "inFlight": [
-    "Mass resume2: rsync lora-train 6G, then CDP profiles (~36G: instagram 13G + playwright chromes)",
-    "pid in /tmp/blob-mass-resume2.pid"
+    "blob-image-mass-offload RESUME3: lora-train + CDP profiles + krisp/figma/cortex/music/ide-release/chrome-SW + purge"
   ],
-  "nextStep": "Wait STATUS DONE; verify lora+CDP symlinks; optional: start Docker Desktop then docker system prune; Cursor App Support needs Cursor quit.",
-  "doneThisSession": [
-    "SSD ~533Gi free (was ~37Gi start of day)",
-    "Ollama/Claude/Chrome blobs on LaCie",
-    "Downloads emptied in-place (macOS blocks renaming Downloads); files at /Volumes/LaCie/offload/blobs-images/Downloads",
-    "Gradle caches purged ~4G"
+  "nextStep": "Watch /Volumes/LaCie/offload/blobs-images/STATUS.txt until DONE; then df -h and verify symlinks for ~/lora-train and ~/.instagram-cdp-chrome-main",
+  "waitFor": {
+    "glob": "/Volumes/LaCie/offload/blobs-images/STATUS.txt",
+    "logContains": "DONE"
+  },
+  "verify": [
+    "cat /Volumes/LaCie/offload/blobs-images/STATUS.txt",
+    "ls -ld ~/lora-train ~/.instagram-cdp-chrome-main",
+    "df -h /System/Volumes/Data"
   ],
   "constraints": [
     "Never /Volumes/LaCie 1",
-    "Keep CreytixImages + LaCie mounted",
-    "Downloads cannot be symlinked — empty+LaCie path only"
-  ],
-  "lane": "creytix-platform"
+    "Do not symlink whole Expedia Solutions workspace",
+    "Chrome full profiles stay on SSD (only Service Worker + OptGuide)"
+  ]
 }
