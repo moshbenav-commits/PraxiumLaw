@@ -1,27 +1,24 @@
 {
-  "thread": "Meta vault R2 + Muse Spark desktop",
+  "thread": "laptop-disk-critical → Prime Video offload + reclaim",
   "repos": [
-    "creytix-front",
-    "expedia-solutions"
+    "expedia-solutions",
+    "creytix-front"
   ],
-  "inFlight": [
-    "Check-in: Cursor STATUS=WAITING_FOR_CURSOR_QUIT (wait-script pid 43268); Meta restash + muse CLI still human."
+  "inFlight": "Cursor Application Support offload VERIFIED. STATUS DONE 2026-08-21 23:11:59. snapshots + globalStorage are symlinks to /Volumes/LaCie/offload/Cursor. SSD ~90Gi free (was ~55Gi). Prime Video still INNER_LINKED pkgs=65.",
+  "nextStep": "Keep LaCie plugged in. Remaining Library heavies only if Ricardo picks: Docker ~18G, WhatsApp ~13G, Google ~11G. Do not start those without a pick. Workspace path-switch still blocked while Cursor has the tree open.",
+  "constraints": [
+    "Keep LaCie plugged in — Prime Video titles and Cursor snapshots/globalStorage live there",
+    "Do not use /Volumes/LaCie 1 (Time Machine)",
+    "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
+    "Do not offload WhatsApp / Google / Docker without a later pick",
+    "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp",
+    "Do not delete /Volumes/LaCie/offload/Cursor"
   ],
-  "nextStep": "In Creytix IDE.app (reopened after hot-install): re-stash MODEL_API_KEY or META_API_KEY, confirm R2 synced toast, pick muse-spark-1.2. Muse Code CLI: run Meta install.sh in Terminal.app only — not Session auto.",
-  "waitFor": [
-    {
-      "type": "logContains",
-      "path": "/Volumes/LaCie/offload/Cursor/STATUS.txt",
-      "needle": "DONE"
-    }
+  "verify": [
+    "cat /Volumes/LaCie/offload/Cursor/STATUS.txt",
+    "ls -ld ~/Library/Application\\ Support/Cursor/snapshots ~/Library/Application\\ Support/Cursor/User/globalStorage"
   ],
-  "updatedAt": "2026-08-22T05:12:31.533Z",
-  "lane": "creytix-platform",
-  "checkIn": {
-    "afterSec": 120,
-    "nextCheckAt": "2026-08-22T05:14:31.532Z",
-    "estimateSec": 780,
-    "plannedAt": "2026-08-22T05:12:31.532Z",
-    "reason": "Cursor still open; STATUS=WAITING_FOR_CURSOR_QUIT; wait-script pid=43268; Meta MODEL_API_KEY restash + muse CLI still human; keep Terminal+LaCie; full Cmd+Q needed"
-  }
+  "lane": "fleet-disk",
+  "waitFor": [],
+  "updatedAt": "2026-08-22T11:18:30.000Z"
 }
