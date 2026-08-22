@@ -4,37 +4,36 @@
     "expedia-solutions",
     "creytix-front"
   ],
-  "inFlight": "Terminal --inner-link ran and FAILED: rsync extra reOMCB rc=23 (in-progress Hidden Inventory 3 .frag vanished). Dhc9Tq still linked (64 pkgs). reOMCB still a real SSD dir (~344K stub BD2D669EF4DC19B5). LaCie reOMCB has stale 115M 52AA10B9 package. Script now retries rc=23 and --delete stale dest. Cursor offload not started.",
-  "nextStep": "Keep Prime Video quit. In Terminal.app (not Cursor): cd \"/Users/ricardo/Expedia Solutions\" && bash scripts/prime-video-offload.sh --inner-link   Success: STATUS.txt is INNER_LINKED and names both Dhc9Tq and reOMCB; leftover real UserManagedAssets dirs = 0. Then Cursor Application Support offload (wait-script, then Cmd+Q Cursor).",
+  "inFlight": "Prime Video inner-link VERIFIED (INNER_LINKED 19:22:16 pkgs=65 Dhc9Tq+reOMCB, leftover real dirs=0). Cursor wait-script alive pid=43268 STATUS=WAITING_FOR_CURSOR_QUIT. Success token is DONE (script does not write LINKED).",
+  "nextStep": "Cmd+Q Cursor (full quit). Terminal wait-script is already running (pid 43268, tty s003). Keep that window open and LaCie plugged in. Success: /Volumes/LaCie/offload/Cursor/STATUS.txt starts with DONE.",
   "constraints": [
     "Keep LaCie plugged in — Prime Video offline titles live there",
     "Do not use /Volumes/LaCie 1 (Time Machine)",
     "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
-    "Do not run cursor-app-support-offload while Cursor is open",
+    "Do not run cursor-app-support-offload while Cursor is open (wait-script handles after quit)",
     "Do not offload WhatsApp / Google / Docker without a later pick",
     "Do not delete /Volumes/LaCie/offload/PrimeVideo/com.amazon.aiv.AIVApp",
     "Prime Video --inner-link must run in Terminal.app (Cursor cannot write ~/Library/Containers)"
   ],
   "verify": [
     "cat /Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
-    "test -L /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library/com.apple.UserManagedAssets.reOMCB",
-    "find /Users/ricardo/Library/Containers/com.amazon.aiv.AIVApp/Data/Library -maxdepth 1 -type d -name 'com.apple.UserManagedAssets.*' | wc -l"
+    "cat /Volumes/LaCie/offload/Cursor/STATUS.txt",
+    "test -L \"/Users/ricardo/Library/Application Support/Cursor/snapshots\" || true"
   ],
   "lane": "fleet-disk",
   "waitFor": [
     {
       "type": "logContains",
-      "path": "/Volumes/LaCie/offload/PrimeVideo/STATUS.txt",
-      "needle": "reOMCB"
+      "path": "/Volumes/LaCie/offload/Cursor/STATUS.txt",
+      "needle": "DONE"
     }
   ],
   "waitForMode": "any",
-  "updatedAt": "2026-08-22T02:22:40.000Z",
+  "updatedAt": "2026-08-22T02:23:29.627Z",
   "checkIn": {
     "afterSec": 120,
-    "nextCheckAt": "2026-08-22T02:24:40.000Z",
-    "estimateSec": 180,
-    "plannedAt": "2026-08-22T02:22:40.000Z",
-    "reason": "Waiting Terminal re-run of --inner-link after rc=23 retry fix"
+    "nextCheckAt": "2026-08-22T02:25:29.626Z",
+    "estimateSec": 900,
+    "plannedAt": "2026-08-22T02:23:29.626Z"
   }
 }
