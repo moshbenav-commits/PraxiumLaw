@@ -1,12 +1,14 @@
 {
-  "thread": "laptop SSD clear — LaCie symlink offload",
-  "repos": ["expedia-solutions"],
-  "lane": "media-pipeline",
-  "updatedAt": "2026-08-22T18:35:00-07:00",
-  "inFlight": [
-    "blob-image-mass-offload RESUME3: lora-train + CDP profiles + krisp/figma/cortex/music/ide-release/chrome-SW + purge"
+  "thread": "laptop SSD clear \u2014 LaCie symlink offload",
+  "repos": [
+    "expedia-solutions"
   ],
-  "nextStep": "Watch /Volumes/LaCie/offload/blobs-images/STATUS.txt until DONE; then df -h and verify symlinks for ~/lora-train and ~/.instagram-cdp-chrome-main",
+  "lane": "media-pipeline",
+  "updatedAt": "2026-08-22T12:13:00-07:00",
+  "inFlight": [
+    "Terminal.app durable mass: lora+CDP+krisp+figma+cortex+music+ide-release+chrome-SW+purge"
+  ],
+  "nextStep": "When STATUS.txt says DONE, verify symlinks and df; then Cursor quit offload (#368)",
   "waitFor": {
     "glob": "/Volumes/LaCie/offload/blobs-images/STATUS.txt",
     "logContains": "DONE"
@@ -17,8 +19,8 @@
     "df -h /System/Volumes/Data"
   ],
   "constraints": [
-    "Never /Volumes/LaCie 1",
-    "Do not symlink whole Expedia Solutions workspace",
-    "Chrome full profiles stay on SSD (only Service Worker + OptGuide)"
+    "Never LaCie 1",
+    "Do not symlink whole workspace",
+    "Mass must run in Terminal.app not Cursor shell"
   ]
 }
