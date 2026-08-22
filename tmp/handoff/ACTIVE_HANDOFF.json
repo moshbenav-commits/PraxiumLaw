@@ -1,0 +1,31 @@
+{
+  "thread": "laptop-disk-critical → Prime Video offload + reclaim",
+  "repos": [
+    "expedia-solutions"
+  ],
+  "inFlight": "Copying Configurator 15G restore leftover (04C81C1B… TemporaryItems) to /Volumes/LaCie/offload/ConfiguratorTmp. Cursor stays open.",
+  "nextStep": "When /Volumes/LaCie/offload/ConfiguratorTmp/offload.log contains 'DONE', confirm source gone, df -h /, then wait for Cursor quit for globalStorage/snapshots offload.",
+  "constraints": [
+    "Keep LaCie plugged in — Prime Video offline titles live there",
+    "Do not use /Volumes/LaCie 1 (Time Machine)",
+    "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
+    "Do not run cursor-app-support-offload while Cursor is open",
+    "Do not offload WhatsApp / Google without Ricardo pick"
+  ],
+  "verify": [
+    "tail -20 /Volumes/LaCie/offload/ConfiguratorTmp/offload.log",
+    "df -h / /System/Volumes/Data /Volumes/LaCie"
+  ],
+  "lane": "fleet-disk",
+  "waitFor": [
+    {
+      "type": "logContains",
+      "path": "/Volumes/LaCie/offload/ConfiguratorTmp/offload.log",
+      "needle": "DONE"
+    }
+  ],
+  "waitForMode": "any",
+  "paused": false,
+  "awaitingRicardo": false,
+  "updatedAt": "2026-08-22T01:49:20.000Z"
+}
