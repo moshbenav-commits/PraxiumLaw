@@ -1,8 +1,8 @@
 {
   "thread": "Meta vault R2 + Muse Spark desktop",
   "repos": ["creytix-front", "expedia-solutions"],
-  "inFlight": ["creytix:ide:desktop:bundle + hot-install for R2 runtime env"],
-  "nextStep": "Finish desktop bundle/hot-install; in Creytix IDE.app re-stash MODEL_API_KEY as Muse Spark (expect R2 synced toast); pick muse-spark-1.2 in the model picker. Muse Code CLI stays Terminal — run Meta install.sh there, not Session auto.",
-  "updatedAt": "2026-08-22T05:06:00.000Z",
+  "inFlight": [],
+  "nextStep": "In Creytix IDE.app (reopened after hot-install): re-stash MODEL_API_KEY or META_API_KEY, confirm R2 synced toast, pick muse-spark-1.2. Muse Code CLI: run Meta install.sh in Terminal.app only — not Session auto.",
+  "updatedAt": "2026-08-22T05:10:00.000Z",
   "lane": "creytix-platform"
 }
