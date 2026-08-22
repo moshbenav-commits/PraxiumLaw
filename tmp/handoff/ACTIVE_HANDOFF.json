@@ -3,34 +3,25 @@
   "repos": [
     "expedia-solutions"
   ],
-  "inFlight": "Still gated: Docker=SKIPPED, WhatsApp=STARTED, Google STATUS missing; LaCie OK.",
-  "nextStep": "When /Volumes/LaCie/offload/{Docker,WhatsApp,Google}/STATUS.txt all say DONE, verify df and symlinks. Keep LaCie plugged in. If WhatsApp TCC fails, re-run --whatsapp from Terminal.app.",
+  "inFlight": "none",
+  "nextStep": "BLOCKED on Ricardo Docker pick only. Keep LaCie plugged in. WhatsApp+Google already DONE — do not re-run. Say: (1) docker system prune -a, or (2) FORCE_DOCKER_SPARSE=1 offload. Path-switch still blocked while Cursor has the tree open.",
   "constraints": [
-    "Keep LaCie plugged in — Prime, Cursor, and new heavies live there",
+    "Keep LaCie plugged in — Prime, Cursor, WhatsApp Message, Google DriveFS/Caches live there",
     "Do not use /Volumes/LaCie 1",
     "Do not path-switch ~/Expedia Solutions while Cursor has the tree open",
     "Do not move Chrome profiles",
-    "Do not delete /Volumes/LaCie/offload/{PrimeVideo,Cursor,Docker,WhatsApp,Google}"
+    "Do not delete /Volumes/LaCie/offload/{PrimeVideo,Cursor,Docker,WhatsApp,Google}",
+    "Do not FORCE_DOCKER_SPARSE or docker prune without Ricardo pick",
+    "Ignore stale Session Drive text that still lists WhatsApp/Google as unpicked"
   ],
   "verify": [
-    "cat /Volumes/LaCie/offload/Docker/STATUS.txt",
+    "test -d /Volumes/LaCie",
     "cat /Volumes/LaCie/offload/WhatsApp/STATUS.txt",
     "cat /Volumes/LaCie/offload/Google/STATUS.txt",
+    "cat /Volumes/LaCie/offload/Docker/STATUS.txt",
     "df -h /System/Volumes/Data /Volumes/LaCie"
   ],
   "lane": "fleet-disk",
-  "waitFor": [
-    {
-      "glob": "/Volumes/LaCie/offload/Google/STATUS.txt",
-      "contains": "DONE"
-    }
-  ],
-  "updatedAt": "2026-08-22T14:17:02.808Z",
-  "checkIn": {
-    "afterSec": 120,
-    "nextCheckAt": "2026-08-22T14:19:02.807Z",
-    "estimateSec": 540,
-    "plannedAt": "2026-08-22T14:17:02.807Z",
-    "reason": "WhatsApp STARTED; Google STATUS missing; waitFor Google DONE"
-  }
+  "waitFor": [],
+  "updatedAt": "2026-08-22T15:39:30.000Z"
 }
