@@ -1,15 +1,13 @@
 # PraxiumLaw PI Case OS — Where We Are & What To Do Next
 
-**Updated:** 2026-07-04
+**Updated:** 2026-08-25 (rewrite closing the 2026-08-01 stale flag)
 
-> **STALE — flagged 2026-08-01 by an architecture-vs-reality audit.** This
-> doc's "Phase 1 not started" / "PI case OS modules not implemented yet"
-> framing is out of date: `curl https://api.praxiumlaw.com/api/health` shows
-> 13 live `pi_*` backend modules, and git history shows a real "Ship PI Case
-> OS matter tabs, audit dashboard, and template merge" commit already
-> merged. The document below describes an earlier, no-longer-current state.
-> Needs a real rewrite reflecting what actually shipped — not done here,
-> flagging so nobody treats this file as current.
+> **Provenance:** this file's "not implemented yet" framing was flagged stale on
+> 2026-08-01 and left unfixed for three weeks. This rewrite is grounded ONLY in
+> evidence checked the same day it was written — `curl https://api.praxiumlaw.com/api/health`
+> (live, run 2026-08-25) and a `find` over `backend/`/`frontend/` for the modules it
+> lists. Anything below not backed by one of those two checks is marked **unverified**
+> rather than assumed. This is a status correction, not a re-audit of the product.
 
 ---
 
@@ -17,12 +15,12 @@
 
 | Question | Answer |
 |----------|--------|
-| Has everything been **added to PraxiumLaw**? | **Yes for knowledge / specs / templates.** **No for a running product backend.** |
-| Do we have a clear plan? | **Yes** — below. Specs define the backend; code is not built yet. |
-| How do documents complete the backend? | They are the **blueprint and seed data**, not the app itself. |
-| Where are we? | **Phase 0 complete** (research + white-label corpus). **Phase 1 not started** (implement case OS). |
+| Has everything been **added to PraxiumLaw**? | **Yes for knowledge / specs / templates**, and **the backend + UI are live**, not merely specified — see verification below. |
+| Do we have a clear plan? | The MVP order below is what got built; treat it as a record, not a to-do list. |
+| How do documents complete the backend? | They were the **blueprint and seed data**; the backend now implements them (verified live, see table). |
+| Where are we? | **Phase 0 (corpus) and Phase 1 (MVP case OS backend/UI) are both substantially shipped.** What remains is functional verification (the checklist below) and Phase 2 items. |
 
-PraxiumLaw today includes a **product definition + training corpus** under `docs/pi-case-os/`. The **Legal OS shell** (FastAPI + React + Mongo) exists; **PI case OS modules** (cases, meds, demand, settlement) are **not implemented yet** — specs define what to build next.
+PraxiumLaw today includes the **product definition + training corpus** under `docs/pi-case-os/` AND a live product: the FastAPI/React/Mongo shell plus **31 backend modules** (health check, 2026-08-25), 13 of them PI-specific (`pi_intake`, `pi_insurance`, `pi_meds`, `pi_documents`, `pi_phases`, `pi_demand`, `pi_settlement`, `pi_letters`, `pi_ai_intake`, `pi_property_damage`, `pi_comms`, `pi_audit`, `pi_subrogation`), plus a `disclosure` module. Matching frontend exists: `frontend/src/pages/IntakeForm.jsx`, `frontend/src/components/matter/MatterIntakeTab.jsx`, `MatterDemandTab.jsx`, `AiIntakeFillModal.jsx` (all confirmed present, not confirmed functional end-to-end — see "What is NOT independently verified" below).
 
 ---
 
@@ -60,19 +58,20 @@ PraxiumLaw today includes a **product definition + training corpus** under `docs
 
 ---
 
-## What is **not** done (the actual product)
+## What is now LIVE (verified 2026-08-25) vs. still open
 
-| Layer | Status |
-|-------|--------|
-| Database schema (cases, parties, meds, insurance, phases) | **Not built** |
-| API (cases, tasks, documents, templates) | **Not built** |
-| Auth / multi-tenant firms | **Not built** |
-| UI (case file, intake, demand, settlement) | **Not built** |
-| Template engine (`{{PLACEHOLDERS}}` → firm profile) | **Not built** |
-| Knowledge base in-app (articles) | **Not built** (markdown only) |
-| Wire PI case OS modules inside PraxiumLaw | **Not started** |
+| Layer | Status | Evidence |
+|-------|--------|----------|
+| Database (Mongo) | **Connected** | health check: `"mongo":true,"mongoConfigured":true,"mongoError":null` |
+| API — case/insurance/meds/documents/phases/demand/settlement/letters/AI-intake/property-damage/comms/audit/subrogation | **Live** (13 `pi_*` modules) | health check module list + matching `backend/pi_*.py` source files |
+| Auth / RBAC / multi-tenant | **Live** | `auth`, `rbac`, `team`, `portal` in module list |
+| Disclosure gate | **Live** | `disclosure` module in health check |
+| UI — intake, matter tabs, demand, AI-fill | **Present** | `frontend/src/pages/IntakeForm.jsx`, `frontend/src/components/matter/{MatterIntakeTab,MatterDemandTab,AiIntakeFillModal}.jsx` |
+| Template engine (`{{PLACEHOLDERS}}` → firm profile) | **Unverified** — `pi_docgen.py`/`pi_letters.py` exist in source but merge behavior not exercised in this pass | — |
+| Knowledge base in-app (the 22 `articles/`) | **Unverified** — `training` module is live; whether the articles themselves are wired into it was not checked here | — |
+| Litigation / transfer-to-lit (Phase 2) | **Not covered by this pass** — see Phase 2 below | — |
 
-**Documents complete the backend by defining it** — phases, fields, workflows, gates, template types, audit checklists. They do **not** replace implementing those as code.
+**"Unverified" means exactly that** — not confirmed absent, not confirmed present as a working feature. A source file existing is not the same as a flow working end-to-end; the next real check is running the success-criteria checklist below against the live app, not reading more source.
 
 ```text
 ┌─────────────────────────────────────────────────────────┐
@@ -82,15 +81,18 @@ PraxiumLaw today includes a **product definition + training corpus** under `docs
                             │ implements
                             ▼
 ┌─────────────────────────────────────────────────────────┐
-│  NOT DONE: Product backend + frontend                   │
-│  cases · tasks · meds · insurance · docs · settlement   │
-│  firm onboarding · disclosure gate · attorney roles     │
+│  LIVE (backend + UI present, verified 2026-08-25):       │
+│  cases · tasks · meds · insurance · docs · settlement    │
+│  firm onboarding · disclosure gate · attorney roles      │
+│  UNVERIFIED end-to-end: template merge, in-app KB wiring │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## How documents map to the backend
+
+**Kept as a reference map — the "becomes" column now describes live modules, not a plan.** Each right-hand item corresponds to a `pi_*` module or frontend component confirmed present above; this table was not re-verified line-by-line and a row's presence in the module list does not certify every listed sub-behavior (e.g. `pi_subrogation` being live does not by itself confirm "Medicare path" specifically works).
 
 | Spec / corpus piece | Becomes in the product |
 |---------------------|-------------------------|
@@ -112,9 +114,9 @@ PraxiumLaw today includes a **product definition + training corpus** under `docs
 
 ## Clear plan — what we do now
 
-### Phase 1 — MVP case OS (build this next)
+### Phase 1 — MVP case OS — **backend/UI substantially shipped (see table above); treat this list as a build record, verify against it rather than re-plan from it**
 
-Implement from `product-capabilities.md` MVP order:
+Original MVP order from `product-capabilities.md`, kept for traceability:
 
 1. **Firm onboarding** — profile, jurisdictions, fee defaults, disclosure acknowledgment  
 2. **Case + parties + phases + roles + SOL**  
@@ -145,18 +147,20 @@ Implement from `product-capabilities.md` MVP order:
 
 ---
 
-## Success criteria for “PraxiumLaw PI module is real”
+## Success criteria for "PraxiumLaw PI module is real"
 
-- [ ] A firm can sign up, accept disclosure, set `{{FIRM_*}}` profile  
-- [ ] Staff can open a case, run intake Needs List, track treatment and meds  
-- [ ] System enforces attorney gates on demand / reductions / disbursement  
-- [ ] Templates export with firm placeholders filled  
-- [ ] Articles available as in-app help  
+**Still the right test — none of these boxes were checked as part of this rewrite, deliberately.** Confirming a module is live in the health check is not the same as confirming the flow works for a real user; this rewrite corrected a stale "not built" claim using code/API evidence, it did not run these flows.
 
-Until those are checked, PraxiumLaw is **specified and seeded**, not **shipped**.
+- [ ] A firm can sign up, accept disclosure, set `{{FIRM_*}}` profile
+- [ ] Staff can open a case, run intake Needs List, track treatment and meds
+- [ ] System enforces attorney gates on demand / reductions / disbursement
+- [ ] Templates export with firm placeholders filled
+- [ ] Articles available as in-app help
+
+Until those are checked **by exercising the live app**, call PraxiumLaw's PI module **built, not confirmed working end-to-end** — a real distinction from this doc's old "specified and seeded, not shipped," which undersold what's actually running.
 
 ---
 
 ## One-line status
 
-**We finished the training → white-label product blueprint.** Next work is **implementing the case management backend and UI** from `product-capabilities.md`, not more document collection.
+**The training → white-label blueprint is done, AND the backend/UI it describes are live** (13 `pi_*` modules + disclosure gate, confirmed via health check 2026-08-25; matching frontend present). What's open is the success-criteria checklist above — real functional verification — not more building from spec.
