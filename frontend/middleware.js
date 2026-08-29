@@ -154,13 +154,18 @@ function getCookie(request, name) {
 
 // Paths that must always work regardless of the landing-page lock:
 // essence/asset URLs the HF prompt system depends on, the actual product
-// (login/signup/portal/praxa), and the unlock API itself.
+// (login/portal/praxa), and the unlock API itself.
+//
+// `/signup` is deliberately NOT here. Public registration writes to the
+// production legal database, and this gate is a landing-page lock — exempting
+// signup meant the lock could never close that hole no matter what
+// SITE_LOCK_PASSWORD was set to. Existing users keep `/login`; new-account
+// creation now requires the site password first.
 const ALWAYS_OPEN_PREFIXES = [
   '/api/site-unlock',
   '/higgsfield/',
   '/static/',
   '/login',
-  '/signup',
   '/portal',
   '/praxa',
   '/accept-invite',
