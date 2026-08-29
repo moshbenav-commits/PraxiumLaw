@@ -215,6 +215,18 @@ export default function middleware(request) {
   });
 }
 
+// The matcher decides whether this function RUNS AT ALL; ALWAYS_OPEN_PREFIXES only
+// decides what it does once it has already started. Those are billed differently:
+// Vercel charges for the invocation, not the decision. The old catch-all
+// ('/((?!api/site-unlock).*)') therefore invoked a function on every image, font,
+// CSS file and favicon — one page view loading 30 assets cost 31 invocations
+// instead of 1. This project is `framework: null`, so Vercel's automatic
+// _next/static exclusion does not apply and the exclusion has to be explicit.
+//
+// Routes still gated (verified): / · /signup · /login · /portal · /praxa ·
+// /accept-invite/*. Never gated: /api/site-unlock and static assets.
 export const config = {
-  matcher: ['/((?!api/site-unlock).*)'],
+  matcher: [
+    '/((?!api/site-unlock|static/|favicon|manifest\\.json|robots\\.txt|sitemap|.*\\.(?:png|jpe?g|gif|svg|ico|webp|avif|css|js|mjs|map|woff2?|ttf|eot|txt|xml)$).*)',
+  ],
 };
