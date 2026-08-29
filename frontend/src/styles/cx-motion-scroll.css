@@ -1,0 +1,85 @@
+/* GENERATED excerpt — fleet scroll language.
+ * Source: @expedia/creytix-motion scroll-transform + Design Magic #8 (CSS hairline, not ScrollProgressBar).
+ * Do not hand-edit — re-run creytix:site:revamp -- --fleet-assess --execute
+ */
+.cx-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  height: 2px;
+  pointer-events: none;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: var(--cx-scroll-progress, var(--color-orange, var(--accent, #ff7f0a)));
+}
+@supports (animation-timeline: scroll()) {
+  .cx-scroll-progress {
+    animation: cx-page-scroll linear both;
+    animation-timeline: scroll();
+  }
+}
+@keyframes cx-page-scroll {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes cx-scroll-parallax-layer {
+  from { opacity: 1; }
+  to { transform: translate3d(0px, -80px, 0); }
+}
+@keyframes cx-scroll-parallax-layer-luxury {
+  from { opacity: 1; }
+  to { transform: translate3d(0px, -32px, 0); }
+}
+@supports (animation-timeline: view()) {
+  [data-cx-motion="scroll-parallax-layer"] {
+    animation: cx-scroll-parallax-layer auto linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+    will-change: transform;
+  }
+  html[data-cx-mood="luxury-typography"] [data-cx-motion="scroll-parallax-layer"] {
+    animation-name: cx-scroll-parallax-layer-luxury;
+  }
+}
+
+@keyframes cx-scroll-scale-reveal {
+  from { opacity: 0.6; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+@supports (animation-timeline: view()) {
+  [data-cx-motion="scroll-scale-reveal"] {
+    animation: cx-scroll-scale-reveal auto linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 50%;
+    will-change: transform, opacity;
+  }
+}
+
+@keyframes cx-scroll-clip-reveal {
+  from { opacity: 0.4; clip-path: inset(100% 0 0 0); }
+  to { opacity: 1; clip-path: inset(0% 0 0 0); }
+}
+@supports (animation-timeline: view()) {
+  [data-cx-motion="scroll-clip-reveal"] {
+    animation: cx-scroll-clip-reveal auto linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 55%;
+    will-change: transform, opacity;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-scroll-progress { display: none; }
+  [data-cx-motion="scroll-parallax-layer"],
+  [data-cx-motion="scroll-scale-reveal"],
+  [data-cx-motion="scroll-clip-reveal"] {
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    will-change: auto;
+  }
+}
