@@ -8,7 +8,7 @@ export default function MarketingShell({ children }) {
     <div className="min-h-screen bg-praxium-bg text-praxium-ink">
       <header className="sticky top-0 z-50 bg-praxium-bg/85 backdrop-blur-xl border-b border-praxium-line">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <PraxiumLogo to="/" size="md" testId="mkt-logo" />
+          <PraxiumLogo to="/" size="md" testId="mkt-logo" priority={true} />
           <nav className="hidden md:flex items-center gap-1">
             <Link to="/solutions" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Solutions</Link>
             <Link to="/pricing" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Pricing</Link>

@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowUpRight, ChevronLeft, ShieldCheck } from "lucide-react";
 import MarketingShell from "@/components/landing/MarketingShell";
 import ScrollReveal from "@/components/landing/ScrollReveal";
+import PageHero from "@/components/landing/PageHero";
 import usePageMeta from "@/components/landing/usePageMeta";
 import NotFound from "@/pages/NotFound";
 import { getSolution, SOLUTIONS, STATUS_LABEL } from "@/data/expansion";
@@ -20,16 +21,24 @@ export default function SolutionDetail() {
   return (
     <MarketingShell>
       <main className="max-w-7xl mx-auto px-6 pt-16 lg:pt-24">
-        <ScrollReveal>
-          <Link to="/solutions" className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-accent transition-colors">
-            <ChevronLeft size={12} /> All solutions
-          </Link>
-          <div className="mt-10 text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle flex items-center gap-4">
-            <span>{sol.kicker}</span>
-            <span className="text-[9px] px-2 py-1 border border-praxium-line">{STATUS_LABEL[sol.status]}</span>
-          </div>
-          <h1 className="mt-6 font-display font-black tracking-[-0.04em] leading-[0.9] text-4xl sm:text-5xl lg:text-7xl max-w-4xl">{sol.headline}</h1>
-          <p className="mt-8 text-lg lg:text-xl text-praxium-ink/70 max-w-3xl leading-relaxed">{sol.sub}</p>
+        <PageHero
+          above={(
+            <Link to="/solutions" className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-accent transition-colors">
+              <ChevronLeft size={12} /> All solutions
+            </Link>
+          )}
+          overline={(
+            <>
+              <span>{sol.kicker}</span>
+              <span className="text-[9px] px-2 py-1 border border-praxium-line">{STATUS_LABEL[sol.status]}</span>
+            </>
+          )}
+          overlineClassName="mt-10 tracking-[0.3em] flex items-center gap-4"
+          titleClassName="mt-6 tracking-[-0.04em] leading-[0.9] text-4xl sm:text-5xl lg:text-7xl max-w-4xl"
+          title={sol.headline}
+          description={sol.sub}
+          descriptionClassName="mt-8 text-lg lg:text-xl text-praxium-ink/70 max-w-3xl leading-relaxed"
+        >
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link to="/signup" className="group bg-praxium-accent text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent-hover transition-colors flex items-center gap-3">
               Get early access <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
@@ -38,7 +47,7 @@ export default function SolutionDetail() {
               See pricing
             </Link>
           </div>
-        </ScrollReveal>
+        </PageHero>
 
         {/* Flow */}
         <ScrollReveal delay={100}>

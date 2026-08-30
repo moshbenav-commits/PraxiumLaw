@@ -148,6 +148,19 @@
   }
 }
 
+/* Landscape-orientation hero compaction (homepage). A rotated phone or a
+   small tablet in landscape has a much shorter viewport height than either
+   the phone-portrait or desktop breakpoints this file otherwise designs
+   for — the default pt-36 hero padding would push the primary "Start 30
+   days free" CTA below the fold on those devices. data-hero="home" is set
+   on HomeHero.jsx's outer section. */
+@media (orientation: landscape) and (max-height: 500px) {
+  [data-hero="home"] {
+    padding-top: 4.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
 /* Custom selection */
 ::selection {
   background-color: #E85D04;

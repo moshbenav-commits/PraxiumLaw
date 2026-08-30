@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import ScrollReveal from "@/components/landing/ScrollReveal";
+import PageHero from "@/components/landing/PageHero";
 import usePageMeta from "@/components/landing/usePageMeta";
 import { TIERS, LEAD_FEES } from "@/data/marketing";
 
@@ -28,16 +29,18 @@ export default function Pricing() {
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
-        <ScrollReveal>
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-6">// pricing // no asterisks</div>
-          <h1 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-4xl">
-            All-inclusive.<br />
-            <span className="text-praxium-accent italic">Not piecemeal.</span>
-          </h1>
-          <p className="mt-8 text-lg text-praxium-ink/70 max-w-2xl">
-            Every tier includes the full platform. Upgrade unlocks more features — never more modules. No add-on fees.
-          </p>
-        </ScrollReveal>
+        <PageHero
+          overline="// pricing // no asterisks"
+          titleClassName="tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-4xl"
+          title={(
+            <>
+              All-inclusive.<br />
+              <span className="text-praxium-accent italic">Not piecemeal.</span>
+            </>
+          )}
+          description="Every tier includes the full platform. Upgrade unlocks more features — never more modules. No add-on fees."
+          descriptionClassName="mt-8 text-lg text-praxium-ink/70 max-w-2xl"
+        />
 
         <div className="mt-16 flex xl:grid xl:grid-cols-5 gap-4 xl:gap-px overflow-x-auto snap-x snap-mandatory pb-4 xl:pb-0 -mx-2 px-2 xl:mx-0 xl:px-0 xl:overflow-visible">
           {TIERS.map((t) => (

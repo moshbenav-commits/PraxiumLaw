@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check, ChevronRight, Command } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Command } from "lucide-react";
 import MatterCanvasMock from "../showcase/MatterCanvasMock";
 import ScrollReveal from "./ScrollReveal";
+import TrustStrip from "./TrustStrip";
 
 /**
  * Composed story hero — headline + primary action + a real product still
  * (MatterCanvasMock), not a dashboard screenshot. Extracted from Landing.jsx
  * so the homepage carries a named hero component (Site Standard: heroStory).
+ *
+ * data-hero="home" is the landscape-orientation hook (see index.css) —
+ * rotated phones / small tablets get a much shorter viewport, so the
+ * default pt-36 top padding is compacted there rather than pushing the
+ * primary CTA below the fold.
  */
 export default function HomeHero() {
   return (
-    <section className="pt-36 pb-20 lg:pb-28 px-6 relative overflow-hidden">
+    <section data-hero="home" className="pt-36 pb-20 lg:pb-28 px-6 relative overflow-hidden">
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-praxium-line to-transparent" />
       <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-praxium-accent/20 to-transparent" />
       <div className="max-w-7xl mx-auto">
@@ -38,11 +44,7 @@ export default function HomeHero() {
                   See the math <ChevronRight size={14} />
                 </a>
               </div>
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-praxium-subtle">
-                <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> No card required</span>
-                <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> Free migration from Filevine</span>
-                <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> 90-day money back</span>
-              </div>
+              <TrustStrip className="mt-6" />
             </ScrollReveal>
           </div>
           <div className="col-span-12 lg:col-span-6">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import TrustStrip from "./TrustStrip";
 
 /**
  * One mid-page program banner for the 30-days-free trial — the only signup
@@ -15,11 +16,7 @@ export default function SignupBanner() {
           <div>
             <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-praxium-accent mb-3">// 30-day trial // no card</div>
             <h3 className="font-display font-black text-2xl lg:text-3xl tracking-[-0.02em]">Start 30 days free.</h3>
-            <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-white/60">
-              <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> No card required</span>
-              <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> Free migration from Filevine</span>
-              <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> 90-day money back</span>
-            </div>
+            <TrustStrip tone="dark" className="mt-4" />
           </div>
           <Link
             to="/signup"

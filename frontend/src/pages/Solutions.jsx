@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import MarketingShell from "@/components/landing/MarketingShell";
 import ScrollReveal from "@/components/landing/ScrollReveal";
+import PageHero from "@/components/landing/PageHero";
 import usePageMeta from "@/components/landing/usePageMeta";
 import { SOLUTIONS, STATUS_LABEL } from "@/data/expansion";
 
@@ -14,16 +15,16 @@ export default function Solutions() {
   return (
     <MarketingShell>
       <main className="max-w-7xl mx-auto px-6 pt-20 lg:pt-28">
-        <ScrollReveal>
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-6">// solutions // the operations layer</div>
-          <h1 className="font-display font-black tracking-[-0.04em] leading-[0.9] text-5xl lg:text-7xl max-w-4xl">
-            The systems that run<br />
-            the <span className="text-praxium-accent italic">whole firm.</span>
-          </h1>
-          <p className="mt-8 text-lg lg:text-xl text-praxium-ink/70 max-w-2xl leading-relaxed">
-            Beyond case management: the pipelines that catch tickets in the mail, keep treatment on schedule, run the billing department, and retire the clerical layer for good.
-          </p>
-        </ScrollReveal>
+        <PageHero
+          overline="// solutions // the operations layer"
+          title={(
+            <>
+              The systems that run<br />
+              the <span className="text-praxium-accent italic">whole firm.</span>
+            </>
+          )}
+          description="Beyond case management: the pipelines that catch tickets in the mail, keep treatment on schedule, run the billing department, and retire the clerical layer for good."
+        />
 
         <ScrollReveal delay={100}>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-praxium-line border border-praxium-line">

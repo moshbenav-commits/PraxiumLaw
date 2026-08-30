@@ -20,6 +20,7 @@ import HomeHero from "../components/landing/HomeHero";
 import Marquee from "../components/landing/Marquee";
 import DifferentiatorBanner from "../components/landing/DifferentiatorBanner";
 import SignupBanner from "../components/landing/SignupBanner";
+import ExitIntentPanel from "../components/landing/ExitIntentPanel";
 import HelpfulTips from "../components/landing/HelpfulTips";
 import CaseStudiesRail from "../components/landing/CaseStudiesRail";
 import HomepageJsonLd from "../components/landing/HomepageJsonLd";
@@ -117,7 +118,7 @@ export default function Landing() {
       {/* ─── NAV ─── */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled ? "bg-praxium-bg/85 backdrop-blur-xl border-b border-praxium-line" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <PraxiumLogo to="/" size="md" testId="landing-logo" />
+          <PraxiumLogo to="/" size="md" testId="landing-logo" priority={true} />
           <nav className="hidden md:flex items-center gap-1">
             <a href="#truth" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">The math</a>
             <a href="#how" className="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle hover:text-praxium-ink transition-colors">Product</a>
@@ -588,6 +589,8 @@ export default function Landing() {
           </div>
         </div>
       </footer>
+
+      <ExitIntentPanel />
     </div>
   );
 }

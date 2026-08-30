@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Layers, Scale, ShieldCheck } from "lucide-react";
 import MarketingShell from "@/components/landing/MarketingShell";
 import ScrollReveal from "@/components/landing/ScrollReveal";
+import PageHero from "@/components/landing/PageHero";
 import usePageMeta from "@/components/landing/usePageMeta";
 
 // Grounded in brand/praxium-law/SITE_DIRECTION_PACK.json (validated) — the
@@ -29,19 +30,16 @@ export default function About() {
   return (
     <MarketingShell>
       <main className="max-w-7xl mx-auto px-6 pt-20 lg:pt-28 pb-24">
-        <ScrollReveal>
-          <div className="overline mb-6">// about // why praxium exists</div>
-          <h1 className="font-display font-black tracking-[-0.04em] leading-[0.9] text-5xl lg:text-7xl max-w-4xl">
-            We built this because firms keep paying<br />
-            for <span className="text-praxium-accent italic">eight tools</span> that don't talk to each other.
-          </h1>
-          <p className="mt-8 text-lg lg:text-xl text-praxium-ink/70 max-w-2xl leading-relaxed">
-            Filevine plus VineSign plus RingCentral plus DocuSign plus Mailchimp plus a records vendor
-            plus a billing tool plus the IT consultant to hold it together. The same matter, retyped
-            into six systems. Praxium is the operating system built to end that — one system of record,
-            with AI grounded in the firm's own matter data.
-          </p>
-        </ScrollReveal>
+        <PageHero
+          overline="// about // why praxium exists"
+          title={(
+            <>
+              We built this because firms keep paying<br />
+              for <span className="text-praxium-accent italic">eight tools</span> that don't talk to each other.
+            </>
+          )}
+          description="Filevine plus VineSign plus RingCentral plus DocuSign plus Mailchimp plus a records vendor plus a billing tool plus the IT consultant to hold it together. The same matter, retyped into six systems. Praxium is the operating system built to end that — one system of record, with AI grounded in the firm's own matter data."
+        />
 
         <ScrollReveal delay={80}>
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-px bg-praxium-line border border-praxium-line">

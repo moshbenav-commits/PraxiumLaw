@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Mail, ShieldCheck } from "lucide-react";
 import MarketingShell from "@/components/landing/MarketingShell";
 import ScrollReveal from "@/components/landing/ScrollReveal";
+import PageHero from "@/components/landing/PageHero";
 import usePageMeta from "@/components/landing/usePageMeta";
 
 // Real channels only — same addresses already live on TermsOfService.jsx,
@@ -31,16 +32,13 @@ export default function Contact() {
   return (
     <MarketingShell>
       <main className="max-w-5xl mx-auto px-6 pt-20 lg:pt-28 pb-24">
-        <ScrollReveal>
-          <div className="overline mb-6">// contact // real channels</div>
-          <h1 className="font-display font-black tracking-[-0.04em] leading-[0.92] text-5xl lg:text-6xl max-w-3xl">
-            Talk to us.
-          </h1>
-          <p className="mt-6 text-lg text-praxium-ink/70 max-w-xl leading-relaxed">
-            Praxium is in private beta, so there's no call center yet — but every channel below reaches
-            a real inbox.
-          </p>
-        </ScrollReveal>
+        <PageHero
+          overline="// contact // real channels"
+          title="Talk to us."
+          titleClassName="tracking-[-0.04em] leading-[0.92] text-5xl lg:text-6xl max-w-3xl"
+          description="Praxium is in private beta, so there's no call center yet — but every channel below reaches a real inbox."
+          descriptionClassName="mt-6 text-lg text-praxium-ink/70 max-w-xl leading-relaxed"
+        />
 
         <ScrollReveal delay={80}>
           <div className="mt-14 border border-praxium-line bg-praxium-ink text-white rounded-sm p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">

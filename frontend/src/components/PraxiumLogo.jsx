@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import OptimizedImage from "./common/OptimizedImage";
 
 const sizes = {
   sm: { mark: "w-7 h-7 text-sm", word: "text-[15px]", sub: "text-[9px]" },
@@ -17,6 +18,10 @@ export default function PraxiumLogo({
   showSubtitle = false,
   className = "",
   testId = "praxium-logo",
+  // Every current call site renders inside a header/sidebar — the first
+  // thing painted on the page — so priority defaults on; pass
+  // priority={false} for any future off-screen usage.
+  priority = true,
 }) {
   const s = sizes[size] ?? sizes.md;
   const isDark = variant === "dark";
@@ -25,10 +30,11 @@ export default function PraxiumLogo({
 
   const inner = (
     <div className={`flex items-center gap-2.5 ${className}`} data-testid={testId}>
-      <img
+      <OptimizedImage
         src="/brand/praxium-mark.svg"
         alt=""
         aria-hidden
+        priority={priority}
         className={`${s.mark} rounded-sm shrink-0`}
       />
       <div className="leading-none">
