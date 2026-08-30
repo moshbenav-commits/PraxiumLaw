@@ -125,6 +125,29 @@
   }
 }
 
+/* Self-moving ticker (Landing.jsx Marquee — the eight tools Praxium
+   replaces). Two duplicated item sets scroll left continuously; pausing on
+   hover/focus keeps it readable, and prefers-reduced-motion below drops the
+   animation for a static wrapped row. */
+@keyframes praxium-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.praxium-marquee-track {
+  animation: praxium-marquee-scroll 34s linear infinite;
+}
+.praxium-marquee-track:hover,
+.praxium-marquee-track:focus-within {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .praxium-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+  }
+}
+
 /* Custom selection */
 ::selection {
   background-color: #E85D04;

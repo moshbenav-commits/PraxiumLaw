@@ -6,6 +6,8 @@ import { Toaster } from "sonner";
 import { recordFirstTouch } from "@/lib/attribution";
 
 import Landing from "@/pages/Landing";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 import PartneredWithCreytix from "@/pages/PartneredWithCreytix";
 import Pricing from "@/pages/Pricing";
 // NOTE: multi-practice-area marketing pages (PracticeAreas/PracticeAreaDetail) are
@@ -89,6 +91,8 @@ function App() {
         <Routes>
           {/* Marketing & public */}
           <Route path="/" element={<Landing />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/partnered-with-creytix" element={<PartneredWithCreytix />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/solutions" element={<Solutions />} />

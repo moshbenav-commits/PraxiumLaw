@@ -36,6 +36,8 @@ export default function MarketingShell({ children }) {
               <Link to="/solutions" className="hover:text-praxium-accent transition-colors">Solutions</Link>
               <Link to="/pricing" className="hover:text-praxium-accent transition-colors">Pricing</Link>
               <Link to="/praxa" className="hover:text-praxium-accent transition-colors">Praxa</Link>
+              <Link to="/about" className="hover:text-praxium-accent transition-colors">About</Link>
+              <Link to="/contact" className="hover:text-praxium-accent transition-colors">Contact</Link>
               <Link to="/signup" className="hover:text-praxium-accent transition-colors">Start free</Link>
               <Link to="/terms" className="hover:text-praxium-accent transition-colors">Terms</Link>
               <Link to="/privacy" className="hover:text-praxium-accent transition-colors">Privacy</Link>
