@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
-  ArrowRight, ArrowUpRight, Check, Command, Sparkles, ChevronRight,
+  ArrowRight, ArrowUpRight, Check, Sparkles,
   Briefcase, Phone, Stethoscope, Scale, Network, MessageSquare, FileText, Users,
 } from "lucide-react";
 import MatterCanvasMock from "../components/showcase/MatterCanvasMock";
@@ -16,6 +16,13 @@ import SavingsCalculator from "../components/landing/SavingsCalculator";
 import usePageMeta from "../components/landing/usePageMeta";
 import PraxiumLogo from "../components/PraxiumLogo";
 import { CreytixPartnerLockup } from "../components/CreytixPartnerLockup";
+import HomeHero from "../components/landing/HomeHero";
+import Marquee from "../components/landing/Marquee";
+import DifferentiatorBanner from "../components/landing/DifferentiatorBanner";
+import SignupBanner from "../components/landing/SignupBanner";
+import HelpfulTips from "../components/landing/HelpfulTips";
+import CaseStudiesRail from "../components/landing/CaseStudiesRail";
+import HomepageJsonLd from "../components/landing/HomepageJsonLd";
 import { TIERS, LEAD_FEES } from "@/data/marketing";
 import { SOLUTIONS } from "@/data/expansion";
 
@@ -31,6 +38,13 @@ const STACK = [
   { tool: "IT consultants (amortized)", cost: 1900 },
 ];
 const STACK_TOTAL = STACK.reduce((s, x) => s + x.cost, 0);
+
+// Short display names for the self-moving ticker (Marquee) — same eight
+// tools as STACK above, condensed for a single-line pass.
+const STACK_TOOLS = [
+  "Filevine", "RingCentral", "DocuSign", "Mailchimp",
+  "ChartSwap", "LeanLaw", "Slack + Zoom + Calendly", "IT consultants",
+];
 
 const PILLARS = [
   {
@@ -121,62 +135,10 @@ export default function Landing() {
         </div>
       </header>
 
+      <HomepageJsonLd />
+
       {/* ─── HERO ─── */}
-      <section className="pt-36 pb-20 lg:pb-28 px-6 relative overflow-hidden">
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-praxium-line to-transparent" />
-        <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-praxium-accent/20 to-transparent" />
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal>
-            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-8 flex items-center gap-3">
-              <span className="w-8 h-px bg-praxium-accent" />
-              <span>// the legal operating system // 2026</span>
-            </div>
-          </ScrollReveal>
-          <div className="grid grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div className="col-span-12 lg:col-span-6">
-              <ScrollReveal delay={80}>
-                <h1 className="font-display font-black tracking-[-0.04em] leading-[0.88] text-[2.75rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-                  The operating system for the{" "}
-                  <span className="text-praxium-accent italic">modern law firm.</span>
-                </h1>
-                <p className="mt-8 text-xl lg:text-2xl text-praxium-ink/80 max-w-xl leading-snug">
-                  Replace eight tools with one. Save $86,000 a year. Get AI that actually ships your demand letter.
-                </p>
-                <div className="mt-10 flex flex-wrap items-center gap-4">
-                  <Link to="/signup" data-testid="hero-cta-signup" className="group bg-praxium-accent-hover text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent transition-colors flex items-center gap-3">
-                    Start 30 days free <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
-                  </Link>
-                  <a href="#truth" className="rounded-full border border-praxium-line px-6 py-4 text-sm font-mono uppercase tracking-[0.15em] text-praxium-ink hover:border-praxium-accent hover:text-praxium-accent transition-colors flex items-center gap-2">
-                    See the math <ChevronRight size={14} />
-                  </a>
-                </div>
-                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-praxium-subtle">
-                  <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> No card required</span>
-                  <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> Free migration from Filevine</span>
-                  <span className="flex items-center gap-1.5"><Check size={12} className="text-praxium-accent" /> 90-day money back</span>
-                </div>
-              </ScrollReveal>
-            </div>
-            <div className="col-span-12 lg:col-span-6">
-              <ScrollReveal delay={160}>
-                <div className="relative lg:pl-4">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-praxium-accent/8 via-transparent to-praxium-line/40 rounded-sm blur-2xl pointer-events-none" />
-                  <div className="relative shadow-2xl shadow-praxium-ink/10 ring-1 ring-praxium-line/80">
-                    <MatterCanvasMock />
-                  </div>
-                  <div className="mt-4 flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.2em] text-praxium-subtle">
-                    <span>// live product · matter canvas</span>
-                    <span className="hidden sm:flex items-center gap-1.5"><Command size={10} />K anywhere</span>
-                  </div>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-        <div className="absolute right-6 bottom-6 text-[9px] font-mono uppercase tracking-[0.3em] text-praxium-subtle hidden lg:block">
-          πραξις · praxis · action
-        </div>
-      </section>
+      <HomeHero />
 
       {/* ─── PROOF STRIP ─── */}
       <section className="border-y border-praxium-line bg-praxium-surface">
@@ -196,6 +158,9 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* ─── STACK TICKER (self-moving) ─── */}
+      <Marquee items={STACK_TOOLS} label="The eight tools Praxium replaces" />
 
       {/* ─── THE TRUTH (math section — our killer angle) ─── */}
       <section id="truth" className="py-32 px-6">
@@ -390,6 +355,9 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* ─── SIGNUP BANNER (single mid-page program banner) ─── */}
+      <SignupBanner />
+
       {/* ─── OPERATIONS LAYER (expansion solutions) ─── */}
       <section id="operations" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
@@ -463,6 +431,12 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* ─── HELPFUL TIPS (education content) ─── */}
+      <HelpfulTips />
+
+      {/* ─── CASE STUDIES / FIRST-PARTY PROOF ─── */}
+      <CaseStudiesRail />
 
       {/* ─── TESTIMONIALS ─── */}
       <section className="py-32 px-6">
@@ -548,30 +522,8 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ─── RISK REMOVAL ─── */}
-      <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-praxium-subtle mb-6">// switching // risk-free</div>
-          <h2 className="font-display font-black tracking-[-0.03em] leading-[0.95] text-5xl lg:text-7xl max-w-4xl">
-            We remove every<br />
-            reason <span className="text-praxium-accent italic">not to switch.</span>
-          </h2>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-px bg-praxium-line border border-praxium-line">
-            {[
-              { t: "30 days free", b: "Full platform. No credit card." },
-              { t: "Switch Concierge", b: "We do your migration from Filevine. You do nothing." },
-              { t: "Mirror Mode", b: "Run both systems in parallel for 30 days. Zero data risk." },
-              { t: "90-day money back", b: "Don't love it? Refund + full data export." },
-            ].map((r, i) => (
-              <div key={r.t} className="bg-praxium-surface p-8">
-                <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-praxium-subtle">// {String(i + 1).padStart(2, "0")}</div>
-                <div className="mt-3 font-display font-black text-xl">{r.t}</div>
-                <p className="mt-2 text-sm text-praxium-ink/70 leading-relaxed">{r.b}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ─── RISK REMOVAL / DIFFERENTIATORS ─── */}
+      <DifferentiatorBanner />
 
       {/* ─── FINAL CTA ─── */}
       <section className="bg-praxium-ink text-white py-32 lg:py-40 px-6 relative overflow-hidden">
@@ -618,6 +570,8 @@ export default function Landing() {
               <Link to="/solutions" className="hover:text-praxium-accent transition-colors">Solutions</Link>
               <Link to="/pricing" className="hover:text-praxium-accent transition-colors">Pricing</Link>
               <Link to="/praxa" className="hover:text-praxium-accent transition-colors">Praxa</Link>
+              <Link to="/about" className="hover:text-praxium-accent transition-colors">About</Link>
+              <Link to="/contact" className="hover:text-praxium-accent transition-colors">Contact</Link>
               <Link to="/login" className="hover:text-praxium-accent transition-colors">Sign in</Link>
               <Link to="/signup" className="hover:text-praxium-accent transition-colors">Start free</Link>
               <Link to="/terms" className="hover:text-praxium-accent transition-colors">Terms</Link>
