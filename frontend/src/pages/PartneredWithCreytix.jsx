@@ -18,13 +18,14 @@ export default function PartneredWithCreytix() {
           <CreytixPartnerLockup partnerName="Praxium Law" />
         </div>
         <p className="mt-8 text-lg text-white/80">
-          Legal practice OS — Partnered with Creytix for platform, design, and ops. Creytix is the umbrella behind
-          Brand DNA, creative pipelines, and the control panel that keeps Praxium sharp.
+          Praxium is built and operated with Creytix — the platform, design, and operations partner
+          behind the product. That partnership is why a law firm gets enterprise-grade software
+          without enterprise-grade overhead.
         </p>
         <ul className="mt-6 list-disc space-y-2 pl-5 text-white/70 text-sm">
-          <li>Practice management stack</li>
-          <li>Creytix Connect tools</li>
-          <li>Partner lockup on every public surface</li>
+          <li>One practice-management platform, continuously improved</li>
+          <li>Connected tools for mail, scheduling, and e-sign</li>
+          <li>A design partner behind every screen your firm touches</li>
         </ul>
         <div className="mt-12 flex flex-wrap gap-4">
           <a
