@@ -26,7 +26,14 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / ".env")
 
 mongo_url = os.environ["MONGO_URL"]
-mongo_client = AsyncIOMotorClient(mongo_url)
+# Driver defaults stack to ~30s (serverSelectionTimeoutMS + connectTimeoutMS)
+# before giving up on an unreachable server, which turns any Mongo outage
+# into every request — /api/health included — hanging for 30s instead of
+# failing fast. Found 2026-08-31 staging a Vultr colocate with a
+# misconfigured MONGO_URL: /api/health became a 30s black hole rather than
+# a quick "mongo is down". 5s is generous for a real network hiccup and
+# fast enough that health checks stay meaningful.
+mongo_client = AsyncIOMotorClient(mongo_url, serverSelectionTimeoutMS=5000)
 db = mongo_client[os.environ["DB_NAME"]]
 
 JWT_SECRET = os.environ.get("JWT_SECRET", "praxium-dev-secret-change-in-prod")
@@ -1292,7 +1299,10 @@ async def health():
     mongo_error = None
     mongo_configured = bool((os.environ.get("MONGO_URL") or "").strip())
     try:
-        await db.command("ping")
+        # Secondary guard alongside the client's serverSelectionTimeoutMS
+        # above: bounds server-side execution once connected, in case Mongo
+        # is reachable but the ping itself stalls.
+        await db.command("ping", maxTimeMS=3000)
         mongo_ok = True
     except Exception as exc:
         mongo_ok = False
