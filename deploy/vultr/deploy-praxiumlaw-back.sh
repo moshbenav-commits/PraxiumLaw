@@ -67,7 +67,12 @@ if [[ "${1:-}" != "--skip-build" ]]; then
   $SSH "docker tag $IMAGE praxiumlaw-back:rollback 2>/dev/null || echo 'no existing image to tag (first deploy?)'"
 
   echo "==> Building on the host (pip install + slim python:3.12; a few minutes)"
-  $SSH "cd $REMOTE_DIR && docker build -f deploy-vultr/Dockerfile -t $IMAGE ."
+  # --no-cache: hit BuildKit reusing a stale COPY layer on the first real
+  # redeploy here — the built image still ran pre-fix code even though the
+  # synced server.py on disk was correct and `docker build` reported
+  # success. Build is ~15s either way at this app's size, so paying that
+  # cost every time buys real reliability on a pipeline this young.
+  $SSH "cd $REMOTE_DIR && docker build --no-cache -f deploy-vultr/Dockerfile -t $IMAGE ."
 fi
 
 echo "==> Recreating praxiumlaw-back only (this box's other containers are separate compose projects)"
@@ -77,7 +82,10 @@ echo "==> Waiting for uvicorn to come up (poll, not a fixed sleep — see the Vu
 echo "    deploy postmortem in ORGANIC_GROWTH_STRATEGY.md for why sleep alone lied once)"
 HEALTH="000"
 for _ in $(seq 1 20); do
-  HEALTH=$($SSH "curl -sf -o /dev/null -w '%{http_code}' --max-time 5 http://127.0.0.1:8090/api/health" 2>/dev/null || echo "000")
+  # 10s, not 5: /api/health's own Mongo-down path takes ~5s by design
+  # (serverSelectionTimeoutMS in server.py) — a 5s curl timeout races that
+  # almost exactly and produced a false SMOKE FAILED once already.
+  HEALTH=$($SSH "curl -sf -o /dev/null -w '%{http_code}' --max-time 10 http://127.0.0.1:8090/api/health" 2>/dev/null || echo "000")
   [[ "$HEALTH" == "200" ]] && break
   sleep 3
 done
