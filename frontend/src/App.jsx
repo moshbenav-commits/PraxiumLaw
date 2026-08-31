@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Toaster } from "sonner";
 import { recordFirstTouch } from "@/lib/attribution";
+import { initCreytixTrack } from "@/lib/creytixTrack";
 
 import Landing from "@/pages/Landing";
 import About from "@/pages/About";
@@ -82,6 +83,7 @@ import SettingsModules from "@/pages/settings/SettingsModules";
 function App() {
   useEffect(() => {
     recordFirstTouch();
+    initCreytixTrack();
   }, []);
 
   return (
