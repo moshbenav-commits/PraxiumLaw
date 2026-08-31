@@ -415,7 +415,7 @@ export default function MatterDetail() {
           <div className="data-card p-5">
             <div className="overline mb-3">// court filings</div>
             {filings.length === 0 ? (
-              <div className="text-xs text-praxium-subtle">No filings yet. <Link to="/courtconnect" className="text-praxium-accent">Prepare in CourtConnect.</Link></div>
+              <div className="text-xs text-praxium-subtle">No filings yet. <Link to="/courtconnect" className="text-praxium-accent-text">Prepare in CourtConnect.</Link></div>
             ) : (
               <table className="w-full text-sm">
                 <thead><tr className="border-b border-praxium-line">

@@ -45,7 +45,7 @@ export default function VerifyIdentityDemoPage() {
           <p className="mt-2 text-sm text-praxium-subtle">
             {error ?? "Could not start demo."} Run Praxium backend locally with MongoDB.
           </p>
-          <Link to="/" className="mt-4 inline-block text-sm font-semibold text-praxium-accent underline">
+          <Link to="/" className="mt-4 inline-block text-sm font-semibold text-praxium-accent-text underline">
             Back home
           </Link>
         </div>

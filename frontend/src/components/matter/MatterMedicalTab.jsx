@@ -200,7 +200,7 @@ export default function MatterMedicalTab({ matterId }) {
           </ul>
           <p className="text-xs text-praxium-subtle">
             Based on LTD/NTD dates and imaging pathway — see{" "}
-            <Link to="/training/article/05-treatment-gaps-and-mri-timing" className="text-praxium-accent hover:underline">
+            <Link to="/training/article/05-treatment-gaps-and-mri-timing" className="text-praxium-accent-text hover:underline">
               treatment gaps & MRI timing
             </Link>
             .
@@ -360,9 +360,9 @@ export default function MatterMedicalTab({ matterId }) {
       <p className="text-xs text-praxium-subtle">
         File naming: <code className="font-mono">MR</code> records · <code className="font-mono">B</code> bills · <code className="font-mono">FE</code> futures estimate.
         {" "}
-        <Link to="/training/article/24-medical-documents-reference" className="text-praxium-accent hover:underline">Medical docs reference</Link>
+        <Link to="/training/article/24-medical-documents-reference" className="text-praxium-accent-text hover:underline">Medical docs reference</Link>
         {" · "}
-        <Link to="/settings/templates" className="text-praxium-accent hover:underline">Medical LOR templates</Link>
+        <Link to="/settings/templates" className="text-praxium-accent-text hover:underline">Medical LOR templates</Link>
       </p>
     </div>
   );

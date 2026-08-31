@@ -20,7 +20,7 @@ export default function CopyButton({ text, label = "Copy", className = "" }) {
     <button
       type="button"
       onClick={copy}
-      className={`inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-praxium-accent hover:underline ${className}`}
+      className={`inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-praxium-accent-text hover:underline ${className}`}
     >
       {copied ? <Check size={12} /> : <Copy size={12} />}
       {copied ? "Copied" : label}

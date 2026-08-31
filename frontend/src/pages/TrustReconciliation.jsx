@@ -72,7 +72,7 @@ export default function TrustReconciliation() {
   if (delta != null) {
     if (bankMismatch) {
       deltaStatusLabel = `Off by ${formatMoney(Math.abs(delta))}`;
-      deltaStatusColor = "border-praxium-accent text-praxium-accent";
+      deltaStatusColor = "border-praxium-accent text-praxium-accent-text";
     } else {
       deltaStatusLabel = "Reconciled";
       deltaStatusColor = "border-emerald-500 text-emerald-600";
@@ -136,7 +136,7 @@ export default function TrustReconciliation() {
       </div>
 
       {ledgerMismatch && (
-        <p className="text-xs font-mono text-praxium-accent mt-2" data-testid="trust-recon-ledger-mismatch">
+        <p className="text-xs font-mono text-praxium-accent-text mt-2" data-testid="trust-recon-ledger-mismatch">
           Book balance does not match the sum of client ledgers.
         </p>
       )}
@@ -170,7 +170,7 @@ export default function TrustReconciliation() {
           className="mt-4 data-card p-4 border-praxium-accent bg-praxium-accent/5"
           data-testid="trust-recon-negative-matters"
         >
-          <div className="flex items-center gap-2 text-praxium-accent">
+          <div className="flex items-center gap-2 text-praxium-accent-text">
             <AlertTriangle size={16} />
             <span className="text-[9px] font-mono uppercase tracking-wider font-bold">Ethics red flag</span>
           </div>
@@ -264,7 +264,7 @@ export default function TrustReconciliation() {
                       </td>
                       <td
                         className={`px-4 py-2 text-right font-mono ${
-                          isNegative ? "text-praxium-accent font-semibold" : ""
+                          isNegative ? "text-praxium-accent-text font-semibold" : ""
                         }`}
                       >
                         {formatMoney(row.trust_held)}

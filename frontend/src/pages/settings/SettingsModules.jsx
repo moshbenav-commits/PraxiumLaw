@@ -58,7 +58,7 @@ export default function SettingsModules() {
             <div>
               <div className="font-semibold text-sm flex items-center gap-2">
                 {m.name}
-                <span className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 border ${m.status === "available" ? "border-praxium-accent text-praxium-accent" : "border-praxium-line text-praxium-subtle"}`}>
+                <span className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 border ${m.status === "available" ? "border-praxium-accent text-praxium-accent-text" : "border-praxium-line text-praxium-subtle"}`}>
                   {STATUS_LABEL[m.status] || m.status}
                 </span>
               </div>

@@ -56,7 +56,7 @@ export default function TrainingHub() {
       <p className="mt-2 text-sm text-praxium-subtle max-w-2xl">
         Role guides and knowledge articles for {user?.role} staff. Operational education only — not legal advice.
         {" "}
-        <Link to="/training/doc/disclosure" className="text-praxium-accent hover:underline">Read disclosure</Link>
+        <Link to="/training/doc/disclosure" className="text-praxium-accent-text hover:underline">Read disclosure</Link>
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
@@ -114,7 +114,7 @@ export default function TrainingHub() {
             data-testid={`training-tab-${t.id}`}
             className={cn(
               "px-4 py-2 text-xs font-mono uppercase tracking-wider whitespace-nowrap border-b-2 -mb-px transition-colors",
-              tab === t.id ? "border-praxium-accent text-praxium-accent" : "border-transparent text-praxium-subtle hover:text-praxium-ink",
+              tab === t.id ? "border-praxium-accent text-praxium-accent-text" : "border-transparent text-praxium-subtle hover:text-praxium-ink",
             )}
           >
             {t.label} ({t.count})
@@ -163,11 +163,11 @@ export default function TrainingHub() {
         <div className="mt-4 space-y-3">
           <p className="text-xs text-praxium-subtle">
             Derived from position training vs live UI.{" "}
-            <button type="button" className="text-praxium-accent hover:underline" onClick={() => navigate("/training/doc/ui-ux-gaps")}>
+            <button type="button" className="text-praxium-accent-text hover:underline" onClick={() => navigate("/training/doc/ui-ux-gaps")}>
               Full gap report
             </button>
             {" · "}
-            <button type="button" className="text-praxium-accent hover:underline" onClick={() => navigate("/training/doc/site-wiring-audit")}>
+            <button type="button" className="text-praxium-accent-text hover:underline" onClick={() => navigate("/training/doc/site-wiring-audit")}>
               Site wiring audit
             </button>
           </p>

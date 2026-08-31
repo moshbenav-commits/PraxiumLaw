@@ -129,7 +129,7 @@ function IngestForm({ onDone }) {
             type="button"
             onClick={submit}
             disabled={submitting}
-            className="rounded-sm bg-praxium-accent px-3 py-1.5 text-xs font-bold text-white disabled:opacity-50"
+            className="rounded-sm bg-praxium-accent-text px-3 py-1.5 text-xs font-bold text-white disabled:opacity-50"
             data-testid="mail-ingest-submit"
           >
             {submitting ? "Ingesting…" : "Ingest"}
@@ -187,7 +187,7 @@ function RouteControl({ item, onDone }) {
         type="button"
         onClick={route}
         disabled={routing}
-        className="rounded-sm border border-praxium-accent px-3 py-1.5 text-xs font-bold text-praxium-accent disabled:opacity-50"
+        className="rounded-sm border border-praxium-accent px-3 py-1.5 text-xs font-bold text-praxium-accent-text disabled:opacity-50"
         data-testid={`mail-route-submit-${item.id}`}
       >
         {routing ? "Routing…" : item.status === "ingested" ? "Route" : "Re-route"}
@@ -234,7 +234,7 @@ export default function MailInbox() {
             onClick={() => setStatus(f.value)}
             className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 border rounded-sm ${
               status === f.value
-                ? "border-praxium-accent text-praxium-accent"
+                ? "border-praxium-accent text-praxium-accent-text"
                 : "border-praxium-line text-praxium-subtle"
             }`}
             data-testid={`mail-status-${f.value}`}
@@ -268,7 +268,7 @@ export default function MailInbox() {
                       </span>
                       {lowConfidence && (
                         <span
-                          className="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 border border-praxium-accent text-praxium-accent flex items-center gap-1"
+                          className="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 border border-praxium-accent text-praxium-accent-text flex items-center gap-1"
                           data-testid={`mail-low-confidence-${item.id}`}
                         >
                           <AlertTriangle size={10} /> Low confidence

@@ -29,7 +29,7 @@ export default function MarketingShell({ children }) {
         <div className="max-w-7xl mx-auto px-6 py-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm rounded-sm">π</div>
+              <div className="w-7 h-7 bg-praxium-accent-text flex items-center justify-center font-display font-black text-white text-sm rounded-sm">π</div>
               <span className="font-display font-black tracking-tight">PRAXIUM SUITE</span>
             </div>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
@@ -43,7 +43,7 @@ export default function MarketingShell({ children }) {
               <Link to="/privacy" className="hover:text-praxium-accent transition-colors">Privacy</Link>
             </nav>
           </div>
-          <div className="mt-8 pt-6 border-t border-white/10 text-[11px] font-mono text-white/40">
+          <div className="mt-8 pt-6 border-t border-white/10 text-[11px] font-mono text-white/50">
             <p>© 2026 Praxium Suite · praxiumlaw.com · Praxium is technology for law firms — not a law firm, and not legal advice.</p>
           </div>
         </div>

@@ -19,7 +19,7 @@ export default function Marquee({ items, label }) {
             aria-hidden={i >= items.length ? "true" : undefined}
             className="shrink-0 flex items-center gap-2 text-xs font-mono uppercase tracking-[0.15em] text-praxium-subtle"
           >
-            <span className="text-praxium-accent">×</span> {item}
+            <span className="text-praxium-accent-text">×</span> {item}
           </span>
         ))}
       </div>

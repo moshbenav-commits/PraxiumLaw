@@ -150,7 +150,7 @@ export default function MedConnectMock() {
         <div className="text-[11px] font-mono text-praxium-subtle flex-1">
           When all 4 records arrive, CoCounsel will compile a chronological MedChron with citations · est. 90 sec
         </div>
-        <button className="text-[10px] font-mono uppercase tracking-[0.15em] text-praxium-accent">
+        <button className="text-[10px] font-mono uppercase tracking-[0.15em] text-praxium-accent-text">
           Preview the AI output →
         </button>
       </div>

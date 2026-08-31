@@ -251,7 +251,7 @@ export default function MatterDocumentsTab({
       <div className="data-card p-5" data-testid="matter-documents-tab">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <div className="overline">// documents</div>
-          <Link to="/training/article/18-document-taxonomy" className="text-xs text-praxium-accent hover:underline inline-flex items-center gap-1">
+          <Link to="/training/article/18-document-taxonomy" className="text-xs text-praxium-accent-text hover:underline inline-flex items-center gap-1">
             <ExternalLink size={11} /> Taxonomy guide
           </Link>
         </div>

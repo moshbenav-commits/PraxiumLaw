@@ -77,7 +77,7 @@ const STAGES = [
             $42,500 specials
           </span>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-mono text-praxium-accent">
+        <div className="flex items-center gap-1.5 text-[10px] font-mono text-praxium-accent-text">
           <Sparkles size={10} /> ready in 90 sec · citations clickable
         </div>
       </div>

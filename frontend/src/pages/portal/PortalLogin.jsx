@@ -52,7 +52,7 @@ export default function PortalLogin() {
               {devUrl && (
                 <div className="p-3 bg-amber-50 border border-amber-200 rounded-sm text-xs">
                   <div className="overline text-amber-800 mb-1">Dev link</div>
-                  <a href={devUrl} className="text-praxium-accent break-all font-mono">
+                  <a href={devUrl} className="text-praxium-accent-text break-all font-mono">
                     {devUrl}
                   </a>
                 </div>
@@ -83,7 +83,7 @@ export default function PortalLogin() {
 
           <p className="mt-6 text-xs text-praxium-subtle">
             Firm staff?{" "}
-            <Link to="/login" className="text-praxium-accent hover:underline">
+            <Link to="/login" className="text-praxium-accent-text hover:underline">
               Sign in to Praxium Suite
             </Link>
           </p>

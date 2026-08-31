@@ -69,7 +69,7 @@ export default function MatterCommsTab({ matterId, practiceArea }) {
     return (
       <div className="text-sm text-praxium-subtle p-4">
         Client call cadence applies to PI matters.{" "}
-        <Link to="/training/article/11-client-call-cadence" className="text-praxium-accent hover:underline">
+        <Link to="/training/article/11-client-call-cadence" className="text-praxium-accent-text hover:underline">
           Training guide →
         </Link>
       </div>
@@ -91,7 +91,7 @@ export default function MatterCommsTab({ matterId, practiceArea }) {
             SMS ships with VoxLine Phase 2 — log calls and texts here now.
           </p>
         </div>
-        <Link to="/training/article/11-client-call-cadence" className="text-xs font-mono text-praxium-accent hover:underline inline-flex items-center gap-1">
+        <Link to="/training/article/11-client-call-cadence" className="text-xs font-mono text-praxium-accent-text hover:underline inline-flex items-center gap-1">
           Article 11 <ExternalLink size={12} />
         </Link>
       </div>

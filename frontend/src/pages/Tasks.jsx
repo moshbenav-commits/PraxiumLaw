@@ -74,7 +74,7 @@ export default function Tasks() {
         <div className="divide-y divide-praxium-line">
           {tasks.map((t) => (
             <div key={t.id} className="px-4 py-2.5 flex items-center gap-3 hover:bg-praxium-bg" data-testid={`task-${t.id}`}>
-              <button onClick={() => toggle(t)} className={cn("w-4 h-4 border rounded-sm flex items-center justify-center", t.status === "done" ? "bg-praxium-accent border-praxium-accent" : "border-praxium-line")}>
+              <button onClick={() => toggle(t)} className={cn("w-4 h-4 border rounded-sm flex items-center justify-center", t.status === "done" ? "bg-praxium-accent-text border-praxium-accent" : "border-praxium-line")}>
                 {t.status === "done" && <Check size={10} className="text-white" />}
               </button>
               <span className={cn("flex-1 text-sm", t.status === "done" && "line-through text-praxium-subtle")}>{t.title}</span>

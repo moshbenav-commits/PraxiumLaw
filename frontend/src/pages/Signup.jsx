@@ -42,10 +42,10 @@ export default function Signup() {
       <div className="flex flex-col min-h-screen">
         <div className="lg:hidden p-6 border-b border-praxium-line flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-sm bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">π</div>
+            <div className="w-7 h-7 rounded-sm bg-praxium-accent-text flex items-center justify-center font-display font-black text-white text-sm">π</div>
             <span className="font-display font-black tracking-tight text-sm">PRAXIUM</span>
           </Link>
-          <Link to="/login" className="text-xs font-mono uppercase tracking-wider text-praxium-accent">Sign in</Link>
+          <Link to="/login" className="text-xs font-mono uppercase tracking-wider text-praxium-accent-text">Sign in</Link>
         </div>
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="w-full max-w-sm">
@@ -53,7 +53,7 @@ export default function Signup() {
             <h2 className="font-display font-black text-3xl tracking-tight">Start free.</h2>
             <p className="mt-2 text-sm text-praxium-subtle">
               Already on Praxium?{" "}
-              <Link to="/login" className="text-praxium-accent hover:underline" data-testid="signup-login-link">
+              <Link to="/login" className="text-praxium-accent-text hover:underline" data-testid="signup-login-link">
                 Sign in.
               </Link>
             </p>
@@ -111,8 +111,8 @@ export default function Signup() {
               </button>
               <p className="text-[10px] font-mono text-praxium-subtle text-center leading-relaxed">
                 By signing up you agree to our{" "}
-                <Link to="/terms" className="text-praxium-accent hover:underline">Terms</Link> and{" "}
-                <Link to="/privacy" className="text-praxium-accent hover:underline">Privacy Policy</Link>.
+                <Link to="/terms" className="text-praxium-accent-text hover:underline">Terms</Link> and{" "}
+                <Link to="/privacy" className="text-praxium-accent-text hover:underline">Privacy Policy</Link>.
                 No card required for the 30-day trial.
               </p>
             </form>

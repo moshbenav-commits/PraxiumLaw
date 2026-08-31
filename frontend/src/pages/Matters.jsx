@@ -146,7 +146,7 @@ export default function Matters() {
               {filtered.map((m) => (
                 <tr key={m.id} className="hover:bg-praxium-bg">
                   <td className="px-4 py-2 font-mono text-xs">
-                    <Link to={`/matters/${m.id}`} data-testid={`matter-row-${m.id}`} className="text-praxium-accent hover:underline">{m.case_number}</Link>
+                    <Link to={`/matters/${m.id}`} data-testid={`matter-row-${m.id}`} className="text-praxium-accent-text hover:underline">{m.case_number}</Link>
                   </td>
                   <td className="px-4 py-2 font-medium">{m.title}</td>
                   <td className="px-4 py-2 text-xs text-praxium-subtle">{PRACTICE_AREAS.find((p) => p.id === m.practice_area)?.label}</td>
@@ -168,7 +168,7 @@ export default function Matters() {
                 </tr>
               ))}
               {filtered.length === 0 && (
-                <tr><td colSpan={7} className="px-4 py-12 text-center text-praxium-subtle text-sm">No matters yet. <Link to="/matters/new" className="text-praxium-accent">Create your first.</Link></td></tr>
+                <tr><td colSpan={7} className="px-4 py-12 text-center text-praxium-subtle text-sm">No matters yet. <Link to="/matters/new" className="text-praxium-accent-text">Create your first.</Link></td></tr>
               )}
             </tbody>
           </table>

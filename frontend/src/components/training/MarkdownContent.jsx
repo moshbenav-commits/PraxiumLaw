@@ -41,7 +41,7 @@ export default function MarkdownContent({ markdown, className, onInternalLink })
               <button
                 type="button"
                 key={`${keyPrefix}-l${k++}`}
-                className="text-praxium-accent hover:underline font-medium"
+                className="text-praxium-accent-text hover:underline font-medium"
                 onClick={() => (onInternalLink ? onInternalLink(type, slug) : navigate(`/training/${type}/${slug}`))}
               >
                 {label}
@@ -49,7 +49,7 @@ export default function MarkdownContent({ markdown, className, onInternalLink })
             );
           } else if (href.startsWith("http")) {
             parts.push(
-              <a key={`${keyPrefix}-l${k++}`} href={href} target="_blank" rel="noreferrer" className="text-praxium-accent hover:underline">
+              <a key={`${keyPrefix}-l${k++}`} href={href} target="_blank" rel="noreferrer" className="text-praxium-accent-text hover:underline">
                 {label}
               </a>,
             );

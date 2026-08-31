@@ -78,7 +78,7 @@ export default function AcceptInvite() {
           </button>
         </form>
         <p className="mt-4 text-xs text-praxium-subtle">
-          Already have an account? <Link to="/login" className="text-praxium-accent">Sign in</Link>
+          Already have an account? <Link to="/login" className="text-praxium-accent-text">Sign in</Link>
         </p>
       </div>
     </div>

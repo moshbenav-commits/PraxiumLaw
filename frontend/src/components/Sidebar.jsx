@@ -75,7 +75,7 @@ export default function Sidebar({ onAiToggle, mobileOpen, onClose }) {
         <button
           onClick={onAiToggle}
           data-testid="sidebar-ai-toggle"
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-sm bg-praxium-accent hover:bg-praxium-accent-hover transition-colors text-white font-display font-bold text-xs uppercase tracking-wide"
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-sm bg-praxium-accent-text hover:bg-praxium-accent-hover transition-colors text-white font-display font-bold text-xs uppercase tracking-wide"
         >
           <Sparkles size={15} />
           <span>CoCounsel AI</span>

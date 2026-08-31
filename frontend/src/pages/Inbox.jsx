@@ -92,7 +92,7 @@ export default function Inbox() {
           </form>
           <p className="text-[10px] text-praxium-subtle mt-2">
             Click a client message below to copy its matter ID, or open{" "}
-            <Link to="/matters" className="text-praxium-accent">Matters</Link>.
+            <Link to="/matters" className="text-praxium-accent-text">Matters</Link>.
           </p>
         </div>
       )}

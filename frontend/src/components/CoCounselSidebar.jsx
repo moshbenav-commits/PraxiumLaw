@@ -59,7 +59,7 @@ export default function CoCounselSidebar({ open, onClose }) {
     <aside className="w-96 shrink-0 bg-[#F0EFEA] border-l border-praxium-line flex flex-col" data-testid="cocounsel-sidebar">
       <div className="h-12 border-b border-praxium-line bg-praxium-surface flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded-sm bg-praxium-accent flex items-center justify-center">
+          <div className="w-5 h-5 rounded-sm bg-praxium-accent-text flex items-center justify-center">
             <Sparkles size={11} className="text-white" />
           </div>
           <div className="font-display font-black tracking-tight text-sm">CoCounsel</div>
@@ -94,7 +94,7 @@ export default function CoCounselSidebar({ open, onClose }) {
             <div className={cn(
               "max-w-[85%] px-3 py-2 rounded-sm text-sm whitespace-pre-wrap break-words",
               m.role === "user"
-                ? "bg-praxium-accent text-white"
+                ? "bg-praxium-accent-text text-white"
                 : "bg-praxium-surface border border-praxium-line text-praxium-ink"
             )}>
               {m.content || (streaming && i === messages.length - 1 ? <Loader2 className="animate-spin" size={14} /> : "")}
@@ -124,7 +124,7 @@ export default function CoCounselSidebar({ open, onClose }) {
             onClick={() => send(input)}
             disabled={!input.trim() || streaming}
             data-testid="cocounsel-send"
-            className="w-9 h-9 flex items-center justify-center bg-praxium-accent text-white rounded-sm hover:bg-praxium-accent-hover disabled:opacity-50"
+            className="w-9 h-9 flex items-center justify-center bg-praxium-accent-text text-white rounded-sm hover:bg-praxium-accent-hover disabled:opacity-50"
           >
             {streaming ? <Loader2 className="animate-spin" size={15} /> : <Send size={15} />}
           </button>

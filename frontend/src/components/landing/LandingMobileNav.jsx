@@ -61,7 +61,7 @@ export default function LandingMobileNav() {
             <Link
               to="/signup"
               onClick={close}
-              className="mt-3 bg-praxium-accent text-white text-center py-3 rounded-full text-xs font-mono uppercase tracking-[0.15em]"
+              className="mt-3 bg-praxium-accent-text text-white text-center py-3 rounded-full text-xs font-mono uppercase tracking-[0.15em]"
             >
               Start free
             </Link>

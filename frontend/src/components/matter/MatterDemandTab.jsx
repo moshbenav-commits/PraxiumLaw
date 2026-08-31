@@ -313,7 +313,7 @@ export default function MatterDemandTab({ matterId, practiceArea }) {
         {exhibits.length === 0 ? (
           <p className="text-sm text-praxium-subtle">
             No exhibits yet. Add providers on the{" "}
-            <Link to={`/matters/${matterId}`} className="text-praxium-accent hover:underline" onClick={() => {}}>
+            <Link to={`/matters/${matterId}`} className="text-praxium-accent-text hover:underline" onClick={() => {}}>
               Medical tab
             </Link>
             , then rebuild.

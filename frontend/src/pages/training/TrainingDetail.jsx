@@ -28,7 +28,7 @@ export default function TrainingDetail() {
   if (error) {
     return (
       <div className="px-6 py-8 max-w-3xl">
-        <Link to="/training" className="text-sm text-praxium-accent hover:underline flex items-center gap-1 mb-4">
+        <Link to="/training" className="text-sm text-praxium-accent-text hover:underline flex items-center gap-1 mb-4">
           <ChevronLeft size={14} /> Back to Training
         </Link>
         <div className="data-card p-6 text-sm text-red-700">{error}</div>
@@ -45,7 +45,7 @@ export default function TrainingDetail() {
           { label: data.title },
         ]}
       />
-      <Link to="/training" className="text-xs text-praxium-accent hover:underline flex items-center gap-1 mb-4">
+      <Link to="/training" className="text-xs text-praxium-accent-text hover:underline flex items-center gap-1 mb-4">
         <ChevronLeft size={12} /> All training
       </Link>
       <MarkdownContent

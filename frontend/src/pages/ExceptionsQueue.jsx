@@ -107,7 +107,7 @@ export default function ExceptionsQueue() {
               <div className="text-[9px] font-mono uppercase tracking-wider text-praxium-subtle">
                 {KIND_LABEL[kind] || kind}
               </div>
-              <div className={`font-display font-black text-lg ${open > 0 ? "text-praxium-accent" : ""}`}>
+              <div className={`font-display font-black text-lg ${open > 0 ? "text-praxium-accent-text" : ""}`}>
                 {open}
               </div>
             </button>
@@ -123,7 +123,7 @@ export default function ExceptionsQueue() {
             onClick={() => setStatus(f.value)}
             className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 border rounded-sm ${
               status === f.value
-                ? "border-praxium-accent text-praxium-accent"
+                ? "border-praxium-accent text-praxium-accent-text"
                 : "border-praxium-line text-praxium-subtle"
             }`}
             data-testid={`exceptions-status-${f.value}`}
@@ -175,7 +175,7 @@ export default function ExceptionsQueue() {
                     <button
                       type="button"
                       onClick={() => act(ex.id, false)}
-                      className="rounded-sm bg-praxium-accent px-3 py-1.5 text-xs font-bold text-white"
+                      className="rounded-sm bg-praxium-accent-text px-3 py-1.5 text-xs font-bold text-white"
                     >
                       Resolve
                     </button>

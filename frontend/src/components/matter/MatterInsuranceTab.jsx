@@ -227,7 +227,7 @@ function ClaimSidePanel({ title, sideKey, data, onUpdate, onSave, trainingHint, 
           <input type="checkbox" checked={Boolean(data.lor?.document_saved)} onChange={(e) => patchLor("document_saved", e.target.checked)} />
           Sent LOR saved to matter Documents
         </label>
-        <Link to="/settings/templates" className="text-xs text-praxium-accent hover:underline inline-flex items-center gap-1 mt-2">
+        <Link to="/settings/templates" className="text-xs text-praxium-accent-text hover:underline inline-flex items-center gap-1 mt-2">
           <ExternalLink size={11} /> 3P/1P LOR templates
         </Link>
       </div>

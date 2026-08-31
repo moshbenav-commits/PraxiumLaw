@@ -262,7 +262,7 @@ export default function MatterLettersCard({ matterId, tab, extraPayload = {}, re
               <li key={doc.id} className="flex items-center gap-2 text-xs">
                 <button
                   type="button"
-                  className="text-praxium-accent hover:underline truncate max-w-[60%] text-left"
+                  className="text-praxium-accent-text hover:underline truncate max-w-[60%] text-left"
                   onClick={() => downloadDoc(doc.id)}
                   title={doc.name}
                 >

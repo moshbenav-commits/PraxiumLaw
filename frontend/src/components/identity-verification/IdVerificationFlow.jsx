@@ -126,7 +126,7 @@ export function IdVerificationFlow({ token, demoMode = false }) {
       <div className="mx-auto max-w-lg rounded-xl border border-red-200 bg-red-50 p-6 text-center">
         <p className="font-semibold text-red-800">Verification link unavailable</p>
         <p className="mt-2 text-sm text-red-700">{error}</p>
-        <Link to="/" className="mt-4 inline-block text-sm font-semibold text-praxium-accent underline">
+        <Link to="/" className="mt-4 inline-block text-sm font-semibold text-praxium-accent-text underline">
           Back to Praxium
         </Link>
       </div>
@@ -210,7 +210,7 @@ export function IdVerificationFlow({ token, demoMode = false }) {
                 data.steps.selfies[pose]
                   ? "bg-green-100 text-green-800"
                   : nextRequiredPose === pose
-                    ? "bg-praxium-accent text-white"
+                    ? "bg-praxium-accent-text text-white"
                     : "bg-gray-100 text-gray-500"
               }`}
             >
@@ -269,7 +269,7 @@ export function IdVerificationFlow({ token, demoMode = false }) {
         type="button"
         disabled={!data.canSubmit || submitting}
         onClick={() => void handleSubmit()}
-        className="w-full rounded-sm bg-praxium-accent px-6 py-3 text-base font-bold text-white disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-sm bg-praxium-accent-text px-6 py-3 text-base font-bold text-white disabled:cursor-not-allowed disabled:opacity-50"
       >
         {submitting ? "Submitting…" : "Submit for review"}
       </button>

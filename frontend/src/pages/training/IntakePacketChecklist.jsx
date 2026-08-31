@@ -98,7 +98,7 @@ export default function IntakePacketChecklist() {
 
         <p className="mt-8 text-xs text-praxium-subtle print:text-gray-600">
           * Required for standard MVA intake. See{" "}
-          <Link to="/training/article/23-intake-forms-and-signature-packet" className="text-praxium-accent print:hidden">
+          <Link to="/training/article/23-intake-forms-and-signature-packet" className="text-praxium-accent-text print:hidden">
             intake forms article
           </Link>
           <span className="hidden print:inline">training article 23</span> for full template catalog.

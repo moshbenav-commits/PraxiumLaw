@@ -44,7 +44,7 @@ export default function Dashboard() {
         <div className="mb-6 border border-praxium-accent/30 bg-gradient-to-r from-praxium-accent/5 to-transparent p-6 lg:p-8" data-testid="dashboard-onboarding">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <div className="overline mb-2 text-praxium-accent">// first 30 seconds</div>
+              <div className="overline mb-2 text-praxium-accent-text">// first 30 seconds</div>
               <h2 className="font-display font-black text-xl lg:text-2xl tracking-tight">Your firm is live. Here&apos;s where to start.</h2>
               <p className="mt-2 text-sm text-praxium-subtle max-w-xl">
                 Praxium ships with 45 modules ready. Create your first matter, add a contact, or press <span className="font-mono text-praxium-ink">⌘K</span> to search anything.
@@ -101,7 +101,7 @@ export default function Dashboard() {
               <div className="overline mb-1">// pipeline</div>
               <h3 className="font-display font-black text-lg">Matter status</h3>
             </div>
-            <Link to="/reports" className="text-xs font-mono text-praxium-accent hover:underline">PI audit →</Link>
+            <Link to="/reports" className="text-xs font-mono text-praxium-accent-text hover:underline">PI audit →</Link>
           </div>
           <div className="grid grid-cols-7 gap-1">
             {STATUSES.map((s) => (

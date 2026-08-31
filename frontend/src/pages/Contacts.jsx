@@ -72,7 +72,7 @@ export default function Contacts() {
             {contacts.map((c) => (
               <tr key={c.id} className="hover:bg-praxium-bg">
                 <td className="px-4 py-2">
-                  <Link to={`/contacts/${c.id}`} className="font-medium text-praxium-accent hover:underline" data-testid={`contact-row-${c.id}`}>{c.name}</Link>
+                  <Link to={`/contacts/${c.id}`} className="font-medium text-praxium-accent-text hover:underline" data-testid={`contact-row-${c.id}`}>{c.name}</Link>
                 </td>
                 <td className="px-4 py-2 text-xs"><span className="status-pip bg-zinc-100">{c.kind}</span></td>
                 <td className="px-4 py-2 font-mono text-xs">{c.patient_id || "—"}</td>

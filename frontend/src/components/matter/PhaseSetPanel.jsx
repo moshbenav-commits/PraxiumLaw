@@ -78,7 +78,7 @@ export default function PhaseSetPanel({ matterId, currentPhaseKey }) {
               <span
                 className={cn(
                   "shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold",
-                  isCurrent ? "bg-praxium-accent text-white" : "bg-praxium-bg text-praxium-subtle border border-praxium-line"
+                  isCurrent ? "bg-praxium-accent-text text-white" : "bg-praxium-bg text-praxium-subtle border border-praxium-line"
                 )}
               >
                 {i + 1}

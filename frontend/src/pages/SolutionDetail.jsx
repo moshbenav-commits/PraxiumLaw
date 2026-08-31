@@ -40,7 +40,7 @@ export default function SolutionDetail() {
           descriptionClassName="mt-8 text-lg lg:text-xl text-praxium-ink/70 max-w-3xl leading-relaxed"
         >
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link to="/signup" className="group bg-praxium-accent text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent-hover transition-colors flex items-center gap-3">
+            <Link to="/signup" className="group bg-praxium-accent-text text-white px-8 py-4 rounded-full text-sm font-mono uppercase tracking-[0.15em] hover:bg-praxium-accent-hover transition-colors flex items-center gap-3">
               Get early access <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
             </Link>
             <Link to="/pricing" className="rounded-full border border-praxium-line px-6 py-4 text-sm font-mono uppercase tracking-[0.15em] hover:border-praxium-accent hover:text-praxium-accent transition-colors">

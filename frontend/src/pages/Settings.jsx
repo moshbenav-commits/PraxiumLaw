@@ -69,7 +69,7 @@ export default function Settings() {
             <div className="overline">Public intake URL</div>
             {intakeUrl ? (
               <div className="mt-1 space-y-2">
-                <a href={`/intake/${firm.slug}`} target="_blank" rel="noreferrer" className="text-xs font-mono text-praxium-accent hover:underline break-all block">
+                <a href={`/intake/${firm.slug}`} target="_blank" rel="noreferrer" className="text-xs font-mono text-praxium-accent-text hover:underline break-all block">
                   {intakeUrl.replace("https://", "")}
                 </a>
                 <CopyButton text={intakeUrl} label="Copy intake link" />
@@ -108,7 +108,7 @@ export default function Settings() {
         <p className="text-sm text-praxium-subtle mb-3">
           Browse 106 PI DOCX templates, download intake forms, and print the day-of-intake signature checklist.
         </p>
-        <Link to="/settings/templates" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-templates">
+        <Link to="/settings/templates" className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline" data-testid="settings-templates">
           Open template library →
         </Link>
       </div>
@@ -116,7 +116,7 @@ export default function Settings() {
       <div className="mt-4 data-card p-5">
         <div className="overline mb-3 flex items-center gap-2"><GraduationCap size={12} /> // training</div>
         <p className="text-sm text-praxium-subtle mb-3">PI role guides, knowledge articles, and UI gap report for your role.</p>
-        <Link to="/training" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-training">
+        <Link to="/training" className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline" data-testid="settings-training">
           Open Training Center →
         </Link>
       </div>
@@ -144,7 +144,7 @@ export default function Settings() {
       <div className="mt-4 data-card p-5">
         <div className="overline mb-3 flex items-center gap-2"><UserPlus size={12} /> // team & invites</div>
         <p className="text-sm text-praxium-subtle mb-3">Invite attorneys, paralegals, and staff. Manage pending invites.</p>
-        <Link to="/settings/team" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-team">
+        <Link to="/settings/team" className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline" data-testid="settings-team">
           Manage team →
         </Link>
       </div>
@@ -154,7 +154,7 @@ export default function Settings() {
         <p className="text-sm text-praxium-subtle mb-3">
           Attach the Groq key first (CoCounsel + Praxa AI) and the Resend key (portal, e-sign, and upload emails). Test connections live.
         </p>
-        <Link to="/settings/integrations" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-integrations">
+        <Link to="/settings/integrations" className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline" data-testid="settings-integrations">
           Manage integrations →
         </Link>
       </div>
@@ -164,7 +164,7 @@ export default function Settings() {
         <p className="text-sm text-praxium-subtle mb-3">
           Enable practice-area modules — each adds intake packs, day-one tasks, and deadline categories on the shared core.
         </p>
-        <Link to="/settings/modules" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-modules">
+        <Link to="/settings/modules" className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline" data-testid="settings-modules">
           Manage practice areas →
         </Link>
       </div>
@@ -172,7 +172,7 @@ export default function Settings() {
       <div className="mt-4 data-card p-5">
         <div className="overline mb-3 flex items-center gap-2"><Workflow size={12} /> // workflows</div>
         <p className="text-sm text-praxium-subtle mb-3">Toggle intake checklists and document-trigger automations.</p>
-        <Link to="/settings/workflows" className="inline-flex text-sm font-semibold text-praxium-accent hover:underline" data-testid="settings-workflows">
+        <Link to="/settings/workflows" className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline" data-testid="settings-workflows">
           Manage workflows →
         </Link>
       </div>
@@ -184,7 +184,7 @@ export default function Settings() {
         </p>
         <Link
           to="/settings/audit"
-          className="inline-flex text-sm font-semibold text-praxium-accent hover:underline"
+          className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline"
           data-testid="settings-audit-log"
         >
           View audit log (last 50) →
@@ -198,7 +198,7 @@ export default function Settings() {
         </p>
         <Link
           to="/settings/identity-review"
-          className="inline-flex text-sm font-semibold text-praxium-accent hover:underline"
+          className="inline-flex text-sm font-semibold text-praxium-accent-text hover:underline"
           data-testid="settings-idv-review"
         >
           Open ID verification queue →

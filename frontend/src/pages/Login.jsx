@@ -42,10 +42,10 @@ export default function Login() {
       <div className="flex flex-col min-h-screen">
         <div className="lg:hidden p-6 border-b border-praxium-line flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-sm bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">π</div>
+            <div className="w-7 h-7 rounded-sm bg-praxium-accent-text flex items-center justify-center font-display font-black text-white text-sm">π</div>
             <span className="font-display font-black tracking-tight text-sm">PRAXIUM</span>
           </Link>
-          <Link to="/signup" className="text-xs font-mono uppercase tracking-wider text-praxium-accent">Start free</Link>
+          <Link to="/signup" className="text-xs font-mono uppercase tracking-wider text-praxium-accent-text">Start free</Link>
         </div>
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="w-full max-w-sm">
@@ -53,7 +53,7 @@ export default function Login() {
             <h2 className="font-display font-black text-3xl tracking-tight">Sign in.</h2>
             <p className="mt-2 text-sm text-praxium-subtle">
               No account yet?{" "}
-              <Link to="/signup" className="text-praxium-accent hover:underline" data-testid="login-signup-link">
+              <Link to="/signup" className="text-praxium-accent-text hover:underline" data-testid="login-signup-link">
                 Start free.
               </Link>
             </p>
@@ -73,7 +73,7 @@ export default function Login() {
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <label className="overline">Password</label>
-                  <Link to="/forgot-password" className="text-[10px] font-mono uppercase tracking-wider text-praxium-accent hover:underline" data-testid="login-forgot-password-link">
+                  <Link to="/forgot-password" className="text-[10px] font-mono uppercase tracking-wider text-praxium-accent-text hover:underline" data-testid="login-forgot-password-link">
                     Forgot password?
                   </Link>
                 </div>

@@ -42,7 +42,7 @@ export default function Reports() {
                 {audit.demand_review_queue_count > 0 ? ` · ${audit.demand_review_queue_count} demand(s) awaiting attorney` : ""}
               </p>
             </div>
-            <Link to="/training/guides/case-manager" className="text-xs font-mono text-praxium-accent hover:underline">
+            <Link to="/training/guides/case-manager" className="text-xs font-mono text-praxium-accent-text hover:underline">
               Audit checklist →
             </Link>
           </div>
@@ -92,7 +92,7 @@ export default function Reports() {
                   </div>
                   <Link
                     to={`/matters/${row.matter_id}`}
-                    className="text-xs font-mono text-praxium-accent hover:underline shrink-0 inline-flex items-center gap-1"
+                    className="text-xs font-mono text-praxium-accent-text hover:underline shrink-0 inline-flex items-center gap-1"
                   >
                     Open <ExternalLink size={10} />
                   </Link>

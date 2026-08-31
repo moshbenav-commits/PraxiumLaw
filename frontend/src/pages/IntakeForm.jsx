@@ -41,7 +41,7 @@ export default function IntakeForm() {
     return (
       <div className="min-h-screen bg-praxium-bg flex items-center justify-center p-6">
         <div className="max-w-md w-full bg-white border border-praxium-line p-8 lg:p-10 text-center rounded-sm">
-          <div className="w-12 h-12 rounded-full bg-praxium-accent mx-auto flex items-center justify-center mb-4">
+          <div className="w-12 h-12 rounded-full bg-praxium-accent-text mx-auto flex items-center justify-center mb-4">
             <Check className="text-white" size={20} />
           </div>
           <h2 className="font-display font-black text-2xl tracking-tight">We got it.</h2>
@@ -66,7 +66,7 @@ export default function IntakeForm() {
     <div className="min-h-screen bg-praxium-bg p-6">
       <div className="max-w-xl mx-auto">
         <Link to="/" className="flex items-center gap-2 mb-8">
-          <div className="w-7 h-7 rounded-sm bg-praxium-accent flex items-center justify-center font-display font-black text-white text-sm">π</div>
+          <div className="w-7 h-7 rounded-sm bg-praxium-accent-text flex items-center justify-center font-display font-black text-white text-sm">π</div>
           <span className="font-display font-bold tracking-tight">PRAXIUM</span>
         </Link>
         <div className="overline mb-2">// free case evaluation</div>

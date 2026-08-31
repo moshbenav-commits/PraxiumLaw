@@ -391,7 +391,7 @@ export default function Landing() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-6 text-xs font-mono uppercase tracking-[0.15em]">
-              <Link to="/solutions" className="text-praxium-accent hover:underline">All solutions →</Link>
+              <Link to="/solutions" className="text-praxium-accent-text hover:underline">All solutions →</Link>
             </div>
           </ScrollReveal>
         </div>

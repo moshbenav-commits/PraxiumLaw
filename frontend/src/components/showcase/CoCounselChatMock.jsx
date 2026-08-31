@@ -115,7 +115,7 @@ export default function CoCounselChatMock() {
           <div className="flex-1 text-sm text-praxium-subtle">
             Ask anything about this matter…
           </div>
-          <button className="w-7 h-7 rounded-sm bg-praxium-accent text-white flex items-center justify-center">
+          <button className="w-7 h-7 rounded-sm bg-praxium-accent-text text-white flex items-center justify-center">
             <ArrowUp size={14} />
           </button>
         </div>

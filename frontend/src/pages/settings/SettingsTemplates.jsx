@@ -89,9 +89,9 @@ export default function SettingsTemplates() {
         White-label DOCX templates from the PI Case OS corpus. Downloads merge your firm profile into{" "}
         <code className="text-xs">{`{{FIRM_NAME}}`}</code> placeholders. Counsel must review before live use.
         {" "}
-        <Link to="/settings" className="text-praxium-accent hover:underline">Edit firm profile →</Link>
+        <Link to="/settings" className="text-praxium-accent-text hover:underline">Edit firm profile →</Link>
         {" · "}
-        <Link to="/training/article/23-intake-forms-and-signature-packet" className="text-praxium-accent hover:underline">
+        <Link to="/training/article/23-intake-forms-and-signature-packet" className="text-praxium-accent-text hover:underline">
           Intake forms guide →
         </Link>
       </p>

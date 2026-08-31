@@ -8,7 +8,7 @@ export default function MatterTabHelp({ to, label = "Training guide" }) {
   return (
     <Link
       to={href}
-      className="text-xs font-mono text-praxium-accent hover:underline inline-flex items-center gap-1 shrink-0"
+      className="text-xs font-mono text-praxium-accent-text hover:underline inline-flex items-center gap-1 shrink-0"
       data-testid="matter-tab-help"
     >
       {label} <ExternalLink size={10} />

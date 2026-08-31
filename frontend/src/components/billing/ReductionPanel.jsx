@@ -11,7 +11,7 @@ function stateColor(state) {
   if (state === "accepted") return "border-emerald-500 text-emerald-600";
   if (state === "rejected" || state === "withdrawn") return "border-zinc-400 text-zinc-500";
   if (state === "countered") return "border-amber-500 text-amber-600";
-  if (state === "sent") return "border-praxium-accent text-praxium-accent";
+  if (state === "sent") return "border-praxium-accent text-praxium-accent-text";
   return "border-praxium-line text-praxium-subtle"; // drafted
 }
 

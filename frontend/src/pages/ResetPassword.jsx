@@ -41,7 +41,7 @@ export default function ResetPassword() {
       <div className="min-h-screen flex items-center justify-center bg-praxium-bg p-6">
         <div className="data-card p-6 text-sm">
           Missing reset token.{" "}
-          <Link to="/forgot-password" className="text-praxium-accent hover:underline">Request a new link.</Link>
+          <Link to="/forgot-password" className="text-praxium-accent-text hover:underline">Request a new link.</Link>
         </div>
       </div>
     );
@@ -92,7 +92,7 @@ export default function ResetPassword() {
           </form>
         )}
         <p className="mt-4 text-xs text-praxium-subtle">
-          Remembered it? <Link to="/login" className="text-praxium-accent">Sign in</Link>
+          Remembered it? <Link to="/login" className="text-praxium-accent-text">Sign in</Link>
         </p>
       </div>
     </div>

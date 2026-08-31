@@ -57,7 +57,7 @@ export default function Calendar() {
             const isToday = new Date().toDateString() === new Date(month.getFullYear(), month.getMonth(), day).toDateString();
             return (
               <div key={day} data-testid={`calendar-day-${day}`} className="border-r border-b border-praxium-line p-1.5 min-h-[100px] hover:bg-praxium-bg/50">
-                <div className={cn("text-xs font-mono w-6 h-6 flex items-center justify-center rounded-sm", isToday && "bg-praxium-accent text-white font-bold")}>{day}</div>
+                <div className={cn("text-xs font-mono w-6 h-6 flex items-center justify-center rounded-sm", isToday && "bg-praxium-accent-text text-white font-bold")}>{day}</div>
                 <div className="mt-1 space-y-0.5">
                   {dayEvents.slice(0, 3).map((e, i) => (
                     <div key={i} className={cn("text-[10px] px-1.5 py-0.5 rounded-sm truncate", e.kind === "sol" ? "bg-rose-100 text-rose-900" : "bg-blue-100 text-blue-900")}>

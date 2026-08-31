@@ -335,7 +335,7 @@ export default function NativeSign() {
 
       <p className="text-xs text-praxium-subtle mt-4">
         Public sign page: <code className="font-mono">/sign/:token</code> · Configure{" "}
-        <Link to="/settings" className="text-praxium-accent hover:underline">Resend</Link> in backend env for prod email delivery.
+        <Link to="/settings" className="text-praxium-accent-text hover:underline">Resend</Link> in backend env for prod email delivery.
       </p>
 
       <PdfViewerModal

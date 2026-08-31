@@ -48,8 +48,8 @@ export default function CourtConnect() {
               </div>
               <div className="flex items-center gap-3 mt-2 text-xs">
                 <span className="font-mono text-praxium-subtle">{d.entries} docket entries</span>
-                <button className="text-praxium-accent hover:underline">View docket →</button>
-                <button className="text-praxium-accent hover:underline flex items-center gap-1"><Download size={11} /> Pull filings</button>
+                <button className="text-praxium-accent-text hover:underline">View docket →</button>
+                <button className="text-praxium-accent-text hover:underline flex items-center gap-1"><Download size={11} /> Pull filings</button>
               </div>
             </div>
           ))}

@@ -44,11 +44,11 @@ export default function VoxLineMock() {
       <div className="grid grid-cols-12 gap-px bg-white/5">
         {/* Dialer / caller card */}
         <div className="col-span-12 lg:col-span-4 bg-praxium-ink p-6">
-          <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">
+          <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/50">
             // active call
           </div>
           <div className="mt-3 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-praxium-accent flex items-center justify-center text-white font-display font-black">
+            <div className="w-12 h-12 rounded-full bg-praxium-accent-text flex items-center justify-center text-white font-display font-black">
               JS
             </div>
             <div>
@@ -67,7 +67,7 @@ export default function VoxLineMock() {
           <div className="mt-6 font-display font-black text-5xl tabular text-white">
             04:12
           </div>
-          <div className="text-[10px] font-mono text-white/40">
+          <div className="text-[10px] font-mono text-white/50">
             connected · 305 area · Miami
           </div>
           <div className="mt-6 flex items-center gap-2">
@@ -84,7 +84,7 @@ export default function VoxLineMock() {
               </button>
             ))}
           </div>
-          <div className="mt-8 pt-5 border-t border-white/10 text-[10px] font-mono text-white/40 leading-relaxed">
+          <div className="mt-8 pt-5 border-t border-white/10 text-[10px] font-mono text-white/50 leading-relaxed">
             Logging to matter · Smith v. Acme — M-2026-0034
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function VoxLineMock() {
         {/* Live transcript */}
         <div className="col-span-12 lg:col-span-5 bg-praxium-ink/95 p-6">
           <div className="flex items-center justify-between">
-            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">
+            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/50">
               // live transcript
             </div>
             <StatusPip label="Whisper · realtime" tone="dark" />
@@ -110,7 +110,7 @@ export default function VoxLineMock() {
                     className={`text-[10px] uppercase tracking-[0.15em] ${
                       m.side === "right"
                         ? "text-praxium-accent text-right"
-                        : "text-white/40"
+                        : "text-white/50"
                     }`}
                   >
                     {m.speaker} · {m.t}
@@ -127,7 +127,7 @@ export default function VoxLineMock() {
                 </div>
               </div>
             ))}
-            <div className="flex items-center gap-1.5 text-white/40 text-[11px] pt-1">
+            <div className="flex items-center gap-1.5 text-white/50 text-[11px] pt-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />
               listening…
             </div>
@@ -136,7 +136,7 @@ export default function VoxLineMock() {
 
         {/* AI tasks panel */}
         <div className="col-span-12 lg:col-span-3 bg-praxium-ink p-6">
-          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">
+          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-white/50">
             <Sparkles size={11} className="text-praxium-accent" />
             // auto-extracted
           </div>
@@ -154,14 +154,14 @@ export default function VoxLineMock() {
                   <div className="text-[12px] text-white/90 leading-snug">
                     {t.t}
                   </div>
-                  <div className="text-[10px] font-mono text-white/40 mt-1">
+                  <div className="text-[10px] font-mono text-white/50 mt-1">
                     confidence {t.confidence}%
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <button className="mt-5 w-full bg-praxium-accent text-white text-[10px] font-mono uppercase tracking-[0.15em] py-2 hover:bg-praxium-accent-hover transition-colors">
+          <button className="mt-5 w-full bg-praxium-accent-text text-white text-[10px] font-mono uppercase tracking-[0.15em] py-2 hover:bg-praxium-accent-hover transition-colors">
             Save 3 tasks to matter →
           </button>
         </div>

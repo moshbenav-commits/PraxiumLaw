@@ -186,7 +186,7 @@ function CitationActions({ citation, onDone }) {
               type="button"
               onClick={advance}
               disabled={advancing}
-              className="rounded-sm bg-praxium-accent px-3 py-1.5 text-xs font-bold text-white disabled:opacity-50"
+              className="rounded-sm bg-praxium-accent-text px-3 py-1.5 text-xs font-bold text-white disabled:opacity-50"
               data-testid={`citation-advance-submit-${citation.id}`}
             >
               {advancing ? "Advancing…" : "Advance"}
@@ -198,7 +198,7 @@ function CitationActions({ citation, onDone }) {
       {/* Set strategy — attorney gate */}
       <div>
         <div className="text-[9px] font-mono uppercase tracking-wider text-praxium-subtle mb-1.5">
-          Set strategy <span className="text-praxium-accent">— Attorney gate</span>
+          Set strategy <span className="text-praxium-accent-text">— Attorney gate</span>
         </div>
         <textarea
           value={strategy}
@@ -232,7 +232,7 @@ function CitationActions({ citation, onDone }) {
       {/* Add offer — attorney gate */}
       <div>
         <div className="text-[9px] font-mono uppercase tracking-wider text-praxium-subtle mb-1.5">
-          Add offer <span className="text-praxium-accent">— Attorney gate</span>
+          Add offer <span className="text-praxium-accent-text">— Attorney gate</span>
         </div>
         <div className="flex flex-wrap gap-2 items-center">
           <select
@@ -293,7 +293,7 @@ function CitationActions({ citation, onDone }) {
                 key={i}
                 className="text-xs font-mono text-praxium-subtle border border-praxium-line rounded-sm px-2 py-1.5"
               >
-                <span className="text-praxium-accent">{stateLabel(o.direction)}</span> ·{" "}
+                <span className="text-praxium-accent-text">{stateLabel(o.direction)}</span> ·{" "}
                 {stateLabel(o.rung)} · {formatMoney(o.amount)}
                 {o.terms ? ` · ${o.terms}` : ""} · {formatWhen(o.date)}
               </div>
@@ -361,7 +361,7 @@ export default function Citations() {
               <div className="text-[9px] font-mono uppercase tracking-wider text-praxium-subtle">
                 {stateLabel(state)}
               </div>
-              <div className={`font-display font-black text-lg ${count > 0 ? "text-praxium-accent" : ""}`}>
+              <div className={`font-display font-black text-lg ${count > 0 ? "text-praxium-accent-text" : ""}`}>
                 {count}
               </div>
             </button>

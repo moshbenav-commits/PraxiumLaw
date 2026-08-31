@@ -32,7 +32,7 @@ function nextLienStates(current) {
 
 function lienStateColor(state) {
   if (state === "release_received") return "border-emerald-500 text-emerald-600";
-  if (state === "paid") return "border-praxium-accent text-praxium-accent";
+  if (state === "paid") return "border-praxium-accent text-praxium-accent-text";
   if (state === "asserted") return "border-praxium-line text-praxium-subtle";
   return "border-amber-500 text-amber-600";
 }
@@ -271,7 +271,7 @@ export default function Billing() {
         </div>
         <div className="data-card p-3" data-testid="billing-summary-mismatches">
           <div className="text-[9px] font-mono uppercase tracking-wider text-praxium-subtle">Open verification mismatches</div>
-          <div className="font-display font-black text-lg text-praxium-accent">{summary?.open_verification_mismatches ?? 0}</div>
+          <div className="font-display font-black text-lg text-praxium-accent-text">{summary?.open_verification_mismatches ?? 0}</div>
         </div>
       </div>
 
@@ -644,7 +644,7 @@ export default function Billing() {
 
             {disbursementBlocked && (
               <div className="mt-3 data-card p-4 border-praxium-accent" data-testid="disbursement-blocked">
-                <div className="text-[9px] font-mono uppercase tracking-wider text-praxium-accent">Blocked</div>
+                <div className="text-[9px] font-mono uppercase tracking-wider text-praxium-accent-text">Blocked</div>
                 <p className="text-sm mt-1">{disbursementBlocked}</p>
               </div>
             )}
