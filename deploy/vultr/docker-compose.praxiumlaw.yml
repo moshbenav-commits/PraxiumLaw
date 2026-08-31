@@ -1,0 +1,15 @@
+# Vultr colocate — loopback only, Caddy fronts it. No shared Docker network
+# needed: Mongo is remote Atlas (mongodb+srv://), not a local container, so
+# this stays fully standalone (unlike expedia-parts-back's ep-net, which
+# exists only because IT colocates its own Mongo).
+name: praxiumlaw-vultr-back
+
+services:
+  praxiumlaw-back:
+    image: praxiumlaw-back:staging
+    container_name: praxiumlaw-back
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8090:8090"
+    env_file:
+      - /home/deploy/praxiumlaw-back.env
