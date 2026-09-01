@@ -5,18 +5,23 @@
 # expedia-parts-back — see the "PraxiumLaw" block in
 # expedia-parts-back/deploy/vultr/Caddyfile, which fronts this container).
 #
-# WHY: PraxiumLaw is weaning off Vercel (Ricardo, 2026-08-31). Mongo stays on
-# Atlas (mongodb+srv://) unchanged — this only moves the compute. Mirrors
-# expedia-parts-back/deploy/vultr/deploy-ep-back.sh's proven pattern: rsync
-# only git-tracked files (git ls-files — no local secrets ever leave this
-# machine), snapshot the running image as a rollback point before building,
-# rebuild on the host, recreate only this container, poll /api/health up to
-# ~60s before declaring success, auto-rollback on failure.
+# WHY: PraxiumLaw weaned off Vercel (Ricardo, 2026-08-31 to 2026-09-01).
+# Mongo also moved off Atlas onto this same box — the self-hosted
+# `expedia-mongo` container (mongo:7) on the shared ep-net docker network,
+# db praxium_prod. Mirrors expedia-parts-back/deploy/vultr/deploy-ep-back.sh's
+# proven pattern: rsync only git-tracked files (git ls-files — no local
+# secrets ever leave this machine), snapshot the running image as a rollback
+# point before building, rebuild on the host, recreate only this container,
+# poll /api/health up to ~60s before declaring success, auto-rollback on
+# failure.
 #
-# STAGED ROLLOUT, same as EP's own Wave 1: this deploys to
-# api-vultr.praxiumlaw.com (staging hostname — needs an A record before Caddy
-# can issue a cert). Do NOT point the Vercel-hosted frontend's
-# REACT_APP_BACKEND_URL here until /api/health smokes clean on that hostname.
+# LIVE as of 2026-09-01: api.praxiumlaw.com DNS points here (45.63.19.105),
+# replacing the old Vercel A record (76.76.21.21). The frontend's
+# REACT_APP_BACKEND_URL already targeted api.praxiumlaw.com, so the cutover
+# needed no frontend change — only the DNS record + this box serving that
+# hostname (see the "Production API host" block in
+# expedia-parts-back/deploy/vultr/Caddyfile). api-vultr.praxiumlaw.com stays
+# up for smoke-testing future changes before they reach production.
 #
 # Usage: bash deploy/vultr/deploy-praxiumlaw-back.sh [--skip-build] [--rollback]
 set -euo pipefail
@@ -99,4 +104,5 @@ fi
 echo "SMOKE PASS: /api/health -> 200"
 
 echo "==> Deploy complete. Rollback with: bash deploy/vultr/deploy-praxiumlaw-back.sh --rollback"
-echo "    Staging hostname (needs DNS A record + Caddy on the box): https://api-vultr.praxiumlaw.com/api/health"
+echo "    Production: https://api.praxiumlaw.com/api/health"
+echo "    Staging (smoke-test here first): https://api-vultr.praxiumlaw.com/api/health"
