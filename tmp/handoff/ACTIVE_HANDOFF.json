@@ -1,0 +1,26 @@
+{
+  "thread": "laptop SSD clear \u2014 LaCie symlink offload",
+  "repos": [
+    "expedia-solutions"
+  ],
+  "lane": "media-pipeline",
+  "updatedAt": "2026-08-22T12:13:00-07:00",
+  "inFlight": [
+    "Terminal.app durable mass: lora+CDP+krisp+figma+cortex+music+ide-release+chrome-SW+purge"
+  ],
+  "nextStep": "When STATUS.txt says DONE, verify symlinks and df; then Cursor quit offload (#368)",
+  "waitFor": {
+    "glob": "/Volumes/LaCie/offload/blobs-images/STATUS.txt",
+    "logContains": "DONE"
+  },
+  "verify": [
+    "cat /Volumes/LaCie/offload/blobs-images/STATUS.txt",
+    "ls -ld ~/lora-train ~/.instagram-cdp-chrome-main",
+    "df -h /System/Volumes/Data"
+  ],
+  "constraints": [
+    "Never LaCie 1",
+    "Do not symlink whole workspace",
+    "Mass must run in Terminal.app not Cursor shell"
+  ]
+}
