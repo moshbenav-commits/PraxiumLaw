@@ -1,8 +1,17 @@
-"""Transactional email via Resend (optional — logs when RESEND_API_KEY unset)."""
+"""Transactional email — PurelyMail SMTP primary, Resend fallback (optional).
+
+Same precedence EarnedStar's SmtpEmailService uses: SMTP first (own
+provisioned mailbox, no per-send vendor cost), Resend only if SMTP is
+unconfigured or fails. Never raises — a missing/broken transport just
+logs and returns False, same resilience contract as before.
+"""
 from __future__ import annotations
 
 import logging
 import os
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from typing import Optional
 
 import requests
@@ -16,30 +25,50 @@ def _from_address() -> str:
     vault_from = get_extra_cached("resend", "email_from").strip()
     if vault_from:
         return vault_from
+    smtp_from = os.environ.get("SMTP_FROM", "").strip()
+    if smtp_from:
+        return smtp_from
     return os.environ.get("PRAXIUM_EMAIL_FROM", "Praxium Suite <onboarding@resend.dev>").strip()
 
 
-def send_transactional_email(
-    to: str,
-    subject: str,
-    text: str,
-    *,
-    html: Optional[str] = None,
-) -> bool:
-    """Send email when a Resend key is configured (Settings → Integrations vault,
-    or RESEND_API_KEY env). Returns True if sent, False if skipped/failed."""
-    api_key = get_secret_cached("resend")
-    recipient = to.strip().lower()
-    if not recipient:
+def _send_via_smtp(to: str, subject: str, text: str, html: Optional[str]) -> bool:
+    host = os.environ.get("SMTP_HOST", "").strip()
+    if not host:
+        return False
+    user = os.environ.get("SMTP_USER", "").strip()
+    password = os.environ.get("SMTP_PASS", "")
+    if not user or not password:
+        log.warning("SMTP_HOST set but SMTP_USER/SMTP_PASS missing")
+        return False
+    port = int(os.environ.get("SMTP_PORT", "587") or "587")
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = _from_address()
+    msg["To"] = to
+    msg.attach(MIMEText(text, "plain"))
+    if html:
+        msg.attach(MIMEText(html, "html"))
+
+    try:
+        with smtplib.SMTP(host, port, timeout=15) as server:
+            server.starttls()
+            server.login(user, password)
+            server.sendmail(msg["From"], [to], msg.as_string())
+        return True
+    except Exception as exc:
+        log.error("SMTP send failed for %s: %s", to, exc)
         return False
 
+
+def _send_via_resend(to: str, subject: str, text: str, html: Optional[str]) -> bool:
+    api_key = get_secret_cached("resend")
     if not api_key:
-        log.info("Resend skipped (no key in vault or RESEND_API_KEY): to=%s subject=%s", recipient, subject)
         return False
 
     payload: dict = {
         "from": _from_address(),
-        "to": [recipient],
+        "to": [to],
         "subject": subject,
         "text": text,
     }
@@ -63,6 +92,29 @@ def send_transactional_email(
     except Exception as exc:
         log.error("Resend error: %s", exc)
         return False
+
+
+def send_transactional_email(
+    to: str,
+    subject: str,
+    text: str,
+    *,
+    html: Optional[str] = None,
+) -> bool:
+    """SMTP first (SMTP_HOST/USER/PASS env), Resend as fallback (Settings →
+    Integrations vault, or RESEND_API_KEY env). Returns True if either sent."""
+    recipient = to.strip().lower()
+    if not recipient:
+        return False
+
+    if _send_via_smtp(recipient, subject, text, html):
+        return True
+
+    if _send_via_resend(recipient, subject, text, html):
+        return True
+
+    log.info("Email skipped (no SMTP or Resend configured): to=%s subject=%s", recipient, subject)
+    return False
 
 
 def send_portal_login_email(to: str, verify_url: str, firm_name: str = "your firm") -> bool:
