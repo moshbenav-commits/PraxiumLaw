@@ -1,7 +1,12 @@
-# Vultr colocate — loopback only, Caddy fronts it. No shared Docker network
-# needed: Mongo is remote Atlas (mongodb+srv://), not a local container, so
-# this stays fully standalone (unlike expedia-parts-back's ep-net, which
-# exists only because IT colocates its own Mongo).
+# Vultr colocate — loopback only, Caddy fronts it. Mongo is self-hosted on
+# this box (expedia-mongo, db praxium_prod — not Atlas, cut over 2026-09-01),
+# so this joins ep-net same as expedia-parts-back's own Nest container. This
+# network line was missing for a while — every `--force-recreate` silently
+# depended on ep-net having been attached manually out-of-band by a prior
+# `docker network connect`, and dropped it (DNS failures on `expedia-mongo`)
+# the first time that hadn't happened. Declaring it here makes every recreate
+# reattach it automatically, matching expedia-parts-back/deploy/vultr's
+# docker-compose.nest.yml pattern exactly.
 name: praxiumlaw-vultr-back
 
 services:
@@ -9,7 +14,14 @@ services:
     image: praxiumlaw-back:staging
     container_name: praxiumlaw-back
     restart: unless-stopped
+    networks:
+      - ep-net
     ports:
       - "127.0.0.1:8090:8090"
     env_file:
       - /home/deploy/praxiumlaw-back.env
+
+networks:
+  ep-net:
+    external: true
+    name: ep-net
