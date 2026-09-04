@@ -9,5 +9,6 @@ Allow: /login
 Disallow: /dashboard
 Disallow: /matters
 Disallow: /praxa/app
+Disallow: /portal
 
 Sitemap: https://www.praxiumlaw.com/sitemap.xml

@@ -64,6 +64,7 @@ import PortalVerify from "@/pages/portal/PortalVerify";
 import PortalDashboard from "@/pages/portal/PortalDashboard";
 import PortalMatterDetail from "@/pages/portal/PortalMatterDetail";
 import PortalMessages from "@/pages/portal/PortalMessages";
+import PortalSettlement from "@/pages/portal/PortalSettlement";
 
 import PraxaLanding from "@/pages/praxa/PraxaLanding";
 import PraxaSignup from "@/pages/praxa/PraxaSignup";
@@ -124,6 +125,7 @@ function App() {
           >
             <Route index element={<PortalDashboard />} />
             <Route path="matters/:id" element={<PortalMatterDetail />} />
+            <Route path="matters/:id/settlement" element={<PortalSettlement />} />
             <Route path="messages" element={<PortalMessages />} />
           </Route>
           <Route
