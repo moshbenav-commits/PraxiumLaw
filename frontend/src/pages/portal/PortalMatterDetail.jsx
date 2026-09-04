@@ -4,7 +4,7 @@ import portalApi from "@/lib/portalApi";
 import { STATUS_COLORS, formatDate, timeAgo } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import PageLoader from "@/components/common/PageLoader";
-import { ChevronLeft, Download, FileText, CheckSquare, Eye, PenLine } from "lucide-react";
+import { ChevronLeft, Download, FileText, CheckSquare, Eye, PenLine, Award } from "lucide-react";
 import { toast } from "sonner";
 import PdfViewerModal from "@/components/pdf/PdfViewerModal";
 import { isPdfDoc } from "@/lib/documentsApi";
@@ -29,6 +29,9 @@ export default function PortalMatterDetail() {
   const [documents, setDocuments] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [signRequests, setSignRequests] = useState([]);
+  // Settlement page gate — the server decides (attorney-approved scenario, no
+  // pending reductions). null = not loaded; { ready:false } = nothing to show.
+  const [settlementView, setSettlementView] = useState(null);
   const [tab, setTab] = useState("timeline");
   const [pdfViewer, setPdfViewer] = useState({ open: false, title: "", b64: "" });
 
@@ -39,12 +42,14 @@ export default function PortalMatterDetail() {
       portalApi.get(`/portal/matters/${id}/documents`),
       portalApi.get(`/portal/matters/${id}/tasks`),
       portalApi.get(`/portal/matters/${id}/sign-requests`),
-    ]).then(([m, a, d, t, s]) => {
+      portalApi.get(`/portal/matters/${id}/settlement`).catch(() => ({ data: { ready: false } })),
+    ]).then(([m, a, d, t, s, settlementRes]) => {
       setMatter(m.data);
       setActivities(a.data.items || []);
       setDocuments(d.data.items || []);
       setTasks(t.data.items || []);
       setSignRequests(s.data.items || []);
+        setSettlementView(settlementRes?.data ?? { ready: false });
     });
   }, [id]);
 
@@ -90,6 +95,23 @@ export default function PortalMatterDetail() {
       <span className={cn("status-pip border text-[10px] mt-2 inline-block", STATUS_COLORS[matter.status])}>
         {matter.status}
       </span>
+
+      {settlementView?.ready ? (
+        <Link
+          to={`/portal/matters/${id}/settlement`}
+          className="mt-4 data-card p-4 border-l-4 flex items-center justify-between gap-3 hover:bg-black/[0.02]"
+          style={{ borderLeftColor: "var(--settlement-accent, #D4AF37)" }}
+        >
+          <div>
+            <p className="font-display font-bold text-sm flex items-center gap-2">
+              <Award size={16} style={{ color: "var(--settlement-accent, #D4AF37)" }} />
+              Your settlement is ready
+            </p>
+            <p className="text-xs text-praxium-subtle mt-1">{settlementView.celebration?.caption}</p>
+          </div>
+          <span className="text-xs font-mono text-praxium-subtle shrink-0">View →</span>
+        </Link>
+      ) : null}
 
       {signRequests.length > 0 ? (
         <div className="mt-4 data-card p-4 border-l-4 border-l-praxium-accent">

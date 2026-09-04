@@ -127,6 +127,12 @@ def register_portal_routes(
         if matter_id not in portal["matter_ids"]:
             raise HTTPException(403, "Matter not in your portal")
 
+    # Settlement page (client-only, gated on a client-facing-ready scenario) —
+    # portal_settlement.py. Registered here so it shares this token dependency.
+    from portal_settlement import register_portal_settlement_routes
+
+    register_portal_settlement_routes(api, db, get_current_portal_client, _assert_matter_access)
+
     # ── Public portal auth ──
 
     @api.post("/portal/request-link")

@@ -1415,6 +1415,9 @@ register_portal_routes(
     api, db, JWT_SECRET, get_current_user, require_permission, new_id, now, log_audit,
 )
 register_upload_routes(api, db, new_id, now, log_audit)
+from portal_settlement import register_firm_settlement_celebration_routes
+
+register_firm_settlement_celebration_routes(api, db, get_current_user, require_permission, log_audit, new_id, now)
 register_esign_routes(
     api, db, get_current_user, require_permission, new_id, now, log_audit,
 )
