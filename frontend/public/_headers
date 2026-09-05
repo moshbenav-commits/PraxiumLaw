@@ -1,0 +1,10 @@
+# Security headers — parity with the vercel.json "headers" block this project
+# used before the Cloudflare Pages cutover. Pages serves these from the build
+# output; without this file only Cloudflare's own defaults apply, and
+# X-Frame-Options / Permissions-Policy were silently missing after the
+# 2026-08-31 flip.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(self), geolocation=()
